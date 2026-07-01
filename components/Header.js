@@ -5,8 +5,9 @@ import { getZhPath, getEnPath } from '../lib/i18n'
 import styles from './Header.module.css'
 
 export default function Header({ t, locale = 'en' }) {
-  const [scrolled, setScrolled] = useState(false)
-  const [menuOpen, setMenuOpen] = useState(false)
+  const [scrolled, setScrolled]   = useState(false)
+  const [menuOpen, setMenuOpen]   = useState(false)
+  const [showLangTip, setShowLangTip] = useState(false)
   const { pathname } = useRouter()
 
   const isZh = locale === 'zh'
@@ -17,7 +18,6 @@ export default function Header({ t, locale = 'en' }) {
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
-  // Build nav links based on current locale prefix
   const prefix = isZh ? '/zh' : ''
   const navLinks = [
     { href: `${prefix}/start`,   label: t('nav.startHere') },
@@ -27,15 +27,10 @@ export default function Header({ t, locale = 'en' }) {
     { href: `${prefix}/about`,   label: t('nav.about') },
   ]
 
-  // Language switcher target
-  const switchHref = isZh
-    ? getEnPath(pathname)            // zh → en
-    : getZhPath(pathname)            // en → zh
-
+  // For EN pages: clicking 中文 goes to /zh/ (coming soon page)
+  // For ZH page: clicking EN goes back to English
+  const switchHref  = isZh ? getEnPath(pathname) : '/zh/'
   const switchLabel = isZh ? 'EN' : '中文'
-  const switchTitle = isZh
-    ? 'Switch to English'
-    : '切換中文 (Coming soon)'
 
   return (
     <header className={`${styles.header} ${scrolled ? styles.scrolled : ''}`}>
@@ -58,14 +53,25 @@ export default function Header({ t, locale = 'en' }) {
           )
         })}
 
-        {/* Language switcher */}
-        <Link
-          href={switchHref}
-          className={styles.langSwitch}
-          title={switchTitle}
-        >
-          {switchLabel}
-        </Link>
+        {/* Language switcher — clearly marked as "coming soon" for EN users */}
+        <div className={styles.langWrap}>
+          <Link
+            href={switchHref}
+            className={`${styles.langSwitch} ${!isZh ? styles.langSwitchComing : ''}`}
+            title={isZh ? 'Switch to English' : '中文版即將推出 — Coming Soon'}
+            onMouseEnter={() => !isZh && setShowLangTip(true)}
+            onMouseLeave={() => setShowLangTip(false)}
+          >
+            {switchLabel}
+            {!isZh && <span className={styles.langDot} />}
+          </Link>
+          {showLangTip && !isZh && (
+            <div className={styles.langTooltip}>
+              中文版即將推出<br />
+              <span>Chinese version coming soon</span>
+            </div>
+          )}
+        </div>
       </nav>
 
       <button

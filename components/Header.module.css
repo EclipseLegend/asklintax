@@ -98,3 +98,62 @@
   .hamburger { display: flex; }
   .navLink { width: 100%; }
 }
+
+/* ── LANGUAGE SWITCHER — coming soon variant ── */
+.langWrap {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+.langSwitchComing {
+  opacity: 0.7;
+  position: relative;
+}
+.langSwitchComing:hover {
+  background: var(--slate);
+  color: var(--navy);
+  border-color: rgba(27,45,79,.25);
+  opacity: 1;
+}
+
+.langDot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  background: var(--gold);
+  border-radius: 50%;
+  margin-left: 5px;
+  vertical-align: middle;
+  flex-shrink: 0;
+}
+
+.langTooltip {
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 0;
+  background: var(--navy);
+  color: #fff;
+  font-size: 12.5px;
+  line-height: 1.6;
+  padding: 10px 14px;
+  border-radius: 8px;
+  white-space: nowrap;
+  z-index: 200;
+  pointer-events: none;
+  box-shadow: 0 4px 16px rgba(0,0,0,.2);
+}
+.langTooltip::before {
+  content: '';
+  position: absolute;
+  top: -5px;
+  right: 14px;
+  width: 10px;
+  height: 10px;
+  background: var(--navy);
+  transform: rotate(45deg);
+}
+.langTooltip span {
+  color: rgba(255,255,255,.55);
+  font-size: 11.5px;
+}
