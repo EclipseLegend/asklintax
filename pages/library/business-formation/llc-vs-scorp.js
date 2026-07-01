@@ -2,6 +2,7 @@ import { useState } from 'react'
 import Layout from '../../../components/Layout'
 import KnowledgePage from '../../../components/KnowledgePage'
 import { loadTranslations, useTranslation } from '../../../lib/i18n'
+import TAX_CONFIG from '../../../lib/tax-config'
 
 export async function getStaticProps() {
   return { props: { translations: loadTranslations('en', ['common']) } }
@@ -16,8 +17,8 @@ const META = {
   difficulty:    'Intermediate',
   readTime:      '7 min read',
   cpaReviewed:   true,
-  updatedDate:   'June 2026',
-  taxYear:       '2025',
+  updatedDate:   TAX_CONFIG.lastReviewed,
+  taxYear:       String(TAX_CONFIG.currentTaxYear),
   confidence:    'General principles apply broadly; individual tax savings depend on your specific income level, salary, and state. Consult a CPA before making an S-Corp election.',
   persona:       ['Self-employed', 'Freelancer', 'Small business owner', 'LLC owner considering tax optimization'],
   relatedJourney: ['Starting a small business', 'Growing an existing business'],
