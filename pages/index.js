@@ -12,26 +12,30 @@ export async function getStaticProps({ locale }) {
   }
 }
 
-// ── DATA ──────────────────────────────────────────────────
+// ── DATA — dates sourced from lib/tax-config.js ──────────
+// Update lib/tax-config.js each filing season
 const UPDATE_DATA = {
   federal: [
-    { title: 'Standard deduction increased for 2025', desc: 'The standard deduction rises to $15,000 for single filers and $30,000 for married filing jointly.', tags: [{ text: 'Federal', cls: 'tag-blue' }, { text: '2025 Tax Year', cls: 'tag-navy' }], date: 'Updated June 2025', href: '/updates/standard-deduction-2025' },
-    { title: 'New 1099-K reporting threshold: $600', desc: 'If you received payments through Venmo, PayPal, or similar apps, you may now receive a 1099-K.', tags: [{ text: 'Federal', cls: 'tag-blue' }, { text: 'Action Required', cls: 'tag-red' }], date: 'Updated January 2025', href: '/updates/1099k-threshold' },
+    { title: 'Standard deduction increases for Tax Year 2025', desc: 'The standard deduction rises to $15,000 for single filers and $30,000 for married filing jointly — an increase from 2024.', tags: [{ text: 'Federal', cls: 'tag-blue' }, { text: '2025 Tax Year', cls: 'tag-navy' }], date: 'Updated June 2026', href: '/updates/standard-deduction-2025' },
+    { title: '1099-K threshold is now $600 — check if you receive one', desc: 'If you received payments through Venmo, PayPal, or similar platforms in 2025, you may receive a 1099-K for the first time.', tags: [{ text: 'Federal', cls: 'tag-blue' }, { text: 'Action Required', cls: 'tag-red' }], date: 'Updated January 2026', href: '/updates/1099k-threshold' },
+    { title: 'IRS Free File now open for 2025 returns', desc: 'Taxpayers with adjusted gross income of $84,000 or less can file federal returns for free through IRS Free File.', tags: [{ text: 'Federal', cls: 'tag-blue' }], date: 'Updated January 2026', href: '/updates/irs-free-file-2026' },
   ],
   california: [
-    { title: 'California Middle Class Tax Refund — Final claims', desc: 'Eligible Californians who haven\'t claimed their payment can still do so. Amounts: $200–$1,050.', tags: [{ text: 'California', cls: 'tag-green' }, { text: 'Limited Time', cls: 'tag-gold' }], date: 'Updated March 2025', href: '/updates/ca-tax-refund' },
-    { title: 'California minimum wage increases to $17/hour', desc: 'Affects payroll calculations for small businesses with California employees starting Jan 1, 2025.', tags: [{ text: 'California', cls: 'tag-green' }], date: 'Updated Jan 2025', href: '/updates/ca-minimum-wage' },
+    { title: 'California minimum wage: $17/hour in 2025', desc: 'Affects payroll for small businesses with California employees. Some industries (fast food, healthcare) have higher minimums.', tags: [{ text: 'California', cls: 'tag-green' }], date: 'Updated June 2026', href: '/updates/ca-minimum-wage' },
+    { title: 'CalEITC expanded for Tax Year 2025', desc: "California's Earned Income Tax Credit has been expanded. More families may qualify — check the updated income thresholds.", tags: [{ text: 'California', cls: 'tag-green' }, { text: 'Credits', cls: 'tag-gold' }], date: 'Updated June 2026', href: '/updates/caleitc-2025' },
   ],
   irs: [
-    { title: 'IRS extends penalty relief for underpayment', desc: 'The IRS will not charge underpayment penalties for taxpayers who paid at least 85% of their 2024 tax liability.', tags: [{ text: 'IRS Notice', cls: 'tag-red' }], date: 'Updated Feb 2025', href: '/updates/irs-penalty-relief' },
-    { title: 'IRS updates ITIN renewal requirements', desc: 'ITINs not used on a federal tax return in the past 3 years have expired. Check your ITIN status.', tags: [{ text: 'IRS Notice', cls: 'tag-red' }, { text: 'Action Required', cls: 'tag-gold' }], date: 'Updated Dec 2024', href: '/updates/itin-renewal' },
+    { title: 'Check if your ITIN has expired', desc: 'ITINs not used on a federal tax return in the past 3 consecutive years expire automatically. Renew before filing your 2025 return.', tags: [{ text: 'IRS Notice', cls: 'tag-red' }, { text: 'Action Required', cls: 'tag-gold' }], date: 'Updated June 2026', href: '/updates/itin-renewal' },
+    { title: 'IRS Direct File expanded to more states for 2026', desc: "The IRS's own free filing tool is now available in more states for simple 2025 returns. Check eligibility at IRS.gov/directfile.", tags: [{ text: 'IRS', cls: 'tag-red' }], date: 'Updated January 2026', href: '/updates/irs-direct-file' },
   ],
   credits: [
-    { title: 'Child Tax Credit remains at $2,000 for 2025', desc: 'The CTC stays at $2,000 per qualifying child. Up to $1,700 is refundable.', tags: [{ text: 'Credits', cls: 'tag-gold' }], date: 'Updated Oct 2024', href: '/updates/child-tax-credit-2025' },
+    { title: 'Child Tax Credit: $2,000 per child for Tax Year 2025', desc: 'The CTC remains at $2,000 per qualifying child under 17. Up to $1,700 is refundable as the Additional Child Tax Credit.', tags: [{ text: 'Credits', cls: 'tag-gold' }], date: 'Updated June 2026', href: '/updates/child-tax-credit-2025' },
+    { title: 'EITC maximum rises to $7,830 for Tax Year 2025', desc: "The Earned Income Tax Credit maximum increased. Many low-to-moderate income families qualify — don't leave this unclaimed.", tags: [{ text: 'Credits', cls: 'tag-gold' }], date: 'Updated June 2026', href: '/updates/eitc-2025' },
   ],
   deadlines: [
-    { title: '2025 Tax Filing Deadline: April 15, 2026', desc: 'The federal deadline to file your 2025 return or request an extension is April 15, 2026.', tags: [{ text: 'Deadline', cls: 'tag-red' }], date: 'Updated Oct 2025', href: '/updates/filing-deadline-2025' },
-    { title: 'Q1 2026 Estimated Tax Deadline: April 15', desc: 'Self-employed and business owners must pay Q1 estimated taxes by April 15, 2026.', tags: [{ text: 'Deadline', cls: 'tag-red' }, { text: 'Estimated Tax', cls: 'tag-navy' }], date: 'Updated Jan 2026', href: '/updates/q1-estimated-tax' },
+    { title: 'Filing deadline: April 15, 2026 for 2025 returns', desc: 'The federal deadline to file your 2025 tax return or request an extension is April 15, 2026. Extensions give you until October 15, 2026.', tags: [{ text: 'Deadline', cls: 'tag-red' }], date: 'Updated June 2026', href: '/updates/filing-deadline-2026' },
+    { title: 'Q2 2026 estimated tax due June 16', desc: 'Self-employed individuals and business owners: Q2 estimated taxes for 2026 are due June 16, 2026.', tags: [{ text: 'Deadline', cls: 'tag-red' }, { text: 'Estimated Tax', cls: 'tag-navy' }], date: 'Updated June 2026', href: '/updates/q2-estimated-tax' },
+    { title: 'FBAR for 2025: due April 15, 2026', desc: 'Foreign bank account reports (FinCEN 114) for the 2025 calendar year are due April 15 with an automatic extension to October 15, 2026.', tags: [{ text: 'Deadline', cls: 'tag-red' }, { text: 'FBAR', cls: 'tag-navy' }], date: 'Updated June 2026', href: '/updates/fbar-deadline-2026' },
   ],
 }
 
@@ -55,8 +59,8 @@ const START_CARDS = [
 
 const BENEFIT_CARDS = [
   { cat: 'family',     href: '/library/individual/child-tax-credit',     icon: <IconPeople />, title: 'Child Tax Credit',              desc: 'Up to $2,000 per qualifying child under 17. Many immigrant families don\'t claim this — even when eligible.', amount: 'Up to $2,000 per child',           cta: 'Check if you qualify →' },
-  { cat: 'family',     href: '/library/individual/earned-income-credit',  icon: <IconDollar />, title: 'Earned Income Tax Credit (EITC)', desc: 'A refundable credit for low-to-moderate income workers. One of the most underclaimed benefits in America.',    amount: 'Up to $7,830 (2025)',              cta: 'See if you\'re eligible →' },
-  { cat: 'california', href: '/library/individual/caleitc',               icon: <IconPin />,    title: 'California EITC (CalEITC)',     desc: 'California\'s own version of the EITC — stackable with the federal credit. Many Californians miss this entirely.', amount: 'Up to $3,529 (2025)',             cta: 'California residents only →' },
+  { cat: 'family',     href: '/library/individual/earned-income-credit',  icon: <IconDollar />, title: 'Earned Income Tax Credit (EITC)', desc: 'A refundable credit for low-to-moderate income workers. One of the most underclaimed benefits in America.',    amount: 'Up to $7,830 (Tax Year 2025)',              cta: 'See if you\'re eligible →' },
+  { cat: 'california', href: '/library/individual/caleitc',               icon: <IconPin />,    title: 'California EITC (CalEITC)',     desc: 'California\'s own version of the EITC — stackable with the federal credit. Many Californians miss this entirely.', amount: 'Up to $3,529 (Tax Year 2025)',             cta: 'California residents only →' },
   { cat: 'family',     href: '/library/individual/education-credits',     icon: <IconGrad />,   title: 'Education Tax Credits',         desc: 'The American Opportunity Credit and Lifetime Learning Credit can reduce your tax bill.',                        amount: 'Up to $2,500 per student',         cta: 'See education credits →' },
   { cat: 'business',   href: '/library/small-business/home-office',       icon: <IconHouse />,  title: 'Home Office Deduction',         desc: 'If you work from home and have a dedicated workspace, you can deduct a portion of your rent or mortgage.',     amount: 'Deduct up to $1,500 (simplified)', cta: 'Calculate your deduction →' },
   { cat: 'immigrant',  href: '/library/individual/itin-benefits',         icon: <IconCard />,   title: 'ITIN Holders Can Still Get Refunds', desc: 'Many new immigrants with ITINs don\'t realize they can still receive federal tax refunds and certain credits.', amount: 'Potential refunds available',      cta: 'Learn about ITIN filing →' },
@@ -292,7 +296,7 @@ export default function HomePage({ translations }) {
               { href: '/learn',     icon: '▶', iconBg: '#FFF0F0', iconColor: '#DC2626', title: 'YouTube Learning Center', desc: 'Short, clear videos on the tax topics that matter most. No jargon, no sales pitch — just answers.', cta: 'Watch on YouTube →' },
               { href: '/checklist', icon: '☑', iconBg: 'var(--gold-pale)', iconColor: 'var(--gold)', title: 'Document Checklist', desc: 'Know exactly what documents to gather before tax season. Customized by situation — individual, business, or Airbnb host.', cta: 'Get the checklist →' },
               { href: '/glossary',  icon: '📖', iconBg: 'var(--blue-soft)', iconColor: 'var(--blue)', title: 'Tax Glossary', desc: 'See a term you don\'t understand? Every entry is explained in plain language first — technical definition comes second.', cta: 'Browse glossary →' },
-              { href: '/updates#calendar', icon: '📅', iconBg: 'var(--green-soft)', iconColor: 'var(--green)', title: '2025 Tax Calendar', desc: 'Never miss a deadline. Key dates for individuals, businesses, and quarterly estimated tax filers.', cta: 'View tax calendar →' },
+              { href: '/updates#calendar', icon: '📅', iconBg: 'var(--green-soft)', iconColor: 'var(--green)', title: 'U.S. Tax Calendar', desc: 'Never miss a deadline for the 2026 filing season. Key dates for individuals, businesses, and quarterly filers.', cta: 'View tax calendar →' },
             ].map(card => (
               <a key={card.href} href={card.href} className={styles.learnCard}>
                 <div className={styles.learnCardIcon} style={{ background: card.iconBg, color: card.iconColor, fontSize: '22px' }}>
