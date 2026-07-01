@@ -1,0 +1,232 @@
+/* ============================================================
+   AskLinTax — Global Styles
+   Design tokens, reset, shared utilities
+   ============================================================ */
+
+:root {
+  --navy:       #1B2D4F;
+  --navy-mid:   #243d6a;
+  --navy-light: #2A4270;
+  --forest:     #2D4A3E;
+  --cream:      #FAF8F3;
+  --cream-d:    #F0EAE0;
+  --slate:      #EEF2F7;
+  --gold:       #C9963A;
+  --gold-l:     #E8C078;
+  --gold-pale:  #FBF3E4;
+  --white:      #FFFFFF;
+  --warm:       #FDFCF9;
+  --text:       #1A1A1A;
+  --mid:        #4A4A4A;
+  --muted:      #6B7280;
+  --light:      #9CA3AF;
+  --border:     rgba(27,45,79,0.11);
+  --border-l:   rgba(27,45,79,0.06);
+  --red-soft:   #FEF2F2;
+  --red:        #DC2626;
+  --green-soft: #F0FDF4;
+  --green:      #16A34A;
+  --blue-soft:  #EFF6FF;
+  --blue:       #2563EB;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 19px;
+}
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  line-height: 1.8;
+  color: var(--text);
+  background: var(--warm);
+  overflow-x: hidden;
+}
+
+/* ── TYPOGRAPHY HELPERS ── */
+.section-label {
+  font-size: 12.5px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 10px;
+  display: block;
+}
+
+.section-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(38px, 4.2vw, 56px);
+  font-weight: 500;
+  color: var(--navy);
+  line-height: 1.13;
+  margin-bottom: 14px;
+}
+
+.section-sub {
+  font-size: 18.5px;
+  color: var(--muted);
+  line-height: 1.82;
+  max-width: 600px;
+}
+
+/* ── LAYOUT ── */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+@media (max-width: 640px) {
+  .container { padding: 0 18px; }
+}
+
+/* ── TAGS ── */
+.tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 3px 11px;
+  border-radius: 100px;
+}
+.tag-gold   { background: rgba(201,150,58,.12); color: #9A6E1F; }
+.tag-navy   { background: rgba(27,45,79,.08);   color: var(--navy); }
+.tag-green  { background: var(--green-soft);    color: var(--green); }
+.tag-red    { background: var(--red-soft);      color: var(--red); }
+.tag-blue   { background: var(--blue-soft);     color: var(--blue); }
+
+/* ── BUTTONS ── */
+.btn-primary {
+  background: var(--navy);
+  color: #fff;
+  padding: 14px 26px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 500;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  font-family: 'DM Sans', sans-serif;
+  transition: background 0.18s, transform 0.14s;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.btn-primary:hover { background: var(--navy-light); transform: translateY(-1px); }
+
+.btn-outline {
+  background: transparent;
+  color: var(--navy);
+  padding: 13px 24px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 500;
+  text-decoration: none;
+  border: 1.5px solid rgba(27,45,79,.25);
+  cursor: pointer;
+  font-family: 'DM Sans', sans-serif;
+  transition: all 0.18s;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.btn-outline:hover { border-color: var(--navy); background: var(--slate); }
+
+/* ── ANIMATION ── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── ARTICLE BODY ── */
+.article-body {
+  font-size: 18px;
+  line-height: 1.88;
+  color: var(--text);
+}
+.article-body h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(28px, 3vw, 38px);
+  font-weight: 500;
+  color: var(--navy);
+  line-height: 1.18;
+  margin: 48px 0 18px;
+  padding-top: 8px;
+  border-top: 2px solid var(--border-l);
+}
+.article-body h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(22px, 2.5vw, 28px);
+  font-weight: 500;
+  color: var(--navy);
+  margin: 36px 0 12px;
+}
+.article-body p  { margin-bottom: 22px; }
+.article-body ul,
+.article-body ol { margin: 0 0 22px 24px; }
+.article-body li { margin-bottom: 8px; }
+.article-body strong { font-weight: 600; }
+.article-body a  { color: var(--gold); text-decoration: underline; text-underline-offset: 3px; }
+.article-body a:hover { color: #b8862e; }
+
+/* ── CALLOUT BOXES ── */
+.callout {
+  border-radius: 12px;
+  padding: 20px 24px;
+  margin: 28px 0;
+  border-left: 4px solid;
+}
+.callout-action  { background: var(--gold-pale); border-color: var(--gold); }
+.callout-warning { background: var(--red-soft);  border-color: var(--red); }
+.callout-info    { background: var(--blue-soft); border-color: var(--blue); }
+.callout-tip     { background: var(--green-soft); border-color: var(--green); }
+.callout-title {
+  font-weight: 600;
+  font-size: 15px;
+  margin-bottom: 6px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* ── FAQ ACCORDION ── */
+.faq-list { display: flex; flex-direction: column; gap: 2px; margin: 28px 0; }
+.faq-item { border: 1px solid var(--border); border-radius: 10px; overflow: hidden; }
+.faq-q {
+  width: 100%;
+  background: var(--white);
+  border: none;
+  cursor: pointer;
+  padding: 18px 20px;
+  text-align: left;
+  font-size: 17px;
+  font-weight: 500;
+  color: var(--navy);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  font-family: 'DM Sans', sans-serif;
+  transition: background 0.18s;
+}
+.faq-q:hover { background: var(--cream); }
+.faq-a {
+  display: none;
+  padding: 4px 20px 18px;
+  font-size: 16.5px;
+  color: var(--muted);
+  line-height: 1.78;
+  background: var(--cream);
+}
+.faq-item[data-open="true"] .faq-q { background: var(--cream); }
+.faq-item[data-open="true"] .faq-a { display: block; }

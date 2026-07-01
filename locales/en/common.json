@@ -1,0 +1,37 @@
+{
+  "nav": {
+    "startHere": "Start Here",
+    "library": "Knowledge Library",
+    "updates": "Tax Updates",
+    "youtube": "YouTube",
+    "about": "About"
+  },
+  "footer": {
+    "tagline": "The trusted U.S. tax knowledge platform for Chinese families and small businesses across America.",
+    "bilingual": "中文服務可用 · English & Chinese Bilingual",
+    "knowledge": "Knowledge",
+    "explore": "Explore",
+    "disclaimer": "All content on AskLinTax is for general educational purposes only and does not constitute tax, legal, or financial advice. Please consult a qualified tax professional for your specific situation.",
+    "copyright": "© 2026 AskLinTax · AskLinTax.com · All rights reserved.",
+    "links": {
+      "individual": "Individuals & Families",
+      "smallBusiness": "Small Business",
+      "rental": "Airbnb & Rental",
+      "investments": "Investments & Crypto",
+      "irs": "IRS & Tax Issues",
+      "formation": "Starting a Business",
+      "startHere": "Start Here",
+      "updates": "Tax Updates",
+      "youtube": "YouTube",
+      "checklist": "Document Checklist",
+      "glossary": "Tax Glossary",
+      "about": "About AskLinTax"
+    }
+  },
+  "trust": {
+    "cpaReviewed": "CPA-Reviewed Content",
+    "bilingual": "English & 中文 Bilingual",
+    "plainLanguage": "Plain Language — No Jargon",
+    "free": "Free to Read"
+  }
+}

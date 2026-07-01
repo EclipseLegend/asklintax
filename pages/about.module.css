@@ -1,0 +1,214 @@
+/* ── PAGE HERO ── */
+.pageHero {
+  background: var(--navy);
+  padding: 120px 0 72px;
+  position: relative;
+  overflow: hidden;
+}
+.pageHero::before {
+  content: '';
+  position: absolute;
+  top: -80px; right: -120px;
+  width: 500px; height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(201,150,58,.08) 0%, transparent 68%);
+  pointer-events: none;
+}
+.pageHeroInner {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 0 32px;
+  position: relative;
+  z-index: 1;
+}
+.pageHeroEyebrow {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--gold-l);
+  margin-bottom: 20px;
+  display: block;
+}
+.pageHeroTitle {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(38px, 5vw, 62px);
+  font-weight: 500;
+  color: #fff;
+  line-height: 1.1;
+  margin-bottom: 20px;
+}
+.pageHeroTitle em { font-style: italic; color: var(--gold-l); }
+.pageHeroSub {
+  font-size: 18.5px;
+  color: rgba(255,255,255,.65);
+  line-height: 1.82;
+}
+
+/* ── SHARED ── */
+.section { padding: 72px 0; background: var(--white); }
+.bodyText { font-size: 17.5px; color: var(--muted); line-height: 1.88; margin-bottom: 20px; max-width: 640px; }
+
+/* ── TWO COLUMN ── */
+.twoCol {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 72px;
+  align-items: flex-start;
+}
+.twoColText { }
+.twoColVisual { display: flex; flex-direction: column; gap: 16px; }
+.beliefCard {
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
+  padding: 20px 20px;
+  background: var(--cream);
+  border-radius: 14px;
+  border: 1px solid var(--border);
+}
+.beliefChar {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 36px;
+  color: var(--gold);
+  line-height: 1;
+  min-width: 40px;
+}
+.beliefTitle { font-size: 16px; font-weight: 600; color: var(--navy); margin-bottom: 5px; }
+.beliefDesc  { font-size: 14px; color: var(--muted); line-height: 1.65; }
+@media (max-width: 860px) { .twoCol { grid-template-columns: 1fr; gap: 40px; } }
+
+/* ── PHILOSOPHY ── */
+.philosophySection {
+  background: var(--cream);
+  padding: 72px 0;
+}
+.philosophyInner { max-width: 800px; }
+.philosophyTitle { }
+.philosophyBody p {
+  font-size: 17.5px;
+  color: var(--mid);
+  line-height: 1.88;
+  margin-bottom: 22px;
+}
+.coreQuestions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 24px 0;
+}
+.coreQuestion {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: var(--white);
+  border-radius: 12px;
+  padding: 16px 20px;
+  border: 1.5px solid rgba(201,150,58,.3);
+  font-size: 17px;
+  font-weight: 500;
+  color: var(--navy);
+}
+.coreQNumber {
+  width: 32px;
+  height: 32px;
+  background: var(--navy);
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+/* ── PRINCIPLES ── */
+.principlesSection { background: var(--white); padding: 72px 0; }
+.principlesGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-top: 40px;
+}
+.principleCard {
+  background: var(--cream);
+  border-radius: 14px;
+  padding: 24px 22px;
+  border: 1px solid var(--border);
+}
+.principleNumber {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 32px;
+  color: var(--gold);
+  font-weight: 400;
+  line-height: 1;
+  margin-bottom: 12px;
+  display: block;
+}
+.principleTitle {
+  font-size: 16.5px;
+  font-weight: 600;
+  color: var(--navy);
+  margin-bottom: 8px;
+  line-height: 1.35;
+}
+.principleDesc { font-size: 14.5px; color: var(--muted); line-height: 1.7; }
+@media (max-width: 860px) { .principlesGrid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 520px)  { .principlesGrid { grid-template-columns: 1fr; } }
+
+/* ── STANDARDS ── */
+.standardsSection { background: var(--navy); padding: 72px 0; }
+.standardsSection .section-label { color: var(--gold-l); }
+.standardsTitle { color: #fff !important; }
+.standardsSection .bodyText { color: rgba(255,255,255,.65); max-width: 580px; }
+.standardsInner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 72px;
+  align-items: center;
+}
+.standardsBadges { display: flex; flex-direction: column; gap: 16px; }
+.standardsBadge {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: rgba(255,255,255,.07);
+  border-radius: 12px;
+  padding: 16px 18px;
+  border: 1px solid rgba(255,255,255,.1);
+}
+.badgeIcon { font-size: 22px; flex-shrink: 0; }
+.badgeLabel { font-size: 15px; font-weight: 600; color: #fff; margin-bottom: 3px; }
+.badgeSub   { font-size: 13px; color: rgba(255,255,255,.5); }
+@media (max-width: 860px) { .standardsInner { grid-template-columns: 1fr; gap: 40px; } }
+
+/* ── ROADMAP ── */
+.roadmapSection { background: var(--cream); padding: 72px 0; }
+.phaseGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+}
+.phaseCard {
+  background: var(--white);
+  border-radius: 14px;
+  padding: 22px 18px;
+  border: 1px solid var(--border);
+  opacity: 0.65;
+}
+.phaseCardActive { opacity: 1; border-color: var(--gold); box-shadow: 0 4px 20px rgba(201,150,58,.15); }
+.phaseHeader { display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px; }
+.phaseLabel  { font-size: 11px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
+.phaseStatus { font-size: 11.5px; padding: 3px 10px; border-radius: 100px; background: var(--slate); color: var(--muted); font-weight: 500; }
+.phaseStatusActive { background: var(--gold-pale); color: #7a5515; }
+.phaseTitle { font-size: 17px; font-weight: 600; color: var(--navy); margin-bottom: 8px; }
+.phaseDesc  { font-size: 13.5px; color: var(--muted); line-height: 1.65; }
+@media (max-width: 860px) { .phaseGrid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 520px)  { .phaseGrid { grid-template-columns: 1fr; } }
+
+/* ── BOTTOM CTA ── */
+.bottomCta { background: var(--navy); padding: 72px 0; text-align: center; }
+.bottomCtaTitle { font-family: 'Cormorant Garamond', serif; font-size: clamp(32px, 4vw, 48px); font-weight: 500; color: #fff; margin-bottom: 14px; }
+.bottomCtaSub { font-size: 17.5px; color: rgba(255,255,255,.6); max-width: 480px; margin: 0 auto 32px; line-height: 1.8; }
+.bottomCtaBtns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }

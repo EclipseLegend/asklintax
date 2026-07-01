@@ -1,0 +1,37 @@
+{
+  "nav": {
+    "startHere": "從這裡開始",
+    "library": "知識庫",
+    "updates": "稅務更新",
+    "youtube": "YouTube",
+    "about": "關於我們"
+  },
+  "footer": {
+    "tagline": "北美華人最值得信賴的美國稅務知識平台。",
+    "bilingual": "中文服務可用 · English & Chinese Bilingual",
+    "knowledge": "知識庫",
+    "explore": "探索",
+    "disclaimer": "AskLinTax 上的所有內容僅供一般教育用途，不構成稅務、法律或財務建議。請就您的具體情況諮詢合格的稅務專業人士。",
+    "copyright": "© 2026 AskLinTax · AskLinTax.com · 版權所有",
+    "links": {
+      "individual": "個人與家庭",
+      "smallBusiness": "小型企業",
+      "rental": "Airbnb 與租賃",
+      "investments": "投資與加密貨幣",
+      "irs": "IRS 與稅務問題",
+      "formation": "公司成立",
+      "startHere": "從這裡開始",
+      "updates": "稅務更新",
+      "youtube": "YouTube",
+      "checklist": "文件清單",
+      "glossary": "稅務詞彙表",
+      "about": "關於 AskLinTax"
+    }
+  },
+  "trust": {
+    "cpaReviewed": "CPA 審核內容",
+    "bilingual": "中英雙語",
+    "plainLanguage": "平易近人 — 無專業術語",
+    "free": "免費閱讀"
+  }
+}
