@@ -2,6 +2,7 @@ import { useState } from 'react'
 import Layout from '../../../components/Layout'
 import { loadTranslations, useTranslation } from '../../../lib/i18n'
 import styles from './irs-notice.module.css'
+import TAX_CONFIG from '../../../lib/tax-config'
 
 export async function getStaticProps() {
   return { props: { translations: loadTranslations('en', ['common']) } }
