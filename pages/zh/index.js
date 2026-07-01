@@ -49,9 +49,9 @@ export default function ZhHomePage({ translations }) {
           <div className={styles.progress}>
             <div className={styles.progressLabel}>Foundation 20 進度</div>
             <div className={styles.progressBar}>
-              <div className={styles.progressFill} style={{ width: '15%' }} />
+              <div className={styles.progressFill} style={{ width: '20%' }} />
             </div>
-            <div className={styles.progressText}>3 / 20 篇已完成</div>
+            <div className={styles.progressText}>Foundation 20: 4 / 20 篇已完成</div>
           </div>
         </div>
       </section>
