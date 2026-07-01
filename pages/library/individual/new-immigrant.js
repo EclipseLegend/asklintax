@@ -21,4 +21,4 @@ const META = {
   confidence:    'General principles apply to most new immigrants; dual-status years and treaty benefits require case-by-case analysis',
   persona:       ['New immigrant', 'F-1 student', 'H-1B visa holder', 'Green card holder (first year)', 'New U.S. resident'],
   relatedJourney: ['New to the U.S.', 'First-time filer'],
-  actionRequired: 'Determine your tax residency status for the current year using the Substantial Presence Test — this is the single
+  actionRequired: 'Determine your tax residency status for the current year using the Substantial Presence Test — this is the single most important first step. Your status determines which forms you file and what income you must report.',
