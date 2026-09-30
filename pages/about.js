@@ -44,21 +44,21 @@ export default function AboutPage({ translations }) {
             </div>
             <div className={styles.twoColVisual}>
               <div className={styles.beliefCard}>
-                <div className={styles.beliefChar}>明</div>
+                <div className={styles.beliefChar}>01</div>
                 <div>
                   <h3 className={styles.beliefTitle}>Clarity above all</h3>
                   <p className={styles.beliefDesc}>Every concept is explained in plain language first. The technical term comes after — never before.</p>
                 </div>
               </div>
               <div className={styles.beliefCard}>
-                <div className={styles.beliefChar}>信</div>
+                <div className={styles.beliefChar}>02</div>
                 <div>
                   <h3 className={styles.beliefTitle}>Trust through understanding</h3>
                   <p className={styles.beliefDesc}>We want you to understand your taxes — not stay confused so you keep needing us. An informed user is a success, not a failure.</p>
                 </div>
               </div>
               <div className={styles.beliefCard}>
-                <div className={styles.beliefChar}>懂</div>
+                <div className={styles.beliefChar}>03</div>
                 <div>
                   <h3 className={styles.beliefTitle}>We know your situation</h3>
                   <p className={styles.beliefDesc}>Immigrant families, Airbnb hosts, crypto investors, cross-border accounts — the specific questions you face, answered directly.</p>
@@ -176,7 +176,7 @@ export default function AboutPage({ translations }) {
           <div className={styles.phaseGrid}>
             {[
               { phase: 'Phase 1', status: 'Now', title: 'Knowledge Platform', desc: 'Building 30–40 core knowledge articles, Tax Library, YouTube content, and the bilingual foundation.', active: true },
-              { phase: 'Phase 2', status: 'Coming', title: 'Content Platform', desc: 'Expanding YouTube, 小紅書, and social content channels.', active: false },
+              { phase: 'Phase 2', status: 'Coming', title: 'Content Platform', desc: 'Expanding YouTube, Xiaohongshu (小紅書), and social content channels.', active: false },
               { phase: 'Phase 3', status: 'Coming', title: 'Trust Building', desc: 'Community, testimonials, professional network.', active: false },
               { phase: 'Phase 4', status: 'Coming', title: 'Professional Services', desc: 'Client portal, appointment booking, and full tax workflow — once the knowledge platform is established and the brand has earned trust.', active: false },
             ].map((p, i) => (

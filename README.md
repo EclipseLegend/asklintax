@@ -2,6 +2,36 @@
 
 The trusted U.S. tax knowledge platform for Chinese families and small businesses.
 
+---
+
+## ⚠️ OPEN SEO TODO — INVESTMENT CATEGORY URL DECISION REQUIRED
+
+> **Status: UNRESOLVED. Do not rename, redirect, or canonicalize anything below until this decision is made by the site owner.**
+
+**Current situation**
+- Actual pages currently use **`/library/investment/`** (singular) — the folder is `pages/library/investment/`:
+  - `/library/investment/crypto-tax/`
+  - `/library/investment/fbar/`
+- Some internal links use **`/library/investments/`** (plural), which currently returns 404. They come from:
+  - `pages/index.js` (Popular Guides, Start Here cards)
+  - `pages/start.js`
+  - `pages/library/investment/crypto-tax.js` and `fbar.js` (`categoryHref`, Related guides)
+  - `pages/library/individual/new-immigrant.js` (Related guides)
+  - `components/Footer.js` (Investments & Crypto link)
+- The generated sitemap lists the singular URLs, because those are the pages that actually exist.
+
+**Before changing this:**
+1. Check Google Search Console for both URL patterns.
+2. Determine whether either version has been indexed or received impressions/clicks.
+3. Choose one permanent URL structure.
+4. Update all internal links to the chosen structure.
+5. Add 301 redirects from the losing structure to the chosen structure.
+6. Update sitemap generation if necessary.
+7. Verify canonical tags.
+8. Re-check Google Search Console after deployment.
+
+---
+
 ## Tech Stack
 
 - **Framework:** Next.js 14 (Pages Router, static export)

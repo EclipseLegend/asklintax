@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
-import { getZhPath, getEnPath } from '../lib/i18n'
+import { getZhPath, getEnPath, LANGUAGE_SWITCHER_ENABLED } from '../lib/i18n'
 import styles from './Header.module.css'
 
 export default function Header({ t, locale = 'en' }) {
@@ -31,6 +31,7 @@ export default function Header({ t, locale = 'en' }) {
   // For ZH page: clicking EN goes back to English
   const switchHref  = isZh ? getEnPath(pathname) : '/zh/'
   const switchLabel = isZh ? 'EN' : '中文'
+  const showLangSwitch = isZh || LANGUAGE_SWITCHER_ENABLED
 
   return (
     <header className={`${styles.header} ${scrolled ? styles.scrolled : ''}`}>
@@ -54,11 +55,12 @@ export default function Header({ t, locale = 'en' }) {
         })}
 
         {/* Language switcher — clearly marked as "coming soon" for EN users */}
+        {showLangSwitch && (
         <div className={styles.langWrap}>
           <Link
             href={switchHref}
             className={`${styles.langSwitch} ${!isZh ? styles.langSwitchComing : ''}`}
-            title={isZh ? 'Switch to English' : '中文版即將推出 — Coming Soon'}
+            title={isZh ? 'Switch to English' : 'Chinese version coming soon'}
             onMouseEnter={() => !isZh && setShowLangTip(true)}
             onMouseLeave={() => setShowLangTip(false)}
           >
@@ -67,11 +69,12 @@ export default function Header({ t, locale = 'en' }) {
           </Link>
           {showLangTip && !isZh && (
             <div className={styles.langTooltip}>
-              中文版即將推出<br />
-              <span>Chinese version coming soon</span>
+              Chinese version<br />
+              <span>Coming soon</span>
             </div>
           )}
         </div>
+        )}
       </nav>
 
       <button

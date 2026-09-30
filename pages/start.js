@@ -11,7 +11,7 @@ const SITUATIONS = [
   {
     id: 'first-time',
     emoji: '🗂',
-    title: '我第一次在美國報稅',
+    title: 'I\'m filing U.S. taxes for the first time',
     subtitle: 'First-Time Filer',
     desc: 'You\'ve never filed a U.S. tax return before — or you\'re not sure if you need to. This is the most common starting point for new immigrants and international students.',
     emotion: '📚 Learning',
@@ -29,7 +29,7 @@ const SITUATIONS = [
   {
     id: 'irs',
     emoji: '📬',
-    title: '我收到 IRS 的信',
+    title: 'I received a letter from the IRS',
     subtitle: 'IRS Notice',
     desc: 'Getting a letter from the IRS is stressful — but most notices are routine and don\'t require immediate panic. The key is to read carefully, understand what the IRS is asking, and respond within the deadline.',
     emotion: '😨 Anxious',
@@ -47,7 +47,7 @@ const SITUATIONS = [
   {
     id: 'airbnb',
     emoji: '🏠',
-    title: '我有 Airbnb 或出租收入',
+    title: 'I have Airbnb or rental income',
     subtitle: 'Rental Income',
     desc: 'Rental income — whether from Airbnb, a long-term tenant, or a room in your home — is taxable income. But you can also deduct many expenses, which can significantly reduce what you owe.',
     emotion: '📋 Organizing',
@@ -65,7 +65,7 @@ const SITUATIONS = [
   {
     id: 'llc',
     emoji: '🏪',
-    title: '我想開公司或已有小生意',
+    title: 'I\'m starting or running a small business',
     subtitle: 'Small Business & LLC',
     desc: 'Starting a business in the U.S. involves more than just having a great idea. You\'ll need to understand business structures, tax obligations, quarterly payments, and what you can deduct.',
     emotion: '🤔 Deciding',
@@ -83,7 +83,7 @@ const SITUATIONS = [
   {
     id: 'crypto',
     emoji: '📈',
-    title: '我有加密貨幣或投資收益',
+    title: 'I have crypto or investment income',
     subtitle: 'Investments & Crypto',
     desc: 'Every time you sell crypto, trade one coin for another, or use crypto to buy something, it\'s a taxable event. Stocks, dividends, and foreign accounts also have specific reporting requirements.',
     emotion: '⚠️ Check this',
@@ -101,7 +101,7 @@ const SITUATIONS = [
   {
     id: 'immigrant',
     emoji: '✈️',
-    title: '我剛移民或有跨境稅務問題',
+    title: 'I\'m a new immigrant or have cross-border tax questions',
     subtitle: 'New Immigrant & Cross-Border',
     desc: 'Moving to the U.S. creates a unique tax situation. Your first year may be a "dual-status" year. You may have foreign income, foreign accounts, and foreign assets — all of which have U.S. reporting requirements.',
     emotion: '📚 Learning',

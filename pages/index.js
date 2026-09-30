@@ -49,12 +49,12 @@ const GUIDE_CARDS = [
 ]
 
 const START_CARDS = [
-  { id: 'first-time', href: '/start#first-time', icon: <IconDoc />,     title: '我第一次在美國報稅',       desc: 'Never filed a U.S. tax return before. Not sure where to start or what documents you need.', links: [{ href: '/library/individual/first-time-filer', label: '→ First-Time Filer Complete Guide' }, { href: '/library/individual/tax-residency', label: '→ Am I a U.S. tax resident?' }] },
-  { id: 'irs',        href: '/start#irs',         icon: <IconMail />,    title: '我收到 IRS 的信',          desc: 'Got a letter in the mail from the IRS. Not sure what it means or what to do.',             links: [{ href: '/library/irs/irs-notice', label: '→ What to do with an IRS letter' }, { href: '/library/irs/cp2000', label: '→ CP2000 Notice explained' }] },
-  { id: 'airbnb',     href: '/start#airbnb',      icon: <IconHome />,    title: '我有 Airbnb 或出租收入',   desc: 'You rent out a property or room on Airbnb. Need to understand what to report and what\'s deductible.', links: [{ href: '/library/rental/airbnb-tax-guide', label: '→ Airbnb Tax Complete Guide' }, { href: '/library/rental/14-day-rule', label: '→ The 14-day rule explained' }] },
-  { id: 'llc',        href: '/start#llc',         icon: <IconBuild />,   title: '我想開公司或已有小生意',   desc: 'Self-employed, freelancer, or thinking about starting an LLC. Where do you begin?',           links: [{ href: '/library/business-formation/llc-basics', label: '→ What is an LLC?' }, { href: '/library/business-formation/llc-vs-scorp', label: '→ LLC vs S-Corp: which is better?' }] },
-  { id: 'crypto',     href: '/start#crypto',      icon: <IconChart />,   title: '我有加密貨幣或投資收益', desc: 'Crypto, stocks, or foreign accounts. Unsure about capital gains, 1099-B, or FBAR requirements.', links: [{ href: '/library/investments/crypto-tax', label: '→ Crypto taxes explained' }, { href: '/library/investments/fbar', label: '→ Do I need to file FBAR?' }] },
-  { id: 'immigrant',  href: '/start#immigrant',   icon: <IconGlobe />,   title: '我剛移民或有跨境稅務問題', desc: 'New immigrant, dual-status, or have income or accounts outside the U.S. You have special obligations.', links: [{ href: '/library/individual/new-immigrant', label: '→ New immigrant tax guide' }, { href: '/library/individual/dual-status', label: '→ Dual-status filer explained' }] },
+  { id: 'first-time', href: '/start#first-time', icon: <IconDoc />,     title: 'I\'m filing U.S. taxes for the first time', desc: 'Never filed a U.S. tax return before. Not sure where to start or what documents you need.', links: [{ href: '/library/individual/first-time-filer', label: '→ First-Time Filer Complete Guide' }, { href: '/library/individual/tax-residency', label: '→ Am I a U.S. tax resident?' }] },
+  { id: 'irs',        href: '/start#irs',         icon: <IconMail />,    title: 'I received a letter from the IRS', desc: 'Got a letter in the mail from the IRS. Not sure what it means or what to do.',             links: [{ href: '/library/irs/irs-notice', label: '→ What to do with an IRS letter' }, { href: '/library/irs/cp2000', label: '→ CP2000 Notice explained' }] },
+  { id: 'airbnb',     href: '/start#airbnb',      icon: <IconHome />,    title: 'I have Airbnb or rental income', desc: 'You rent out a property or room on Airbnb. Need to understand what to report and what\'s deductible.', links: [{ href: '/library/rental/airbnb-tax-guide', label: '→ Airbnb Tax Complete Guide' }, { href: '/library/rental/14-day-rule', label: '→ The 14-day rule explained' }] },
+  { id: 'llc',        href: '/start#llc',         icon: <IconBuild />,   title: 'I\'m starting or running a small business', desc: 'Self-employed, freelancer, or thinking about starting an LLC. Where do you begin?',           links: [{ href: '/library/business-formation/llc-basics', label: '→ What is an LLC?' }, { href: '/library/business-formation/llc-vs-scorp', label: '→ LLC vs S-Corp: which is better?' }] },
+  { id: 'crypto',     href: '/start#crypto',      icon: <IconChart />,   title: 'I have crypto or investment income', desc: 'Crypto, stocks, or foreign accounts. Unsure about capital gains, 1099-B, or FBAR requirements.', links: [{ href: '/library/investments/crypto-tax', label: '→ Crypto taxes explained' }, { href: '/library/investments/fbar', label: '→ Do I need to file FBAR?' }] },
+  { id: 'immigrant',  href: '/start#immigrant',   icon: <IconGlobe />,   title: 'I\'m a new immigrant or have cross-border tax questions', desc: 'New immigrant, dual-status, or have income or accounts outside the U.S. You have special obligations.', links: [{ href: '/library/individual/new-immigrant', label: '→ New immigrant tax guide' }, { href: '/library/individual/dual-status', label: '→ Dual-status filer explained' }] },
 ]
 
 const BENEFIT_CARDS = [
@@ -102,10 +102,10 @@ export default function HomePage({ translations }) {
 
   const GUIDE_TABS = [
     { key: 'all',        label: 'All Topics' },
-    { key: 'individual', label: '個人 & 家庭' },
-    { key: 'business',   label: '小型企業' },
-    { key: 'rental',     label: '房地產 & Airbnb' },
-    { key: 'irs',        label: 'IRS & 稅務問題' },
+    { key: 'individual', label: 'Individuals & Families' },
+    { key: 'business',   label: 'Small Business' },
+    { key: 'rental',     label: 'Real Estate & Airbnb' },
+    { key: 'irs',        label: 'IRS & Tax Issues' },
   ]
   const UPDATE_TABS = [
     { key: 'federal',    label: 'Federal',         dot: styles.dotFed },
@@ -123,7 +123,7 @@ export default function HomePage({ translations }) {
       {/* ── HERO ── */}
       <section className={styles.hero}>
         <div className={styles.heroInner}>
-          <span className={styles.heroEyebrow}>北美華人稅務知識平台 · Trusted Tax Knowledge</span>
+          <span className={styles.heroEyebrow}>Trusted Tax Knowledge for Chinese Families in North America</span>
           <h1 className={styles.heroH1}>
             U.S. taxes, explained<br />for <em>Chinese families.</em>
           </h1>
@@ -134,7 +134,7 @@ export default function HomePage({ translations }) {
             <IconSearch />
             <input
               type="text"
-              placeholder='Search e.g. "What is an LLC?" or "Airbnb 怎麼報稅"'
+              placeholder='Search e.g. "What is an LLC?" or "Airbnb taxes"'
               value={searchQuery}
               onChange={e => setSearchQuery(e.target.value)}
               onKeyDown={e => e.key === 'Enter' && doSearch()}
@@ -175,16 +175,19 @@ export default function HomePage({ translations }) {
           <p className="section-sub">Start with your situation — we'll guide you to exactly what you need, without the confusing tax jargon.</p>
           <div className={styles.startGrid}>
             {START_CARDS.map(card => (
-              <a key={card.id} href={card.href} className={styles.startCard}>
+              <div key={card.id} className={styles.startCard}>
                 <div className={styles.startIcon}>{card.icon}</div>
-                <h3 className={styles.startCardTitle}>{card.title}</h3>
+                <h3 className={styles.startCardTitle}>
+                  {/* Stretched link: covers the whole card without nesting <a> tags */}
+                  <a href={card.href} className={styles.startCardLink}>{card.title}</a>
+                </h3>
                 <p className={styles.startCardDesc}>{card.desc}</p>
                 <div className={styles.startLinks}>
                   {card.links.map(l => (
-                    <a key={l.href} href={l.href} className={styles.startLink} onClick={e => e.stopPropagation()}>{l.label}</a>
+                    <a key={l.href} href={l.href} className={styles.startLink}>{l.label}</a>
                   ))}
                 </div>
-              </a>
+              </div>
             ))}
           </div>
         </div>

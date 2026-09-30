@@ -8,7 +8,7 @@
   },
   "footer": {
     "tagline": "The trusted U.S. tax knowledge platform for Chinese families and small businesses across America.",
-    "bilingual": "中文服務可用 · English & Chinese Bilingual",
+    "bilingual": "Chinese-language support available",
     "knowledge": "Knowledge",
     "explore": "Explore",
     "disclaimer": "All content on AskLinTax is for general educational purposes only and does not constitute tax, legal, or financial advice. Please consult a qualified tax professional for your specific situation.",
@@ -30,7 +30,7 @@
   },
   "trust": {
     "cpaReviewed": "CPA-Reviewed Content",
-    "bilingual": "English & 中文 Bilingual",
+    "bilingual": "Written for Chinese-American Families",
     "plainLanguage": "Plain Language — No Jargon",
     "free": "Free to Read"
   }

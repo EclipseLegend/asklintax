@@ -1,12 +1,17 @@
 import Head from 'next/head'
+import { useRouter } from 'next/router'
 import Header from './Header'
 import Footer from './Footer'
 
+const SITE_URL = 'https://asklintax.com'
+
 export default function Layout({ children, t, meta = {}, locale = 'en' }) {
+  const { pathname } = useRouter()
   const {
     title = 'AskLinTax | U.S. Tax Knowledge for Chinese Families & Small Businesses',
     description = 'AskLinTax is the trusted U.S. tax knowledge platform for Chinese families and small businesses. Search any tax question in plain language.',
-    canonical,
+    // Self-referencing by default; trailing slash matches next.config.js (trailingSlash: true)
+    canonical = pathname === '/' ? '/' : `${pathname}/`,
   } = meta
 
   return (
@@ -18,11 +23,8 @@ export default function Layout({ children, t, meta = {}, locale = 'en' }) {
         <meta property="og:title" content={title} />
         <meta property="og:description" content={description} />
         <meta property="og:type" content="website" />
-        {/* hreflang for SEO — tells Google about language versions */}
-        <link rel="alternate" hrefLang="en" href={`https://asklintax.com${canonical || '/'}`} />
-        <link rel="alternate" hrefLang="zh-TW" href={`https://asklintax.com/zh${canonical || '/'}`} />
-        <link rel="alternate" hrefLang="x-default" href={`https://asklintax.com${canonical || '/'}`} />
-        {canonical && <link rel="canonical" href={`https://asklintax.com${canonical}`} />}
+        {/* hreflang intentionally omitted until translated pages exist */}
+        <link rel="canonical" href={`${SITE_URL}${canonical}`} />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link
