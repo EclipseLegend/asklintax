@@ -5,6 +5,14 @@
 [build.environment]
   NODE_VERSION = "18"
 
+# Legacy plural category → permanent singular structure (see README "Investment category URL")
+# Must stay above the catch-all 404 rule.
+[[redirects]]
+  from   = "/library/investments/*"
+  to     = "/library/investment/:splat"
+  status = 301
+  force  = true
+
 [[redirects]]
   from   = "/*"
   to     = "/404"

@@ -8,7 +8,7 @@ export default function Footer({ t, locale = 'en' }) {
     { href: `${prefix}/library/individual`,         label: t('footer.links.individual') },
     { href: `${prefix}/library/small-business`,     label: t('footer.links.smallBusiness') },
     { href: `${prefix}/library/rental`,             label: t('footer.links.rental') },
-    { href: `${prefix}/library/investments`,        label: t('footer.links.investments') },
+    { href: `${prefix}/library/investment`,        label: t('footer.links.investments') },
     { href: `${prefix}/library/irs`,                label: t('footer.links.irs') },
     { href: `${prefix}/library/business-formation`, label: t('footer.links.formation') },
   ]

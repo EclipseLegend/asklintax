@@ -4,31 +4,21 @@ The trusted U.S. tax knowledge platform for Chinese families and small businesse
 
 ---
 
-## ⚠️ OPEN SEO TODO — INVESTMENT CATEGORY URL DECISION REQUIRED
+## ✅ RESOLVED — Investment category URL (was: "INVESTMENT CATEGORY URL DECISION REQUIRED")
 
-> **Status: UNRESOLVED. Do not rename, redirect, or canonicalize anything below until this decision is made by the site owner.**
+> **Status: RESOLVED (2026-09-29). Do not change this structure.**
 
-**Current situation**
-- Actual pages currently use **`/library/investment/`** (singular) — the folder is `pages/library/investment/`:
+- **Permanent structure:** `/library/investment/` (singular). The folder is `pages/library/investment/`:
   - `/library/investment/crypto-tax/`
   - `/library/investment/fbar/`
-- Some internal links use **`/library/investments/`** (plural), which currently returns 404. They come from:
-  - `pages/index.js` (Popular Guides, Start Here cards)
-  - `pages/start.js`
-  - `pages/library/investment/crypto-tax.js` and `fbar.js` (`categoryHref`, Related guides)
-  - `pages/library/individual/new-immigrant.js` (Related guides)
-  - `components/Footer.js` (Investments & Crypto link)
-- The generated sitemap lists the singular URLs, because those are the pages that actually exist.
-
-**Before changing this:**
-1. Check Google Search Console for both URL patterns.
-2. Determine whether either version has been indexed or received impressions/clicks.
-3. Choose one permanent URL structure.
-4. Update all internal links to the chosen structure.
-5. Add 301 redirects from the losing structure to the chosen structure.
-6. Update sitemap generation if necessary.
-7. Verify canonical tags.
-8. Re-check Google Search Console after deployment.
+- **Legacy/plural structure:** `/library/investments/*` **redirects permanently (301) to** `/library/investment/*`,
+  preserving the rest of the path. The rule is in `netlify.toml`, above the catch-all 404 rule.
+- All internal links, `categoryHref` values, and the Footer use `/library/investment`.
+- **Decision basis (Google Search Console, checked before the change):**
+  - `/library/investment/crypto-tax/`: "Discovered – currently not indexed", found via `sitemap.xml`
+  - `/library/investments/crypto-tax/`: "URL is unknown to Google"
+- **Follow-up:** re-check Google Search Console after deployment.
+- **Do not** create pages under `/library/investments/` or switch links back to the plural form.
 
 ---
 

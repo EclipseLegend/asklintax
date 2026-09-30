@@ -12,7 +12,7 @@ const META = {
   id: '20',
   title: 'FBAR: do I need to report my foreign bank accounts?',
   category: 'Investments & Foreign Accounts',
-  categoryHref: '/library/investments',
+  categoryHref: '/library/investment',
   userEmotion: 'learning',
   difficulty: 'Intermediate',
   readTime: '6 min read',
@@ -37,7 +37,7 @@ const FAQS = [
 
 const RELATED = [
   { href: '/library/individual/new-immigrant', cat: 'Individuals & Families', title: 'New immigrant complete tax guide', desc: 'FBAR is one of the most commonly missed obligations for new immigrants from China and Taiwan.' },
-  { href: '/library/investments/crypto-tax', cat: 'Investments & Crypto', title: 'Crypto taxes explained', desc: 'Crypto held on foreign exchanges may also be subject to FBAR reporting. Understand both obligations.' },
+  { href: '/library/investment/crypto-tax', cat: 'Investments & Crypto', title: 'Crypto taxes explained', desc: 'Crypto held on foreign exchanges may also be subject to FBAR reporting. Understand both obligations.' },
   { href: '/library/individual/tax-residency', cat: 'Individuals & Families', title: 'Am I a U.S. tax resident?', desc: 'FBAR applies to U.S. persons — citizens, green card holders, and resident aliens who pass the Substantial Presence Test.' },
 ]
 

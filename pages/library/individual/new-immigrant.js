@@ -70,7 +70,7 @@ const RELATED = [
     desc:  'If you don\'t have a Social Security Number, you\'ll need an ITIN to file taxes and receive refunds.',
   },
   {
-    href: '/library/investments/fbar',
+    href: '/library/investment/fbar',
     cat:  'Investments & Foreign Accounts',
     title: 'FBAR: do I need to report my foreign bank accounts?',
     desc:  'If you have more than $10,000 in foreign accounts at any point in the year, you\'re required to file an FBAR — even if you owe no tax.',

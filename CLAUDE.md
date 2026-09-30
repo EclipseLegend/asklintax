@@ -2,7 +2,7 @@
 
 - The production primary domain is https://asklintax.com.
 - www.asklintax.com is currently redirected to the primary domain by Netlify Domain Management. Do not change domain or redirect behavior without explicit approval.
-- IMPORTANT OPEN SEO ISSUE: /library/investment/ vs /library/investments/ is unresolved. Read the detailed TODO in README.md before changing, renaming, redirecting, canonicalizing, or updating links involving these paths.
+- RESOLVED URL DECISION: /library/investment/ (singular) is the permanent canonical structure. Never change it to /library/investments/ (plural). The plural /library/investments/* 301-redirects to /library/investment/* via netlify.toml; keep that rule above the catch-all 404 rule. Details are in README.md.
 - English is currently the master/source language.
 - Do not publish hreflang URLs for translations that do not actually exist.
 - Preserve existing public URLs and SEO whenever possible.

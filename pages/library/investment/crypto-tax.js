@@ -12,7 +12,7 @@ const META = {
   id: '19',
   title: 'Crypto taxes explained: when is crypto taxable?',
   category: 'Investments & Crypto',
-  categoryHref: '/library/investments',
+  categoryHref: '/library/investment',
   userEmotion: 'learning',
   difficulty: 'Intermediate',
   readTime: '6 min read',
@@ -36,7 +36,7 @@ const FAQS = [
 ]
 
 const RELATED = [
-  { href: '/library/investments/fbar', cat: 'Investments & Foreign Accounts', title: 'FBAR: do I need to report my foreign crypto accounts?', desc: 'If you hold crypto on foreign exchanges, you may have FBAR reporting obligations in addition to tax reporting.' },
+  { href: '/library/investment/fbar', cat: 'Investments & Foreign Accounts', title: 'FBAR: do I need to report my foreign crypto accounts?', desc: 'If you hold crypto on foreign exchanges, you may have FBAR reporting obligations in addition to tax reporting.' },
   { href: '/library/individual/tax-credit-vs-deduction', cat: 'Individuals & Families', title: 'Tax credit vs. tax deduction: what\'s the difference?', desc: 'Capital loss deductions work differently from income deductions — understand the mechanics before filing.' },
   { href: '/library/individual/w2-vs-1099', cat: 'Individuals & Families', title: 'W-2 vs 1099: what\'s the difference?', desc: 'Crypto exchanges issue 1099s. Understand how 1099 income fits into your overall tax picture.' },
 ]

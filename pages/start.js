@@ -88,9 +88,9 @@ const SITUATIONS = [
     desc: 'Every time you sell crypto, trade one coin for another, or use crypto to buy something, it\'s a taxable event. Stocks, dividends, and foreign accounts also have specific reporting requirements.',
     emotion: '⚠️ Check this',
     guides: [
-      { href: '/library/investments/crypto-tax', title: 'Crypto Taxes Explained', desc: 'When is crypto taxable? How do you calculate gains and losses? What counts as a taxable event? Everything explained in plain language.' },
-      { href: '/library/investments/fbar', title: 'Do I Need to File FBAR?', desc: 'If you have more than $10,000 in foreign bank accounts at any point in the year, you\'re required to file an FBAR. Many Chinese families don\'t know this requirement applies to them.' },
-      { href: '/library/investments/capital-gains', title: 'Capital Gains Tax: Short-Term vs Long-Term', desc: 'How long you hold an investment dramatically affects your tax rate. Here\'s how short-term and long-term capital gains are taxed differently.' },
+      { href: '/library/investment/crypto-tax', title: 'Crypto Taxes Explained', desc: 'When is crypto taxable? How do you calculate gains and losses? What counts as a taxable event? Everything explained in plain language.' },
+      { href: '/library/investment/fbar', title: 'Do I Need to File FBAR?', desc: 'If you have more than $10,000 in foreign bank accounts at any point in the year, you\'re required to file an FBAR. Many Chinese families don\'t know this requirement applies to them.' },
+      { href: '/library/investment/capital-gains', title: 'Capital Gains Tax: Short-Term vs Long-Term', desc: 'How long you hold an investment dramatically affects your tax rate. Here\'s how short-term and long-term capital gains are taxed differently.' },
     ],
     faqs: [
       { q: 'Do I need to report crypto even if I didn\'t sell anything?', a: 'If you only held crypto and didn\'t sell, trade, or use it, you generally don\'t have a taxable event. But you must still answer the crypto question on your tax return honestly. Mining, staking rewards, and airdrops are also taxable even without selling.' },
@@ -108,7 +108,7 @@ const SITUATIONS = [
     guides: [
       { href: '/library/individual/new-immigrant', title: 'New Immigrant Tax Guide', desc: 'Everything you need to know about your first tax year in the U.S. — filing status, what income to report, ITIN vs SSN, and key deadlines.' },
       { href: '/library/individual/dual-status', title: 'Dual-Status Filer Explained', desc: 'In your year of arrival, you may be a "dual-status alien" — part non-resident, part resident. This creates a more complex return.' },
-      { href: '/library/investments/fbar', title: 'FBAR: Reporting Foreign Bank Accounts', desc: 'If you have accounts in Taiwan, China, or anywhere outside the U.S. with more than $10,000, you must file an FBAR every year.' },
+      { href: '/library/investment/fbar', title: 'FBAR: Reporting Foreign Bank Accounts', desc: 'If you have accounts in Taiwan, China, or anywhere outside the U.S. with more than $10,000, you must file an FBAR every year.' },
     ],
     faqs: [
       { q: 'Do I need to report income I earned before moving to the U.S.?', a: 'It depends on your residency status. If you\'re a "resident alien" for tax purposes, you\'re taxed on worldwide income for the entire year. If you arrived mid-year, you may be a "dual-status alien" and only owe tax on U.S.-source income for the period before your residency began.' },
