@@ -1,0 +1,30 @@
+{
+  "breadcrumb": {
+    "home": "Home",
+    "library": "Knowledge Library"
+  },
+  "category": {
+    "guideCountOne": "{count} guide",
+    "guideCountOther": "{count} guides",
+    "taxYear": "Reviewed for the {year} tax year",
+    "lastReviewed": "Last reviewed {date}",
+    "startHereLabel": "Start here",
+    "startHereTitle": "New to this topic? Begin here.",
+    "startHereAllTitle": "Start with these guides",
+    "startHereAllSub": "Each of these guides is a good place to begin. Choose the one that matches your situation.",
+    "questionsLabel": "Common questions",
+    "questionsTitle": "Questions this section answers",
+    "allGuidesLabel": "All guides",
+    "allGuidesTitle": "Every guide in this topic",
+    "relatedLabel": "Related from other topics",
+    "closingTitle": "Prefer to start from your situation?",
+    "closingSub": "Start Here groups our guides by life situation, such as filing for the first time, receiving an IRS letter, or earning Airbnb income.",
+    "closingCta": "Go to Start Here",
+    "disclaimer": "AskLinTax guides are CPA-reviewed and written for general education. They are not tax, legal, or financial advice for your specific situation."
+  },
+  "card": {
+    "readTime": "{minutes} min read",
+    "readGuide": "Read the guide",
+    "startHereMarker": "Start here"
+  }
+}

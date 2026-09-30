@@ -80,12 +80,27 @@ asklintax/
 | F-19 | Crypto taxes explained | ⬜ Pending |
 | F-20 | FBAR: do I need to file? | ⬜ Pending |
 
+## Knowledge Library article index (required)
+
+**Every published Knowledge Library article must be registered in `lib/articles.js`** — exactly once,
+with its real path, title, difficulty, and read time. Categories, category curation, and the Library
+Essentials live in `lib/categories.js`. The Library, category pages, and search read only from these files.
+
+- Never add planned or unpublished articles to the index, and never link to URLs that don't exist.
+- Tax year and review date come from `lib/tax-config.js`, not from the index.
+- `npm run build` runs `scripts/validate-articles.js` after `next build`. It **fails the build** if the
+  index and the real pages disagree (unregistered article, missing page, title/difficulty/read-time
+  mismatch, duplicate id or path, unknown category, or a curated id that doesn't exist).
+
+**Adding a new article:** create the page under `pages/library/<category>/<slug>.js`, add its entry to
+`lib/articles.js`, then run `npm run build` and fix anything the validator reports.
+
 ## Development
 
 ```bash
 npm install
 npm run dev      # localhost:3000
-npm run build    # generates out/ folder
+npm run build    # next build → out/, then postbuild: validate-articles → generate-sitemap
 ```
 
 ## Deployment

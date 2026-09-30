@@ -1,0 +1,288 @@
+/* ============================================================
+   Knowledge Library — shared styles (category pages, cards)
+   Uses global tokens from styles/globals.css
+   ============================================================ */
+
+/* ── HERO (compact) ── */
+.hero {
+  background: var(--navy);
+  padding: 38px 0 40px;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -120px; right: -120px;
+  width: 460px; height: 460px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(201,150,58,.09) 0%, transparent 68%);
+  pointer-events: none;
+}
+.heroInner { position: relative; z-index: 1; }
+
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  font-size: 13px;
+  color: rgba(255,255,255,.45);
+  margin-bottom: 22px;
+}
+.breadcrumb a { color: rgba(255,255,255,.6); text-decoration: none; }
+.breadcrumb a:hover { color: var(--gold-l); }
+
+.heroTitle {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(36px, 4.4vw, 54px);
+  font-weight: 500;
+  color: #fff;
+  line-height: 1.1;
+  margin-bottom: 14px;
+  max-width: 820px;
+}
+.heroIntro {
+  font-size: 18px;
+  line-height: 1.75;
+  color: rgba(255,255,255,.72);
+  max-width: 680px;
+  margin-bottom: 22px;
+}
+.heroMeta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 10px;
+  font-size: 13.5px;
+  color: rgba(255,255,255,.5);
+}
+.heroCount { color: var(--gold-l); font-weight: 600; }
+
+/* ── LAYOUT ── */
+.main { padding-top: 56px; padding-bottom: 72px; }
+.section { margin-bottom: 60px; }
+.sectionHead { margin-bottom: 22px; }
+.sectionTitle {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(28px, 3vw, 34px);
+  font-weight: 500;
+  color: var(--navy);
+  line-height: 1.2;
+}
+.sectionSub {
+  font-size: 16px;
+  color: var(--muted);
+  line-height: 1.7;
+  margin-top: 6px;
+  max-width: 620px;
+}
+
+/* Secondary section (Related) — quieter than All Guides */
+.sectionSecondary {
+  border-top: 1px solid var(--border);
+  padding-top: 32px;
+}
+.sectionTitleSmall {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 14px;
+}
+
+/* ── CARDS (shared) ── */
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 20px 21px 16px;
+  text-decoration: none;
+  color: inherit;
+  transition: transform .18s, box-shadow .18s, border-color .18s;
+}
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 28px rgba(27,45,79,.08);
+  border-color: rgba(201,150,58,.35);
+}
+.card:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+
+.cardMarker {
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 10px;
+}
+.cardContext {
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 8px;
+}
+.cardTitle {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--navy);
+  line-height: 1.28;
+  margin-bottom: 8px;
+}
+.cardSummary {
+  font-size: 14.5px;
+  color: var(--muted);
+  line-height: 1.62;
+  margin-bottom: 16px;
+  flex: 1;
+}
+.cardFooter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding-top: 12px;
+  border-top: 1px solid var(--border-l);
+  margin-top: auto;
+}
+.cardMeta { display: flex; align-items: center; flex-wrap: wrap; gap: 10px; }
+.cardMetaText { font-size: 13px; color: var(--muted); }
+.cardCta { font-size: 15px; font-weight: 500; color: var(--gold); white-space: nowrap; }
+
+.level {
+  font-size: 12px;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: 100px;
+  line-height: 1.5;
+}
+.levelBeginner { background: var(--slate); color: var(--navy); }
+.levelAdvanced { background: var(--gold-pale); color: #9A6E1F; }
+
+/* Featured (Start Here) */
+.cardFeatured {
+  padding: 30px 30px 24px;
+  border-radius: 16px;
+  overflow: hidden;
+}
+.cardFeatured::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--gold), var(--gold-l));
+}
+.cardFeatured .cardTitle { font-size: clamp(24px, 2.4vw, 28px); line-height: 1.22; margin-bottom: 12px; }
+.cardFeatured .cardSummary { font-size: 16.5px; color: var(--mid); }
+
+/* Related (compact, secondary) */
+.cardRelated {
+  background: transparent;
+  padding: 16px 18px;
+}
+.cardRelated .cardContext { font-size: 11px; margin-bottom: 6px; }
+.cardRelated .cardTitle { font-size: 17.5px; margin-bottom: 6px; }
+.cardRelated .cardMetaText { font-size: 12.5px; }
+.cardRelated:hover { background: var(--white); }
+
+/* ── GRIDS ── */
+.featuredGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+}
+.featuredSingle { grid-template-columns: minmax(0, 780px); }
+
+.cardGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+.relatedGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+/* ── QUESTIONS ── */
+.questionList {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 40px;
+  border-top: 1px solid var(--border);
+}
+.questionList li { border-bottom: 1px solid var(--border); }
+.question {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  min-height: 60px;
+  padding: 14px 4px;
+  font-size: 17px;
+  font-weight: 500;
+  line-height: 1.45;
+  color: var(--navy);
+  text-decoration: none;
+  transition: color .15s;
+}
+.question:hover { color: #9A6E1F; }
+.question:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+.questionArrow { color: var(--gold); flex-shrink: 0; transition: transform .15s; }
+.question:hover .questionArrow { transform: translateX(3px); }
+
+/* ── CLOSING ── */
+.closing {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px 32px;
+  flex-wrap: wrap;
+  background: var(--cream);
+  border: 1px solid var(--border-l);
+  border-radius: 16px;
+  padding: 28px 32px;
+  margin-top: 8px;
+}
+.closingTitle {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 24px;
+  font-weight: 500;
+  color: var(--navy);
+  line-height: 1.25;
+  margin-bottom: 4px;
+}
+.closingSub { font-size: 15px; color: var(--muted); line-height: 1.65; max-width: 620px; }
+.disclaimer {
+  font-size: 13px;
+  color: var(--light);
+  line-height: 1.7;
+  margin-top: 22px;
+  max-width: 760px;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 860px) {
+  .cardGrid, .relatedGrid { grid-template-columns: repeat(2, 1fr); }
+  .featuredGrid { grid-template-columns: 1fr; }
+  .questionList { grid-template-columns: 1fr; }
+}
+@media (max-width: 560px) {
+  .hero { padding: 32px 0 34px; }
+  .heroIntro { font-size: 16.5px; }
+  .main { padding-top: 40px; padding-bottom: 56px; }
+  .section { margin-bottom: 44px; }
+  .cardGrid, .relatedGrid { grid-template-columns: 1fr; }
+  .cardFeatured { padding: 24px 22px 20px; }
+  .question { font-size: 16px; min-height: 56px; }
+  .closing { padding: 24px 22px; }
+  .closing :global(.btn-outline) { width: 100%; justify-content: center; }
+}
