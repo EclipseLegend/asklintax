@@ -12,7 +12,7 @@
 const fs = require('fs')
 const path = require('path')
 const { ARTICLES } = require('../lib/articles')
-const { CATEGORIES, LIBRARY_ESSENTIALS } = require('../lib/categories')
+const { CATEGORIES, LIBRARY_ESSENTIALS, LIBRARY_SITUATIONS } = require('../lib/categories')
 
 const ROOT = path.join(__dirname, '..')
 const OUT_DIR = path.join(ROOT, 'out')
@@ -118,7 +118,7 @@ function checkRefs(ids, where, { sameCategory } = {}) {
 
 for (const c of CATEGORIES) {
   const where = `category "${c.key}"`
-  for (const field of ['key', 'path', 'name', 'seoTitle', 'seoDescription', 'intro']) {
+  for (const field of ['key', 'path', 'name', 'summary', 'seoTitle', 'seoDescription', 'intro']) {
     if (typeof c[field] !== 'string' || !c[field].trim()) error(`${where}: missing or empty "${field}".`)
   }
   if (typeof c.path === 'string' && !/^\/library\/[a-z0-9-]+\/$/.test(c.path)) {
@@ -183,6 +183,19 @@ if (!fs.existsSync(OUT_DIR)) {
     }
   }
 
+  // The Library homepage must exist.
+  if (!fs.existsSync(exportedFile('/library/'))) error('/library/ was not exported. Create pages/library/index.js.')
+
+  // Every "Popular situations" id must be a real section anchor on the Start Here page.
+  const startFile = exportedFile('/start/')
+  const startHtml = fs.existsSync(startFile) ? fs.readFileSync(startFile, 'utf8') : ''
+  for (const id of findDuplicates(LIBRARY_SITUATIONS)) error(`LIBRARY_SITUATIONS lists "${id}" more than once.`)
+  for (const id of LIBRARY_SITUATIONS) {
+    if (!new RegExp(`\\sid="${id}"`).test(startHtml)) {
+      error(`LIBRARY_SITUATIONS "${id}" has no matching section (id="${id}") on /start/, so /start/#${id} would not work.`)
+    }
+  }
+
   // Every category must have a real exported category page.
   for (const c of CATEGORIES) {
     if (typeof c.path === 'string' && !fs.existsSync(exportedFile(c.path))) {
@@ -240,5 +253,6 @@ if (errors.length) {
 
 console.log(
   `validate-articles: OK — ${ARTICLES.length} articles, ${CATEGORIES.length} categories, ` +
-  `${LIBRARY_ESSENTIALS.length} essentials${warnings.length ? `, ${warnings.length} warning(s)` : ''}`
+  `${LIBRARY_ESSENTIALS.length} essentials, ${LIBRARY_SITUATIONS.length} situations` +
+  `${warnings.length ? `, ${warnings.length} warning(s)` : ''}`
 )

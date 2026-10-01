@@ -26,5 +26,50 @@
     "readTime": "{minutes} min read",
     "readGuide": "Read the guide",
     "startHereMarker": "Start here"
+  },
+  "home": {
+    "seoTitle": "Knowledge Library: Plain-Language U.S. Tax Guides | AskLinTax",
+    "seoDescription": "Browse CPA-reviewed, plain-language guides to U.S. taxes by topic or life situation: filing, IRS notices, small business, rental income, crypto, and foreign accounts.",
+    "titleBefore": "Tax answers, organized around your real",
+    "titleAccent": "life.",
+    "sub": "Plain-language, CPA-reviewed guides for individuals, families, business owners, and investors. Start with a question, a topic, or your situation. No tax vocabulary required.",
+    "searchLabel": "Search the Knowledge Library",
+    "searchPlaceholder": "Search a tax question...",
+    "searchButton": "Search",
+    "examplesLabel": "Try searching for",
+    "examples": ["FBAR", "Airbnb deductions", "Do I need to file?", "LLC vs S-Corp", "IRS notice"],
+    "topicsLabel": "Browse by topic",
+    "topicsTitle": "Which part of your taxes is this about?",
+    "topicsSub": "Six topics cover everything in the Library. Each one explains what it includes, so you can choose before you click.",
+    "topicsCta": "Explore topic",
+    "essentialsLabel": "Start with the essentials",
+    "essentialsTitle": "Six guides worth reading first",
+    "essentialsSub": "Useful starting points across the most common tax situations, from whether you need to file to what an IRS letter means.",
+    "situationsLabel": "Popular situations",
+    "situationsTitle": "Not sure which topic fits? Start from your situation.",
+    "situationsCta": "See every situation on Start Here",
+    "allGuidesLabel": "All guides",
+    "allGuidesTitle": "Every published guide",
+    "allGuidesSub": "All {count} guides, grouped by topic.",
+    "trustCpa": "CPA-reviewed content"
+  },
+  "search": {
+    "label": "Search results",
+    "resultsFor": "Search results for “{query}”",
+    "countOne": "1 guide found",
+    "countOther": "{count} guides found",
+    "clear": "Clear search",
+    "noResultsTitle": "No guides found for “{query}”",
+    "noResultsSub": "Try a broader search, browse by topic below, or start from your situation.",
+    "browseTopics": "Browse by topic",
+    "goToStart": "Go to Start Here"
+  },
+  "situations": {
+    "first-time": { "title": "Filing taxes for the first time", "desc": "What you need, which forms matter, and how to file." },
+    "irs": { "title": "Received an IRS notice", "desc": "What the letter means and how to respond calmly." },
+    "airbnb": { "title": "Airbnb or rental income", "desc": "What to report, what to deduct, and what is tax-free." },
+    "llc": { "title": "Starting an LLC or small business", "desc": "Choosing a structure and paying tax as you go." },
+    "crypto": { "title": "Crypto & investments", "desc": "When crypto is taxable and how to report accounts abroad." },
+    "immigrant": { "title": "New to the U.S.", "desc": "Residency, your first return, and cross-border rules." }
   }
 }
