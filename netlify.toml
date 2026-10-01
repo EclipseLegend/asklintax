@@ -5,6 +5,12 @@
 [build.environment]
   NODE_VERSION = "18"
 
+# Lina (netlify/functions/lina, served at /api/lina). esbuild bundles the generated
+# knowledge.json and the shared lib/ article index into the function.
+# Secrets: set OPENAI_API_KEY in Netlify environment variables (Functions scope) — never here.
+[functions]
+  node_bundler = "esbuild"
+
 # Legacy plural category → permanent singular structure (see README "Investment category URL")
 # Must stay above the catch-all 404 rule.
 [[redirects]]

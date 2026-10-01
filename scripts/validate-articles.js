@@ -292,6 +292,16 @@ if (fs.existsSync(OUT_DIR)) {
   if (fs.existsSync(path.join(OUT_DIR, 'zh'))) error('out/zh/ exists. /zh/* now 301-redirects to /zh-tw/ (netlify.toml); remove pages/zh/.')
 }
 
+// ── 6. Ask Lin example questions exist in both languages ─
+// (Lina's citations are validated server-side against published articles — netlify/functions/lina/core.js.)
+
+const { EXAMPLE_QUESTIONS } = require('../lib/ask-lin/examples')
+for (const ex of EXAMPLE_QUESTIONS) {
+  for (const lang of ['en', 'zh-tw']) {
+    if (typeof ex[lang] !== 'string' || !ex[lang].trim()) error(`Ask Lin example "${ex.id}" is missing its ${lang} question.`)
+  }
+}
+
 // ── Report ────────────────────────────────────────────────
 
 for (const w of warnings) console.warn(`validate-articles: WARNING ${w}`)

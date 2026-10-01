@@ -2,6 +2,7 @@ import Head from 'next/head'
 import { useRouter } from 'next/router'
 import Header from './Header'
 import Footer from './Footer'
+import AskLin from './AskLin'
 
 const SITE_URL = 'https://asklintax.com'
 
@@ -37,6 +38,7 @@ export default function Layout({ children, t, meta = {}, locale = 'en' }) {
         {children}
       </main>
       <Footer t={t} locale={locale} />
+      <AskLin locale={locale} />
     </>
   )
 }
