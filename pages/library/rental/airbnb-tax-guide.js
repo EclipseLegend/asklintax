@@ -28,7 +28,7 @@ const META = {
 const FAQS = [
   {
     q: 'Does Airbnb report my income to the IRS?',
-    a: 'Yes. Airbnb is required to send you a Form 1099-K if you received more than $600 in gross payments during the year. Airbnb also reports this information directly to the IRS. Even if you don\'t receive a 1099-K (because you earned less than $600, or if Airbnb doesn\'t send one for other reasons), you are still required to report the income on your tax return.',
+    a: 'Yes. Online marketplaces like Airbnb are generally required to send you (and the IRS) a Form 1099-K only if your gross payments for the year exceed $20,000 and there were more than 200 transactions. Even if you don\'t receive a 1099-K (because you were below that threshold, or if Airbnb doesn\'t send one for other reasons), you are still required to report the income on your tax return.',
   },
   {
     q: 'What is the 14-day rule and how does it work?',

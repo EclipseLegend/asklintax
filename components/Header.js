@@ -18,14 +18,17 @@ export default function Header({ t, locale = 'en' }) {
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
-  const prefix = isZh ? '/zh' : ''
+  // No translated pages exist yet, so nav always points to the real English pages
+  // (a /zh prefix produced 404s such as /zh/library/ from the /zh/ placeholder).
+  const prefix = ''
+  // `planned: true` = page not built yet; hidden until it exists (no links to 404s).
   const navLinks = [
     { href: `${prefix}/start`,   label: t('nav.startHere') },
     { href: `${prefix}/library`, label: t('nav.library') },
     { href: `${prefix}/updates`, label: t('nav.updates') },
-    { href: `${prefix}/learn`,   label: t('nav.youtube') },
+    { href: `${prefix}/learn`,   label: t('nav.youtube'), planned: true },
     { href: `${prefix}/about`,   label: t('nav.about') },
-  ]
+  ].filter(l => !l.planned)
 
   // For EN pages: clicking 中文 goes to /zh/ (coming soon page)
   // For ZH page: clicking EN goes back to English

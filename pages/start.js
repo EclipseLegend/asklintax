@@ -36,7 +36,7 @@ const SITUATIONS = [
     guides: [
       { href: '/library/irs/irs-notice', title: 'I Received an IRS Letter — What Do I Do?', desc: 'Don\'t panic. Most IRS notices are routine. This guide helps you read the letter, identify the notice type, and decide your next step.' },
       { href: '/library/irs/cp2000', title: 'CP2000 Notice Explained', desc: 'The CP2000 is one of the most common IRS notices. It means the IRS found a discrepancy between your return and what was reported by employers or banks.' },
-      { href: '/library/irs/audit', title: 'What to Do If You\'re Being Audited', desc: 'An audit is a review of your tax return. Learn what triggers audits, what to expect, and when you need professional help.' },
+      { href: '/library/irs/audit', title: 'What to Do If You\'re Being Audited', desc: 'An audit is a review of your tax return. Learn what triggers audits, what to expect, and when you need professional help.', planned: true },
     ],
     faqs: [
       { q: 'Does an IRS letter mean I\'m in trouble?', a: 'Not necessarily. The IRS sends letters for many routine reasons — confirming your identity, asking for a missing document, or notifying you of a small adjustment. Always read the letter carefully before assuming the worst.' },
@@ -54,10 +54,10 @@ const SITUATIONS = [
     guides: [
       { href: '/library/rental/airbnb-tax-guide', title: 'Airbnb Host Tax Complete Guide', desc: 'Everything you need to know about reporting Airbnb income: what counts, what\'s deductible, and how the 14-day rule can change everything.' },
       { href: '/library/rental/14-day-rule', title: 'The 14-Day Rule Explained', desc: 'If you rent your home for fewer than 15 days a year, you may not need to report that income at all. Here\'s how the rule works.' },
-      { href: '/library/rental/rental-deductions', title: 'What Can Airbnb Hosts Deduct?', desc: 'Cleaning fees, supplies, furniture, insurance, depreciation — a complete list of what you can and can\'t deduct as an Airbnb host.' },
+      { href: '/library/rental/rental-deductions', title: 'What Can Airbnb Hosts Deduct?', desc: 'Cleaning fees, supplies, furniture, insurance, depreciation — a complete list of what you can and can\'t deduct as an Airbnb host.', planned: true },
     ],
     faqs: [
-      { q: 'Do I need to report Airbnb income on my taxes?', a: 'Yes, in almost all cases. Airbnb is required to send you a 1099-K if you earn more than $600 in a year. But even if you don\'t receive a 1099-K, the income is still taxable and should be reported.' },
+      { q: 'Do I need to report Airbnb income on my taxes?', a: 'Yes, in almost all cases. Airbnb generally sends a 1099-K only if you receive more than $20,000 across more than 200 transactions in a year. But even if you don\'t receive a 1099-K, the income is still taxable and should be reported.' },
       { q: 'What is the 14-day rule?', a: 'If you rent your primary home (or a vacation home) for fewer than 15 days in a year, you don\'t need to report that rental income. But you also can\'t deduct rental expenses. This rule only applies to personal residences — not investment properties.' },
       { q: 'Can I deduct the cost of furniture and appliances?', a: 'Yes. Items used for your rental can generally be deducted — either all at once (if under the de minimis threshold) or depreciated over several years. Keep all receipts.' },
     ],
@@ -90,7 +90,7 @@ const SITUATIONS = [
     guides: [
       { href: '/library/investment/crypto-tax', title: 'Crypto Taxes Explained', desc: 'When is crypto taxable? How do you calculate gains and losses? What counts as a taxable event? Everything explained in plain language.' },
       { href: '/library/investment/fbar', title: 'Do I Need to File FBAR?', desc: 'If you have more than $10,000 in foreign bank accounts at any point in the year, you\'re required to file an FBAR. Many Chinese families don\'t know this requirement applies to them.' },
-      { href: '/library/investment/capital-gains', title: 'Capital Gains Tax: Short-Term vs Long-Term', desc: 'How long you hold an investment dramatically affects your tax rate. Here\'s how short-term and long-term capital gains are taxed differently.' },
+      { href: '/library/investment/capital-gains', title: 'Capital Gains Tax: Short-Term vs Long-Term', desc: 'How long you hold an investment dramatically affects your tax rate. Here\'s how short-term and long-term capital gains are taxed differently.', planned: true },
     ],
     faqs: [
       { q: 'Do I need to report crypto even if I didn\'t sell anything?', a: 'If you only held crypto and didn\'t sell, trade, or use it, you generally don\'t have a taxable event. But you must still answer the crypto question on your tax return honestly. Mining, staking rewards, and airdrops are also taxable even without selling.' },
@@ -107,7 +107,7 @@ const SITUATIONS = [
     emotion: '📚 Learning',
     guides: [
       { href: '/library/individual/new-immigrant', title: 'New Immigrant Tax Guide', desc: 'Everything you need to know about your first tax year in the U.S. — filing status, what income to report, ITIN vs SSN, and key deadlines.' },
-      { href: '/library/individual/dual-status', title: 'Dual-Status Filer Explained', desc: 'In your year of arrival, you may be a "dual-status alien" — part non-resident, part resident. This creates a more complex return.' },
+      { href: '/library/individual/dual-status', title: 'Dual-Status Filer Explained', desc: 'In your year of arrival, you may be a "dual-status alien" — part non-resident, part resident. This creates a more complex return.', planned: true },
       { href: '/library/investment/fbar', title: 'FBAR: Reporting Foreign Bank Accounts', desc: 'If you have accounts in Taiwan, China, or anywhere outside the U.S. with more than $10,000, you must file an FBAR every year.' },
     ],
     faqs: [
@@ -175,7 +175,7 @@ export default function StartHerePage({ translations }) {
 
               {/* Guides */}
               <div className={styles.guidesGrid}>
-                {s.guides.map(guide => (
+                {s.guides.filter(g => !g.planned).map(guide => (
                   <a key={guide.href} href={guide.href} className={styles.guideCard}>
                     <h3 className={styles.guideCardTitle}>{guide.title}</h3>
                     <p className={styles.guideCardDesc}>{guide.desc}</p>

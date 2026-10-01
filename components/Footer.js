@@ -2,7 +2,8 @@ import Link from 'next/link'
 import styles from './Footer.module.css'
 
 export default function Footer({ t, locale = 'en' }) {
-  const prefix = locale === 'zh' ? '/zh' : ''
+  // No translated pages exist yet, so links always point to the real English pages.
+  const prefix = ''
 
   const knowledge = [
     { href: `${prefix}/library/individual`,         label: t('footer.links.individual') },
@@ -12,14 +13,15 @@ export default function Footer({ t, locale = 'en' }) {
     { href: `${prefix}/library/investment`,        label: t('footer.links.investments') },
     { href: `${prefix}/library/irs`,                label: t('footer.links.irs') },
   ]
+  // `planned: true` = page not built yet; hidden until it exists (no links to 404s).
   const explore = [
     { href: `${prefix}/start`,     label: t('footer.links.startHere') },
     { href: `${prefix}/updates`,   label: t('footer.links.updates') },
-    { href: `${prefix}/learn`,     label: t('footer.links.youtube') },
-    { href: `${prefix}/checklist`, label: t('footer.links.checklist') },
-    { href: `${prefix}/glossary`,  label: t('footer.links.glossary') },
+    { href: `${prefix}/learn`,     label: t('footer.links.youtube'), planned: true },
+    { href: `${prefix}/checklist`, label: t('footer.links.checklist'), planned: true },
+    { href: `${prefix}/glossary`,  label: t('footer.links.glossary'), planned: true },
     { href: `${prefix}/about`,     label: t('footer.links.about') },
-  ]
+  ].filter(l => !l.planned)
 
   return (
     <footer className={styles.footer}>

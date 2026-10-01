@@ -36,7 +36,7 @@ const FAQS = [
   },
   {
     q: 'I rented for only 10 days. Do I have to tell the IRS anything at all?',
-    a: 'Under the 14-day rule, you are not required to report the rental income. However, if you received a 1099-K from Airbnb (required when gross payments exceed $600), the IRS also received that same form. You should document your decision not to report by keeping records of your rental days, personal use days, and your 1099-K. If the IRS ever asks, you can demonstrate you qualified for the exclusion.',
+    a: 'Under the 14-day rule, you are not required to report the rental income. However, if you received a 1099-K from Airbnb (generally required only when gross payments exceed $20,000 and there were more than 200 transactions), the IRS also received that same form. You should document your decision not to report by keeping records of your rental days, personal use days, and your 1099-K. If the IRS ever asks, you can demonstrate you qualified for the exclusion.',
   },
   {
     q: 'Can I still deduct mortgage interest and property taxes if I use the 14-day rule?',
@@ -232,7 +232,7 @@ export default function FourteenDayRulePage({ translations }) {
         <div className="callout callout-action">
           <div className="callout-title">✅ If you received a 1099-K and are using the 14-day rule</div>
           <p>
-            Airbnb is required to send you (and the IRS) a 1099-K if you received more than $600 in gross payments. If you qualify for the 14-day exclusion and don't report the income, the IRS may send a notice asking about the discrepancy. Keep documentation: a calendar log of rental days vs. personal use days, and your 1099-K. This is sufficient to demonstrate you qualified for the exclusion if ever asked.
+            Airbnb generally must send you (and the IRS) a 1099-K only if you received more than $20,000 in gross payments across more than 200 transactions. If you qualify for the 14-day exclusion and don't report the income, the IRS may send a notice asking about the discrepancy. Keep documentation: a calendar log of rental days vs. personal use days, and your 1099-K. This is sufficient to demonstrate you qualified for the exclusion if ever asked.
           </p>
         </div>
 

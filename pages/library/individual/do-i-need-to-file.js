@@ -36,7 +36,7 @@ const FAQS = [
   },
   {
     q: 'I\'m a student with only a small amount of income. Do I need to file?',
-    a: 'It depends on the amount. For Tax Year 2025, single filers under 65 must file if gross income exceeds $14,600 (the standard deduction). If you earned less than that, you\'re not required to file — but you should file anyway if taxes were withheld from your paycheck, since you\'ll likely get a full refund.',
+    a: 'It depends on the amount. For Tax Year 2025, single filers under 65 must generally file if gross income is at least $15,750 (the standard deduction). If you earned less than that, you\'re not required to file — but you should file anyway if taxes were withheld from your paycheck, since you\'ll likely get a full refund.',
   },
   {
     q: 'I\'m a nonresident alien (F-1 student, J-1 visitor). Do the same rules apply?',
@@ -83,16 +83,16 @@ export default function DoINeedToFilePage({ translations }) {
   function toggleFaq(i) { setOpenFaq(p => ({ ...p, [i]: !p[i] })) }
 
   const THRESHOLDS = [
-    { status: 'Single',                          age: 'Under 65',         threshold: '$14,600' },
-    { status: 'Single',                          age: '65 or older',      threshold: '$16,550' },
-    { status: 'Married Filing Jointly',          age: 'Both under 65',    threshold: '$29,200' },
-    { status: 'Married Filing Jointly',          age: 'One spouse 65+',   threshold: '$30,750' },
-    { status: 'Married Filing Jointly',          age: 'Both 65+',         threshold: '$32,300' },
+    { status: 'Single',                          age: 'Under 65',         threshold: '$15,750' },
+    { status: 'Single',                          age: '65 or older',      threshold: '$17,750' },
+    { status: 'Married Filing Jointly',          age: 'Both under 65',    threshold: '$31,500' },
+    { status: 'Married Filing Jointly',          age: 'One spouse 65+',   threshold: '$33,100' },
+    { status: 'Married Filing Jointly',          age: 'Both 65+',         threshold: '$34,700' },
     { status: 'Married Filing Separately',       age: 'Any age',          threshold: '$5' },
-    { status: 'Head of Household',               age: 'Under 65',         threshold: '$21,900' },
-    { status: 'Head of Household',               age: '65 or older',      threshold: '$23,850' },
-    { status: 'Qualifying Surviving Spouse',     age: 'Under 65',         threshold: '$29,200' },
-    { status: 'Qualifying Surviving Spouse',     age: '65 or older',      threshold: '$30,750' },
+    { status: 'Head of Household',               age: 'Under 65',         threshold: '$23,625' },
+    { status: 'Head of Household',               age: '65 or older',      threshold: '$25,625' },
+    { status: 'Qualifying Surviving Spouse',     age: 'Under 65',         threshold: '$31,500' },
+    { status: 'Qualifying Surviving Spouse',     age: '65 or older',      threshold: '$33,100' },
   ]
 
   return (

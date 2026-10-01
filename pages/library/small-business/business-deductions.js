@@ -166,7 +166,7 @@ const DEDUCTION_CATEGORIES = [
     items: [
       { name: 'Business insurance', detail: 'General liability, professional liability (E&O), commercial property — fully deductible as business expenses.' },
       { name: 'Self-employed health insurance', detail: 'If you\'re self-employed and not eligible for employer-sponsored coverage, you can deduct 100% of health insurance premiums (for yourself, spouse, and dependents) as an above-the-line deduction. This reduces AGI, not just taxable income.' },
-      { name: 'Self-employed retirement contributions', detail: 'Contributions to a SEP-IRA, SIMPLE IRA, or Solo 401(k) are deductible, up to annual limits. SEP-IRA allows contributions up to 25% of net self-employment income.' },
+      { name: 'Self-employed retirement contributions', detail: 'Contributions to a SEP-IRA, SIMPLE IRA, or Solo 401(k) are deductible, up to annual limits. For a self-employed owner, SEP-IRA contributions are generally limited to 20% of net earnings from self-employment (the 25% limit applies to employees\' pay), up to the annual dollar limit.' },
     ],
   },
   {

@@ -261,7 +261,7 @@ export default function TaxResidencyPage({ translations }) {
               {[
                 ['Tax form', 'Form 1040', 'Form 1040-NR'],
                 ['Income taxed', 'Worldwide income', 'U.S.-source income only'],
-                ['Standard deduction', 'Yes ($15,000 single in 2025)', 'No (itemize only)'],
+                ['Standard deduction', 'Yes ($15,750 single in 2025)', 'No (itemize only)'],
                 ['Joint filing with spouse', 'Yes', 'Generally no (unless election made)'],
                 ['Most tax credits', 'Yes (Child Tax Credit, EITC, etc.)', 'Limited (some credits not available)'],
                 ['Tax treaties', 'May still apply', 'May reduce or eliminate U.S. tax on certain income'],

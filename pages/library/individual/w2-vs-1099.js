@@ -52,7 +52,7 @@ const FAQS = [
   },
   {
     q: 'What are the different types of 1099 forms?',
-    a: 'There are many, but the most common: 1099-NEC (freelance and contractor income, replaces old 1099-MISC for this purpose); 1099-MISC (rent, prizes, legal settlements, and other miscellaneous income); 1099-INT (bank interest); 1099-DIV (dividends); 1099-B (investment and crypto sales); 1099-K (payment processor income — Venmo, PayPal, Stripe — for amounts over $600); 1099-R (retirement account distributions). Each type of 1099 is reported differently on your tax return.',
+    a: 'There are many, but the most common: 1099-NEC (freelance and contractor income, replaces old 1099-MISC for this purpose); 1099-MISC (rent, prizes, legal settlements, and other miscellaneous income); 1099-INT (bank interest); 1099-DIV (dividends); 1099-B (investment and crypto sales); 1099-K (payment processor income — Venmo, PayPal, Stripe — generally over $20,000 and 200 transactions for payment apps; any amount for card payments); 1099-R (retirement account distributions). Each type of 1099 is reported differently on your tax return.',
   },
 ]
 
@@ -245,7 +245,7 @@ export default function W2vs1099Page({ translations }) {
                 ['1099-INT',  'Bank and investment interest',           '$10+',      'Schedule B / Form 1040'],
                 ['1099-DIV',  'Dividends from stocks/funds',            '$10+',      'Schedule B / Form 1040'],
                 ['1099-B',    'Investment sales (stocks, crypto, etc)', 'All sales', 'Schedule D / Form 8949'],
-                ['1099-K',    'Payment processor income (Venmo, Stripe)', '$600+',  'Schedule C (if business)'],
+                ['1099-K',    'Payment processor income (Venmo, Stripe)', '$20,000+ and 200+ transactions (apps); any amount (cards)',  'Schedule C (if business)'],
                 ['1099-R',    'Retirement account distributions',       '$10+',      'Form 1040'],
                 ['1099-G',    'Unemployment compensation, state tax refunds', 'All', 'Form 1040'],
               ].map(([form, reports, threshold, where], i) => (

@@ -40,7 +40,7 @@ const FAQS = [
   },
   {
     q: 'What is the standard deduction and who should take it?',
-    a: 'The standard deduction is a fixed deduction everyone can claim without tracking individual expenses. For Tax Year 2025, it\'s $14,600 for single filers and $29,200 for married filing jointly. Most people — especially those without a mortgage, high state taxes, or large charitable donations — are better off taking the standard deduction than itemizing. When in doubt, let tax software calculate both options and choose the larger one.',
+    a: 'The standard deduction is a fixed deduction everyone can claim without tracking individual expenses. For Tax Year 2025, it\'s $15,750 for single filers and $31,500 for married filing jointly. Most people — especially those without a mortgage, high state taxes, or large charitable donations — are better off taking the standard deduction than itemizing. When in doubt, let tax software calculate both options and choose the larger one.',
   },
   {
     q: 'What is the difference between "above-the-line" and "below-the-line" deductions?',
@@ -48,7 +48,7 @@ const FAQS = [
   },
   {
     q: 'I heard about the Child Tax Credit. Is that a credit or a deduction?',
-    a: 'It\'s a credit — and a partially refundable one. For Tax Year 2025, it\'s worth up to $2,000 per qualifying child under 17. Up to $1,700 of that is refundable as the Additional Child Tax Credit (ACTC), meaning even families who owe no tax can receive up to $1,700 per child as a refund. This is one of the most valuable credits for families with children.',
+    a: 'It\'s a credit — and a partially refundable one. For Tax Year 2025, it\'s worth up to $2,200 per qualifying child under 17. Up to $1,700 of that is refundable as the Additional Child Tax Credit (ACTC), meaning even families who owe no tax can receive up to $1,700 per child as a refund. This is one of the most valuable credits for families with children.',
   },
   {
     q: 'Do deductions help more at higher income levels?',
@@ -221,7 +221,7 @@ export default function TaxCreditVsDeductionPage({ translations }) {
               color: '#D97706',
               bgColor: '#FFFBEB',
               desc: 'Has both a refundable and non-refundable portion. Part of it can generate a refund; the rest only reduces tax to zero.',
-              examples: 'Child Tax Credit ($1,700 refundable / $300 non-refundable per child in 2025)',
+              examples: 'Child Tax Credit ($1,700 refundable / $500 non-refundable per child in 2025)',
               star: '✓ Still very valuable',
             },
             {
@@ -259,7 +259,7 @@ export default function TaxCreditVsDeductionPage({ translations }) {
             </thead>
             <tbody>
               {[
-                ['Standard deduction ($14,600 single)', 'Everyone — no tracking needed', '$1,752', '$3,212'],
+                ['Standard deduction ($15,750 single)', 'Everyone — no tracking needed', '$1,890', '$3,465'],
                 ['Student loan interest (up to $2,500)', 'Paid student loan interest, income under limit', '$300', '$550'],
                 ['IRA contribution (up to $7,000)', 'Earned income, under age 50, meets income limits', '$840', '$1,540'],
                 ['Self-employed health insurance', 'Self-employed, paid your own premiums', 'Varies', 'Varies'],
@@ -294,8 +294,8 @@ export default function TaxCreditVsDeductionPage({ translations }) {
             </thead>
             <tbody>
               {[
-                ['Earned Income Tax Credit (EITC)', 'Up to $7,830', '✅ Yes', 'Low-to-moderate income workers with earned income'],
-                ['Child Tax Credit', 'Up to $2,000/child', '⚡ Partial ($1,700)', 'Qualifying children under 17 with SSN'],
+                ['Earned Income Tax Credit (EITC)', 'Up to $8,046', '✅ Yes', 'Low-to-moderate income workers with earned income'],
+                ['Child Tax Credit', 'Up to $2,200/child', '⚡ Partial ($1,700)', 'Qualifying children under 17 with SSN'],
                 ['Child & Dependent Care Credit', 'Up to $1,050 (1 child)', '❌ No', 'Paid for childcare while you worked'],
                 ['American Opportunity Credit', 'Up to $2,500', '⚡ Partial ($1,000)', 'First 4 years of college, income limits apply'],
                 ['Lifetime Learning Credit', 'Up to $2,000', '❌ No', 'Any post-secondary education, income limits'],
@@ -323,7 +323,7 @@ export default function TaxCreditVsDeductionPage({ translations }) {
             { step: '1', label: 'Start with gross income', desc: 'All income from all sources — wages, freelance, investments, rental income.', color: 'var(--navy)' },
             { step: '2', label: 'Subtract above-the-line deductions', desc: 'IRA contributions, student loan interest, self-employed health insurance, etc. These reduce your Adjusted Gross Income (AGI).', color: 'var(--navy)' },
             { step: '3', label: '= Adjusted Gross Income (AGI)', desc: 'A key number — many credits and deductions have income limits based on AGI.', color: 'var(--gold)', isMilestone: true },
-            { step: '4', label: 'Subtract standard or itemized deductions', desc: 'The standard deduction ($14,600 single in 2025) or your actual itemized expenses — whichever is larger.', color: 'var(--navy)' },
+            { step: '4', label: 'Subtract standard or itemized deductions', desc: 'The standard deduction ($15,750 single in 2025) or your actual itemized expenses — whichever is larger.', color: 'var(--navy)' },
             { step: '5', label: '= Taxable income', desc: 'Your income after all deductions. This is what your tax is calculated on.', color: 'var(--gold)', isMilestone: true },
             { step: '6', label: 'Calculate tax on taxable income', desc: 'Apply the tax brackets to your taxable income.', color: 'var(--navy)' },
             { step: '7', label: 'Subtract tax credits', desc: 'Non-refundable credits first (can reduce to zero), then refundable credits (can generate a refund).', color: 'var(--green)' },

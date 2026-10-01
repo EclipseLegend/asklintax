@@ -44,7 +44,7 @@ const FAQS = [
   },
   {
     q: 'When is each quarterly payment due?',
-    a: 'Q1 (January–March income): due April 15. Q2 (April–May income): due June 16. Q3 (June–August income): due September 15. Q4 (September–December income): due January 15 of the following year. Note: Q2 is only about 2 months, and Q3 is only 3 months — the periods are uneven. If a deadline falls on a weekend or holiday, it shifts to the next business day.',
+    a: 'Q1 (January–March income): due April 15. Q2 (April–May income): due June 15. Q3 (June–August income): due September 15. Q4 (September–December income): due January 15 of the following year. Note: Q2 is only about 2 months, and Q3 is only 3 months — the periods are uneven. If a deadline falls on a weekend or holiday, it shifts to the next business day.',
   },
   {
     q: 'I had a loss in Q1. Do I still need to pay estimated taxes?',
@@ -77,12 +77,12 @@ const RELATED = [
   },
 ]
 
-// 2026 filing season deadlines for Tax Year 2025
+// 2026 estimated tax payment deadlines for Tax Year 2026 income (source: 2026 Form 1040-ES)
 const DEADLINES = [
-  { quarter: 'Q1', period: 'Jan 1 – Mar 31, 2025',  due: 'April 15, 2026',    note: 'Same day as annual return deadline' },
-  { quarter: 'Q2', period: 'Apr 1 – May 31, 2025',  due: 'June 16, 2026',     note: 'Only ~2 months — comes fast' },
-  { quarter: 'Q3', period: 'Jun 1 – Aug 31, 2025',  due: 'September 15, 2026', note: 'Standard 3-month window' },
-  { quarter: 'Q4', period: 'Sep 1 – Dec 31, 2025',  due: 'January 15, 2027',  note: 'Or file and pay by Jan 31, 2027' },
+  { quarter: 'Q1', period: 'Jan 1 – Mar 31, 2026',  due: 'April 15, 2026',    note: 'Same day as annual return deadline' },
+  { quarter: 'Q2', period: 'Apr 1 – May 31, 2026',  due: 'June 15, 2026',     note: 'Only ~2 months — comes fast' },
+  { quarter: 'Q3', period: 'Jun 1 – Aug 31, 2026',  due: 'September 15, 2026', note: 'Standard 3-month window' },
+  { quarter: 'Q4', period: 'Sep 1 – Dec 31, 2026',  due: 'January 15, 2027',  note: 'Or file and pay by Feb 1, 2027' },
 ]
 
 export default function QuarterlyTaxesPage({ translations }) {
@@ -162,15 +162,14 @@ export default function QuarterlyTaxesPage({ translations }) {
 
         <h2>The 2026 quarterly payment deadlines</h2>
         <p>
-          Quarterly payments for Tax Year 2025 income are due on these dates:
+          Quarterly payments for Tax Year 2026 income are due on these dates:
         </p>
 
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '12px', margin: '24px 0' }}>
           {DEADLINES.map((d, i) => (
-            <div key={i} style={{ background: i === 0 ? 'var(--gold-pale)' : 'var(--cream)', border: `1.5px solid ${i === 0 ? 'var(--gold)' : 'var(--border)'}`, borderRadius: '12px', padding: '18px 18px' }}>
+            <div key={i} style={{ background: 'var(--cream)', border: '1.5px solid var(--border)', borderRadius: '12px', padding: '18px 18px' }}>
               <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '8px' }}>
                 <span style={{ fontSize: '13px', fontWeight: '700', color: 'var(--gold)', letterSpacing: '.08em', textTransform: 'uppercase' }}>{d.quarter}</span>
-                {i === 0 && <span style={{ fontSize: '11px', background: 'var(--gold)', color: '#fff', padding: '2px 8px', borderRadius: '100px', fontWeight: '600' }}>Coming up</span>}
               </div>
               <div style={{ fontSize: '16px', fontWeight: '700', color: 'var(--navy)', marginBottom: '4px' }}>{d.due}</div>
               <div style={{ fontSize: '13px', color: 'var(--muted)', marginBottom: '6px' }}>{d.period}</div>
@@ -181,7 +180,7 @@ export default function QuarterlyTaxesPage({ translations }) {
 
         <div className="callout callout-info">
           <div className="callout-title">ℹ️ Q4 exception: file early and skip the January payment</div>
-          <p>For Q4, you can skip the January 15 payment if you file your complete tax return AND pay any remaining balance in full by January 31. This can simplify year-end planning if you're ready to file early.</p>
+          <p>For Q4, you can skip the January 15 payment if you file your complete tax return AND pay any remaining balance in full by January 31 (for 2026 estimated tax, the date is February 1, 2027). This can simplify year-end planning if you're ready to file early.</p>
         </div>
 
         <h2>How to calculate your payment</h2>

@@ -22,7 +22,7 @@ const META = {
   confidence:    'Covers the standard CP2000 response process. If the proposed amount is large (over $5,000), if you disagree with the IRS position, or if this involves multiple years, consult a CPA before responding.',
   persona:       ['Anyone who received a CP2000 notice', 'Freelancer who forgot a 1099', 'Investor with unreported income', 'New immigrant unfamiliar with IRS notices'],
   relatedJourney: ['Got an IRS letter', 'Dealing with a tax problem'],
-  actionRequired: 'Find the response deadline on your CP2000 (typically 60 days from the notice date). Do not miss it. Read the notice carefully to identify which income the IRS believes was underreported, then gather documentation to either confirm or dispute the discrepancy.',
+  actionRequired: 'Find the response deadline on your CP2000 (generally 30 days from the notice date, or 60 days if you live outside the U.S. — always follow the date printed on your notice). Do not miss it. Read the notice carefully to identify which income the IRS believes was underreported, then gather documentation to either confirm or dispute the discrepancy.',
 }
 
 const FAQS = [
@@ -130,7 +130,7 @@ export default function CP2000Page({ translations }) {
 
         <div className="callout callout-action">
           <div className="callout-title">✅ First: find the deadline and mark it</div>
-          <p>The response deadline is printed on the first page of your CP2000 — look for "Please respond by" followed by a date. It's typically 60 days from the notice date. Mark it in your calendar immediately. Missing this deadline significantly escalates the situation — the IRS will proceed as if you agree with their assessment.</p>
+          <p>The response deadline is printed on the first page of your CP2000 — look for "Please respond by" followed by a date. The IRS generally asks for a response within 30 days of the notice date (60 days if you live outside the United States), but the date printed on your notice is the one to follow. Mark it in your calendar immediately. Missing this deadline significantly escalates the situation — the IRS will proceed as if you agree with their assessment.</p>
         </div>
 
         <h2>CP2000 is not an audit — here's the difference</h2>
@@ -247,7 +247,7 @@ export default function CP2000Page({ translations }) {
           <li><strong>Report all 1099 income</strong> — Every client, bank, broker, and platform that pays you reports to the IRS. If you receive a 1099, report the income. Even if you don't receive a 1099, the income is still taxable.</li>
           <li><strong>Check for 1099s before filing</strong> — Wait until mid-February to file, when most 1099s have been issued. Rushing to file in January often means missing late-arriving forms.</li>
           <li><strong>Report investment sales on Schedule D</strong> — Every stock sale, crypto sale, and fund redemption generates a 1099-B. All of them must be reported, even if the result is a loss.</li>
-          <li><strong>Report all payment platform income</strong> — If you received business income through PayPal, Venmo, Stripe, or Airbnb above $600, expect a 1099-K. Report it.</li>
+          <li><strong>Report all payment platform income</strong> — If you received business income through PayPal, Venmo, Stripe, or Airbnb, report it whether or not you receive a 1099-K. Payment apps and marketplaces generally issue one only above $20,000 and 200 transactions; card payments have no minimum.</li>
           <li><strong>Keep copies of all tax documents</strong> — If a payer sends an incorrect 1099, you'll need documentation to dispute the CP2000 that results.</li>
         </ul>
 

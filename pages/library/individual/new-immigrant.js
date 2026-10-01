@@ -28,7 +28,7 @@ const META = {
 const FAQS = [
   {
     q: 'I just arrived in the U.S. this year. Do I need to file a tax return?',
-    a: 'It depends on two things: how long you\'ve been in the U.S. (which determines your residency status) and how much income you earned. If you passed the Substantial Presence Test and earned more than the standard deduction ($14,600 for single filers in 2024), you generally need to file. Even if you don\'t owe taxes, filing can result in a refund of withheld taxes.',
+    a: 'It depends on two things: how long you\'ve been in the U.S. (which determines your residency status) and how much income you earned. If you passed the Substantial Presence Test and earned more than the standard deduction ($15,750 for single filers in 2025), you generally need to file. Even if you don\'t owe taxes, filing can result in a refund of withheld taxes.',
   },
   {
     q: 'What\'s the difference between a resident alien and a nonresident alien for tax purposes?',
@@ -245,8 +245,8 @@ export default function NewImmigrantPage({ translations }) {
           Being a new immigrant doesn't mean you miss out on tax benefits. Depending on your situation, you may qualify for:
         </p>
         <ul>
-          <li><strong>Standard deduction</strong> — $14,600 for single filers in 2024 (resident aliens only; nonresident aliens generally cannot claim the standard deduction)</li>
-          <li><strong>Child Tax Credit</strong> — up to $2,000 per qualifying child under 17, if you have a Social Security Number or ITIN</li>
+          <li><strong>Standard deduction</strong> — $15,750 for single filers in 2025 (resident aliens only; nonresident aliens generally cannot claim the standard deduction)</li>
+          <li><strong>Child Tax Credit</strong> — up to $2,200 per qualifying child under 17 (Tax Year 2025), if the child has a valid SSN and you (or your spouse, if filing jointly) have a Social Security Number valid for employment — an ITIN is not enough</li>
           <li><strong>Foreign Tax Credit</strong> — if you paid taxes to another country on income also taxed by the U.S., you may be able to credit those foreign taxes against your U.S. tax bill</li>
           <li><strong>Tax treaty benefits</strong> — the U.S. has tax treaties with many countries (including China, but not Taiwan) that may reduce or eliminate certain types of U.S. tax on treaty country residents</li>
         </ul>

@@ -36,7 +36,7 @@ const FAQS = [
   },
   {
     q: 'What is the standard deduction and should I take it?',
-    a: 'The standard deduction is a fixed amount you can subtract from your income without having to itemize individual expenses. For Tax Year 2025, it\'s $14,600 for single filers. Most first-time filers should take the standard deduction — it\'s simpler and often larger than the sum of itemized deductions for people just starting out. You only benefit from itemizing if your qualifying expenses (mortgage interest, state taxes, charitable donations, etc.) exceed the standard deduction amount.',
+    a: 'The standard deduction is a fixed amount you can subtract from your income without having to itemize individual expenses. For Tax Year 2025, it\'s $15,750 for single filers. Most first-time filers should take the standard deduction — it\'s simpler and often larger than the sum of itemized deductions for people just starting out. You only benefit from itemizing if your qualifying expenses (mortgage interest, state taxes, charitable donations, etc.) exceed the standard deduction amount.',
   },
   {
     q: 'What if I make a mistake on my tax return?',
@@ -121,7 +121,7 @@ const STEPS = [
     color: 'var(--green)',
     items: [
       { label: 'Report all income', desc: 'Enter every W-2, 1099, and any other income — including cash income and tips.' },
-      { label: 'Choose standard or itemized deduction', desc: 'Most first-time filers take the standard deduction ($14,600 single in 2025).' },
+      { label: 'Choose standard or itemized deduction', desc: 'Most first-time filers take the standard deduction ($15,750 single in 2025).' },
       { label: 'Claim your credits', desc: 'Common credits: Child Tax Credit, Earned Income Credit, education credits. Software will ask.' },
       { label: 'Review before submitting', desc: 'Double-check your name, SSN, bank info, and income totals. Errors on these are the most common.' },
     ],
@@ -238,15 +238,15 @@ export default function FirstTimeFillerPage({ translations }) {
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px', margin: '24px 0' }}>
           <div style={{ background: 'var(--cream)', border: '1.5px solid var(--border)', borderRadius: '12px', padding: '22px 20px' }}>
             <h4 style={{ fontSize: '17px', fontWeight: '600', color: 'var(--navy)', marginBottom: '10px' }}>Standard Deduction</h4>
-            <div style={{ fontSize: '22px', fontWeight: '700', color: 'var(--gold)', marginBottom: '12px' }}>$14,600</div>
+            <div style={{ fontSize: '22px', fontWeight: '700', color: 'var(--gold)', marginBottom: '12px' }}>$15,750</div>
             <p style={{ fontSize: '14.5px', color: 'var(--muted)', lineHeight: '1.7', marginBottom: '12px' }}>Fixed amount for single filers in Tax Year 2025. No receipts needed. Just choose it.</p>
             <p style={{ fontSize: '14px', color: 'var(--green)', fontWeight: '500' }}>✓ Best for most first-time filers</p>
           </div>
           <div style={{ background: 'var(--cream)', border: '1.5px solid var(--border)', borderRadius: '12px', padding: '22px 20px' }}>
             <h4 style={{ fontSize: '17px', fontWeight: '600', color: 'var(--navy)', marginBottom: '10px' }}>Itemized Deductions</h4>
             <div style={{ fontSize: '22px', fontWeight: '700', color: 'var(--navy)', marginBottom: '12px' }}>Your actual expenses</div>
-            <p style={{ fontSize: '14.5px', color: 'var(--muted)', lineHeight: '1.7', marginBottom: '12px' }}>Add up qualifying expenses: mortgage interest, state taxes (up to $10,000), charitable donations, and more.</p>
-            <p style={{ fontSize: '14px', color: 'var(--muted)', fontWeight: '500' }}>Only beneficial if total exceeds $14,600</p>
+            <p style={{ fontSize: '14.5px', color: 'var(--muted)', lineHeight: '1.7', marginBottom: '12px' }}>Add up qualifying expenses: mortgage interest, state and local taxes (up to $40,000 for 2025, with a lower limit at higher incomes), charitable donations, and more.</p>
+            <p style={{ fontSize: '14px', color: 'var(--muted)', fontWeight: '500' }}>Only beneficial if total exceeds $15,750</p>
           </div>
         </div>
 
