@@ -1,5 +1,15 @@
 import Link from 'next/link'
+import { CATEGORIES } from '../lib/categories'
 import styles from './KnowledgePage.module.css'
+
+// Official category for a Library URL ("/library/<category>" or "/library/<category>/<slug>").
+function categoryFor(href = '') {
+  const segment = href.split('/')[2]
+  return CATEGORIES.find(c => c.path === `/library/${segment}/`)
+}
+
+// Trailing-slash form of an internal page URL (matches next.config.js trailingSlash: true).
+const withSlash = href => (href && !href.endsWith('/') && !/[?#]/.test(href) ? `${href}/` : href)
 
 /**
  * KnowledgePage — Gold Standard Template for Foundation 20
@@ -29,6 +39,11 @@ export default function KnowledgePage({
   }
   const emotion = emotionConfig[meta.userEmotion] || emotionConfig.learning
 
+  // Structural labels come from the official taxonomy (lib/categories.js); META text is the fallback.
+  const category = categoryFor(meta.categoryHref)
+  const categoryName = category ? category.name : meta.category
+  const categoryHref = category ? category.path : withSlash(meta.categoryHref)
+
   return (
     <div className={styles.wrap}>
 
@@ -38,15 +53,15 @@ export default function KnowledgePage({
           <nav className={styles.breadcrumb}>
             <Link href="/">Home</Link>
             <span>›</span>
-            <Link href="/library">Knowledge Library</Link>
+            <Link href="/library/">Knowledge Library</Link>
             <span>›</span>
-            <Link href={meta.categoryHref}>{meta.category}</Link>
+            <Link href={categoryHref}>{categoryName}</Link>
             <span>›</span>
             <span>{meta.title}</span>
           </nav>
 
           <div className={styles.heroMeta}>
-            <span className={`tag tag-navy ${styles.catTag}`}>{meta.category}</span>
+            <span className={`tag tag-navy ${styles.catTag}`}>{categoryName}</span>
             <span className={styles.emotionTag}>{emotion.emoji} {emotion.label}</span>
           </div>
 
@@ -200,8 +215,8 @@ export default function KnowledgePage({
             <h2 className={styles.sectionHeading}>Related guides</h2>
             <div className={styles.relatedGrid}>
               {relatedArticles.map(article => (
-                <Link key={article.href} href={article.href} className={styles.relatedCard}>
-                  <span className={styles.relatedCat}>{article.cat}</span>
+                <Link key={article.href} href={withSlash(article.href)} className={styles.relatedCard}>
+                  <span className={styles.relatedCat}>{categoryFor(article.href)?.name || article.cat}</span>
                   <h4 className={styles.relatedTitle}>{article.title}</h4>
                   <p className={styles.relatedDesc}>{article.desc}</p>
                 </Link>

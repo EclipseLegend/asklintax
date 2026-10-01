@@ -41,11 +41,11 @@ const UPDATE_DATA = {
 
 const GUIDE_CARDS = [
   { href: '/library/irs/irs-notice',               cat: 'irs',        topColor: 'gold',   tagCls: 'tag-gold',  tagLabel: 'IRS & Tax Issues',       title: 'I received an IRS letter — what do I do?',                           desc: 'Most IRS notices are routine. Here\'s how to read the letter and figure out your next step without panicking.', read: '4 min read', emotion: '😨 Feeling anxious?' },
-  { href: '/library/business-formation/llc-basics', cat: 'business',   topColor: 'navy',   tagCls: 'tag-navy',  tagLabel: 'Starting a Business',     title: 'What is an LLC and do I actually need one?',                          desc: 'LLC is one of the most searched terms in small business taxes. Here\'s what it means in plain language.',       read: '5 min read', emotion: '🤔 Deciding?' },
+  { href: '/library/business-formation/llc-basics', cat: 'business',   topColor: 'navy',   tagCls: 'tag-navy',  tagLabel: 'Business Formation',      title: 'What is an LLC and do I actually need one?',                          desc: 'LLC is one of the most searched terms in small business taxes. Here\'s what it means in plain language.',       read: '5 min read', emotion: '🤔 Deciding?' },
   { href: '/library/individual/new-immigrant',      cat: 'individual', topColor: 'forest', tagCls: 'tag-green', tagLabel: 'Individuals & Families',   title: 'New to the U.S.? What you need to know about taxes',                  desc: 'Your first tax year in America doesn\'t need to be confusing. A complete, plain-language guide.',              read: '6 min read', emotion: '📚 Just learning' },
-  { href: '/library/rental/airbnb-tax-guide',       cat: 'rental',     topColor: 'blue',   tagCls: 'tag-blue',  tagLabel: 'Airbnb & Rental',         title: 'Airbnb host? Here\'s what you need to report on your taxes',          desc: 'Short-term rental income has its own rules. What counts, what\'s deductible, and the 14-day rule.',            read: '5 min read', emotion: '📋 Getting organized' },
-  { href: '/library/business-formation/llc-vs-scorp', cat: 'business', topColor: 'navy',  tagCls: 'tag-navy',  tagLabel: 'Starting a Business',     title: 'LLC vs S-Corp: which structure is right for your business?',          desc: 'One of the most important — and confusing — decisions for small business owners. A clear comparison.',          read: '7 min read', emotion: '🤔 Comparing options' },
-  { href: '/library/investment/fbar',              cat: 'individual', topColor: 'red',    tagCls: 'tag-red',   tagLabel: 'FBAR & Foreign Accounts',  title: 'Do you have accounts outside the U.S.? You may need to file FBAR',   desc: 'Many Chinese families don\'t know they\'re required to report foreign bank accounts.',                          read: '5 min read', emotion: '⚠️ Check if this applies' },
+  { href: '/library/rental/airbnb-tax-guide',       cat: 'rental',     topColor: 'blue',   tagCls: 'tag-blue',  tagLabel: 'Real Estate & Airbnb',    title: 'Airbnb host? Here\'s what you need to report on your taxes',          desc: 'Short-term rental income has its own rules. What counts, what\'s deductible, and the 14-day rule.',            read: '5 min read', emotion: '📋 Getting organized' },
+  { href: '/library/business-formation/llc-vs-scorp', cat: 'business', topColor: 'navy',  tagCls: 'tag-navy',  tagLabel: 'Business Formation',      title: 'LLC vs S-Corp: which structure is right for your business?',          desc: 'One of the most important — and confusing — decisions for small business owners. A clear comparison.',          read: '7 min read', emotion: '🤔 Comparing options' },
+  { href: '/library/investment/fbar',              cat: 'individual', topColor: 'red',    tagCls: 'tag-red',   tagLabel: 'Investments & Foreign Accounts',  title: 'Do you have accounts outside the U.S.? You may need to file FBAR',   desc: 'Many Chinese families don\'t know they\'re required to report foreign bank accounts.',                          read: '5 min read', emotion: '⚠️ Check if this applies' },
 ]
 
 const START_CARDS = [
@@ -103,7 +103,7 @@ export default function HomePage({ translations }) {
   const GUIDE_TABS = [
     { key: 'all',        label: 'All Topics' },
     { key: 'individual', label: 'Individuals & Families' },
-    { key: 'business',   label: 'Small Business' },
+    { key: 'business',   label: 'Business Formation' },
     { key: 'rental',     label: 'Real Estate & Airbnb' },
     { key: 'irs',        label: 'IRS & Tax Issues' },
   ]
