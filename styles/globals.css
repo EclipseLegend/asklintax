@@ -49,6 +49,24 @@ body {
   overflow-x: hidden;
 }
 
+/* ── TRADITIONAL CHINESE GLYPHS ──
+   Cormorant Garamond and DM Sans have no Chinese characters. These faces add CJK coverage
+   to the same family names using fonts already installed on the device (no download):
+   Latin text keeps the brand fonts; Chinese characters use a Traditional Chinese system font. */
+@font-face {
+  font-family: "Cormorant Garamond";
+  src: local("PingFang TC"), local("PingFangTC-Regular"), local("Microsoft JhengHei"), local("Noto Sans TC"), local("NotoSansTC-Regular");
+  unicode-range: U+2E80-2FDF, U+3000-303F, U+3100-312F, U+3400-4DBF, U+4E00-9FFF, U+F900-FAFF, U+FE30-FE4F, U+FF00-FFEF;
+}
+@font-face {
+  font-family: "DM Sans";
+  src: local("PingFang TC"), local("PingFangTC-Regular"), local("Microsoft JhengHei"), local("Noto Sans TC"), local("NotoSansTC-Regular");
+  unicode-range: U+2E80-2FDF, U+3000-303F, U+3100-312F, U+3400-4DBF, U+4E00-9FFF, U+F900-FAFF, U+FE30-FE4F, U+FF00-FFEF;
+}
+html[lang="zh-Hant"] body {
+  font-family: "DM Sans", "PingFang TC", "Microsoft JhengHei", "Noto Sans TC", system-ui, sans-serif;
+}
+
 /* ── TYPOGRAPHY HELPERS ── */
 .section-label {
   font-size: 12.5px;

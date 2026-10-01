@@ -13,6 +13,8 @@ const fs = require('fs')
 const path = require('path')
 const { ARTICLES } = require('../lib/articles')
 const { CATEGORIES, LIBRARY_ESSENTIALS, LIBRARY_SITUATIONS } = require('../lib/categories')
+const { ARTICLES_ZH_TW, CATEGORIES_ZH_TW } = require('../lib/library-zh-tw')
+const { ZH_TW_PAGES, localePath } = require('../lib/locale-routes')
 
 const ROOT = path.join(__dirname, '..')
 const OUT_DIR = path.join(ROOT, 'out')
@@ -238,6 +240,56 @@ if (!fs.existsSync(OUT_DIR)) {
       error(`${label(a)}: readMinutes is ${a.readMinutes} in the index but the page says "${read[0]}".`)
     }
   }
+}
+
+// ── 5. Traditional Chinese (/zh-tw/) display metadata and pages ─
+
+// Chinese titles/summaries are display overlays only: every id must be a real article,
+// and every article/category should have one (missing metadata falls back to English).
+for (const id of Object.keys(ARTICLES_ZH_TW)) {
+  if (!articleById.has(id)) error(`lib/library-zh-tw.js has metadata for "${id}", which is not a published article in lib/articles.js.`)
+}
+for (const a of ARTICLES) {
+  const zh = ARTICLES_ZH_TW[a.id]
+  if (!zh) { warn(`${label(a)}: no Traditional Chinese metadata in lib/library-zh-tw.js (English title shown on /zh-tw/).`); continue }
+  for (const field of ['title', 'summary']) {
+    if (typeof zh[field] !== 'string' || !zh[field].trim()) warn(`${label(a)}: Traditional Chinese "${field}" is missing.`)
+  }
+  if (!Array.isArray(zh.keywords) || zh.keywords.length === 0) warn(`${label(a)}: no Traditional Chinese search keywords.`)
+}
+for (const key of Object.keys(CATEGORIES_ZH_TW)) {
+  if (!categoryByKey.has(key)) error(`lib/library-zh-tw.js has metadata for category "${key}", which does not exist in lib/categories.js.`)
+}
+for (const c of CATEGORIES) {
+  const zh = CATEGORIES_ZH_TW[c.key]
+  const where = `category "${c.key}" (zh-tw)`
+  if (!zh) { error(`${where}: no Traditional Chinese metadata in lib/library-zh-tw.js.`); continue }
+  for (const field of ['name', 'summary', 'intro', 'seoTitle', 'seoDescription']) {
+    if (typeof zh[field] !== 'string' || !zh[field].trim()) error(`${where}: missing or empty "${field}".`)
+  }
+  if (zh.questions) {
+    zh.questions.forEach((item, i) => {
+      if (!item || typeof item.q !== 'string' || !item.q.trim()) error(`${where} question #${i + 1} has no question text.`)
+      checkRefs([item && item.id], `${where} question #${i + 1}`)
+    })
+  }
+  if (!ZH_TW_PAGES.includes(c.path.replace(/\/$/, ''))) error(`${where}: ${c.path} is not listed in ZH_TW_PAGES (lib/locale-routes.js).`)
+}
+
+if (fs.existsSync(OUT_DIR)) {
+  // Every path declared in ZH_TW_PAGES must be a real exported page, or the language switch would 404.
+  for (const p of ZH_TW_PAGES) {
+    const zhPath = localePath(p === '/' ? '/' : `${p}/`, 'zh-tw')
+    if (!fs.existsSync(exportedFile(zhPath))) error(`${zhPath} is listed in ZH_TW_PAGES but was not exported. Create pages${zhPath}index.js.`)
+  }
+  // /zh-tw/library/ situation links point at /zh-tw/start/#<id>.
+  const zhStartFile = exportedFile('/zh-tw/start/')
+  const zhStartHtml = fs.existsSync(zhStartFile) ? fs.readFileSync(zhStartFile, 'utf8') : ''
+  for (const id of LIBRARY_SITUATIONS) {
+    if (!new RegExp(`\\sid="${id}"`).test(zhStartHtml)) error(`LIBRARY_SITUATIONS "${id}" has no matching section on /zh-tw/start/.`)
+  }
+  // The legacy /zh/ placeholder is replaced by a redirect; it must not be exported again.
+  if (fs.existsSync(path.join(OUT_DIR, 'zh'))) error('out/zh/ exists. /zh/* now 301-redirects to /zh-tw/ (netlify.toml); remove pages/zh/.')
 }
 
 // ── Report ────────────────────────────────────────────────

@@ -3,21 +3,25 @@ import Layout from '../Layout'
 import ArticleCard from './ArticleCard'
 import { useTranslation } from '../../lib/i18n'
 import { ARTICLES } from '../../lib/articles'
-import { CATEGORIES } from '../../lib/categories'
+import { getCategory, formatMonthYear } from '../../lib/library-i18n'
+import { localePath } from '../../lib/locale-routes'
 import TAX_CONFIG from '../../lib/tax-config'
 import styles from './library.module.css'
 
 const articleById = new Map(ARTICLES.map(a => [a.id, a]))
 
 /**
- * Shared template for every Knowledge Library category page.
- * Everything is derived from `categoryKey` via lib/categories.js and lib/articles.js.
+ * Shared template for every Knowledge Library category page (English and /zh-tw/).
+ * Everything is derived from `categoryKey` via lib/categories.js and lib/articles.js
+ * (plus lib/library-zh-tw.js display metadata when locale is 'zh-tw').
  */
-export default function CategoryPage({ categoryKey, translations }) {
+export default function CategoryPage({ categoryKey, translations, locale = 'en' }) {
   const { t } = useTranslation(translations.common)
   const { t: tl } = useTranslation(translations.library)
+  const L = path => localePath(path, locale)
+  const isEn = locale === 'en'
 
-  const category = CATEGORIES.find(c => c.key === categoryKey)
+  const category = getCategory(categoryKey, locale)
   const articles = ARTICLES.filter(a => a.category === categoryKey)
   const startHere = category.startHere.filter(id => articleById.has(id))
   const related = (category.related || []).filter(id => articleById.has(id))
@@ -30,15 +34,15 @@ export default function CategoryPage({ categoryKey, translations }) {
   const guideCount = tl(count === 1 ? 'category.guideCountOne' : 'category.guideCountOther').replace('{count}', count)
 
   return (
-    <Layout t={t} meta={{ title: category.seoTitle, description: category.seoDescription }}>
+    <Layout t={t} locale={locale} meta={{ title: category.seoTitle, description: category.seoDescription }}>
 
       {/* ── HERO ── */}
       <section className={styles.hero}>
         <div className={`${styles.heroInner} container`}>
-          <nav className={styles.breadcrumb} aria-label="Breadcrumb">
-            <Link href="/">{tl('breadcrumb.home')}</Link>
+          <nav className={styles.breadcrumb} aria-label={isEn ? 'Breadcrumb' : '導覽路徑'}>
+            <Link href={L('/')}>{tl('breadcrumb.home')}</Link>
             <span aria-hidden="true">›</span>
-            <Link href="/library/">{tl('breadcrumb.library')}</Link>
+            <Link href={L('/library/')}>{tl('breadcrumb.library')}</Link>
             <span aria-hidden="true">›</span>
             <span aria-current="page">{category.name}</span>
           </nav>
@@ -49,7 +53,7 @@ export default function CategoryPage({ categoryKey, translations }) {
             <span aria-hidden="true">·</span>
             <span>{tl('category.taxYear').replace('{year}', TAX_CONFIG.currentTaxYear)}</span>
             <span aria-hidden="true">·</span>
-            <span>{tl('category.lastReviewed').replace('{date}', TAX_CONFIG.lastReviewed)}</span>
+            <span>{tl('category.lastReviewed').replace('{date}', formatMonthYear(TAX_CONFIG.lastReviewed, locale))}</span>
           </p>
         </div>
       </section>
@@ -69,7 +73,7 @@ export default function CategoryPage({ categoryKey, translations }) {
               )}
             </div>
             <div className={`${styles.featuredGrid} ${startHere.length === 1 ? styles.featuredSingle : ''}`}>
-              {startHere.map(id => <ArticleCard key={id} id={id} variant="featured" t={tl} />)}
+              {startHere.map(id => <ArticleCard key={id} id={id} variant="featured" t={tl} locale={locale} />)}
             </div>
           </section>
         )}
@@ -84,8 +88,11 @@ export default function CategoryPage({ categoryKey, translations }) {
             <ul className={styles.questionList}>
               {questions.map(item => (
                 <li key={item.q}>
-                  <Link href={articleById.get(item.id).path} className={styles.question}>
-                    <span>{item.q}</span>
+                  <Link href={articleById.get(item.id).path} className={styles.question} {...(isEn ? {} : { hrefLang: 'en' })}>
+                    <span>
+                      {item.q}
+                      {!isEn && <span className={styles.englishTagInline}>{tl('card.englishGuide')}</span>}
+                    </span>
                     <span className={styles.questionArrow} aria-hidden="true">→</span>
                   </Link>
                 </li>
@@ -103,7 +110,7 @@ export default function CategoryPage({ categoryKey, translations }) {
             </div>
             <div className={styles.cardGrid}>
               {articles.map(a => (
-                <ArticleCard key={a.id} id={a.id} marker={startHere.includes(a.id)} t={tl} />
+                <ArticleCard key={a.id} id={a.id} marker={startHere.includes(a.id)} t={tl} locale={locale} />
               ))}
             </div>
           </section>
@@ -114,7 +121,7 @@ export default function CategoryPage({ categoryKey, translations }) {
           <section className={`${styles.section} ${styles.sectionSecondary}`}>
             <h2 className={styles.sectionTitleSmall}>{tl('category.relatedLabel')}</h2>
             <div className={styles.relatedGrid}>
-              {related.map(id => <ArticleCard key={id} id={id} variant="related" t={tl} />)}
+              {related.map(id => <ArticleCard key={id} id={id} variant="related" t={tl} locale={locale} />)}
             </div>
           </section>
         )}
@@ -125,7 +132,7 @@ export default function CategoryPage({ categoryKey, translations }) {
             <p className={styles.closingTitle}>{tl('category.closingTitle')}</p>
             <p className={styles.closingSub}>{tl('category.closingSub')}</p>
           </div>
-          <Link href="/start/" className="btn-outline">{tl('category.closingCta')} →</Link>
+          <Link href={L('/start/')} className="btn-outline">{tl('category.closingCta')} →</Link>
         </aside>
         <p className={styles.disclaimer}>{tl('category.disclaimer')}</p>
 

@@ -5,7 +5,9 @@ import Layout from '../Layout'
 import ArticleCard from './ArticleCard'
 import { useTranslation } from '../../lib/i18n'
 import { ARTICLES } from '../../lib/articles'
-import { CATEGORIES, LIBRARY_ESSENTIALS, LIBRARY_SITUATIONS } from '../../lib/categories'
+import { LIBRARY_ESSENTIALS, LIBRARY_SITUATIONS } from '../../lib/categories'
+import { getCategories, getArticle, formatMonthYear } from '../../lib/library-i18n'
+import { localePath } from '../../lib/locale-routes'
 import { searchArticles } from '../../lib/search'
 import TAX_CONFIG from '../../lib/tax-config'
 import styles from './library.module.css'
@@ -19,10 +21,13 @@ import styles from './library.module.css'
  * updates ?q= with a shallow route change; loading /library/?q=... shows the same results.
  * The static HTML never contains results, and the canonical stays /library/.
  */
-export default function LibraryHome({ translations }) {
+export default function LibraryHome({ translations, locale = 'en' }) {
   const { t } = useTranslation(translations.common)
   const { t: tl } = useTranslation(translations.library)
   const router = useRouter()
+  const L = path => localePath(path, locale)
+  const isEn = locale === 'en'
+  const CATEGORIES = getCategories(locale)
 
   const byCategory = key => ARTICLES.filter(a => a.category === key)
   const guideCount = n => tl(n === 1 ? 'category.guideCountOne' : 'category.guideCountOther').replace('{count}', n)
@@ -31,7 +36,7 @@ export default function LibraryHome({ translations }) {
   // ── Search state ──
   const rawQuery = router.isReady && typeof router.query.q === 'string' ? router.query.q : ''
   const query = rawQuery.trim().replace(/\s+/g, ' ')
-  const results = useMemo(() => (query ? searchArticles(query) : []), [query])
+  const results = useMemo(() => (query ? searchArticles(query, { locale }) : []), [query, locale])
   const [input, setInput] = useState('')
   const inputRef = useRef(null)
   const resultsHeadingRef = useRef(null)
@@ -68,17 +73,19 @@ export default function LibraryHome({ translations }) {
 
   const resultCount = tl(results.length === 1 ? 'search.countOne' : 'search.countOther').replace('{count}', results.length)
   const statusText = !query ? '' : results.length
-    ? `${tl('search.resultsFor').replace('{query}', query)}. ${resultCount}.`
+    ? (isEn
+      ? `${tl('search.resultsFor').replace('{query}', query)}. ${resultCount}.`
+      : `${tl('search.resultsFor').replace('{query}', query)}。${resultCount}。`)
     : tl('search.noResultsTitle').replace('{query}', query)
 
   return (
-    <Layout t={t} meta={{ title: tl('home.seoTitle'), description: tl('home.seoDescription') }}>
+    <Layout t={t} locale={locale} meta={{ title: tl('home.seoTitle'), description: tl('home.seoDescription') }}>
 
       {/* ── HERO + SEARCH ── */}
       <section className={styles.libHero}>
         <div className={`${styles.heroInner} container`}>
-          <nav className={styles.breadcrumb} aria-label="Breadcrumb">
-            <Link href="/">{tl('breadcrumb.home')}</Link>
+          <nav className={styles.breadcrumb} aria-label={isEn ? 'Breadcrumb' : '導覽路徑'}>
+            <Link href={L('/')}>{tl('breadcrumb.home')}</Link>
             <span aria-hidden="true">›</span>
             <span aria-current="page">{tl('breadcrumb.library')}</span>
           </nav>
@@ -92,7 +99,7 @@ export default function LibraryHome({ translations }) {
           <form
             className={styles.search}
             role="search"
-            action="/library/"
+            action={L('/library/')}
             method="get"
             aria-label={tl('home.searchLabel')}
             onSubmit={e => { e.preventDefault(); runSearch(input) }}
@@ -148,12 +155,12 @@ export default function LibraryHome({ translations }) {
 
             {results.length > 0 ? (
               <div className={styles.cardGrid}>
-                {results.map(a => <ArticleCard key={a.id} id={a.id} showCategory t={tl} />)}
+                {results.map(a => <ArticleCard key={a.id} id={a.id} showCategory t={tl} locale={locale} />)}
               </div>
             ) : (
               <div className={styles.noResultsLinks}>
                 <a href="#topics" className="btn-outline">{tl('search.browseTopics')} ↓</a>
-                <Link href="/start/" className="btn-outline">{tl('search.goToStart')} →</Link>
+                <Link href={L('/start/')} className="btn-outline">{tl('search.goToStart')} →</Link>
               </div>
             )}
           </div>
@@ -191,7 +198,7 @@ export default function LibraryHome({ translations }) {
             <p className={styles.sectionSub}>{tl('home.essentialsSub')}</p>
           </div>
           <div className={styles.essentialGrid}>
-            {LIBRARY_ESSENTIALS.map((id, i) => <ArticleCard key={id} id={id} variant="essential" number={i + 1} t={tl} />)}
+            {LIBRARY_ESSENTIALS.map((id, i) => <ArticleCard key={id} id={id} variant="essential" number={i + 1} t={tl} locale={locale} />)}
           </div>
         </div>
       </section>
@@ -206,7 +213,7 @@ export default function LibraryHome({ translations }) {
           <ul className={styles.situationList}>
             {LIBRARY_SITUATIONS.map(id => (
               <li key={id}>
-                <Link href={`/start/#${id}`} className={styles.situation}>
+                <Link href={L(`/start/#${id}`)} className={styles.situation}>
                   <span>
                     <span className={styles.situationTitle}>{tl(`situations.${id}.title`)}</span>
                     <span className={styles.situationDesc}>{tl(`situations.${id}.desc`)}</span>
@@ -216,7 +223,7 @@ export default function LibraryHome({ translations }) {
               </li>
             ))}
           </ul>
-          <Link href="/start/" className={styles.situationsCta}>{tl('home.situationsCta')} →</Link>
+          <Link href={L('/start/')} className={styles.situationsCta}>{tl('home.situationsCta')} →</Link>
         </div>
       </section>
 
@@ -237,9 +244,21 @@ export default function LibraryHome({ translations }) {
                   <span className={styles.directoryCount}>{guides.length}</span>
                 </h3>
                 <ul className={styles.directoryList}>
-                  {guides.map(a => (
-                    <li key={a.id}><Link href={a.path}>{a.title}</Link></li>
-                  ))}
+                  {guides.map(a => {
+                    const display = getArticle(a.id, locale)
+                    return (
+                      <li key={a.id}>
+                        {isEn ? (
+                          <Link href={a.path}>{a.title}</Link>
+                        ) : (
+                          <Link href={a.path} hrefLang="en">
+                            {display.title}
+                            <span className={styles.englishTagInline}>{tl('card.englishGuide')}</span>
+                          </Link>
+                        )}
+                      </li>
+                    )
+                  })}
                 </ul>
               </div>
             )
@@ -254,7 +273,13 @@ export default function LibraryHome({ translations }) {
             <span aria-hidden="true">·</span>
             <span>{tl('category.taxYear').replace('{year}', TAX_CONFIG.currentTaxYear)}</span>
             <span aria-hidden="true">·</span>
-            <span>{tl('category.lastReviewed').replace('{date}', TAX_CONFIG.lastReviewed)}</span>
+            <span>{tl('category.lastReviewed').replace('{date}', formatMonthYear(TAX_CONFIG.lastReviewed, locale))}</span>
+            {!isEn && (
+              <>
+                <span aria-hidden="true">·</span>
+                <span>{tl('home.trustTranslation')}</span>
+              </>
+            )}
           </p>
           <p className={styles.disclaimer}>{tl('category.disclaimer')}</p>
         </div>

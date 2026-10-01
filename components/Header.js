@@ -1,16 +1,15 @@
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
-import { getZhPath, getEnPath, LANGUAGE_SWITCHER_ENABLED } from '../lib/i18n'
+import { localePath, alternates } from '../lib/locale-routes'
 import styles from './Header.module.css'
 
 export default function Header({ t, locale = 'en' }) {
   const [scrolled, setScrolled]   = useState(false)
   const [menuOpen, setMenuOpen]   = useState(false)
-  const [showLangTip, setShowLangTip] = useState(false)
   const { pathname } = useRouter()
 
-  const isZh = locale === 'zh'
+  const isZhTw = locale === 'zh-tw'
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 10)
@@ -18,75 +17,66 @@ export default function Header({ t, locale = 'en' }) {
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
-  // No translated pages exist yet, so nav always points to the real English pages
-  // (a /zh prefix produced 404s such as /zh/library/ from the /zh/ placeholder).
-  const prefix = ''
+  // Chinese pages link to their /zh-tw/ equivalents only where those pages exist;
+  // English-only destinations (Tax Updates, About) keep their English URL and are labeled.
   // `planned: true` = page not built yet; hidden until it exists (no links to 404s).
   const navLinks = [
-    { href: `${prefix}/start`,   label: t('nav.startHere') },
-    { href: `${prefix}/library`, label: t('nav.library') },
-    { href: `${prefix}/updates`, label: t('nav.updates') },
-    { href: `${prefix}/learn`,   label: t('nav.youtube'), planned: true },
-    { href: `${prefix}/about`,   label: t('nav.about') },
+    { href: localePath('/start', locale),   label: t('nav.startHere') },
+    { href: localePath('/library', locale), label: t('nav.library') },
+    { href: '/updates',                     label: t('nav.updates') },
+    { href: '/learn',                       label: t('nav.youtube'), planned: true },
+    { href: '/about',                       label: t('nav.about') },
   ].filter(l => !l.planned)
 
-  // For EN pages: clicking 中文 goes to /zh/ (coming soon page)
-  // For ZH page: clicking EN goes back to English
-  const switchHref  = isZh ? getEnPath(pathname) : '/zh/'
-  const switchLabel = isZh ? 'EN' : '中文'
-  const showLangSwitch = isZh || LANGUAGE_SWITCHER_ENABLED
+  const alt = alternates(pathname)
 
   return (
     <header className={`${styles.header} ${scrolled ? styles.scrolled : ''}`}>
-      <Link href={isZh ? '/zh/' : '/'} className={styles.logo}>
+      <Link href={isZhTw ? '/zh-tw/' : '/'} className={styles.logo}>
         Ask <span>Lin</span> Tax
       </Link>
 
-      <nav className={`${styles.nav} ${menuOpen ? styles.open : ''}`}>
-        {navLinks.map(({ href, label }) => {
-          const isActive = pathname === href || pathname.startsWith(href + '/')
-          return (
-            <Link
-              key={href}
-              href={href}
-              className={`${styles.navLink} ${isActive ? styles.active : ''}`}
-              onClick={() => setMenuOpen(false)}
-            >
-              {label}
-            </Link>
-          )
-        })}
+      <div className={styles.actions}>
+        <nav className={`${styles.nav} ${menuOpen ? styles.open : ''}`}>
+          {navLinks.map(({ href, label }) => {
+            const isActive = pathname === href || pathname.startsWith(href + '/')
+            return (
+              <Link
+                key={href}
+                href={href}
+                className={`${styles.navLink} ${isActive ? styles.active : ''}`}
+                onClick={() => setMenuOpen(false)}
+              >
+                {label}
+              </Link>
+            )
+          })}
+        </nav>
 
-        {/* Language switcher — clearly marked as "coming soon" for EN users */}
-        {showLangSwitch && (
-        <div className={styles.langWrap}>
-          <Link
-            href={switchHref}
-            className={`${styles.langSwitch} ${!isZh ? styles.langSwitchComing : ''}`}
-            title={isZh ? 'Switch to English' : 'Chinese version coming soon'}
-            onMouseEnter={() => !isZh && setShowLangTip(true)}
-            onMouseLeave={() => setShowLangTip(false)}
-          >
-            {switchLabel}
-            {!isZh && <span className={styles.langDot} />}
-          </Link>
-          {showLangTip && !isZh && (
-            <div className={styles.langTooltip}>
-              Chinese version<br />
-              <span>Coming soon</span>
-            </div>
+        {/* Language switch — always visible (desktop and mobile) */}
+        <div className={styles.langSwitch} role="group" aria-label={isZhTw ? '語言 / Language' : 'Language / 語言'}>
+          {isZhTw ? (
+            <Link href={alt.en} className={styles.langOption} lang="en" hrefLang="en" aria-label="English">EN</Link>
+          ) : (
+            <span className={`${styles.langOption} ${styles.langCurrent}`} lang="en" aria-current="true" aria-label="English (current language)">EN</span>
+          )}
+          <span className={styles.langDivider} aria-hidden="true">|</span>
+          {isZhTw ? (
+            <span className={`${styles.langOption} ${styles.langCurrent}`} lang="zh-Hant" aria-current="true" aria-label="繁體中文（目前語言）">繁中</span>
+          ) : (
+            <Link href={alt.zhTw} className={styles.langOption} lang="zh-Hant" hrefLang="zh-Hant" aria-label="繁體中文">繁中</Link>
           )}
         </div>
-        )}
-      </nav>
 
-      <button
-        className={styles.hamburger}
-        onClick={() => setMenuOpen(o => !o)}
-        aria-label="Toggle menu"
-      >
-        <span /><span /><span />
-      </button>
+        <button
+          className={styles.hamburger}
+          onClick={() => setMenuOpen(o => !o)}
+          aria-label={t('nav.menu')}
+          aria-expanded={menuOpen}
+        >
+          <span /><span /><span />
+        </button>
+      </div>
     </header>
   )
 }

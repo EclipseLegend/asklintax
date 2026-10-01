@@ -1,33 +1,35 @@
 import Link from 'next/link'
+import { localePath } from '../lib/locale-routes'
 import styles from './Footer.module.css'
 
 export default function Footer({ t, locale = 'en' }) {
-  // No translated pages exist yet, so links always point to the real English pages.
-  const prefix = ''
+  // localePath() returns the /zh-tw/ version only where that page exists; English-only
+  // destinations (Tax Updates, About) keep their English URL and are labeled in the copy.
+  const L = path => localePath(path, locale)
 
   const knowledge = [
-    { href: `${prefix}/library/individual`,         label: t('footer.links.individual') },
-    { href: `${prefix}/library/small-business`,     label: t('footer.links.smallBusiness') },
-    { href: `${prefix}/library/business-formation`, label: t('footer.links.formation') },
-    { href: `${prefix}/library/rental`,             label: t('footer.links.rental') },
-    { href: `${prefix}/library/investment`,        label: t('footer.links.investments') },
-    { href: `${prefix}/library/irs`,                label: t('footer.links.irs') },
+    { href: L('/library/individual'),         label: t('footer.links.individual') },
+    { href: L('/library/small-business'),     label: t('footer.links.smallBusiness') },
+    { href: L('/library/business-formation'), label: t('footer.links.formation') },
+    { href: L('/library/rental'),             label: t('footer.links.rental') },
+    { href: L('/library/investment'),         label: t('footer.links.investments') },
+    { href: L('/library/irs'),                label: t('footer.links.irs') },
   ]
   // `planned: true` = page not built yet; hidden until it exists (no links to 404s).
   const explore = [
-    { href: `${prefix}/start`,     label: t('footer.links.startHere') },
-    { href: `${prefix}/updates`,   label: t('footer.links.updates') },
-    { href: `${prefix}/learn`,     label: t('footer.links.youtube'), planned: true },
-    { href: `${prefix}/checklist`, label: t('footer.links.checklist'), planned: true },
-    { href: `${prefix}/glossary`,  label: t('footer.links.glossary'), planned: true },
-    { href: `${prefix}/about`,     label: t('footer.links.about') },
+    { href: L('/start'),     label: t('footer.links.startHere') },
+    { href: '/updates',      label: t('footer.links.updates') },
+    { href: '/learn',        label: t('footer.links.youtube'), planned: true },
+    { href: '/checklist',    label: t('footer.links.checklist'), planned: true },
+    { href: '/glossary',     label: t('footer.links.glossary'), planned: true },
+    { href: '/about',        label: t('footer.links.about') },
   ].filter(l => !l.planned)
 
   return (
     <footer className={styles.footer}>
       <div className={`${styles.inner} container`}>
         <div className={styles.brand}>
-          <Link href={prefix || '/'} className={styles.logo}>
+          <Link href={L('/')} className={styles.logo}>
             Ask <span>Lin</span> Tax
           </Link>
           <p>{t('footer.tagline')}</p>
@@ -43,7 +45,7 @@ export default function Footer({ t, locale = 'en' }) {
         </div>
       </div>
       <div className={`${styles.bottom} container`}>
-        <p><strong>Disclaimer:</strong> {t('footer.disclaimer')}</p>
+        <p><strong>{t('footer.disclaimerLabel')}</strong> {t('footer.disclaimer')}</p>
         <p className={styles.copy}>{t('footer.copyright')}</p>
       </div>
     </footer>

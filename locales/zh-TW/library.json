@@ -1,0 +1,82 @@
+{
+  "breadcrumb": {
+    "home": "首頁",
+    "library": "稅務知識庫"
+  },
+  "category": {
+    "guideCountOne": "{count} 篇指南",
+    "guideCountOther": "{count} 篇指南",
+    "taxYear": "英文指南依 {year} 稅務年度審核",
+    "lastReviewed": "最後審核：{date}",
+    "startHereLabel": "從這裡開始",
+    "startHereTitle": "第一次接觸這個主題？從這裡開始。",
+    "startHereAllTitle": "從這幾篇指南開始",
+    "startHereAllSub": "每篇指南都是很好的起點，請選擇符合你情況的一篇。",
+    "questionsLabel": "常見問題",
+    "questionsTitle": "這個主題能解答的問題",
+    "allGuidesLabel": "所有指南",
+    "allGuidesTitle": "這個主題的所有指南",
+    "relatedLabel": "其他主題的相關指南",
+    "closingTitle": "想從自己的情況開始？",
+    "closingSub": "「從這裡開始」依生活情境整理指南，例如第一次報稅、收到 IRS 的信，或有 Airbnb 收入。",
+    "closingCta": "前往「從這裡開始」",
+    "disclaimer": "AskLinTax 的英文指南經 CPA 審核，供一般教育用途；本頁的中文介面與摘要為翻譯內容，未另行經 CPA 審核。以上內容不構成針對您個人情況的稅務、法律或財務建議。"
+  },
+  "card": {
+    "readTime": "{minutes} 分鐘閱讀",
+    "readGuide": "閱讀英文指南",
+    "startHereMarker": "從這裡開始",
+    "englishGuide": "英文指南"
+  },
+  "difficulty": {
+    "Beginner": "入門",
+    "Intermediate": "進階",
+    "Advanced": "深入"
+  },
+  "home": {
+    "seoTitle": "稅務知識庫：白話美國稅務指南 | AskLinTax 繁體中文",
+    "seoDescription": "依主題或生活情境瀏覽白話美國稅務指南：報稅、IRS 通知、小型企業、租金收入、加密貨幣與海外帳戶。中文摘要，完整指南目前為英文。",
+    "titleBefore": "依你的真實生活，",
+    "titleAccent": "整理好的稅務解答。",
+    "sub": "為個人、家庭、企業老闆與投資人準備的白話稅務指南。從一個問題、一個主題或你的情況開始，不需要先懂稅務術語。中文提供摘要與導覽，完整指南目前為英文。",
+    "searchLabel": "搜尋稅務知識庫",
+    "searchPlaceholder": "搜尋稅務問題，例如：海外帳戶、報稅…",
+    "searchButton": "搜尋",
+    "examplesLabel": "試試搜尋",
+    "examples": ["海外帳戶", "Airbnb 報稅", "我需要報稅嗎？", "LLC vs S-Corp", "IRS 通知"],
+    "topicsLabel": "依主題瀏覽",
+    "topicsTitle": "你的問題屬於哪個稅務主題？",
+    "topicsSub": "知識庫分為六大主題，每個主題都說明涵蓋哪些內容，讓你點進去之前就知道方向。",
+    "topicsCta": "瀏覽主題",
+    "essentialsLabel": "從基本開始",
+    "essentialsTitle": "最值得先讀的六篇指南",
+    "essentialsSub": "涵蓋最常見稅務情況的實用起點，從需不需要報稅，到收到 IRS 的信代表什麼。",
+    "situationsLabel": "常見情境",
+    "situationsTitle": "不確定屬於哪個主題？從你的情況開始。",
+    "situationsCta": "在「從這裡開始」查看所有情境",
+    "allGuidesLabel": "所有指南",
+    "allGuidesTitle": "所有已發布的指南",
+    "allGuidesSub": "共 {count} 篇指南，依主題分類。完整內容目前為英文。",
+    "trustCpa": "英文指南經 CPA 審核",
+    "trustTranslation": "中文摘要為翻譯內容"
+  },
+  "search": {
+    "label": "搜尋結果",
+    "resultsFor": "「{query}」的搜尋結果",
+    "countOne": "找到 1 篇指南",
+    "countOther": "找到 {count} 篇指南",
+    "clear": "清除搜尋",
+    "noResultsTitle": "找不到「{query}」的相關指南",
+    "noResultsSub": "試試更廣泛的關鍵字、瀏覽下方主題，或從你的情況開始。",
+    "browseTopics": "依主題瀏覽",
+    "goToStart": "前往「從這裡開始」"
+  },
+  "situations": {
+    "first-time": { "title": "第一次報稅", "desc": "需要準備什麼、哪些表格重要，以及如何報稅。" },
+    "irs": { "title": "收到 IRS 通知", "desc": "信件代表什麼，以及如何冷靜回覆。" },
+    "airbnb": { "title": "Airbnb 或租金收入", "desc": "要申報什麼、可以扣除什麼、哪些免稅。" },
+    "llc": { "title": "成立 LLC 或經營小型企業", "desc": "選擇公司架構，以及平時如何繳稅。" },
+    "crypto": { "title": "加密貨幣與投資", "desc": "加密貨幣何時要繳稅，以及如何申報海外帳戶。" },
+    "immigrant": { "title": "剛來美國", "desc": "稅務居民身分、第一次報稅，以及跨境規定。" }
+  }
+}

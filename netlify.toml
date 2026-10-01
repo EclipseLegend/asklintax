@@ -13,6 +13,40 @@
   status = 301
   force  = true
 
+# Legacy Chinese placeholder (/zh/) → Traditional Chinese pages (/zh-tw/).
+# Paths with a real /zh-tw/ equivalent keep it; anything deeper (e.g. article URLs, which have
+# no Chinese version) goes to the Chinese home. First match wins; :category is one segment.
+# Must stay above the catch-all 404 rule.
+[[redirects]]
+  from   = "/zh"
+  to     = "/zh-tw/"
+  status = 301
+  force  = true
+
+[[redirects]]
+  from   = "/zh/start"
+  to     = "/zh-tw/start/"
+  status = 301
+  force  = true
+
+[[redirects]]
+  from   = "/zh/library"
+  to     = "/zh-tw/library/"
+  status = 301
+  force  = true
+
+[[redirects]]
+  from   = "/zh/library/:category"
+  to     = "/zh-tw/library/:category/"
+  status = 301
+  force  = true
+
+[[redirects]]
+  from   = "/zh/*"
+  to     = "/zh-tw/"
+  status = 301
+  force  = true
+
 [[redirects]]
   from   = "/*"
   to     = "/404"

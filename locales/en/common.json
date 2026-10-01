@@ -4,13 +4,16 @@
     "library": "Knowledge Library",
     "updates": "Tax Updates",
     "youtube": "YouTube",
-    "about": "About"
+    "about": "About",
+    "menu": "Toggle menu",
+    "language": "Language"
   },
   "footer": {
     "tagline": "The trusted U.S. tax knowledge platform for Chinese families and small businesses across America.",
     "bilingual": "Chinese-language support available",
     "knowledge": "Knowledge",
     "explore": "Explore",
+    "disclaimerLabel": "Disclaimer:",
     "disclaimer": "All content on AskLinTax is for general educational purposes only and does not constitute tax, legal, or financial advice. Please consult a qualified tax professional for your specific situation.",
     "copyright": "© 2026 AskLinTax · AskLinTax.com · All rights reserved.",
     "links": {

@@ -6,7 +6,7 @@
  *
  * Excluded:
  *   - 404 pages
- *   - any path under EXCLUDED_PREFIXES (e.g. /zh/ until translations are live)
+ *   - any path under EXCLUDED_PREFIXES (legacy /zh/ redirects to /zh-tw/ and must never be listed)
  *   - any page whose HTML contains <meta name="robots" content="noindex…">
  */
 

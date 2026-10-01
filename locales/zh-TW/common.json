@@ -1,37 +1,40 @@
 {
   "nav": {
     "startHere": "從這裡開始",
-    "library": "知識庫",
-    "updates": "稅務更新",
+    "library": "稅務知識庫",
+    "updates": "稅務更新（英文）",
     "youtube": "YouTube",
-    "about": "關於我們"
+    "about": "關於我們（英文）",
+    "menu": "開啟或關閉選單",
+    "language": "語言"
   },
   "footer": {
-    "tagline": "北美華人最值得信賴的美國稅務知識平台。",
-    "bilingual": "中文服務可用 · English & Chinese Bilingual",
-    "knowledge": "知識庫",
+    "tagline": "為北美華人家庭與小型企業打造、值得信賴的美國稅務知識平台。",
+    "bilingual": "提供繁體中文介面與摘要",
+    "knowledge": "稅務知識庫",
     "explore": "探索",
-    "disclaimer": "AskLinTax 上的所有內容僅供一般教育用途，不構成稅務、法律或財務建議。請就您的具體情況諮詢合格的稅務專業人士。",
+    "disclaimerLabel": "免責聲明：",
+    "disclaimer": "AskLinTax 上的所有內容僅供一般教育用途，不構成稅務、法律或財務建議。中文頁面為翻譯內容；請就您的具體情況諮詢合格的稅務專業人士。",
     "copyright": "© 2026 AskLinTax · AskLinTax.com · 版權所有",
     "links": {
       "individual": "個人與家庭",
-      "smallBusiness": "小型企業",
-      "rental": "Airbnb 與租賃",
-      "investments": "投資與加密貨幣",
+      "smallBusiness": "小型企業與自雇人士",
+      "rental": "房地產與 Airbnb",
+      "investments": "投資與海外帳戶",
       "irs": "IRS 與稅務問題",
-      "formation": "公司成立",
+      "formation": "企業成立與公司架構",
       "startHere": "從這裡開始",
-      "updates": "稅務更新",
+      "updates": "稅務更新（英文）",
       "youtube": "YouTube",
       "checklist": "文件清單",
       "glossary": "稅務詞彙表",
-      "about": "關於 AskLinTax"
+      "about": "關於 AskLinTax（英文）"
     }
   },
   "trust": {
-    "cpaReviewed": "CPA 審核內容",
-    "bilingual": "中英雙語",
-    "plainLanguage": "平易近人 — 無專業術語",
+    "cpaReviewed": "英文指南經 CPA 審核",
+    "bilingual": "專為美國華人家庭撰寫",
+    "plainLanguage": "白話說明，不講艱深術語",
     "free": "免費閱讀"
   }
 }
