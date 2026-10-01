@@ -4,6 +4,9 @@ import { useRouter } from 'next/router'
 import { localePath, alternates } from '../lib/locale-routes'
 import styles from './Header.module.css'
 
+// Official channel (external; opens in a new tab). Also used by the Footer.
+export const YOUTUBE_URL = 'https://www.youtube.com/@AskLinTax'
+
 export default function Header({ t, locale = 'en' }) {
   const [scrolled, setScrolled]   = useState(false)
   const [menuOpen, setMenuOpen]   = useState(false)
@@ -24,7 +27,7 @@ export default function Header({ t, locale = 'en' }) {
     { href: localePath('/start', locale),   label: t('nav.startHere') },
     { href: localePath('/library', locale), label: t('nav.library') },
     { href: '/updates',                     label: t('nav.updates') },
-    { href: '/learn',                       label: t('nav.youtube'), planned: true },
+    { href: YOUTUBE_URL,                    label: t('nav.youtube'), external: true },
     { href: '/about',                       label: t('nav.about') },
   ].filter(l => !l.planned)
 
@@ -38,7 +41,14 @@ export default function Header({ t, locale = 'en' }) {
 
       <div className={styles.actions}>
         <nav className={`${styles.nav} ${menuOpen ? styles.open : ''}`}>
-          {navLinks.map(({ href, label }) => {
+          {navLinks.map(({ href, label, external }) => {
+            if (external) {
+              return (
+                <a key={href} href={href} className={styles.navLink} target="_blank" rel="noopener noreferrer" onClick={() => setMenuOpen(false)}>
+                  {label}
+                </a>
+              )
+            }
             const isActive = pathname === href || pathname.startsWith(href + '/')
             return (
               <Link

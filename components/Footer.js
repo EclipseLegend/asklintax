@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import { localePath } from '../lib/locale-routes'
+import { YOUTUBE_URL } from './Header'
 import styles from './Footer.module.css'
 
 export default function Footer({ t, locale = 'en' }) {
@@ -19,7 +20,7 @@ export default function Footer({ t, locale = 'en' }) {
   const explore = [
     { href: L('/start'),     label: t('footer.links.startHere') },
     { href: '/updates',      label: t('footer.links.updates') },
-    { href: '/learn',        label: t('footer.links.youtube'), planned: true },
+    { href: YOUTUBE_URL,     label: t('footer.links.youtube'), external: true },
     { href: '/checklist',    label: t('footer.links.checklist'), planned: true },
     { href: '/glossary',     label: t('footer.links.glossary'), planned: true },
     { href: '/about',        label: t('footer.links.about') },
@@ -41,7 +42,9 @@ export default function Footer({ t, locale = 'en' }) {
         </div>
         <div className={styles.col}>
           <h4>{t('footer.explore')}</h4>
-          {explore.map(l => <Link key={l.href} href={l.href}>{l.label}</Link>)}
+          {explore.map(l => l.external
+            ? <a key={l.href} href={l.href} target="_blank" rel="noopener noreferrer">{l.label}</a>
+            : <Link key={l.href} href={l.href}>{l.label}</Link>)}
         </div>
       </div>
       <div className={`${styles.bottom} container`}>
