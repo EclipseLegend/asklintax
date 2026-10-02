@@ -15,7 +15,7 @@ const UI = {
     close: 'Close Ask Lin',
     title: 'Ask Lin',
     subtitle: 'U.S. tax questions, in English or 中文',
-    preview: 'Preview',
+    preview: 'AI Beta',
     greeting: 'Hi, I’m Lina 👋 Ask a U.S. tax question in English or Chinese, or try an example below.',
     examplesLabel: 'Try an example',
     placeholder: 'Ask a tax question…',
@@ -24,7 +24,7 @@ const UI = {
     thinking: 'Lina is typing…',
     guidesLabel: 'Related guides',
     englishGuide: 'English guide',
-    footer: 'Preview only. General education, not tax advice. For your situation, consult a qualified tax professional.',
+    footer: 'General education, not tax advice. For your situation, consult a qualified tax professional.',
     privacy: 'Please don’t enter Social Security numbers, bank or account numbers, or other sensitive personal information.',
     library: 'Browse the Knowledge Library →',
     answerBadge: 'AI answer',
@@ -37,7 +37,7 @@ const UI = {
     close: '關閉 Ask Lin',
     title: 'Ask Lin',
     subtitle: '美國稅務問題，中文或英文都可以問',
-    preview: '預覽版',
+    preview: 'AI 測試版',
     greeting: '嗨，我是 Lina 👋 可以用中文或英文問美國稅務問題，也可以先試試下面的示範問題。',
     examplesLabel: '示範問題',
     placeholder: '輸入你的稅務問題…',
@@ -46,7 +46,7 @@ const UI = {
     thinking: 'Lina 正在輸入…',
     guidesLabel: '相關指南',
     englishGuide: '英文指南',
-    footer: '預覽版，僅供一般教育用途，不構成稅務建議。具體情況請諮詢合格的稅務專業人士。',
+    footer: '僅供一般教育用途，不構成稅務建議。具體情況請諮詢合格的稅務專業人士。',
     privacy: '請勿輸入社會安全號碼（SSN）、銀行或帳戶號碼等敏感個人資料。',
     library: '瀏覽稅務知識庫 →',
     answerBadge: 'AI 回答',
@@ -64,6 +64,13 @@ export default function AskLin({ locale = 'en' }) {
   const inputRef = useRef(null)
   const buttonRef = useRef(null)
   const listRef = useRef(null)
+
+  // The header's "Ask AI ✨" button opens this panel (Header.js dispatches 'asklin:open').
+  useEffect(() => {
+    const onOpen = () => setOpen(true)
+    window.addEventListener('asklin:open', onOpen)
+    return () => window.removeEventListener('asklin:open', onOpen)
+  }, [])
 
   useEffect(() => {
     if (!open) return

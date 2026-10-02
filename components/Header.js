@@ -61,6 +61,18 @@ export default function Header({ t, locale = 'en' }) {
               </Link>
             )
           })}
+          {/* Opens the existing Ask Lin chat panel (components/AskLin.js) — no page or route. */}
+          <button
+            type="button"
+            className={`${styles.navLink} ${styles.askAi}`}
+            aria-label={t('nav.askAiLabel')}
+            onClick={() => {
+              setMenuOpen(false)
+              window.dispatchEvent(new Event('asklin:open'))
+            }}
+          >
+            {t('nav.askAi')}
+          </button>
         </nav>
 
         {/* Language switch — always visible (desktop and mobile) */}

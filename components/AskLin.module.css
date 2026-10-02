@@ -8,19 +8,21 @@
 .launcher {
   position: fixed; right: 24px; bottom: 24px; z-index: 900;
   display: inline-flex; align-items: center; gap: 10px;
-  padding: 12px 20px 12px 14px;
-  background: var(--navy); color: #fff;
-  border: none; border-radius: 100px; cursor: pointer;
-  font-family: 'DM Sans', sans-serif; font-size: 15px; font-weight: 500;
-  box-shadow: 0 10px 30px rgba(27,45,79,.28), 0 2px 6px rgba(27,45,79,.18);
-  transition: transform .18s, box-shadow .18s, background .18s;
+  padding: 12px 22px 12px 12px;
+  /* Brand gold with navy text (contrast ≈ 5.2:1 on the darkest gold stop) */
+  background: linear-gradient(135deg, var(--gold-l) 0%, var(--gold) 100%);
+  color: var(--navy);
+  border: 1px solid rgba(255,255,255,.55); border-radius: 100px; cursor: pointer;
+  font-family: 'DM Sans', sans-serif; font-size: 15.5px; font-weight: 600; letter-spacing: .01em;
+  box-shadow: 0 10px 28px rgba(201,150,58,.42), 0 3px 8px rgba(27,45,79,.18);
+  transition: transform .18s, box-shadow .18s, filter .18s;
 }
-.launcher:hover { background: var(--navy-mid); transform: translateY(-2px); box-shadow: 0 14px 34px rgba(27,45,79,.32), 0 2px 6px rgba(27,45,79,.18); }
-.launcher:focus-visible { outline: 3px solid var(--gold-l); outline-offset: 3px; }
+.launcher:hover { transform: translateY(-2px); filter: brightness(1.04); box-shadow: 0 14px 34px rgba(201,150,58,.5), 0 4px 10px rgba(27,45,79,.2); }
+.launcher:focus-visible { outline: 3px solid var(--navy); outline-offset: 3px; }
 .launcherIcon {
-  width: 30px; height: 30px; border-radius: 50%;
+  width: 32px; height: 32px; border-radius: 50%;
   display: inline-flex; align-items: center; justify-content: center;
-  background: var(--gold); color: #fff;
+  background: var(--navy); color: var(--gold-l);
 }
 
 .panel {
