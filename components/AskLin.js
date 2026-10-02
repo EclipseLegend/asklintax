@@ -24,11 +24,12 @@ const UI = {
     thinking: 'Lina is typing…',
     guidesLabel: 'Related guides',
     englishGuide: 'English guide',
+    sourceVerified: 'Official Sources Verified',
     footer: 'General education, not tax advice. For your situation, consult a qualified tax professional.',
     privacy: 'Please don’t enter Social Security numbers, bank or account numbers, or other sensitive personal information.',
     library: 'Browse the Knowledge Library →',
     answerBadge: 'AI answer',
-    answerNote: 'Generated only from AskLinTax’s published guides. General education, not tax advice.',
+    answerNote: 'Generated from AskLinTax’s published Knowledge Library and grounded in the official sources cited by those guides. This AI answer itself has not been professionally reviewed or independently verified. General education, not tax advice.',
     handoff: 'Your situation may need personal advice — consider talking with a qualified tax professional.',
   },
   'zh-tw': {
@@ -46,11 +47,12 @@ const UI = {
     thinking: 'Lina 正在輸入…',
     guidesLabel: '相關指南',
     englishGuide: '英文指南',
+    sourceVerified: '官方來源查核',
     footer: '僅供一般教育用途，不構成稅務建議。具體情況請諮詢合格的稅務專業人士。',
     privacy: '請勿輸入社會安全號碼（SSN）、銀行或帳戶號碼等敏感個人資料。',
     library: '瀏覽稅務知識庫 →',
     answerBadge: 'AI 回答',
-    answerNote: '僅依據 AskLinTax 已發布的英文指南生成；中文為 AI 翻譯，未經 CPA 審核。僅供一般教育用途，不構成稅務建議。',
+    answerNote: '本回答依據 AskLinTax 已發布的稅務知識庫生成，並以這些指南所引用的官方來源為依據；本回答本身由 AI 生成，未經專業人員審核，也未經獨立查核。僅供一般教育用途，不構成稅務建議。',
     handoff: '你的情況可能需要個人化建議，建議諮詢合格的稅務專業人士。',
   },
 }
@@ -189,6 +191,7 @@ function LinReply({ reply }) {
             return (
               <Link key={id} href={a.path} className={styles.guide} {...(zh ? { hrefLang: 'en' } : {})}>
                 <span>{a.title}</span>
+                {(reply.sourceVerified || []).includes(id) && <span className={styles.guideTag}>{ui.sourceVerified}</span>}
                 {zh && <span className={styles.guideTag}>{ui.englishGuide}</span>}
               </Link>
             )

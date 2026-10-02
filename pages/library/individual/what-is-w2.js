@@ -16,19 +16,24 @@ const META = {
   userEmotion:   'learning',
   difficulty:    'Beginner',
   readTime:      '5 min read',
-  cpaReviewed:   true,
+  verification:  'official-sources-verified',
+  sources: [
+    { label: 'IRS — General Instructions for Forms W-2 and W-3', url: 'https://www.irs.gov/instructions/iw2w3' },
+    { label: 'IRS — Topic no. 154, Form W-2 and Form 1099-R (what to do if incorrect or not received)', url: 'https://www.irs.gov/taxtopics/tc154' },
+    { label: 'IRS Publication 15 (2025) — Employer\'s Tax Guide (Social Security wage base)', url: 'https://www.irs.gov/pub/irs-prior/p15--2025.pdf' },
+  ],
   updatedDate:   TAX_CONFIG.lastReviewed,
   taxYear:       String(TAX_CONFIG.currentTaxYear),
   confidence:    'Box definitions are standard across all employers. Box 12 codes are the most complex area — consult a CPA if you see unusual codes you don\'t recognize.',
   persona:       ['First-time employee', 'New immigrant with first U.S. job', 'Anyone who has never read a W-2 before'],
   relatedJourney: ['First-time filer', 'New to the U.S.'],
-  actionRequired: 'When your W-2 arrives (by January 31), check that your name, SSN, and Box 1 wages match your last pay stub. If anything looks wrong, contact your HR department immediately — errors on your W-2 must be corrected before you file.',
+  actionRequired: 'When your W-2 arrives (generally by January 31, or the next business day — February 2, 2026 for 2025 W-2s), check that your name, SSN, and Box 1 wages match your last pay stub. If anything looks wrong, contact your HR department immediately — errors on your W-2 must be corrected before you file.',
 }
 
 const FAQS = [
   {
     q: 'When should my W-2 arrive?',
-    a: 'Employers are legally required to send W-2s by January 31. If you haven\'t received yours by mid-February, contact your HR or payroll department. Many employers also make W-2s available electronically through payroll portals like ADP or Paychex — check there first if you haven\'t received a paper copy.',
+    a: 'Employers must generally send W-2s by January 31 (moved to the next business day when it falls on a weekend — for 2025 W-2s, the IRS date is February 2, 2026). If you haven\'t received yours by then, contact your HR or payroll department. Many employers also make W-2s available electronically through payroll portals like ADP or Paychex — check there first if you haven\'t received a paper copy.',
   },
   {
     q: 'I have multiple W-2s. Do I need to file all of them?',
@@ -287,8 +292,8 @@ export default function WhatIsW2Page({ translations }) {
         <ul>
           <li><strong>Wrong name or SSN</strong> — Contact HR immediately. This must be corrected before you file. An incorrect SSN can prevent your return from being processed.</li>
           <li><strong>Box 1 seems too high</strong> — Check if pre-tax benefits were properly excluded. Compare to your final pay stub. If the discrepancy is unexplained, contact payroll.</li>
-          <li><strong>Box 2 is zero or very low</strong> — You may have claimed too many allowances on your W-4. This isn't wrong, but means you may owe taxes when you file instead of getting a refund.</li>
-          <li><strong>Missing W-2 by mid-February</strong> — Contact HR first. If you still can't get it, call the IRS at 1-800-829-1040 — they can contact your employer on your behalf. As a last resort, file Form 4852 (substitute W-2) using your pay stubs.</li>
+          <li><strong>Box 2 is zero or very low</strong> — Your Form W-4 may not be set up to withhold enough for your situation. This isn't necessarily an error, but it may mean you owe tax when you file instead of getting a refund.</li>
+          <li><strong>Missing W-2</strong> — Contact your employer first. If you still don't have it by the end of February, call the IRS at 1-800-829-1040 — they can contact your employer on your behalf. If it still doesn't arrive in time, you can file using Form 4852 (substitute W-2), estimating wages and withholding from your pay stubs.</li>
         </ul>
 
       </KnowledgePage>

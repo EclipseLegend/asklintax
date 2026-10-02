@@ -20,7 +20,7 @@
     "closingTitle": "Prefer to start from your situation?",
     "closingSub": "Start Here groups our guides by life situation, such as filing for the first time, receiving an IRS letter, or earning Airbnb income.",
     "closingCta": "Go to Start Here",
-    "disclaimer": "AskLinTax guides are CPA-reviewed and written for general education. They are not tax, legal, or financial advice for your specific situation."
+    "disclaimer": "AskLinTax guides are written for general education. Every guide is Official Sources Verified and lists the official government sources it was checked against; no government agency reviews or endorses AskLinTax. They are not tax, legal, or financial advice for your specific situation."
   },
   "card": {
     "readTime": "{minutes} min read",
@@ -29,10 +29,10 @@
   },
   "home": {
     "seoTitle": "Knowledge Library: Plain-Language U.S. Tax Guides | AskLinTax",
-    "seoDescription": "Browse CPA-reviewed, plain-language guides to U.S. taxes by topic or life situation: filing, IRS notices, small business, rental income, crypto, and foreign accounts.",
+    "seoDescription": "Browse plain-language guides to U.S. taxes by topic or life situation: filing, IRS notices, small business, rental income, crypto, and foreign accounts.",
     "titleBefore": "Tax answers, organized around your real",
     "titleAccent": "life.",
-    "sub": "Plain-language, CPA-reviewed guides for individuals, families, business owners, and investors. Start with a question, a topic, or your situation. No tax vocabulary required.",
+    "sub": "Plain-language guides for individuals, families, business owners, and investors. Start with a question, a topic, or your situation. No tax vocabulary required.",
     "searchLabel": "Search the Knowledge Library",
     "searchPlaceholder": "Search a tax question...",
     "searchButton": "Search",
@@ -51,7 +51,7 @@
     "allGuidesLabel": "All guides",
     "allGuidesTitle": "Every published guide",
     "allGuidesSub": "All {count} guides, grouped by topic.",
-    "trustCpa": "CPA-reviewed content"
+    "trustOfficial": "Official sources. Carefully verified. Clearly explained."
   },
   "search": {
     "label": "Search results",

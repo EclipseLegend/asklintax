@@ -20,7 +20,7 @@
     "closingTitle": "想從自己的情況開始？",
     "closingSub": "「從這裡開始」依生活情境整理指南，例如第一次報稅、收到 IRS 的信，或有 Airbnb 收入。",
     "closingCta": "前往「從這裡開始」",
-    "disclaimer": "AskLinTax 的英文指南經 CPA 審核，供一般教育用途；本頁的中文介面與摘要為翻譯內容，未另行經 CPA 審核。以上內容不構成針對您個人情況的稅務、法律或財務建議。"
+    "disclaimer": "AskLinTax 的英文指南供一般教育用途，每篇指南均經官方來源查核，並列出所依據的官方政府來源；政府機關並未審核或背書 AskLinTax。本頁的中文介面與摘要為翻譯內容，未另行經專業審核。以上內容不構成針對您個人情況的稅務、法律或財務建議。"
   },
   "card": {
     "readTime": "{minutes} 分鐘閱讀",
@@ -57,7 +57,7 @@
     "allGuidesLabel": "所有指南",
     "allGuidesTitle": "所有已發布的指南",
     "allGuidesSub": "共 {count} 篇指南，依主題分類。完整內容目前為英文。",
-    "trustCpa": "英文指南經 CPA 審核",
+    "trustOfficial": "官方來源・仔細查核・清楚解說",
     "trustTranslation": "中文摘要為翻譯內容"
   },
   "search": {

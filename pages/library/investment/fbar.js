@@ -16,7 +16,13 @@ const META = {
   userEmotion: 'learning',
   difficulty: 'Intermediate',
   readTime: '6 min read',
-  cpaReviewed: true,
+  verification:  'official-sources-verified',
+  sources: [
+    { label: 'FinCEN — Report Foreign Bank and Financial Accounts', url: 'https://www.fincen.gov/report-foreign-bank-and-financial-accounts' },
+    { label: 'IRS — Report of Foreign Bank and Financial Accounts (FBAR)', url: 'https://www.irs.gov/businesses/small-businesses-self-employed/report-of-foreign-bank-and-financial-accounts-fbar' },
+    { label: 'IRS — Comparison of Form 8938 and FBAR requirements', url: 'https://www.irs.gov/businesses/comparison-of-form-8938-and-fbar-requirements' },
+    { label: 'IRS Publication 519 — U.S. Tax Guide for Aliens', url: 'https://www.irs.gov/publications/p519' },
+  ],
   updatedDate: TAX_CONFIG.lastReviewed,
   taxYear: String(TAX_CONFIG.currentTaxYear),
   confidence: 'FBAR rules are well-established under the Bank Secrecy Act. FATCA (Form 8938) is a separate but related requirement with different thresholds — both may apply simultaneously.',
@@ -27,9 +33,9 @@ const META = {
 
 const FAQS = [
   { q: 'Do I need to file an FBAR if my foreign accounts earned no interest?', a: 'Yes. The FBAR filing requirement is triggered by the account balance alone — not by any income generated. If your combined foreign accounts exceeded $10,000 at any point during the year, you must file regardless of whether the accounts generated any income or return.' },
-  { q: 'Is the $10,000 threshold per account or across all accounts combined?', a: 'Combined. You must add the maximum balances of all foreign financial accounts you own or have signature authority over, and if the combined total exceeded $10,000 at any single point during the year, all accounts must be reported — even accounts that individually never exceeded $10,000.' },
+  { q: 'Is the $10,000 threshold per account or across all accounts combined?', a: 'Combined. The test is whether the aggregate value of all foreign financial accounts you own or have signature authority over exceeded $10,000 at any time during the year. If it did, all accounts must be reported — even accounts that individually never exceeded $10,000.' },
   { q: 'My parents in Taiwan put my name on their bank account. Do I have to report it?', a: 'Yes, if you have signature authority or financial interest in the account. Being a named account holder — even as a convenience signer — typically triggers FBAR reporting if the combined threshold is met. You should report the account on your FBAR even if you never used or benefited from it.' },
-  { q: 'What is the penalty for not filing FBAR?', a: 'Penalties can be severe. For non-willful violations (you didn\'t know you had to file): up to $10,000 per violation per year, though the IRS often assesses less. For willful violations (you knew and didn\'t file): up to the greater of $100,000 or 50% of the account balance per violation per year. The IRS has Voluntary Disclosure programs for late filers that can significantly reduce penalties — consult a tax professional if you have unfiled FBARs.' },
+  { q: 'What is the penalty for not filing FBAR?', a: 'Penalties can be severe. Title 31 of the U.S. Code sets civil penalties for non-willful and willful violations (willful penalties are far higher), and criminal penalties may also apply. The civil penalty maximums are adjusted for inflation every year — figures often quoted online, such as $10,000 for non-willful violations or the greater of $100,000 or 50% of the account balance for willful violations, were the maximums for penalties assessed before August 1, 2016, not today\'s amounts. Whether the IRS asserts a penalty depends on the facts and circumstances. The IRS has Voluntary Disclosure programs for late filers that can significantly reduce penalties — consult a tax professional if you have unfiled FBARs.' },
   { q: 'How is FBAR different from FATCA (Form 8938)?', a: 'Both require reporting foreign accounts, but they\'re different requirements with different thresholds. FBAR (FinCEN 114): $10,000 threshold, filed separately with FinCEN (not IRS). FATCA/Form 8938: higher thresholds ($50,000 for single filers, $100,000 for MFJ), filed with your tax return with the IRS. Many people with foreign accounts must file both. They are not interchangeable — filing one does not satisfy the other.' },
   { q: 'Do I have to report my WeChat Pay or Alipay balances?', a: 'The IRS has provided limited specific guidance on digital payment accounts like WeChat Pay and Alipay. The general principle is that if these are considered "financial accounts" under foreign financial institutions, significant balances may be reportable. Given the evolving guidance, if you maintain substantial balances in these platforms, consult a CPA familiar with international tax reporting.' },
   { q: 'I missed filing FBAR in prior years. What should I do?', a: 'Don\'t ignore it. The IRS has two main programs for late FBAR filers: the Streamlined Filing Procedures (for non-willful violations — reduced penalties or penalty-free for offshore residents) and the Delinquent FBAR Submission Procedures (for late filers with no other issues). Voluntarily coming forward almost always results in better outcomes than being caught. Consult a tax attorney or CPA before filing late FBARs.' },
@@ -80,7 +86,7 @@ export default function FBARPage({ translations }) {
               ['Green card holder', '✅ Yes (if threshold met)', 'Even if you spent most of the year abroad'],
               ['Resident alien (passed SPT)', '✅ Yes (if threshold met)', 'Includes most H-1B holders after enough time in U.S.'],
               ['Nonresident alien (F-1 first 5 years)', '❌ Generally no', 'Not a U.S. person for FBAR purposes'],
-              ['J-1 visitor (first 2 years)', '❌ Generally no', 'Not a U.S. person for FBAR purposes'],
+              ['J-1 teacher or trainee (generally first 2 years)', '❌ Generally no', 'Not a U.S. person for FBAR purposes'],
             ].map(([status, must, note], i) => (
               <tr key={i}>
                 <td style={{ padding: '12px 16px', borderBottom: '1px solid var(--border-l)', fontWeight: '500', background: i % 2 === 1 ? 'var(--cream)' : 'white' }}>{status}</td>
@@ -96,7 +102,7 @@ export default function FBARPage({ translations }) {
         <div style={{ background: 'var(--cream)', border: '1.5px solid var(--border)', borderRadius: '12px', padding: '22px', margin: '24px 0' }}>
           <div style={{ fontSize: '15px', fontWeight: '600', color: 'var(--navy)', marginBottom: '14px' }}>Examples:</div>
           {[
-            { example: 'Account A (Taiwan bank): max balance $8,000. Account B (China brokerage): max balance $4,000. Combined max: $12,000.', result: '✅ Must file FBAR — reports BOTH accounts', color: 'var(--red)' },
+            { example: 'On June 30, Account A (Taiwan bank) held $8,000 and Account B (China brokerage) held $4,000 — a combined $12,000 on the same day.', result: '✅ Must file FBAR — reports BOTH accounts', color: 'var(--red)' },
             { example: 'Single Taiwan bank account. Max balance at any point: $9,500.', result: '❌ No FBAR required — never exceeded $10,000', color: 'var(--green)' },
             { example: 'Account balance was $12,000 in January, then fell to $3,000 for the rest of the year.', result: '✅ Must file FBAR — $12,000 exceeded threshold in January', color: 'var(--red)' },
           ].map((item, i) => (

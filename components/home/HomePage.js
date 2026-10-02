@@ -89,7 +89,7 @@ export default function HomePage({ translations, content, locale = 'en' }) {
         </div>
         <div className={styles.trustStrip}>
           <div className={`${styles.trustInner} container`}>
-            {[t('trust.cpaReviewed'), t('trust.bilingual'), t('trust.plainLanguage'), t('trust.free')].map(item => (
+            {[t('trust.officialSources'), t('trust.bilingual'), t('trust.plainLanguage'), t('trust.free')].map(item => (
               <div key={item} className={styles.trustItem}>
                 <span className={styles.trustDot} />
                 {item}

@@ -60,10 +60,19 @@ for (const article of ARTICLES) {
   }
   const html = fs.readFileSync(file, 'utf8').replace(/<script[\s\S]*?<\/script>/gi, '')
   const taxYear = (html.match(/Applies to (\d{4}) tax year/) || html.match(/Tax Year (?:<!-- -->)?(\d{4})/) || [])[1] || null
+  // Publication status as shown on the published page (KnowledgePage trust footer) — it must match
+  // lib/articles.js. Lina ingests only published guides with the publication status
+  // 'official-sources-verified'.
+  const shown = />\s*Official Sources Verified\b/.test(html) ? 'official-sources-verified' : null
+  if (!shown || shown !== article.status) {
+    console.error(`build-lina-knowledge: ${article.path} shows status "${shown}" but lib/articles.js says "${article.status}". Only published, verified guides may enter Lina's knowledge index.`)
+    process.exit(1)
+  }
+  const status = shown
   const add = (heading, text) => {
     for (const chunk of splitLong(text)) {
       if (chunk.length < 40) continue
-      passages.push({ id: `${article.id}#${passages.filter(p => p.articleId === article.id).length + 1}`, articleId: article.id, title: article.title, path: article.path, taxYear, heading, text: chunk })
+      passages.push({ id: `${article.id}#${passages.filter(p => p.articleId === article.id).length + 1}`, articleId: article.id, title: article.title, path: article.path, taxYear, status, heading, text: chunk })
     }
   }
 

@@ -16,7 +16,14 @@ const META = {
   userEmotion:   'learning',
   difficulty:    'Beginner',
   readTime:      '8 min read',
-  cpaReviewed:   true,
+  verification:  'official-sources-verified',
+  sources: [
+    { label: 'IRS — IRS Free File', url: 'https://www.irs.gov/filing/irs-free-file-do-your-taxes-for-free' },
+    { label: 'IRS — Get an extension to file your tax return', url: 'https://www.irs.gov/filing/get-an-extension-to-file-your-tax-return' },
+    { label: 'IRS — Refunds', url: 'https://www.irs.gov/refunds' },
+    { label: 'IRS — Failure to file penalty', url: 'https://www.irs.gov/payments/failure-to-file-penalty' },
+    { label: 'IRS Publication 17 — Your Federal Income Tax', url: 'https://www.irs.gov/publications/p17' },
+  ],
   updatedDate:   TAX_CONFIG.lastReviewed,
   taxYear:       String(TAX_CONFIG.currentTaxYear),
   confidence:    'Covers the standard filing process for resident aliens and U.S. citizens. Nonresident aliens (F-1, J-1) use Form 1040-NR — the steps are similar but the form and some rules differ.',
@@ -40,11 +47,11 @@ const FAQS = [
   },
   {
     q: 'What if I make a mistake on my tax return?',
-    a: 'Mistakes are fixable. If you realize you made an error after filing, you can file an amended return using Form 1040-X. There\'s no penalty for amending — the IRS actually expects some amendments each year. Common reasons to amend: forgot to include income, claimed the wrong filing status, or missed a credit you qualified for. You generally have 3 years from the original due date to file an amendment.',
+    a: 'Mistakes are fixable. If you realize you made an error after filing, you can file an amended return using Form 1040-X. There\'s no penalty for amending — the IRS actually expects some amendments each year. Common reasons to amend: forgot to include income, claimed the wrong filing status, or missed a credit you qualified for. To claim a refund, you generally must file the amended return within 3 years after you filed the original return or within 2 years after you paid the tax, whichever is later.',
   },
   {
     q: 'When will I get my refund?',
-    a: 'If you file electronically and choose direct deposit, most refunds arrive within 21 days. Paper returns and paper checks take longer — typically 6–8 weeks. You can track your refund status at IRS.gov/refunds using your Social Security Number, filing status, and the exact refund amount from your return. The IRS updates the tracker daily.',
+    a: 'If you file electronically and choose direct deposit, most refunds arrive within 21 days. Paper returns take longer — refund status is generally available about 4 weeks after you mail a paper return. You can track your refund status at IRS.gov/refunds using your Social Security Number, filing status, and the exact refund amount from your return. The IRS updates the tracker daily.',
   },
   {
     q: 'What if I can\'t pay what I owe by the deadline?',
@@ -109,10 +116,10 @@ const STEPS = [
     title: 'Choose how to file',
     color: 'var(--gold)',
     items: [
-      { label: 'IRS Free File', desc: 'Free for taxpayers with AGI ≤ $84,000. Use software from IRS-partnered providers at IRS.gov/freefile.' },
+      { label: 'IRS Free File', desc: 'Free guided software for 2025 returns if your AGI is $89,000 or less. Use software from IRS-partnered providers at IRS.gov/freefile.' },
       { label: 'Tax software (TurboTax, H&R Block, etc.)', desc: 'Paid but guided — asks you questions and fills in the forms. Good for most situations.' },
       { label: 'CPA or tax professional', desc: 'Best for complex situations: self-employment, foreign income, multiple states, or dual-status year.' },
-      { label: 'IRS Direct File', desc: 'Free tool from the IRS itself. Available in select states for simple returns. Check IRS.gov for eligibility.' },
+      { label: 'IRS Direct File (suspended)', desc: 'The Treasury Department has reported that the IRS is suspending Direct File and focusing on free filing through programs such as IRS Free File.' },
     ],
   },
   {

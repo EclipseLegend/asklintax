@@ -16,7 +16,16 @@ const META = {
   userEmotion:   'learning',
   difficulty:    'Beginner',
   readTime:      '6 min read',
-  cpaReviewed:   true,
+  verification:  'official-sources-verified',
+  sources: [
+    { label: 'IRS — Independent contractor (self-employed) or employee?', url: 'https://www.irs.gov/businesses/small-businesses-self-employed/independent-contractor-self-employed-or-employee' },
+    { label: 'IRS — Self-employment tax (Social Security and Medicare taxes)', url: 'https://www.irs.gov/businesses/small-businesses-self-employed/self-employment-tax-social-security-and-medicare-taxes' },
+    { label: 'IRS Publication 334 — Tax Guide for Small Business', url: 'https://www.irs.gov/publications/p334' },
+    { label: 'IRS — Instructions for Forms 1099-MISC and 1099-NEC', url: 'https://www.irs.gov/instructions/i1099mec' },
+    { label: 'IRS — Understanding your Form 1099-K', url: 'https://www.irs.gov/businesses/understanding-your-form-1099-k' },
+    { label: 'IRS — Standard mileage rates', url: 'https://www.irs.gov/tax-professionals/standard-mileage-rates' },
+    { label: 'IRS Publication 463 — Travel, Gift, and Car Expenses', url: 'https://www.irs.gov/publications/p463' },
+  ],
   updatedDate:   TAX_CONFIG.lastReviewed,
   taxYear:       String(TAX_CONFIG.currentTaxYear),
   confidence:    'Covers general principles of employee vs. independent contractor classification. Worker classification disputes are complex — consult a CPA or attorney if your classification is unclear or being challenged.',
@@ -32,7 +41,7 @@ const FAQS = [
   },
   {
     q: 'What is self-employment tax and why do 1099 workers pay more?',
-    a: 'Self-employment tax is 15.3% of net self-employment income — it covers Social Security (12.4%) and Medicare (2.9%). Employees only pay half of this (7.65%) because their employer pays the other half. As a 1099 worker, you are both the employee and the employer, so you pay the full 15.3%. However, you can deduct half of the self-employment tax as an above-the-line deduction on your return, which reduces your income tax (but not the SE tax itself).',
+    a: 'Self-employment tax is 15.3% — Social Security (12.4%, up to an annual earnings limit) and Medicare (2.9%) — generally applied to 92.35% of your net profit from self-employment. Employees only pay half of this (7.65%) because their employer pays the other half. As a 1099 worker, you are both the employee and the employer, so you pay the full 15.3%. However, you can deduct half of the self-employment tax as an above-the-line deduction on your return, which reduces your income tax (but not the SE tax itself).',
   },
   {
     q: 'Can I deduct business expenses if I receive a 1099?',
@@ -48,7 +57,7 @@ const FAQS = [
   },
   {
     q: 'Do I need to make quarterly estimated tax payments if I have 1099 income?',
-    a: 'Probably yes. If you expect to owe more than $1,000 in federal taxes from your self-employment income, you\'re generally required to make quarterly estimated tax payments. Unlike employees whose taxes are withheld from each paycheck, 1099 workers must pay taxes proactively four times a year. Missing these payments results in underpayment penalties. Deadlines: April 15, June 16, September 15, and January 15.',
+    a: 'Probably yes. If you expect to owe $1,000 or more in federal taxes from your self-employment income, you\'re generally required to make quarterly estimated tax payments. Unlike employees whose taxes are withheld from each paycheck, 1099 workers must pay taxes proactively four times a year. Missing these payments results in underpayment penalties. Deadlines: April 15, June 16, September 15, and January 15.',
   },
   {
     q: 'What are the different types of 1099 forms?',
@@ -132,7 +141,7 @@ export default function W2vs1099Page({ translations }) {
                 ['Employment type', 'Self-employed / contractor'],
                 ['Tax withholding', 'None — you pay it yourself'],
                 ['Social Security & Medicare', 'You pay the full 15.3%'],
-                ['Quarterly payments', 'Required if you owe >$1,000'],
+                ['Quarterly payments', 'Generally required if you expect to owe $1,000+'],
                 ['Business deductions', 'Extensive (Schedule C)'],
                 ['Benefits', 'None from client — pay your own'],
                 ['Stability', 'Variable'],
@@ -165,11 +174,11 @@ export default function W2vs1099Page({ translations }) {
                 ['Gross income', '$80,000', '$80,000'],
                 ['Business expenses deductible', 'Very few', 'Yes (reduces taxable income)'],
                 ['Net income (assuming $5K expenses for contractor)', '$80,000', '$75,000'],
-                ['Social Security & Medicare tax (FICA)', '$6,120 (7.65% employee share)', '$11,475 (15.3% full amount)'],
-                ['Deduction for half of SE tax', 'N/A', '−$5,738'],
-                ['Federal income tax (est. 22% bracket)', '~$12,100', '~$10,900'],
-                ['Total federal tax burden (estimated)', '~$18,220', '~$16,637'],
-                ['Take-home (estimated, before state tax)', '~$61,780', '~$58,363'],
+                ['Social Security & Medicare tax (FICA)', '$6,120 (7.65% employee share)', '$10,597 (15.3% of 92.35% of net profit)'],
+                ['Deduction for half of SE tax', 'N/A', '−$5,299'],
+                ['Federal income tax (2025 single rates, standard deduction)', '~$9,049', '~$6,783'],
+                ['Total federal tax burden (estimated)', '~$15,169', '~$17,380'],
+                ['Take-home (estimated, before state tax)', '~$64,831', '~$57,620'],
               ].map(([label, emp, con], i) => (
                 <tr key={i}>
                   <td style={{ padding: '12px 16px', borderBottom: '1px solid var(--border-l)', fontWeight: i === 7 ? '600' : '400', background: i % 2 === 1 ? 'var(--cream)' : 'white' }}>{label}</td>
@@ -182,12 +191,12 @@ export default function W2vs1099Page({ translations }) {
         </div>
 
         <p style={{ fontSize: '13.5px', color: 'var(--muted)', marginTop: '-8px' }}>
-          Estimates only. Actual tax depends on deductions, credits, filing status, and state taxes. Consult a CPA for your specific situation.
+          Estimates only. Assumes a single filer in 2025 taking the $15,750 standard deduction, with no other income, credits, or deductions. The contractor column doesn't include the qualified business income (QBI) deduction, which may lower a contractor's income tax. Actual tax depends on deductions, credits, filing status, and state taxes. Consult a CPA for your specific situation.
         </p>
 
         <div className="callout callout-info">
           <div className="callout-title">ℹ️ The 1099 tax surprise — and how to prepare for it</div>
-          <p>Many people who switch from employee to contractor are shocked at tax time by the additional self-employment tax. The key is to set aside approximately <strong>25–30% of every 1099 payment</strong> for taxes as soon as you receive it. This covers both income tax and self-employment tax. Treating this money as already spent prevents the painful surprise of owing thousands at filing time.</p>
+          <p>Many people who switch from employee to contractor are shocked at tax time by the additional self-employment tax. One practical budgeting approach — not an IRS rule — is to set aside a fixed share of every 1099 payment for taxes as soon as you receive it, for example <strong>25–30%</strong>. The right amount depends on your income and deductions; it needs to cover both income tax and self-employment tax. Treating this money as already spent prevents the painful surprise of owing thousands at filing time.</p>
         </div>
 
         <h2>What you can deduct as a 1099 worker</h2>
@@ -200,8 +209,8 @@ export default function W2vs1099Page({ translations }) {
             { category: 'Home Office', items: ['Dedicated workspace (square footage method)', 'Utilities (proportional)', 'Internet (business portion)', 'Rent or mortgage interest (proportional)'], color: 'var(--blue)' },
             { category: 'Equipment & Tech', items: ['Computer and peripherals', 'Phone (business use %)', 'Software subscriptions', 'Office furniture and supplies'], color: 'var(--navy)' },
             { category: 'Professional Costs', items: ['Accounting and tax preparation', 'Legal fees (business related)', 'Professional memberships', 'Business insurance'], color: '#7C3AED' },
-            { category: 'Marketing & Growth', items: ['Website and hosting', 'Advertising costs', 'Business cards and materials', 'Client entertainment (50% limit)'], color: 'var(--gold)' },
-            { category: 'Travel & Transport', items: ['Business mileage (67 cents/mile in 2024)', 'Flights and hotels for business', 'Parking and tolls', 'Rideshare for business trips'], color: 'var(--green)' },
+            { category: 'Marketing & Growth', items: ['Website and hosting', 'Advertising costs', 'Business cards and materials', 'Business meals (generally 50%; entertainment isn\'t deductible)'], color: 'var(--gold)' },
+            { category: 'Travel & Transport', items: ['Business mileage (70 cents/mile in 2025)', 'Flights and hotels for business', 'Parking and tolls', 'Rideshare for business trips'], color: 'var(--green)' },
             { category: 'Education & Training', items: ['Courses related to your business', 'Books and professional development', 'Conferences and seminars', 'Subscriptions to industry publications'], color: '#DC2626' },
           ].map((cat, i) => (
             <div key={i} style={{ background: 'var(--cream)', border: `1.5px solid ${cat.color}30`, borderRadius: '12px', padding: '18px 16px', borderTop: `3px solid ${cat.color}` }}>
@@ -245,7 +254,7 @@ export default function W2vs1099Page({ translations }) {
                 ['1099-INT',  'Bank and investment interest',           '$10+',      'Schedule B / Form 1040'],
                 ['1099-DIV',  'Dividends from stocks/funds',            '$10+',      'Schedule B / Form 1040'],
                 ['1099-B',    'Investment sales (stocks, crypto, etc)', 'All sales', 'Schedule D / Form 8949'],
-                ['1099-K',    'Payment processor income (Venmo, Stripe)', '$20,000+ and 200+ transactions (apps); any amount (cards)',  'Schedule C (if business)'],
+                ['1099-K',    'Payment processor income (Venmo, Stripe)', 'Over $20,000 in over 200 transactions (apps); any amount (cards)',  'Schedule C (if business)'],
                 ['1099-R',    'Retirement account distributions',       '$10+',      'Form 1040'],
                 ['1099-G',    'Unemployment compensation, state tax refunds', 'All', 'Form 1040'],
               ].map(([form, reports, threshold, where], i) => (
@@ -276,7 +285,7 @@ export default function W2vs1099Page({ translations }) {
 
         <div className="callout callout-tip">
           <div className="callout-title">💡 The most important thing to know about 1099 income</div>
-          <p>No taxes are withheld from 1099 payments. Every dollar comes to you gross. That's why 1099 workers must (1) set aside a portion of every payment for taxes, (2) make quarterly estimated tax payments if they expect to owe more than $1,000, and (3) track all business expenses throughout the year. Starting these habits immediately — not at tax time — is the difference between a smooth filing experience and a stressful one.</p>
+          <p>No taxes are withheld from 1099 payments. Every dollar comes to you gross. That's why 1099 workers must (1) set aside a portion of every payment for taxes, (2) make quarterly estimated tax payments if they expect to owe $1,000 or more, and (3) track all business expenses throughout the year. Starting these habits immediately — not at tax time — is the difference between a smooth filing experience and a stressful one.</p>
         </div>
 
       </KnowledgePage>

@@ -38,6 +38,8 @@ export default function KnowledgePage({
     opportunity: { emoji: '😊', label: 'You may qualify for a benefit' },
   }
   const emotion = emotionConfig[meta.userEmotion] || emotionConfig.learning
+  // Publication status: every published guide is 'official-sources-verified' (see lib/articles.js).
+  const verified = meta.verification === 'official-sources-verified'
 
   // Structural labels come from the official taxonomy (lib/categories.js); META text is the fallback.
   const category = categoryFor(meta.categoryHref)
@@ -71,13 +73,13 @@ export default function KnowledgePage({
           <div className={styles.heroStats}>
             <span>⏱ {meta.readTime}</span>
             <span className={styles.statDivider}>·</span>
-            {meta.cpaReviewed && (
+            {verified && (
               <span className={styles.cpaBadge}>
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-                CPA-Reviewed
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M20 6 9 17l-5-5"/></svg>
+                Official Sources Verified
               </span>
             )}
-            <span className={styles.statDivider}>·</span>
+            {verified && <span className={styles.statDivider}>·</span>}
             <span>Updated {meta.updatedDate}</span>
             <span className={styles.statDivider}>·</span>
             <span>Tax Year {meta.taxYear}</span>
@@ -195,12 +197,35 @@ export default function KnowledgePage({
           </section>
         )}
 
+        {/* ── OFFICIAL SOURCES (meta.sources: [{ label, url }] — official government sources only) ── */}
+        {meta.sources && meta.sources.length > 0 && (
+          <section className={styles.sourcesSection} data-official-sources="">
+            <h2 className={styles.sectionHeading}>Official sources</h2>
+            <p className={styles.sourcesIntro}>
+              AskLinTax checked this guide against the following official government sources for the {meta.taxYear} tax year. Listing a source does not mean that agency reviewed or endorses AskLinTax.
+            </p>
+            <ul className={styles.sourcesList}>
+              {meta.sources.map(s => (
+                <li key={s.url}>
+                  <a href={s.url} target="_blank" rel="noopener noreferrer">{s.label}</a>
+                </li>
+              ))}
+            </ul>
+          </section>
+        )}
+
         {/* ── TRUST FOOTER ── */}
         <div className={styles.trustFooter}>
-          <div className={styles.trustBadge}>
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--green)" strokeWidth="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-            CPA-Reviewed Content
-          </div>
+          {verified ? (
+            <div className={styles.trustBadge}>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--green)" strokeWidth="2"><path d="M20 6 9 17l-5-5"/></svg>
+              Official Sources Verified — checked by AskLinTax against the official government sources listed above
+            </div>
+          ) : (
+            <div className={`${styles.trustBadge} ${styles.trustBadgePending}`}>
+              Draft — not yet verified against official sources
+            </div>
+          )}
           <span className={styles.trustMeta}>
             Foundation {meta.id} · Last reviewed {meta.updatedDate} · Applies to {meta.taxYear} tax year
           </span>

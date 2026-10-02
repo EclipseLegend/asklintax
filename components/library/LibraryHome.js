@@ -269,7 +269,7 @@ export default function LibraryHome({ translations, locale = 'en' }) {
         <div className={styles.trustStatus}>
           <p className={styles.trustLine}>
             <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" /></svg>
-            <span>{tl('home.trustCpa')}</span>
+            <span>{tl('home.trustOfficial')}</span>
             <span aria-hidden="true">·</span>
             <span>{tl('category.taxYear').replace('{year}', TAX_CONFIG.currentTaxYear)}</span>
             <span aria-hidden="true">·</span>

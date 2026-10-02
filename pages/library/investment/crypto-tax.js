@@ -16,7 +16,11 @@ const META = {
   userEmotion: 'learning',
   difficulty: 'Intermediate',
   readTime: '6 min read',
-  cpaReviewed: true,
+  verification:  'official-sources-verified',
+  sources: [
+    { label: 'IRS — Digital assets', url: 'https://www.irs.gov/filing/digital-assets' },
+    { label: 'IRS — Topic no. 409, Capital gains and losses', url: 'https://www.irs.gov/taxtopics/tc409' },
+  ],
   updatedDate: TAX_CONFIG.lastReviewed,
   taxYear: String(TAX_CONFIG.currentTaxYear),
   confidence: 'Covers the IRS\'s current position on cryptocurrency taxation as of Tax Year 2025. This is a rapidly evolving area — rules for DeFi, NFTs, and staking rewards continue to develop.',
@@ -70,7 +74,7 @@ export default function CryptoTaxPage({ translations }) {
 
         <div className="callout callout-warning">
           <div className="callout-title">⚠️ The IRS crypto question on Form 1040</div>
-          <p>Every Form 1040 asks: "At any time during {TAX_CONFIG.currentTaxYear}, did you receive, sell, exchange, or otherwise dispose of any digital asset (including any virtual currency)?" You must answer this honestly. Checking "No" when you had crypto activity — even activity that resulted in losses — is a misrepresentation on your return.</p>
+          <p>Every Form 1040 asks whether, at any time during {TAX_CONFIG.currentTaxYear}, you (a) received a digital asset (as a reward, award, or payment for property or services) or (b) sold, exchanged, or otherwise disposed of a digital asset (or a financial interest in one). You must answer this honestly. If you received, sold, traded, or spent crypto — even at a loss — answer "Yes." If you only held crypto, only bought it with U.S. dollars, or only moved it between your own wallets (without paying a fee in crypto), the IRS says to answer "No."</p>
         </div>
 
         <h2>Taxable vs. non-taxable crypto events</h2>
@@ -101,7 +105,7 @@ export default function CryptoTaxPage({ translations }) {
           </div>
           <div style={{ background: 'var(--green-soft)', border: '1.5px solid rgba(22,163,74,.25)', borderRadius: '12px', padding: '22px 20px' }}>
             <h4 style={{ fontSize: '17px', fontWeight: '700', color: 'var(--green)', marginBottom: '10px' }}>Long-term (held &gt; 1 year)</h4>
-            <p style={{ fontSize: '14.5px', color: 'var(--mid)', lineHeight: '1.7', marginBottom: '12px' }}>Taxed at preferential capital gains rates: 0%, 15%, or 20% depending on your income. Most taxpayers pay 15%.</p>
+            <p style={{ fontSize: '14.5px', color: 'var(--mid)', lineHeight: '1.7', marginBottom: '12px' }}>Taxed at preferential capital gains rates: 0%, 15%, or 20% depending on your income.</p>
             <div style={{ fontSize: '14px', color: 'var(--green)', fontWeight: '500' }}>Lower rate — strong incentive to hold over 1 year</div>
           </div>
         </div>

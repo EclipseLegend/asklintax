@@ -16,23 +16,27 @@ const META = {
   userEmotion: 'learning',
   difficulty: 'Beginner',
   readTime: '5 min read',
-  cpaReviewed: true,
+  verification:  'official-sources-verified',
+  sources: [
+    { label: 'IRS — Individual Taxpayer Identification Number (ITIN)', url: 'https://www.irs.gov/individuals/individual-taxpayer-identification-number' },
+    { label: 'IRS — Instructions for Form W-7', url: 'https://www.irs.gov/instructions/iw7' },
+  ],
   updatedDate: TAX_CONFIG.lastReviewed,
   taxYear: String(TAX_CONFIG.currentTaxYear),
   confidence: 'ITIN application process is well-established. Processing times vary — apply early. Certified Acceptance Agents can verify documents without sending originals to the IRS.',
   persona: ['F-1 student', 'Dependent spouse without work authorization', 'Non-resident alien with U.S. income', 'Anyone without SSN eligibility who has U.S. tax obligations'],
   relatedJourney: ['New to the U.S.', 'First-time filer without SSN'],
-  actionRequired: 'If you need to file a U.S. tax return and are not eligible for an SSN, apply for an ITIN using Form W-7. Submit with your tax return and original identity documents (or certified copies through a CAA). Allow 7–11 weeks for processing.',
+  actionRequired: 'If you need to file a U.S. tax return and are not eligible for an SSN, apply for an ITIN using Form W-7. Submit with your tax return and original identity documents (or certified copies through a CAA). Allow about 7 weeks for processing — or 9–11 weeks during tax season (January 15 to April 30) or if you apply from overseas.',
 }
 
 const FAQS = [
   { q: 'Can I use an ITIN instead of an SSN for work?', a: 'No. An ITIN is for tax purposes only. It cannot be used for employment — that requires an SSN with work authorization. An ITIN does not confer work authorization, Social Security benefits, or eligibility for most federal programs. Using an ITIN for employment purposes is not permitted.' },
   { q: 'Does having an ITIN affect my immigration status?', a: 'No. An ITIN does not affect, alter, or improve your immigration status. The IRS issues ITINs solely to ensure individuals can fulfill tax obligations regardless of immigration status. ITIN information is not shared with immigration authorities (USCIS or ICE) for immigration enforcement purposes.' },
-  { q: 'My ITIN hasn\'t been used in several years. Is it still valid?', a: 'ITINs that have not been used on a federal tax return in the last 3 consecutive years expire automatically. If your ITIN expired, you must renew it before you can file. Submit a renewal application using Form W-7 (check the "Renew an Existing ITIN" box) with valid identity documentation. You do not need to submit a tax return with a renewal application.' },
+  { q: 'My ITIN hasn\'t been used in several years. Is it still valid?', a: 'An ITIN that wasn\'t included on at least one U.S. federal tax return for the last 3 consecutive tax years expires on December 31 of the third year. An expired ITIN must be renewed before it\'s used again on a federal tax return. Submit a renewal application using Form W-7 (check the "Renew an Existing ITIN" box) with valid identity documentation. Renewal applications must include a U.S. federal tax return unless you meet an exception.' },
   { q: 'Can I get a refund with an ITIN?', a: 'Yes. You can receive a federal tax refund with an ITIN. However, ITIN holders are not eligible for the Earned Income Tax Credit (EITC) or the Child Tax Credit (which requires a qualifying child with an SSN). Some other credits — like the Child and Dependent Care Credit — may be available depending on your situation.' },
   { q: 'What is a Certified Acceptance Agent (CAA)?', a: 'A CAA is an individual or business authorized by the IRS to help taxpayers complete the ITIN application and verify identity documents. The main advantage: a CAA can certify copies of your documents instead of you mailing original documents to the IRS — much safer. Many accounting firms, tax professionals, and some university international student offices are CAAs. Find one at IRS.gov.' },
   { q: 'I have an ITIN but I recently got a Social Security Number. What do I do?', a: 'Once you receive an SSN, you should use it for all tax purposes going forward. Notify the IRS that you received an SSN and want your ITIN rescinded. Write a letter to the IRS including your name, ITIN, SSN, and a statement explaining that you received an SSN. Prior year returns filed with your ITIN remain valid.' },
-  { q: 'Can my spouse or child get an ITIN as a dependent?', a: 'Yes, if they are listed as dependents on your U.S. tax return and are not eligible for an SSN. Dependents and spouses of non-resident aliens can apply for ITINs. Include a complete Form W-7 for each person needing an ITIN, along with identity and foreign status documentation for each.' },
+  { q: 'Can my spouse or child get an ITIN as a dependent?', a: 'Yes, if they are not eligible for an SSN and are claimed on your U.S. tax return for an allowable tax benefit (or file their own return). Spouses and dependents are not eligible for an ITIN otherwise. Include a complete Form W-7 for each person needing an ITIN, along with identity and foreign status documentation for each.' },
 ]
 
 const RELATED = [
@@ -43,10 +47,10 @@ const RELATED = [
 
 const ITIN_STEPS = [
   { num: '01', title: 'Complete Form W-7', detail: 'Download Form W-7 from IRS.gov. Fill out all required fields including your legal name, foreign address, date and country of birth, and the reason you\'re applying. The most common reason for Chinese immigrants: "Nonresident alien required to get an ITIN to claim tax treaty benefit" or "Resident alien filing a U.S. federal tax return."' },
-  { num: '02', title: 'Prepare your tax return (if applicable)', detail: 'Most applicants must attach a completed tax return to Form W-7 as proof that an ITIN is needed. Exceptions: renewing an existing ITIN, or certain dependency situations. Leave the SSN/ITIN field blank on your return — this will be filled in once your ITIN is issued.' },
+  { num: '02', title: 'Prepare your tax return (if applicable)', detail: 'Most applicants must attach a completed tax return to Form W-7 as proof that an ITIN is needed. This applies to renewals too. Only limited exceptions apply — for example, certain tax treaty benefits or third-party withholding situations described in the Form W-7 instructions. Leave the SSN/ITIN field blank on your return — this will be filled in once your ITIN is issued.' },
   { num: '03', title: 'Gather identity documents', detail: 'You must prove both identity and foreign status. A valid passport satisfies both requirements by itself — it\'s the simplest option. If you don\'t have a passport, you\'ll need two documents: one for identity (national ID, driver\'s license) and one for foreign status (visa, foreign birth certificate). All documents must be current (not expired).' },
   { num: '04', title: 'Choose your submission method', detail: 'Option A: Mail originals to the IRS (risky — originals could be delayed or lost). Option B: Visit an IRS Taxpayer Assistance Center in person. Option C: Use a Certified Acceptance Agent (CAA) — they verify your documents on-site and certify copies so you never mail originals. Strongly recommended for valuable documents.' },
-  { num: '05', title: 'Submit and wait', detail: 'Processing time is currently 7–11 weeks. Once your ITIN is issued, you\'ll receive a letter (CP565) with your ITIN. If you submitted a tax return with your application, it will be processed after your ITIN is issued.' },
+  { num: '05', title: 'Submit and wait', detail: 'The IRS says to allow 7 weeks — or 9–11 weeks during tax season (January 15 to April 30) or if you applied from overseas. Once your ITIN is issued, you\'ll receive a letter (CP565) with your ITIN. If you submitted a tax return with your application, it will be processed after your ITIN is issued.' },
 ]
 
 export default function ITINPage({ translations }) {

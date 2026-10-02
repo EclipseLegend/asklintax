@@ -16,7 +16,13 @@ const META = {
   userEmotion:   'deciding',
   difficulty:    'Beginner',
   readTime:      '6 min read',
-  cpaReviewed:   true,
+  verification:  'official-sources-verified',
+  sources: [
+    { label: 'IRS — Limited liability company (LLC)', url: 'https://www.irs.gov/businesses/small-businesses-self-employed/limited-liability-company-llc' },
+    { label: 'IRS — S corporations', url: 'https://www.irs.gov/businesses/small-businesses-self-employed/s-corporations' },
+    { label: 'California Franchise Tax Board — Limited liability company', url: 'https://www.ftb.ca.gov/file/business/types/limited-liability-company/index.html' },
+    { label: 'Wyoming Secretary of State — Business filing fees', url: 'https://sos.wyo.gov/Business/Docs/BusinessFees.pdf' },
+  ],
   updatedDate:   TAX_CONFIG.lastReviewed,
   taxYear:       String(TAX_CONFIG.currentTaxYear),
   confidence:    'General principles apply in most states; California and New York have additional fees and requirements',
@@ -26,11 +32,11 @@ const META = {
 }
 
 const FAQS = [
-  { q: 'How much does it cost to form an LLC?', a: 'State filing fees vary widely — from about $50 in Wyoming or New Mexico to $500+ in Massachusetts. California charges a $70 filing fee but also has an $800 annual minimum franchise tax, due every year regardless of income. Always check your state\'s Secretary of State website before deciding where to form.' },
+  { q: 'How much does it cost to form an LLC?', a: 'State filing fees vary widely — for example, Wyoming charges $100 to file Articles of Organization. California also requires every LLC doing business or organized there to pay an $800 annual tax, every year, regardless of income. Always check your state\'s Secretary of State website before deciding where to form.' },
   { q: 'Can a non-U.S. citizen or green card holder form an LLC?', a: 'Yes. There\'s no citizenship requirement to form an LLC in the U.S. Non-residents can also form a U.S. LLC. However, tax treatment for non-resident owners is more complex — you may face withholding requirements and additional filing obligations. Consult a CPA who specializes in international taxation.' },
   { q: 'Do I need an LLC if I\'m just starting out and not making much money?', a: 'Not necessarily. Operating as a sole proprietor is simpler and costs nothing. You can always form an LLC later when the business grows. The key question is whether the liability protection is worth the annual fees and compliance in your state right now.' },
   { q: 'What\'s the difference between a single-member LLC and a multi-member LLC?', a: 'A single-member LLC has one owner and is taxed as a sole proprietorship by default — income and expenses go on your personal return (Schedule C). A multi-member LLC has two or more owners and is taxed as a partnership by default, requiring a separate Form 1065. Both can elect S-Corp taxation.' },
-  { q: 'If I form an LLC, do I still pay self-employment tax?', a: 'Yes. By default, LLC owners who work in the business pay self-employment tax (15.3%) on all net profits — the same as a sole proprietor. To reduce self-employment taxes, you would need to elect S-Corp taxation, which is generally worth considering once profits exceed roughly $40,000–$50,000 per year.' },
+  { q: 'If I form an LLC, do I still pay self-employment tax?', a: 'Yes. By default, LLC owners who work in the business pay self-employment tax (15.3%) on all net profits — the same as a sole proprietor. To reduce self-employment taxes, you would need to elect S-Corp taxation. Whether that saves money depends on your profit, a reasonable salary for your work, and the added costs of payroll and a separate return — there is no IRS income threshold.' },
   { q: 'Does an LLC protect my personal home and savings if my business is sued?', a: 'Generally yes — that\'s the main purpose of an LLC. Two important exceptions: (1) if you personally guarantee a business loan, you\'re personally liable for that obligation; (2) if you mix personal and business finances, a court may "pierce the corporate veil" and disregard the protection. Keep separate bank accounts always.' },
   { q: 'I run an Airbnb. Should I put it in an LLC?', a: 'It depends. An LLC can protect personal assets if a guest is injured. However, in California, transferring a mortgaged property into an LLC can trigger a "due on sale" clause in your mortgage. An LLC also doesn\'t change how Airbnb income is taxed. Talk to a CPA and a real estate attorney before transferring property to an LLC.' },
 ]
@@ -136,7 +142,7 @@ export default function LLCBasicsPage({ translations }) {
         <ol>
           <li><strong>Choose a business name</strong> — must include "LLC" or "Limited Liability Company," and can't duplicate an existing business name in your state.</li>
           <li><strong>Choose your state</strong> — most small businesses form in the state where they operate. If you operate in California, you'll pay California fees regardless of where you form.</li>
-          <li><strong>File Articles of Organization</strong> — the official form submitted to your state's Secretary of State, usually online. Fees range from $50–$500.</li>
+          <li><strong>File Articles of Organization</strong> — the official form submitted to your state's Secretary of State, usually online. Filing fees vary by state.</li>
           <li><strong>Create an Operating Agreement</strong> — not always legally required, but strongly recommended. It defines ownership percentages and what happens if a partner leaves.</li>
           <li><strong>Apply for an EIN</strong> — your business's tax ID number, free at IRS.gov, needed for a business bank account. <a href="/library/business-formation/ein">Full guide →</a></li>
           <li><strong>Open a separate business bank account</strong> — this is essential. Mixing personal and business money is the fastest way to lose your liability protection.</li>

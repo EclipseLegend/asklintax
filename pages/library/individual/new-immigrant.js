@@ -16,7 +16,14 @@ const META = {
   userEmotion:   'learning',
   difficulty:    'Beginner',
   readTime:      '8 min read',
-  cpaReviewed:   true,
+  verification:  'official-sources-verified',
+  sources: [
+    { label: 'IRS Publication 519 — U.S. Tax Guide for Aliens', url: 'https://www.irs.gov/publications/p519' },
+    { label: 'IRS — Substantial presence test', url: 'https://www.irs.gov/individuals/international-taxpayers/substantial-presence-test' },
+    { label: 'IRS — United States income tax treaties A to Z', url: 'https://www.irs.gov/businesses/international-businesses/united-states-income-tax-treaties-a-to-z' },
+    { label: 'IRS — Report of Foreign Bank and Financial Accounts (FBAR)', url: 'https://www.irs.gov/businesses/small-businesses-self-employed/report-of-foreign-bank-and-financial-accounts-fbar' },
+    { label: 'IRS — Individual Taxpayer Identification Number (ITIN)', url: 'https://www.irs.gov/individuals/individual-taxpayer-identification-number' },
+  ],
   updatedDate:   TAX_CONFIG.lastReviewed,
   taxYear:       String(TAX_CONFIG.currentTaxYear),
   confidence:    'General principles apply to most new immigrants; dual-status years and treaty benefits require case-by-case analysis',
@@ -40,7 +47,7 @@ const FAQS = [
   },
   {
     q: 'Do I need to report my income from Taiwan/China on my U.S. tax return?',
-    a: 'If you are a resident alien (including a green card holder or someone who passes the Substantial Presence Test), yes — you must report worldwide income, including income earned in Taiwan or China before moving to the U.S. during your first year. The U.S. has tax treaties with some countries that may affect how this income is taxed, and foreign tax credits may be available to prevent double taxation.',
+    a: 'If you are a resident alien (including a green card holder or someone who passes the Substantial Presence Test), yes — you must report worldwide income, including income earned in Taiwan or China while you were a resident. In a dual-status arrival year, foreign income received before your residency starting date is generally not taxable (unless it is connected with a U.S. business). The U.S. has tax treaties with some countries that may affect how this income is taxed, and foreign tax credits may be available to prevent double taxation.',
   },
   {
     q: 'What is a dual-status return and when do I need to file one?',
@@ -137,7 +144,7 @@ export default function NewImmigrantPage({ translations }) {
 
         <div className="callout callout-info">
           <div className="callout-title">ℹ️ Important exception: F-1 and J-1 students</div>
-          <p>F-1 and J-1 visa holders are "exempt individuals" — their days in the U.S. on those visas don't count toward the Substantial Presence Test for the first 5 calendar years (F-1) or 2 calendar years (J-1). Most international students file as nonresident aliens and use Form 1040-NR.</p>
+          <p>Students on F, J, M, or Q visas and J or Q teachers and trainees can be "exempt individuals" — their days in that status don't count toward the Substantial Presence Test. Students generally stop being exempt after any part of 5 calendar years as an exempt teacher, trainee, or student; teachers and trainees generally aren't exempt if they were exempt for any part of 2 of the 6 preceding calendar years. Most international students file as nonresident aliens and use Form 1040-NR.</p>
         </div>
 
         <h2>Step 2: Understand what income you must report</h2>
@@ -151,7 +158,7 @@ export default function NewImmigrantPage({ translations }) {
           <li>Freelance or self-employment income</li>
           <li>Investment income (dividends, capital gains)</li>
           <li>Rental income from U.S. or foreign properties</li>
-          <li>Income earned in Taiwan, China, or any other country before or after moving to the U.S.</li>
+          <li>Income earned in Taiwan, China, or any other country while you are a U.S. tax resident (in a dual-status arrival year, foreign income from before your residency starting date generally isn't taxed)</li>
           <li>Business income</li>
         </ul>
 
@@ -204,7 +211,7 @@ export default function NewImmigrantPage({ translations }) {
           If you have bank accounts, investment accounts, or other financial accounts outside the U.S. with a combined maximum value exceeding <strong>$10,000 at any point during the year</strong>, you are required to file an <strong>FBAR</strong> (Foreign Bank Account Report) with FinCEN.
         </p>
         <p>
-          This is separate from your tax return. It's due April 15 with an automatic extension to October 15. Penalties for failing to file can be severe — up to $10,000 per violation for non-willful failures.
+          This is separate from your tax return. It's due April 15 with an automatic extension to October 15. Penalties for failing to file can be severe — the civil penalty maximums are set by law and adjusted for inflation each year, and criminal penalties may also apply.
         </p>
 
         <div className="callout callout-warning">
@@ -253,7 +260,7 @@ export default function NewImmigrantPage({ translations }) {
 
         <div className="callout callout-tip">
           <div className="callout-title">💡 The U.S.-China tax treaty vs. Taiwan</div>
-          <p>The U.S. has a tax treaty with China that provides certain benefits for Chinese nationals — including reduced withholding on dividends and possible exemptions for students and researchers. The U.S. does NOT have a formal tax treaty with Taiwan. However, there is a Taiwan Relations Act that provides some similar protections. If your situation involves income from either China or Taiwan, consult a tax professional who is familiar with both countries' systems.</p>
+          <p>The U.S. has a tax treaty with China that provides certain benefits for Chinese nationals — including reduced withholding on dividends and possible exemptions for students and researchers. Taiwan does not appear on the IRS's list of countries with U.S. income tax treaties, so treaty benefits shouldn't be assumed for Taiwan income. If your situation involves income from either China or Taiwan, consult a tax professional who is familiar with both countries' systems.</p>
         </div>
 
         <h2>The most common mistakes new immigrants make</h2>
@@ -261,7 +268,7 @@ export default function NewImmigrantPage({ translations }) {
           <li><strong>Filing as a resident when you should file as a nonresident (or vice versa)</strong> — Getting residency status wrong is the most consequential error. It affects every other part of your return.</li>
           <li><strong>Not reporting foreign income</strong> — Resident aliens must report worldwide income. Many new immigrants don't know this applies to them.</li>
           <li><strong>Forgetting FBAR</strong> — This is separate from your tax return and has its own filing system. Missing it can result in significant penalties.</li>
-          <li><strong>Missing the first-year election</strong> — If you became a resident alien partway through the year, you may be able to elect to be treated as a resident for the entire year, which can simplify your return and unlock additional deductions. This election must be made on your return — you can't change your mind later.</li>
+          <li><strong>Missing an available residency election</strong> — If you became a resident alien partway through the year and were married to a U.S. citizen or resident at year end, you and your spouse may be able to choose to be treated as residents for the entire year and file jointly, which avoids the dual-status restrictions (but taxes both of you on worldwide income for the whole year). Separately, the first-year choice can let someone who arrives late in the year be treated as a resident for part of that year; it can't be revoked without IRS approval. Get advice before making either choice.</li>
           <li><strong>Assuming your employer handled everything</strong> — Your employer withholds taxes from your paycheck, but they don't file your return. You are responsible for filing, reporting all income, and claiming any additional obligations like FBAR.</li>
         </ul>
 

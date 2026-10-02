@@ -16,7 +16,12 @@ const META = {
   userEmotion:   'organizing',
   difficulty:    'Beginner',
   readTime:      '5 min read',
-  cpaReviewed:   true,
+  verification:  'official-sources-verified',
+  sources: [
+    { label: 'IRS Publication 527 — Residential Rental Property (chapter 5)', url: 'https://www.irs.gov/publications/p527' },
+    { label: 'IRS — Topic no. 415, Renting residential and vacation property', url: 'https://www.irs.gov/taxtopics/tc415' },
+    { label: 'IRS — Understanding your Form 1099-K', url: 'https://www.irs.gov/businesses/understanding-your-form-1099-k' },
+  ],
   updatedDate:   TAX_CONFIG.lastReviewed,
   taxYear:       String(TAX_CONFIG.currentTaxYear),
   confidence:    'The 14-day rule is clearly defined in IRC Section 280A. The main complexity is correctly counting personal use days — the definition is broader than most people assume.',
@@ -40,7 +45,7 @@ const FAQS = [
   },
   {
     q: 'Can I still deduct mortgage interest and property taxes if I use the 14-day rule?',
-    a: 'Yes — but only as personal itemized deductions on Schedule A, not as rental expenses. Mortgage interest and property taxes are deductible regardless of whether you rent the property. What you lose under the 14-day rule is the ability to deduct rental-specific expenses like cleaning fees, supplies, or depreciation. The tradeoff: tax-free income in exchange for no rental expense deductions.',
+    a: 'Yes — but only as personal itemized deductions on Schedule A, not as rental expenses. If you itemize, mortgage interest and property taxes are reported on Schedule A as normally allowed, whether or not you rent the property. What you lose under the 14-day rule is the ability to deduct rental-specific expenses like cleaning fees, supplies, or depreciation. The tradeoff: tax-free income in exchange for no rental expense deductions.',
   },
   {
     q: 'What if I go over 14 days? Is it all or nothing?',

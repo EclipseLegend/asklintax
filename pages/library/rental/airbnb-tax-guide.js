@@ -16,7 +16,12 @@ const META = {
   userEmotion:   'organizing',
   difficulty:    'Intermediate',
   readTime:      '7 min read',
-  cpaReviewed:   true,
+  verification:  'official-sources-verified',
+  sources: [
+    { label: 'IRS Publication 527 — Residential Rental Property', url: 'https://www.irs.gov/publications/p527' },
+    { label: 'IRS — Topic no. 415, Renting residential and vacation property', url: 'https://www.irs.gov/taxtopics/tc415' },
+    { label: 'IRS — Understanding your Form 1099-K', url: 'https://www.irs.gov/businesses/understanding-your-form-1099-k' },
+  ],
   updatedDate:   TAX_CONFIG.lastReviewed,
   taxYear:       String(TAX_CONFIG.currentTaxYear),
   confidence:    'Covers standard short-term rental rules for U.S. tax residents. Mixed-use properties, vacation homes, and properties in certain states may have additional rules. Consult a CPA for your specific situation.',
@@ -40,7 +45,7 @@ const FAQS = [
   },
   {
     q: 'Can I deduct Airbnb\'s service fees?',
-    a: 'Yes. The host service fee that Airbnb charges (typically 3% of the booking subtotal) is a deductible business expense. When you report income, report the gross rental income before fees, then deduct the fees separately on Schedule E (or Schedule C if it\'s your primary business). Your 1099-K from Airbnb will show gross payments — before the Airbnb service fee is deducted.',
+    a: 'Yes. The host service fee that Airbnb charges is a deductible expense. When you report income, report the gross rental income before fees, then deduct the fees separately on Schedule E (or Schedule C if you provide substantial services). Your 1099-K from Airbnb will show gross payments — before the Airbnb service fee is deducted.',
   },
   {
     q: 'Do I need to charge guests sales tax or occupancy tax?',
@@ -84,7 +89,7 @@ const DEDUCTIONS = [
     color: 'var(--green)',
     items: [
       { name: 'Cleaning and housekeeping', note: 'Professional cleaning between guests' },
-      { name: 'Airbnb host service fees', note: 'Typically 3% of booking subtotal' },
+      { name: 'Airbnb host service fees', note: 'The fees Airbnb deducts from your payouts' },
       { name: 'Guest supplies', note: 'Toiletries, coffee, welcome items' },
       { name: 'Photography for listing', note: 'Professional photos of the rental' },
       { name: 'Linens and towels', note: 'If used exclusively for guests' },
@@ -111,8 +116,8 @@ const DEDUCTIONS = [
     color: '#7C3AED',
     items: [
       { name: 'The property itself', note: 'Residential rental property depreciated over 27.5 years' },
-      { name: 'Major appliances', note: 'Refrigerator, washer/dryer — typically 5–7 year depreciation' },
-      { name: 'Furniture', note: 'Beds, sofas, tables — typically 5–7 year depreciation' },
+      { name: 'Major appliances', note: 'Refrigerator, washer/dryer — generally 5-year depreciation in a residential rental' },
+      { name: 'Furniture', note: 'Beds, sofas, tables — generally 5-year depreciation in a residential rental' },
       { name: 'Renovations and improvements', note: 'Bathroom remodel, new roof — varies by type' },
     ],
   },
@@ -162,7 +167,7 @@ export default function AirbnbTaxGuidePage({ translations }) {
 
         <h2>Which tax form do you use? Schedule E vs Schedule C</h2>
         <p>
-          Most Airbnb hosts report rental income on <strong>Schedule E</strong>. However, some hosts use <strong>Schedule C</strong>. The difference matters because Schedule C income is subject to self-employment tax (15.3%) while Schedule E income is not.
+          Rental income is generally reported on <strong>Schedule E</strong>. However, some hosts must use <strong>Schedule C</strong>. The difference matters because Schedule C income is subject to self-employment tax (15.3%) while Schedule E income is not.
         </p>
 
         <div style={{ overflowX: 'auto', margin: '24px 0' }}>
@@ -176,9 +181,9 @@ export default function AirbnbTaxGuidePage({ translations }) {
             </thead>
             <tbody>
               {[
-                ['Renting a room or property with standard host services (cleaning between guests, keys, check-in)', 'Schedule E — Supplemental Income', '❌ No'],
-                ['Providing substantial hotel-like services (daily cleaning, meals, concierge, linen service)', 'Schedule C — Business Income', '✅ Yes (15.3%)'],
-                ['Short-term rental is your primary business and main source of income', 'Schedule C — Business Income', '✅ Yes (15.3%)'],
+                ['Renting a room or property without substantial services for guests', 'Schedule E — Supplemental Income', '❌ No'],
+                ['Providing substantial services primarily for guests\' convenience (such as regular cleaning, changing linen, or maid service)', 'Schedule C — Business Income', '✅ Yes (15.3%)'],
+                ['Renting is part of a trade or business as a real estate dealer', 'Schedule C — Business Income', '✅ Yes (15.3%)'],
               ].map(([situation, form, se], i) => (
                 <tr key={i}>
                   <td style={{ padding: '12px 16px', borderBottom: '1px solid var(--border-l)', background: i % 2 === 1 ? 'var(--cream)' : 'white' }}>{situation}</td>
@@ -191,8 +196,8 @@ export default function AirbnbTaxGuidePage({ translations }) {
         </div>
 
         <div className="callout callout-info">
-          <div className="callout-title">ℹ️ Most Airbnb hosts use Schedule E</div>
-          <p>The IRS distinguishes between "rental activity" (Schedule E) and "hotel-like services" (Schedule C). Standard Airbnb hosting — providing a clean space, keys, and basic amenities — is rental activity. Unless you're offering daily maid service, meals, or other hotel-style services, Schedule E is almost certainly the right form for you.</p>
+          <div className="callout-title">ℹ️ Schedule E or Schedule C?</div>
+          <p>Routine turnover cleaning between guests does not by itself determine Schedule E vs. Schedule C. If you provide substantial services primarily for your guests' convenience — such as regular cleaning, changing linen, or maid service — Publication 527 says to report on Schedule C. If you're unsure where your services fall, get professional advice.</p>
         </div>
 
         <h2>What counts as rental income?</h2>
@@ -243,12 +248,12 @@ export default function AirbnbTaxGuidePage({ translations }) {
 
         <h2>How to allocate expenses for mixed-use properties</h2>
         <p>
-          If you rent out your primary residence or a property you also personally use, you must allocate expenses between rental and personal use. The IRS provides two accepted allocation methods:
+          If you rent out your primary residence or a property you also personally use, you must allocate expenses between rental and personal use. IRS Publication 527 divides expenses based on the number of days used for each purpose:
         </p>
 
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px', margin: '24px 0' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '16px', margin: '24px 0' }}>
           <div style={{ background: 'var(--cream)', border: '1.5px solid var(--border)', borderRadius: '12px', padding: '20px 18px' }}>
-            <h4 style={{ fontSize: '16px', fontWeight: '600', color: 'var(--navy)', marginBottom: '10px' }}>Method 1: Time-based allocation</h4>
+            <h4 style={{ fontSize: '16px', fontWeight: '600', color: 'var(--navy)', marginBottom: '10px' }}>Days-based allocation</h4>
             <p style={{ fontSize: '14.5px', color: 'var(--muted)', lineHeight: '1.7', marginBottom: '12px' }}>
               Divide rental days by total days used (rental days + personal use days).
             </p>
@@ -258,20 +263,7 @@ export default function AirbnbTaxGuidePage({ translations }) {
               Total days: 90<br />
               <strong>Rental %: 60/90 = 67%</strong>
             </div>
-            <p style={{ fontSize: '13px', color: 'var(--muted)', marginTop: '10px', marginBottom: 0 }}>IRS preferred method for vacation homes</p>
-          </div>
-          <div style={{ background: 'var(--cream)', border: '1.5px solid var(--border)', borderRadius: '12px', padding: '20px 18px' }}>
-            <h4 style={{ fontSize: '16px', fontWeight: '600', color: 'var(--navy)', marginBottom: '10px' }}>Method 2: Days in year</h4>
-            <p style={{ fontSize: '14.5px', color: 'var(--muted)', lineHeight: '1.7', marginBottom: '12px' }}>
-              Divide rental days by total days in the year (365). Generally results in a lower rental percentage.
-            </p>
-            <div style={{ background: 'var(--white)', borderRadius: '8px', padding: '12px 14px', fontSize: '14px', color: 'var(--navy)', fontFamily: 'monospace' }}>
-              Rental days: 60<br />
-              Total days in year: 365<br />
-              <br />
-              <strong>Rental %: 60/365 = 16%</strong>
-            </div>
-            <p style={{ fontSize: '13px', color: 'var(--muted)', marginTop: '10px', marginBottom: 0 }}>Tax Court accepted method — lower allocation but consistent</p>
+            <p style={{ fontSize: '13px', color: 'var(--muted)', marginTop: '10px', marginBottom: 0 }}>The method described in IRS Publication 527</p>
           </div>
         </div>
 

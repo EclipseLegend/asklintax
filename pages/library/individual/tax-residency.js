@@ -16,7 +16,14 @@ const META = {
   userEmotion:   'learning',
   difficulty:    'Beginner',
   readTime:      '5 min read',
-  cpaReviewed:   true,
+  verification:  'official-sources-verified',
+  sources: [
+    { label: 'IRS Publication 519 — U.S. Tax Guide for Aliens', url: 'https://www.irs.gov/publications/p519' },
+    { label: 'IRS — Substantial presence test', url: 'https://www.irs.gov/individuals/international-taxpayers/substantial-presence-test' },
+    { label: 'IRS — Resident aliens', url: 'https://www.irs.gov/individuals/international-taxpayers/resident-aliens' },
+    { label: 'IRS — Nonresident spouse', url: 'https://www.irs.gov/individuals/international-taxpayers/nonresident-spouse' },
+    { label: 'IRS — Report of Foreign Bank and Financial Accounts (FBAR)', url: 'https://www.irs.gov/businesses/small-businesses-self-employed/report-of-foreign-bank-and-financial-accounts-fbar' },
+  ],
   updatedDate:   TAX_CONFIG.lastReviewed,
   taxYear:       String(TAX_CONFIG.currentTaxYear),
   confidence:    'Covers the two main tests (Green Card and Substantial Presence). Treaty elections, dual-status returns, and exempt individual categories require case-by-case analysis.',
@@ -44,7 +51,7 @@ const FAQS = [
   },
   {
     q: 'What happens if I\'m a resident alien for part of the year and nonresident for part?',
-    a: 'This is called a "dual-status" year. It typically happens in your year of arrival or year of departure. A dual-status return is more complex: you file Form 1040 for the resident period and attach Form 1040-NR for the nonresident period. Dual-status filers face certain restrictions — for example, you generally cannot file jointly with a spouse or claim the standard deduction for the nonresident period. Professional help is strongly recommended.',
+    a: 'This is called a "dual-status" year. It typically happens in your year of arrival or year of departure. A dual-status return is more complex: you file Form 1040 for the resident period and attach Form 1040-NR for the nonresident period. Dual-status filers face certain restrictions — for example, you cannot claim the standard deduction, and you generally cannot file jointly with a spouse unless you both choose to be treated as residents for the whole year. Professional help is strongly recommended.',
   },
   {
     q: 'I passed the Substantial Presence Test but I have closer ties to another country. Can I be treated as a nonresident?',
@@ -119,10 +126,10 @@ export default function TaxResidencyPage({ translations }) {
 
         <h3>Test 1: The Green Card Test</h3>
         <p>
-          Simple: if you were a lawful permanent resident (green card holder) at any time during the tax year, you are a resident alien for that entire year.
+          Simple: if you were a lawful permanent resident (green card holder) at any time during the tax year, you are a resident alien for that year.
         </p>
         <p>
-          There are no day-count calculations. No exceptions based on where you lived. If you held a green card, you're in — for the entire year, even if you got it on December 30th.
+          There are no day-count calculations, and it doesn't matter where you live. One nuance: in the year you first get a green card, your residency generally starts on the first day you are in the U.S. as a permanent resident — unless you were a U.S. resident the year before — so that year may be a dual-status year.
         </p>
 
         <h3>Test 2: The Substantial Presence Test</h3>
@@ -197,8 +204,8 @@ export default function TaxResidencyPage({ translations }) {
               {[
                 ['F-1 student', 'First 5 calendar years in F-1 status', 'After year 5, days start counting normally'],
                 ['J-1 student', 'First 5 calendar years in J-1 status', 'Same as F-1'],
-                ['J-1 non-student (teacher, researcher)', 'First 2 calendar years in J-1 status', 'Shorter exemption period'],
-                ['Diplomat / government official (A or G visa)', 'Entire period of official status', 'Full exemption while on official assignment'],
+                ['J-1 non-student (teacher, trainee)', 'Not exempt in a year if you were exempt as a teacher, trainee, or student for any part of 2 of the 6 preceding calendar years', 'Limited exception if a foreign employer paid all of your compensation; file Form 8843'],
+                ['Foreign government-related individual (A or G visa, except A-3 and G-5)', 'Entire period of official status', 'A-3 and G-5 visa holders are not exempt individuals'],
                 ['Medical condition', 'Days unable to leave due to medical emergency', 'Must have intended to leave; file Form 8843'],
               ].map(([visa, period, notes], i) => (
                 <tr key={i}>
@@ -213,7 +220,7 @@ export default function TaxResidencyPage({ translations }) {
 
         <div className="callout callout-warning">
           <div className="callout-title">⚠️ "Exempt individual" ≠ exempt from taxes</div>
-          <p>Being an exempt individual means your days don't count toward the Substantial Presence Test. It does NOT mean you're exempt from paying U.S. taxes. Nonresident aliens still owe U.S. tax on U.S.-source income and must file Form 1040-NR if they have U.S. income above the filing threshold.</p>
+          <p>Being an exempt individual means your days don't count toward the Substantial Presence Test. It does NOT mean you're exempt from paying U.S. taxes. Nonresident aliens still owe U.S. tax on U.S.-source income, and must file Form 1040-NR if they are engaged in a trade or business in the U.S. (for example, working here) or have other U.S.-source income on which tax was not fully paid through withholding.</p>
         </div>
 
         <h2>Quick determination flowchart</h2>
@@ -265,7 +272,7 @@ export default function TaxResidencyPage({ translations }) {
                 ['Joint filing with spouse', 'Yes', 'Generally no (unless election made)'],
                 ['Most tax credits', 'Yes (Child Tax Credit, EITC, etc.)', 'Limited (some credits not available)'],
                 ['Tax treaties', 'May still apply', 'May reduce or eliminate U.S. tax on certain income'],
-                ['FBAR requirement', 'Yes (if foreign accounts > $10,000)', 'Yes (if foreign accounts > $10,000)'],
+                ['FBAR requirement', 'Yes (if foreign accounts > $10,000)', 'Generally no — the FBAR applies to U.S. persons'],
               ].map(([topic, resident, nonresident], i) => (
                 <tr key={i}>
                   <td style={{ padding: '12px 16px', borderBottom: '1px solid var(--border-l)', fontWeight: '500', background: i % 2 === 1 ? 'var(--cream)' : 'white' }}>{topic}</td>
@@ -291,7 +298,7 @@ export default function TaxResidencyPage({ translations }) {
 
         <h3>Dual-status year</h3>
         <p>
-          In the year you become a U.S. tax resident (or the year you leave), you may be a nonresident for part of the year and a resident for the rest. This is called a "dual-status" year and requires a more complex return — generally a Form 1040 with a 1040-NR attachment. Dual-status filers cannot use the standard deduction or file jointly. Professional help is strongly recommended for dual-status returns.
+          In the year you become a U.S. tax resident (or the year you leave), you may be a nonresident for part of the year and a resident for the rest. This is called a "dual-status" year and requires a more complex return — generally a Form 1040 with a 1040-NR attachment. Dual-status filers cannot use the standard deduction, and they cannot file a joint return — unless they are married to a U.S. citizen or resident at the end of the year and both spouses choose to be treated as U.S. residents for the entire year, in which case the dual-status rules no longer apply and both report worldwide income. See <a href="/library/individual/dual-status/">Dual-status tax returns</a>. Professional help is strongly recommended for dual-status returns.
         </p>
 
         <div className="callout callout-tip">

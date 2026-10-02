@@ -16,7 +16,16 @@ const META = {
   userEmotion:   'organizing',
   difficulty:    'Intermediate',
   readTime:      '7 min read',
-  cpaReviewed:   true,
+  verification:  'official-sources-verified',
+  sources: [
+    { label: 'IRS Publication 334 — Tax Guide for Small Business', url: 'https://www.irs.gov/publications/p334' },
+    { label: 'IRS Publication 463 — Travel, Gift, and Car Expenses', url: 'https://www.irs.gov/publications/p463' },
+    { label: 'IRS Publication 15-B — Employer\'s Tax Guide to Fringe Benefits', url: 'https://www.irs.gov/publications/p15b' },
+    { label: 'IRS Publication 587 — Business Use of Your Home', url: 'https://www.irs.gov/publications/p587' },
+    { label: 'IRS — Home office deduction', url: 'https://www.irs.gov/businesses/small-businesses-self-employed/home-office-deduction' },
+    { label: 'IRS — Standard mileage rates', url: 'https://www.irs.gov/tax-professionals/standard-mileage-rates' },
+    { label: 'IRS — Self-employment tax (Social Security and Medicare taxes)', url: 'https://www.irs.gov/businesses/small-businesses-self-employed/self-employment-tax-social-security-and-medicare-taxes' },
+  ],
   updatedDate:   TAX_CONFIG.lastReviewed,
   taxYear:       String(TAX_CONFIG.currentTaxYear),
   confidence:    'Covers the most common deductions for sole proprietors and single-member LLCs filing Schedule C. S-Corps, partnerships, and C-Corps have additional or different rules. Always verify with a CPA for your specific situation.',
@@ -48,11 +57,11 @@ const FAQS = [
   },
   {
     q: 'Is a business meal 100% deductible?',
-    a: 'No. Business meals are generally only 50% deductible. The meal must have a clear business purpose — you must be discussing business with a client, employee, or business partner. Personal meals, even if eaten while working, are not deductible. Meals provided to employees at the employer\'s convenience (like food at the office during a work meeting) may be 50% deductible. The documentation requirement for meals is strict: keep the receipt and record who was there and what business was discussed.',
+    a: 'No. Business meals are generally only 50% deductible. The meal must have a clear business purpose — you must be discussing business with a client, employee, or business partner. Personal meals, even if eaten while working, are not deductible. For 2025, meals provided to employees for the employer\'s convenience (like food at the office during a work meeting) may be 50% deductible; for amounts paid or incurred after 2025, the employer can no longer deduct them. The documentation requirement for meals is strict: keep the receipt and record who was there and what business was discussed.',
   },
   {
     q: 'Can I deduct the cost of forming my LLC?',
-    a: 'Yes, as organizational costs — up to $5,000 in the first year (amounts above are amortized over 180 months). Organizational costs include state filing fees, legal fees for drafting the operating agreement, and accounting fees related to setup. The filing fee itself (e.g., California\'s $70 LLC filing fee) is deductible. The annual $800 California franchise tax is also deductible as a business expense.',
+    a: 'Yes, as organizational costs — up to $5,000 in the first year (amounts above are amortized over 180 months). Organizational costs include state filing fees, legal fees for drafting the operating agreement, and accounting fees related to setup. The state filing fee itself is deductible as an organizational cost. The annual $800 California franchise tax is also deductible as a business expense.',
   },
 ]
 
@@ -151,7 +160,7 @@ const DEDUCTION_CATEGORIES = [
     summary: 'Business meals are 50% deductible. Entertainment expenses are generally not deductible.',
     items: [
       { name: 'Business meals (50% deductible)', detail: 'Meals with clients, customers, or employees where business is discussed. Must have a clear business purpose. Keep receipt, note who was there, and what was discussed.' },
-      { name: 'Office snacks and meals (50% deductible)', detail: 'Food provided to employees at the office for the employer\'s convenience (e.g., lunch during a working meeting).' },
+      { name: 'Office snacks and meals (50% deductible for 2025)', detail: 'Food provided to employees at the office for the employer\'s convenience (e.g., lunch during a working meeting). For amounts paid or incurred after 2025, this deduction is no longer available.' },
       { name: 'Entertainment (generally NOT deductible)', detail: 'Concert tickets, sporting events, golf — entertainment costs are no longer deductible under current law (post-2017 Tax Cuts and Jobs Act), even if business is discussed.' },
       { name: 'Travel meals', detail: 'Meals while traveling overnight for business are 50% deductible.' },
     ],
@@ -221,9 +230,9 @@ export default function BusinessDeductionsPage({ translations }) {
 
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '12px', margin: '24px 0' }}>
           {[
-            { bracket: '12% income tax bracket', saving: '~$275', note: '$1,000 × (12% + 15.3% × 92.35%)' },
-            { bracket: '22% income tax bracket', saving: '~$363', note: '$1,000 × (22% + 15.3% × 92.35%)' },
-            { bracket: '24% income tax bracket', saving: '~$382', note: '$1,000 × (24% + 15.3% × 92.35%)' },
+            { bracket: '12% income tax bracket', saving: '~$261', note: '$1,000 × (12% + 15.3% × 92.35%)' },
+            { bracket: '22% income tax bracket', saving: '~$361', note: '$1,000 × (22% + 15.3% × 92.35%)' },
+            { bracket: '24% income tax bracket', saving: '~$381', note: '$1,000 × (24% + 15.3% × 92.35%)' },
           ].map((item, i) => (
             <div key={i} style={{ background: 'var(--cream)', border: '1.5px solid var(--border)', borderRadius: '12px', padding: '18px 16px', textAlign: 'center' }}>
               <div style={{ fontSize: '28px', fontWeight: '700', color: 'var(--green)', marginBottom: '6px' }}>{item.saving}</div>

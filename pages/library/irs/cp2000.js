@@ -16,13 +16,18 @@ const META = {
   userEmotion:   'anxious',
   difficulty:    'Beginner',
   readTime:      '5 min read',
-  cpaReviewed:   true,
+  verification:  'official-sources-verified',
+  sources: [
+    { label: 'IRS — Understanding your CP2000 series notice', url: 'https://www.irs.gov/individuals/understanding-your-cp2000-series-notice' },
+    { label: 'IRS Publication 5181 — Tax Return Reviews by Mail', url: 'https://www.irs.gov/pub/irs-pdf/p5181.pdf' },
+    { label: 'IRS — Understanding your Form 1099-K', url: 'https://www.irs.gov/businesses/understanding-your-form-1099-k' },
+  ],
   updatedDate:   TAX_CONFIG.lastReviewed,
   taxYear:       String(TAX_CONFIG.currentTaxYear),
   confidence:    'Covers the standard CP2000 response process. If the proposed amount is large (over $5,000), if you disagree with the IRS position, or if this involves multiple years, consult a CPA before responding.',
   persona:       ['Anyone who received a CP2000 notice', 'Freelancer who forgot a 1099', 'Investor with unreported income', 'New immigrant unfamiliar with IRS notices'],
   relatedJourney: ['Got an IRS letter', 'Dealing with a tax problem'],
-  actionRequired: 'Find the response deadline on your CP2000 (generally 30 days from the notice date, or 60 days if you live outside the U.S. — always follow the date printed on your notice). Do not miss it. Read the notice carefully to identify which income the IRS believes was underreported, then gather documentation to either confirm or dispute the discrepancy.',
+  actionRequired: 'Find the response deadline printed on your CP2000 and follow that date. Do not miss it. Read the notice carefully to identify which income the IRS believes was underreported, then gather documentation to either confirm or dispute the discrepancy.',
 }
 
 const FAQS = [
@@ -44,7 +49,7 @@ const FAQS = [
   },
   {
     q: 'Can I request more time to respond?',
-    a: 'Yes. If you need more time, call the IRS at the number on your CP2000 and request a 30-day extension. Do this before the deadline — the IRS is generally willing to grant one extension for CP2000 responses. Get the representative\'s name and note the date and time of the call.',
+    a: 'Yes. If you need more time, request an extension before the deadline — by mail or fax, by uploading your request with the IRS document upload tool, or by calling the toll-free number listed on your notice. If you call, note the representative\'s name and the date and time of the call.',
   },
   {
     q: 'Will a CP2000 affect my credit score?',
@@ -94,7 +99,7 @@ const RESPONSE_OPTIONS = [
   },
   {
     option:  'You disagree — the income was already reported or doesn\'t belong to you',
-    action:  'Do not sign the response form. Write a clear explanation of why you disagree. Include documentation: your original return, the payer\'s 1099, or proof the income belongs to someone else. Send via certified mail and keep copies.',
+    action:  'Do not sign the response form. Write a clear explanation of why you disagree. Include documentation: your original return, the payer\'s 1099, or proof the income belongs to someone else. Reply by upload, fax, or mail as your notice explains, and keep copies.',
     color:   'var(--blue)',
     icon:    '📝',
     complexity: 'Moderate',
@@ -130,7 +135,7 @@ export default function CP2000Page({ translations }) {
 
         <div className="callout callout-action">
           <div className="callout-title">✅ First: find the deadline and mark it</div>
-          <p>The response deadline is printed on the first page of your CP2000 — look for "Please respond by" followed by a date. The IRS generally asks for a response within 30 days of the notice date (60 days if you live outside the United States), but the date printed on your notice is the one to follow. Mark it in your calendar immediately. Missing this deadline significantly escalates the situation — the IRS will proceed as if you agree with their assessment.</p>
+          <p>The response deadline is printed on the first page of your CP2000 — look for "Please respond by" followed by a date. Follow the date printed on your notice. Mark it in your calendar immediately. Missing this deadline significantly escalates the situation — the IRS will proceed as if you agree with their assessment.</p>
         </div>
 
         <h2>CP2000 is not an audit — here's the difference</h2>
@@ -208,8 +213,8 @@ export default function CP2000Page({ translations }) {
             { step: '03', title: 'Gather documentation', detail: 'Collect: the 1099 or other income document in question, your original return, any documentation of deductions or expenses against the income, and any proof that the income belongs to someone else (if applicable).' },
             { step: '04', title: 'Determine your position', detail: 'Do you agree with the IRS? Partially agree? Disagree? The response form included with the CP2000 has options for each position. Choose based on your documentation.' },
             { step: '05', title: 'Complete and send the response form', detail: 'Fill out the response form included with the notice. If agreeing with adjustments, include a signed statement. If disagreeing, include a written explanation and supporting documents. Send by the deadline.' },
-            { step: '06', title: 'Send via certified mail — keep copies', detail: 'Mail your response via USPS Certified Mail with Return Receipt so you have proof of delivery. Keep copies of everything you sent: the response form, your letter, and all attachments.' },
-            { step: '07', title: 'Wait for the IRS response', detail: 'The IRS typically responds within 60 days of receiving your reply. They will either accept your response and close the matter, ask for additional information, or issue a formal assessment if they don\'t accept your position.' },
+            { step: '06', title: 'Send your reply — keep copies', detail: 'The IRS accepts replies by upload (the fastest option, using the IRS document upload tool and the access code on its CP2000 page), by fax to the number for the IRS location on your notice, or by mail to the address on the notice. If you mail it, USPS Certified Mail with Return Receipt gives you proof of delivery. Keep copies of everything you sent: the response form, your letter, and all attachments.' },
+            { step: '07', title: 'Wait for the IRS response', detail: 'The IRS will contact you after reviewing your response. It may accept your response and close the matter, ask for additional information, or — if no agreement is reached — send a Statutory Notice of Deficiency.' },
           ].map((s, i) => (
             <div key={i} style={{ display: 'flex', borderBottom: i < 6 ? '1px solid var(--border-l)' : 'none', background: i % 2 === 0 ? 'var(--white)' : 'var(--cream)' }}>
               <div style={{ minWidth: '64px', padding: '18px 14px', display: 'flex', alignItems: 'flex-start', justifyContent: 'center', paddingTop: '20px', borderRight: '1px solid var(--border-l)' }}>
@@ -247,7 +252,7 @@ export default function CP2000Page({ translations }) {
           <li><strong>Report all 1099 income</strong> — Every client, bank, broker, and platform that pays you reports to the IRS. If you receive a 1099, report the income. Even if you don't receive a 1099, the income is still taxable.</li>
           <li><strong>Check for 1099s before filing</strong> — Wait until mid-February to file, when most 1099s have been issued. Rushing to file in January often means missing late-arriving forms.</li>
           <li><strong>Report investment sales on Schedule D</strong> — Every stock sale, crypto sale, and fund redemption generates a 1099-B. All of them must be reported, even if the result is a loss.</li>
-          <li><strong>Report all payment platform income</strong> — If you received business income through PayPal, Venmo, Stripe, or Airbnb, report it whether or not you receive a 1099-K. Payment apps and marketplaces generally issue one only above $20,000 and 200 transactions; card payments have no minimum.</li>
+          <li><strong>Report all payment platform income</strong> — If you received business income through PayPal, Venmo, Stripe, or Airbnb, report it whether or not you receive a 1099-K. Payment apps and marketplaces generally issue one only for over $20,000 in over 200 transactions; card payments have no minimum.</li>
           <li><strong>Keep copies of all tax documents</strong> — If a payer sends an incorrect 1099, you'll need documentation to dispute the CP2000 that results.</li>
         </ul>
 

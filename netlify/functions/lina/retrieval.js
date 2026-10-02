@@ -83,6 +83,8 @@ const ZH_GLOSSARY = [
 
 const PUBLISHED = new Set(ARTICLES.map(a => a.id))
 const PASSAGES = KNOWLEDGE.passages.filter(p => PUBLISHED.has(p.articleId))
+// Guides published as "Official Sources Verified" (status recorded at build time from the page).
+const VERIFIED = new Set(PASSAGES.filter(p => p.status === 'official-sources-verified').map(p => p.articleId))
 const DOCS = PASSAGES.map(p => {
   const toks = [...tokens(p.text), ...tokens(p.heading), ...tokens(p.heading), ...tokens(p.title)]
   const tf = new Map()
@@ -204,4 +206,4 @@ function retrieve(question, { maxPassages = 5, maxArticles = 3 } = {}) {
   }
 }
 
-module.exports = { retrieve, PUBLISHED }
+module.exports = { retrieve, PUBLISHED, VERIFIED }

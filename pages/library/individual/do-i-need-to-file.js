@@ -16,7 +16,14 @@ const META = {
   userEmotion:   'learning',
   difficulty:    'Beginner',
   readTime:      '5 min read',
-  cpaReviewed:   true,
+  verification:  'official-sources-verified',
+  sources: [
+    { label: 'IRS — 1040 and 1040-SR instructions (2025), filing requirements', url: 'https://www.irs.gov/instructions/i1040gi' },
+    { label: 'IRS Publication 501 — Dependents, Standard Deduction, and Filing Information', url: 'https://www.irs.gov/publications/p501' },
+    { label: 'IRS — Time IRS can assess tax', url: 'https://www.irs.gov/filing/time-irs-can-assess-tax' },
+    { label: 'IRS Publication 590-A — Contributions to Individual Retirement Arrangements', url: 'https://www.irs.gov/publications/p590a' },
+    { label: 'IRS — Self-employment tax (Social Security and Medicare taxes)', url: 'https://www.irs.gov/businesses/small-businesses-self-employed/self-employment-tax-social-security-and-medicare-taxes' },
+  ],
   updatedDate:   TAX_CONFIG.lastReviewed,
   taxYear:       String(TAX_CONFIG.currentTaxYear),
   confidence:    'Covers standard filing requirements for resident aliens and U.S. citizens. Nonresident aliens (Form 1040-NR filers) have different thresholds — see the note in the article.',
@@ -28,7 +35,7 @@ const META = {
 const FAQS = [
   {
     q: 'What happens if I don\'t file and I was supposed to?',
-    a: 'If you owe taxes and don\'t file, the IRS will charge a failure-to-file penalty (5% of unpaid taxes per month, up to 25%) plus interest. If you\'re owed a refund and don\'t file, you simply don\'t get the refund — there\'s no penalty, but you lose the money. The IRS has 3 years from the due date to assess additional taxes, but there\'s no deadline if you never file at all.',
+    a: 'If you owe taxes and don\'t file, the IRS will charge a failure-to-file penalty (5% of unpaid taxes per month, up to 25%) plus interest. If you\'re owed a refund and don\'t file, there\'s no penalty, but you generally must file within 3 years from the return\'s due date (including extensions) to claim it — after that, the refund is lost. The IRS can usually assess additional tax within 3 years after the return was due or filed, whichever is later, but there\'s no time limit if a required return is never filed.',
   },
   {
     q: 'I had no income this year. Do I still need to file?',
@@ -36,7 +43,7 @@ const FAQS = [
   },
   {
     q: 'I\'m a student with only a small amount of income. Do I need to file?',
-    a: 'It depends on the amount. For Tax Year 2025, single filers under 65 must generally file if gross income is at least $15,750 (the standard deduction). If you earned less than that, you\'re not required to file — but you should file anyway if taxes were withheld from your paycheck, since you\'ll likely get a full refund.',
+    a: 'It depends on the amount. For Tax Year 2025, single filers under 65 must generally file if gross income is at least $15,750 (the standard deduction). If someone, such as a parent, can claim you as a dependent, lower thresholds apply — for 2025 you must file if, for example, your unearned income (such as interest) was over $1,350 or your earned income was over $15,750. If your income is below the threshold that applies to you, you\'re not required to file — but you should file anyway if taxes were withheld from your paycheck, since you\'ll likely get a full refund.',
   },
   {
     q: 'I\'m a nonresident alien (F-1 student, J-1 visitor). Do the same rules apply?',
@@ -118,7 +125,7 @@ export default function DoINeedToFilePage({ translations }) {
 
         <h2>2025 filing thresholds by status</h2>
         <p>
-          These are the gross income thresholds for Tax Year 2025 (the return you file in spring 2026). If your income exceeds the amount for your filing status, you must file.
+          These are the gross income thresholds for Tax Year 2025 (the return you file in spring 2026). If your gross income was at least the amount for your filing status, you must file.
         </p>
 
         <div style={{ overflowX: 'auto', margin: '24px 0' }}>
@@ -127,7 +134,7 @@ export default function DoINeedToFilePage({ translations }) {
               <tr style={{ background: 'var(--navy)', color: '#fff' }}>
                 <th style={{ padding: '12px 16px', textAlign: 'left', borderRadius: '8px 0 0 0' }}>Filing status</th>
                 <th style={{ padding: '12px 16px', textAlign: 'left' }}>Age</th>
-                <th style={{ padding: '12px 16px', textAlign: 'left', borderRadius: '0 8px 0 0' }}>File if income exceeds</th>
+                <th style={{ padding: '12px 16px', textAlign: 'left', borderRadius: '0 8px 0 0' }}>File if gross income was at least</th>
               </tr>
             </thead>
             <tbody>
@@ -143,7 +150,7 @@ export default function DoINeedToFilePage({ translations }) {
         </div>
 
         <p style={{ fontSize: '13.5px', color: 'var(--muted)', marginTop: '-8px' }}>
-          Source: IRS Revenue Procedure 2024-40. Thresholds equal the standard deduction for each filing status and age combination.
+          Source: 2025 Form 1040 instructions (Chart A), reflecting the 2025 standard deduction as amended in 2025. Thresholds equal the standard deduction for each filing status and age combination. Different, lower thresholds apply if someone can claim you as a dependent (Chart B).
           The $5 threshold for Married Filing Separately applies regardless of age.
         </p>
 
@@ -160,7 +167,6 @@ export default function DoINeedToFilePage({ translations }) {
           <li><strong>Self-employment income of $400 or more</strong> — even if it's your only income and it's below the standard threshold</li>
           <li><strong>You owe alternative minimum tax (AMT)</strong></li>
           <li><strong>You received advance premium tax credit payments</strong> (for health insurance purchased through the marketplace)</li>
-          <li><strong>You have net earnings from a church or church-controlled organization of $108.28 or more</strong></li>
           <li><strong>You received wages of $108.28 or more from a church exempt from employer Social Security and Medicare taxes</strong></li>
         </ul>
 
@@ -189,7 +195,7 @@ export default function DoINeedToFilePage({ translations }) {
             {
               icon: '🏥',
               title: 'You want to contribute to an IRA',
-              desc: 'To contribute to a Traditional or Roth IRA based on earned income, you need to have filed a tax return for the year. Filing opens up retirement saving options.',
+              desc: 'To contribute to a traditional IRA, you (or your spouse, if you file jointly) need taxable compensation, such as wages or self-employment income. Filing a return documents that income and any deduction for the contribution.',
             },
           ].map((card, i) => (
             <div key={i} style={{ background: 'var(--cream)', border: '1px solid var(--border)', borderRadius: '12px', padding: '20px 18px' }}>

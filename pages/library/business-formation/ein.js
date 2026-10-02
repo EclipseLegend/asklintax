@@ -16,10 +16,14 @@ const META = {
   userEmotion:   'learning',
   difficulty:    'Beginner',
   readTime:      '4 min read',
-  cpaReviewed:   true,
+  verification:  'official-sources-verified',
+  sources: [
+    { label: 'IRS — Get an employer identification number', url: 'https://www.irs.gov/businesses/small-businesses-self-employed/get-an-employer-identification-number' },
+    { label: 'IRS — Instructions for Form SS-4', url: 'https://www.irs.gov/instructions/iss4' },
+  ],
   updatedDate:   TAX_CONFIG.lastReviewed,
   taxYear:       String(TAX_CONFIG.currentTaxYear),
-  confidence:    'EIN application process is straightforward and well-documented by the IRS. International applicants (no SSN/ITIN) must apply by phone or fax rather than online.',
+  confidence:    'EIN application process is straightforward and well-documented by the IRS. Applicants whose responsible party has no SSN or ITIN cannot apply online and must apply by fax or mail (or by phone if the business has no principal place of business in the U.S.).',
   persona:       ['New business owner', 'LLC owner', 'Freelancer opening a business account', 'Anyone starting a small business'],
   relatedJourney: ['Starting a small business', 'Just formed an LLC'],
   actionRequired: 'If you need an EIN, apply online at IRS.gov/ein right now — it takes about 15 minutes and your EIN is issued instantly. Have your SSN or ITIN and your entity type ready before you start.',
@@ -32,7 +36,7 @@ const FAQS = [
   },
   {
     q: 'Can I apply for an EIN without a Social Security Number?',
-    a: 'Yes, but not online. International applicants and ITIN holders cannot use the online application. You can apply by phone by calling 267-941-1099 (not toll-free) Monday through Friday, 6am to 11pm Eastern time. Have your ITIN or foreign tax ID ready. You\'ll receive your EIN at the end of the call. Alternatively, you can apply by fax (Form SS-4) or mail, which takes longer.',
+    a: 'Yes. If you have an ITIN, you can use the online application, as long as your business is formed in the U.S. (or a U.S. territory) and its principal place of business is there. If the responsible party has neither an SSN nor an ITIN, you can\'t apply online — apply with Form SS-4 by fax or mail instead. If your business has no legal residence, principal place of business, or principal office in the U.S. or a U.S. territory, you can also apply by phone at 267-941-1099 (not toll-free), Monday through Friday, 6am to 11pm Eastern time, and receive your EIN during the call.',
   },
   {
     q: 'I\'m a sole proprietor with no employees. Do I need an EIN?',
@@ -40,7 +44,7 @@ const FAQS = [
   },
   {
     q: 'I lost my EIN. How do I find it?',
-    a: 'Check these places first: your original IRS confirmation letter (CP 575), any prior year business tax return, your business bank account paperwork, or any 1099 forms you\'ve received that show your EIN. If you can\'t find it, call the IRS Business & Specialty Tax Line at 800-829-4933 Monday–Friday 7am–7pm local time. They can look it up after verifying your identity.',
+    a: 'Check these places first: your original IRS confirmation letter (CP 575), any prior year business tax return, your business bank account paperwork, or any 1099 forms you\'ve received that show your EIN. If you can\'t find it, call the IRS Business & Specialty Tax Line at 800-829-4933. They can look it up after verifying your identity.',
   },
   {
     q: 'Do I need a new EIN if I change my business name or address?',
@@ -88,7 +92,7 @@ const STEPS = [
   {
     num:    '02',
     title:  'Click "Apply Online Now"',
-    detail: 'The online application is available Monday–Friday, 7am to 10pm Eastern time. You must complete the entire application in one session — it cannot be saved and resumed. Set aside 15–20 minutes of uninterrupted time.',
+    detail: 'The online application is available Monday–Friday from 6am to 1am (next day), Saturday 6am to 9pm, and Sunday 6pm to midnight, Eastern time. You must complete the entire application in one session — it cannot be saved and resumed. Set aside 15–20 minutes of uninterrupted time.',
     tip:    'The session times out after 15 minutes of inactivity, which would require starting over.',
     color:  'var(--navy)',
   },
@@ -110,7 +114,7 @@ const STEPS = [
     num:    '05',
     title:  'Enter your personal information',
     detail: 'You must provide the responsible party\'s name and Social Security Number or ITIN. The "responsible party" is the person who controls the entity — typically the sole owner for a single-member LLC. The IRS requires this to verify identity and prevent fraud.',
-    tip:    'If you don\'t have an SSN or ITIN, you cannot use the online application. Call 267-941-1099 instead.',
+    tip:    'If the responsible party doesn\'t have an SSN or ITIN, you cannot use the online application. Apply with Form SS-4 by fax or mail — or, if your business has no principal place of business in the U.S., by phone at 267-941-1099.',
     color:  '#DC2626',
   },
   {
@@ -238,10 +242,10 @@ export default function EINPage({ translations }) {
             </thead>
             <tbody>
               {[
-                ['Online (recommended)', 'IRS.gov/ein — Monday–Friday 7am–10pm ET', 'Instant', 'U.S. residents with SSN or ITIN'],
-                ['Phone', 'Call 267-941-1099 — Monday–Friday 6am–11pm ET', 'Instant (EIN given on call)', 'International applicants without SSN/ITIN'],
+                ['Online (recommended)', 'IRS.gov/ein — Mon–Fri 6am–1am, Sat 6am–9pm, Sun 6pm–midnight ET', 'Instant', 'U.S.-based businesses whose responsible party has an SSN or ITIN'],
+                ['Phone', 'Call 267-941-1099 — Monday–Friday 6am–11pm ET', 'Instant (EIN given on call)', 'Businesses with no principal place of business in the U.S.'],
                 ['Fax', 'Complete Form SS-4, fax to your state\'s IRS fax number', '4 business days', 'Those who prefer paper'],
-                ['Mail', 'Complete Form SS-4, mail to the IRS address for your state', '4–5 weeks', 'Last resort only'],
+                ['Mail', 'Complete Form SS-4, mail to the IRS address for your state', 'About 4 weeks', 'Last resort only'],
               ].map(([method, how, time, best], i) => (
                 <tr key={i}>
                   <td style={{ padding: '12px 16px', borderBottom: '1px solid var(--border-l)', fontWeight: '500', background: i % 2 === 1 ? 'var(--cream)' : 'white' }}>{method}</td>

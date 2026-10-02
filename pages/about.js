@@ -114,7 +114,7 @@ export default function AboutPage({ translations }) {
               { title: 'Explain before you sell.', desc: 'We don\'t push services on users who haven\'t yet had a chance to understand their situation. Trust must come before the transaction — every time.' },
               { title: 'Real expertise is making complex things simple.', desc: 'Using more jargon doesn\'t make you sound more professional. Explaining a complex tax concept in a way a first-time filer can understand — that\'s the real skill.' },
               { title: 'Users becoming self-sufficient is a success.', desc: 'If someone learns enough from AskLinTax that they no longer need to pay for help — we consider that a win. Dependency is not our business model.' },
-              { title: 'Important judgments always have a human behind them.', desc: 'Automation and AI can improve efficiency. But every significant tax judgment on AskLinTax is reviewed by a licensed CPA. That\'s not a promise we\'ll ever walk back.' },
+              { title: 'Important judgments always have a human behind them.', desc: 'Automation and AI can improve efficiency. But individualized tax judgments — reviewing your return, your documents, or your situation — are made by a licensed CPA.' },
               { title: 'Transparency reduces anxiety.', desc: 'Most people\'s tax anxiety comes not from the complexity of taxes, but from not knowing what\'s happening next. We always tell users what step they\'re on and what comes after.' },
               { title: 'The brand is bigger than any individual.', desc: 'AskLinTax is built to outlast any one person. Trust is built through systems, knowledge quality, and user experience — not personal reputation.' },
             ].map((p, i) => (
@@ -134,12 +134,12 @@ export default function AboutPage({ translations }) {
           <div className={styles.standardsInner}>
             <div>
               <span className="section-label">Professional Standards</span>
-              <h2 className={`section-title ${styles.standardsTitle}`}>CPA-reviewed. Always.</h2>
+              <h2 className={`section-title ${styles.standardsTitle}`}>Official sources. Carefully verified. Clearly explained.</h2>
               <p className={styles.bodyText}>
-                AskLinTax is a knowledge platform, not a substitute for professional tax advice. Every article on this site is reviewed for factual accuracy by a licensed CPA before publication, and updated whenever tax laws change.
+                AskLinTax is a knowledge platform, not a substitute for professional tax advice. Our Knowledge Library guides are checked against the applicable official government sources — such as IRS, FinCEN, and California Franchise Tax Board guidance — and every guide is marked Official Sources Verified and lists the sources it was checked against. Guides are updated when tax laws change. Source verification means AskLinTax checked the content against those sources; it does not mean any government agency reviewed or endorses AskLinTax.
               </p>
               <p className={styles.bodyText}>
-                Our professional backbone is provided by a licensed Certified Public Accountant who serves as the final reviewer for all tax judgments and professional assessments on the platform. The AskLinTax brand represents a system and a standard — not any single individual.
+                Our professional backbone is provided by a licensed Certified Public Accountant who serves as the final reviewer for individualized tax judgments and professional assessments on the platform. The AskLinTax brand represents a system and a standard — not any single individual.
               </p>
               <p className={styles.bodyText}>
                 When you read something on AskLinTax, you're reading content that has been built with the same rigor as professional advice — made accessible to everyone.
@@ -147,7 +147,7 @@ export default function AboutPage({ translations }) {
             </div>
             <div className={styles.standardsBadges}>
               {[
-                { icon: '✓', label: 'CPA-Reviewed Content', sub: 'All articles reviewed by a licensed CPA' },
+                { icon: '✓', label: 'Official Sources Verified', sub: 'Every guide is checked against the official government sources it cites' },
                 { icon: '📅', label: 'Regularly Updated', sub: 'Reviewed annually and after major tax law changes' },
                 { icon: '🔒', label: 'No Hidden Agenda', sub: 'We do not accept advertising or sponsored content' },
                 { icon: '📖', label: 'Plain Language Standard', sub: 'Every concept explained before any technical term' },

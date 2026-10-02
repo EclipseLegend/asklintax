@@ -16,13 +16,19 @@ const META = {
   userEmotion:   'organizing',
   difficulty:    'Intermediate',
   readTime:      '6 min read',
-  cpaReviewed:   true,
+  verification:  'official-sources-verified',
+  sources: [
+    { label: 'IRS — Form 1040-ES, Estimated Tax for Individuals (2026)', url: 'https://www.irs.gov/pub/irs-pdf/f1040es.pdf' },
+    { label: 'IRS Publication 505 — Tax Withholding and Estimated Tax', url: 'https://www.irs.gov/publications/p505' },
+    { label: 'IRS — Pay your taxes by debit or credit card', url: 'https://www.irs.gov/payments/pay-your-taxes-by-debit-or-credit-card' },
+    { label: 'IRS — EFTPS: The Electronic Federal Tax Payment System', url: 'https://www.irs.gov/payments/eftps-the-electronic-federal-tax-payment-system' },
+  ],
   updatedDate:   TAX_CONFIG.lastReviewed,
   taxYear:       String(TAX_CONFIG.currentTaxYear),
   confidence:    'Covers federal estimated tax rules. State estimated tax requirements vary — most states follow a similar system but with different thresholds and deadlines. Check your state\'s requirements separately.',
   persona:       ['Freelancer', 'Self-employed', 'LLC owner', 'Contractor with 1099 income', 'Small business owner'],
   relatedJourney: ['Starting a small business', 'First year of self-employment'],
-  actionRequired: 'Determine if you expect to owe more than $1,000 in federal taxes this year from non-withheld income. If yes, mark the four quarterly payment deadlines in your calendar and calculate your first payment using the safe harbor method.',
+  actionRequired: 'Determine if you expect to owe $1,000 or more in federal taxes this year from non-withheld income. If yes, mark the four quarterly payment deadlines in your calendar and calculate your first payment using the safe harbor method.',
 }
 
 const FAQS = [
@@ -32,11 +38,11 @@ const FAQS = [
   },
   {
     q: 'Can I just pay everything in April instead of making quarterly payments?',
-    a: 'You can pay everything at once in April, but if you owed more than $1,000 for the year and didn\'t make quarterly payments, you\'ll owe an underpayment penalty for each quarter you missed. The IRS charges this penalty regardless of whether you pay in full by the deadline. The only exception: if your prior year tax liability was zero, or if you qualify for one of the underpayment penalty exceptions.',
+    a: 'You can pay everything at once in April, but if you owed $1,000 or more for the year and didn\'t make quarterly payments, you\'ll owe an underpayment penalty for each quarter you missed. The IRS charges this penalty regardless of whether you pay in full by the deadline. The only exception: if your prior year tax liability was zero, or if you qualify for one of the underpayment penalty exceptions.',
   },
   {
     q: 'I have a W-2 job and also some freelance income. Do I need to make quarterly payments?',
-    a: 'It depends on the amount. If your freelance income is small enough that increasing your W-2 withholding can cover the additional tax, you may not need separate quarterly payments. Talk to your employer\'s HR about increasing your W-4 withholding. If the freelance income is significant, you may need both increased withholding AND quarterly payments. The test: will you owe more than $1,000 in additional taxes from the freelance income after W-2 withholding?',
+    a: 'It depends on the amount. If your freelance income is small enough that increasing your W-2 withholding can cover the additional tax, you may not need separate quarterly payments. Talk to your employer\'s HR about increasing your W-4 withholding. If the freelance income is significant, you may need both increased withholding AND quarterly payments. The test: will you owe $1,000 or more in additional taxes from the freelance income after W-2 withholding?',
   },
   {
     q: 'What is the "safe harbor" method and why do people use it?',
@@ -52,7 +58,7 @@ const FAQS = [
   },
   {
     q: 'How do I actually make the payment?',
-    a: 'The easiest method is IRS Direct Pay at IRS.gov/payments — free, instant, and you get immediate confirmation. You can also use the Electronic Federal Tax Payment System (EFTPS) at eftps.gov, which allows you to schedule payments in advance. Other options: pay by debit or credit card (convenience fee applies), or mail a check with Form 1040-ES. IRS Direct Pay is recommended for most people.',
+    a: 'The easiest method is IRS Direct Pay at IRS.gov/payments — free, instant, and you get immediate confirmation. You can also pay through your IRS Online Account. The Electronic Federal Tax Payment System (EFTPS) no longer accepts new enrollments from individual taxpayers, though current users can still use it for now. Other options: pay by debit or credit card (convenience fee applies), or mail a check with Form 1040-ES. IRS Direct Pay is recommended for most people.',
   },
 ]
 
@@ -131,7 +137,7 @@ export default function QuarterlyTaxesPage({ translations }) {
         </p>
         <ul>
           <li>You expect to owe at least <strong>$1,000</strong> in federal taxes for the year after subtracting withholding and credits</li>
-          <li>Your withholding and credits will cover less than <strong>90% of your current year tax liability</strong>, or less than <strong>100% of your prior year tax liability</strong> (110% if prior year AGI exceeded $150,000)</li>
+          <li>Your withholding and credits will cover less than the smaller of <strong>90% of your current year tax liability</strong> or <strong>100% of your prior year tax liability</strong> (110% if prior year AGI exceeded $150,000, or $75,000 if married filing separately)</li>
         </ul>
 
         <div style={{ overflowX: 'auto', margin: '24px 0' }}>
@@ -195,7 +201,7 @@ export default function QuarterlyTaxesPage({ translations }) {
             <p style={{ fontSize: '14.5px', color: 'var(--muted)', lineHeight: '1.7', marginBottom: '14px' }}>
               Pay 100% of last year's total tax liability in four equal installments (110% if prior year AGI &gt; $150,000). No calculation needed — just divide last year's tax bill by 4.
             </p>
-            <div style={{ fontSize: '14px', color: 'var(--green)', fontWeight: '500' }}>✓ Guarantees no underpayment penalty</div>
+            <div style={{ fontSize: '14px', color: 'var(--green)', fontWeight: '500' }}>✓ Avoids the underpayment penalty if each installment is paid on time</div>
             <div style={{ fontSize: '13.5px', color: 'var(--muted)', marginTop: '6px' }}>Best for: variable income, uncertain current-year projections</div>
           </div>
           <div style={{ background: 'var(--cream)', border: '1.5px solid var(--border)', borderRadius: '12px', padding: '22px 20px' }}>
@@ -281,15 +287,15 @@ export default function QuarterlyTaxesPage({ translations }) {
         <p>The IRS offers several ways to pay. In order of convenience:</p>
         <ol>
           <li><strong>IRS Direct Pay</strong> (IRS.gov/payments) — Free, instant, no account needed. Pay directly from your bank account. You get immediate confirmation. This is the recommended method for most people.</li>
-          <li><strong>EFTPS</strong> (eftps.gov) — Free, allows you to schedule payments in advance. Requires a one-time enrollment (takes 5–7 business days to activate). Best if you want to automate quarterly payments.</li>
-          <li><strong>Debit or credit card</strong> — Available through IRS-authorized processors, but carries a convenience fee (about 1.85–1.99%). Generally not worth it unless you're earning credit card rewards that offset the fee.</li>
+          <li><strong>EFTPS</strong> (eftps.gov) — Free, allows you to schedule payments in advance. The IRS no longer accepts new EFTPS enrollments from individual taxpayers; current users can still use it for now. New individual payers can use IRS Direct Pay or their IRS Online Account instead.</li>
+          <li><strong>Debit or credit card</strong> — Available through IRS-authorized processors, but carries a processor fee (credit cards currently 1.75%–1.85% with a $2.50 minimum; debit cards a flat fee of about $2). Generally not worth it unless you're earning credit card rewards that offset the fee.</li>
           <li><strong>Check by mail</strong> — Mail a check payable to "United States Treasury" with Form 1040-ES payment voucher. Slowest and least recommended — no instant confirmation.</li>
         </ol>
 
         <div className="callout callout-tip">
           <div className="callout-title">💡 The simplest system for self-employed people</div>
           <p>
-            Open a separate savings account and label it "Tax Reserve." Every time you receive a payment, immediately transfer 25–30% into this account. When quarterly payment time comes, the money is already there — no stress, no scramble. Pay from this account, and whatever is left at year-end after your April filing is a bonus.
+            Open a separate savings account and label it "Tax Reserve." Every time you receive a payment, immediately transfer a fixed share into this account — for example 25–30%, as a budgeting rule of thumb, not an IRS rule; adjust it to your own estimated tax. When quarterly payment time comes, the money is already there — no stress, no scramble. Pay from this account, and whatever is left at year-end after your April filing is a bonus.
           </p>
         </div>
 

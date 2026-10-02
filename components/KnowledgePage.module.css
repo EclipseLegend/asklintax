@@ -197,6 +197,16 @@
 }
 .trustMeta { font-size: 12.5px; color: var(--muted); }
 .trustDisclaimer { font-size: 13px; color: var(--muted); line-height: 1.65; }
+.trustBadgePending { color: #7a5618; }
+
+/* ── OFFICIAL SOURCES ── */
+.sourcesSection { margin-bottom: 40px; }
+.sourcesIntro { font-size: 15px; color: var(--muted); margin: 6px 0 14px; }
+.sourcesList { list-style: none; padding: 0; margin: 0; display: grid; gap: 8px; }
+.sourcesList li { font-size: 15px; line-height: 1.5; padding-left: 18px; position: relative; }
+.sourcesList li::before { content: '→'; position: absolute; left: 0; color: var(--gold); }
+.sourcesList a { color: var(--navy); text-decoration: underline; text-decoration-color: rgba(27,45,79,.3); text-underline-offset: 3px; }
+.sourcesList a:hover { text-decoration-color: var(--navy); }
 
 /* ── RELATED ── */
 .relatedSection { }

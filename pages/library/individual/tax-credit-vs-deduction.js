@@ -16,7 +16,15 @@ const META = {
   userEmotion:   'learning',
   difficulty:    'Beginner',
   readTime:      '5 min read',
-  cpaReviewed:   true,
+  verification:  'official-sources-verified',
+  sources: [
+    { label: 'IRS — 1040 and 1040-SR instructions (2025), tax rate schedules', url: 'https://www.irs.gov/instructions/i1040gi' },
+    { label: 'IRS — Child Tax Credit', url: 'https://www.irs.gov/credits-deductions/individuals/child-tax-credit' },
+    { label: 'IRS Publication 503 — Child and Dependent Care Expenses', url: 'https://www.irs.gov/publications/p503' },
+    { label: 'IRS — Retirement Savings Contributions Credit (Saver’s Credit)', url: 'https://www.irs.gov/retirement-plans/plan-participant-employee/retirement-savings-contributions-savers-credit' },
+    { label: 'IRS Publication 970 — Tax Benefits for Education', url: 'https://www.irs.gov/publications/p970' },
+    { label: 'IRS Publication 596 — Earned Income Credit', url: 'https://www.irs.gov/publications/p596' },
+  ],
   updatedDate:   TAX_CONFIG.lastReviewed,
   taxYear:       String(TAX_CONFIG.currentTaxYear),
   confidence:    'Covers standard definitions and examples. Specific credit and deduction amounts change annually — always verify current figures before filing.',
@@ -126,7 +134,7 @@ export default function TaxCreditVsDeductionPage({ translations }) {
 
         <h2>A real example with numbers</h2>
         <p>
-          Let's say your taxable income is <strong>$60,000</strong> and you're in the <strong>22% tax bracket</strong>.
+          Let's say you're a single filer with <strong>$60,000</strong> of taxable income in 2025, which puts your last dollars in the <strong>22% tax bracket</strong> (U.S. tax is graduated, so only the income in that bracket is taxed at 22%).
           You have two choices: a $1,000 tax deduction or a $1,000 tax credit.
         </p>
 
@@ -141,9 +149,9 @@ export default function TaxCreditVsDeductionPage({ translations }) {
                 ['Starting income', '$60,000'],
                 ['Minus deduction', '− $1,000'],
                 ['Taxable income', '$59,000'],
-                ['Tax at 22%', '$59,000 × 22%'],
-                ['Tax owed', '$12,980'],
-                ['Tax without deduction', '$13,200'],
+                ['Rate on your last dollars', '22%'],
+                ['Tax owed (2025 single rates)', '$7,894'],
+                ['Tax without deduction', '$8,114'],
                 ['Your savings', '$220'],
               ].map(([label, value], i) => (
                 <div key={i} style={{
@@ -172,10 +180,10 @@ export default function TaxCreditVsDeductionPage({ translations }) {
               {[
                 ['Starting income', '$60,000'],
                 ['Taxable income', '$60,000'],
-                ['Tax at 22%', '$60,000 × 22%'],
-                ['Tax before credit', '$13,200'],
+                ['Rate on your last dollars', '22%'],
+                ['Tax before credit (2025 single rates)', '$8,114'],
                 ['Minus credit', '− $1,000'],
-                ['Tax owed', '$12,200'],
+                ['Tax owed', '$7,114'],
                 ['Your savings', '$1,000'],
               ].map(([label, value], i) => (
                 <div key={i} style={{

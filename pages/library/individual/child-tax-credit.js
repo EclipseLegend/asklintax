@@ -16,7 +16,12 @@ const META = {
   userEmotion: 'learning',
   difficulty: 'Beginner',
   readTime: '5 min read',
-  cpaReviewed: true,
+  verification:  'official-sources-verified',
+  sources: [
+    { label: 'IRS — Child Tax Credit', url: 'https://www.irs.gov/credits-deductions/individuals/child-tax-credit' },
+    { label: 'IRS Publication 501 — Dependents, Standard Deduction, and Filing Information', url: 'https://www.irs.gov/publications/p501' },
+    { label: 'IRS — One, Big, Beautiful Bill provisions', url: 'https://www.irs.gov/newsroom/one-big-beautiful-bill-provisions' },
+  ],
   updatedDate: TAX_CONFIG.lastReviewed,
   taxYear: String(TAX_CONFIG.currentTaxYear),
   confidence: 'Covers the standard Child Tax Credit rules for Tax Year 2025. Credit amounts and phase-out thresholds are set by current law and may change in future years.',
@@ -26,12 +31,12 @@ const META = {
 }
 
 const FAQS = [
-  { q: 'Can I claim the Child Tax Credit if my child doesn\'t have a Social Security Number?', a: 'No. A qualifying child must have a valid SSN issued before the due date of your return (including extensions) to claim the Child Tax Credit. Children with ITINs do not qualify for the CTC. However, they may qualify for the Credit for Other Dependents, which is worth up to $500 per dependent.' },
+  { q: 'Can I claim the Child Tax Credit if my child doesn\'t have a Social Security Number?', a: 'No. A qualifying child must have an SSN that is valid for employment in the U.S. and issued before the due date of your return (including extensions) to claim the Child Tax Credit. Children with ITINs do not qualify for the CTC. However, they may qualify for the Credit for Other Dependents, which is worth up to $500 per dependent.' },
   { q: 'My child turned 17 this year. Can I still claim the credit?', a: 'No. The child must be under 17 at the end of the tax year to qualify for the Child Tax Credit. If your child turned 17 during the year, they do not qualify for the CTC for that year — even if they were 16 for most of it. They may still qualify for the Credit for Other Dependents ($500) if they meet the other dependency tests.' },
-  { q: 'What is the Additional Child Tax Credit (ACTC)?', a: 'The ACTC is the refundable portion of the Child Tax Credit. For Tax Year 2025, up to $1,700 per qualifying child is refundable — meaning you can receive it as a refund even if you owe no federal income tax. The ACTC is calculated on Schedule 8812 and is automatically computed by tax software. You don\'t file separately for it.' },
+  { q: 'What is the Additional Child Tax Credit (ACTC)?', a: 'The ACTC is the refundable portion of the Child Tax Credit. For Tax Year 2025, up to $1,700 per qualifying child is refundable — meaning you can receive it as a refund even if you owe no federal income tax. You must have earned income of at least $2,500 to be eligible, and the amount depends on your income. The ACTC is calculated on Schedule 8812 and is automatically computed by tax software. You don\'t file separately for it.' },
   { q: 'I\'m a new immigrant. Can I claim the Child Tax Credit?', a: 'If you are a U.S. tax resident (resident alien), your qualifying child has a valid SSN, and — beginning with Tax Year 2025 — you (or your spouse, if married filing jointly) have a Social Security Number valid for employment, you can claim the Child Tax Credit. Nonresident aliens generally cannot claim the CTC. Green card holders and those who pass the Substantial Presence Test are resident aliens and may qualify.' },
   { q: 'My child lives with my ex-spouse. Who claims the credit?', a: 'Generally, the custodial parent — the one the child lives with for more nights during the year — claims the CTC. The custodial parent can sign Form 8332 to release the exemption to the noncustodial parent for a specific year. If the child spends equal time with both parents, the parent with the higher AGI claims the credit by default.' },
-  { q: 'Does the Child Tax Credit reduce my taxes or increase my refund?', a: 'Both. The non-refundable portion ($500 per child in 2025) reduces your tax bill to zero but cannot create a refund beyond what you\'ve already paid. The refundable portion — Additional Child Tax Credit, up to $1,700 per child — can generate actual cash back even if you owe no taxes. So a family with two qualifying children could receive up to $3,400 in refundable credits even with zero tax liability.' },
+  { q: 'Does the Child Tax Credit reduce my taxes or increase my refund?', a: 'Both. The non-refundable portion ($500 per child in 2025) reduces your tax bill to zero but cannot create a refund beyond what you\'ve already paid. The refundable portion — Additional Child Tax Credit, up to $1,700 per child — can generate actual cash back even if you owe no taxes. So a family with two qualifying children could receive up to $3,400 in refundable credits even with zero tax liability, if they have enough earned income (at least $2,500 is required to be eligible for the ACTC).' },
   { q: 'Can I claim the credit for a child I\'m supporting financially but who doesn\'t live with me?', a: 'Generally no — the residency test requires the child to live with you for more than half the year. There\'s an exception if the custodial parent signs Form 8332 releasing the credit to you. But simply providing financial support without the child living with you is not sufficient to claim the CTC.' },
 ]
 
@@ -48,7 +53,7 @@ const QUALIFYING_TESTS = [
   { test: 'Dependency', requirement: 'You claim them as a dependent on your return', note: 'Only one person can claim a child as a dependent' },
   { test: 'Support', requirement: 'Child did not provide more than half of their own financial support', note: 'Most children under 17 automatically meet this test' },
   { test: 'Joint return', requirement: 'Child did not file a joint return with a spouse (unless only to claim a refund)', note: 'Rare edge case — most children under 17 don\'t file jointly' },
-  { test: 'Social Security Number', requirement: 'Child has a valid SSN issued before the return due date', note: 'ITIN does not qualify for CTC (but may qualify for Credit for Other Dependents)' },
+  { test: 'Social Security Number', requirement: 'Child has an SSN valid for employment, issued before the return due date', note: 'ITIN does not qualify for CTC (but may qualify for Credit for Other Dependents)' },
 ]
 
 export default function ChildTaxCreditPage({ translations }) {
@@ -107,7 +112,7 @@ export default function ChildTaxCreditPage({ translations }) {
 
         <div className="callout callout-tip">
           <div className="callout-title">💡 Refundable means you get cash back</div>
-          <p>Many families think they can't benefit from the CTC because they don't owe taxes. That's not true for the refundable portion. If you have two qualifying children and owe $0 in taxes, you can still receive up to <strong>$3,400</strong> in refundable Additional Child Tax Credit. File your return — it's the only way to claim it.</p>
+          <p>Many families think they can't benefit from the CTC because they don't owe taxes. That's not true for the refundable portion. If you have two qualifying children and owe $0 in taxes, you can still receive up to <strong>$3,400</strong> in refundable Additional Child Tax Credit — the amount depends on your income, and you need earned income of at least $2,500 to be eligible. File your return — it's the only way to claim it.</p>
         </div>
 
         <h2>How to claim the credit</h2>
@@ -119,7 +124,7 @@ export default function ChildTaxCreditPage({ translations }) {
 
         <div className="callout callout-warning">
           <div className="callout-title">⚠️ SSN required — ITIN is not enough</div>
-          <p>The Child Tax Credit requires a valid Social Security Number for each qualifying child. Children with ITINs do not qualify for the CTC. Beginning with Tax Year 2025, the person claiming the credit (or their spouse, if married filing jointly) must also have an SSN valid for employment. If your child doesn't yet have an SSN, apply for one — children with work authorization or citizenship can receive an SSN. Children without SSN eligibility may qualify for the Credit for Other Dependents ($500, non-refundable).</p>
+          <p>The Child Tax Credit requires a Social Security Number valid for employment for each qualifying child. Children with ITINs do not qualify for the CTC. Beginning with Tax Year 2025, the person claiming the credit (or their spouse, if married filing jointly) must also have an SSN valid for employment. If your child doesn't yet have an SSN, apply for one — children with work authorization or citizenship can receive an SSN. Children without SSN eligibility may qualify for the Credit for Other Dependents ($500, non-refundable).</p>
         </div>
 
       </KnowledgePage>

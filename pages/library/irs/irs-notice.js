@@ -17,13 +17,22 @@ const META = {
   userEmotion:   'anxious',
   difficulty:    'Beginner',
   readTime:      '4 min read',
-  cpaReviewed:   true,
+  verification:  'official-sources-verified',
+  sources: [
+    { label: 'IRS — Understanding your IRS notice or letter', url: 'https://www.irs.gov/individuals/understanding-your-irs-notice-or-letter' },
+    { label: 'IRS — Understanding your CP14 notice', url: 'https://www.irs.gov/individuals/understanding-your-cp14-notice' },
+    { label: 'IRS — Understanding your CP504 notice', url: 'https://www.irs.gov/individuals/understanding-your-cp504-notice' },
+    { label: 'IRS — Understanding your CP12 notice', url: 'https://www.irs.gov/individuals/understanding-your-cp12-notice' },
+    { label: 'IRS — How to know it’s really the IRS calling or knocking on your door', url: 'https://www.irs.gov/newsroom/how-to-know-its-really-the-irs-calling-or-knocking-on-your-door' },
+    { label: 'IRS — Report phishing and online scams', url: 'https://www.irs.gov/privacy-disclosure/report-phishing' },
+    { label: 'IRS — Penalties', url: 'https://www.irs.gov/payments/penalties' },
+  ],
   updatedDate:   TAX_CONFIG.lastReviewed,
   taxYear:       String(TAX_CONFIG.currentTaxYear),
   confidence:    'Covers the most common notice types. Audits, liens, levies, and legal action require case-by-case professional assessment.',
   persona:       ['Anyone who received an IRS letter', 'New immigrant unfamiliar with IRS process', 'Small business owner'],
   relatedJourney: ['Got an IRS letter', 'Dealing with a tax problem'],
-  actionRequired: 'Find the response deadline printed on your letter and mark it on your calendar right now. Most notices give you 30–60 days. Then read this guide to understand what the IRS is asking.',
+  actionRequired: 'Find the response deadline printed on your letter and mark it on your calendar right now. Then read this guide to understand what the IRS is asking.',
 }
 
 // ── NOTICE TYPES ──────────────────────────────────────────
@@ -32,18 +41,18 @@ const NOTICE_TYPES = [
   { code: 'CP14',   color: '#DC2626', urgency: 'Balance Due',      title: 'You Have a Balance Due',       desc: "You owe taxes that haven't been paid. Interest and penalties are accruing.", action: 'Pay the balance online at IRS.gov/payments, or call to set up a payment plan. Don\'t ignore this — penalties grow quickly.' },
   { code: 'CP501',  color: '#DC2626', urgency: 'Reminder',         title: 'Reminder of Balance Due',      desc: 'A reminder that you have an outstanding balance. Usually sent after a CP14.', action: 'Same as CP14 — pay or arrange a payment plan immediately.' },
   { code: 'CP503',  color: '#7C3AED', urgency: '2nd Reminder',     title: 'Second Balance Due Notice',    desc: 'A second reminder. The IRS may be preparing to take collection action.', action: 'Act now. Contact the IRS to pay or arrange a payment plan before they escalate to a lien or levy.' },
-  { code: 'CP504',  color: '#7C3AED', urgency: 'Urgent',           title: 'Intent to Levy Notice',        desc: 'The IRS intends to levy (seize) your assets including wages, bank accounts, or property. This is serious.', action: 'Respond immediately. Pay in full, set up a payment plan, or contact a tax professional. You have limited time to act.' },
-  { code: 'CP12',   color: '#16A34A', urgency: 'Good News',        title: 'Math Error — Refund Changed',  desc: 'The IRS corrected a math error on your return and your refund amount changed (usually increased).', action: 'Review the changes. If you agree, no action needed — your corrected refund is on the way. If you disagree, call within 60 days.' },
+  { code: 'CP504',  color: '#7C3AED', urgency: 'Urgent',           title: 'Intent to Levy Notice',        desc: 'Your final reminder before the IRS levies (seizes) your wages, bank accounts, or state tax refund. The IRS can also file a Notice of Federal Tax Lien. This is serious.', action: 'Respond immediately. Pay in full, set up a payment plan, or contact a tax professional. You have limited time to act.' },
+  { code: 'CP12',   color: '#16A34A', urgency: 'Good News',        title: 'Math Error — Refund Changed',  desc: 'The IRS corrected one or more mistakes on your return, and as a result your refund amount changed.', action: 'Review the changes. If you agree, no response is needed. If you disagree, contact the IRS at the number on the notice by the date shown on it.' },
 ]
 
 // ── FAQS ──────────────────────────────────────────────────
 const FAQS = [
   { q: 'Does an IRS letter mean I did something wrong?', a: "Not necessarily. The IRS sends letters for many routine reasons — confirming your identity, asking for a missing document, notifying you of a calculation adjustment, or reminding you of an upcoming deadline. Most letters are not a sign of serious trouble." },
-  { q: 'How long do I have to respond?', a: 'Most notices give you 30–60 days to respond. The deadline is printed clearly on the letter — look for phrases like "You must respond by" or a specific date. Mark it on your calendar immediately. Missing the deadline can result in additional penalties and interest.' },
+  { q: 'How long do I have to respond?', a: 'The deadline depends on the notice, and it is printed on the letter — look for phrases like "You must respond by" or a specific date. Mark it on your calendar immediately. Missing the deadline can result in additional penalties and interest.' },
   { q: "What if I can't pay the amount the IRS says I owe?", a: "Don't ignore the notice. If you can't pay in full, you can request a payment plan (installment agreement) directly with the IRS. You can apply online at IRS.gov or call the number on your notice. Acting quickly reduces penalties and shows good faith." },
   { q: 'Can I handle this myself, or do I need a CPA?', a: "It depends on the situation. Simple notices — like a CP2000 with a small discrepancy you agree with, or a CP14 with a balance you can pay — can often be handled yourself. Complex situations involving audits, large amounts, multiple years, or legal action warrant professional help." },
-  { q: 'What if the letter looks suspicious? Could it be a scam?', a: 'Real IRS letters always arrive by postal mail, not email or text. They include your tax ID (usually partially redacted), a notice number in the top right corner, and a return address in the U.S. The IRS will never demand immediate payment by gift card, wire transfer, or cryptocurrency, and they won\'t threaten arrest over the phone.' },
-  { q: "I received this notice but I don't understand English well. What should I do?", a: "The IRS offers some materials in languages other than English, but most notices are in English. You can call the number on the notice and request an interpreter at no charge. You can also bring the letter to a trusted bilingual tax professional who can help you understand it before you respond." },
+  { q: 'What if the letter looks suspicious? Could it be a scam?', a: 'The IRS starts most contacts through regular mail, and it does not email or text you without your permission. Look up the notice number (in the right corner of the letter) on IRS.gov, or call 800-829-1040 to check it. The IRS does not call to demand immediate payment by gift card, prepaid debit card, or wire transfer, and it does not threaten to have you arrested or deported.' },
+  { q: "I received this notice but I don't understand English well. What should I do?", a: "The IRS offers some materials in languages other than English, but most notices are in English. The IRS offers an Over-the-Phone Interpreter service, available in languages including Mandarin and Cantonese. You can also bring the letter to a trusted bilingual tax professional who can help you understand it before you respond." },
 ]
 
 // ── RELATED ARTICLES (Knowledge Graph) ────────────────────
@@ -92,7 +101,7 @@ export default function IRSNoticePage({ translations }) {
 
         <h2>First: don't panic. Here's why.</h2>
         <p>
-          The IRS sends out hundreds of millions of letters every year. Most of them are not emergency situations — they're routine adjustments, reminders, requests for missing information, or confirmations. Getting a letter doesn't mean you're in serious trouble or being investigated.
+          The IRS sends letters for many routine reasons. Most of them are not emergency situations — they're routine adjustments, reminders, requests for missing information, or confirmations. Getting a letter doesn't mean you're in serious trouble or being investigated.
         </p>
         <p>
           That said, you should never ignore an IRS letter. Even a routine notice has a response deadline, and missing it can turn a small issue into a larger one.
@@ -102,7 +111,7 @@ export default function IRSNoticePage({ translations }) {
           <div className="callout-title">✅ Your immediate three-step checklist</div>
           <p>Before you do anything else:</p>
           <ul style={{ marginTop: '10px', marginLeft: '20px' }}>
-            <li><strong>Step 1:</strong> Find the notice number — top right corner of the letter. Looks like "CP2000" or "LTR 4883C".</li>
+            <li><strong>Step 1:</strong> Find the notice number — in the right corner of the letter. Looks like "CP2000" or "LTR 4883C".</li>
             <li><strong>Step 2:</strong> Find the response deadline — printed on the first page. Mark it on your calendar right now.</li>
             <li><strong>Step 3:</strong> Don't call anyone yet. Read the letter completely first.</li>
           </ul>
@@ -145,7 +154,7 @@ export default function IRSNoticePage({ translations }) {
             </div>
           </div>
           <p style={{ fontSize: '13px', color: 'var(--muted)', marginTop: '10px', fontStyle: 'italic', textAlign: 'center' }}>
-            Every IRS letter follows this structure. The notice number and deadline are always in the upper right corner.
+            Every IRS letter follows this structure. The notice number is printed in the right corner, and the response date appears on the notice.
           </p>
         </div>
 
@@ -186,12 +195,12 @@ export default function IRSNoticePage({ translations }) {
             </thead>
             <tbody>
               {[
-                ['Small discrepancy (<$1,000) and you understand why', '✅ Handle it yourself — follow the instructions on the notice'],
+                ['A simple discrepancy you understand and agree with', '✅ You can often handle it yourself — follow the instructions on the notice'],
                 ['You agree with what the IRS says and just need to pay', '✅ Pay online at IRS.gov/payments or set up a payment plan'],
                 ["You don't understand the notice or can't read the English", '🤝 Get a bilingual tax professional to review before responding'],
                 ['You disagree with the IRS and want to dispute the amount', '🤝 Consult a CPA — disputing incorrectly can make things worse'],
                 ['The notice involves an audit, lien, levy, or legal action', '⚠️ Consult a tax professional immediately — don\'t wait'],
-                ['The amount owed is more than $10,000', '⚠️ Professional help is strongly recommended'],
+                ['The amount owed is large, or the notice covers multiple years', '⚠️ Professional help is strongly recommended'],
               ].map(([situation, rec], i) => (
                 <tr key={i}>
                   <td style={{ padding: '12px 16px', borderBottom: '1px solid var(--border-l)', background: i % 2 === 1 ? 'var(--cream)' : 'white' }}>{situation}</td>
@@ -209,19 +218,18 @@ export default function IRSNoticePage({ translations }) {
 
         <div className="callout callout-warning">
           <div className="callout-title">🚨 Warning: these are scam signs</div>
-          <p>The IRS will NEVER:</p>
+          <p>The IRS does not:</p>
           <ul style={{ marginTop: '10px', marginLeft: '20px' }}>
-            <li>Contact you by email, text, or social media about taxes owed</li>
-            <li>Demand immediate payment by gift card, wire transfer, or cryptocurrency</li>
-            <li>Threaten to call the police or immigration authorities if you don't pay immediately</li>
-            <li>Call you without first mailing a notice</li>
-            <li>Ask for your credit card information over the phone</li>
+            <li>Email or text you without your permission, or send you direct messages on social media</li>
+            <li>Call to demand immediate payment by a specific method such as a gift card, prepaid debit card, or wire transfer</li>
+            <li>Threaten to bring in police or immigration officers to have you arrested for not paying</li>
+            <li>Demand that you pay without giving you the chance to question or appeal the amount you owe</li>
           </ul>
         </div>
 
         <div className="callout callout-tip">
           <div className="callout-title">✅ How to verify a real IRS letter</div>
-          <p>Real IRS letters always arrive by postal mail. They include a notice number (top right corner), your tax ID number (partially redacted), and a return address in the United States. You can verify any notice by calling the IRS directly at <strong>1-800-829-1040</strong> or visiting IRS.gov and searching for the notice number.</p>
+          <p>The IRS starts most contacts through regular mail, and each notice or letter has a CP or LTR number in the right corner. You can verify any notice by calling the IRS directly at <strong>1-800-829-1040</strong> or visiting IRS.gov and searching for the notice number.</p>
         </div>
 
         <h2>The biggest mistake people make</h2>
@@ -232,7 +240,7 @@ export default function IRSNoticePage({ translations }) {
           <strong>The biggest mistake is ignoring the notice entirely.</strong>
         </p>
         <p>
-          Many people — especially those who feel uncomfortable with English or the tax system — see an IRS letter and feel paralyzed. They put it aside, hoping it will go away. It won't. What starts as a $500 discrepancy can become a $2,000 problem with penalties and interest after a few months of inaction.
+          Many people — especially those who feel uncomfortable with English or the tax system — see an IRS letter and feel paralyzed. They put it aside, hoping it will go away. It won't. Interest and penalties can keep adding up while a notice goes unanswered, and missing a deadline can cost you appeal rights.
         </p>
         <p>
           Even if you don't know what to do, the first step is always the same: read the notice, find the deadline, and either respond or get help before that date passes.

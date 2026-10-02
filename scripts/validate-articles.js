@@ -302,6 +302,123 @@ for (const ex of EXAMPLE_QUESTIONS) {
   }
 }
 
+// ── 8. Publication policy ─
+// Standard: DRAFT → official primary-source verification → OFFICIAL-SOURCE VERIFIED → PUBLISHED.
+// Every guide in lib/articles.js must have status 'official-sources-verified': its page shows
+// "Official Sources Verified" and lists its official sources. CPA review is not part of this gate
+// (it is reserved for individualized professional services), and no other status is publishable.
+// Draft guides (lib/drafts.js, page files in drafts/library/) must not be exported, listed, curated,
+// searchable, or linked from any public page.
+
+const { DRAFT_ARTICLES, DRAFT_ARTICLES_ZH_TW } = require('../lib/drafts')
+const DRAFTS_DIR = path.join(ROOT, 'drafts', 'library')
+const PUBLISHED_STATUS = 'official-sources-verified'
+
+for (const a of ARTICLES) {
+  if (a.status !== PUBLISHED_STATUS) {
+    error(`${label(a)}: status "${a.status}" is not publishable. A guide is published only after it receives status '${PUBLISHED_STATUS}' — until then keep it in lib/drafts.js.`)
+  }
+}
+const draftIds = new Set(DRAFT_ARTICLES.map(d => d.id))
+const curatedIds = [
+  ...LIBRARY_ESSENTIALS,
+  ...CATEGORIES.flatMap(c => [...(c.startHere || []), ...(c.related || []), ...(c.questions || []).map(q => q.id)]),
+  ...Object.values(CATEGORIES_ZH_TW).flatMap(c => (c.questions || []).map(q => q.id)),
+]
+
+for (const d of DRAFT_ARTICLES) {
+  const where = `draft "${d.id}"`
+  if (articleById.has(d.id)) error(`${where} is in lib/articles.js. A draft is published only after it receives Official-Source Verified status.`)
+  if (ARTICLES_ZH_TW[d.id]) error(`${where} has public Traditional Chinese metadata in lib/library-zh-tw.js. Keep it in lib/drafts.js until publication.`)
+  if (curatedIds.includes(d.id)) error(`${where} is curated in lib/categories.js or lib/library-zh-tw.js.`)
+  if (!DRAFT_ARTICLES_ZH_TW[d.id]) warn(`${where}: no Traditional Chinese draft metadata in lib/drafts.js.`)
+  if (d.status !== 'draft') error(`${where}: status must be 'draft' while it is in lib/drafts.js.`)
+  const file = path.join(ROOT, ...String(d.draftFile).split('/'))
+  if (!fs.existsSync(file)) error(`${where}: draft file ${d.draftFile} is missing.`)
+  const routeFile = path.join(ROOT, 'pages', ...d.path.split('/').filter(Boolean)) + '.js'
+  if (fs.existsSync(routeFile)) error(`${where}: a public page exists at ${path.relative(ROOT, routeFile)}. Drafts must stay in drafts/library/.`)
+}
+for (const id of findDuplicates(DRAFT_ARTICLES.map(d => d.id))) error(`Duplicate draft id "${id}" in lib/drafts.js.`)
+
+// Every file in drafts/library/ must be registered in lib/drafts.js.
+if (fs.existsSync(DRAFTS_DIR)) {
+  const registered = new Set(DRAFT_ARTICLES.map(d => d.draftFile))
+  for (const cat of fs.readdirSync(DRAFTS_DIR, { withFileTypes: true }).filter(e => e.isDirectory())) {
+    for (const f of fs.readdirSync(path.join(DRAFTS_DIR, cat.name)).filter(f => f.endsWith('.js'))) {
+      const rel = `drafts/library/${cat.name}/${f}`
+      if (!registered.has(rel)) error(`${rel} is not registered in lib/drafts.js.`)
+    }
+  }
+}
+
+if (fs.existsSync(OUT_DIR)) {
+  // Every published guide must render the status recorded in lib/articles.js.
+  for (const a of ARTICLES) {
+    const file = exportedFile(a.path)
+    if (!fs.existsSync(file)) continue
+    const text = toText(fs.readFileSync(file, 'utf8'))
+    const shows = {
+      verified: /Official Sources Verified/.test(text),
+      cpa: /CPA[- ]Reviewed|CPA review pending/i.test(text),
+      draft: /not yet verified against official sources/.test(text),
+    }
+    if (!shows.verified || shows.cpa || shows.draft) {
+      error(`${label(a)}: ${a.path} must show "Official Sources Verified" and no other review status (set META.verification = 'official-sources-verified').`)
+    }
+  }
+  // No draft may be exported or linked from any public page.
+  const htmlFiles = []
+  const walk = dir => {
+    for (const e of fs.readdirSync(dir, { withFileTypes: true })) {
+      const p = path.join(dir, e.name)
+      if (e.isDirectory()) { if (e.name !== '_next') walk(p) } else if (e.name.endsWith('.html')) htmlFiles.push(p)
+    }
+  }
+  walk(OUT_DIR)
+  for (const d of DRAFT_ARTICLES) {
+    if (fs.existsSync(exportedFile(d.path))) error(`draft "${d.id}": ${d.path} was exported. Drafts must not be published.`)
+    const bare = d.path.replace(/\/$/, '')
+    for (const f of htmlFiles) {
+      const html = fs.readFileSync(f, 'utf8')
+      if (html.includes(`href="${bare}"`) || html.includes(`href="${bare}/`)) {
+        error(`draft "${d.id}" is linked from public page ${path.relative(OUT_DIR, f)}.`)
+      }
+    }
+  }
+  const sitemap = path.join(OUT_DIR, 'sitemap.xml')
+  if (fs.existsSync(sitemap)) {
+    const xml = fs.readFileSync(sitemap, 'utf8')
+    for (const d of DRAFT_ARTICLES) if (xml.includes(d.path)) error(`draft "${d.id}" is in the sitemap.`)
+  }
+}
+
+// ── 7. Official sources on guides (KnowledgePage meta.sources) ─
+// Official Sources Verified guides must list their official sources, and every listed source
+// must be an official government domain (never blogs or competitors).
+
+const OFFICIAL_SOURCE_HOSTS = ['irs.gov', 'fincen.gov', 'fincen.treas.gov', 'treasury.gov', 'congress.gov', 'ecfr.gov', 'federalregister.gov', 'ssa.gov', 'uscis.gov', 'ftb.ca.gov', 'sos.wyo.gov']
+const isOfficialHost = host => OFFICIAL_SOURCE_HOSTS.some(d => host === d || host.endsWith(`.${d}`))
+
+if (fs.existsSync(OUT_DIR)) {
+  for (const a of ARTICLES) {
+    const file = typeof a.path === 'string' && exportedFile(a.path)
+    if (!file || !fs.existsSync(file)) continue
+    const html = fs.readFileSync(file, 'utf8')
+    const section = (html.match(/<section[^>]*data-official-sources[^>]*>([\s\S]*?)<\/section>/i) || [])[1]
+    if (!section) {
+      if (a.status === 'official-sources-verified') error(`${label(a)}: no "Official sources" section. An Official Sources Verified guide must list its official sources (META.sources).`)
+      continue
+    }
+    const links = [...section.matchAll(/href="([^"]+)"/g)].map(m => decodeEntities(m[1]))
+    if (!links.length) error(`${label(a)}: the "Official sources" section has no links.`)
+    for (const href of links) {
+      let host = ''
+      try { host = new URL(href).hostname.replace(/^www\./, '') } catch { /* invalid URL */ }
+      if (!host || !isOfficialHost(host)) error(`${label(a)}: source "${href}" is not an official government domain.`)
+    }
+  }
+}
+
 // ── Report ────────────────────────────────────────────────
 
 for (const w of warnings) console.warn(`validate-articles: WARNING ${w}`)
