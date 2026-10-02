@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { useRouter } from 'next/router'
 import Layout from '../Layout'
 import { useTranslation } from '../../lib/i18n'
+import { localePath } from '../../lib/locale-routes'
 import styles from '../../pages/index.module.css'
 
 /**
@@ -36,6 +37,8 @@ export default function HomePage({ translations, content, locale = 'en' }) {
   const { t } = useTranslation(translations.common)
   const router = useRouter()
   const c = content
+  // Guide links go to the /zh-tw/ translation on Chinese pages (English-only pages keep their URL).
+  const L = href => localePath(href, locale)
 
   const [guideFilter,   setGuideFilter]   = useState('all')
   const [updateTab,     setUpdateTab]     = useState('federal')
@@ -83,7 +86,7 @@ export default function HomePage({ translations, content, locale = 'en' }) {
           </div>
           <div className={styles.heroPills}>
             {c.hero.pills.map(p => (
-              <a key={p.href} href={p.href} className={styles.heroPill}>{p.label}</a>
+              <a key={p.href} href={L(p.href)} className={styles.heroPill}>{p.label}</a>
             ))}
           </div>
         </div>
@@ -111,12 +114,12 @@ export default function HomePage({ translations, content, locale = 'en' }) {
                 <div className={styles.startIcon}><Icon name={card.icon} /></div>
                 <h3 className={styles.startCardTitle}>
                   {/* Stretched link: covers the whole card without nesting <a> tags */}
-                  <a href={card.href} className={styles.startCardLink}>{card.title}</a>
+                  <a href={L(card.href)} className={styles.startCardLink}>{card.title}</a>
                 </h3>
                 <p className={styles.startCardDesc}>{card.desc}</p>
                 <div className={styles.startLinks}>
                   {card.links.filter(l => !l.planned).map(l => (
-                    <a key={l.href} href={l.href} className={styles.startLink}>{l.label}</a>
+                    <a key={l.href} href={L(l.href)} className={styles.startLink}>{l.label}</a>
                   ))}
                 </div>
               </div>
@@ -138,7 +141,7 @@ export default function HomePage({ translations, content, locale = 'en' }) {
           </div>
           <div className={styles.guidesGrid}>
             {visibleGuides.map(card => (
-              <a key={card.href} href={card.href} className={styles.guideCard}>
+              <a key={card.href} href={L(card.href)} className={styles.guideCard}>
                 <div className={`${styles.guideCardTop} ${styles['top_' + card.topColor]}`} />
                 <div className={styles.guideCardBody}>
                   <span className={`tag ${card.tagCls}`}>{card.tagLabel}</span>
@@ -153,7 +156,7 @@ export default function HomePage({ translations, content, locale = 'en' }) {
             ))}
           </div>
           <div className={styles.guidesFooter}>
-            <a href={c.guides.browseHref} className="btn-outline">{c.guides.browseCta}</a>
+            <a href={L(c.guides.browseHref)} className="btn-outline">{c.guides.browseCta}</a>
           </div>
         </div>
       </section>
@@ -175,7 +178,7 @@ export default function HomePage({ translations, content, locale = 'en' }) {
             </div>
             <div className={styles.updatesFeed}>
               {currentUpdates.map((item, i) => (
-                <a key={i} href={item.href} className={styles.updateItem}>
+                <a key={i} href={L(item.href)} className={styles.updateItem}>
                   <div className={styles.updateItemHead}>
                     {item.tags.map(tag => <span key={tag.text} className={`tag ${tag.cls}`}>{tag.text}</span>)}
                   </div>
@@ -187,7 +190,7 @@ export default function HomePage({ translations, content, locale = 'en' }) {
             </div>
           </div>
           <div style={{ textAlign: 'center', marginTop: '32px' }}>
-            <a href={c.updates.seeAllHref} className="btn-outline">{c.updates.seeAllCta}</a>
+            <a href={L(c.updates.seeAllHref)} className="btn-outline">{c.updates.seeAllCta}</a>
           </div>
         </div>
       </section>
@@ -207,7 +210,7 @@ export default function HomePage({ translations, content, locale = 'en' }) {
           </div>
           <div className={styles.benefitsGrid}>
             {visibleBenefits.map(card => (
-              <a key={card.href} href={card.href} className={styles.benefitCard}>
+              <a key={card.href} href={L(card.href)} className={styles.benefitCard}>
                 <div className={styles.benefitIconWrap}><Icon name={card.icon} /></div>
                 <h4 className={styles.benefitCardTitle}>{card.title}</h4>
                 <p className={styles.benefitCardDesc}>{card.desc}</p>
@@ -229,7 +232,7 @@ export default function HomePage({ translations, content, locale = 'en' }) {
           <p className="section-sub">{c.learn.sub}</p>
           <div className={styles.learnGrid}>
             {c.learnCards.filter(card => !card.planned).map(card => (
-              <a key={card.href} href={card.href} className={styles.learnCard}>
+              <a key={card.href} href={L(card.href)} className={styles.learnCard}>
                 <div className={styles.learnCardIcon} style={{ background: card.iconBg, color: card.iconColor, fontSize: '22px' }}>
                   {card.icon}
                 </div>

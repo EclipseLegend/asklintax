@@ -419,6 +419,102 @@ if (fs.existsSync(OUT_DIR)) {
   }
 }
 
+// ── 9. Traditional Chinese translations (pages/zh-tw/library/) ─
+// Every published guide has a Traditional Chinese translation at /zh-tw/library/<category>/<slug>/.
+// English is the master. Each translation's META records:
+//   locale: 'zh-tw', sourceArticleId: '<id>', sourceHash: '<first 12 hex of sha256 of the English
+//   page file, CRLF normalized to LF>', titleEn: '<English META.title>'.
+// When an English master changes, its hash changes and the build FAILS until the translation is
+// brought back in sync. This is a permanent publication rule, not a warning: review the English
+// change, update the Chinese page so it says the same thing (no Chinese-only tax facts), and only
+// then set sourceHash to the value printed below. Never re-record a hash without updating the
+// translation — the hash certifies that the Chinese text matches that exact English version.
+
+const crypto = require('crypto')
+const ZH_PAGES_LIBRARY = path.join(ROOT, 'pages', 'zh-tw', 'library')
+const SITE = 'https://asklintax.com'
+const sourceFile = (dir, articlePath) => path.join(dir, ...articlePath.split('/').filter(Boolean).slice(1)) + '.js'
+const masterHash = file => crypto.createHash('sha256').update(fs.readFileSync(file, 'utf8').replace(/\r\n/g, '\n')).digest('hex').slice(0, 12)
+const metaString = (src, field) => {
+  const m = new RegExp(`\\n\\s*${field}:\\s*'((?:[^'\\\\]|\\\\.)*)'`).exec(src)
+  return m ? m[1].replace(/\\'/g, "'") : null
+}
+const sourceUrls = src => [...((/\n\s*sources:\s*\[([\s\S]*?)\n\s*\],/.exec(src) || [])[1] || '').matchAll(/url:\s*'([^']+)'/g)].map(m => m[1])
+
+for (const a of ARTICLES) {
+  if (typeof a.path !== 'string') continue
+  const enFile = sourceFile(PAGES_LIBRARY, a.path)
+  const zhFile = sourceFile(ZH_PAGES_LIBRARY, a.path)
+  const where = `${label(a)} (zh-tw)`
+  if (!fs.existsSync(zhFile)) { error(`${where}: missing Traditional Chinese translation pages/zh-tw${a.path.replace(/\/$/, '')}.js.`); continue }
+  if (!fs.existsSync(enFile)) continue
+  const en = fs.readFileSync(enFile, 'utf8')
+  const zh = fs.readFileSync(zhFile, 'utf8')
+  if (metaString(zh, 'locale') !== 'zh-tw') error(`${where}: META.locale must be 'zh-tw'.`)
+  const sourceId = metaString(zh, 'sourceArticleId')
+  if (sourceId !== a.id) error(`${where}: META.sourceArticleId is "${sourceId}" but this page translates "${a.id}".`)
+  const current = masterHash(enFile)
+  const recorded = metaString(zh, 'sourceHash')
+  if (recorded !== current) {
+    error(`${where}: translation may be stale — the English master changed since it was translated (sourceHash '${recorded}', current '${current}'). Review the English change and update the Chinese translation to match it first; only then set sourceHash to '${current}'. Do not re-record the hash without updating the translation.`)
+  }
+  if (metaString(zh, 'titleEn') !== a.title) error(`${where}: META.titleEn must equal the English title "${a.title}".`)
+  const zhMeta = ARTICLES_ZH_TW[a.id] || {}
+  if (zhMeta.title && metaString(zh, 'title') !== zhMeta.title) error(`${where}: META.title must equal the Traditional Chinese title in lib/library-zh-tw.js ("${zhMeta.title}").`)
+  for (const field of ['id', 'difficulty', 'readTime', 'verification', 'categoryHref']) {
+    if (metaString(zh, field) !== metaString(en, field)) error(`${where}: META.${field} must match the English master ("${metaString(en, field)}").`)
+  }
+  if (JSON.stringify(sourceUrls(zh)) !== JSON.stringify(sourceUrls(en))) error(`${where}: META.sources must list the same official source URLs, in the same order, as the English master.`)
+}
+
+// Orphans: every translation must correspond to a published guide.
+if (fs.existsSync(ZH_PAGES_LIBRARY)) {
+  for (const cat of fs.readdirSync(ZH_PAGES_LIBRARY, { withFileTypes: true }).filter(e => e.isDirectory())) {
+    for (const f of fs.readdirSync(path.join(ZH_PAGES_LIBRARY, cat.name)).filter(f => f.endsWith('.js') && f !== 'index.js')) {
+      const p = `/library/${cat.name}/${f.replace(/\.js$/, '')}/`
+      if (!ARTICLES.some(a => a.path === p)) error(`pages/zh-tw${p.replace(/\/$/, '')}.js is a Traditional Chinese translation with no published English guide at ${p}.`)
+    }
+  }
+}
+
+if (fs.existsSync(OUT_DIR)) {
+  const linkTag = (html, rel, extra = '') => new RegExp(`<link rel="${rel}"${extra} href="([^"]+)"`).exec(html)
+  const englishArticlePaths = new Set(ARTICLES.map(a => a.path).filter(p => typeof p === 'string'))
+  for (const a of ARTICLES) {
+    if (typeof a.path !== 'string') continue
+    const zhPath = `/zh-tw${a.path}`
+    const enFile = exportedFile(a.path)
+    const zhFile = exportedFile(zhPath)
+    const where = `${label(a)} (zh-tw)`
+    if (!fs.existsSync(zhFile)) { error(`${where}: ${zhPath} was not exported.`); continue }
+    if (!fs.existsSync(enFile)) continue
+    const en = fs.readFileSync(enFile, 'utf8')
+    const zh = fs.readFileSync(zhFile, 'utf8')
+    const zhText = toText(zh)
+    if (!/官方來源查核/.test(zhText)) error(`${where}: ${zhPath} must show 官方來源查核.`)
+    if (/英文指南/.test(zhText)) error(`${where}: ${zhPath} still labels a guide as 英文指南.`)
+    if (!/data-official-sources/.test(zh)) error(`${where}: ${zhPath} has no 官方來源 section.`)
+    // Self-canonical pages with reciprocal en / zh-TW hreflang.
+    const pairs = [[a.path, en, 'English'], [zhPath, zh, 'Chinese']]
+    for (const [p, html, lang] of pairs) {
+      const canonical = (linkTag(html, 'canonical') || [])[1]
+      if (canonical !== `${SITE}${p}`) error(`${label(a)}: ${lang} page canonical is ${canonical}, expected ${SITE}${p}.`)
+      if ((linkTag(html, 'alternate', ' hrefLang="en"') || [])[1] !== `${SITE}${a.path}`) error(`${label(a)}: ${lang} page is missing hreflang="en" → ${SITE}${a.path}.`)
+      if ((linkTag(html, 'alternate', ' hrefLang="zh-TW"') || [])[1] !== `${SITE}${zhPath}`) error(`${label(a)}: ${lang} page is missing hreflang="zh-TW" → ${SITE}${zhPath}.`)
+    }
+    // Chinese guides keep readers in Chinese: the only link to an English guide is the EN switch.
+    for (const m of zh.matchAll(/<a\b[^>]*href="([^"#?]*)[^"]*"[^>]*>/g)) {
+      if (englishArticlePaths.has(m[1]) && !/aria-label="English"/.test(m[0])) error(`${where}: ${zhPath} links to the English guide ${m[1]}; link to /zh-tw${m[1]} instead.`)
+    }
+    const section = (zh.match(/<section[^>]*data-official-sources[^>]*>([\s\S]*?)<\/section>/i) || [])[1] || ''
+    for (const href of [...section.matchAll(/href="([^"]+)"/g)].map(m => decodeEntities(m[1]))) {
+      let host = ''
+      try { host = new URL(href).hostname.replace(/^www\./, '') } catch { /* invalid URL */ }
+      if (!host || !isOfficialHost(host)) error(`${where}: source "${href}" is not an official government domain.`)
+    }
+  }
+}
+
 // ── Report ────────────────────────────────────────────────
 
 for (const w of warnings) console.warn(`validate-articles: WARNING ${w}`)

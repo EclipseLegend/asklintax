@@ -20,6 +20,7 @@ const META = {
   sources: [
     { label: 'IRS — Get an employer identification number', url: 'https://www.irs.gov/businesses/small-businesses-self-employed/get-an-employer-identification-number' },
     { label: 'IRS — Instructions for Form SS-4', url: 'https://www.irs.gov/instructions/iss4' },
+    { label: 'IRS — Do you need a new EIN?', url: 'https://www.irs.gov/businesses/small-businesses-self-employed/do-you-need-a-new-ein' },
   ],
   updatedDate:   TAX_CONFIG.lastReviewed,
   taxYear:       String(TAX_CONFIG.currentTaxYear),
@@ -48,7 +49,7 @@ const FAQS = [
   },
   {
     q: 'Do I need a new EIN if I change my business name or address?',
-    a: 'No. A name or address change does not require a new EIN. You can update your business name by checking the appropriate box on your next tax return, or by writing a letter to the IRS. Address changes can be made online at IRS.gov or on your next return. You only need a new EIN if your business structure fundamentally changes — for example, converting from a sole proprietorship to a corporation, or taking on new partners in a partnership.',
+    a: 'No. A name or address change does not require a new EIN. You can update your business name by checking the appropriate box on your next tax return, or by writing a letter to the IRS. Report a change of business address on Form 8822-B. You generally need a new EIN only when your entity\'s ownership or structure changes — for example, a sole proprietor incorporates or forms a partnership, or a partnership ends and a new one begins. A change in partnership ownership that doesn\'t end the partnership doesn\'t require a new EIN.',
   },
   {
     q: 'Can I apply for an EIN for a business I haven\'t started yet?',

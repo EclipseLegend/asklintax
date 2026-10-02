@@ -6,7 +6,7 @@
   "category": {
     "guideCountOne": "{count} 篇指南",
     "guideCountOther": "{count} 篇指南",
-    "taxYear": "英文指南依 {year} 稅務年度審核",
+    "taxYear": "指南依 {year} 稅務年度查核",
     "lastReviewed": "最後審核：{date}",
     "startHereLabel": "從這裡開始",
     "startHereTitle": "第一次接觸這個主題？從這裡開始。",
@@ -20,11 +20,11 @@
     "closingTitle": "想從自己的情況開始？",
     "closingSub": "「從這裡開始」依生活情境整理指南，例如第一次報稅、收到 IRS 的信，或有 Airbnb 收入。",
     "closingCta": "前往「從這裡開始」",
-    "disclaimer": "AskLinTax 的英文指南供一般教育用途，每篇指南均經官方來源查核，並列出所依據的官方政府來源；政府機關並未審核或背書 AskLinTax。本頁的中文介面與摘要為翻譯內容，未另行經專業審核。以上內容不構成針對您個人情況的稅務、法律或財務建議。"
+    "disclaimer": "AskLinTax 的指南供一般教育用途。每篇指南的英文原文均經官方來源查核，並列出所依據的官方政府來源；政府機關並未審核或背書 AskLinTax。繁體中文版依據英文原文翻譯整理，未另行經專業審核；若有差異，以英文原文及官方來源為準。以上內容不構成針對您個人情況的稅務、法律或財務建議。"
   },
   "card": {
     "readTime": "{minutes} 分鐘閱讀",
-    "readGuide": "閱讀英文指南",
+    "readGuide": "閱讀指南",
     "startHereMarker": "從這裡開始",
     "englishGuide": "英文指南"
   },
@@ -35,10 +35,10 @@
   },
   "home": {
     "seoTitle": "稅務知識庫：白話美國稅務指南 | AskLinTax 繁體中文",
-    "seoDescription": "依主題或生活情境瀏覽白話美國稅務指南：報稅、IRS 通知、小型企業、租金收入、加密貨幣與海外帳戶。中文摘要，完整指南目前為英文。",
+    "seoDescription": "依主題或生活情境瀏覽白話美國稅務指南：報稅、IRS 通知、小型企業、租金收入、加密貨幣與海外帳戶。每篇指南都有繁體中文版。",
     "titleBefore": "依你的真實生活，",
     "titleAccent": "整理好的稅務解答。",
-    "sub": "為個人、家庭、企業老闆與投資人準備的白話稅務指南。從一個問題、一個主題或你的情況開始，不需要先懂稅務術語。中文提供摘要與導覽，完整指南目前為英文。",
+    "sub": "為個人、家庭、企業老闆與投資人準備的白話稅務指南。從一個問題、一個主題或你的情況開始，不需要先懂稅務術語。每篇指南都有繁體中文版，重要稅務用語保留英文方便對照。",
     "searchLabel": "搜尋稅務知識庫",
     "searchPlaceholder": "搜尋稅務問題，例如：海外帳戶、報稅…",
     "searchButton": "搜尋",
@@ -56,7 +56,7 @@
     "situationsCta": "在「從這裡開始」查看所有情境",
     "allGuidesLabel": "所有指南",
     "allGuidesTitle": "所有已發布的指南",
-    "allGuidesSub": "共 {count} 篇指南，依主題分類。完整內容目前為英文。",
+    "allGuidesSub": "共 {count} 篇指南，依主題分類。",
     "trustOfficial": "官方來源・仔細查核・清楚解說",
     "trustTranslation": "中文摘要為翻譯內容"
   },

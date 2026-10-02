@@ -35,7 +35,7 @@ const META = {
 const FAQS = [
   {
     q: 'I just arrived in the U.S. this year. Do I need to file a tax return?',
-    a: 'It depends on two things: how long you\'ve been in the U.S. (which determines your residency status) and how much income you earned. If you passed the Substantial Presence Test and earned more than the standard deduction ($15,750 for single filers in 2025), you generally need to file. Even if you don\'t owe taxes, filing can result in a refund of withheld taxes.',
+    a: 'It depends on two things: how long you\'ve been in the U.S. (which determines your residency status) and how much income you earned. If you passed the Substantial Presence Test and your gross income was at least the filing threshold for your filing status ($15,750 for single filers under 65 in 2025), you generally need to file. Even if you don\'t owe taxes, filing can result in a refund of withheld taxes.',
   },
   {
     q: 'What\'s the difference between a resident alien and a nonresident alien for tax purposes?',

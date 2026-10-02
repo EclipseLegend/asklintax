@@ -15,8 +15,8 @@ import styles from './library.module.css'
  * number: position shown by the 'essential' variant
  * showCategory: show the category name on a default card (used by search results)
  * t:      translation function for locales/<lang>/library.json
- * locale: 'en' (default) or 'zh-tw'. On Chinese pages every article is English-only, so the
- *         card keeps the English URL and shows a small "English guide" label.
+ * locale: 'en' (default) or 'zh-tw'. On Chinese pages the card links to the guide's /zh-tw/
+ *         translation; a guide without one would keep its English URL and an "English guide" label.
  */
 export default function ArticleCard({ id, variant = 'default', marker = false, number, showCategory = false, t, locale = 'en' }) {
   const article = getArticle(id, locale)

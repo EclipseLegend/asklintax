@@ -24,6 +24,7 @@ const META = {
     { label: 'IRS — Retirement Savings Contributions Credit (Saver’s Credit)', url: 'https://www.irs.gov/retirement-plans/plan-participant-employee/retirement-savings-contributions-savers-credit' },
     { label: 'IRS Publication 970 — Tax Benefits for Education', url: 'https://www.irs.gov/publications/p970' },
     { label: 'IRS Publication 596 — Earned Income Credit', url: 'https://www.irs.gov/publications/p596' },
+    { label: 'IRS — Foreign tax credit: how to figure the credit', url: 'https://www.irs.gov/individuals/international-taxpayers/foreign-tax-credit-how-to-figure-the-credit' },
   ],
   updatedDate:   TAX_CONFIG.lastReviewed,
   taxYear:       String(TAX_CONFIG.currentTaxYear),
@@ -308,7 +309,7 @@ export default function TaxCreditVsDeductionPage({ translations }) {
                 ['American Opportunity Credit', 'Up to $2,500', '⚡ Partial ($1,000)', 'First 4 years of college, income limits apply'],
                 ['Lifetime Learning Credit', 'Up to $2,000', '❌ No', 'Any post-secondary education, income limits'],
                 ['Retirement Savings Credit (Saver\'s Credit)', 'Up to $1,000 ($2,000 MFJ)', '❌ No', 'Low-to-moderate income, contributed to retirement account'],
-                ['Foreign Tax Credit', 'Equals taxes paid abroad', '❌ No', 'Paid taxes to a foreign government on foreign income'],
+                ['Foreign Tax Credit', 'Foreign income tax paid, up to the foreign tax credit limit', '❌ No', 'Paid taxes to a foreign government on foreign income'],
               ].map(([credit, max, refund, who], i) => (
                 <tr key={i}>
                   <td style={{ padding: '12px 16px', borderBottom: '1px solid var(--border-l)', fontWeight: '500', background: i % 2 === 1 ? 'var(--green-soft)' : 'white' }}>{credit}</td>

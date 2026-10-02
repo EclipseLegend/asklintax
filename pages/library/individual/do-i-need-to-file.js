@@ -29,7 +29,7 @@ const META = {
   confidence:    'Covers standard filing requirements for resident aliens and U.S. citizens. Nonresident aliens (Form 1040-NR filers) have different thresholds — see the note in the article.',
   persona:       ['First-time filer', 'New immigrant', 'Student with part-time income', 'Anyone unsure if they need to file'],
   relatedJourney: ['First-time filer', 'New to the U.S.'],
-  actionRequired: 'Use the income threshold table below to check whether your gross income exceeds the filing requirement for your filing status. If it does, you are required to file. If it doesn\'t, check whether filing anyway could get you a refund.',
+  actionRequired: 'Use the income threshold table below to check whether your gross income was at least the filing threshold for your filing status. If it was, you are required to file. If it wasn\'t, check whether filing anyway could get you a refund.',
 }
 
 const FAQS = [
@@ -111,7 +111,7 @@ export default function DoINeedToFilePage({ translations }) {
 
         <h2>The short answer</h2>
         <p>
-          You are generally required to file a U.S. federal tax return if your <strong>gross income</strong> for the year exceeds the threshold for your filing status. The threshold is based on the standard deduction, which changes slightly each year.
+          You are generally required to file a U.S. federal tax return if your <strong>gross income</strong> for the year is at least the threshold for your filing status. The threshold is based on the standard deduction, which changes slightly each year.
         </p>
         <p>
           But "required to file" and "should file" are two different things. Even if you're not required to file, you may want to — especially if taxes were withheld from your paycheck or if you qualify for refundable tax credits.
@@ -119,7 +119,7 @@ export default function DoINeedToFilePage({ translations }) {
 
         <div className="callout callout-action">
           <div className="callout-title">✅ Two questions to answer</div>
-          <p><strong>1. Are you required to file?</strong> Check if your gross income exceeds the threshold for your filing status in the table below.</p>
+          <p><strong>1. Are you required to file?</strong> Check if your gross income was at least the threshold for your filing status in the table below.</p>
           <p style={{ marginBottom: 0 }}><strong>2. Should you file anyway?</strong> If taxes were withheld from any paycheck or you qualify for refundable credits, the answer is almost always yes — even if your income is below the threshold.</p>
         </div>
 

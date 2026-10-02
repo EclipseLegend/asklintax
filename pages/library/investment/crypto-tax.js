@@ -26,7 +26,7 @@ const META = {
   confidence: 'Covers the IRS\'s current position on cryptocurrency taxation as of Tax Year 2025. This is a rapidly evolving area — rules for DeFi, NFTs, and staking rewards continue to develop.',
   persona: ['Crypto investor', 'Bitcoin holder', 'NFT buyer or seller', 'DeFi participant', 'Anyone who bought or sold cryptocurrency'],
   relatedJourney: ['Investments & crypto', 'Side income from investments'],
-  actionRequired: 'If you bought, sold, traded, or earned any cryptocurrency this year, you have a tax reporting obligation. Pull your complete transaction history from every exchange and wallet before filing. Every taxable event must be reported on Form 8949.',
+  actionRequired: 'If you bought, sold, traded, or earned any cryptocurrency this year, you have a tax reporting obligation. Pull your complete transaction history from every exchange and wallet before filing. Sales, exchanges, and other dispositions go on Form 8949; ordinary income such as staking or mining rewards goes on Schedule 1 (or Schedule C if you received it in a business).',
 }
 
 const FAQS = [

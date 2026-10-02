@@ -23,6 +23,7 @@ const META = {
     { label: 'IRS — Refunds', url: 'https://www.irs.gov/refunds' },
     { label: 'IRS — Failure to file penalty', url: 'https://www.irs.gov/payments/failure-to-file-penalty' },
     { label: 'IRS Publication 17 — Your Federal Income Tax', url: 'https://www.irs.gov/publications/p17' },
+    { label: 'IRS — Topic no. 154, Form W-2 and Form 1099-R (what to do if incorrect or not received)', url: 'https://www.irs.gov/taxtopics/tc154' },
   ],
   updatedDate:   TAX_CONFIG.lastReviewed,
   taxYear:       String(TAX_CONFIG.currentTaxYear),
@@ -268,7 +269,7 @@ export default function FirstTimeFillerPage({ translations }) {
             </thead>
             <tbody>
               {[
-                ['January 31, 2026', 'Employers must send your W-2. Check your email and mailbox.'],
+                ['February 2, 2026', 'Employers must send your 2025 W-2 (January 31 fell on a Saturday, so the deadline moved to the next business day). Check your email and mailbox.'],
                 ['April 15, 2026', 'Federal tax return due. Pay any taxes owed by this date even if you file an extension.'],
                 ['April 15, 2026', 'Deadline to file Form 4868 for a 6-month extension (moves filing deadline to October 15).'],
                 ['October 15, 2026', 'Extended filing deadline (if you filed Form 4868 by April 15).'],

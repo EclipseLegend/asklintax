@@ -21,6 +21,7 @@ const META = {
     { label: 'IRS — Understanding your CP2000 series notice', url: 'https://www.irs.gov/individuals/understanding-your-cp2000-series-notice' },
     { label: 'IRS Publication 5181 — Tax Return Reviews by Mail', url: 'https://www.irs.gov/pub/irs-pdf/p5181.pdf' },
     { label: 'IRS — Understanding your Form 1099-K', url: 'https://www.irs.gov/businesses/understanding-your-form-1099-k' },
+    { label: 'IRS — Digital assets (Form 1099-DA reporting)', url: 'https://www.irs.gov/filing/digital-assets' },
   ],
   updatedDate:   TAX_CONFIG.lastReviewed,
   taxYear:       String(TAX_CONFIG.currentTaxYear),
@@ -174,7 +175,7 @@ export default function CP2000Page({ translations }) {
         </p>
         <ul>
           <li><strong>Missing 1099 income</strong> — A freelance client paid you and filed a 1099-NEC with the IRS, but you didn't include that income on your return. This is the most common cause.</li>
-          <li><strong>Unreported investment activity</strong> — You sold stocks, crypto, or funds and received a 1099-B, but didn't report the sales on Schedule D.</li>
+          <li><strong>Unreported investment activity</strong> — You sold stocks, crypto, or funds and received a 1099-B (or, for digital assets sold through a broker on or after January 1, 2025, a Form 1099-DA), but didn't report the sales on Schedule D.</li>
           <li><strong>Missing bank interest</strong> — A bank sent a 1099-INT for interest you earned, which you didn't report.</li>
           <li><strong>1099-K from payment platforms</strong> — You received payments through Venmo, PayPal, Stripe, or Airbnb above the reporting threshold, and the platform filed a 1099-K the IRS has but you didn't report.</li>
           <li><strong>Employer reported more than you did</strong> — A W-2 discrepancy, often due to amended documents or multiple jobs.</li>
@@ -251,7 +252,7 @@ export default function CP2000Page({ translations }) {
         <ul>
           <li><strong>Report all 1099 income</strong> — Every client, bank, broker, and platform that pays you reports to the IRS. If you receive a 1099, report the income. Even if you don't receive a 1099, the income is still taxable.</li>
           <li><strong>Check for 1099s before filing</strong> — Wait until mid-February to file, when most 1099s have been issued. Rushing to file in January often means missing late-arriving forms.</li>
-          <li><strong>Report investment sales on Schedule D</strong> — Every stock sale, crypto sale, and fund redemption generates a 1099-B. All of them must be reported, even if the result is a loss.</li>
+          <li><strong>Report investment sales on Schedule D</strong> — Brokers report stock and fund sales on Form 1099-B, and brokers that handle digital-asset sales report gross proceeds on Form 1099-DA for sales on or after January 1, 2025. Whether or not you receive a form, every sale must be reported, even if the result is a loss.</li>
           <li><strong>Report all payment platform income</strong> — If you received business income through PayPal, Venmo, Stripe, or Airbnb, report it whether or not you receive a 1099-K. Payment apps and marketplaces generally issue one only for over $20,000 in over 200 transactions; card payments have no minimum.</li>
           <li><strong>Keep copies of all tax documents</strong> — If a payer sends an incorrect 1099, you'll need documentation to dispute the CP2000 that results.</li>
         </ul>

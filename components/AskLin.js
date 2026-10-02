@@ -189,10 +189,10 @@ function LinReply({ reply }) {
           {reply.guides.map(id => {
             const a = getArticle(id, reply.locale)
             return (
-              <Link key={id} href={a.path} className={styles.guide} {...(zh ? { hrefLang: 'en' } : {})}>
+              <Link key={id} href={a.path} className={styles.guide} {...(a.englishOnly ? { hrefLang: 'en' } : {})}>
                 <span>{a.title}</span>
                 {(reply.sourceVerified || []).includes(id) && <span className={styles.guideTag}>{ui.sourceVerified}</span>}
-                {zh && <span className={styles.guideTag}>{ui.englishGuide}</span>}
+                {a.englishOnly && <span className={styles.guideTag}>{ui.englishGuide}</span>}
               </Link>
             )
           })}

@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import Layout from '../Layout'
 import { useTranslation } from '../../lib/i18n'
+import { localePath } from '../../lib/locale-routes'
 import styles from '../../pages/start.module.css'
 
 /**
@@ -11,6 +12,8 @@ export default function StartPage({ translations, content, locale = 'en' }) {
   const { t } = useTranslation(translations.common)
   const [openFaq, setOpenFaq] = useState({})
   const c = content
+  // Guide links go to the /zh-tw/ translation on Chinese pages (English-only pages keep their URL).
+  const L = href => localePath(href, locale)
 
   function toggleFaq(situationId, faqIndex) {
     const key = `${situationId}-${faqIndex}`
@@ -66,7 +69,7 @@ export default function StartPage({ translations, content, locale = 'en' }) {
               {/* Guides */}
               <div className={styles.guidesGrid}>
                 {s.guides.filter(g => !g.planned).map(guide => (
-                  <a key={guide.href} href={guide.href} className={styles.guideCard}>
+                  <a key={guide.href} href={L(guide.href)} className={styles.guideCard}>
                     <h3 className={styles.guideCardTitle}>{guide.title}</h3>
                     <p className={styles.guideCardDesc}>{guide.desc}</p>
                     <span className={styles.guideCardCta}>{c.readGuide}</span>
@@ -105,7 +108,7 @@ export default function StartPage({ translations, content, locale = 'en' }) {
         <div className="container">
           <h2 className={styles.bottomCtaTitle}>{c.bottom.title}</h2>
           <p className={styles.bottomCtaSub}>{c.bottom.sub}</p>
-          <a href={c.bottom.href} className="btn-primary">{c.bottom.cta}</a>
+          <a href={L(c.bottom.href)} className="btn-primary">{c.bottom.cta}</a>
         </div>
       </section>
 

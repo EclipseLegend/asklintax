@@ -25,6 +25,8 @@ const META = {
     { label: 'IRS — Understanding your Form 1099-K', url: 'https://www.irs.gov/businesses/understanding-your-form-1099-k' },
     { label: 'IRS — Standard mileage rates', url: 'https://www.irs.gov/tax-professionals/standard-mileage-rates' },
     { label: 'IRS Publication 463 — Travel, Gift, and Car Expenses', url: 'https://www.irs.gov/publications/p463' },
+    { label: 'IRS — Form 1040-ES, Estimated Tax for Individuals (2026)', url: 'https://www.irs.gov/pub/irs-pdf/f1040es.pdf' },
+    { label: 'IRS — Digital assets (Form 1099-DA reporting)', url: 'https://www.irs.gov/filing/digital-assets' },
   ],
   updatedDate:   TAX_CONFIG.lastReviewed,
   taxYear:       String(TAX_CONFIG.currentTaxYear),
@@ -57,11 +59,11 @@ const FAQS = [
   },
   {
     q: 'Do I need to make quarterly estimated tax payments if I have 1099 income?',
-    a: 'Probably yes. If you expect to owe $1,000 or more in federal taxes from your self-employment income, you\'re generally required to make quarterly estimated tax payments. Unlike employees whose taxes are withheld from each paycheck, 1099 workers must pay taxes proactively four times a year. Missing these payments results in underpayment penalties. Deadlines: April 15, June 16, September 15, and January 15.',
+    a: 'Probably yes. If you expect to owe $1,000 or more in federal taxes from your self-employment income, you\'re generally required to make quarterly estimated tax payments. Unlike employees whose taxes are withheld from each paycheck, 1099 workers must pay taxes proactively four times a year. Missing these payments results in underpayment penalties. For 2026 estimated tax, the due dates are April 15, June 15, and September 15, 2026, and January 15, 2027.',
   },
   {
     q: 'What are the different types of 1099 forms?',
-    a: 'There are many, but the most common: 1099-NEC (freelance and contractor income, replaces old 1099-MISC for this purpose); 1099-MISC (rent, prizes, legal settlements, and other miscellaneous income); 1099-INT (bank interest); 1099-DIV (dividends); 1099-B (investment and crypto sales); 1099-K (payment processor income — Venmo, PayPal, Stripe — generally over $20,000 and 200 transactions for payment apps; any amount for card payments); 1099-R (retirement account distributions). Each type of 1099 is reported differently on your tax return.',
+    a: 'There are many, but the most common: 1099-NEC (freelance and contractor income, replaces old 1099-MISC for this purpose); 1099-MISC (rent, prizes, legal settlements, and other miscellaneous income); 1099-INT (bank interest); 1099-DIV (dividends); 1099-B (sales of stocks and other securities through a broker); 1099-DA (digital-asset sales through a broker, for sales on or after January 1, 2025); 1099-K (payment processor income — Venmo, PayPal, Stripe — generally over $20,000 and 200 transactions for payment apps; any amount for card payments); 1099-R (retirement account distributions). Each type of 1099 is reported differently on your tax return.',
   },
 ]
 
@@ -253,7 +255,8 @@ export default function W2vs1099Page({ translations }) {
                 ['1099-MISC', 'Rent, prizes, legal settlements',        '$600+',     'Schedule C or other income'],
                 ['1099-INT',  'Bank and investment interest',           '$10+',      'Schedule B / Form 1040'],
                 ['1099-DIV',  'Dividends from stocks/funds',            '$10+',      'Schedule B / Form 1040'],
-                ['1099-B',    'Investment sales (stocks, crypto, etc)', 'All sales', 'Schedule D / Form 8949'],
+                ['1099-B',    'Securities sales through a broker (stocks, funds, etc.)', 'All sales', 'Schedule D / Form 8949'],
+                ['1099-DA',   'Digital-asset sales through a broker (sales on or after Jan 1, 2025)', 'Generally all sales (some stablecoin and NFT sales may be reported in aggregate)', 'Schedule D / Form 8949'],
                 ['1099-K',    'Payment processor income (Venmo, Stripe)', 'Over $20,000 in over 200 transactions (apps); any amount (cards)',  'Schedule C (if business)'],
                 ['1099-R',    'Retirement account distributions',       '$10+',      'Form 1040'],
                 ['1099-G',    'Unemployment compensation, state tax refunds', 'All', 'Form 1040'],

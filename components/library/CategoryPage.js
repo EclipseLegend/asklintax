@@ -3,7 +3,7 @@ import Layout from '../Layout'
 import ArticleCard from './ArticleCard'
 import { useTranslation } from '../../lib/i18n'
 import { ARTICLES } from '../../lib/articles'
-import { getCategory, formatMonthYear } from '../../lib/library-i18n'
+import { getArticle, getCategory, formatMonthYear } from '../../lib/library-i18n'
 import { localePath } from '../../lib/locale-routes'
 import TAX_CONFIG from '../../lib/tax-config'
 import styles from './library.module.css'
@@ -86,17 +86,20 @@ export default function CategoryPage({ categoryKey, translations, locale = 'en' 
               <h2 className={styles.sectionTitle}>{tl('category.questionsTitle')}</h2>
             </div>
             <ul className={styles.questionList}>
-              {questions.map(item => (
-                <li key={item.q}>
-                  <Link href={articleById.get(item.id).path} className={styles.question} {...(isEn ? {} : { hrefLang: 'en' })}>
-                    <span>
-                      {item.q}
-                      {!isEn && <span className={styles.englishTagInline}>{tl('card.englishGuide')}</span>}
-                    </span>
-                    <span className={styles.questionArrow} aria-hidden="true">→</span>
-                  </Link>
-                </li>
-              ))}
+              {questions.map(item => {
+                const article = getArticle(item.id, locale)
+                return (
+                  <li key={item.q}>
+                    <Link href={article.path} className={styles.question} {...(article.englishOnly ? { hrefLang: 'en' } : {})}>
+                      <span>
+                        {item.q}
+                        {article.englishOnly && <span className={styles.englishTagInline}>{tl('card.englishGuide')}</span>}
+                      </span>
+                      <span className={styles.questionArrow} aria-hidden="true">→</span>
+                    </Link>
+                  </li>
+                )
+              })}
             </ul>
           </section>
         )}

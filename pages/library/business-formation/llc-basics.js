@@ -126,7 +126,7 @@ export default function LLCBasicsPage({ translations }) {
                 ['Physical business (restaurant, retail, contractor)', '✅ Yes — accidents and disputes are more likely'],
                 ['Landlord or Airbnb host', '🤔 Consult a CPA and real estate attorney first — property transfer has complications'],
                 ['Business with a partner (2+ people)', '✅ Yes — clearly defines ownership and protects each partner'],
-                ['High-revenue business (>$50K/year profit)', '✅ Yes — also consider S-Corp election for potential tax savings'],
+                ['Business with consistently strong profit', '✅ Yes — also consider S-Corp election for potential tax savings'],
               ].map(([sit, rec], i) => (
                 <tr key={i}>
                   <td style={{ padding: '12px 16px', borderBottom: '1px solid var(--border-l)', background: i % 2 === 1 ? 'var(--cream)' : 'white' }}>{sit}</td>

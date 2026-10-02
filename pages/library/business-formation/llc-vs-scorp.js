@@ -80,7 +80,7 @@ const RELATED = [
     href: '/library/business-formation/ein',
     cat:  'Business Formation',
     title: 'How to apply for an EIN (step-by-step)',
-    desc:  'You\'ll need an EIN before you can run payroll as an S-Corp. Here\'s how to get one in 5 minutes.',
+    desc:  'You\'ll need an EIN before you can run payroll as an S-Corp. Here\'s how to apply online for free from the IRS.',
   },
 ]
 
@@ -243,7 +243,7 @@ export default function LLCvsSCorpPage({ translations }) {
 
         <div className="callout callout-action">
           <div className="callout-title">✅ The bottom line</div>
-          <p>If your LLC is consistently netting more than $50,000 per year and you're planning to keep growing, an S-Corp election is worth a conversation with a CPA. The savings are real — but so are the requirements. Don't make this decision based on a general article alone; the right answer depends on your specific income, salary, and state.</p>
+          <p>If your LLC's profit is consistently well above a reasonable salary for your work and you're planning to keep growing, an S-Corp election is worth a conversation with a CPA. The savings are real — but so are the requirements. Don't make this decision based on a general article alone; the right answer depends on your specific income, salary, and state.</p>
         </div>
 
       </KnowledgePage>

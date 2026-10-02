@@ -248,13 +248,13 @@ export default function LibraryHome({ translations, locale = 'en' }) {
                     const display = getArticle(a.id, locale)
                     return (
                       <li key={a.id}>
-                        {isEn ? (
-                          <Link href={a.path}>{a.title}</Link>
-                        ) : (
-                          <Link href={a.path} hrefLang="en">
+                        {display.englishOnly ? (
+                          <Link href={display.path} hrefLang="en">
                             {display.title}
                             <span className={styles.englishTagInline}>{tl('card.englishGuide')}</span>
                           </Link>
+                        ) : (
+                          <Link href={display.path}>{display.title}</Link>
                         )}
                       </li>
                     )

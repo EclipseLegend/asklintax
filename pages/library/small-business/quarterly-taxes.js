@@ -54,7 +54,7 @@ const FAQS = [
   },
   {
     q: 'I had a loss in Q1. Do I still need to pay estimated taxes?',
-    a: 'No. Estimated tax payments are based on your expected annual net income. If you had a loss in Q1 that reduces your expected annual income below the threshold, you may not need to pay. However, if income picks up later in the year, you\'ll need to recalculate. The annualized income installment method (Form 2210, Schedule AI) allows you to match payments to when you actually earned the income, which can reduce penalties if your income is uneven throughout the year.',
+    a: 'Not necessarily. Estimated tax payments are based on your expected annual net income. If you had a loss in Q1 that reduces your expected annual income below the threshold, you may not need to pay. However, if income picks up later in the year, you\'ll need to recalculate. The annualized income installment method (Form 2210, Schedule AI) allows you to match payments to when you actually earned the income, which can reduce penalties if your income is uneven throughout the year.',
   },
   {
     q: 'How do I actually make the payment?',
@@ -231,7 +231,7 @@ export default function QuarterlyTaxesPage({ translations }) {
                   placeholder="80,000"
                   value={income}
                   onChange={e => setIncome(e.target.value)}
-                  style={{ flex: 1, padding: '11px 14px', border: 'none', outline: 'none', fontSize: '15px', fontFamily: 'DM Sans, sans-serif', background: 'transparent' }}
+                  style={{ flex: 1, minWidth: 0, width: '100%', padding: '11px 14px', border: 'none', outline: 'none', fontSize: '15px', fontFamily: 'DM Sans, sans-serif', background: 'transparent' }}
                 />
               </div>
             </div>
@@ -244,7 +244,7 @@ export default function QuarterlyTaxesPage({ translations }) {
                   placeholder="10,000"
                   value={expenses}
                   onChange={e => setExpenses(e.target.value)}
-                  style={{ flex: 1, padding: '11px 14px', border: 'none', outline: 'none', fontSize: '15px', fontFamily: 'DM Sans, sans-serif', background: 'transparent' }}
+                  style={{ flex: 1, minWidth: 0, width: '100%', padding: '11px 14px', border: 'none', outline: 'none', fontSize: '15px', fontFamily: 'DM Sans, sans-serif', background: 'transparent' }}
                 />
               </div>
             </div>

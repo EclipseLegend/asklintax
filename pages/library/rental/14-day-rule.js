@@ -37,7 +37,7 @@ const FAQS = [
   },
   {
     q: 'What exactly counts as a "personal use day"?',
-    a: 'A personal use day is any day the property is used by: you or your co-owner, your family members (even if they pay fair market rent), anyone who uses it below fair market rent, or anyone under a reciprocal arrangement where you can use their property. Importantly, days you spend at the property doing repairs or maintenance do NOT count as personal use days — even if you sleep there. Days the property sits vacant also don\'t count.',
+    a: 'A personal use day is any day the property is used by: you or your co-owner, your family members (even if they pay fair market rent, unless the family member uses it as their main home and pays a fair rental price), anyone who uses it below fair market rent, or anyone under a reciprocal arrangement where you can use their property. Importantly, days you spend at the property doing repairs or maintenance do NOT count as personal use days — even if you sleep there. Days the property sits vacant also don\'t count.',
   },
   {
     q: 'I rented for only 10 days. Do I have to tell the IRS anything at all?',
@@ -164,12 +164,12 @@ export default function FourteenDayRulePage({ translations }) {
             <tbody>
               {[
                 ['✅ Yes', 'You use the property for any personal purpose', 'Direct personal use'],
-                ['✅ Yes', 'Your spouse, children, parents, or siblings use it (even if they pay full rent)', 'Family member use'],
+                ['✅ Yes', 'Your spouse, children, parents, or siblings use it (even if they pay full rent), unless it is their main home', 'Family member use'],
                 ['✅ Yes', 'Any person uses it at below fair market rent', 'Below-market use'],
                 ['✅ Yes', 'You use it under a reciprocal arrangement (e.g., swap with another homeowner)', 'Reciprocal exchange'],
                 ['❌ No', 'Days you spend there doing repairs or maintenance', 'Maintenance days excluded even if you sleep there'],
                 ['❌ No', 'Days the property sits vacant (no guest, no personal use)', 'Neither rental nor personal'],
-                ['❌ No', 'Days a family member rents at full fair market rent (arm\'s length)', 'Treated as a paying tenant'],
+                ['❌ No', 'Days a family member rents it as their main home and pays a fair rental price', 'Treated as a paying tenant'],
               ].map(([counts, situation, why], i) => (
                 <tr key={i}>
                   <td style={{ padding: '12px 16px', borderBottom: '1px solid var(--border-l)', fontWeight: '600', color: counts.startsWith('✅') ? 'var(--red)' : 'var(--green)', background: i % 2 === 1 ? 'var(--cream)' : 'white' }}>{counts}</td>
