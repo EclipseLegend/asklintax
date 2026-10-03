@@ -38,3 +38,7 @@ desktop.ini
 # Dropbox metadata
 .dropbox
 .dropbox.attr
+
+# Supabase CLI transient state (project link metadata, branches) — never commit
+supabase/.temp/
+supabase/.branches/
