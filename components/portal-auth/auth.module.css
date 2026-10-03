@@ -1,0 +1,48 @@
+/* AskLinTax Client Portal — Phase 2B-4 auth screens. Site design tokens; px sizes like the portal demo. */
+
+.page { min-height: 100vh; background: var(--cream); color: var(--text); font-size: 15px; line-height: 1.6; display: flex; flex-direction: column; }
+
+.topbar { display: flex; align-items: center; gap: 14px; padding: 14px 28px; background: var(--white); border-bottom: 1px solid var(--border); }
+.brand { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 500; color: var(--navy); text-decoration: none; white-space: nowrap; }
+.brand span { color: var(--gold); }
+.areaLabel { font-size: 12px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); border-left: 1px solid var(--border); padding-left: 14px; white-space: nowrap; }
+.topActions { margin-left: auto; display: flex; align-items: center; gap: 14px; }
+.langSwitch { display: flex; border: 1px solid var(--border); border-radius: 100px; overflow: hidden; }
+.langSwitch button { border: 0; background: transparent; font: inherit; font-size: 13px; padding: 6px 12px; min-height: 36px; cursor: pointer; color: var(--muted); }
+.langSwitch button[aria-pressed="true"] { background: var(--navy); color: #fff; font-weight: 600; }
+.homeLink { font-size: 13px; color: var(--muted); text-decoration: none; white-space: nowrap; }
+
+.main { flex: 1; display: flex; justify-content: center; padding: 48px 20px 64px; }
+.card { width: 100%; max-width: 440px; background: var(--white); border: 1px solid var(--border); border-radius: 16px; padding: 30px 28px; display: flex; flex-direction: column; gap: 16px; align-self: flex-start; }
+.title { font-family: 'Cormorant Garamond', serif; font-size: 32px; font-weight: 500; color: var(--navy); line-height: 1.15; }
+.intro { color: var(--mid); }
+
+.notice { font-size: 14px; color: #7a5515; background: var(--gold-pale); border: 1px solid rgba(201,150,58,.35); border-radius: 10px; padding: 10px 14px; }
+.success { font-size: 14px; color: var(--navy); background: var(--blue-soft); border-radius: 10px; padding: 10px 14px; }
+.error { font-size: 14px; color: #92400E; background: #FEF3C7; border-radius: 10px; padding: 10px 14px; }
+
+.form { display: flex; flex-direction: column; gap: 14px; }
+.label { display: flex; flex-direction: column; gap: 6px; font-size: 14px; font-weight: 500; color: var(--navy); }
+.input { font: inherit; font-size: 16px; min-height: 46px; padding: 10px 12px; border: 1px solid var(--border); border-radius: 10px; background: var(--white); color: var(--navy); width: 100%; }
+.input:focus { outline: 2px solid var(--gold); outline-offset: 1px; }
+.input[aria-invalid="true"] { border-color: #B45309; }
+.code { letter-spacing: .3em; font-variant-numeric: tabular-nums; }
+
+.primary { font: inherit; font-size: 15px; font-weight: 600; min-height: 46px; padding: 10px 18px; border-radius: 10px; cursor: pointer; background: var(--navy); color: #fff; border: 1px solid var(--navy); }
+.primary:disabled { opacity: .55; cursor: not-allowed; }
+.secondary { font: inherit; font-size: 15px; font-weight: 600; min-height: 44px; padding: 10px 18px; border-radius: 10px; cursor: pointer; background: var(--white); color: var(--navy); border: 1px solid var(--border); }
+.links { display: flex; flex-direction: column; gap: 8px; font-size: 14px; }
+.links a { color: var(--navy); }
+.fine { font-size: 13px; color: var(--muted); }
+
+.qr { align-self: center; width: 200px; height: 200px; border: 1px solid var(--border); border-radius: 12px; padding: 8px; background: #fff; }
+.secret { font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 14px; word-break: break-all; background: var(--slate); border-radius: 8px; padding: 8px 10px; color: var(--navy); }
+
+@media (max-width: 600px) {
+  .topbar { padding: 12px 16px; gap: 10px; flex-wrap: wrap; }
+  .areaLabel { display: none; }
+  .main { padding: 24px 16px 48px; }
+  .card { padding: 22px 18px; }
+  .title { font-size: 28px; }
+  .primary, .secondary { width: 100%; }
+}

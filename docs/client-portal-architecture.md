@@ -211,8 +211,9 @@ composite foreign keys to `staff_profiles (id, organization_id, role)`. So the a
 must be a PREPARER and the reviewer a CPA_ADMIN, both in the return's organization; changing
 the role or organization of a staff member who is assigned somewhere is rejected too.
 
-**Identities.** One `auth.users` identity may have both a client profile and a staff profile
-(approved). Client and staff authorization are evaluated independently (section 12).
+**Identities.** *Superseded in 2B-4 (section 13.5):* one `auth.users` identity may be linked to a
+client profile **or** a staff profile, never both. A collision resolves to no identity and new
+collisions are rejected. (Original D10 allowed both.)
 
 **Household.** `household_members` (per return): `relationship` (`SPOUSE`, `CHILD`,
 `OTHER_RELATIVE`, `OTHER`), `display_name`, optional `birth_year`, `is_dependent_candidate`.
@@ -380,9 +381,9 @@ Browser ──HTTPS──► AskLinTax server/API ──► Postgres (portal_pri
 - **Design constraint.** Never add a client policy to a base table without reviewing every
   child-table staff policy. Several staff child policies grant access because "the parent row is
   visible to me", so any client visibility on a parent would silently extend to those children.
-- **Dual-profile users (D10):** client data comes only from the `client_get_*` functions,
-  staff data only from staff RLS. A preparer who is also a client sees their own return as a
-  client, never as staff, unless they are assigned to it.
+- **Dual-profile users:** *D10 superseded in 2B-4 (section 13.5).* An identity linked to both a
+  client and a staff profile now gets neither capability. Staff who are also clients use a
+  separate login.
 
 ### 12.4 Writes: command functions only
 
@@ -451,7 +452,7 @@ suite covers:
 - expired, role-forged and metadata-forged claims;
 - pooled-connection reuse;
 - client A ↔ B isolation and UUID substitution;
-- the dual-profile user;
+- the collided (client + staff) identity, which must fail closed (2B-4);
 - unassigned and other-organization staff access, missing AAL2, inactive staff;
 - forged actors and mistaken grants;
 - leaky-function, temp-table, temp-operator and public-function hijacking attempts;
@@ -473,6 +474,231 @@ approved staff model.
 
 The security audit log is a separate future design. `review_actions` remains business review
 history only.
+
+## 13. Authentication and staff MFA (Phase 2B-4 — local only)
+
+Status: local code and tests only. Nothing is configured remotely, no Auth users exist, and no
+database-connected server endpoint exists. The browser uses the official `@supabase/supabase-js`
+**2.117.2** on the **Node 22** baseline (`netlify.toml` `NODE_VERSION = "22"`). Without valid public
+configuration, sign-in stays a fail-closed preview.
+
+### 13.0 Browser adapter (`lib/portal-auth/adapter.js`)
+
+- **Library-owned.** Sign-in, session storage and refresh, auth-link processing, password recovery,
+  TOTP enroll / challenge / verify and sign-out all use the library's API. Nothing is
+  re-implemented with raw fetch.
+- **Public configuration only.**
+  - `NEXT_PUBLIC_SUPABASE_URL` must be an https origin with no credentials or query string.
+  - `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY` must be a **publishable** key (`sb_publishable_…`).
+  - Missing values, a secret key, a legacy JWT key or a non-https URL make the adapter fail closed
+    ("not available").
+  - The static pre-render never creates a client.
+- **Email links: two mechanisms, deliberately different.** The client runs `flowType: 'pkce'`
+  with `detectSessionInUrl: false`; no email link ever carries an access or refresh token.
+
+  | Link | Mechanism | Callback shape | Official API |
+  |---|---|---|---|
+  | **Password recovery** | **PKCE** (verifier stored in this browser when the reset is requested) | `/portal/auth/callback/?code=<uuid>` | `exchangeCodeForSession(code)` |
+  | **Admin / dashboard invite** | **TokenHash** — *not PKCE*, because Supabase admin invites don't support PKCE | `/portal/auth/callback/?token_hash=<56 hex>&type=invite` | `verifyOtp({ token_hash, type: 'invite' })` |
+
+  - The callback accepts **exactly** one of these two mutually exclusive shapes. It scrubs the
+    URL from the address bar and history, and verifies once through the official library.
+  - Refused before any network call:
+    - access, refresh, provider or id tokens anywhere;
+    - `code` and `token_hash` together;
+    - a `token_hash` with a missing or non-`invite` type;
+    - extra or repeated parameters (`redirect_to`, `next`, role, organization, client or
+      staff identifiers, `sb_flow_id`, …);
+    - any fragment;
+    - malformed codes or hashes;
+    - Supabase error links.
+  - Reused, expired or invalid links fail closed with one generic message. A missing PKCE
+    verifier (recovery link opened in another browser) also fails closed.
+  - A PKCE code that isn't password recovery (for example a magic link) is refused and its
+    session signed out at once.
+  - The next screen is a fixed route. Nothing in the URL chooses a destination, role or identity.
+  - With several pending reset emails, only the most recent recovery link works (the library's
+    latest verifier). The library's experimental per-flow IDs (`sb_flow_id`) are deliberately not
+    enabled.
+  - Verifying the TokenHash directly keeps session access and refresh tokens out of the invitation
+    URL. This doesn't make invitations immune to email security scanners (some scanners run
+    JavaScript or follow links). Production activation must test real email-provider and scanner
+    behavior with synthetic accounts before relying on single-use invites.
+- **Password context.** The callback marks this tab (sessionStorage) as being in a `recovery` or
+  `invite` context. Only then can `/portal/reset-password/` set a password ("Choose a new
+  password" or "Set up your password"). An ordinary signed-in session can't. Saving ends the
+  context and signs out (`scope: 'local'`), so the user signs in fresh.
+- **Sign-out** uses `scope: 'local'`, clearing this browser's session. The library default would
+  be `global`.
+- **MFA.** Abandoned, unverified TOTP factors are removed before a new enrollment. Any anomaly in
+  the AAL lookup (missing, unknown, error or exception) is treated as AAL1.
+- **The snapshot exposes only** `aal`, `nextAal`, `factors` and the signed-in email. There is no
+  role, organization or metadata.
+- **Reset page shows the account email** with a "not your account?" warning, as a second check
+  that the link belongs to the person using it.
+- **Known browser-session risk.** Tokens live in `localStorage` (the library default), so a
+  cross-site-scripting flaw could read them. Before production, add a strict Content Security
+  Policy for `/portal/*` (Production Security Gate). Staff power still requires AAL2, and data
+  access still requires the database checks.
+
+### 13.1 Three separate layers
+
+| Layer | What it does | Authority |
+|---|---|---|
+| 1. Browser authentication / session / MFA | Official Supabase client (pending): sign-in, session refresh, recovery links, TOTP enroll / challenge / verify, sign-out | Establishes *who* via a Supabase JWT (`sub`, `aal`) |
+| 2. UI routing / gating | `lib/portal-auth/flow.js` picks the screen: login, MFA enrollment, MFA challenge, home. Staff UI renders only at `aal2` | **Defense in depth only.** Never decides data access |
+| 3. Database authorization | `auth.uid()`, the identity helpers, `aal = 'aal2'` for staff, RLS, `client_get_*` and command functions | **The only authority** (sections 12, 13.5) |
+
+The browser cannot tell whether an account is staff, because that lives in `staff_profiles`,
+which only the database can read. The staff area is therefore a separate entry point
+(`/portal/staff/login/`) that always requires AAL2. A non-staff account that completes MFA
+there still gets nothing from the database. **Server-side identity resolution** (the browser
+asking "am I a client or staff?") needs a database-connected endpoint, and is **deferred to the
+server / backend integration review** (2B-6). No `PORTAL_DATABASE_URL`, `portal_server`
+credential or service-role key exists in 2B-4.
+
+### 13.2 Client identity lifecycle (invite-only)
+
+1. A CPA_ADMIN or operator creates the client profile (`client_profiles.user_id` NULL means
+   invited, not yet linked).
+2. **Invitation (TokenHash, not PKCE).** An authorized operator sends the invite from the
+   Supabase dashboard using the custom **Invite user** template (13.8.1). The email links to
+   `/portal/auth/callback/?token_hash=…&type=invite`. The portal verifies it with
+   `verifyOtp({ token_hash, type: 'invite' })`, then opens "Set up your password" (12–128
+   characters). Saving signs out; the client then signs in normally. The invite link carries no
+   role, organization or identity, and none is derived from it.
+3. Linking `client_profiles.user_id` to the new `auth.users.id` is an **administrative step**.
+   A user can never link themselves: no client id is ever accepted from the browser as identity,
+   and metadata is never read.
+4. Sign-in: `/portal/login/` (email + password). Sign-in errors are generic, so the page never
+   reveals whether an account exists.
+5. Recovery: `/portal/forgot-password/` always shows the same confirmation. The recovery link
+   leads to a short-lived recovery session in which only the password can be changed. After
+   saving, the session is signed out and the client signs in normally.
+6. Sign-out clears the local session. Client MFA is optional for now (a product decision).
+
+### 13.3 Staff identity lifecycle (invite-only, mandatory MFA)
+
+1. There is no public staff registration. A CPA_ADMIN or operator creates `staff_profiles`
+   (role PREPARER or CPA_ADMIN, organization, `active`), and sends the same TokenHash invitation
+   as for clients. The invite only sets a password. Staff capability comes solely from
+   `staff_profiles` plus AAL2 after MFA enrollment.
+2. Role, organization and assignment come only from `staff_profiles` and `tax_returns`. JWT
+   `app_metadata` / `user_metadata` are never read for authorization (tested).
+3. Sign-in at `/portal/staff/login/` gives an **AAL1** session, so staff UI is blocked.
+4. `/portal/staff/mfa/`:
+   - no verified TOTP factor → enrollment (QR code + manual key from the library) → 6-digit
+     verify;
+   - verified factor → challenge → verify.
+   
+   Success upgrades the session to **AAL2**. Failed or missing codes leave it at AAL1.
+5. `/portal/staff/` renders only at AAL2. Independently, the database returns no staff rows and
+   rejects every staff command below AAL2 (frozen 2B-3.6 checks, unchanged).
+6. Deactivation: `staff_profiles.active = false` removes staff capability in the database
+   immediately, even with a valid AAL2 session.
+7. Lost authenticator: a CPA_ADMIN removes the factor through an administrative process after
+   verifying identity out of band. **Never by email alone.** The next sign-in then requires
+   re-enrollment.
+
+DOCUMENT_PROCESSOR is not a human login: processing stays on `portal_worker` → `portal_processor`
+(section 12.6).
+
+### 13.4 Unknown identities fail closed
+
+An authenticated user with no linked profile, an expired session, a session without claims, or a
+session whose role claim isn't `authenticated` resolves to no identity. The result is 0 rows from
+every client function and base table, and every command rejected (tested).
+
+### 13.5 Identity collision (D10 superseded)
+
+Product decision: **a person who is both AskLinTax staff and an AskLinTax client must use separate
+login identities.** Migration `20261003090000_identity_collision_fail_closed.sql` (new; the frozen
+migrations are unchanged):
+
+- **Runtime fail-closed.** `current_client_profile_id()` and `current_staff_scope()` resolve
+  nothing for an `auth.uid()` linked on both sides. Such an identity gets neither client nor staff
+  capability, at AAL1 or AAL2, even if the data already exists. Signatures, SECURITY DEFINER,
+  pinned search_path, owner and grants are unchanged.
+- **Provisioning guard.** An owner-only trigger on both profile tables rejects any INSERT or
+  `UPDATE OF user_id` that would create a collision, in either direction, including re-links.
+  `user_id` NULL (invited, unlinked) and unlinking stay allowed. Concurrent links of the same user
+  are serialized with a transaction-scoped advisory lock. Under READ COMMITTED (the default) the
+  check sees the other transaction's committed link. The runtime rule is the backstop in any
+  isolation level.
+
+### 13.6 Public Lina
+
+Lina stays separate from portal identity. It has no Supabase client, no session, no database
+role and no access to `portal_private`, Storage or the portal pages.
+
+### 13.7 Pages (noindex, not linked publicly)
+
+`/portal/login/`, `/portal/staff/login/`, `/portal/forgot-password/`, `/portal/reset-password/`,
+`/portal/auth/callback/`, `/portal/staff/mfa/`, `/portal/` and `/portal/staff/`. All are English
+and Traditional Chinese, `noindex, nofollow`, `referrer: no-referrer`, excluded from the sitemap,
+and not linked from public navigation.
+
+### 13.8 Future remote Supabase Auth settings (to review separately — NOT changed)
+
+| Setting | Planned value |
+|---|---|
+| Allow new users to sign up (public sign-up) | **Off** (invite-only for clients and staff) |
+| Invitations | Sent from the dashboard by an authorized operator using the custom **Invite user** template (13.8.1): TokenHash link, verified with `verifyOtp(type: 'invite')` |
+| Invite link lifetime | Short: the email OTP / link expiry setting (for example 24 hours or less) |
+| Site URL | The production site origin |
+| Redirect URL allow-list | Exactly the portal callback URL(s), for example `https://asklintax.com/portal/auth/callback/`; no wildcards |
+| Email confirmation | On; links expire quickly (keep defaults or shorter) |
+| Recovery email | On; PKCE link to `/portal/auth/callback/?code=…` (code valid 5 minutes, single use) |
+| Minimum password length | 12, to match the UI policy (`PASSWORD_MIN` in `flow.js`) |
+| MFA — TOTP (App Authenticator) | **Enabled**: enroll and verify allowed |
+| MFA — phone / SMS | Off |
+| Max MFA factors per user | Keep low (1–2) |
+| Session / refresh token rotation | On (default); review session lifetime for staff |
+| Email templates | AskLinTax wording; no tax data in emails |
+
+### 13.8.1 Future "Invite user" email template (NOT applied — remote activation only)
+
+Supabase Dashboard → Authentication → Email Templates → **Invite user**.
+
+**Subject:** `You're invited to the AskLinTax Client Portal`
+
+**Body (HTML)** — production. The dev project uses its own approved dev origin in place of
+`https://asklintax.com`, and that origin must be in the redirect allow-list:
+
+```html
+<h2>AskLinTax Client Portal</h2>
+<p>AskLinTax has invited you to set up your secure portal account.</p>
+<p><a href="https://asklintax.com/portal/auth/callback/?token_hash={{ .TokenHash }}&type=invite">Set up your account</a></p>
+<p>This link works once and expires soon. If you weren't expecting this invitation, you can ignore this email.</p>
+<hr>
+<p>AskLinTax 邀請你設定安全的客戶入口帳戶。</p>
+<p><a href="https://asklintax.com/portal/auth/callback/?token_hash={{ .TokenHash }}&type=invite">設定你的帳戶</a></p>
+<p>此連結只能使用一次，並會在短時間後失效。如果你沒有預期收到這封邀請，可以忽略此郵件。</p>
+```
+
+Rules for this template:
+- Use only `{{ .TokenHash }}` and the literal `type=invite`.
+- Never use `{{ .ConfirmationURL }}`, `{{ .Token }}`, `{{ .RedirectTo }}`, access or refresh
+  tokens, `redirect_to` or `next`.
+- No role, organization, client or staff identifier.
+- Hard-code the fixed portal callback origin; don't use `{{ .SiteURL }}`, so the destination
+  never depends on another setting.
+
+### 13.9 Open items
+
+- **Node 22 / supabase-js 2.117.2 adopted** locally. If the Netlify dashboard also sets
+  `NODE_VERSION`, check before deploying that it's 22 or unset.
+- **Before production:** a Content Security Policy for `/portal/*` (see 13.0), and review session
+  lifetime for staff.
+- **Invite onboarding decided (Option B):** TokenHash + `verifyOtp(type: 'invite')`, implemented
+  and tested locally. The dashboard template (13.8.1) is applied only during remote activation.
+- Server identity resolution and any database credential: deferred to the server / backend review.
+- Remaining for **2B-5 Storage**: the private `tax-documents` bucket, upload / signed-URL design,
+  the processor's short-lived document access, and retention.
+- Production Security Gate (still required before any real taxpayer data): WISP, vendor
+  inventory, retention / deletion, access review, backup / recovery, incident response, security
+  logging, staff MFA in force, and processor contracts / security review. Through 2B-7, synthetic
+  data only.
 
 ## 11. Security design notes
 

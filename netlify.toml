@@ -3,7 +3,7 @@
   publish   = "out"
 
 [build.environment]
-  NODE_VERSION = "18"
+  NODE_VERSION = "22"
 
 # Lina (netlify/functions/lina, served at /api/lina). esbuild bundles the generated
 # knowledge.json and the shared lib/ article index into the function.
