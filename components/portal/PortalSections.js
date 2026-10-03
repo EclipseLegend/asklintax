@@ -214,10 +214,9 @@ export function Documents({ t, lang, state, missing, missingItems, documents, go
 function DocumentDetail({ t, lang, doc, onBack }) {
   const x = t.detail
   const [tone, label] = DOC_PILL[doc.status]
-  const band = x[doc.band] // High / Medium / Low — a plain-language band, never a raw score
-  const bandStep = { high: x.flowHigh, medium: x.flowMedium, low: x.flowLow }[doc.band]
   const outcome = { ready: x.flowReady, received: x.flowHuman, attention: x.flowAttention }[doc.status]
-  const flow = [x.flowIdentified, bandStep, outcome]
+  // Confidence stays internal (approved decision): clients see only received → outcome.
+  const flow = [x.flowIdentified, outcome]
   return (
     <>
       <button type="button" className={styles.backLink} onClick={onBack}>← {x.back}</button>
@@ -237,7 +236,7 @@ function DocumentDetail({ t, lang, doc, onBack }) {
         <h2 className={styles.h3}>{x.futureFlow}</h2>
         <ol className={styles.flow}>
           {flow.map((f, i) => (
-            <li key={f} className={`${styles.flowStep} ${i === 2 ? (doc.status === 'ready' ? styles.flowOk : styles.flowWarn) : ''}`}>{f}</li>
+            <li key={f} className={`${styles.flowStep} ${i === flow.length - 1 ? (doc.status === 'ready' ? styles.flowOk : styles.flowWarn) : ''}`}>{f}</li>
           ))}
         </ol>
         {doc.reason && (
@@ -255,10 +254,9 @@ function DocumentDetail({ t, lang, doc, onBack }) {
             {doc.summary.map(p => (
               <div key={p.key} className={styles.dlRow}><dt>{L(p.label, lang)}</dt><dd>{p.value}</dd></div>
             ))}
-            <div className={styles.dlRow}><dt>{x.confidence}</dt><dd>{band}</dd></div>
           </dl>
         ) : (
-          <p className={styles.fineNote}>{x.noPreview} {x.confidence}: {band}.</p>
+          <p className={styles.fineNote}>{x.noPreview}</p>
         )}
         <p className={styles.previewNote}>{x.previewNote}</p>
       </section>
