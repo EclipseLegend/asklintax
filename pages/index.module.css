@@ -119,3 +119,18 @@
 .learnCta       { font-size: 15px; color: var(--gold); font-weight: 500; margin-top: auto; }
 @media (max-width: 860px) { .learnGrid { grid-template-columns: repeat(2,1fr); } }
 @media (max-width: 520px) { .learnGrid { grid-template-columns: 1fr; } }
+
+/* ── FOLLOW ASKLINTAX ── */
+.followSection   { background: var(--cream); padding: 44px 0; border-bottom: 1px solid var(--border-l); }
+.followInner     { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 18px 32px; }
+.followTitle     { font-family: 'Cormorant Garamond', serif; font-size: 30px; font-weight: 600; color: var(--navy); line-height: 1.2; margin-bottom: 6px; }
+.followSub       { font-size: 16px; color: var(--muted); line-height: 1.7; }
+.followYoutube   { display: inline-flex; align-items: center; gap: 10px; background: var(--navy); color: #fff; padding: 13px 24px; border-radius: 8px; font-size: 16px; font-weight: 500; text-decoration: none; transition: background .18s, transform .18s; }
+.followYoutube:hover { background: var(--navy-light); transform: translateY(-1px); }
+.followMore      { flex-basis: 100%; display: flex; align-items: center; flex-wrap: wrap; gap: 10px 14px; padding-top: 18px; border-top: 1px solid var(--border); }
+.followMoreLabel { font-size: 12.5px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); }
+.followList      { list-style: none; display: flex; flex-wrap: wrap; gap: 8px; }
+.followChip      { display: inline-flex; align-items: center; gap: 8px; font-size: 14.5px; color: var(--navy); text-decoration: none; padding: 6px 14px; background: var(--white); border: 1px solid var(--border); border-radius: 100px; transition: border-color .18s, color .18s; }
+.followChip:hover { border-color: rgba(201,150,58,.5); color: var(--gold); }
+.followYoutube:focus-visible, .followChip:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+@media (max-width: 600px) { .followTitle { font-size: 26px; } .followYoutube { width: 100%; justify-content: center; } }

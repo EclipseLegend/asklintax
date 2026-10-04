@@ -38,5 +38,20 @@
     "bilingual": "Written for Chinese-American Families",
     "plainLanguage": "Plain Language — No Jargon",
     "free": "Free to Read"
+  },
+  "social": {
+    "title": "Follow AskLinTax",
+    "sub": "Clear explanations of U.S. taxes, in articles, visuals, and videos.",
+    "watchOnYoutube": "Watch on YouTube",
+    "alsoOn": "Also on",
+    "ariaLabel": "AskLinTax on {platform} (opens in a new tab)",
+    "youtubeAriaLabel": "Watch on YouTube: AskLinTax channel (opens in a new tab)",
+    "platforms": {
+      "youtube": "YouTube",
+      "facebook": "Facebook",
+      "instagram": "Instagram",
+      "xiaohongshu": "Xiaohongshu",
+      "x": "X"
+    }
   }
 }

@@ -1,9 +1,11 @@
 import Link from 'next/link'
 import { localePath } from '../lib/locale-routes'
 import { YOUTUBE_URL } from './Header'
+import SocialLinks from './SocialLinks'
 import styles from './Footer.module.css'
 
-export default function Footer({ t, locale = 'en' }) {
+// showSocial=false omits the "Follow AskLinTax" block (the homepage has its own social section).
+export default function Footer({ t, locale = 'en', showSocial = true }) {
   // localePath() returns the /zh-tw/ version only where that page exists; English-only
   // destinations (Tax Updates, About) keep their English URL and are labeled in the copy.
   const L = path => localePath(path, locale)
@@ -47,6 +49,11 @@ export default function Footer({ t, locale = 'en' }) {
             : <Link key={l.href} href={l.href}>{l.label}</Link>)}
         </div>
       </div>
+      {showSocial && (
+        <div className="container">
+          <SocialLinks t={t} />
+        </div>
+      )}
       <div className={`${styles.bottom} container`}>
         <p><strong>{t('footer.disclaimerLabel')}</strong> {t('footer.disclaimer')}</p>
         <p className={styles.copy}>{t('footer.copyright')}</p>

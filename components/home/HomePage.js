@@ -3,7 +3,11 @@ import { useRouter } from 'next/router'
 import Layout from '../Layout'
 import { useTranslation } from '../../lib/i18n'
 import { localePath } from '../../lib/locale-routes'
+import { SOCIAL_LINKS, SocialIcon, SocialLink } from '../SocialLinks'
 import styles from '../../pages/index.module.css'
+
+const youtube = SOCIAL_LINKS.find(l => l.id === 'youtube')
+const otherSocial = SOCIAL_LINKS.filter(l => l.id !== 'youtube')
 
 /**
  * Homepage — shared by English (/) and Traditional Chinese (/zh-tw/).
@@ -60,7 +64,7 @@ export default function HomePage({ translations, content, locale = 'en' }) {
     .filter(key => key === 'all' || publishedBenefits.some(b => b.cat === key))
 
   return (
-    <Layout t={t} locale={locale} meta={c.meta}>
+    <Layout t={t} locale={locale} meta={c.meta} footerSocial={false}>
 
       {/* ── HERO ── */}
       <section className={styles.hero}>
@@ -220,6 +224,29 @@ export default function HomePage({ translations, content, locale = 'en' }) {
             ))}
           </div>
           <p className={styles.benefitsNote}>{c.benefits.note}</p>
+        </div>
+      </section>
+
+      {/* ── FOLLOW ASKLINTAX ── YouTube first, other official accounts below (links only, no embeds) */}
+      <section className={styles.followSection}>
+        <div className={`${styles.followInner} container`}>
+          <div>
+            <h2 className={styles.followTitle}>{t('social.title')}</h2>
+            <p className={styles.followSub}>{t('social.sub')}</p>
+          </div>
+          <a href={youtube.href} target="_blank" rel="noopener noreferrer" className={styles.followYoutube}
+            aria-label={t('social.youtubeAriaLabel')}>
+            <SocialIcon id="youtube" />
+            <span>{t('social.watchOnYoutube')}</span>
+          </a>
+          <div className={styles.followMore}>
+            <span className={styles.followMoreLabel}>{t('social.alsoOn')}</span>
+            <ul className={styles.followList}>
+              {otherSocial.map(link => (
+                <li key={link.id}><SocialLink link={link} t={t} className={styles.followChip} /></li>
+              ))}
+            </ul>
+          </div>
         </div>
       </section>
 

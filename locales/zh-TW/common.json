@@ -38,5 +38,20 @@
     "bilingual": "專為美國華人家庭撰寫",
     "plainLanguage": "白話說明，不講艱深術語",
     "free": "免費閱讀"
+  },
+  "social": {
+    "title": "追蹤 AskLinTax",
+    "sub": "用文章、圖解和影片，清楚說明美國稅務。",
+    "watchOnYoutube": "在 YouTube 觀看",
+    "alsoOn": "其他平台",
+    "ariaLabel": "AskLinTax 的 {platform}（另開新分頁）",
+    "youtubeAriaLabel": "在 YouTube 觀看：AskLinTax 頻道（另開新分頁）",
+    "platforms": {
+      "youtube": "YouTube",
+      "facebook": "Facebook",
+      "instagram": "Instagram",
+      "xiaohongshu": "小紅書",
+      "x": "X"
+    }
   }
 }

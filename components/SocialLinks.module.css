@@ -1,0 +1,53 @@
+.icon { flex-shrink: 0; display: block; }
+
+/* ── Footer "Follow AskLinTax" row ── */
+.follow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px 32px;
+  border-top: 1px solid rgba(255,255,255,0.08);
+  padding-top: 28px;
+  padding-bottom: 28px;
+}
+
+.followText h4 {
+  font-size: 12px;
+  font-weight: 600;
+  color: rgba(255,255,255,0.9);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+.followText p {
+  font-size: 15px;
+  line-height: 1.7;
+  color: rgba(255,255,255,0.5);
+}
+
+.list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  color: rgba(255,255,255,0.65);
+  text-decoration: none;
+  padding: 7px 14px;
+  border: 1px solid rgba(255,255,255,0.14);
+  border-radius: 100px;
+  transition: color 0.18s, border-color 0.18s;
+}
+.link:hover { color: var(--gold-l); border-color: rgba(232,192,120,0.5); }
+.link:focus-visible { outline: 2px solid var(--gold-l); outline-offset: 2px; }
+
+@media (max-width: 768px) {
+  .follow { align-items: flex-start; flex-direction: column; }
+}

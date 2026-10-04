@@ -17,7 +17,7 @@ function articleAlternates(pathname) {
   return { en: `${SITE_URL}${en}`, zhTw: `${SITE_URL}${ZH_TW_PREFIX}${en}` }
 }
 
-export default function Layout({ children, t, meta = {}, locale = 'en' }) {
+export default function Layout({ children, t, meta = {}, locale = 'en', footerSocial = true }) {
   const { pathname } = useRouter()
   const alternates = articleAlternates(pathname)
   const {
@@ -50,7 +50,7 @@ export default function Layout({ children, t, meta = {}, locale = 'en' }) {
       <main style={{ paddingTop: '64px' }}>
         {children}
       </main>
-      <Footer t={t} locale={locale} />
+      <Footer t={t} locale={locale} showSocial={footerSocial} />
       <AskLin locale={locale} />
     </>
   )
