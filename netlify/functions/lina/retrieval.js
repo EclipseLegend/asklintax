@@ -94,6 +94,9 @@ const ZH_GLOSSARY = [
   ['分多次', 'multiple transfers'], ['多次', 'multiple'], ['分批', 'multiple transfers'],
   ['媽媽', 'mother'], ['母親', 'mother'], ['爸爸', 'father'], ['父親', 'father'],
   ['匯給', 'gift money sent'],
+  // FBAR / foreign-account guides
+  ['銀行', 'bank'], ['利息', 'interest'], ['沒有利息', 'no interest'], ['以前', 'before'], ['之前', 'before'],
+  ['共同', 'joint'], ['移民以前', 'before moving savings'], ['移民前', 'before moving savings'], ['定存', 'time deposit'], ['股票', 'stock'], ['儲蓄險', 'insurance cash value'],
   ['自己的錢', 'own money'], ['自己', 'own'], ['匯到美國', 'transfer money'], ['匯回美國', 'transfer money'], ['存款', 'savings'], ['聯名', 'joint account'], ['公婆', 'spouse parents'], ['岳父母', 'spouse parents'],
 ]
 
@@ -186,7 +189,16 @@ const MIN_COVERAGE = 0.5        // share of the question's idf-weighted terms fo
 // not covered. Topics whose words appear but are not actually answered are caught by the model's
 // required "insufficient" status and the server's citation check (see index.mjs).
 
+// Narrow guard: a question about a bank's deposit or interest RATE ("台灣定存利率多少", "best CD rate")
+// is shopping for a bank product, not asking about U.S. tax or reporting — unless it also mentions
+// tax/reporting, in which case it is scored normally.
+const RATE_QUESTION = /利率|\b(interest|cd|deposit|savings|bank)\s+rates?\b|\bbest\s+(cd\s+)?rates?\b/i
+const TAX_INTENT = /報|稅|\b(tax\w*|report\w*|fil(e|ing)|fbar|8938|irs|income|deduct\w*)\b/i
+
 function retrieve(question, { maxPassages = 5, maxArticles = 3 } = {}) {
+  if (RATE_QUESTION.test(question) && !TAX_INTENT.test(question)) {
+    return { confident: false, passages: [], articleIds: [], stats: { topScore: 0, coverage: 0 } }
+  }
   const { terms, unknown } = queryTerms(question)
   const boosts = zhArticleBoosts(question)
   if (terms.size === 0 && boosts.size === 0) return { confident: false, passages: [], articleIds: [], stats: { topScore: 0, coverage: 0 } }

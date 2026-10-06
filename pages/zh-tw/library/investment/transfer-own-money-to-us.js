@@ -14,7 +14,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'transfer-own-money-to-us',
-  sourceHash:      '967642334f01',
+  sourceHash:      '00307718afb2',
   id:            '35',
   title:         '把自己海外帳戶的錢匯到美國，要繳稅嗎？',
   titleEn:       'I transferred my own money from overseas to the U.S. — is it taxable?',
@@ -68,6 +68,12 @@ const FAQS = [
 ]
 
 const RELATED = [
+  {
+    href: '/library/investment/pre-immigration-savings',
+    cat:  'Investments & Foreign Accounts',
+    title: '搬來美國以前就有的海外存款，需要申報嗎？',
+    desc:  '舊存款一般不會再被課稅，但存放它們的帳戶仍可能要申報。',
+  },
   {
     href: '/library/investment/foreign-bank-account',
     cat:  'Investments & Foreign Accounts',

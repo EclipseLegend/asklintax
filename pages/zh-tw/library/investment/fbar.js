@@ -13,7 +13,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'fbar',
-  sourceHash:      'd7a8799e1c39',
+  sourceHash:      '38efd8834094',
   id: '20',
   title: 'FBAR：我需要申報海外銀行帳戶嗎？',
   titleEn: 'FBAR: do I need to report my foreign bank accounts?',
@@ -48,6 +48,7 @@ const FAQS = [
 ]
 
 const RELATED = [
+  { href: '/library/investment/fbar-10000-rule', cat: 'Investments & Foreign Accounts', title: '海外帳戶超過 $10,000 就要報 FBAR 嗎？', desc: '進一步說明 $10,000 合計門檻，並以多個小額帳戶舉例。' },
   { href: '/library/individual/new-immigrant', cat: 'Individuals & Families', title: '剛來美國？新移民完整報稅指南', desc: '對來自中國與台灣的新移民來說，FBAR 是最常被遺漏的義務之一。' },
   { href: '/library/investment/crypto-tax', cat: 'Investments & Crypto', title: '加密貨幣稅務說明：什麼時候要繳稅？', desc: '存放在海外交易所的加密貨幣，也可能需要申報 FBAR。兩項義務都要了解。' },
   { href: '/library/individual/tax-residency', cat: 'Individuals & Families', title: '我是美國稅務居民嗎？', desc: 'FBAR 適用於美國人 — 公民、綠卡持有人，以及通過實質居留測試的居民外國人。' },

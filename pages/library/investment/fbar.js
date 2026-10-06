@@ -42,6 +42,7 @@ const FAQS = [
 ]
 
 const RELATED = [
+  { href: '/library/investment/fbar-10000-rule', cat: 'Investments & Foreign Accounts', title: 'Do I need to file an FBAR? How the $10,000 rule really works', desc: 'A closer look at the aggregate $10,000 test, with examples of several small accounts.' },
   { href: '/library/individual/new-immigrant', cat: 'Individuals & Families', title: 'New immigrant complete tax guide', desc: 'FBAR is one of the most commonly missed obligations for new immigrants from China and Taiwan.' },
   { href: '/library/investment/crypto-tax', cat: 'Investments & Crypto', title: 'Crypto taxes explained', desc: 'Crypto held on foreign exchanges may also be subject to FBAR reporting. Understand both obligations.' },
   { href: '/library/individual/tax-residency', cat: 'Individuals & Families', title: 'Am I a U.S. tax resident?', desc: 'FBAR applies to U.S. persons — citizens, green card holders, and resident aliens who pass the Substantial Presence Test.' },

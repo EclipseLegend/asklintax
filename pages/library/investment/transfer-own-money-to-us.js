@@ -63,6 +63,12 @@ const FAQS = [
 
 const RELATED = [
   {
+    href: '/library/investment/pre-immigration-savings',
+    cat:  'Investments & Foreign Accounts',
+    title: 'I had this money before moving to America — does that change FBAR or Form 8938?',
+    desc:  'Old savings are generally not taxed again, but their accounts can still be reportable.',
+  },
+  {
     href: '/library/investment/foreign-bank-account',
     cat:  'Investments & Foreign Accounts',
     title: 'Do I need to report a Taiwan or foreign bank account?',
