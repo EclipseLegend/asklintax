@@ -77,6 +77,13 @@ const ZH_GLOSSARY = [
   ['國稅局', 'irs'], ['通知', 'notice letter'], ['信', 'letter notice'], ['查帳', 'audit'], ['罰款', 'penalty'], ['罰金', 'penalty'],
   ['截止', 'deadline'], ['期限', 'deadline'], ['延期', 'extension'], ['雇主', 'employer'], ['員工', 'employee'],
   ['第一次', 'first time'], ['首次', 'first time'], ['門檻', 'threshold'], ['收入', 'income'], ['所得', 'income'],
+  // Foreign gift / Form 3520 deep-dive guides
+  ['學費', 'tuition'], ['醫療費', 'medical'], ['頭期款', 'down payment home'], ['買房', 'home purchase'],
+  ['遺產', 'inheritance bequest'], ['繼承', 'inherited inheritance'], ['信託', 'trust'], ['受益人', 'beneficiary trust'],
+  ['晚報', 'late'], ['逾期', 'late'], ['補報', 'late file'], ['漏報', 'missed late'], ['忘記', 'missed late'], ['合理原因', 'reasonable cause'],
+  ['賣房', 'sold sell property'], ['出售', 'sell sale'], ['房產', 'property'], ['房子', 'home property'],
+  ['分多次', 'multiple transfers'], ['多次', 'multiple'], ['分批', 'multiple transfers'],
+  ['自己的錢', 'own money'], ['自己', 'own'], ['匯到美國', 'transfer money'], ['匯回美國', 'transfer money'], ['存款', 'savings'], ['聯名', 'joint account'], ['公婆', 'spouse parents'], ['岳父母', 'spouse parents'],
 ]
 
 // ── Index (built once per function instance) ──────────────

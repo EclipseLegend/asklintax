@@ -14,7 +14,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'form-3520',
-  sourceHash:      '095377e9aa49',
+  sourceHash:      'ad26f584e3d4',
   id:            '22',
   title:         'Form 3520：申報大額海外贈與',
   titleEn:       'Form 3520: reporting large foreign gifts',
@@ -135,7 +135,7 @@ export default function Form3520ZhTwPage({ translations }) {
         <ul>
           <li>代你支付的<strong>合格學費或醫療費用</strong></li>
           <li>來自美國公民或美國稅務居民的贈與</li>
-          <li>來自<strong>海外信託</strong>的分配 — 這些在 Part III 申報，不在 Part IV</li>
+          <li>來自<strong>海外信託</strong>的分配 — 這些在 Part III 申報，不在 Part IV（請見<a href="/zh-tw/library/investment/foreign-gift-vs-foreign-trust/">海外父母贈與 vs. Foreign Trust Distribution，為什麼不能搞混？</a>）</li>
         </ul>
 
         <h2>如何填寫 Part IV</h2>
@@ -190,7 +190,7 @@ export default function Form3520ZhTwPage({ translations }) {
 
         <div className="callout callout-tip">
           <div className="callout-title">💡 什麼時候該找專業協助</div>
-          <p>如果你的 Form 3520 已經逾期、「贈與」來自公司或可能其實是借款或報酬、涉及海外信託，或贈與人是前美國公民或前綠卡持有人，請向 CPA 或稅務律師尋求協助。逾期申報應附上合理原因的說明。</p>
+          <p>如果你的 Form 3520 已經逾期、「贈與」來自公司或可能其實是借款或報酬、涉及海外信託，或贈與人是前美國公民或前綠卡持有人，請向 CPA 或稅務律師尋求協助。逾期申報應附上合理原因的說明 — 請見<a href="/zh-tw/library/investment/late-form-3520/">Form 3520 忘記報或晚報，現在怎麼辦？</a></p>
         </div>
 
       </KnowledgePage>

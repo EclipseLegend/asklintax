@@ -14,7 +14,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'foreign-gifts',
-  sourceHash:      'fd8661a6c81b',
+  sourceHash:      '14a6a5a1a78a',
   id:            '21',
   title:         '海外贈與：父母從海外匯來的錢要繳稅嗎？',
   titleEn:       'Foreign gifts: is money from parents overseas taxable?',
@@ -158,7 +158,7 @@ export default function ForeignGiftsZhTwPage({ translations }) {
         />
 
         <p>
-          對家庭來說最重要的細節：你必須把你知道（或有理由知道）彼此有親屬關係的人所給的贈與<strong>加總</strong>。媽媽和爸爸給的贈與要合併成一個總額計算，而不是分開兩筆。
+          對家庭來說最重要的細節：你必須把你知道（或有理由知道）彼此有親屬關係的人所給的贈與<strong>加總</strong>。媽媽和爸爸給的贈與要合併成一個總額計算，而不是分開兩筆。如果是分多次匯款、祖父母匯款，或透過其他親戚轉匯，請見<a href="/zh-tw/library/investment/form-3520-multiple-gifts/">父母分多次匯款，Form 3520 的 10 萬美元門檻怎麼算？</a>
         </p>
 
         <h3>實際例子</h3>
@@ -178,7 +178,7 @@ export default function ForeignGiftsZhTwPage({ translations }) {
 
         <div className="callout callout-info">
           <div className="callout-title">ℹ️ 直接支付的學費與醫療費</div>
-          <p>外國人代你支付的合格學費或醫療費用，在 Form 3520 上不視為海外贈與。這只適用於代你支付的款項 — 匯給你、之後你再拿去繳學費的錢，是給你的贈與。</p>
+          <p>外國人代你支付的合格學費或醫療費用，在 Form 3520 上不視為海外贈與。這只適用於代你支付的款項 — 匯給你、之後你再拿去繳學費的錢，是給你的贈與。請見<a href="/zh-tw/library/investment/foreign-gift-tuition-paid-directly/">海外父母直接付我的學費，要報 Form 3520 嗎？</a></p>
         </div>
 
         <h2>當贈與的錢開始產生收入</h2>
@@ -195,7 +195,7 @@ export default function ForeignGiftsZhTwPage({ translations }) {
           <li>IRS 可能自行<strong>判定這筆錢的所得稅後果</strong> — 換句話說，IRS 可能不接受這筆錢是贈與。</li>
         </ul>
         <p>
-          因為罰款是依贈與金額計算，即使這筆贈與本身不用繳所得稅，大額匯款漏報 Form 3520 的代價也可能非常高。
+          因為罰款是依贈與金額計算，即使這筆贈與本身不用繳所得稅，大額匯款漏報 Form 3520 的代價也可能非常高。如果申報期限已經過了，請見<a href="/zh-tw/library/investment/late-form-3520/">Form 3520 忘記報或晚報，現在怎麼辦？</a>
         </p>
 
         <h2>特殊情況</h2>
@@ -205,7 +205,7 @@ export default function ForeignGiftsZhTwPage({ translations }) {
         </p>
         <h3>來自海外信託的分配</h3>
         <p>
-          你從海外信託收到的錢，不是在 Part IV 當作贈與申報，而是在 Form 3520 的另一部分當作信託分配申報，而且可能要繳稅。信託相關的情況需要專業協助。
+          你從海外信託收到的錢，不是在 Part IV 當作贈與申報，而是在 Form 3520 的另一部分當作信託分配申報，而且可能要繳稅。信託相關的情況需要專業協助。請見<a href="/zh-tw/library/investment/foreign-gift-vs-foreign-trust/">海外父母贈與 vs. Foreign Trust Distribution，為什麼不能搞混？</a>
         </p>
 
         <div className="callout callout-tip">

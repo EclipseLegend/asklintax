@@ -129,7 +129,7 @@ export default function Form3520Page({ translations }) {
         <ul>
           <li>Amounts paid on your behalf for <strong>qualified tuition or medical payments</strong></li>
           <li>Gifts from U.S. citizens or U.S. tax residents</li>
-          <li>Distributions from a <strong>foreign trust</strong> — these go in Part III, not Part IV</li>
+          <li>Distributions from a <strong>foreign trust</strong> — these go in Part III, not Part IV (see <a href="/library/investment/foreign-gift-vs-foreign-trust/">Foreign gift from your parents vs. foreign trust distribution</a>)</li>
         </ul>
 
         <h2>How to complete Part IV</h2>
@@ -184,7 +184,7 @@ export default function Form3520Page({ translations }) {
 
         <div className="callout callout-tip">
           <div className="callout-title">💡 When to get professional help</div>
-          <p>Get help from a CPA or tax attorney if your Form 3520 is late, if a "gift" came from a company or might be a loan or payment, if a foreign trust is involved, or if the giver was a former U.S. citizen or green card holder. Late filings should include a reasonable-cause explanation.</p>
+          <p>Get help from a CPA or tax attorney if your Form 3520 is late, if a "gift" came from a company or might be a loan or payment, if a foreign trust is involved, or if the giver was a former U.S. citizen or green card holder. Late filings should include a reasonable-cause explanation — see <a href="/library/investment/late-form-3520/">I filed Form 3520 late — what should I do now?</a></p>
         </div>
 
       </KnowledgePage>

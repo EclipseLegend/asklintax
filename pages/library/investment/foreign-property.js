@@ -143,7 +143,7 @@ export default function ForeignPropertyPage({ translations }) {
 
         <h2>Selling foreign property</h2>
         <p>
-          U.S. citizens and resident aliens are taxed on <strong>worldwide income</strong>, so a gain on selling property abroad is reportable on your U.S. return — even if the sale was taxed in the other country, and even if you never move the money to the U.S.
+          U.S. citizens and resident aliens are taxed on <strong>worldwide income</strong>, so a gain on selling property abroad is reportable on your U.S. return — even if the sale was taxed in the other country, and even if you never move the money to the U.S. For a step-by-step look at the sale and the later transfer, see <a href="/library/investment/sold-foreign-property-transfer/">I sold property overseas and moved the money to the U.S. — what must I report?</a>
         </p>
         <h3>Currency matters</h3>
         <p>

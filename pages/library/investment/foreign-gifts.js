@@ -152,7 +152,7 @@ export default function ForeignGiftsPage({ translations }) {
         />
 
         <p>
-          The most important detail for families: you must <strong>add together</strong> gifts from people you know (or have reason to know) are related to each other. Gifts from your mother and father count as one total, not two.
+          The most important detail for families: you must <strong>add together</strong> gifts from people you know (or have reason to know) are related to each other. Gifts from your mother and father count as one total, not two. For several transfers, grandparents, or money routed through a relative, see <a href="/library/investment/form-3520-multiple-gifts/">Multiple foreign gifts: how does the $100,000 Form 3520 threshold work?</a>
         </p>
 
         <h3>A worked example</h3>
@@ -172,7 +172,7 @@ export default function ForeignGiftsPage({ translations }) {
 
         <div className="callout callout-info">
           <div className="callout-title">ℹ️ Tuition and medical bills paid directly</div>
-          <p>Amounts a foreign person pays on your behalf for qualified tuition or medical payments are not treated as foreign gifts for Form 3520. This applies to payments made for you — money sent to you that you later spend on tuition is a gift to you.</p>
+          <p>Amounts a foreign person pays on your behalf for qualified tuition or medical payments are not treated as foreign gifts for Form 3520. This applies to payments made for you — money sent to you that you later spend on tuition is a gift to you. See <a href="/library/investment/foreign-gift-tuition-paid-directly/">My parents paid my tuition directly — do I report a foreign gift?</a></p>
         </div>
 
         <h2>When the gift money starts earning income</h2>
@@ -189,7 +189,7 @@ export default function ForeignGiftsPage({ translations }) {
           <li>The IRS may <strong>determine the income tax consequences</strong> of the money itself — in other words, it may not accept that the money was a gift.</li>
         </ul>
         <p>
-          Because the penalty is based on the size of the gift, a missed Form 3520 on a large transfer can be very costly even though no income tax was owed on the gift.
+          Because the penalty is based on the size of the gift, a missed Form 3520 on a large transfer can be very costly even though no income tax was owed on the gift. If a deadline has already passed, see <a href="/library/investment/late-form-3520/">I filed Form 3520 late — what should I do now?</a>
         </p>
 
         <h2>Special situations</h2>
@@ -199,7 +199,7 @@ export default function ForeignGiftsPage({ translations }) {
         </p>
         <h3>Distributions from a foreign trust</h3>
         <p>
-          Money you receive from a foreign trust is not reported as a gift in Part IV. It is reported as a trust distribution in a different part of Form 3520, and it may be taxable. Trust situations need professional help.
+          Money you receive from a foreign trust is not reported as a gift in Part IV. It is reported as a trust distribution in a different part of Form 3520, and it may be taxable. Trust situations need professional help. See <a href="/library/investment/foreign-gift-vs-foreign-trust/">Foreign gift from your parents vs. foreign trust distribution</a>.
         </p>
 
         <div className="callout callout-tip">

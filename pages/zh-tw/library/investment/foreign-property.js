@@ -14,7 +14,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'foreign-property',
-  sourceHash:      '8fa52c281664',
+  sourceHash:      '28946d7fd2a1',
   id:            '25',
   title:         '海外房產：美國納稅人需要知道的事',
   titleEn:       'Foreign property: what U.S. taxpayers need to know',
@@ -149,7 +149,7 @@ export default function ForeignPropertyZhTwPage({ translations }) {
 
         <h2>出售海外房產</h2>
         <p>
-          美國公民與居民外國人要就<strong>全球所得</strong>繳稅，所以出售海外房產的利得要在美國稅表上申報 — 即使這筆交易在當地已經課稅，即使你從未把錢匯回美國。
+          美國公民與居民外國人要就<strong>全球所得</strong>繳稅，所以出售海外房產的利得要在美國稅表上申報 — 即使這筆交易在當地已經課稅，即使你從未把錢匯回美國。想一步步了解出售與之後匯款各要申報什麼，請見<a href="/zh-tw/library/investment/sold-foreign-property-transfer/">海外賣房後把錢匯到美國，要申報什麼？</a>
         </p>
         <h3>匯率很重要</h3>
         <p>
