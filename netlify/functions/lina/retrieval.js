@@ -46,8 +46,17 @@ function tokens(text) {
 }
 
 // Small English synonym expansion (query side only).
+// Informal words readers use that the guides spell differently (query side only). Applied before the
+// unknown-word check, so "mom" is understood as "mother" instead of signalling an uncovered topic.
+const QUERY_ALIASES = {
+  mom: 'mother', mum: 'mother', mommy: 'mother', mama: 'mother', momma: 'mother',
+  dad: 'father', daddy: 'father', papa: 'father',
+  grandma: 'grandparents', grandpa: 'grandparents', granny: 'grandparents',
+}
+
 const EN_SYNONYMS = {
-  parent: ['gift'], sent: ['gift'], send: ['gift'], wire: ['gift'], transfer: ['gift'],
+  parent: ['gift'], sent: ['gift'], send: ['gift'], wire: ['gift'], wir: ['gift'], transfer: ['gift'],
+  mother: ['parent', 'gift'], father: ['parent', 'gift'], gave: ['gift'], give: ['gift'],
   spouse: ['married', 'joint'], wife: ['spouse', 'married'], husband: ['spouse', 'married'], married: ['spouse', 'joint'],
   owe: ['taxable'], taxable: ['income'],
   abroad: ['foreign'], overseas: ['foreign'], offshore: ['foreign'],
@@ -83,6 +92,8 @@ const ZH_GLOSSARY = [
   ['晚報', 'late'], ['逾期', 'late'], ['補報', 'late file'], ['漏報', 'missed late'], ['忘記', 'missed late'], ['合理原因', 'reasonable cause'],
   ['賣房', 'sold sell property'], ['出售', 'sell sale'], ['房產', 'property'], ['房子', 'home property'],
   ['分多次', 'multiple transfers'], ['多次', 'multiple'], ['分批', 'multiple transfers'],
+  ['媽媽', 'mother'], ['母親', 'mother'], ['爸爸', 'father'], ['父親', 'father'],
+  ['匯給', 'gift money sent'],
   ['自己的錢', 'own money'], ['自己', 'own'], ['匯到美國', 'transfer money'], ['匯回美國', 'transfer money'], ['存款', 'savings'], ['聯名', 'joint account'], ['公婆', 'spouse parents'], ['岳父母', 'spouse parents'],
 ]
 
@@ -126,7 +137,10 @@ function queryTerms(question) {
   const unknown = [] // question words that appear in no published guide
 
   // Latin parts (English questions, or "FBAR"/"IRS"/"LLC" inside a Chinese question)
-  for (const t of tokens(text.replace(/[㐀-鿿豈-﫿]+/g, ' '))) {
+  // Chinese amounts: "20萬" → 200000, so they match "$200,000" in the guides instead of a bare "20".
+  const latinText = text.normalize('NFKC').replace(/(\d+(?:\.\d+)?)\s*萬/g, (_, n) => ` ${Math.round(parseFloat(n) * 10000)} `)
+  for (const raw of tokens(latinText.replace(/[㐀-鿿豈-﫿]+/g, ' '))) {
+    const t = QUERY_ALIASES[raw] ? stem(QUERY_ALIASES[raw]) : raw
     add(t, 1)
     if (!DF.has(t) && t.length >= 3 && !isAmountOrYear(t)) unknown.push(t)
     for (const s of EN_SYNONYMS[t] || []) for (const st of tokens(s)) add(st, 0.5)
@@ -186,8 +200,11 @@ function retrieve(question, { maxPassages = 5, maxArticles = 3 } = {}) {
   const top = scored[0]
   if (!top) return { confident: false, passages: [], articleIds: [], stats: { topScore: 0, coverage: 0 } }
   // Coverage: how much of the question (idf-weighted) the single best passage explains.
-  const totalW = [...terms].reduce((sum, [t, w]) => sum + w * idf(t), 0) || 1
-  const coveredW = [...terms].filter(([t]) => top.matched.has(t)).reduce((sum, [t, w]) => sum + w * idf(t), 0)
+  // Dollar amounts and years are facts about the asker, not topic words: a guide is not expected to contain
+  // the asker's exact amount, so an amount/year counts toward coverage only when the best passage has it.
+  const topical = [...terms].filter(([t]) => !isAmountOrYear(t) || top.matched.has(t))
+  const totalW = topical.reduce((sum, [t, w]) => sum + w * idf(t), 0) || 1
+  const coveredW = topical.filter(([t]) => top.matched.has(t)).reduce((sum, [t, w]) => sum + w * idf(t), 0)
   const coverage = coveredW / totalW
   const confident = unknown.length === 0 && top.score >= MIN_TOP_SCORE && (coverage >= MIN_COVERAGE || boosts.size > 0)
 
