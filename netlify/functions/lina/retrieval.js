@@ -52,6 +52,7 @@ const QUERY_ALIASES = {
   mom: 'mother', mum: 'mother', mommy: 'mother', mama: 'mother', momma: 'mother',
   dad: 'father', daddy: 'father', papa: 'father',
   grandma: 'grandparents', grandpa: 'grandparents', granny: 'grandparents',
+  stuff: 'items', belongings: 'items',
 }
 
 const EN_SYNONYMS = {
@@ -97,6 +98,8 @@ const ZH_GLOSSARY = [
   // FBAR / foreign-account guides
   ['銀行', 'bank'], ['利息', 'interest'], ['沒有利息', 'no interest'], ['以前', 'before'], ['之前', 'before'],
   ['共同', 'joint'], ['移民以前', 'before moving savings'], ['移民前', 'before moving savings'], ['定存', 'time deposit'], ['股票', 'stock'], ['儲蓄險', 'insurance cash value'],
+  // Batch 3 guides
+  ['在家辦公', 'home office'], ['居家辦公', 'home office'], ['抵稅', 'credit'],
   ['自己的錢', 'own money'], ['自己', 'own'], ['匯到美國', 'transfer money'], ['匯回美國', 'transfer money'], ['存款', 'savings'], ['聯名', 'joint account'], ['公婆', 'spouse parents'], ['岳父母', 'spouse parents'],
 ]
 
@@ -107,7 +110,8 @@ const PASSAGES = KNOWLEDGE.passages.filter(p => PUBLISHED.has(p.articleId))
 // Guides published as "Official Sources Verified" (status recorded at build time from the page).
 const VERIFIED = new Set(PASSAGES.filter(p => p.status === 'official-sources-verified').map(p => p.articleId))
 const DOCS = PASSAGES.map(p => {
-  const toks = [...tokens(p.text), ...tokens(p.heading), ...tokens(p.heading), ...tokens(p.title)]
+  // The guide title states its primary intent, so it is weighted like a field boost (3×).
+  const toks = [...tokens(p.text), ...tokens(p.heading), ...tokens(p.heading), ...tokens(p.title), ...tokens(p.title), ...tokens(p.title)]
   const tf = new Map()
   for (const t of toks) tf.set(t, (tf.get(t) || 0) + 1)
   return { passage: p, tf, len: toks.length }
@@ -168,7 +172,8 @@ const isAmountOrYear = t => /^\d{5,}$/.test(t) || /^(19|20)\d\d$/.test(t)
 function zhArticleBoosts(question) {
   const boosts = new Map()
   if (!CJK.test(question)) return boosts
-  const q = String(question).normalize('NFKC').replace(/僱/g, '雇').replace(/\s+/g, '').toLowerCase()
+  // "可以" ("can") is filler between keyword parts: "學費可以抵稅" should match the keyword "學費抵稅".
+  const q = String(question).normalize('NFKC').replace(/僱/g, '雇').replace(/\s+/g, '').replace(/可以/g, '').toLowerCase()
   for (const [id, zh] of Object.entries(ARTICLES_ZH_TW)) {
     if (!PUBLISHED.has(id)) continue
     const hits = (zh.keywords || []).filter(k => {
@@ -194,9 +199,12 @@ const MIN_COVERAGE = 0.5        // share of the question's idf-weighted terms fo
 // tax/reporting, in which case it is scored normally.
 const RATE_QUESTION = /利率|\b(interest|cd|deposit|savings|bank)\s+rates?\b|\bbest\s+(cd\s+)?rates?\b/i
 const TAX_INTENT = /報|稅|\b(tax\w*|report\w*|fil(e|ing)|fbar|8938|irs|income|deduct\w*)\b/i
+// Same idea for other everyday banking/app questions (bank hours, passwords, locked accounts, how to send
+// money, which bank to choose, an account number) — refused unless the question also asks about tax.
+const NON_TAX_ACTION = /幾點|開門|關門|營業時間|密碼|帳號被鎖|怎麼轉帳|哪家銀行|\baccount number\b|\bopening hours\b|\bpassword\b/i
 
 function retrieve(question, { maxPassages = 5, maxArticles = 3 } = {}) {
-  if (RATE_QUESTION.test(question) && !TAX_INTENT.test(question)) {
+  if ((RATE_QUESTION.test(question) || NON_TAX_ACTION.test(question)) && !TAX_INTENT.test(question)) {
     return { confident: false, passages: [], articleIds: [], stats: { topScore: 0, coverage: 0 } }
   }
   const { terms, unknown } = queryTerms(question)
