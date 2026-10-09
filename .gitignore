@@ -18,6 +18,9 @@ next-env.d.ts
 # Lina knowledge index (generated in postbuild from the published guides)
 netlify/functions/lina/knowledge.json
 
+# Lina real-model evaluation output (scripts/lina-v2-eval.js) — never commit
+lina-eval-results/
+
 # Logs
 npm-debug.log*
 yarn-debug.log*
