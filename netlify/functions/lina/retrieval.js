@@ -364,8 +364,29 @@ function retrieve(question, { maxPassages = 5, maxArticles = 3 } = {}) {
 // Lina v2: evidence only. Ranks guide passages for a question with NO verdict — no intent guards, no
 // unknown-word veto, no score threshold. The model decides whether the question is a tax question and
 // whether the evidence answers it; this function only supplies the best library passages it can find.
-function rankPassages(question, { maxPassages = 6, maxArticles = 4 } = {}) {
+//
+// Concept expansions (v2 only; v1's retrieve() does not use them): readers describe a situation in their own
+// words ("after 8 months", "change my W-4") while the guide section that answers it uses the rule's words
+// ("short-term or long-term", "fix it for next year"). Each entry needs BOTH patterns, so a single word never
+// pulls in a topic; the added terms are weak (ranking help only, like synonyms).
+const CONCEPTS = [
+  { // holding period of a sale of securities → the short-term / long-term section (not homes: own guide)
+    when: [/\b(sold|sell|selling|sale)\b|賣|出售/i, /\b(stocks?|shares?|etfs?|funds?|securities|options?|rsus?|crypto\w*|bitcoin|coins?)\b|股票|股份|基金|加密/i,
+      /\b(held|hold|holding|kept|owned)\b|\b(\d+|an?|one|two|three|four|five|six|seven|eight|nine|ten|eleven|twelve|few|several)\s+(days?|weeks?|months?|years?)\b|持有|個月|多久|幾年/i],
+    add: 'short-term long-term held',
+  },
+  { // changing withholding → how to fix it with a new W-4
+    when: [/\bw-?4\b|withh[eo]ld\w*|預扣|扣繳/i, /\b(change|changing|adjust\w*|update\w*|fix\w*|increase|too little|not enough|underwithh\w*)\b|改|調整|不夠|太少/i],
+    add: 'fix new form w-4 estimator',
+  },
+]
+const CONCEPT_WEIGHT = 0.6
+
+function rankPassages(question, { maxPassages = 6, maxArticles = 4, maxFromTopArticle = 3 } = {}) {
   const { terms } = queryTerms(question)
+  for (const c of CONCEPTS) {
+    if (c.when.every(r => r.test(question))) for (const t of tokens(c.add)) if (!terms.has(t)) terms.set(t, CONCEPT_WEIGHT)
+  }
   const boosts = zhArticleBoosts(question)
   if (terms.size === 0 && boosts.size === 0) return { passages: [], topScore: 0 }
   const scored = DOCS.map(doc => {
@@ -374,6 +395,9 @@ function rankPassages(question, { maxPassages = 6, maxArticles = 4 } = {}) {
     return { doc, score: score * (1 + 0.35 * boost) + (score > 0 ? boost : 0) }
   }).filter(s => s.score > 0).sort((a, b) => b.score - a.score)
   if (!scored.length) return { passages: [], topScore: 0 }
+  // The best-matching guide may contribute one more passage than the others: the answer is usually spread
+  // over its sections (rule, table, example), and other guides only add context.
+  const topArticle = scored[0].doc.passage.articleId
   const picked = []
   const perArticle = new Map()
   for (const s of scored) {
@@ -381,7 +405,7 @@ function rankPassages(question, { maxPassages = 6, maxArticles = 4 } = {}) {
     if (s.score < scored[0].score * 0.35) break
     const id = s.doc.passage.articleId
     if (!perArticle.has(id) && perArticle.size >= maxArticles) continue
-    if ((perArticle.get(id) || 0) >= 2) continue
+    if ((perArticle.get(id) || 0) >= (id === topArticle ? maxFromTopArticle : 2)) continue
     perArticle.set(id, (perArticle.get(id) || 0) + 1)
     picked.push(s.doc.passage)
   }

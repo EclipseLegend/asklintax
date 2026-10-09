@@ -83,6 +83,22 @@ function parseChineseNumeral(s) {
   return total + rest
 }
 
+// Durations: "8 months", "1 year", "1 年", "8 個月" carry a unit, so 1 year never matches 1 month. A four-digit
+// calendar year followed by 年 ("2025年") is a year, not a duration.
+const UNIT_EN = /^\s?(day|week|month|year)s?\b/i
+const UNIT_ZH = /^\s?(個月|个月|年|天|週|周|星期)/
+const ZH_UNIT = { '個月': 'month', '个月': 'month', '年': 'year', '天': 'day', '週': 'week', '周': 'week', '星期': 'week' }
+function unitAfter(rest) {
+  let m
+  if ((m = UNIT_EN.exec(rest))) return m[1].toLowerCase()
+  if ((m = UNIT_ZH.exec(rest))) return ZH_UNIT[m[1]]
+  return null
+}
+// Spelled-out durations ("one year", "eight months", 一年, 八個月). Read only on the EVIDENCE side (the user's
+// words and cited quotes), so "1 year" in an answer can be supported by "more than one year" in a guide.
+const EN_WORD_NUM = { one: 1, two: 2, three: 3, four: 4, five: 5, six: 6, seven: 7, eight: 8, nine: 9, ten: 10, eleven: 11, twelve: 12, eighteen: 18, twenty: 20, thirty: 30, sixty: 60, ninety: 90 }
+const EN_WORD_DURATION = new RegExp(`\\b(${Object.keys(EN_WORD_NUM).join('|')})[\\s-]+(day|week|month|year)s?\\b`, 'gi')
+
 const USD_AFTER = /^\s?(?:dollars?\b|usd\b|美元|美金)/i
 const TWD_AFTER = /^\s?(?:新?台幣|ntd\b|twd\b)/i
 
@@ -91,17 +107,28 @@ const TWD_AFTER = /^\s?(?:新?台幣|ntd\b|twd\b)/i
  * "$1 million" → 1,000,000; "$150k" → 150,000; "1萬"/"一萬" → 10,000; "十五萬" → 150,000; "22%" / "百分之二十二" → 22%.
  * Ambiguous or malformed amounts are returned with valid:false (never re-read as a smaller number):
  * "一萬五" / "兩千五" (colloquial), "數萬" (vague), "1,00,000", "1.2.3", "3x".
+ * Durations get unit 'day' | 'week' | 'month' | 'year' ("8 months", "1 年"); other numbers have unit null.
+ * { words: true } also reads spelled-out durations ("one year", 八個月) — used for the user's text and quotes.
  */
-function extractNumbers(text) {
+function extractNumbers(text, { words = false } = {}) {
   const out = []
   // Chinese punctuation is a separator, not a thousands comma ("$10,000，一般" is two tokens).
   let t = stripIdentifiers(String(text).replace(/[，、；]/g, ', '))
+  if (words) {
+    t = t.replace(EN_WORD_DURATION, (m, w, u) => { out.push({ raw: m, value: EN_WORD_NUM[w.toLowerCase()], percent: false, currency: null, unit: u.toLowerCase(), valid: true }); return ' ' })
+    t = t.replace(new RegExp(`([${CN_CHARS}]+)\\s?(個月|个月|年|天|週|周|星期)`, 'g'), (m, run, u) => {
+      const v = /[萬万億亿]/.test(run) ? null : parseChineseNumeral(run)
+      if (v === null || !Number.isFinite(v) || v === 0) return m
+      out.push({ raw: m, value: v, percent: false, currency: null, unit: ZH_UNIT[u], valid: true })
+      return ' '
+    })
+  }
   const currencyOf = (prefix, after) => (/NT\$/i.test(prefix) || TWD_AFTER.test(after) ? 'TWD' : /\$|USD/i.test(prefix) || USD_AFTER.test(after) ? 'USD' : null)
 
   // 百分之X → X%
   t = t.replace(new RegExp(`百分之([0-9.]+|[${CN_CHARS}]+)`, 'g'), (m, x) => {
     const v = /\d/.test(x) ? parseFloat(x) : parseChineseNumeral(x)
-    out.push({ raw: m, value: v === null ? NaN : v, percent: true, currency: null, valid: v !== null && Number.isFinite(v) })
+    out.push({ raw: m, value: v === null ? NaN : v, percent: true, currency: null, unit: null, valid: v !== null && Number.isFinite(v) })
     return ' '
   })
 
@@ -119,7 +146,7 @@ function extractNumbers(text) {
     if (run === '十' && /^分/.test(after)) return m
     const colloquial = /[百千萬万億亿]([一二兩两三四五六七八九]|\d)$/.test(run) // 一萬五, 兩千五, 1萬5
     const v = vague || colloquial ? null : parseChineseNumeral(run.replace(/,/g, ''))
-    out.push({ raw: m, value: v === null ? NaN : v, percent: false, currency: currencyOf(prefix, after), valid: v !== null && Number.isFinite(v) })
+    out.push({ raw: m, value: v === null ? NaN : v, percent: false, currency: currencyOf(prefix, after), unit: null, valid: v !== null && Number.isFinite(v) })
     return ' '.repeat(m.length)
   })
 
@@ -141,7 +168,9 @@ function extractNumbers(text) {
     if ((digits.match(/\./g) || []).length > 1) valid = false
     if (digits.includes(',') && !/^\d{1,3}(?:,\d{3})+(?:\.\d+)?$/.test(digits)) valid = false
     const value = valid ? parseFloat(digits.replace(/,/g, '')) * mult : NaN
-    out.push({ raw: m[0] + suffix, value, percent, currency: currencyOf(prefix, rest.slice(suffix.length)), valid: valid && Number.isFinite(value) })
+    let unit = !percent && !prefix && mult === 1 ? unitAfter(rest.slice(suffix.length)) : null
+    if (unit === 'year' && /^(19|20)\d\d$/.test(digits)) unit = null // "2025年" is a calendar year
+    out.push({ raw: m[0] + suffix, value, percent, currency: currencyOf(prefix, rest.slice(suffix.length)), unit, valid: valid && Number.isFinite(value) })
     re.lastIndex = m.index + m[0].length + suffix.length
   }
   return out
@@ -150,7 +179,13 @@ function extractNumbers(text) {
 const isYear = n => n.valid && !n.percent && !n.currency && Number.isInteger(n.value) && n.value >= 1990 && n.value <= 2099 && /^\d{4}$/.test(n.raw)
 const sameValue = (a, b) => Math.abs(a - b) < 1e-9
 const sameCurrency = (a, b) => !a || !b || a === b
-const hasValue = (list, v, currency = null) => list.some(n => n.valid && sameValue(n.value, v) && sameCurrency(n.currency, currency))
+const sameUnit = (a, b) => !a || !b || a === b
+const hasValue = (list, v, currency = null, unit = null) => list.some(n => n.valid && sameValue(n.value, v) && sameCurrency(n.currency, currency) && sameUnit(n.unit, unit))
+// A sentence that states a rule. A number the user typed is not trusted inside such a sentence unless the model
+// declared it (an injected "the standard deduction is $50,000" must not pass as the user's own figure).
+const RULE_CONTEXT = /\b(thresholds?|limits?|deductions?|exemptions?|exclusions?|brackets?|rates?|caps?|maximum|minimum|ceiling|phase[- ]?outs?|standard|allowances?|irs|law|rules?|required|must)\b|門檻|上限|下限|扣除額|免稅額|稅率|標準|國稅局|規定|必須/i
+// Sentence split for that check: after . ! ? only before a capital or quote ("U.S. tax" stays one sentence).
+const sentences = p => String(p).split(/(?<=[.!?])\s+(?=[A-Z"“(])|(?<=[。！？])/).filter(s => s.trim())
 
 // Tiny arithmetic evaluator (no eval): numbers, + - * / ( ), "%" meaning /100. Returns { value, literals }.
 function evaluate(expression) {
@@ -200,7 +235,8 @@ const SMALL_CONSTANTS = new Set([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 100])
  * @returns        { ok: true, paragraphs, guides, officialSources } | { ok: false, reason }
  */
 function validateAnswer(parsed, ctx) {
-  const fail = reason => ({ ok: false, reason })
+  // detail (the offending number, if any) is for offline debugging and evaluation; callers log only reason.
+  const fail = (reason, detail) => ({ ok: false, reason, ...(detail ? { detail: String(detail).slice(0, 40) } : {}) })
   const paragraphs = (parsed.paragraphs || []).filter(p => typeof p === 'string').map(p => p.trim()).filter(Boolean)
   if (!paragraphs.length || paragraphs.length > 4 || paragraphs.some(p => p.length > 1200)) return fail('bad_paragraphs')
   if (paragraphs.some(p => /https?:\/\/|www\./i.test(p))) return fail('url_in_text') // links come only from server-held sources
@@ -209,7 +245,7 @@ function validateAnswer(parsed, ctx) {
   const claims = Array.isArray(parsed.claims) ? parsed.claims : []
   if (!claims.length) return fail('no_claims')
   if (claims.length > 12) return fail('too_many_claims')
-  const questionNumbers = extractNumbers(ctx.question)
+  const questionNumbers = extractNumbers(ctx.question, { words: true })
   const questionYears = questionNumbers.filter(isYear).map(n => n.value)
   for (const c of claims) {
     const src = ctx.evidence.get(c.source_id)
@@ -239,14 +275,21 @@ function validateAnswer(parsed, ctx) {
   //                the result itself does not have to appear in any source
   //   example    → only inside a sentence marked as an example
   //   tax years  → from the question or the cited sources
+  // Durations carry a unit ("1 year" ≠ "1 month"); a spelled-out duration in the question or a quote ("more than
+  // one year") supports the same duration written with digits. A number the user typed that the model forgot to
+  // declare is accepted as the user's — same value, currency, percent and unit — except inside a sentence that
+  // states a rule. Legal figures, rates and calculations still have to be declared and pass their checks.
   const declared = (Array.isArray(parsed.numbers) ? parsed.numbers : []).slice(0, 40)
   const decl = declared.map(d => ({ ...d, parsed: extractNumbers(String(d.value || ''))[0] })).filter(d => d.parsed && d.parsed.valid)
-  const quotesFor = id => claims.filter(c => c.source_id === id).map(c => extractNumbers(c.quote))
-  for (const d of decl) {
-    const { value, currency } = d.parsed
-    if (d.category === 'legal') d.ok = citedIds.has(d.source_id) && quotesFor(d.source_id).some(list => hasValue(list, value, currency))
-    else if (d.category === 'user') d.ok = hasValue(questionNumbers, value, currency)
+  const quotesFor = id => claims.filter(c => c.source_id === id).map(c => extractNumbers(c.quote, { words: true }))
+  // Is declaration d supported for a number shown with this currency and unit?
+  const supported = (d, currency, unit) => {
+    const { value } = d.parsed
+    if (d.category === 'legal') return citedIds.has(d.source_id) && quotesFor(d.source_id).some(list => hasValue(list, value, currency, unit))
+    if (d.category === 'user') return hasValue(questionNumbers, value, currency, unit)
+    return !!d.ok
   }
+  for (const d of decl) if (d.category === 'legal' || d.category === 'user') d.ok = supported(d, d.parsed.currency, d.parsed.unit)
   const legal = decl.filter(d => d.category === 'legal' && d.ok)
   let progress = true
   while (progress) {
@@ -265,19 +308,25 @@ function validateAnswer(parsed, ctx) {
   const yearAllowed = v => questionYears.includes(v) || citedYears.has(String(v)) ||
     [...citedIds].some(id => ctx.evidence.get(id).text.includes(String(v)))
 
-  for (const p of paragraphs) {
-    for (const n of extractNumbers(p)) {
-      if (!n.valid) return fail('unrecognized_amount') // ambiguous or malformed amount: never guess
+  for (const p of paragraphs) for (const sentence of sentences(p)) {
+    for (const n of extractNumbers(sentence)) {
+      if (!n.valid) return fail('unrecognized_amount', n.raw) // ambiguous or malformed amount: never guess
       if (isYear(n)) {
-        if (!yearAllowed(n.value)) return fail('unsupported_year')
+        if (!yearAllowed(n.value)) return fail('unsupported_year', n.raw)
         continue
       }
-      const matches = decl.filter(x => sameValue(x.parsed.value, n.value) && x.parsed.percent === n.percent && sameCurrency(x.parsed.currency, n.currency))
-      if (!matches.length) return fail('undeclared_number')
-      if (matches.some(x => x.ok)) continue
+      const matches = decl.filter(x => sameValue(x.parsed.value, n.value) && x.parsed.percent === n.percent && sameCurrency(x.parsed.currency, n.currency) && sameUnit(x.parsed.unit, n.unit))
+      const currency = x => n.currency || x.parsed.currency
+      const unit = x => n.unit || x.parsed.unit
+      if (!matches.length) {
+        // Undeclared, but typed by the user (not a rate, not inside a rule statement): the user's own figure.
+        if (!n.percent && hasValue(questionNumbers, n.value, n.currency, n.unit) && !RULE_CONTEXT.test(sentence)) continue
+        return fail('undeclared_number', n.raw)
+      }
+      if (matches.some(x => x.ok && supported(x, currency(x), unit(x)))) continue
       if (matches.some(x => x.category === 'example') && EXAMPLE_MARKER.test(p)) continue // illustrative, labelled as an example
       const cat = matches[0].category
-      return fail(cat === 'legal' ? 'legal_number_not_in_source' : cat === 'user' ? 'user_number_not_in_question' : cat === 'arithmetic' ? 'arithmetic_invalid' : 'unsupported_number')
+      return fail(cat === 'legal' ? 'legal_number_not_in_source' : cat === 'user' ? 'user_number_not_in_question' : cat === 'arithmetic' ? 'arithmetic_invalid' : 'unsupported_number', n.raw)
     }
   }
 
@@ -287,13 +336,15 @@ function validateAnswer(parsed, ctx) {
   return { ok: true, paragraphs: paragraphs.slice(0, 3).map(p => p.slice(0, 900)), guides, officialSources }
 }
 
-// A clarifying question may ask about a year ("Did you sell in 2025?") and repeat the asker's own numbers,
-// but must not state rules or amounts.
+// A clarifying question may ask about a year ("Did you sell in 2025?"), a holding or residence period ("Did you
+// hold it for more than 1 year?", 「持有超過 1 年嗎？」) and repeat the asker's own numbers, but must not state
+// money amounts or rates.
 function validateClarifyingQuestion(text, question) {
   const q = String(text || '').trim()
   if (!q || q.length > 400 || /https?:\/\//i.test(q)) return false
-  const allowed = extractNumbers(question)
-  return extractNumbers(q).every(n => n.valid && (isYear(n) || hasValue(allowed, n.value, n.currency)))
+  const allowed = extractNumbers(question, { words: true })
+  const duration = n => !!n.unit && !n.currency && !n.percent
+  return extractNumbers(q).every(n => n.valid && (isYear(n) || duration(n) || hasValue(allowed, n.value, n.currency, n.unit)))
 }
 
 module.exports = { normText, quoteInSource, extractNumbers, evaluate, validateAnswer, validateClarifyingQuestion, CJK }
