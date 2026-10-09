@@ -69,8 +69,11 @@ const EN_SYNONYMS = {
 }
 
 // Traditional Chinese → English search terms. Only terms the published guides actually cover.
+// An optional third element is a retrieval HINT: a related topic the guides discuss (爸媽 → gift) that is
+// not in the question itself. Hints help ranking but never count as evidence that the question is covered.
+// No single-character entries: 信 / 季 alone also occur in 相信, 信用卡, 四季 …
 const ZH_GLOSSARY = [
-  ['父母', 'parents gift'], ['爸媽', 'parents gift'], ['家人', 'family gift'], ['匯錢', 'gift money sent'], ['匯款', 'gift money sent'],
+  ['父母', 'parents', 'gift'], ['爸媽', 'parents', 'gift'], ['家人', 'family', 'gift'], ['匯錢', 'money sent', 'gift'], ['匯款', 'money sent', 'gift'],
   ['贈與', 'gift'], ['禮金', 'gift'], ['台灣', 'taiwan'], ['臺灣', 'taiwan'], ['中國', 'china'], ['大陸', 'china'],
   ['銀行帳戶', 'bank account'], ['帳戶', 'account'], ['海外', 'foreign'], ['境外', 'foreign'], ['國外', 'foreign'], ['外國', 'foreign'],
   ['申報', 'file report'], ['報稅', 'file return'], ['繳稅', 'tax owe'], ['欠稅', 'owe tax'], ['退稅', 'refund'],
@@ -79,12 +82,12 @@ const ZH_GLOSSARY = [
   ['稅務居民', 'resident alien'], ['居民', 'resident'], ['非居民', 'nonresident'], ['綠卡', 'green card'], ['新移民', 'immigrant new'], ['移民', 'immigrant'],
   ['學生', 'student'], ['簽證', 'visa'], ['雙重身分', 'dual status'],
   ['自雇', 'self-employment'], ['自僱', 'self-employment'], ['接案', 'freelance 1099'], ['自由業', 'freelance self-employment'],
-  ['預估稅', 'estimated tax'], ['季', 'quarterly'], ['扣除', 'deduction deduct'], ['扣除額', 'deduction'], ['抵稅額', 'credit'],
+  ['預估稅', 'estimated tax'], ['每季', 'quarterly'], ['季度', 'quarterly'], ['按季', 'quarterly'], ['扣除', 'deduction deduct'], ['扣除額', 'deduction'], ['抵稅額', 'credit'],
   ['兒童', 'child'], ['孩子', 'child'], ['小孩', 'child'], ['子女', 'child'], ['受扶養', 'dependent'],
-  ['公司', 'business company'], ['創業', 'business start'], ['成立', 'form start'], ['有限責任公司', 'llc'], ['選擇', 'choose election'], ['薪資', 'salary wages'], ['薪水', 'salary wages'],
-  ['加密貨幣', 'crypto'], ['虛擬貨幣', 'crypto'], ['比特幣', 'bitcoin crypto'], ['股票', 'stock capital gains'], ['資本利得', 'capital gains'],
+  ['公司', 'business company'], ['創業', 'business start'], ['成立', 'form start'], ['有限責任公司', 'llc'], ['選擇', 'choose', 'election'], ['薪資', 'salary wages'], ['薪水', 'salary wages'],
+  ['加密貨幣', 'crypto'], ['虛擬貨幣', 'crypto'], ['比特幣', 'bitcoin crypto'], ['股票', 'stock', 'capital gains'], ['資本利得', 'capital gains'],
   ['出租', 'rental rent'], ['租金', 'rental rent'], ['房東', 'host rental'], ['短租', 'short-term rental'],
-  ['國稅局', 'irs'], ['通知', 'notice letter'], ['信', 'letter notice'], ['查帳', 'audit'], ['罰款', 'penalty'], ['罰金', 'penalty'],
+  ['國稅局', 'irs'], ['通知', 'notice letter'], ['收到信', 'letter notice'], ['的信', 'letter notice'], ['信件', 'letter notice'], ['來信', 'letter notice'], ['寄信', 'letter notice'], ['查帳', 'audit'], ['罰款', 'penalty'], ['罰金', 'penalty'],
   ['截止', 'deadline'], ['期限', 'deadline'], ['延期', 'extension'], ['雇主', 'employer'], ['員工', 'employee'],
   ['第一次', 'first time'], ['首次', 'first time'], ['門檻', 'threshold'], ['收入', 'income'], ['所得', 'income'],
   // Foreign gift / Form 3520 deep-dive guides
@@ -94,13 +97,15 @@ const ZH_GLOSSARY = [
   ['賣房', 'sold sell property'], ['出售', 'sell sale'], ['房產', 'property'], ['房子', 'home property'],
   ['分多次', 'multiple transfers'], ['多次', 'multiple'], ['分批', 'multiple transfers'],
   ['媽媽', 'mother'], ['母親', 'mother'], ['爸爸', 'father'], ['父親', 'father'],
-  ['匯給', 'gift money sent'],
+  ['匯給', 'money sent', 'gift'],
   // FBAR / foreign-account guides
   ['銀行', 'bank'], ['利息', 'interest'], ['沒有利息', 'no interest'], ['以前', 'before'], ['之前', 'before'],
-  ['共同', 'joint'], ['移民以前', 'before moving savings'], ['移民前', 'before moving savings'], ['定存', 'time deposit'], ['股票', 'stock'], ['儲蓄險', 'insurance cash value'],
+  ['共同', 'joint'], ['移民以前', 'before moving savings'], ['移民前', 'before moving savings'], ['定存', 'time deposit'], ['儲蓄險', 'insurance cash value'],
   // Batch 3 guides
   ['在家辦公', 'home office'], ['居家辦公', 'home office'], ['抵稅', 'credit'],
   ['自己的錢', 'own money'], ['自己', 'own'], ['匯到美國', 'transfer money'], ['匯回美國', 'transfer money'], ['存款', 'savings'], ['聯名', 'joint account'], ['公婆', 'spouse parents'], ['岳父母', 'spouse parents'],
+  // Foundation 61–65 guides
+  ['補稅', 'owe tax'], ['少報', 'unreported income'],
 ]
 
 // ── Index (built once per function instance) ──────────────
@@ -137,32 +142,84 @@ function bm25(doc, terms) {
 
 // ── Query analysis ────────────────────────────────────────
 
+// Names of companies, brokers, banks and platforms ("Apple stock", "1099-DIV from Fidelity", "AAPL") are not
+// topic words: the tax rule is the same whatever the company. A word counts as a name only by its POSITION
+// next to a financial word — never by capitalization alone and never from a list of companies. Any other word
+// that appears in no guide still marks the question as not covered.
+const HOLDING_NOUN = /^(stock|share|option|rsu|etf|fund|bond|coin|token|account|saving|checking|brokerage|bank|card|shop|store|busines|company|llc|dividend|paycheck|1099\w*)$/
+const SOURCE_PREP = /^(from|at|with|through|via|by)$/
+const WORK_VERB = /^(drive|drove|driving|work|worked|working|deliver|delivered|delivering|sell|sold|selling)$/
+const SALE_CONTEXT = /\b(sale|sold|sell|selling|bought|buy|shares?|stocks?|dividends?|options?|position)\b/i
+const FINANCIAL_CONTEXT = /\b(1099|1098|w-?2|dividends?|interest|accounts?|savings|shares?|stocks?|paycheck|bonus|wages|income|gain|loss|sale|sold)/i
+
+function entityNames(text) {
+  const names = new Set()
+  let injectStock = false
+  const words = String(text).normalize('NFKC').replace(/[㐀-鿿豈-﫿]+/g, ' ')
+    .split(/[^A-Za-z0-9&'’-]+/).map(w => w.replace(/^['’-]+|['’-]+$/g, '')).filter(Boolean)
+  const tok = w => tokens(w.replace(/-/g, ''))                 // "Coca-Cola" is one unit
+  const oov = w => { const t = tok(w); return t.length === 1 && !DF.has(t[0]) && !/^\d+$/.test(t[0]) ? t[0] : null }
+  const low = w => (w ? tok(w)[0] || w.toLowerCase() : '')
+  const isCap = w => /^[A-Z]/.test(w)
+  const financial = FINANCIAL_CONTEXT.test(text)
+  for (let i = 0; i < words.length; i++) {
+    if (!oov(words[i])) continue
+    // Ticker-like: an all-caps unknown word in a question about a sale or holding.
+    if (/^[A-Z]{2,5}$/.test(words[i]) && SALE_CONTEXT.test(text)) { names.add(oov(words[i])); injectStock = true; continue }
+    // A name run: unknown words, plus capitalized words joined to them ("Wells Fargo", "Cathay United").
+    let a = i, b = i
+    while (a > 0 && isCap(words[a - 1]) && isCap(words[a]) && !HOLDING_NOUN.test(low(words[a - 1])) && a - 1 > 0) a--
+    while (b + 1 < words.length && (oov(words[b + 1]) || (isCap(words[b + 1]) && !HOLDING_NOUN.test(low(words[b + 1]))))) b++
+    const next = low(words[b + 1]), prevWord = (words[a - 1] || '').toLowerCase()
+    const prev2 = (words[a - 2] || '').toLowerCase(), prev3 = (words[a - 3] || '').toLowerCase()
+    const slot =
+      HOLDING_NOUN.test(next) ||                                            // "Apple stock", "Chase savings"
+      (financial && (SOURCE_PREP.test(prevWord) || (prevWord === 'my' && SOURCE_PREP.test(prev2)))) || // "1099-DIV from Fidelity"
+      (WORK_VERB.test(prev2) && /^(for|at|on|with)$/.test(prevWord)) ||   // "drive for Uber"
+      (WORK_VERB.test(prev3) && /^(for|at|on|with)$/.test(prev2) && prevWord === 'my')
+    if (slot) for (let k = a; k <= b; k++) { const t = tok(words[k]); if (t.length === 1 && !DF.has(t[0])) names.add(t[0]) }
+    i = b
+  }
+  return { names, injectStock }
+}
+
 function queryTerms(question) {
   const terms = new Map()
   const add = (t, w) => terms.set(t, Math.max(terms.get(t) || 0, w))
-  const text = String(question)
+  // Expansions added by us (EN synonyms, glossary hints) help ranking, but are not the reader's words:
+  // they never count as evidence that a passage covers the question.
+  const hints = new Set()
+  const direct = new Set()
+  const text = String(question).normalize('NFKC').replace(/\bwrite[- ]?offs?\b|\bwritten off\b/gi, 'deduct')
   const unknown = [] // question words that appear in no published guide
+  const { names, injectStock } = entityNames(text)
 
   // Latin parts (English questions, or "FBAR"/"IRS"/"LLC" inside a Chinese question)
   // Chinese amounts: "20萬" → 200000, so they match "$200,000" in the guides instead of a bare "20".
-  const latinText = text.normalize('NFKC').replace(/(\d+(?:\.\d+)?)\s*萬/g, (_, n) => ` ${Math.round(parseFloat(n) * 10000)} `)
-  for (const raw of tokens(latinText.replace(/[㐀-鿿豈-﫿]+/g, ' '))) {
+  const latinText = text.replace(/(\d+(?:\.\d+)?)\s*萬/g, (_, n) => ` ${Math.round(parseFloat(n) * 10000)} `)
+  // A hyphenated name ("Coca-Cola") is dropped as one unit; other hyphenated words are left alone.
+  const joined = latinText.replace(/[A-Za-z]+(?:-[A-Za-z]+)+/g, w => (names.has(tokens(w.replace(/-/g, ''))[0]) ? w.replace(/-/g, '') : w))
+  for (const raw of tokens(joined.replace(/[㐀-鿿豈-﫿]+/g, ' '))) {
+    if (names.has(raw)) continue
     const t = QUERY_ALIASES[raw] ? stem(QUERY_ALIASES[raw]) : raw
-    add(t, 1)
+    add(t, 1); direct.add(t)
     if (!DF.has(t) && t.length >= 3 && !isAmountOrYear(t)) unknown.push(t)
-    for (const s of EN_SYNONYMS[t] || []) for (const st of tokens(s)) add(st, 0.5)
+    for (const s of EN_SYNONYMS[t] || []) for (const st of tokens(s)) if (!terms.has(st)) { add(st, 0.5); hints.add(st) }
   }
+  if (injectStock) add('stock', 0.5)
   // Chinese parts → glossary (longest phrases first; a matched phrase is consumed)
   if (CJK.test(text)) {
-    let rest = text.normalize('NFKC').replace(/僱/g, '雇')
-    for (const [zh, en] of [...ZH_GLOSSARY].sort((a, b) => b[0].length - a[0].length)) {
+    let rest = text.replace(/僱/g, '雇')
+    for (const [zh, en, hint] of [...ZH_GLOSSARY].sort((a, b) => b[0].length - a[0].length)) {
       if (rest.includes(zh)) {
-        for (const t of tokens(en)) add(t, 0.9)
+        for (const t of tokens(en)) { add(t, 0.9); direct.add(t) }
+        for (const t of tokens(hint || '')) if (!terms.has(t)) { add(t, 0.45); hints.add(t) }
         rest = rest.split(zh).join(' ')
       }
     }
   }
-  return { terms, unknown }
+  for (const t of [...hints]) if (direct.has(t)) hints.delete(t) // also asked directly
+  return { terms, unknown, hints }
 }
 
 // Dollar amounts (5+ digits) and years don't signal an uncovered topic; form numbers (1031) do.
@@ -203,12 +260,62 @@ const TAX_INTENT = /報|稅|\b(tax\w*|report\w*|fil(e|ing)|fbar|8938|irs|income|
 // money, which bank to choose, an account number) — refused unless the question also asks about tax.
 const NON_TAX_ACTION = /幾點|開門|關門|營業時間|密碼|帳號被鎖|怎麼轉帳|哪家銀行|\baccount number\b|\bopening hours\b|\bpassword\b/i
 
+// ── Intent ────────────────────────────────────────────────
+// Relevance scores measure word overlap, not what the reader wants: "Which stock should I buy?" shares words
+// with the stock-sale guide. So the question's intent is classified separately, by CLASS of request.
+//
+// A tax ACTION or tax document (owe, report, file, deduct, taxed, withholding, Form 1099, FBAR, 補稅 …)
+// marks a tax question. The bare word "tax" does not: "the best tax software" is a product recommendation.
+const TAX_ACTION_EN = new RegExp([
+  /\b(owe[sd]?|owing|report(s|ed|ing|able)?|declare[sd]?|disclos\w*|amend\w*|deduct\w*|deductions?|write[- ]?offs?|written\s+off|withh[eo]ld\w*|refunds?|audit(s|ed|ing)?|penalt(y|ies)|dependents?)\b/,
+  /\b(fil(e|es|ed|ing))\b(?!\s+(cabinet|folder|format|size|name|manager)s?\b)/,
+  /\b(tax(ed|able|-free)|pay\s+(\w+\s+)?tax(es)?|tax(es)?\s+(on|due|bill|return|refund|liability|rate|bracket|credit|deduction|treatment|year|purposes|resident)|exempt\w*|capital\s+gains?|wash\s+sales?|cost\s+basis|claim\s+(\w+\s+){0,3}(as\s+)?(a\s+)?(dependent|credit|deduction|loss))\b/,
+  /\b(irs|fbar|fincen|8938|3520\w*|1099\w*|1098\w*|1040\w*|w-?[2489]s?|itin|cp\s?\d{3,4}|schedule\s+[a-z0-9]{1,2}|form\s+\d+\w*)\b/,
+].map(r => r.source).join('|'), 'i')
+const TAX_ACTION_ZH = /稅(?!務所|務師|軟體)|申報|要報|報嗎|補報|晚報|漏報|少報|扣除|可以抵|抵嗎|國稅局|查帳|罰|預扣|受扶養|FBAR|IRS|Form|表格/i
+const NON_TAX_INTENT = [
+  // investment / product recommendations and stock picks
+  /\bshould\s+i\s+(buy|invest|sell|open|get|choose|pick|travel)\b|\bwhich\s+(\w+\s+)?(stock|share|fund|etf|bank|broker\w*|card|laptop|car|phone|one|app)s?\b|\b(best|good|top|great)\s+(\w+\s+)?(stock|investment|fund|etf|bank|broker\w*|account|card|laptop|car|phone|app|software|accountant|place|restaurant|mortgage|loan|rate|time\s+to\s+buy)s?\b|\brecommend\w*|\bis\s+\w+\s+a\s+good\s+(stock|investment|buy)\b|\ba\s+(good\s+|strong\s+)?buy\b|推薦|哪支|哪檔|會漲|可以買嗎|值得買|比較好|哪一(台|個|間|家|支)/i,
+  // pricing advice
+  /\bhow\s+much\s+(\w+\s+){0,2}should\s+i\s+charge\b|\bwhat\s+price\b|\bstock\s+price\b|\bprice\s+of\b|收多少|多少錢|股價/i,
+  // banking and account services
+  /\bhow\s+(do|can)\s+i\s+(open|close|apply\s+for)\b|\bopen\s+(a|an)\s+(\w+\s+)?account\b|\bopening\s+hours\b|\bwhat\s+time\s+(does|do|is)\b|開戶|開\S{0,4}帳戶|轉帳/i,
+  // jobs
+  /\b(find|get|look\s+for|apply\s+for|search\s+for)\s+(a\s+)?(new\s+)?job\b|\bhiring\b|\bresume\b|找工作|應徵|面試|工作機會/i,
+  // travel and leisure
+  /\btravel\b|\bvacation\b|\btrip\b|\bwhat\s+should\s+(they|i|we)\s+bring\b|\bwhere\s+should\s+(i|we)\s+(go|visit|travel)\b|\b(is|are)\s+visiting\b|好玩|旅遊|旅行|觀光|帶什麼|來美國玩|去玩/i,
+  // personal scheduling
+  /\bwhen\s+(is|are|will)\s+(my|our|his|her|their)\b|\bwhere\s+is\s+(my|our|his|her|their)\b|\bappointment\b|什麼時候(來|去|回|到)|幾號|在哪裡/i,
+  // shopping
+  /\bhow\s+(do|can)\s+i\s+(buy|sell)\s+(a|my)\s+(house|home|car)\b|\b(buy|purchase)\s+(a|an)\s+(new\s+)?(car|laptop|phone)\b|怎麼買|裝潢|筆電/i,
+  // personal small talk
+  /\b(favorite|weather|birthday)\b|喜歡|天氣|身體|顏色|生日|相信/i,
+]
+const hasTaxAction = q => TAX_ACTION_EN.test(q) || TAX_ACTION_ZH.test(q)
+const hasNonTaxIntent = q => NON_TAX_INTENT.some(r => r.test(q))
+
+// Topic words of the published guides (titles and keywords in lib/articles.js and lib/library-zh-tw.js).
+// A question with no tax action must still be about one of these topics. Generated from article metadata,
+// so each new guide adds its own topics.
+const GENERIC = new Set(tokens('tax taxes taxed need report file do does how what when why guide explained basics rules work works pay owe year money get'))
+const TOPIC_WORDS = new Set(ARTICLES.flatMap(a => tokens([a.title, ...(a.keywords || [])].join(' '))).filter(t => t.length >= 2 && !GENERIC.has(t)))
+const TOPIC_WORDS_ZH = [...new Set(Object.values(ARTICLES_ZH_TW).flatMap(z => z.keywords || []).map(k => k.normalize('NFKC').replace(/\s+/g, '')).filter(k => CJK.test(k) && k.length >= 2))]
+
 function retrieve(question, { maxPassages = 5, maxArticles = 3 } = {}) {
   if ((RATE_QUESTION.test(question) || NON_TAX_ACTION.test(question)) && !TAX_INTENT.test(question)) {
     return { confident: false, passages: [], articleIds: [], stats: { topScore: 0, coverage: 0 } }
   }
-  const { terms, unknown } = queryTerms(question)
+  // A clear non-tax request (stock pick, pricing, banking service, job, travel, scheduling, shopping) is
+  // refused unless the question also asks about a tax action.
+  const taxAction = hasTaxAction(question)
+  if (!taxAction && hasNonTaxIntent(question)) return { confident: false, passages: [], articleIds: [], stats: { topScore: 0, coverage: 0 } }
+  const { terms, unknown, hints } = queryTerms(question)
   const boosts = zhArticleBoosts(question)
+  // A Chinese keyword of a guide matched but the glossary had no translation for the rest: search with that
+  // guide's English keywords (as weak terms) instead of nothing.
+  if (boosts.size && ![...terms.keys()].some(t => !hints.has(t))) {
+    for (const id of boosts.keys()) for (const t of tokens((ARTICLES.find(a => a.id === id).keywords || []).join(' '))) if (!terms.has(t)) terms.set(t, 0.5)
+  }
   if (terms.size === 0 && boosts.size === 0) return { confident: false, passages: [], articleIds: [], stats: { topScore: 0, coverage: 0 } }
 
   const scored = DOCS.map(doc => {
@@ -222,11 +329,15 @@ function retrieve(question, { maxPassages = 5, maxArticles = 3 } = {}) {
   // Coverage: how much of the question (idf-weighted) the single best passage explains.
   // Dollar amounts and years are facts about the asker, not topic words: a guide is not expected to contain
   // the asker's exact amount, so an amount/year counts toward coverage only when the best passage has it.
-  const topical = [...terms].filter(([t]) => !isAmountOrYear(t) || top.matched.has(t))
+  // Expansions (synonyms, glossary hints) are not the reader's words, so they never count toward coverage.
+  const topical = [...terms].filter(([t]) => !hints.has(t) && (!isAmountOrYear(t) || top.matched.has(t)))
   const totalW = topical.reduce((sum, [t, w]) => sum + w * idf(t), 0) || 1
   const coveredW = topical.filter(([t]) => top.matched.has(t)).reduce((sum, [t, w]) => sum + w * idf(t), 0)
   const coverage = coveredW / totalW
-  const confident = unknown.length === 0 && top.score >= MIN_TOP_SCORE && (coverage >= MIN_COVERAGE || boosts.size > 0)
+  // Without a tax action, the match must rest on a guide topic word the reader actually used.
+  const onTopic = taxAction || [...top.matched].some(t => TOPIC_WORDS.has(t) && !hints.has(t)) ||
+    TOPIC_WORDS_ZH.some(k => String(question).normalize('NFKC').replace(/\s+/g, '').includes(k))
+  const confident = unknown.length === 0 && onTopic && top.score >= MIN_TOP_SCORE && (coverage >= MIN_COVERAGE || boosts.size > 0)
 
   // Pick the best passages: at most 2 per article, at most `maxArticles` articles.
   const picked = []
@@ -250,4 +361,31 @@ function retrieve(question, { maxPassages = 5, maxArticles = 3 } = {}) {
   }
 }
 
-module.exports = { retrieve, PUBLISHED, VERIFIED }
+// Lina v2: evidence only. Ranks guide passages for a question with NO verdict — no intent guards, no
+// unknown-word veto, no score threshold. The model decides whether the question is a tax question and
+// whether the evidence answers it; this function only supplies the best library passages it can find.
+function rankPassages(question, { maxPassages = 6, maxArticles = 4 } = {}) {
+  const { terms } = queryTerms(question)
+  const boosts = zhArticleBoosts(question)
+  if (terms.size === 0 && boosts.size === 0) return { passages: [], topScore: 0 }
+  const scored = DOCS.map(doc => {
+    const { score } = bm25(doc, terms)
+    const boost = boosts.get(doc.passage.articleId) || 0
+    return { doc, score: score * (1 + 0.35 * boost) + (score > 0 ? boost : 0) }
+  }).filter(s => s.score > 0).sort((a, b) => b.score - a.score)
+  if (!scored.length) return { passages: [], topScore: 0 }
+  const picked = []
+  const perArticle = new Map()
+  for (const s of scored) {
+    if (picked.length >= maxPassages) break
+    if (s.score < scored[0].score * 0.35) break
+    const id = s.doc.passage.articleId
+    if (!perArticle.has(id) && perArticle.size >= maxArticles) continue
+    if ((perArticle.get(id) || 0) >= 2) continue
+    perArticle.set(id, (perArticle.get(id) || 0) + 1)
+    picked.push(s.doc.passage)
+  }
+  return { passages: picked, topScore: +scored[0].score.toFixed(2) }
+}
+
+module.exports = { retrieve, rankPassages, PUBLISHED, VERIFIED }
