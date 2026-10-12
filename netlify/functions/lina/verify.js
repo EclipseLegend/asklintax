@@ -225,6 +225,191 @@ function evaluate(expression) {
   } catch { return null }
 }
 
+// ── Grounding helpers (lexical; see validateAnswer) ──────
+
+// Identifiers that name a specific form, schedule or regime. An answer may only name one that a cited quote or the
+// user's question also names ("you also need Form 8938" needs a source that mentions 8938).
+// "Form" must be followed by a form number and "Schedule" by a 1–2 letter id, so "form an LLC" and "schedule rules"
+// are ordinary words, not references.
+const ANCHOR_RE = /\bforms?\s+(\d{3,5}(?:-?[a-z]{1,4})?|w-?\d|ss-?\d|i-?\d{2,3})\b|\bschedules?\s+([a-z]{1,2}(?:-\d)?)\b|\b(w-?\d)\b|\b(1099|1098|1040|1065|1120|8938|3520|8949|2553|4868|5471|8606|8829|8833|1116|2555|941|940|114a?)(?:-?([a-z]{1,4}))?\b|\b(fbar|fincen|niit|itin|qbi|hsa|ira|s-?corp|c-?corp)\b/gi
+function anchorsOf(text) {
+  const out = new Set()
+  const t = String(text).normalize('NFKC').toLowerCase()
+  let m
+  ANCHOR_RE.lastIndex = 0
+  while ((m = ANCHOR_RE.exec(t))) {
+    // "Form W-4" = "W-4" = w4; "Form 1099-B" = "1099-B" = 1099b; "Schedule D" = sched-d.
+    if (m[1]) out.add(m[1].replace(/-/g, ''))
+    else if (m[2]) out.add(`sched-${m[2].replace(/-/g, '')}`)
+    else if (m[3]) out.add(m[3].replace('-', ''))
+    else if (m[4]) out.add(m[4] + (m[5] || ''))
+    else if (m[6]) out.add(m[6].replace('-', ''))
+  }
+  return out
+}
+
+// Words that carry no topic on their own (and would make every sentence "overlap" every quote).
+const GENERIC_WORDS = new Set(('the and for are was were with that this from your you have has had not but can may will would should could ' +
+  'also than then they them their there these those such into about over under more most less only other some any each what when where ' +
+  'which while who how its our out all per get got just very much many been being does did make made use used using like even both either ' +
+  'tax taxes taxed irs asklintax guide guides generally usually general year years rule rules apply applies applied amount amounts ' +
+  'say says said note notes based depend depends whether same different example case cases thing things way ways need needs still').split(' '))
+const lightStem = w => w.length > 5 && w.endsWith('ing') ? w.slice(0, -3) : w.length > 4 && w.endsWith('ed') ? w.slice(0, -2) : w.length > 3 && w.endsWith('s') && !w.endsWith('ss') ? w.slice(0, -1) : w
+function contentWords(text) {
+  return new Set((normText(text).replace(ANCHOR_RE, ' ').match(/[a-z][a-z'-]{2,}/g) || [])
+    .map(w => lightStem(w.replace(/'s$|'/g, ''))).filter(w => w.length >= 3 && !GENERIC_WORDS.has(w)))
+}
+const overlap = (a, b) => { let n = 0; for (const x of a) if (b.has(x)) n++; return n }
+
+// A sentence that states tax content and therefore needs a cited source.
+const TAX_TERMS = /\b(tax\w*|deduct\w*|credits?|income|gains?|loss(es)?|withh\w*|refunds?|penalt\w*|thresholds?|filing|file[sd]?|report\w*|forms?|schedules?|fbar|fincen|basis|exempt\w*|brackets?|rates?|wages?|dividends?|interest|returns?|owe[sd]?|payroll|gifts?|estates?|inherit\w*|resident|nonresident|aliens?|accounts?|salary|distribution\w*|contribution\w*)\b|稅|申報|扣除|所得|收入|利得|表格|國稅局|門檻|罰|預扣|扣繳|退稅|報|贈與|帳戶|居民|薪資/i
+// Offers, sign-offs and referrals are not tax statements and need no citation.
+const CONVERSATIONAL = /^(if you (want|like)\s*,?\s*i (can|could)|i can (also )?(help|explain|walk)|let me know|feel free|hope this helps|如果你(需要|想要?|願意)[^。]{0,12}我可以|我可以(再)?(幫|協助|說明)|歡迎(再)?(詢問|提問))/i
+// "I can't calculate the exact tax yet; I'd need your filing status and taxable income." — a statement that facts
+// are MISSING is not a tax statement and needs no citation (Phase 3.1 final). It qualifies only if it says so
+// explicitly, names no form/program, has no figure except the user's own tax year, and asserts no rule: words such
+// as must, required, taxed, taxable, deductible, eligible, threshold, rate, because are disqualifying. Phrases that
+// merely NAME the missing fact (filing status, taxable income …) are removed before that test.
+const MISSING_INFO = /\b(?:i|we)\s+(?:can(?:no|')t|cannot|am unable to|'m unable to|could not|couldn't)\s+(?:yet\s+)?(?:calculate|compute|figure(?: out)?|determine|estimate|give|tell)\b|\b(?:i|we)(?:\s+would|'d|\s+will)?\s+(?:still\s+)?need\s+(?:to know\s+)?(?:your|a few|more|the following)\b|\bto (?:calculate|compute|figure(?: out)?|determine|estimate)\s+(?:the|your)\s+(?:exact|precise|actual|specific)\b|還需要(?:知道|你的)?|無法(?:算出|計算|確定)|不能算出|才能(?:算出|計算|套用|確定)/i
+const MISSING_FACT_NAMES = /\b(?:filing status|taxable income|gross income|adjusted gross income|tax year|cost basis|holding period|other income|deductions? (?:you (?:take|claim)|or adjustments)|exact (?:tax|amount))\b|報稅身分|應稅所得|總收入|稅務年度|成本基礎|持有期間|精確稅額|實際稅額/gi
+const RULE_ASSERTION = /\b(?:must|required?|requires|have to|has to|need to (?:file|report|pay)|taxed|taxable|tax-free|deductible|deduct|eligible|eligibility|qualif\w*|exempt\w*|thresholds?|limits?|rates?|brackets?|credits?|penalt\w*|owe[sd]?|because|since|therefore|so you)\b|必須|要申報|需要申報|課稅|免稅|可以扣除|扣除額|符合|資格|門檻|稅率|罰|因為|所以/i
+function missingInfoOnly(sentence, questionYears) {
+  if (!MISSING_INFO.test(sentence)) return false
+  if (anchorsOf(sentence).size) return false
+  if (extractNumbers(sentence).some(n => !(n.valid && isYear(n) && questionYears.includes(n.value)))) return false
+  return !RULE_ASSERTION.test(sentence.replace(MISSING_FACT_NAMES, ' '))
+}
+const REFERRAL = /\b(tax professional|cpa|enrolled agent|tax advisor)s?\b|專業人士|會計師|稅務顧問/i
+
+// A legal-looking noun right before (or just after) an amount: "the standard deduction is $50,000", "a $10,000 limit".
+const LEGAL_NOUN = /\b(thresholds?|limits?|deductions?|exemptions?|exclusions?|brackets?|caps?|maximum|minimum|ceilings?|phase[- ]?outs?|credits?|allowances?|filing requirements?)\b|門檻|上限|下限|扣除額|免稅額|額度|抵稅額/i
+// Only the figure's own clause counts (cut at , ; : ( ) and their Chinese forms), and a window edge never splits a
+// word ("capital" cut to "cap" is not the noun "cap").
+const CLAUSE_BREAK = /[,;:()，；：（）。]/
+function legalNear(sentence, raw) {
+  const i = sentence.indexOf(raw)
+  if (i < 0) return LEGAL_NOUN.test(sentence)
+  let before = sentence.slice(Math.max(0, i - 60), i)
+  let after = sentence.slice(i + raw.length, i + raw.length + 25)
+  const cut = before.search(/[,;:()，；：（）。][^,;:()，；：（）。]*$/)
+  if (cut >= 0) before = before.slice(cut + 1)
+  else if (i > 60) before = before.replace(/^\S*/, '')
+  const end = after.search(CLAUSE_BREAK)
+  if (end >= 0) after = after.slice(0, end)
+  else if (i + raw.length + 25 < sentence.length) after = after.replace(/\S*$/, '')
+  return LEGAL_NOUN.test(before) || LEGAL_NOUN.test(after)
+}
+const EXAMPLE_START = /^\s*(for example|for instance|example|suppose|say you|舉例|例如|假設|比方)/i
+
+// ── Tax-year attachment (Phase 3.1) ──────────────────────
+// A "Tax year 2026 — filing status | …" line heads the table rows directly below it. A quoted row inherits the
+// year of the NEAREST header above it, reached through table rows only; a header of another table, or a year in
+// prose elsewhere in the passage, never applies.
+// A standalone "Tax Year 2025" caption line (card layouts) applies only to the figure line right above or below it.
+const TABLE_HEADER = /^\s*(?:tax\s+year\s+((?:19|20)\d\d)|((?:19|20)\d\d)\s*(?:稅務)?年度)\b.*\|/i
+const CAPTION = /^\s*(?:tax\s+year\s+((?:19|20)\d\d)|((?:19|20)\d\d)\s*(?:稅務)?年度)\s*$/i
+// Passage lines [start, end) that contain the quote, or null.
+function quoteSpan(lines, quote) {
+  const nq = normText(quote).replace(/^["'.…\s]+|["'.…\s]+$/g, '')
+  let start = -1
+  for (let i = 0; i < lines.length; i++) if (normText(lines.slice(i).join(' ')).includes(nq)) start = i; else break
+  if (start < 0) return null
+  let end = start + 1
+  while (end < lines.length && !normText(lines.slice(start, end).join(' ')).includes(nq)) end++
+  return [start, end]
+}
+// Tax years that directly apply to the quoted lines (optionally only the lines that contain `figure`).
+function headerYearsForQuote(sourceText, quote, figure = null) {
+  const lines = String(sourceText).split('\n')
+  const span = quoteSpan(lines, quote)
+  if (!span) return []
+  const years = new Set()
+  for (let i = span[0]; i < span[1]; i++) {
+    if (figure && !hasValue(extractNumbers(lines[i], { words: true }), figure.value, figure.currency, figure.unit)) continue
+    if (lines[i].includes('|')) {
+      for (let j = i; j >= 0 && lines[j].includes('|'); j--) {
+        const m = TABLE_HEADER.exec(lines[j])
+        if (m) { years.add(Number(m[1] || m[2])); break }
+      }
+    }
+    for (const k of [i - 1, i + 1]) {
+      const m = k >= 0 && k < lines.length ? CAPTION.exec(lines[k]) : null
+      if (m) years.add(Number(m[1] || m[2]))
+    }
+  }
+  return [...years]
+}
+
+// ── Rate tables (Phase 3.1 final) ────────────────────────
+// A quoted row of a rate table inherits its column headers ONLY when the structure is unambiguous:
+//   header  "Tax year 2026 — filing status | 0% rate up to | 15% rate up to | 20% rate above"
+//   row     "Single | $49,450 | $545,500 | $545,500"
+// i.e. the header names a tax year, every other header cell holds exactly one rate (no rate twice), the row has the
+// same number of cells, its first cell is exactly one filing status and every other cell exactly one amount.
+// Anything else (no year, extra/missing cells, two rates in a cell, a non-status row label) inherits nothing.
+const FILING_STATUS = [
+  ['single', /\bsingle\b|單身/i],
+  ['mfj', /\bmarried (?:couples? )?filing jointly\b|\bmfj\b|合併申報/i],
+  ['mfs', /\bmarried filing separately\b|\bmfs\b|分開申報/i],
+  ['hoh', /\bhead of household\b|\bhoh\b|戶長/i],
+  ['qss', /\bqualifying (?:surviving spouse|widow\(?er\)?)\b/i],
+]
+const statusesIn = text => FILING_STATUS.filter(([, re]) => re.test(text)).map(([k]) => k)
+// Filing-status mentions with their positions in a text.
+function statusMentions(text) {
+  const out = []
+  for (const [k, re] of FILING_STATUS) {
+    const g = new RegExp(re.source, 'gi')
+    let m
+    while ((m = g.exec(text))) out.push({ status: k, index: m.index })
+  }
+  return out
+}
+// Rows of a cited rate table covered by the quote: [{ year, status, columns: [{ rate, value, currency }] }] or [].
+function rateTableRows(sourceText, quote) {
+  const lines = String(sourceText).split('\n')
+  const span = quoteSpan(lines, quote)
+  if (!span) return []
+  const rows = []
+  for (let i = span[0]; i < span[1]; i++) {
+    if (!lines[i].includes('|') || TABLE_HEADER.test(lines[i])) continue
+    let h = i - 1
+    while (h >= 0 && lines[h].includes('|') && !TABLE_HEADER.test(lines[h])) h--
+    if (h < 0 || !lines[h].includes('|')) continue // no year header directly above, through table rows only
+    const head = lines[h].split('|').map(c => c.trim())
+    const cells = lines[i].split('|').map(c => c.trim())
+    if (head.length < 2 || cells.length !== head.length) continue // malformed: cells do not line up
+    const year = Number((TABLE_HEADER.exec(lines[h]) || [])[1] || (TABLE_HEADER.exec(lines[h]) || [])[2])
+    const status = statusesIn(cells[0])
+    if (!year || status.length !== 1 || cells[0].replace(FILING_STATUS.find(([k]) => k === status[0])[1], '').trim()) continue
+    const rates = head.slice(1).map(c => extractNumbers(c).filter(n => n.valid && n.percent))
+    const values = cells.slice(1).map(c => extractNumbers(c).filter(n => n.valid && !n.percent && !isYear(n)))
+    const rateList = rates.map(r => (r.length === 1 ? r[0].value : null))
+    const columns = rateList.map((rate, k) => ({
+      rate: rate !== null && rateList.filter(x => x === rate).length === 1 && values[k].length === 1 ? rate : null, // unique rate, one amount
+      value: values[k].length === 1 ? values[k][0].value : null,
+      currency: values[k].length === 1 ? values[k][0].currency : null,
+    }))
+    rows.push({ year, status: status[0], columns })
+  }
+  return rows
+}
+
+// Non-monetary eligibility condition next to a number ("under 65", "age 65 or older", 「65 歲以上」).
+const CONDITION_BEFORE = /\b(under|over|below|above|at least|ages?|aged|older than|younger than)\s*$/i
+const CONDITION_AFTER = /^\s*(or older|or over|or younger|and older|and over|years? old|歲)/i
+function conditionAround(sentence, raw) {
+  const i = sentence.indexOf(raw)
+  if (i < 0) return null
+  const before = CONDITION_BEFORE.exec(sentence.slice(Math.max(0, i - 20), i))
+  if (before) return { side: 'before', word: before[1].toLowerCase() }
+  const after = CONDITION_AFTER.exec(sentence.slice(i + raw.length, i + raw.length + 15))
+  if (after) return { side: 'after', word: after[1].toLowerCase() }
+  return null
+}
+// A line of arithmetic ("$80,000 + $5,000 - $15,750 = $69,250", "85,000 minus 15,750").
+const CALCULATION = /\d\s*[-−–+×*÷/=]\s*\$?\d|\b(minus|plus|subtract\w*|times|equals)\b|減去|加上|等於/i
+
 // ── Answer validation ────────────────────────────────────
 
 const SMALL_CONSTANTS = new Set([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 100])
@@ -254,8 +439,12 @@ function validateAnswer(parsed, ctx) {
     const year = String(c.tax_year || '').trim()
     if (year) {
       if (!/^(19|20)\d\d$/.test(year)) return fail('bad_tax_year')
-      // A claim's year must be the source's year, or be stated in the quoted text itself.
-      if (src.taxYear && src.taxYear !== year && !normText(c.quote).includes(year)) return fail('tax_year_mismatch')
+      // A quoted table row takes the year of its directly applicable header; then the claim must carry exactly
+      // that year (a 2026 row cannot be labelled 2025 just because the guide's review year is 2025). Otherwise the
+      // claim's year must be the source's year, or be stated in the quoted text itself.
+      const headers = headerYearsForQuote(src.text, c.quote)
+      if (headers.length) { if (!headers.includes(Number(year)) && !normText(c.quote).includes(year)) return fail('tax_year_mismatch', year) }
+      else if (src.taxYear && src.taxYear !== year && !normText(c.quote).includes(year)) return fail('tax_year_mismatch', year)
     }
   }
   const citedIds = new Set(claims.map(c => c.source_id))
@@ -279,55 +468,257 @@ function validateAnswer(parsed, ctx) {
   // one year") supports the same duration written with digits. A number the user typed that the model forgot to
   // declare is accepted as the user's — same value, currency, percent and unit — except inside a sentence that
   // states a rule. Legal figures, rates and calculations still have to be declared and pass their checks.
+  //
+  // Tax years (Phase 3). A legal figure whose quote states a tax year is YEAR-SPECIFIC: it may be used only when
+  // the user named that year (no year given → 'tax_year_needed', which the caller turns into a question about the
+  // year; another year → 'tax_year_mismatch'), and the paragraph must name the year. A year may appear in an
+  // answer only if the user gave it or a cited quote states it — the guide's review-year metadata is not enough,
+  // so a stable rule is never dressed up with an assumed year.
+  // Examples (Phase 3): an "example" figure must sit in a sentence labelled as an example, and is checked like a
+  // legal figure when it is a rate or sits next to a legal noun (threshold, limit, deduction …): a fabricated
+  // threshold cannot pass as an illustration. Hypothetical arithmetic may use example figures only inside a
+  // labelled example.
   const declared = (Array.isArray(parsed.numbers) ? parsed.numbers : []).slice(0, 40)
   const decl = declared.map(d => ({ ...d, parsed: extractNumbers(String(d.value || ''))[0] })).filter(d => d.parsed && d.parsed.valid)
-  const quotesFor = id => claims.filter(c => c.source_id === id).map(c => extractNumbers(c.quote, { words: true }))
-  // Is declaration d supported for a number shown with this currency and unit?
-  const supported = (d, currency, unit) => {
+  // A year is ATTACHED to a figure when it is in the same sentence or table row of the quote, or in the table
+  // header that directly applies to the quoted row in the cited passage (quoting only "Single | $15,750" from a
+  // "Tax Year 2025" table does not make it a stable rule). A year in another sentence, or the header of another
+  // table in the same passage, is not attached (Phase 3.1: a 2026 row can no longer pass as a 2025 figure).
+  const quoteInfo = claims.map(c => {
+    const srcText = ctx.evidence.get(c.source_id).text
+    const segments = String(c.quote).split(/(?<=[.!?])\s+|\n/).map(seg => ({ nums: extractNumbers(seg, { words: true }), years: extractNumbers(seg).filter(isYear).map(n => n.value) }))
+    return {
+      claim: c, srcText, nums: extractNumbers(c.quote, { words: true }), words: contentWords(c.quote), rows: rateTableRows(srcText, c.quote),
+      years: [...extractNumbers(c.quote).filter(isYear).map(n => n.value), ...headerYearsForQuote(srcText, c.quote)],
+      yearsFor: (value, currency, unit) => {
+        const inSeg = segments.filter(seg => hasValue(seg.nums, value, currency, unit))
+        return [...new Set([...inSeg.flatMap(seg => seg.years), ...(inSeg.length ? headerYearsForQuote(srcText, c.quote, { value, currency, unit }) : [])])]
+      },
+    }
+  })
+  const quoteYears = new Set(quoteInfo.flatMap(q => q.years))
+  // Legal figures already validated in context earlier in this answer (value/currency/unit → their tax years).
+  const established = []
+  const establishedFor = n => established.find(e => sameValue(e.value, n.value) && sameCurrency(e.currency, n.currency) && sameUnit(e.unit, n.unit))
+  // The filing status the sentence attaches to the figure: the mention nearest to it in the sentence, else the
+  // paragraph's only status. null when none or ambiguous.
+  const statusFor = (sentence, paragraph, raw) => {
+    const at = Math.max(0, sentence.indexOf(raw))
+    const inSentence = statusMentions(sentence)
+    if (inSentence.length) return inSentence.sort((a, b) => Math.abs(a.index - at) - Math.abs(b.index - at))[0].status
+    const inParagraph = [...new Set(statusMentions(paragraph).map(m => m.status))]
+    return inParagraph.length === 1 ? inParagraph[0] : null
+  }
+  // Rate-table rows (of quotes from one source) that contain this amount.
+  const rowsWith = (sourceId, n) => quoteInfo.filter(q => q.claim.source_id === sourceId)
+    .flatMap(q => q.rows).filter(r => r.columns.some(c => c.value !== null && sameValue(c.value, n.value) && sameCurrency(c.currency, n.currency)))
+  // A rate inherited from the column header of a quoted row: same table, same column, same filing status, same
+  // tax year. The amount nearest to the rate in the sentence (if the sentence names any amount of that row) must
+  // be the one in the rate's column; otherwise the paragraph must already state an amount of that row.
+  // Returns { ok: true } or { ok: false, reason } — the reason of the closest candidate, for debugging.
+  const inheritedRate = (d, n, sentence, paragraph, paragraphYears) => {
+    const at = sentence.indexOf(n.raw)
+    const amounts = extractNumbers(sentence).filter(m => m.valid && !m.percent && !isYear(m)).map(m => ({ m, i: sentence.indexOf(m.raw) }))
+    let reason = null
+    for (const q of quoteInfo.filter(x => x.claim.source_id === d.source_id)) {
+      for (const row of q.rows) {
+        const k = row.columns.findIndex(c => c.rate !== null && sameValue(c.rate, n.value))
+        if (k < 0) continue
+        if (statusFor(sentence, paragraph, n.raw) !== row.status) { reason = reason || 'table_status_mismatch'; continue }
+        if (!questionYears.length) { reason = 'tax_year_needed'; continue }
+        if (!questionYears.includes(row.year)) { reason = 'tax_year_mismatch'; continue }
+        if (!paragraphYears.includes(row.year)) { reason = 'tax_year_not_stated'; continue }
+        const rowAmounts = amounts.filter(a => row.columns.some(c => c.value !== null && sameValue(c.value, a.m.value)))
+        if (rowAmounts.length) {
+          const nearest = rowAmounts.sort((a, b) => Math.abs(a.i - at) - Math.abs(b.i - at))[0]
+          if (sameValue(nearest.m.value, row.columns[k].value)) return { ok: true }
+          reason = 'table_column_mismatch'
+        } else if (extractNumbers(paragraph).some(m => m.valid && !m.percent && row.columns.some(c => c.value !== null && sameValue(c.value, m.value)))) {
+          return { ok: true }
+        }
+      }
+    }
+    return { ok: false, reason }
+  }
+  const inheritedRates = [] // sentences whose rates were verified through a rate table (for the citation check)
+  // Quotes that contain this figure (from one cited source, or from any cited source).
+  const quotesWith = (value, currency, unit, sourceId = null) => quoteInfo.filter(q => (sourceId === null || q.claim.source_id === sourceId) && hasValue(q.nums, value, currency, unit))
+  // The sentence must talk about what the quote talks about (English only; a Chinese sentence cannot be compared
+  // word-for-word with an English quote, so it relies on the number and year checks alone).
+  const inContext = (q, sentence) => sentence === null || CJK.test(sentence) || overlap(contentWords(sentence), q.words) >= 1
+  const supported = (d, currency, unit, sentence = null) => {
     const { value } = d.parsed
-    if (d.category === 'legal') return citedIds.has(d.source_id) && quotesFor(d.source_id).some(list => hasValue(list, value, currency, unit))
+    if (d.category === 'legal') return citedIds.has(d.source_id) && quotesWith(value, currency, unit, d.source_id).some(q => inContext(q, sentence))
     if (d.category === 'user') return hasValue(questionNumbers, value, currency, unit)
     return !!d.ok
   }
   for (const d of decl) if (d.category === 'legal' || d.category === 'user') d.ok = supported(d, d.parsed.currency, d.parsed.unit)
   const legal = decl.filter(d => d.category === 'legal' && d.ok)
+  const examples = decl.filter(d => d.category === 'example')
   let progress = true
   while (progress) {
     progress = false
     for (const d of decl.filter(x => x.category === 'arithmetic' && !x.ok)) {
       const r = evaluate(d.expression)
       if (!r) continue
-      const known = v => SMALL_CONSTANTS.has(v) || hasValue(questionNumbers, v) || legal.some(x => sameValue(x.parsed.value, v)) ||
-        decl.some(x => x.category === 'arithmetic' && x.ok && sameValue(x.parsed.value, v))
+      const strict = v => SMALL_CONSTANTS.has(v) || hasValue(questionNumbers, v) || legal.some(x => sameValue(x.parsed.value, v)) ||
+        decl.some(x => x.category === 'arithmetic' && x.ok && !x.viaExample && sameValue(x.parsed.value, v))
+      const viaExample = v => examples.some(x => sameValue(x.parsed.value, v)) || decl.some(x => x.category === 'arithmetic' && x.ok && x.viaExample && sameValue(x.parsed.value, v))
       const target = d.parsed.percent ? d.parsed.value / 100 : d.parsed.value
-      const tolerance = Math.max(0.01, Math.abs(target) * 0.005, Number.isInteger(d.parsed.value) ? 0.5 : 0)
-      if (r.literals.every(known) && Math.abs(r.value - target) <= tolerance) { d.ok = true; progress = true }
+      // Sums and differences must be exact (a whole-dollar result may round half a dollar); only a product or quotient
+      // may round, within 0.5% (Phase 3.1: "$80,000 + $5,000 − $15,750 = $69,000" is no longer accepted).
+      const additive = !/[*/%×÷]/.test(String(d.expression))
+      const tolerance = additive ? (Number.isInteger(d.parsed.value) ? 0.5 : 0.01) : Math.max(0.01, Math.abs(target) * 0.005, Number.isInteger(d.parsed.value) ? 0.5 : 0)
+      if (r.literals.every(v => strict(v) || viaExample(v)) && Math.abs(r.value - target) <= tolerance) {
+        d.ok = true; d.viaExample = !r.literals.every(strict); progress = true
+      }
     }
   }
-  const citedYears = new Set([...citedIds].map(id => ctx.evidence.get(id).taxYear).filter(Boolean))
-  const yearAllowed = v => questionYears.includes(v) || citedYears.has(String(v)) ||
-    [...citedIds].some(id => ctx.evidence.get(id).text.includes(String(v)))
+  const yearAllowed = v => questionYears.includes(v) || quoteYears.has(v)
 
-  for (const p of paragraphs) for (const sentence of sentences(p)) {
-    for (const n of extractNumbers(sentence)) {
-      if (!n.valid) return fail('unrecognized_amount', n.raw) // ambiguous or malformed amount: never guess
-      if (isYear(n)) {
-        if (!yearAllowed(n.value)) return fail('unsupported_year', n.raw)
-        continue
+  for (const p of paragraphs) {
+    const paragraphYears = extractNumbers(p).filter(isYear).map(n => n.value)
+    for (const sentence of sentences(p)) {
+      const exampleSentence = EXAMPLE_MARKER.test(sentence) || EXAMPLE_START.test(p)
+      for (const n of extractNumbers(sentence)) {
+        if (!n.valid) return fail('unrecognized_amount', n.raw) // ambiguous or malformed amount: never guess
+        if (isYear(n)) {
+          if (!yearAllowed(n.value)) return fail('unsupported_year', n.raw)
+          continue
+        }
+        const matches = decl.filter(x => sameValue(x.parsed.value, n.value) && x.parsed.percent === n.percent && sameCurrency(x.parsed.currency, n.currency) && sameUnit(x.parsed.unit, n.unit))
+        const currency = x => n.currency || x.parsed.currency
+        const unit = x => n.unit || x.parsed.unit
+        if (!matches.length) {
+          // Undeclared, but typed by the user (not a rate, not inside a rule statement): the user's own figure.
+          if (!n.percent && hasValue(questionNumbers, n.value, n.currency, n.unit) && !RULE_CONTEXT.test(sentence)) continue
+          // Narrow exception (Phase 3.1): an undeclared NON-MONETARY eligibility condition ("under 65") is accepted
+          // only when a cited quote on the same subject states the exact same condition, and that quote's tax year
+          // fits the user's. Money, rates, periods and every other number still have to be declared and verified.
+          const cond = !n.percent && !n.currency && !n.unit && Number.isInteger(n.value) && n.value >= 10 && n.value <= 120 ? conditionAround(sentence, n.raw) : null
+          if (cond) {
+            const phrase = cond.side === 'before' ? `${cond.word} ${n.value}` : `${n.value} ${cond.word}`
+            const ok = quoteInfo.some(q => normText(q.claim.quote).replace(/\s+(?=歲)/g, ' ').includes(phrase) && inContext(q, sentence) &&
+              (!questionYears.length || !q.years.length || q.years.some(y => questionYears.includes(y))))
+            if (ok) continue
+          }
+          return fail('undeclared_number', n.raw)
+        }
+        const legalMatch = matches.find(x => x.category === 'legal' && x.ok && supported(x, currency(x), unit(x), sentence))
+        if (legalMatch && !n.percent) {
+          // An amount quoted from a rate-table row belongs to that row's filing status (and only then is it used).
+          const rows = rowsWith(legalMatch.source_id, n)
+          const proseSupport = quotesWith(n.value, currency(legalMatch), unit(legalMatch), legalMatch.source_id).some(q => !q.rows.length && inContext(q, sentence))
+          if (rows.length && !proseSupport && !rows.some(r => r.status === statusFor(sentence, p, n.raw))) return fail('table_status_mismatch', n.raw)
+        }
+        if (legalMatch) {
+          // Year-specific figure: the quotes that state it also state a tax year.
+          const qs = quotesWith(legalMatch.parsed.value, currency(legalMatch), unit(legalMatch), legalMatch.source_id).filter(q => inContext(q, sentence))
+          const yearsOf = q => q.yearsFor(legalMatch.parsed.value, currency(legalMatch), unit(legalMatch))
+          if (qs.length && qs.every(q => yearsOf(q).length)) {
+            if (!questionYears.length) return fail('tax_year_needed', n.raw)
+            const fitting = qs.filter(q => yearsOf(q).some(y => questionYears.includes(y)))
+            if (!fitting.length) return fail('tax_year_mismatch', n.raw)
+            if (!fitting.some(q => yearsOf(q).some(y => paragraphYears.includes(y)))) return fail('tax_year_not_stated', n.raw)
+            established.push({ value: n.value, currency: currency(legalMatch), unit: unit(legalMatch), years: [...new Set(fitting.flatMap(yearsOf))] })
+          } else {
+            established.push({ value: n.value, currency: currency(legalMatch), unit: unit(legalMatch), years: [] })
+          }
+          continue
+        }
+        // In a cited quote, but that quote is about something else than this sentence.
+        if (matches.some(x => x.category === 'legal' && x.ok && supported(x, currency(x), unit(x)))) {
+          // Exception (Phase 3.1): a calculation line may reuse a legal figure already validated in context earlier in
+          // this answer — same value, currency and unit; every other figure in the line verified; no tax year in
+          // the paragraph other than the one the figure was validated for.
+          const prior = establishedFor({ value: n.value, currency: n.currency, unit: n.unit })
+          const others = extractNumbers(sentence).filter(m => m.valid && !isYear(m) && !sameValue(m.value, n.value))
+          // A declared calculation result counts here; its own arithmetic is checked when the loop reaches it.
+          const verified = m => hasValue(questionNumbers, m.value, m.currency, m.unit) || established.some(e => sameValue(e.value, m.value)) ||
+            decl.some(x => !x.viaExample && ((x.category === 'arithmetic') || (x.category === 'user' && x.ok)) && sameValue(x.parsed.value, m.value))
+          const yearsConsistent = !prior || !prior.years.length || paragraphYears.every(y => prior.years.includes(y))
+          if (prior && CALCULATION.test(sentence) && others.every(verified) && yearsConsistent) continue
+          return fail('legal_number_context_mismatch', n.raw)
+        }
+        const other = matches.find(x => (x.category === 'user' || x.category === 'arithmetic') && x.ok)
+        // The user's own figure stated as a threshold, limit or deduction ("the standard deduction is $50,000"):
+        // that is a legal claim, so it needs a cited quote no matter who typed the number.
+        if (other && other.category === 'user' && legalNear(sentence, n.raw) && !quotesWith(n.value, n.currency, n.unit).some(q => inContext(q, sentence))) {
+          return fail('user_number_as_rule', n.raw)
+        }
+        if (other) {
+          if (other.viaExample && !exampleSentence) return fail('unsupported_number', n.raw) // hypothetical result outside an example
+          // A result computed from example figures and presented as a threshold, limit or deduction is a legal claim.
+          if (other.viaExample && legalNear(sentence, n.raw) && !quotesWith(n.value, n.currency, n.unit).some(q => inContext(q, sentence))) return fail('example_used_as_rule', n.raw)
+          continue
+        }
+        if (matches.some(x => x.category === 'example') && exampleSentence) {
+          // A rate, or an amount next to a legal noun, is a legal figure even inside an example: it needs a source.
+          const needsSource = n.percent || legalNear(sentence, n.raw)
+          if (!needsSource || quotesWith(n.value, n.currency, n.unit).some(q => inContext(q, sentence))) continue
+          return fail(n.percent ? 'example_rate_unsupported' : 'example_used_as_rule', n.raw)
+        }
+        // A rate stated in a quoted rate-table row's column header (Phase 3.1 final).
+        const rateDecl = n.percent && matches.find(x => x.category === 'legal' && citedIds.has(x.source_id))
+        if (rateDecl) {
+          const inh = inheritedRate(rateDecl, n, sentence, p, paragraphYears)
+          if (inh.ok) { inheritedRates.push({ sentence, value: n.value }); continue }
+          if (inh.reason) return fail(inh.reason, n.raw)
+        }
+        const cat = matches[0].category
+        return fail(cat === 'legal' ? 'legal_number_not_in_source' : cat === 'user' ? 'user_number_not_in_question' : cat === 'arithmetic' ? 'arithmetic_invalid' : 'unsupported_number', n.raw)
       }
-      const matches = decl.filter(x => sameValue(x.parsed.value, n.value) && x.parsed.percent === n.percent && sameCurrency(x.parsed.currency, n.currency) && sameUnit(x.parsed.unit, n.unit))
-      const currency = x => n.currency || x.parsed.currency
-      const unit = x => n.unit || x.parsed.unit
-      if (!matches.length) {
-        // Undeclared, but typed by the user (not a rate, not inside a rule statement): the user's own figure.
-        if (!n.percent && hasValue(questionNumbers, n.value, n.currency, n.unit) && !RULE_CONTEXT.test(sentence)) continue
-        return fail('undeclared_number', n.raw)
-      }
-      if (matches.some(x => x.ok && supported(x, currency(x), unit(x)))) continue
-      if (matches.some(x => x.category === 'example') && EXAMPLE_MARKER.test(p)) continue // illustrative, labelled as an example
-      const cat = matches[0].category
-      return fail(cat === 'legal' ? 'legal_number_not_in_source' : cat === 'user' ? 'user_number_not_in_question' : cat === 'arithmetic' ? 'arithmetic_invalid' : 'unsupported_number', n.raw)
     }
+  }
+
+  // Citation integrity (Phase 3). This is a LEXICAL check — it cannot prove that a quote means what the sentence
+  // says. It guarantees that every English sentence stating tax content shares at least one topic word with some
+  // cited quote, and that any form, schedule or regime the answer names appears in a cited quote or in the user's
+  // question. Offers, sign-offs and referrals need no source; neither does a sentence that only applies the
+  // user's own figures ("Your $30,000 in wages is above that") without naming a rule.
+  const quoteText = quoteInfo.map(q => q.claim.quote).join(' \n ')
+  const knownAnchors = new Set([...anchorsOf(quoteText), ...anchorsOf(ctx.question)])
+  // Phase 3.1: a form or agency the quote omits may still be named when a CITED passage names it in a sentence
+  // about the same subject (sharing a topic word, or another form/program, with the answer's sentence). A
+  // mention in an unrelated sentence, or only in an uncited passage, does not count.
+  const citedSentences = [...new Set(quoteInfo.map(q => q.srcText))].flatMap(t => String(t).split(/(?<=[.!?])\s+|\n/))
+  const passageSupports = (anchor, sentence) => {
+    const words = contentWords(sentence)
+    const others = [...anchorsOf(sentence)].filter(a => a !== anchor)
+    return citedSentences.some(seg => {
+      const segAnchors = anchorsOf(seg)
+      return segAnchors.has(anchor) && (overlap(words, contentWords(seg)) >= 1 || others.some(a => segAnchors.has(a)))
+    })
+  }
+  for (const p of paragraphs) for (const sentence of sentences(p)) {
+    const s = sentence.trim()
+    if (CONVERSATIONAL.test(s)) continue
+    if (missingInfoOnly(s, questionYears)) continue
+    const anchors = anchorsOf(s)
+    for (const a of anchors) if (!knownAnchors.has(a) && !passageSupports(a, s)) return fail('unsupported_reference', a)
+    const hasFigure = extractNumbers(s).some(n => n.valid && !isYear(n))
+    if (!TAX_TERMS.test(s) && !hasFigure && !anchors.size) continue
+    if (REFERRAL.test(s) && !hasFigure && !anchors.size) continue
+    if (CJK.test(s)) continue // Chinese: covered by the number, year and reference checks above
+    const figures = extractNumbers(s).filter(n => n.valid && !isYear(n))
+    const appliesUserFacts = figures.length > 0 && !anchors.size && !LEGAL_NOUN.test(s) &&
+      figures.every(n => hasValue(questionNumbers, n.value, n.currency, n.unit) || decl.some(x => x.category === 'arithmetic' && x.ok && !x.viaExample && sameValue(x.parsed.value, n.value)))
+    if (appliesUserFacts) continue
+    // A calculation line built only from the user's figures, verified results and legal figures already validated
+    // earlier in this answer restates what was cited; it needs no new source (Phase 3.1).
+    const calculationOfVerified = CALCULATION.test(s) && figures.length > 0 && !anchors.size && figures.every(n =>
+      hasValue(questionNumbers, n.value, n.currency, n.unit) || establishedFor(n) ||
+      decl.some(x => x.category === 'arithmetic' && x.ok && !x.viaExample && sameValue(x.parsed.value, n.value)))
+    if (calculationOfVerified) continue
+    // A sentence stating rates verified through a quoted rate-table row (and otherwise only verified figures) is
+    // grounded by that table.
+    const tableFacts = figures.length > 0 && !anchors.size && figures.some(n => n.percent && inheritedRates.some(r => r.sentence === sentence && sameValue(r.value, n.value))) &&
+      figures.every(n => (n.percent && inheritedRates.some(r => r.sentence === sentence && sameValue(r.value, n.value))) || establishedFor(n) || hasValue(questionNumbers, n.value, n.currency, n.unit))
+    if (tableFacts) continue
+    const words = contentWords(s)
+    if (!words.size) continue
+    const grounded = quoteInfo.some(q => overlap(words, q.words) >= 1) || [...anchors].some(a => anchorsOf(quoteText).has(a))
+    if (!grounded) return fail('uncited_statement', s.slice(0, 40))
   }
 
   const guides = [...new Set([...citedIds].map(id => ctx.evidence.get(id)).filter(s => s.kind === 'library').map(s => s.articleId))].slice(0, 3)
