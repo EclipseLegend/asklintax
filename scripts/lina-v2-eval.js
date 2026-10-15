@@ -87,7 +87,9 @@ if (PAID && PROXY_AUTH) {
 }
 if (!fs.existsSync(path.join(LINA, 'knowledge.json'))) { console.error('knowledge.json missing: run `npm run build` first.'); process.exit(2) }
 
-const { handleLinaV2, libraryEvidence } = require(path.join(LINA, 'core-v2.js'))
+const { handleLinaV2, buildEvidence } = require(path.join(LINA, 'core-v2.js'))
+const { createCuratedSources } = require(path.join(LINA, 'official.js'))
+const CURATED = createCuratedSources() // review-approved official sources (Layer 2), same index the handler uses
 const { quoteInSource, validateAnswer, validateClarifyingQuestion } = require(path.join(LINA, 'verify.js'))
 
 // ── Evaluation set (synthetic questions) ──────────────────
@@ -220,7 +222,7 @@ const req = body => ({
 
 async function runTurn(c, run, turnIndex, question, followUp) {
   const evidenceQuery = followUp ? `${followUp.previousQuestion} ${question}` : question
-  const evidence = libraryEvidence(evidenceQuery)
+  const evidence = buildEvidence(evidenceQuery, CURATED)
   current = { calls: [], codes: [] }
   const t0 = Date.now()
   const body = { question, locale: c.lang === 'zh' ? 'zh-tw' : 'en', ...(followUp ? { followUp } : {}) }
@@ -241,9 +243,8 @@ async function runTurn(c, run, turnIndex, question, followUp) {
   const mj = last.modelJson || null
   // Per-claim check against the evidence the server supplied (for review; the server already enforced it).
   const claims = mj && Array.isArray(mj.claims) ? mj.claims.map(cl => {
-    const id = /^L(\d+)$/.exec(cl.source_id || '')
-    const src = id ? [...evidence.values()][Number(id[1]) - 1] : null
-    return { source_id: cl.source_id, articleId: src ? src.articleId : null, tax_year: cl.tax_year, quote: String(cl.quote || '').slice(0, 300), quoteFound: !!(src && quoteInSource(cl.quote || '', src.text)), text: String(cl.text || '').slice(0, 300) }
+    const src = evidence.get(cl.source_id || '') || null
+    return { source_id: cl.source_id, articleId: src ? (src.articleId || src.sourceId) : null, tax_year: cl.tax_year, quote: String(cl.quote || '').slice(0, 300), quoteFound: !!(src && quoteInSource(cl.quote || '', src.text)), text: String(cl.text || '').slice(0, 300) }
   }) : []
   if (usage.stopReason && res.status === 503 && !current.calls.length) return { stopped: true }
   // Rejected or replaced decision: keep the draft and recompute the validator's reason offline (no network).
@@ -270,7 +271,7 @@ async function runTurn(c, run, turnIndex, question, followUp) {
     reasonCodes: current.codes, draft,
     reply: res.body.paragraphs || [],
     guides: res.body.guides || [], officialSources: res.body.officialSources || [], handoff: !!res.body.handoff,
-    evidence: [...evidence.entries()].map(([id, s]) => ({ id, articleId: s.articleId, heading: s.heading.slice(0, 120), taxYear: s.taxYear })),
+    evidence: [...evidence.entries()].map(([id, s]) => ({ id, articleId: s.articleId || s.sourceId, heading: String(s.heading || s.location || '').slice(0, 120), taxYear: s.taxYear })),
     claims, numbers: mj && Array.isArray(mj.numbers) ? mj.numbers : [],
     latencyMs, calls: current.calls.map(({ modelJson, ...rest }) => rest),
     tokens: current.calls.reduce((a, x) => ({ input: a.input + ((x.usage && x.usage.input) || 0), output: a.output + ((x.usage && x.usage.output) || 0), reasoning: a.reasoning + ((x.usage && x.usage.reasoning) || 0) }), { input: 0, output: 0, reasoning: 0 }),

@@ -412,4 +412,5 @@ function rankPassages(question, { maxPassages = 6, maxArticles = 4, maxFromTopAr
   return { passages: picked, topScore: +scored[0].score.toFixed(2) }
 }
 
-module.exports = { retrieve, rankPassages, PUBLISHED, VERIFIED }
+// tokens/queryTerms are also used by Lina v2's curated official sources (official.js); v1 behaviour is unchanged.
+module.exports = { retrieve, rankPassages, PUBLISHED, VERIFIED, tokens, queryTerms }

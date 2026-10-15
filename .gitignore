@@ -17,6 +17,9 @@ next-env.d.ts
 
 # Lina knowledge index (generated in postbuild from the published guides)
 netlify/functions/lina/knowledge.json
+# Lina v2 curated official sources (generated in postbuild from review-approved snapshots in data/lina-official)
+netlify/functions/lina/official-knowledge.json
+netlify/functions/lina/official-knowledge.staging.json
 
 # Lina real-model evaluation output (scripts/lina-v2-eval.js) — never commit
 lina-eval-results/

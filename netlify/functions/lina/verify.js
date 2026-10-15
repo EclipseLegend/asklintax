@@ -350,7 +350,7 @@ function headerYearsForQuote(sourceText, quote, figure = null) {
 const FILING_STATUS = [
   ['single', /\bsingle\b|單身/i],
   ['mfj', /\bmarried (?:couples? )?filing jointly\b|\bmfj\b|合併申報/i],
-  ['mfs', /\bmarried filing separately\b|\bmfs\b|分開申報/i],
+  ['mfs', /\bmarried filing separately\b|\bmfs\b|分開申報|分別申報/i],
   ['hoh', /\bhead of household\b|\bhoh\b|戶長/i],
   ['qss', /\bqualifying (?:surviving spouse|widow\(?er\)?)\b/i],
 ]
@@ -419,6 +419,74 @@ const SMALL_CONSTANTS = new Set([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 100])
  * @param ctx      { question, evidence: Map(id → { kind: 'library'|'official', text, taxYear, articleId?, url?, title }) }
  * @returns        { ok: true, paragraphs, guides, officialSources } | { ok: false, reason }
  */
+// Applicability of an official passage to a tax year (year-specific vs. verified continuing rule); see official.js.
+const appliesToYear = (...a) => require('./official.js').appliesToYear(...a)
+
+// ── Reviewed figure conditions (Phase 4.1 curated official excerpts) ──
+const sameFigure = (a, b) => !!a && !!b && a.valid && b.valid && Math.abs(a.value - b.value) < 1e-9 && !!a.percent === !!b.percent
+function notCitableIn(src, n) {
+  return !!src && Array.isArray(src.notCitable) && src.notCitable.some(raw => sameFigure(extractNumbers(raw)[0], n))
+}
+// The clause of the sentence that holds the figure: split at ";", "but", "however", "whereas", "while" (and Chinese
+// equivalents), never at commas (they are inside amounts and too weak a boundary to exclude a case).
+const FIGURE_CLAUSE_BREAK = /[;；]|\b(?:but|however|whereas|while|unlike)\b|但是|但|然而|不過/i
+function clauseOf(sentence, raw) {
+  const at = Math.max(0, sentence.indexOf(raw))
+  let start = 0
+  for (const part of sentence.split(FIGURE_CLAUSE_BREAK)) {
+    const i = sentence.indexOf(part, start)
+    if (at >= i && at < i + part.length) return part
+    start = i + part.length
+  }
+  return sentence
+}
+function conditionProblem(src, n, sentence, paragraph) {
+  const conds = (src && Array.isArray(src.figureConditions) ? src.figureConditions : []).filter(c => sameFigure(extractNumbers(c.figure)[0], n))
+  if (!conds.length) return null
+  const para = normText(paragraph)
+  const clause = normText(clauseOf(sentence, n.raw))
+  for (const c of conds) {
+    // A term inside a longer term of the same condition does not count ("與配偶同住" inside "未與配偶同住").
+    const all = [...(c.anyOf || []), ...(c.noneOf || []), ...(c.exclusiveWith || [])].map(normText)
+    const has = (text, t) => occurrences(text, normText(t), all).length > 0
+    if ((c.noneOf || []).some(t => has(clause, t))) return 'figure_condition_violated'
+    if ((c.anyOf || []).length && !c.anyOf.some(t => has(para, t))) return 'figure_condition_missing'
+    // Table row/column labels ("self-only" vs "family", one filing status vs another): when the figure's clause names
+    // any label of the set, the one nearest to the figure must be this figure's own label (ties fail).
+    if ((c.exclusiveWith || []).length && nearestLabel(clause, normText(n.raw), c.anyOf || [], c.exclusiveWith, all) === false) return 'figure_condition_mismatch'
+  }
+  return null
+}
+// true / false when the nearest label is / is not one of `own`; null when the sentence names no label.
+// Start positions of `term` in `text`, leaving out those inside an occurrence of a longer term from `all`.
+function occurrences(text, term, all) {
+  const out = []
+  if (!term) return out
+  const longer = all.filter(t => t.length > term.length && t.includes(term))
+  for (let i = text.indexOf(term); i >= 0; i = text.indexOf(term, i + 1)) {
+    const inside = longer.some(l => { for (let j = text.indexOf(l); j >= 0; j = text.indexOf(l, j + 1)) if (j <= i && i + term.length <= j + l.length) return true; return false })
+    if (!inside) out.push(i)
+  }
+  return out
+}
+function nearestLabel(sentence, raw, own, others, all = []) {
+  const at = sentence.indexOf(raw)
+  if (at < 0) return null
+  const end = at + raw.length
+  const spans = []
+  for (const [list, mine] of [[own, true], [others, false]]) {
+    for (const t of list) {
+      const term = normText(t)
+      for (const i of occurrences(sentence, term, all)) spans.push({ i, j: i + term.length, mine })
+    }
+  }
+  if (!spans.length) return null
+  const dist = s => (s.j <= at ? at - s.j : s.i >= end ? s.i - end : 0)
+  const best = Math.min(...spans.map(dist))
+  const nearest = spans.filter(s => dist(s) === best)
+  return nearest.every(s => s.mine)
+}
+
 function validateAnswer(parsed, ctx) {
   // detail (the offending number, if any) is for offline debugging and evaluation; callers log only reason.
   const fail = (reason, detail) => ({ ok: false, reason, ...(detail ? { detail: String(detail).slice(0, 40) } : {}) })
@@ -452,7 +520,9 @@ function validateAnswer(parsed, ctx) {
   if (questionYears.length) {
     const yearOk = [...citedIds].some(id => {
       const s = ctx.evidence.get(id)
-      return questionYears.some(y => s.taxYear === String(y) || s.text.includes(String(y)))
+      // An official source also fits when its reviewed applicability covers the year (continuing rule / effective period).
+      return questionYears.some(y => s.taxYear === String(y) || s.text.includes(String(y)) || String(s.location || '').includes(String(y)) ||
+        (s.kind === 'official' && appliesToYear(s, y)))
     })
     if (!yearOk) return fail('tax_year_mismatch')
   }
@@ -487,12 +557,20 @@ function validateAnswer(parsed, ctx) {
   const quoteInfo = claims.map(c => {
     const srcText = ctx.evidence.get(c.source_id).text
     const segments = String(c.quote).split(/(?<=[.!?])\s+|\n/).map(seg => ({ nums: extractNumbers(seg, { words: true }), years: extractNumbers(seg).filter(isYear).map(n => n.value) }))
+    // An official source published for ONE tax year (e.g. "Publication 969 (2025)") makes every figure in it a figure
+    // for that year, unless the text attaches another year to it ("For 2026, … $4,400"). Phase 4.1.
+    const src = ctx.evidence.get(c.source_id)
+    // A section heading that names exactly one year ("What's New for 2026") outranks the edition year for its text.
+    const sectionYears = src.kind === 'official' ? [...new Set((String(src.location || '').match(/\b(?:19|20)\d\d\b/g) || []).map(Number))] : []
+    const editionYear = sectionYears.length === 1 ? sectionYears[0]
+      : src.kind === 'official' && src.yearScope === 'tax_year' && /^(19|20)\d\d$/.test(String(src.taxYear || '')) && !sectionYears.length ? Number(src.taxYear) : null
     return {
       claim: c, srcText, nums: extractNumbers(c.quote, { words: true }), words: contentWords(c.quote), rows: rateTableRows(srcText, c.quote),
-      years: [...extractNumbers(c.quote).filter(isYear).map(n => n.value), ...headerYearsForQuote(srcText, c.quote)],
+      years: [...extractNumbers(c.quote).filter(isYear).map(n => n.value), ...headerYearsForQuote(srcText, c.quote), ...(editionYear ? [editionYear] : [])],
       yearsFor: (value, currency, unit) => {
         const inSeg = segments.filter(seg => hasValue(seg.nums, value, currency, unit))
-        return [...new Set([...inSeg.flatMap(seg => seg.years), ...(inSeg.length ? headerYearsForQuote(srcText, c.quote, { value, currency, unit }) : [])])]
+        const attached = [...new Set([...inSeg.flatMap(seg => seg.years), ...(inSeg.length ? headerYearsForQuote(srcText, c.quote, { value, currency, unit }) : [])])]
+        return attached.length || !editionYear || !inSeg.length ? attached : [editionYear]
       },
     }
   })
@@ -604,7 +682,12 @@ function validateAnswer(parsed, ctx) {
           }
           return fail('undeclared_number', n.raw)
         }
-        const legalMatch = matches.find(x => x.category === 'legal' && x.ok && supported(x, currency(x), unit(x), sentence))
+        // Phase 4.1: a reviewed official excerpt can mark a figure as not citable from it (the prior-year FROM value of
+        // "increased from $7,000 to $7,500"); a declaration citing only such a source does not support the figure.
+        const citable = x => !notCitableIn(ctx.evidence.get(x.source_id), n)
+        const legalCandidates = matches.filter(x => x.category === 'legal' && x.ok && supported(x, currency(x), unit(x), sentence))
+        const legalMatch = legalCandidates.find(citable)
+        if (!legalMatch && legalCandidates.length) return fail('figure_not_citable', n.raw)
         if (legalMatch && !n.percent) {
           // An amount quoted from a rate-table row belongs to that row's filing status (and only then is it used).
           const rows = rowsWith(legalMatch.source_id, n)
@@ -612,6 +695,11 @@ function validateAnswer(parsed, ctx) {
           if (rows.length && !proseSupport && !rows.some(r => r.status === statusFor(sentence, p, n.raw))) return fail('table_status_mismatch', n.raw)
         }
         if (legalMatch) {
+          // Reviewed applicability conditions (Phase 4.1): the paragraph must state one of the figure's conditions
+          // ("self-only", "nonresident alien …"), and the figure's own clause must not apply it to an excluded case
+          // ("foreign corporation"). A correct number without its conditions is not verified evidence.
+          const cond = conditionProblem(ctx.evidence.get(legalMatch.source_id), n, sentence, p)
+          if (cond) return fail(cond, n.raw)
           // Year-specific figure: the quotes that state it also state a tax year.
           const qs = quotesWith(legalMatch.parsed.value, currency(legalMatch), unit(legalMatch), legalMatch.source_id).filter(q => inContext(q, sentence))
           const yearsOf = q => q.yearsFor(legalMatch.parsed.value, currency(legalMatch), unit(legalMatch))

@@ -1,0 +1,146 @@
+{
+ "sources": {
+  "irs-p969-2025": {
+   "status": "approved_staging",
+   "history": [
+    {
+     "at": "2026-10-14T01:25:51.521Z",
+     "event": "fetched",
+     "hash": "3a7dc8aa172d0df370e5ae6cc2a10119b3769f98f99713feacdde33674436c1b"
+    },
+    {
+     "at": "2026-10-14T23:42:07.171Z",
+     "event": "approve_staging",
+     "hash": "3a7dc8aa172d0df370e5ae6cc2a10119b3769f98f99713feacdde33674436c1b",
+     "reviewer": "Effie (Phase 4.1 staging-only activation)",
+     "note": "Approved for staging evaluation only. Technical approval for testing only; not professional tax verification; not approved for production.",
+     "excerpts": 9
+    }
+   ],
+   "latestHash": "3a7dc8aa172d0df370e5ae6cc2a10119b3769f98f99713feacdde33674436c1b",
+   "stagingApprovedHash": "3a7dc8aa172d0df370e5ae6cc2a10119b3769f98f99713feacdde33674436c1b",
+   "stagingExcerpts": {
+    "hsa-eligibility": "4caead8128dede519aee52a82060ef1130a26309c7160682f087a301f0e5ed5b",
+    "hdhp-2025": "087b9daa256fb0fb42269fb909a5dc8feb598e60e75f3797b05f780ba34160d4",
+    "coverage-definitions": "6ac8061579b5c98c05c0ad1cd5f8f1a0f04aed8db156db0139ffa5fad1388512",
+    "limit-2025": "1ccd99cc51a8b1a2d6336382a00698c6ae33bb8dafd35d75136a2fba13a28e8b",
+    "partial-year-last-month-rule": "7f2a39e28dcf431ae28df3cbdf500ce59f4708c48436e150c138c3c1bbfe92c5",
+    "catch-up-55": "3ace7f725930337b4a9cf06eff60965cf7b616c120a8c7a7202367c4a14ae79d",
+    "multiple-hsas-married": "95f73d003ed99c76ce100df8cf9aa5815b5f004cad116a6fb9065a11374288c4",
+    "employer-contributions": "e1b6e3f0867ef1423fd93dde632f80e0849b01ae1e1b63c6e1567492131633eb",
+    "medicare": "c2e2f9a559b1ff0f18e74fd54bc72afc77613962032dd02d046c7b1cd0ded305"
+   },
+   "approvalScope": "staging_evaluation_only"
+  },
+  "irs-rp-2025-19": {
+   "status": "approved_staging",
+   "history": [
+    {
+     "at": "2026-10-14T01:25:51.521Z",
+     "event": "fetched",
+     "hash": "9192eeda7ee1e4df66a5158dfd6cfab728f8b443fcd56417251727b34982b4e6"
+    },
+    {
+     "at": "2026-10-14T23:42:07.259Z",
+     "event": "approve_staging",
+     "hash": "9192eeda7ee1e4df66a5158dfd6cfab728f8b443fcd56417251727b34982b4e6",
+     "reviewer": "Effie (Phase 4.1 staging-only activation)",
+     "note": "Approved for staging evaluation only. Technical approval for testing only; not professional tax verification; not approved for production.",
+     "excerpts": 2
+    }
+   ],
+   "latestHash": "9192eeda7ee1e4df66a5158dfd6cfab728f8b443fcd56417251727b34982b4e6",
+   "stagingApprovedHash": "9192eeda7ee1e4df66a5158dfd6cfab728f8b443fcd56417251727b34982b4e6",
+   "stagingExcerpts": {
+    "hsa-2026-amounts": "05d1ffdb7016471143a56f0cff7527bb7db0896365ae8c16e0ca8281760326f5",
+    "effective-date": "bfa21d83f421d8d4e8c0e2d4c7a54bd6526832b4bdc9ff0700f73976732664bc"
+   },
+   "approvalScope": "staging_evaluation_only"
+  },
+  "irs-p590a-2025": {
+   "status": "approved_staging",
+   "history": [
+    {
+     "at": "2026-10-14T01:25:51.521Z",
+     "event": "fetched",
+     "hash": "b7690c58aadf3c471addb59a25761ddb684cc2f8d8a2deaf9eb011cee52d0037"
+    },
+    {
+     "at": "2026-10-14T23:42:07.329Z",
+     "event": "approve_staging",
+     "hash": "b7690c58aadf3c471addb59a25761ddb684cc2f8d8a2deaf9eb011cee52d0037",
+     "reviewer": "Effie (Phase 4.1 staging-only activation)",
+     "note": "Approved for staging evaluation only. Technical approval for testing only; not professional tax verification; not approved for production.",
+     "excerpts": 3
+    }
+   ],
+   "latestHash": "b7690c58aadf3c471addb59a25761ddb684cc2f8d8a2deaf9eb011cee52d0037",
+   "stagingApprovedHash": "b7690c58aadf3c471addb59a25761ddb684cc2f8d8a2deaf9eb011cee52d0037",
+   "stagingExcerpts": {
+    "roth-eligibility-2025": "a1bb846ae94ed56768c90cd278aed378ce8a5cf5b74346e058bc513947a9e73c",
+    "roth-only-limit-2025": "98af1876c418a276a656f78ab14696cc19702cf590c9d44fb7c5fae61fb01054",
+    "roth-phaseout-table-2025": "ad9a5791aca612db779fc32d82647791cd603c48d0c95e7d9d8395bc15e3f68e"
+   },
+   "approvalScope": "staging_evaluation_only"
+  },
+  "irs-n-2025-67": {
+   "status": "approved_staging",
+   "history": [
+    {
+     "at": "2026-10-14T01:25:51.521Z",
+     "event": "fetched",
+     "hash": "9e9ff402e331b176452a38504078c10235d1351c344bf0db8109c24d656c86c6"
+    },
+    {
+     "at": "2026-10-14T04:03:17.743Z",
+     "event": "fetched",
+     "hash": "3c9cba4467b23bd4f24638b50b0fcf64027fe956ffc6e21084c3677c0ba9c4f1"
+    },
+    {
+     "at": "2026-10-14T23:42:07.393Z",
+     "event": "approve_staging",
+     "hash": "3c9cba4467b23bd4f24638b50b0fcf64027fe956ffc6e21084c3677c0ba9c4f1",
+     "reviewer": "Effie (Phase 4.1 staging-only activation)",
+     "note": "Approved for staging evaluation only. Technical approval for testing only; not professional tax verification; not approved for production.",
+     "excerpts": 1
+    }
+   ],
+   "latestHash": "3c9cba4467b23bd4f24638b50b0fcf64027fe956ffc6e21084c3677c0ba9c4f1",
+   "stagingApprovedHash": "3c9cba4467b23bd4f24638b50b0fcf64027fe956ffc6e21084c3677c0ba9c4f1",
+   "stagingExcerpts": {
+    "roth-2026": "da37bd88c80cffc0989c25904832d6f072d234a4e975f394e4cb407999f6912b"
+   },
+   "approvalScope": "staging_evaluation_only"
+  },
+  "irs-i3520-2025-12": {
+   "status": "approved_staging",
+   "history": [
+    {
+     "at": "2026-10-14T01:25:51.521Z",
+     "event": "fetched",
+     "hash": "594d05c8fa73ef7b92259c55b71ffdf4f9dee699b36ee2a85099928191bcb609"
+    },
+    {
+     "at": "2026-10-14T23:42:07.453Z",
+     "event": "approve_staging",
+     "hash": "594d05c8fa73ef7b92259c55b71ffdf4f9dee699b36ee2a85099928191bcb609",
+     "reviewer": "Effie (Phase 4.1 staging-only activation)",
+     "note": "Approved for staging evaluation only. Technical approval for testing only; not professional tax verification; not approved for production.",
+     "excerpts": 7
+    }
+   ],
+   "latestHash": "594d05c8fa73ef7b92259c55b71ffdf4f9dee699b36ee2a85099928191bcb609",
+   "stagingApprovedHash": "594d05c8fa73ef7b92259c55b71ffdf4f9dee699b36ee2a85099928191bcb609",
+   "stagingExcerpts": {
+    "due-date": "55f02f18abc94f31f081d7e2b44c3cc4a0851e95dbd24e45ad366b025c7701f8",
+    "continuous-use": "a5dc01904660e532d8024601331f799ecfba15d73ce8eb65c94247697e61d98b",
+    "who-must-file-gifts": "6a9c61860eade6c778f82d70e626bd1fa65fd807d68242830d53be6a68401f50",
+    "penalty-6039f": "5b73eb3472ef44ebf9e7470f201c8d29c62fece424b1c313acdff06209544f16",
+    "us-person": "276ca11f3de5fc76a48e7319b49519b5d0020666be79e72d347a262d23c9de93",
+    "part-iv-reporting": "bbc76d0b0d41598d0c732b4a4bd1c82f11b8c9176280b3012f0ba3875ac218dd",
+    "part-iv-5000-rule": "25f54cd762fcc29d6ac18d8aaed802579fcbde68bb8cd6bdc13055c80e1a2b59"
+   },
+   "approvalScope": "staging_evaluation_only"
+  }
+ }
+}

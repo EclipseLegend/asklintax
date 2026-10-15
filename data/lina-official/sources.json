@@ -1,0 +1,1277 @@
+{
+ "_comment": "Lina v2 Layer 2 pilot — curated official sources. Only entries with urlApproved:true may be fetched (scripts/lina-official/fetch.js). A fetched source is served to Lina only after review approval of its exact content hash (review.json). yearScope: tax_year (figures for one tax year) | effective_period (a revision/period, figures inside must state their own year) | stable.",
+ "sources": [
+  {
+   "id": "irs-p969-2025",
+   "topic": "hsa",
+   "url": "https://www.irs.gov/publications/p969",
+   "format": "html",
+   "title": "Publication 969 (2025), Health Savings Accounts and Other Tax-Favored Health Plans",
+   "publisher": "IRS",
+   "yearScope": "tax_year",
+   "taxYear": "2025",
+   "urlApproved": true,
+   "urlApprovedBy": "Effie (Phase 4.1 fetch approval)",
+   "urlApprovedAt": "2026-10-13",
+   "selections": [
+    {
+     "id": "hsa-eligibility",
+     "location": "Publication 969 - Main Contents › Health Savings Accounts (HSAs) › Qualifying for an HSA Contribution (part 1)",
+     "start": "To be an eligible individual and qualify for an HSA contribution",
+     "end": "You can’t have a joint HSA.",
+     "requires": [
+      "covered under a high deductible health plan",
+      "enrolled in Medicare",
+      "dependent",
+      "last-month rule"
+     ]
+    },
+    {
+     "id": "hdhp-2025",
+     "taxYear": "2025",
+     "location": "Publication 969 - Main Contents › Health Savings Accounts (HSAs) › Qualifying for an HSA Contribution (part 2)",
+     "start": "The following table shows the minimum annual deductible and maximum annual deductible and other out-of-pocket expenses for HDHPs for 2025.",
+     "end": "should be used to figure whether the limit applies.",
+     "requires": [
+      "Self-only coverage | Family coverage"
+     ],
+     "conditions": [
+      {
+       "figure": "$1,650",
+       "anyOf": [
+        "self-only",
+        "self only",
+        "個人保障",
+        "僅本人",
+        "僅限本人",
+        "本人保障",
+        "單人保障",
+        "個人投保",
+        "單人投保",
+        "個人醫療保險保障",
+        "個人醫療保險"
+       ],
+       "exclusiveWith": [
+        "family",
+        "家庭保障",
+        "家庭投保",
+        "家庭方案",
+        "家庭計畫",
+        "全家",
+        "家庭醫療保險保障",
+        "家庭醫療保險"
+       ]
+      },
+      {
+       "figure": "$3,300",
+       "anyOf": [
+        "family",
+        "家庭保障",
+        "家庭投保",
+        "家庭方案",
+        "家庭計畫",
+        "全家",
+        "家庭醫療保險保障",
+        "家庭醫療保險"
+       ],
+       "exclusiveWith": [
+        "self-only",
+        "self only",
+        "個人保障",
+        "僅本人",
+        "僅限本人",
+        "本人保障",
+        "單人保障",
+        "個人投保",
+        "單人投保",
+        "個人醫療保險保障",
+        "個人醫療保險"
+       ]
+      },
+      {
+       "figure": "$8,300",
+       "anyOf": [
+        "self-only",
+        "self only",
+        "個人保障",
+        "僅本人",
+        "僅限本人",
+        "本人保障",
+        "單人保障",
+        "個人投保",
+        "單人投保",
+        "個人醫療保險保障",
+        "個人醫療保險"
+       ],
+       "exclusiveWith": [
+        "family",
+        "家庭保障",
+        "家庭投保",
+        "家庭方案",
+        "家庭計畫",
+        "全家",
+        "家庭醫療保險保障",
+        "家庭醫療保險"
+       ]
+      },
+      {
+       "figure": "$16,600",
+       "anyOf": [
+        "family",
+        "家庭保障",
+        "家庭投保",
+        "家庭方案",
+        "家庭計畫",
+        "全家",
+        "家庭醫療保險保障",
+        "家庭醫療保險"
+       ],
+       "exclusiveWith": [
+        "self-only",
+        "self only",
+        "個人保障",
+        "僅本人",
+        "僅限本人",
+        "本人保障",
+        "單人保障",
+        "個人投保",
+        "單人投保",
+        "個人醫療保險保障",
+        "個人醫療保險"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "coverage-definitions",
+     "location": "Publication 969 - Main Contents › Health Savings Accounts (HSAs) › Qualifying for an HSA Contribution (part 2)",
+     "start": "Self-only HDHP coverage is HDHP coverage for only an eligible individual.",
+     "end": "(whether or not that individual is an eligible individual)."
+    },
+    {
+     "id": "limit-2025",
+     "taxYear": "2025",
+     "location": "Publication 969 - Main Contents › Health Savings Accounts (HSAs) › Contributions to an HSA › Limit on Contributions (part 1)",
+     "start": "The amount you or any other person can contribute to your HSA",
+     "end": "If you have family HDHP coverage, you can contribute up to $8,550.",
+     "requires": [
+      "type of HDHP coverage",
+      "your age",
+      "eligible individual"
+     ],
+     "conditions": [
+      {
+       "figure": "$4,300",
+       "anyOf": [
+        "self-only",
+        "self only",
+        "個人保障",
+        "僅本人",
+        "僅限本人",
+        "本人保障",
+        "單人保障",
+        "個人投保",
+        "單人投保",
+        "個人醫療保險保障",
+        "個人醫療保險"
+       ],
+       "exclusiveWith": [
+        "family",
+        "家庭保障",
+        "家庭投保",
+        "家庭方案",
+        "家庭計畫",
+        "全家",
+        "家庭醫療保險保障",
+        "家庭醫療保險"
+       ]
+      },
+      {
+       "figure": "$8,550",
+       "anyOf": [
+        "family",
+        "家庭保障",
+        "家庭投保",
+        "家庭方案",
+        "家庭計畫",
+        "全家",
+        "家庭醫療保險保障",
+        "家庭醫療保險"
+       ],
+       "exclusiveWith": [
+        "self-only",
+        "self only",
+        "個人保障",
+        "僅本人",
+        "僅限本人",
+        "本人保障",
+        "單人保障",
+        "個人投保",
+        "單人投保",
+        "個人醫療保險保障",
+        "個人醫療保險"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "partial-year-last-month-rule",
+     "location": "Publication 969 - Main Contents › Health Savings Accounts (HSAs) › Contributions to an HSA › Limit on Contributions (part 1)",
+     "start": "If you are or were considered (under the last-month rule",
+     "end": "The income and additional tax are calculated on Form 8889, Part III.",
+     "requires": [
+      "first day of the last month",
+      "testing period"
+     ],
+     "conditions": [
+      {
+       "figure": "$8,550",
+       "anyOf": [
+        "family",
+        "家庭保障",
+        "家庭投保",
+        "家庭方案",
+        "家庭計畫",
+        "全家",
+        "家庭醫療保險保障",
+        "家庭醫療保險"
+       ]
+      },
+      {
+       "figure": "10%",
+       "anyOf": [
+        "testing period",
+        "測試期"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "catch-up-55",
+     "location": "Publication 969 - Main Contents › Health Savings Accounts (HSAs) › Contributions to an HSA › Limit on Contributions (part 2)",
+     "start": "Additional contribution.",
+     "end": "your contribution limit is increased by $1,000.",
+     "conditions": [
+      {
+       "figure": "$1,000",
+       "anyOf": [
+        "55 or older",
+        "age 55",
+        "55 歲",
+        "55歲"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "multiple-hsas-married",
+     "location": "Publication 969 - Main Contents › Health Savings Accounts (HSAs) › Contributions to an HSA › Limit on Contributions (part 2)",
+     "start": "If you have more than one HSA in 2025",
+     "end": "Each spouse must make the additional contribution to their own HSA.",
+     "requires": [
+      "apply only if both spouses are eligible individuals",
+      "split equally"
+     ],
+     "conditions": [
+      {
+       "figure": "$8,550",
+       "anyOf": [
+        "family",
+        "家庭保障",
+        "家庭投保",
+        "家庭方案",
+        "家庭計畫",
+        "全家",
+        "家庭醫療保險保障",
+        "家庭醫療保險"
+       ]
+      },
+      {
+       "figure": "$10,550",
+       "anyOf": [
+        "both spouses",
+        "雙方",
+        "夫妻兩人",
+        "配偶雙方",
+        "夫妻都"
+       ]
+      },
+      {
+       "figure": "$10,550",
+       "anyOf": [
+        "55"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "employer-contributions",
+     "location": "Publication 969 - Main Contents › Health Savings Accounts (HSAs) › Contributions to an HSA › Limit on Contributions (part 2)",
+     "start": "Employer contributions.",
+     "end": "by your employer through a cafeteria plan."
+    },
+    {
+     "id": "medicare",
+     "location": "Publication 969 - Main Contents › Health Savings Accounts (HSAs) › Contributions to an HSA › Limit on Contributions (part 3)",
+     "start": "Beginning with the first month you are enrolled in Medicare, your contribution limit is zero.",
+     "end": "are considered excess."
+    }
+   ]
+  },
+  {
+   "id": "irs-rp-2025-19",
+   "topic": "hsa",
+   "url": "https://www.irs.gov/pub/irs-drop/rp-25-19.pdf",
+   "format": "pdf",
+   "title": "Rev. Proc. 2025-19 (2026 inflation-adjusted HSA amounts)",
+   "publisher": "IRS",
+   "yearScope": "tax_year",
+   "taxYear": "2026",
+   "urlApproved": true,
+   "urlApprovedBy": "Effie (Phase 4.1 fetch approval)",
+   "urlApprovedAt": "2026-10-13",
+   "selections": [
+    {
+     "id": "hsa-2026-amounts",
+     "taxYear": "2026",
+     "location": "pages 1–2",
+     "start": ".01 HSA Inflation Adjusted Items.",
+     "end": "$17,000 for family coverage.",
+     "requires": [
+      "For calendar year 2026",
+      "self-only coverage",
+      "family coverage"
+     ],
+     "conditions": [
+      {
+       "figure": "$4,400",
+       "anyOf": [
+        "self-only",
+        "self only",
+        "個人保障",
+        "僅本人",
+        "僅限本人",
+        "本人保障",
+        "單人保障",
+        "個人投保",
+        "單人投保",
+        "個人醫療保險保障",
+        "個人醫療保險"
+       ],
+       "exclusiveWith": [
+        "family",
+        "家庭保障",
+        "家庭投保",
+        "家庭方案",
+        "家庭計畫",
+        "全家",
+        "家庭醫療保險保障",
+        "家庭醫療保險"
+       ]
+      },
+      {
+       "figure": "$8,750",
+       "anyOf": [
+        "family",
+        "家庭保障",
+        "家庭投保",
+        "家庭方案",
+        "家庭計畫",
+        "全家",
+        "家庭醫療保險保障",
+        "家庭醫療保險"
+       ],
+       "exclusiveWith": [
+        "self-only",
+        "self only",
+        "個人保障",
+        "僅本人",
+        "僅限本人",
+        "本人保障",
+        "單人保障",
+        "個人投保",
+        "單人投保",
+        "個人醫療保險保障",
+        "個人醫療保險"
+       ]
+      },
+      {
+       "figure": "$1,700",
+       "anyOf": [
+        "self-only",
+        "self only",
+        "個人保障",
+        "僅本人",
+        "僅限本人",
+        "本人保障",
+        "單人保障",
+        "個人投保",
+        "單人投保",
+        "個人醫療保險保障",
+        "個人醫療保險"
+       ],
+       "exclusiveWith": [
+        "family",
+        "家庭保障",
+        "家庭投保",
+        "家庭方案",
+        "家庭計畫",
+        "全家",
+        "家庭醫療保險保障",
+        "家庭醫療保險"
+       ]
+      },
+      {
+       "figure": "$3,400",
+       "anyOf": [
+        "family",
+        "家庭保障",
+        "家庭投保",
+        "家庭方案",
+        "家庭計畫",
+        "全家",
+        "家庭醫療保險保障",
+        "家庭醫療保險"
+       ],
+       "exclusiveWith": [
+        "self-only",
+        "self only",
+        "個人保障",
+        "僅本人",
+        "僅限本人",
+        "本人保障",
+        "單人保障",
+        "個人投保",
+        "單人投保",
+        "個人醫療保險保障",
+        "個人醫療保險"
+       ]
+      },
+      {
+       "figure": "$8,500",
+       "anyOf": [
+        "self-only",
+        "self only",
+        "個人保障",
+        "僅本人",
+        "僅限本人",
+        "本人保障",
+        "單人保障",
+        "個人投保",
+        "單人投保",
+        "個人醫療保險保障",
+        "個人醫療保險"
+       ],
+       "exclusiveWith": [
+        "family",
+        "家庭保障",
+        "家庭投保",
+        "家庭方案",
+        "家庭計畫",
+        "全家",
+        "家庭醫療保險保障",
+        "家庭醫療保險"
+       ]
+      },
+      {
+       "figure": "$17,000",
+       "anyOf": [
+        "family",
+        "家庭保障",
+        "家庭投保",
+        "家庭方案",
+        "家庭計畫",
+        "全家",
+        "家庭醫療保險保障",
+        "家庭醫療保險"
+       ],
+       "exclusiveWith": [
+        "self-only",
+        "self only",
+        "個人保障",
+        "僅本人",
+        "僅限本人",
+        "本人保障",
+        "單人保障",
+        "個人投保",
+        "單人投保",
+        "個人醫療保險保障",
+        "個人醫療保險"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "effective-date",
+     "taxYear": "2026",
+     "location": "pages 1–2",
+     "start": "This revenue procedure is effective for HSAs for calendar year 2026",
+     "end": "plan years beginning in 2026."
+    }
+   ]
+  },
+  {
+   "id": "irs-p590a-2025",
+   "topic": "roth-ira",
+   "url": "https://www.irs.gov/publications/p590a",
+   "format": "html",
+   "title": "Publication 590-A (2025), Contributions to Individual Retirement Arrangements (IRAs)",
+   "publisher": "IRS",
+   "yearScope": "tax_year",
+   "taxYear": "2025",
+   "urlApproved": true,
+   "urlApprovedBy": "Effie (Phase 4.1 fetch approval)",
+   "urlApprovedAt": "2026-10-13",
+   "selections": [
+    {
+     "id": "roth-eligibility-2025",
+     "location": "2. Roth IRAs › Can You Contribute to a Roth IRA?",
+     "start": "Generally, you can contribute to a Roth IRA if you have taxable compensation",
+     "end": "and your modified AGI is less than $246,000.",
+     "requires": [
+      "taxable compensation",
+      "married filing jointly or qualifying surviving spouse",
+      "lived with your spouse at any time during the year",
+      "regardless of your age"
+     ],
+     "conditions": [
+      {
+       "figure": "$246,000",
+       "anyOf": [
+        "married filing jointly",
+        "filing jointly",
+        "joint return",
+        "qualifying surviving spouse",
+        "qualifying widow",
+        "合併申報",
+        "符合資格的尚存配偶",
+        "符合資格的未亡配偶"
+       ],
+       "exclusiveWith": [
+        "single",
+        "head of household",
+        "單身",
+        "戶長",
+        "married filing separately",
+        "separate return",
+        "分開申報",
+        "分別申報"
+       ]
+      },
+      {
+       "figure": "$165,000",
+       "anyOf": [
+        "single",
+        "head of household",
+        "單身",
+        "戶長",
+        "didn't live with",
+        "did not live with",
+        "未與配偶同住",
+        "未和配偶同住",
+        "沒有與配偶同住",
+        "沒有和配偶同住",
+        "沒有跟配偶同住",
+        "不與配偶同住"
+       ],
+       "exclusiveWith": [
+        "married filing jointly",
+        "filing jointly",
+        "joint return",
+        "qualifying surviving spouse",
+        "qualifying widow",
+        "合併申報",
+        "符合資格的尚存配偶",
+        "符合資格的未亡配偶",
+        "lived with your spouse",
+        "lived with their spouse",
+        "lived with the spouse",
+        "lived with his or her spouse",
+        "與配偶同住",
+        "和配偶同住",
+        "跟配偶同住"
+       ]
+      },
+      {
+       "figure": "$10,000",
+       "anyOf": [
+        "married filing separately",
+        "separate return",
+        "分開申報",
+        "分別申報"
+       ],
+       "exclusiveWith": [
+        "married filing jointly",
+        "filing jointly",
+        "joint return",
+        "qualifying surviving spouse",
+        "qualifying widow",
+        "合併申報",
+        "符合資格的尚存配偶",
+        "符合資格的未亡配偶",
+        "single",
+        "head of household",
+        "單身",
+        "戶長"
+       ]
+      },
+      {
+       "figure": "$10,000",
+       "anyOf": [
+        "lived with your spouse",
+        "lived with their spouse",
+        "lived with the spouse",
+        "lived with his or her spouse",
+        "與配偶同住",
+        "和配偶同住",
+        "跟配偶同住"
+       ],
+       "exclusiveWith": [
+        "didn't live with",
+        "did not live with",
+        "未與配偶同住",
+        "未和配偶同住",
+        "沒有與配偶同住",
+        "沒有和配偶同住",
+        "沒有跟配偶同住",
+        "不與配偶同住"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "roth-only-limit-2025",
+     "location": "2. Roth IRAs › Worksheet 2-1. Modified Adjusted Gross Income for Roth IRA Purposes (part 1)",
+     "start": "Roth IRAs only.",
+     "end": "as explained later under Contribution limit reduced.",
+     "requires": [
+      "lesser of",
+      "Your taxable compensation"
+     ],
+     "conditions": [
+      {
+       "figure": "$7,000",
+       "anyOf": [
+        "compensation",
+        "應稅報酬",
+        "報酬",
+        "薪資",
+        "工作收入",
+        "符合 IRA 供款規定的應稅工作所得",
+        "應稅工作所得"
+       ]
+      },
+      {
+       "figure": "$8,000",
+       "anyOf": [
+        "50 or older",
+        "age 50",
+        "50 歲",
+        "50歲"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "roth-phaseout-table-2025",
+     "location": "2. Roth IRAs › Worksheet 2-1. Modified Adjusted Gross Income for Roth IRA Purposes › Table 2-1. Effect of Modified AGI on Roth IRA Contribution",
+     "start": "This table shows whether your contribution to a Roth IRA is affected",
+     "end": "use Worksheet 2-2 to figure your reduced contribution limit.",
+     "conditions": [
+      {
+       "figure": "$236,000",
+       "anyOf": [
+        "married filing jointly",
+        "filing jointly",
+        "joint return",
+        "qualifying surviving spouse",
+        "qualifying widow",
+        "合併申報",
+        "符合資格的尚存配偶",
+        "符合資格的未亡配偶"
+       ],
+       "exclusiveWith": [
+        "single",
+        "head of household",
+        "單身",
+        "戶長",
+        "married filing separately",
+        "separate return",
+        "分開申報",
+        "分別申報"
+       ]
+      },
+      {
+       "figure": "$246,000",
+       "anyOf": [
+        "married filing jointly",
+        "filing jointly",
+        "joint return",
+        "qualifying surviving spouse",
+        "qualifying widow",
+        "合併申報",
+        "符合資格的尚存配偶",
+        "符合資格的未亡配偶"
+       ],
+       "exclusiveWith": [
+        "single",
+        "head of household",
+        "單身",
+        "戶長",
+        "married filing separately",
+        "separate return",
+        "分開申報",
+        "分別申報"
+       ]
+      },
+      {
+       "figure": "$150,000",
+       "anyOf": [
+        "single",
+        "head of household",
+        "單身",
+        "戶長",
+        "didn't live with",
+        "did not live with",
+        "未與配偶同住",
+        "未和配偶同住",
+        "沒有與配偶同住",
+        "沒有和配偶同住",
+        "沒有跟配偶同住",
+        "不與配偶同住"
+       ],
+       "exclusiveWith": [
+        "married filing jointly",
+        "filing jointly",
+        "joint return",
+        "qualifying surviving spouse",
+        "qualifying widow",
+        "合併申報",
+        "符合資格的尚存配偶",
+        "符合資格的未亡配偶",
+        "lived with your spouse",
+        "lived with their spouse",
+        "lived with the spouse",
+        "lived with his or her spouse",
+        "與配偶同住",
+        "和配偶同住",
+        "跟配偶同住"
+       ]
+      },
+      {
+       "figure": "$165,000",
+       "anyOf": [
+        "single",
+        "head of household",
+        "單身",
+        "戶長",
+        "didn't live with",
+        "did not live with",
+        "未與配偶同住",
+        "未和配偶同住",
+        "沒有與配偶同住",
+        "沒有和配偶同住",
+        "沒有跟配偶同住",
+        "不與配偶同住"
+       ],
+       "exclusiveWith": [
+        "married filing jointly",
+        "filing jointly",
+        "joint return",
+        "qualifying surviving spouse",
+        "qualifying widow",
+        "合併申報",
+        "符合資格的尚存配偶",
+        "符合資格的未亡配偶",
+        "lived with your spouse",
+        "lived with their spouse",
+        "lived with the spouse",
+        "lived with his or her spouse",
+        "與配偶同住",
+        "和配偶同住",
+        "跟配偶同住"
+       ]
+      },
+      {
+       "figure": "$10,000",
+       "anyOf": [
+        "married filing separately",
+        "separate return",
+        "分開申報",
+        "分別申報"
+       ],
+       "exclusiveWith": [
+        "married filing jointly",
+        "filing jointly",
+        "joint return",
+        "qualifying surviving spouse",
+        "qualifying widow",
+        "合併申報",
+        "符合資格的尚存配偶",
+        "符合資格的未亡配偶",
+        "single",
+        "head of household",
+        "單身",
+        "戶長"
+       ]
+      },
+      {
+       "figure": "$10,000",
+       "anyOf": [
+        "lived with your spouse",
+        "lived with their spouse",
+        "lived with the spouse",
+        "lived with his or her spouse",
+        "與配偶同住",
+        "和配偶同住",
+        "跟配偶同住"
+       ],
+       "exclusiveWith": [
+        "didn't live with",
+        "did not live with",
+        "未與配偶同住",
+        "未和配偶同住",
+        "沒有與配偶同住",
+        "沒有和配偶同住",
+        "沒有跟配偶同住",
+        "不與配偶同住"
+       ]
+      },
+      {
+       "figure": "$8,000",
+       "anyOf": [
+        "50 or older",
+        "age 50",
+        "50 歲",
+        "50歲"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "irs-n-2025-67",
+   "topic": "roth-ira",
+   "url": "https://www.irs.gov/pub/irs-drop/n-25-67.pdf",
+   "format": "pdf",
+   "title": "Notice 2025-67 (2026 amounts relating to retirement plans and IRAs)",
+   "publisher": "IRS",
+   "yearScope": "tax_year",
+   "taxYear": "2026",
+   "urlApproved": true,
+   "urlApprovedBy": "Effie (Phase 4.1 fetch approval)",
+   "urlApprovedAt": "2026-10-13",
+   "selections": [
+    {
+     "id": "ira-limit-2026",
+     "location": "pages 3–4",
+     "start": "The deductible amount under section 219(b)(5)(A)",
+     "end": "is increased from $1,000 to $1,100.",
+     "requires": [
+      "attained age 50"
+     ],
+     "conditions": [
+      {
+       "figure": "$7,500",
+       "anyOf": [
+        "compensation",
+        "應稅報酬",
+        "報酬",
+        "薪資",
+        "工作收入",
+        "符合 IRA 供款規定的應稅工作所得",
+        "應稅工作所得"
+       ]
+      },
+      {
+       "figure": "$1,100",
+       "anyOf": [
+        "50 or older",
+        "age 50",
+        "50 歲",
+        "50歲"
+       ]
+      }
+     ],
+     "hold": {
+      "reason": "needs_supporting_authority",
+      "needs": [
+       "IRC §219(b)(1): the IRA limit is the lesser of the §219(b)(5)(A) deductible amount or the individual’s compensation includible in gross income",
+       "IRC §408A(c)(2): the Roth IRA contribution limit is the §219(b)(1) amount reduced by contributions to other IRAs (and subject to the §408A(c)(3) phase-out)",
+       "IRC §219(b)(5)(B): the age-50 additional amount applies to individuals who attained age 50 before the close of the taxable year (stated in the Notice excerpt)",
+       "An approved IRS source for 2026 that states the IRA/Roth IRA contribution limit and its compensation condition together (e.g. an IRS 2026 cost-of-living news release or the 2026 Pub 590-A when published) — URL to be proposed for approval, not fetched"
+      ],
+      "note": "The descriptions of the Code sections above state what must be verified from the enacted text and an approved IRS source; they are not served to Lina and are not verified here."
+     }
+    },
+    {
+     "id": "roth-2026",
+     "location": "pages 4–5",
+     "start": "The adjusted gross income limitation under section 408A(c)(3)(B)(ii)(I)",
+     "end": "remains between $0 and $10,000.",
+     "requires": [
+      "married couples filing jointly",
+      "singles and heads of household",
+      "married individual filing a separate return"
+     ],
+     "conditions": [
+      {
+       "figure": "$242,000",
+       "anyOf": [
+        "married filing jointly",
+        "filing jointly",
+        "joint return",
+        "qualifying surviving spouse",
+        "qualifying widow",
+        "合併申報",
+        "符合資格的尚存配偶",
+        "符合資格的未亡配偶"
+       ],
+       "exclusiveWith": [
+        "single",
+        "head of household",
+        "單身",
+        "戶長",
+        "married filing separately",
+        "separate return",
+        "分開申報",
+        "分別申報"
+       ]
+      },
+      {
+       "figure": "$252,000",
+       "anyOf": [
+        "married filing jointly",
+        "filing jointly",
+        "joint return",
+        "qualifying surviving spouse",
+        "qualifying widow",
+        "合併申報",
+        "符合資格的尚存配偶",
+        "符合資格的未亡配偶"
+       ],
+       "exclusiveWith": [
+        "single",
+        "head of household",
+        "單身",
+        "戶長",
+        "married filing separately",
+        "separate return",
+        "分開申報",
+        "分別申報"
+       ]
+      },
+      {
+       "figure": "$153,000",
+       "anyOf": [
+        "single",
+        "head of household",
+        "單身",
+        "戶長"
+       ],
+       "exclusiveWith": [
+        "married filing jointly",
+        "filing jointly",
+        "joint return",
+        "qualifying surviving spouse",
+        "qualifying widow",
+        "合併申報",
+        "符合資格的尚存配偶",
+        "符合資格的未亡配偶",
+        "married filing separately",
+        "separate return",
+        "分開申報",
+        "分別申報",
+        "didn't live with",
+        "did not live with",
+        "未與配偶同住",
+        "未和配偶同住",
+        "沒有與配偶同住",
+        "沒有和配偶同住",
+        "沒有跟配偶同住",
+        "不與配偶同住",
+        "lived with your spouse",
+        "lived with their spouse",
+        "lived with the spouse",
+        "lived with his or her spouse",
+        "與配偶同住",
+        "和配偶同住",
+        "跟配偶同住"
+       ],
+       "noneOf": [
+        "married filing separately",
+        "separate return",
+        "分開申報",
+        "分別申報",
+        "didn't live with",
+        "did not live with",
+        "未與配偶同住",
+        "未和配偶同住",
+        "沒有與配偶同住",
+        "沒有和配偶同住",
+        "沒有跟配偶同住",
+        "不與配偶同住",
+        "lived with your spouse",
+        "lived with their spouse",
+        "lived with the spouse",
+        "lived with his or her spouse",
+        "與配偶同住",
+        "和配偶同住",
+        "跟配偶同住"
+       ]
+      },
+      {
+       "figure": "$168,000",
+       "anyOf": [
+        "single",
+        "head of household",
+        "單身",
+        "戶長"
+       ],
+       "exclusiveWith": [
+        "married filing jointly",
+        "filing jointly",
+        "joint return",
+        "qualifying surviving spouse",
+        "qualifying widow",
+        "合併申報",
+        "符合資格的尚存配偶",
+        "符合資格的未亡配偶",
+        "married filing separately",
+        "separate return",
+        "分開申報",
+        "分別申報",
+        "didn't live with",
+        "did not live with",
+        "未與配偶同住",
+        "未和配偶同住",
+        "沒有與配偶同住",
+        "沒有和配偶同住",
+        "沒有跟配偶同住",
+        "不與配偶同住",
+        "lived with your spouse",
+        "lived with their spouse",
+        "lived with the spouse",
+        "lived with his or her spouse",
+        "與配偶同住",
+        "和配偶同住",
+        "跟配偶同住"
+       ],
+       "noneOf": [
+        "married filing separately",
+        "separate return",
+        "分開申報",
+        "分別申報",
+        "didn't live with",
+        "did not live with",
+        "未與配偶同住",
+        "未和配偶同住",
+        "沒有與配偶同住",
+        "沒有和配偶同住",
+        "沒有跟配偶同住",
+        "不與配偶同住",
+        "lived with your spouse",
+        "lived with their spouse",
+        "lived with the spouse",
+        "lived with his or her spouse",
+        "與配偶同住",
+        "和配偶同住",
+        "跟配偶同住"
+       ]
+      },
+      {
+       "figure": "$10,000",
+       "anyOf": [
+        "married filing separately",
+        "separate return",
+        "分開申報",
+        "分別申報"
+       ],
+       "exclusiveWith": [
+        "married filing jointly",
+        "filing jointly",
+        "joint return",
+        "qualifying surviving spouse",
+        "qualifying widow",
+        "合併申報",
+        "符合資格的尚存配偶",
+        "符合資格的未亡配偶",
+        "single",
+        "head of household",
+        "單身",
+        "戶長"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "irs-i3520-2025-12",
+   "topic": "foreign-gift",
+   "url": "https://www.irs.gov/instructions/i3520",
+   "format": "html",
+   "title": "Instructions for Form 3520 (Rev. December 2025)",
+   "publisher": "IRS",
+   "yearScope": "effective_period",
+   "effectivePeriod": "Tax year 2025 and subsequent years until a superseding revision is issued (Rev. December 2025)",
+   "revisionDate": "2025-12",
+   "urlApproved": true,
+   "urlApprovedBy": "Effie (Phase 4.1 fetch approval)",
+   "urlApprovedAt": "2026-10-13",
+   "selections": [
+    {
+     "id": "due-date",
+     "location": "Reminders",
+     "start": "Form 3520 is due by the 15th day of the 4th month",
+     "end": "See When and Where To File , later."
+    },
+    {
+     "id": "continuous-use",
+     "location": "Reminders",
+     "start": "Continuous-use revision.",
+     "end": "until a superseding revision is issued."
+    },
+    {
+     "id": "who-must-file-gifts",
+     "location": "General Instructions › Who Must File",
+     "start": "You are a U.S. person who, during the current tax year, received either:",
+     "end": "See the instructions for Part IV .",
+     "requires": [
+      "nonresident alien individual or a foreign estate",
+      "section 6039F threshold amount from foreign corporations or foreign partnerships"
+     ],
+     "conditions": [
+      {
+       "figure": "$100,000",
+       "anyOf": [
+        "nonresident alien",
+        "foreign estate",
+        "非居民外國人",
+        "外國遺產"
+       ],
+       "noneOf": [
+        "foreign corporation",
+        "foreign company",
+        "foreign partnership",
+        "foreign trust",
+        "外國公司",
+        "外國企業",
+        "外國合夥",
+        "外國信託",
+        "海外公司",
+        "海外信託"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "penalty-6039f",
+     "location": "General Instructions › Penalties › Reasonable cause. (part 1)",
+     "start": "No penalties will be imposed if the taxpayer can demonstrate",
+     "end": "See section 6039F for additional information.",
+     "requires": [
+      "reasonable cause and not willful neglect",
+      "for each month for which the failure to report continues"
+     ],
+     "conditions": [
+      {
+       "figure": "5%",
+       "anyOf": [
+        "gift",
+        "bequest",
+        "6039f",
+        "贈與",
+        "遺贈",
+        "餽贈"
+       ],
+       "noneOf": [
+        "foreign trust",
+        "3520-a",
+        "外國信託",
+        "海外信託"
+       ]
+      },
+      {
+       "figure": "25%",
+       "anyOf": [
+        "gift",
+        "bequest",
+        "6039f",
+        "贈與",
+        "遺贈",
+        "餽贈"
+       ],
+       "noneOf": [
+        "foreign trust",
+        "3520-a",
+        "外國信託",
+        "海外信託"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "us-person",
+     "location": "General Instructions › Definitions › U.S. Person",
+     "start": "A U.S. person is:",
+     "end": "U.S. Tax Guide for Aliens."
+    },
+    {
+     "id": "part-iv-reporting",
+     "location": "Specific Instructions › Part IV—U.S. Recipients of Gifts or Bequests Received During the Current Tax Year From Foreign Persons (part 1)",
+     "start": "Complete Part IV if you are a U.S. person",
+     "end": "if one is acting as a nominee or intermediary for the other. See Related Person , earlier.",
+     "requires": [
+      "qualified tuition or medical payments",
+      "as a distribution in Part III",
+      "aggregate gifts"
+     ],
+     "conditions": [
+      {
+       "figure": "$100,000",
+       "anyOf": [
+        "nonresident alien",
+        "foreign estate",
+        "非居民外國人",
+        "外國遺產"
+       ],
+       "noneOf": [
+        "foreign corporation",
+        "foreign company",
+        "foreign partnership",
+        "foreign trust",
+        "外國公司",
+        "外國企業",
+        "外國合夥",
+        "外國信託",
+        "海外公司",
+        "海外信託"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "part-iv-5000-rule",
+     "location": "Specific Instructions › Part IV—U.S. Recipients of Gifts or Bequests Received During the Current Tax Year From Foreign Persons (part 1)",
+     "start": "However, if you answered “Yes” but none of the individual gifts",
+     "end": "No gifts or bequests exceed $5,000.”",
+     "conditions": [
+      {
+       "figure": "$5,000",
+       "anyOf": [
+        "individual gift",
+        "each gift",
+        "column",
+        "個別",
+        "每筆"
+       ]
+      }
+     ]
+    }
+   ],
+   "effectiveFrom": "2025"
+  }
+ ]
+}

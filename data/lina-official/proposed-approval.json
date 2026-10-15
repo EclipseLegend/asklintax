@@ -1,0 +1,1542 @@
+{
+ "_comment": "Phase 4.1 PROPOSED approval manifest — NOT an approval. Nothing here is served until a person approves each source hash with scripts/lina-official/review.js. Generated from an in-memory simulated build (review.json unchanged).",
+ "generatedAt": "2026-10-14T14:33:40.860Z",
+ "sources": [
+  {
+   "id": "irs-p969-2025",
+   "title": "Publication 969 (2025), Health Savings Accounts and Other Tax-Favored Health Plans",
+   "url": "https://www.irs.gov/publications/p969",
+   "finalUrl": "https://www.irs.gov/publications/p969",
+   "retrievedAt": "2026-10-14T01:25:51.521Z",
+   "reviewStatus": "pending",
+   "contentHash": "3a7dc8aa172d0df370e5ae6cc2a10119b3769f98f99713feacdde33674436c1b",
+   "snapshotPassages": 75,
+   "yearScope": "tax_year",
+   "taxYear": "2025",
+   "effectivePeriod": null,
+   "revisionDate": null,
+   "applicability": "year-specific: tax year 2025 only (no excerpt is marked continuing)",
+   "heldSelections": [],
+   "proposedSelections": [
+    {
+     "selectionId": "hsa-eligibility",
+     "location": "Publication 969 - Main Contents › Health Savings Accounts (HSAs) › Qualifying for an HSA Contribution (part 1)",
+     "taxYear": "2025",
+     "effectivePeriod": null,
+     "chars": 1427,
+     "startsWith": "To be an eligible individual and qualify for an HSA contribution, you must meet ",
+     "endsWith": "ndividual who wants an HSA must open a separate HSA. You can’t have a joint HSA.",
+     "requiredPhrases": [
+      "covered under a high deductible health plan",
+      "enrolled in Medicare",
+      "dependent",
+      "last-month rule"
+     ],
+     "figureConditions": [],
+     "notCitable": [],
+     "appliesTo": [
+      "2025"
+     ]
+    },
+    {
+     "selectionId": "hdhp-2025",
+     "location": "Publication 969 - Main Contents › Health Savings Accounts (HSAs) › Qualifying for an HSA Contribution (part 2)",
+     "taxYear": "2025",
+     "effectivePeriod": null,
+     "chars": 561,
+     "startsWith": "The following table shows the minimum annual deductible and maximum annual deduc",
+     "endsWith": " services within the network should be used to figure whether the limit applies.",
+     "requiredPhrases": [
+      "Self-only coverage | Family coverage"
+     ],
+     "figureConditions": [
+      {
+       "figure": "$1,650",
+       "mustMention": [
+        "self-only",
+        "self only",
+        "個人保障",
+        "僅本人",
+        "僅限本人",
+        "本人保障",
+        "單人保障",
+        "個人投保",
+        "單人投保"
+       ],
+       "mustNotApplyTo": [],
+       "columnOrStatusSet": [
+        "family",
+        "家庭保障",
+        "家庭投保",
+        "家庭方案",
+        "家庭計畫",
+        "全家"
+       ]
+      },
+      {
+       "figure": "$3,300",
+       "mustMention": [
+        "family",
+        "家庭保障",
+        "家庭投保",
+        "家庭方案",
+        "家庭計畫",
+        "全家"
+       ],
+       "mustNotApplyTo": [],
+       "columnOrStatusSet": [
+        "self-only",
+        "self only",
+        "個人保障",
+        "僅本人",
+        "僅限本人",
+        "本人保障",
+        "單人保障",
+        "個人投保",
+        "單人投保"
+       ]
+      },
+      {
+       "figure": "$8,300",
+       "mustMention": [
+        "self-only",
+        "self only",
+        "個人保障",
+        "僅本人",
+        "僅限本人",
+        "本人保障",
+        "單人保障",
+        "個人投保",
+        "單人投保"
+       ],
+       "mustNotApplyTo": [],
+       "columnOrStatusSet": [
+        "family",
+        "家庭保障",
+        "家庭投保",
+        "家庭方案",
+        "家庭計畫",
+        "全家"
+       ]
+      },
+      {
+       "figure": "$16,600",
+       "mustMention": [
+        "family",
+        "家庭保障",
+        "家庭投保",
+        "家庭方案",
+        "家庭計畫",
+        "全家"
+       ],
+       "mustNotApplyTo": [],
+       "columnOrStatusSet": [
+        "self-only",
+        "self only",
+        "個人保障",
+        "僅本人",
+        "僅限本人",
+        "本人保障",
+        "單人保障",
+        "個人投保",
+        "單人投保"
+       ]
+      }
+     ],
+     "notCitable": [],
+     "appliesTo": [
+      "2025"
+     ]
+    },
+    {
+     "selectionId": "coverage-definitions",
+     "location": "Publication 969 - Main Contents › Health Savings Accounts (HSAs) › Qualifying for an HSA Contribution (part 2)",
+     "taxYear": "2025",
+     "effectivePeriod": null,
+     "chars": 232,
+     "startsWith": "Self-only HDHP coverage is HDHP coverage for only an eligible individual. Family",
+     "endsWith": "one other individual (whether or not that individual is an eligible individual).",
+     "requiredPhrases": [],
+     "figureConditions": [],
+     "notCitable": [],
+     "appliesTo": [
+      "2025"
+     ]
+    },
+    {
+     "selectionId": "limit-2025",
+     "location": "Publication 969 - Main Contents › Health Savings Accounts (HSAs) › Contributions to an HSA › Limit on Contributions (part 1)",
+     "taxYear": "2025",
+     "effectivePeriod": null,
+     "chars": 362,
+     "startsWith": "The amount you or any other person can contribute to your HSA depends on the typ",
+     "endsWith": "up to $4,300. If you have family HDHP coverage, you can contribute up to $8,550.",
+     "requiredPhrases": [
+      "type of HDHP coverage",
+      "your age",
+      "eligible individual"
+     ],
+     "figureConditions": [
+      {
+       "figure": "$4,300",
+       "mustMention": [
+        "self-only",
+        "self only",
+        "個人保障",
+        "僅本人",
+        "僅限本人",
+        "本人保障",
+        "單人保障",
+        "個人投保",
+        "單人投保"
+       ],
+       "mustNotApplyTo": [],
+       "columnOrStatusSet": [
+        "family",
+        "家庭保障",
+        "家庭投保",
+        "家庭方案",
+        "家庭計畫",
+        "全家"
+       ]
+      },
+      {
+       "figure": "$8,550",
+       "mustMention": [
+        "family",
+        "家庭保障",
+        "家庭投保",
+        "家庭方案",
+        "家庭計畫",
+        "全家"
+       ],
+       "mustNotApplyTo": [],
+       "columnOrStatusSet": [
+        "self-only",
+        "self only",
+        "個人保障",
+        "僅本人",
+        "僅限本人",
+        "本人保障",
+        "單人保障",
+        "個人投保",
+        "單人投保"
+       ]
+      }
+     ],
+     "notCitable": [],
+     "appliesTo": [
+      "2025"
+     ]
+    },
+    {
+     "selectionId": "partial-year-last-month-rule",
+     "location": "Publication 969 - Main Contents › Health Savings Accounts (HSAs) › Contributions to an HSA › Limit on Contributions (part 1)",
+     "taxYear": "2025",
+     "effectivePeriod": null,
+     "chars": 2114,
+     "startsWith": "If you are or were considered (under the last-month rule, discussed later) an el",
+     "endsWith": "tional tax. The income and additional tax are calculated on Form 8889, Part III.",
+     "requiredPhrases": [
+      "first day of the last month",
+      "testing period"
+     ],
+     "figureConditions": [
+      {
+       "figure": "$8,550",
+       "mustMention": [
+        "family",
+        "家庭保障",
+        "家庭投保",
+        "家庭方案",
+        "家庭計畫",
+        "全家"
+       ],
+       "mustNotApplyTo": [],
+       "columnOrStatusSet": []
+      },
+      {
+       "figure": "10%",
+       "mustMention": [
+        "testing period",
+        "測試期"
+       ],
+       "mustNotApplyTo": [],
+       "columnOrStatusSet": []
+      }
+     ],
+     "notCitable": [],
+     "appliesTo": [
+      "2025"
+     ]
+    },
+    {
+     "selectionId": "catch-up-55",
+     "location": "Publication 969 - Main Contents › Health Savings Accounts (HSAs) › Contributions to an HSA › Limit on Contributions (part 2)",
+     "taxYear": "2025",
+     "effectivePeriod": null,
+     "chars": 158,
+     "startsWith": "Additional contribution.\nIf you are an eligible individual who is age 55 or olde",
+     "endsWith": "der at the end of your tax year, your contribution limit is increased by $1,000.",
+     "requiredPhrases": [],
+     "figureConditions": [
+      {
+       "figure": "$1,000",
+       "mustMention": [
+        "55 or older",
+        "age 55",
+        "55 歲",
+        "55歲"
+       ],
+       "mustNotApplyTo": [],
+       "columnOrStatusSet": []
+      }
+     ],
+     "notCitable": [],
+     "appliesTo": [
+      "2025"
+     ]
+    },
+    {
+     "selectionId": "multiple-hsas-married",
+     "location": "Publication 969 - Main Contents › Health Savings Accounts (HSAs) › Contributions to an HSA › Limit on Contributions (part 2)",
+     "taxYear": "2025",
+     "effectivePeriod": null,
+     "chars": 1402,
+     "startsWith": "If you have more than one HSA in 2025, your total contributions to all the HSAs ",
+     "endsWith": "han $10,550. Each spouse must make the additional contribution to their own HSA.",
+     "requiredPhrases": [
+      "apply only if both spouses are eligible individuals",
+      "split equally"
+     ],
+     "figureConditions": [
+      {
+       "figure": "$8,550",
+       "mustMention": [
+        "family",
+        "家庭保障",
+        "家庭投保",
+        "家庭方案",
+        "家庭計畫",
+        "全家"
+       ],
+       "mustNotApplyTo": [],
+       "columnOrStatusSet": []
+      },
+      {
+       "figure": "$10,550",
+       "mustMention": [
+        "both spouses",
+        "雙方",
+        "夫妻兩人",
+        "配偶雙方",
+        "夫妻都"
+       ],
+       "mustNotApplyTo": [],
+       "columnOrStatusSet": []
+      },
+      {
+       "figure": "$10,550",
+       "mustMention": [
+        "55"
+       ],
+       "mustNotApplyTo": [],
+       "columnOrStatusSet": []
+      }
+     ],
+     "notCitable": [],
+     "appliesTo": [
+      "2025"
+     ]
+    },
+    {
+     "selectionId": "employer-contributions",
+     "location": "Publication 969 - Main Contents › Health Savings Accounts (HSAs) › Contributions to an HSA › Limit on Contributions (part 2)",
+     "taxYear": "2025",
+     "effectivePeriod": null,
+     "chars": 289,
+     "startsWith": "Employer contributions.\nYou must reduce the amount you or any other person can c",
+     "endsWith": "s amounts contributed to your account by your employer through a cafeteria plan.",
+     "requiredPhrases": [],
+     "figureConditions": [],
+     "notCitable": [],
+     "appliesTo": [
+      "2025"
+     ]
+    },
+    {
+     "selectionId": "medicare",
+     "location": "Publication 969 - Main Contents › Health Savings Accounts (HSAs) › Contributions to an HSA › Limit on Contributions (part 3)",
+     "taxYear": "2025",
+     "effectivePeriod": null,
+     "chars": 336,
+     "startsWith": "Beginning with the first month you are enrolled in Medicare, your contribution l",
+     "endsWith": "o your HSA made during the period of retroactive coverage are considered excess.",
+     "requiredPhrases": [],
+     "figureConditions": [],
+     "notCitable": [],
+     "appliesTo": [
+      "2025"
+     ]
+    }
+   ],
+   "excluded": [
+    {
+     "what": "Limit on Contributions (part 1) Tip \"For 2026 … $4,400 / $8,750\" and the 2026 HDHP table in Qualifying … (part 2)",
+     "why": "Decision 3: 2026 HSA inflation-adjusted figures come from Rev. Proc. 2025-19 only (no duplicate evidence)"
+    },
+    {
+     "what": "What’s New",
+     "why": "Telehealth (plan years after 2024) and health FSA figures ($3,300 / $660) — FSA is another plan; $3,300 would collide with the HDHP family deductible"
+    },
+    {
+     "what": "Reminders, Introduction, How To Get Tax Help, Index",
+     "why": "Not HSA eligibility or limits"
+    },
+    {
+     "what": "Qualifying … (part 1) HDHP definition and preventive-care list; (part 2) family-plan deductibles, Other health coverage, prescription drug plans; (part 3) other employee health plans, FSA grace period",
+     "why": "Eligibility detail beyond the core conditions — candidate for a later review batch (the eligibility excerpt names \"Other health coverage\" but Lina will not describe permitted coverage until reviewed)"
+    },
+    {
+     "what": "Limit on Contributions — Example 1 and Example 2 (monthly worksheets), Medicare example ($2,650), the $5,300 example inside \"Additional contribution\"",
+     "why": "Worked examples (example figures)"
+    },
+    {
+     "what": "Limit on Contributions (part 3) — qualified HSA funding distribution and its testing period",
+     "why": "IRA-to-HSA funding distribution: not needed for eligibility/limits"
+    },
+    {
+     "what": "Rollovers, When To Contribute, Reporting, Distributions, Balance, Death, Form 8889, Employer Participation",
+     "why": "Not eligibility or contribution limits"
+    },
+    {
+     "what": "Medical Savings Accounts (MSAs), FSAs, HRAs (all sections)",
+     "why": "Other plans"
+    }
+   ]
+  },
+  {
+   "id": "irs-rp-2025-19",
+   "title": "Rev. Proc. 2025-19 (2026 inflation-adjusted HSA amounts)",
+   "url": "https://www.irs.gov/pub/irs-drop/rp-25-19.pdf",
+   "finalUrl": "https://www.irs.gov/pub/irs-drop/rp-25-19.pdf",
+   "retrievedAt": "2026-10-14T01:25:51.521Z",
+   "reviewStatus": "pending",
+   "contentHash": "9192eeda7ee1e4df66a5158dfd6cfab728f8b443fcd56417251727b34982b4e6",
+   "snapshotPassages": 1,
+   "yearScope": "tax_year",
+   "taxYear": "2026",
+   "effectivePeriod": null,
+   "revisionDate": null,
+   "applicability": "year-specific: tax year 2026 only (no excerpt is marked continuing)",
+   "heldSelections": [],
+   "proposedSelections": [
+    {
+     "selectionId": "hsa-2026-amounts",
+     "location": "pages 1–2",
+     "taxYear": "2026",
+     "effectivePeriod": null,
+     "chars": 841,
+     "startsWith": ".01 HSA Inflation Adjusted Items.\n(1) Annual contribution limitation. For calend",
+     "endsWith": "ums) do not exceed $8,500 for self-only coverage or $17,000 for family\ncoverage.",
+     "requiredPhrases": [
+      "For calendar year 2026",
+      "self-only coverage",
+      "family coverage"
+     ],
+     "figureConditions": [
+      {
+       "figure": "$4,400",
+       "mustMention": [
+        "self-only",
+        "self only",
+        "個人保障",
+        "僅本人",
+        "僅限本人",
+        "本人保障",
+        "單人保障",
+        "個人投保",
+        "單人投保"
+       ],
+       "mustNotApplyTo": [],
+       "columnOrStatusSet": [
+        "family",
+        "家庭保障",
+        "家庭投保",
+        "家庭方案",
+        "家庭計畫",
+        "全家"
+       ]
+      },
+      {
+       "figure": "$8,750",
+       "mustMention": [
+        "family",
+        "家庭保障",
+        "家庭投保",
+        "家庭方案",
+        "家庭計畫",
+        "全家"
+       ],
+       "mustNotApplyTo": [],
+       "columnOrStatusSet": [
+        "self-only",
+        "self only",
+        "個人保障",
+        "僅本人",
+        "僅限本人",
+        "本人保障",
+        "單人保障",
+        "個人投保",
+        "單人投保"
+       ]
+      },
+      {
+       "figure": "$1,700",
+       "mustMention": [
+        "self-only",
+        "self only",
+        "個人保障",
+        "僅本人",
+        "僅限本人",
+        "本人保障",
+        "單人保障",
+        "個人投保",
+        "單人投保"
+       ],
+       "mustNotApplyTo": [],
+       "columnOrStatusSet": [
+        "family",
+        "家庭保障",
+        "家庭投保",
+        "家庭方案",
+        "家庭計畫",
+        "全家"
+       ]
+      },
+      {
+       "figure": "$3,400",
+       "mustMention": [
+        "family",
+        "家庭保障",
+        "家庭投保",
+        "家庭方案",
+        "家庭計畫",
+        "全家"
+       ],
+       "mustNotApplyTo": [],
+       "columnOrStatusSet": [
+        "self-only",
+        "self only",
+        "個人保障",
+        "僅本人",
+        "僅限本人",
+        "本人保障",
+        "單人保障",
+        "個人投保",
+        "單人投保"
+       ]
+      },
+      {
+       "figure": "$8,500",
+       "mustMention": [
+        "self-only",
+        "self only",
+        "個人保障",
+        "僅本人",
+        "僅限本人",
+        "本人保障",
+        "單人保障",
+        "個人投保",
+        "單人投保"
+       ],
+       "mustNotApplyTo": [],
+       "columnOrStatusSet": [
+        "family",
+        "家庭保障",
+        "家庭投保",
+        "家庭方案",
+        "家庭計畫",
+        "全家"
+       ]
+      },
+      {
+       "figure": "$17,000",
+       "mustMention": [
+        "family",
+        "家庭保障",
+        "家庭投保",
+        "家庭方案",
+        "家庭計畫",
+        "全家"
+       ],
+       "mustNotApplyTo": [],
+       "columnOrStatusSet": [
+        "self-only",
+        "self only",
+        "個人保障",
+        "僅本人",
+        "僅限本人",
+        "本人保障",
+        "單人保障",
+        "個人投保",
+        "單人投保"
+       ]
+      }
+     ],
+     "notCitable": [],
+     "appliesTo": [
+      "2026"
+     ]
+    },
+    {
+     "selectionId": "effective-date",
+     "location": "pages 1–2",
+     "taxYear": "2026",
+     "effectivePeriod": null,
+     "chars": 131,
+     "startsWith": "This revenue procedure is effective for HSAs for calendar year 2026 and for\nexce",
+     "endsWith": "lendar year 2026 and for\nexcepted benefit HRAs for plan years beginning in 2026.",
+     "requiredPhrases": [],
+     "figureConditions": [],
+     "notCitable": [],
+     "appliesTo": [
+      "2026"
+     ]
+    }
+   ],
+   "excluded": [
+    {
+     "what": "Part III header, Section 1 (Purpose)",
+     "why": "Header; Purpose also covers HRAs"
+    },
+    {
+     "what": ".02 HRA Inflation Adjusted Item ($2,200)",
+     "why": "Excepted benefit HRA — another plan"
+    },
+    {
+     "what": "Section 4 (Drafting information)",
+     "why": "Contacts, not guidance"
+    }
+   ]
+  },
+  {
+   "id": "irs-p590a-2025",
+   "title": "Publication 590-A (2025), Contributions to Individual Retirement Arrangements (IRAs)",
+   "url": "https://www.irs.gov/publications/p590a",
+   "finalUrl": "https://www.irs.gov/publications/p590a",
+   "retrievedAt": "2026-10-14T01:25:51.521Z",
+   "reviewStatus": "pending",
+   "contentHash": "b7690c58aadf3c471addb59a25761ddb684cc2f8d8a2deaf9eb011cee52d0037",
+   "snapshotPassages": 160,
+   "yearScope": "tax_year",
+   "taxYear": "2025",
+   "effectivePeriod": null,
+   "revisionDate": null,
+   "applicability": "year-specific: tax year 2025 only (no excerpt is marked continuing)",
+   "heldSelections": [],
+   "proposedSelections": [
+    {
+     "selectionId": "roth-eligibility-2025",
+     "location": "2. Roth IRAs › Can You Contribute to a Roth IRA?",
+     "taxYear": "2025",
+     "effectivePeriod": null,
+     "chars": 965,
+     "startsWith": "Generally, you can contribute to a Roth IRA if you have taxable compensation (de",
+     "endsWith": "n Be Contributed, you file jointly, and your modified AGI is less than $246,000.",
+     "requiredPhrases": [
+      "taxable compensation",
+      "married filing jointly or qualifying surviving spouse",
+      "lived with your spouse at any time during the year",
+      "regardless of your age"
+     ],
+     "figureConditions": [
+      {
+       "figure": "$246,000",
+       "mustMention": [
+        "married filing jointly",
+        "filing jointly",
+        "joint return",
+        "qualifying surviving spouse",
+        "qualifying widow",
+        "合併申報",
+        "符合資格的尚存配偶",
+        "符合資格的未亡配偶"
+       ],
+       "mustNotApplyTo": [],
+       "columnOrStatusSet": [
+        "single",
+        "head of household",
+        "單身",
+        "戶長",
+        "married filing separately",
+        "separate return",
+        "分開申報",
+        "分別申報"
+       ]
+      },
+      {
+       "figure": "$165,000",
+       "mustMention": [
+        "single",
+        "head of household",
+        "單身",
+        "戶長",
+        "didn't live with",
+        "did not live with",
+        "未與配偶同住",
+        "未和配偶同住",
+        "沒有與配偶同住",
+        "沒有和配偶同住",
+        "沒有跟配偶同住",
+        "不與配偶同住"
+       ],
+       "mustNotApplyTo": [],
+       "columnOrStatusSet": [
+        "married filing jointly",
+        "filing jointly",
+        "joint return",
+        "qualifying surviving spouse",
+        "qualifying widow",
+        "合併申報",
+        "符合資格的尚存配偶",
+        "符合資格的未亡配偶",
+        "lived with your spouse",
+        "lived with their spouse",
+        "lived with the spouse",
+        "lived with his or her spouse",
+        "與配偶同住",
+        "和配偶同住",
+        "跟配偶同住"
+       ]
+      },
+      {
+       "figure": "$10,000",
+       "mustMention": [
+        "married filing separately",
+        "separate return",
+        "分開申報",
+        "分別申報"
+       ],
+       "mustNotApplyTo": [],
+       "columnOrStatusSet": [
+        "married filing jointly",
+        "filing jointly",
+        "joint return",
+        "qualifying surviving spouse",
+        "qualifying widow",
+        "合併申報",
+        "符合資格的尚存配偶",
+        "符合資格的未亡配偶",
+        "single",
+        "head of household",
+        "單身",
+        "戶長"
+       ]
+      },
+      {
+       "figure": "$10,000",
+       "mustMention": [
+        "lived with your spouse",
+        "lived with their spouse",
+        "lived with the spouse",
+        "lived with his or her spouse",
+        "與配偶同住",
+        "和配偶同住",
+        "跟配偶同住"
+       ],
+       "mustNotApplyTo": [],
+       "columnOrStatusSet": [
+        "didn't live with",
+        "did not live with",
+        "未與配偶同住",
+        "未和配偶同住",
+        "沒有與配偶同住",
+        "沒有和配偶同住",
+        "沒有跟配偶同住",
+        "不與配偶同住"
+       ]
+      }
+     ],
+     "notCitable": [],
+     "appliesTo": [
+      "2025"
+     ]
+    },
+    {
+     "selectionId": "roth-only-limit-2025",
+     "location": "2. Roth IRAs › Worksheet 2-1. Modified Adjusted Gross Income for Roth IRA Purposes (part 1)",
+     "taxYear": "2025",
+     "effectivePeriod": null,
+     "chars": 336,
+     "startsWith": "Roth IRAs only.\nIf contributions are made only to Roth IRAs, your contribution l",
+     "endsWith": "ution limit may be reduced, as explained later under Contribution limit reduced.",
+     "requiredPhrases": [
+      "lesser of",
+      "Your taxable compensation"
+     ],
+     "figureConditions": [
+      {
+       "figure": "$7,000",
+       "mustMention": [
+        "compensation",
+        "應稅報酬",
+        "報酬",
+        "薪資",
+        "工作收入"
+       ],
+       "mustNotApplyTo": [],
+       "columnOrStatusSet": []
+      },
+      {
+       "figure": "$8,000",
+       "mustMention": [
+        "50 or older",
+        "age 50",
+        "50 歲",
+        "50歲"
+       ],
+       "mustNotApplyTo": [],
+       "columnOrStatusSet": []
+      }
+     ],
+     "notCitable": [],
+     "appliesTo": [
+      "2025"
+     ]
+    },
+    {
+     "selectionId": "roth-phaseout-table-2025",
+     "location": "2. Roth IRAs › Worksheet 2-1. Modified Adjusted Gross Income for Roth IRA Purposes › Table 2-1. Effect of Modified AGI on Roth IRA Contribution",
+     "taxYear": "2025",
+     "effectivePeriod": null,
+     "chars": 2206,
+     "startsWith": "This table shows whether your contribution to a Roth IRA is affected by the amou",
+     "endsWith": "te must be reduced, use Worksheet 2-2 to figure your reduced contribution limit.",
+     "requiredPhrases": [],
+     "figureConditions": [
+      {
+       "figure": "$236,000",
+       "mustMention": [
+        "married filing jointly",
+        "filing jointly",
+        "joint return",
+        "qualifying surviving spouse",
+        "qualifying widow",
+        "合併申報",
+        "符合資格的尚存配偶",
+        "符合資格的未亡配偶"
+       ],
+       "mustNotApplyTo": [],
+       "columnOrStatusSet": [
+        "single",
+        "head of household",
+        "單身",
+        "戶長",
+        "married filing separately",
+        "separate return",
+        "分開申報",
+        "分別申報"
+       ]
+      },
+      {
+       "figure": "$246,000",
+       "mustMention": [
+        "married filing jointly",
+        "filing jointly",
+        "joint return",
+        "qualifying surviving spouse",
+        "qualifying widow",
+        "合併申報",
+        "符合資格的尚存配偶",
+        "符合資格的未亡配偶"
+       ],
+       "mustNotApplyTo": [],
+       "columnOrStatusSet": [
+        "single",
+        "head of household",
+        "單身",
+        "戶長",
+        "married filing separately",
+        "separate return",
+        "分開申報",
+        "分別申報"
+       ]
+      },
+      {
+       "figure": "$150,000",
+       "mustMention": [
+        "single",
+        "head of household",
+        "單身",
+        "戶長",
+        "didn't live with",
+        "did not live with",
+        "未與配偶同住",
+        "未和配偶同住",
+        "沒有與配偶同住",
+        "沒有和配偶同住",
+        "沒有跟配偶同住",
+        "不與配偶同住"
+       ],
+       "mustNotApplyTo": [],
+       "columnOrStatusSet": [
+        "married filing jointly",
+        "filing jointly",
+        "joint return",
+        "qualifying surviving spouse",
+        "qualifying widow",
+        "合併申報",
+        "符合資格的尚存配偶",
+        "符合資格的未亡配偶",
+        "lived with your spouse",
+        "lived with their spouse",
+        "lived with the spouse",
+        "lived with his or her spouse",
+        "與配偶同住",
+        "和配偶同住",
+        "跟配偶同住"
+       ]
+      },
+      {
+       "figure": "$165,000",
+       "mustMention": [
+        "single",
+        "head of household",
+        "單身",
+        "戶長",
+        "didn't live with",
+        "did not live with",
+        "未與配偶同住",
+        "未和配偶同住",
+        "沒有與配偶同住",
+        "沒有和配偶同住",
+        "沒有跟配偶同住",
+        "不與配偶同住"
+       ],
+       "mustNotApplyTo": [],
+       "columnOrStatusSet": [
+        "married filing jointly",
+        "filing jointly",
+        "joint return",
+        "qualifying surviving spouse",
+        "qualifying widow",
+        "合併申報",
+        "符合資格的尚存配偶",
+        "符合資格的未亡配偶",
+        "lived with your spouse",
+        "lived with their spouse",
+        "lived with the spouse",
+        "lived with his or her spouse",
+        "與配偶同住",
+        "和配偶同住",
+        "跟配偶同住"
+       ]
+      },
+      {
+       "figure": "$10,000",
+       "mustMention": [
+        "married filing separately",
+        "separate return",
+        "分開申報",
+        "分別申報"
+       ],
+       "mustNotApplyTo": [],
+       "columnOrStatusSet": [
+        "married filing jointly",
+        "filing jointly",
+        "joint return",
+        "qualifying surviving spouse",
+        "qualifying widow",
+        "合併申報",
+        "符合資格的尚存配偶",
+        "符合資格的未亡配偶",
+        "single",
+        "head of household",
+        "單身",
+        "戶長"
+       ]
+      },
+      {
+       "figure": "$10,000",
+       "mustMention": [
+        "lived with your spouse",
+        "lived with their spouse",
+        "lived with the spouse",
+        "lived with his or her spouse",
+        "與配偶同住",
+        "和配偶同住",
+        "跟配偶同住"
+       ],
+       "mustNotApplyTo": [],
+       "columnOrStatusSet": [
+        "didn't live with",
+        "did not live with",
+        "未與配偶同住",
+        "未和配偶同住",
+        "沒有與配偶同住",
+        "沒有和配偶同住",
+        "沒有跟配偶同住",
+        "不與配偶同住"
+       ]
+      },
+      {
+       "figure": "$8,000",
+       "mustMention": [
+        "50 or older",
+        "age 50",
+        "50 歲",
+        "50歲"
+       ],
+       "mustNotApplyTo": [],
+       "columnOrStatusSet": []
+      }
+     ],
+     "notCitable": [],
+     "appliesTo": [
+      "2025"
+     ]
+    }
+   ],
+   "excluded": [
+    {
+     "what": "What’s New for 2026",
+     "why": "Contains the IRS typo \"$252,0000\" (Roth MFJ upper limit). Whole passage excluded; 2026 Roth figures come from Notice 2025-67"
+    },
+    {
+     "what": "What’s New for 2025",
+     "why": "Mixes traditional-IRA deduction phase-outs, Trump accounts and prior-year (2024) \"up from\" values; the same 2025 Roth figures are served from chapter 2"
+    },
+    {
+     "what": "Chapter 1 (traditional IRAs), Table I-2, Reminders, Useful Items",
+     "why": "Not Roth contribution rules"
+    },
+    {
+     "what": "Worksheet 2-1 lines 1–11 and the refiguring note",
+     "why": "Worksheet mechanics (line references to Form 1040)"
+    },
+    {
+     "what": "\"Roth IRAs and traditional IRAs\" (combined limit) and Worksheet 2-1 (part 2): reservist repayments",
+     "why": "Candidate for a later batch; not in the minimum Roth rule set"
+    },
+    {
+     "what": "Worksheet 2-2 and its illustrated example; conversions, rollovers, distributions, Saver’s credit (chapter 3), appendices",
+     "why": "Examples / other topics"
+    }
+   ]
+  },
+  {
+   "id": "irs-n-2025-67",
+   "title": "Notice 2025-67 (2026 amounts relating to retirement plans and IRAs)",
+   "url": "https://www.irs.gov/pub/irs-drop/n-25-67.pdf",
+   "finalUrl": "https://www.irs.gov/pub/irs-drop/n-25-67.pdf",
+   "retrievedAt": "2026-10-14T04:03:17.743Z",
+   "reviewStatus": "pending",
+   "contentHash": "3c9cba4467b23bd4f24638b50b0fcf64027fe956ffc6e21084c3677c0ba9c4f1",
+   "snapshotPassages": 5,
+   "yearScope": "tax_year",
+   "taxYear": "2026",
+   "effectivePeriod": null,
+   "revisionDate": null,
+   "applicability": "year-specific: tax year 2026 only (no excerpt is marked continuing)",
+   "heldSelections": [
+    {
+     "selectionId": "ira-limit-2026",
+     "location": "pages 3–4",
+     "reason": "needs_supporting_authority",
+     "needs": [
+      "IRC §219(b)(1): the IRA limit is the lesser of the §219(b)(5)(A) deductible amount or the individual’s compensation includible in gross income",
+      "IRC §408A(c)(2): the Roth IRA contribution limit is the §219(b)(1) amount reduced by contributions to other IRAs (and subject to the §408A(c)(3) phase-out)",
+      "IRC §219(b)(5)(B): the age-50 additional amount applies to individuals who attained age 50 before the close of the taxable year (stated in the Notice excerpt)",
+      "An approved IRS source for 2026 that states the IRA/Roth IRA contribution limit and its compensation condition together (e.g. an IRS 2026 cost-of-living news release or the 2026 Pub 590-A when published) — URL to be proposed for approval, not fetched"
+     ],
+     "note": "The descriptions of the Code sections above state what must be verified from the enacted text and an approved IRS source; they are not served to Lina and are not verified here."
+    }
+   ],
+   "proposedSelections": [
+    {
+     "selectionId": "roth-2026",
+     "location": "pages 4–5",
+     "taxYear": "2026",
+     "effectivePeriod": null,
+     "chars": 1231,
+     "startsWith": "The adjusted gross income limitation under section 408A(c)(3)(B)(ii)(I) for\ndete",
+     "endsWith": "bject to an annual cost-of-living adjustment and remains\nbetween $0 and $10,000.",
+     "requiredPhrases": [
+      "married couples filing jointly",
+      "singles and heads of household",
+      "married individual filing a separate return"
+     ],
+     "figureConditions": [
+      {
+       "figure": "$242,000",
+       "mustMention": [
+        "married filing jointly",
+        "filing jointly",
+        "joint return",
+        "qualifying surviving spouse",
+        "qualifying widow",
+        "合併申報",
+        "符合資格的尚存配偶",
+        "符合資格的未亡配偶"
+       ],
+       "mustNotApplyTo": [],
+       "columnOrStatusSet": [
+        "single",
+        "head of household",
+        "單身",
+        "戶長",
+        "married filing separately",
+        "separate return",
+        "分開申報",
+        "分別申報"
+       ]
+      },
+      {
+       "figure": "$252,000",
+       "mustMention": [
+        "married filing jointly",
+        "filing jointly",
+        "joint return",
+        "qualifying surviving spouse",
+        "qualifying widow",
+        "合併申報",
+        "符合資格的尚存配偶",
+        "符合資格的未亡配偶"
+       ],
+       "mustNotApplyTo": [],
+       "columnOrStatusSet": [
+        "single",
+        "head of household",
+        "單身",
+        "戶長",
+        "married filing separately",
+        "separate return",
+        "分開申報",
+        "分別申報"
+       ]
+      },
+      {
+       "figure": "$153,000",
+       "mustMention": [
+        "single",
+        "head of household",
+        "單身",
+        "戶長"
+       ],
+       "mustNotApplyTo": [
+        "married filing separately",
+        "separate return",
+        "分開申報",
+        "分別申報",
+        "didn't live with",
+        "did not live with",
+        "未與配偶同住",
+        "未和配偶同住",
+        "沒有與配偶同住",
+        "沒有和配偶同住",
+        "沒有跟配偶同住",
+        "不與配偶同住",
+        "lived with your spouse",
+        "lived with their spouse",
+        "lived with the spouse",
+        "lived with his or her spouse",
+        "與配偶同住",
+        "和配偶同住",
+        "跟配偶同住"
+       ],
+       "columnOrStatusSet": [
+        "married filing jointly",
+        "filing jointly",
+        "joint return",
+        "qualifying surviving spouse",
+        "qualifying widow",
+        "合併申報",
+        "符合資格的尚存配偶",
+        "符合資格的未亡配偶",
+        "married filing separately",
+        "separate return",
+        "分開申報",
+        "分別申報",
+        "didn't live with",
+        "did not live with",
+        "未與配偶同住",
+        "未和配偶同住",
+        "沒有與配偶同住",
+        "沒有和配偶同住",
+        "沒有跟配偶同住",
+        "不與配偶同住",
+        "lived with your spouse",
+        "lived with their spouse",
+        "lived with the spouse",
+        "lived with his or her spouse",
+        "與配偶同住",
+        "和配偶同住",
+        "跟配偶同住"
+       ]
+      },
+      {
+       "figure": "$168,000",
+       "mustMention": [
+        "single",
+        "head of household",
+        "單身",
+        "戶長"
+       ],
+       "mustNotApplyTo": [
+        "married filing separately",
+        "separate return",
+        "分開申報",
+        "分別申報",
+        "didn't live with",
+        "did not live with",
+        "未與配偶同住",
+        "未和配偶同住",
+        "沒有與配偶同住",
+        "沒有和配偶同住",
+        "沒有跟配偶同住",
+        "不與配偶同住",
+        "lived with your spouse",
+        "lived with their spouse",
+        "lived with the spouse",
+        "lived with his or her spouse",
+        "與配偶同住",
+        "和配偶同住",
+        "跟配偶同住"
+       ],
+       "columnOrStatusSet": [
+        "married filing jointly",
+        "filing jointly",
+        "joint return",
+        "qualifying surviving spouse",
+        "qualifying widow",
+        "合併申報",
+        "符合資格的尚存配偶",
+        "符合資格的未亡配偶",
+        "married filing separately",
+        "separate return",
+        "分開申報",
+        "分別申報",
+        "didn't live with",
+        "did not live with",
+        "未與配偶同住",
+        "未和配偶同住",
+        "沒有與配偶同住",
+        "沒有和配偶同住",
+        "沒有跟配偶同住",
+        "不與配偶同住",
+        "lived with your spouse",
+        "lived with their spouse",
+        "lived with the spouse",
+        "lived with his or her spouse",
+        "與配偶同住",
+        "和配偶同住",
+        "跟配偶同住"
+       ]
+      },
+      {
+       "figure": "$10,000",
+       "mustMention": [
+        "married filing separately",
+        "separate return",
+        "分開申報",
+        "分別申報"
+       ],
+       "mustNotApplyTo": [],
+       "columnOrStatusSet": [
+        "married filing jointly",
+        "filing jointly",
+        "joint return",
+        "qualifying surviving spouse",
+        "qualifying widow",
+        "合併申報",
+        "符合資格的尚存配偶",
+        "符合資格的未亡配偶",
+        "single",
+        "head of household",
+        "單身",
+        "戶長"
+       ]
+      }
+     ],
+     "notCitable": [
+      "$236,000",
+      "$150,000",
+      "$246,000",
+      "$165,000"
+     ],
+     "appliesTo": [
+      "2026"
+     ]
+    }
+   ],
+   "excluded": [
+    {
+     "what": "pages 1–2, 2–3 (sections 415, 402(g), 414(v), 457, SIMPLE, highly compensated / key employee, ESOP, etc.)",
+     "why": "Employer-plan limits (401(k), 403(b), SIMPLE …) — excluded by instruction"
+    },
+    {
+     "what": "pages 3–4: 664(g)(7), § 1.61-21, longevity annuity, 432(e)(9) multiemployer, 25B Saver’s credit AGI limits",
+     "why": "Not IRA / Roth IRA contribution limits"
+    },
+    {
+     "what": "pages 3–5: 219(g) traditional-IRA deduction phase-outs (active participant)",
+     "why": "Traditional-IRA deduction, not Roth; excluded to keep the Roth MFJ $242,000–$252,000 range unambiguous (the 219(g)(7) spousal range has the same numbers)"
+    },
+    {
+     "what": "pages 4–6: 408(d)(8) QCDs, 45E, 72(t)(2)(K), remaining items and drafting information",
+     "why": "Not IRA / Roth contribution limits"
+    }
+   ]
+  },
+  {
+   "id": "irs-i3520-2025-12",
+   "title": "Instructions for Form 3520 (Rev. December 2025)",
+   "url": "https://www.irs.gov/instructions/i3520",
+   "finalUrl": "https://www.irs.gov/instructions/i3520",
+   "retrievedAt": "2026-10-14T01:25:51.521Z",
+   "reviewStatus": "pending",
+   "contentHash": "594d05c8fa73ef7b92259c55b71ffdf4f9dee699b36ee2a85099928191bcb609",
+   "snapshotPassages": 64,
+   "yearScope": "effective_period",
+   "taxYear": null,
+   "effectivePeriod": "Tax year 2025 and subsequent years until a superseding revision is issued (Rev. December 2025)",
+   "revisionDate": "2025-12",
+   "applicability": "effective period: tax year 2025 onward until superseded (verified from the document)",
+   "heldSelections": [],
+   "proposedSelections": [
+    {
+     "selectionId": "due-date",
+     "location": "Reminders",
+     "taxYear": null,
+     "effectivePeriod": "Tax year 2025 and subsequent years until a superseding revision is issued (Rev. December 2025)",
+     "chars": 381,
+     "startsWith": "Form 3520 is due by the 15th day of the 4th month following the end of the taxpa",
+     "endsWith": " tax return for which the extension applies. See When and Where To File , later.",
+     "requiredPhrases": [],
+     "figureConditions": [],
+     "notCitable": [],
+     "appliesTo": "2025+"
+    },
+    {
+     "selectionId": "continuous-use",
+     "location": "Reminders",
+     "taxYear": null,
+     "effectivePeriod": "Tax year 2025 and subsequent years until a superseding revision is issued (Rev. December 2025)",
+     "chars": 126,
+     "startsWith": "Continuous-use revision.\nUse these instructions for tax year 2025 and subsequent",
+     "endsWith": "s for tax year 2025 and subsequent years until a superseding revision is issued.",
+     "requiredPhrases": [],
+     "figureConditions": [],
+     "notCitable": [],
+     "appliesTo": "2025+"
+    },
+    {
+     "selectionId": "who-must-file-gifts",
+     "location": "General Instructions › Who Must File",
+     "taxYear": null,
+     "effectivePeriod": "Tax year 2025 and subsequent years until a superseding revision is issued (Rev. December 2025)",
+     "chars": 859,
+     "startsWith": "You are a U.S. person who, during the current tax year, received either:\nMore th",
+     "endsWith": "nformation on page 1 of the form and Part IV. See the instructions for Part IV .",
+     "requiredPhrases": [
+      "nonresident alien individual or a foreign estate",
+      "section 6039F threshold amount from foreign corporations or foreign partnerships"
+     ],
+     "figureConditions": [
+      {
+       "figure": "$100,000",
+       "mustMention": [
+        "nonresident alien",
+        "foreign estate",
+        "非居民外國人",
+        "外國遺產"
+       ],
+       "mustNotApplyTo": [
+        "foreign corporation",
+        "foreign company",
+        "foreign partnership",
+        "foreign trust",
+        "外國公司",
+        "外國企業",
+        "外國合夥",
+        "外國信託",
+        "海外公司",
+        "海外信託"
+       ],
+       "columnOrStatusSet": []
+      }
+     ],
+     "notCitable": [],
+     "appliesTo": "2025+"
+    },
+    {
+     "selectionId": "penalty-6039f",
+     "location": "General Instructions › Penalties › Reasonable cause. (part 1)",
+     "taxYear": null,
+     "effectivePeriod": "Tax year 2025 and subsequent years until a superseding revision is issued (Rev. December 2025)",
+     "chars": 842,
+     "startsWith": "No penalties will be imposed if the taxpayer can demonstrate that the failure to",
+     "endsWith": "es (not to exceed a total of 25%). See section 6039F for additional information.",
+     "requiredPhrases": [
+      "reasonable cause and not willful neglect",
+      "for each month for which the failure to report continues"
+     ],
+     "figureConditions": [
+      {
+       "figure": "5%",
+       "mustMention": [
+        "gift",
+        "bequest",
+        "6039f",
+        "贈與",
+        "遺贈",
+        "餽贈"
+       ],
+       "mustNotApplyTo": [
+        "foreign trust",
+        "3520-a",
+        "外國信託",
+        "海外信託"
+       ],
+       "columnOrStatusSet": []
+      },
+      {
+       "figure": "25%",
+       "mustMention": [
+        "gift",
+        "bequest",
+        "6039f",
+        "贈與",
+        "遺贈",
+        "餽贈"
+       ],
+       "mustNotApplyTo": [
+        "foreign trust",
+        "3520-a",
+        "外國信託",
+        "海外信託"
+       ],
+       "columnOrStatusSet": []
+      }
+     ],
+     "notCitable": [],
+     "appliesTo": "2025+"
+    },
+    {
+     "selectionId": "us-person",
+     "location": "General Instructions › Definitions › U.S. Person",
+     "taxYear": null,
+     "effectivePeriod": "Tax year 2025 and subsequent years until a superseding revision is issued (Rev. December 2025)",
+     "chars": 409,
+     "startsWith": "A U.S. person is:\nA citizen or resident of the United States, including dual res",
+     "endsWith": "on determining resident alien status, go to Pub. 519, U.S. Tax Guide for Aliens.",
+     "requiredPhrases": [],
+     "figureConditions": [],
+     "notCitable": [],
+     "appliesTo": "2025+"
+    },
+    {
+     "selectionId": "part-iv-reporting",
+     "location": "Specific Instructions › Part IV—U.S. Recipients of Gifts or Bequests Received During the Current Tax Year From Foreign Persons (part 1)",
+     "taxYear": null,
+     "effectivePeriod": "Tax year 2025 and subsequent years until a superseding revision is issued (Rev. December 2025)",
+     "chars": 2229,
+     "startsWith": "Complete Part IV if you are a U.S. person who has received gifts or bequests fro",
+     "endsWith": "acting as a nominee or intermediary for the other. See Related Person , earlier.",
+     "requiredPhrases": [
+      "qualified tuition or medical payments",
+      "as a distribution in Part III",
+      "aggregate gifts"
+     ],
+     "figureConditions": [
+      {
+       "figure": "$100,000",
+       "mustMention": [
+        "nonresident alien",
+        "foreign estate",
+        "非居民外國人",
+        "外國遺產"
+       ],
+       "mustNotApplyTo": [
+        "foreign corporation",
+        "foreign company",
+        "foreign partnership",
+        "foreign trust",
+        "外國公司",
+        "外國企業",
+        "外國合夥",
+        "外國信託",
+        "海外公司",
+        "海外信託"
+       ],
+       "columnOrStatusSet": []
+      }
+     ],
+     "notCitable": [],
+     "appliesTo": "2025+"
+    },
+    {
+     "selectionId": "part-iv-5000-rule",
+     "location": "Specific Instructions › Part IV—U.S. Recipients of Gifts or Bequests Received During the Current Tax Year From Foreign Persons (part 1)",
+     "taxYear": null,
+     "effectivePeriod": "Tax year 2025 and subsequent years until a superseding revision is issued (Rev. December 2025)",
+     "chars": 227,
+     "startsWith": "However, if you answered “Yes” but none of the individual gifts or bequests rece",
+     "endsWith": "ad, enter in column (b) of the first line, “No gifts or bequests exceed $5,000.”",
+     "requiredPhrases": [],
+     "figureConditions": [
+      {
+       "figure": "$5,000",
+       "mustMention": [
+        "individual gift",
+        "each gift",
+        "column",
+        "個別",
+        "每筆"
+       ],
+       "mustNotApplyTo": [],
+       "columnOrStatusSet": []
+      }
+     ],
+     "notCitable": [],
+     "appliesTo": "2025+"
+    }
+   ],
+   "excluded": [
+    {
+     "what": "What’s New (section 2801 tax)",
+     "why": "Covered-expatriate gifts — separate regime"
+    },
+    {
+     "what": "Reminders: Form 3520-A due date, assessment period",
+     "why": "Foreign trust reporting / statute of limitations"
+    },
+    {
+     "what": "Who Must File: Part I–III triggers (trusts, reportable events, distributions)",
+     "why": "Foreign trusts — excluded by instruction"
+    },
+    {
+     "what": "Exceptions To Filing, Joint Returns, When and Where To File (addresses), Who Must Sign, Inconsistent Treatment",
+     "why": "Not needed for the foreign-gift rule set (candidate for later review: exceptions)"
+    },
+    {
+     "what": "Penalties: section 6677 (35% / 5% trust penalties, $10,000), section 6662(j), reasonable cause (parts 2–3)",
+     "why": "Trust penalties — the 5% trust-owner penalty must never be confused with the 5%/month gift penalty"
+    },
+    {
+     "what": "Definitions other than U.S. Person (trust terms; Related Person)",
+     "why": "Trust definitions; Related Person is referenced but not served (candidate for later review)"
+    },
+    {
+     "what": "Part IV line 54 example (Abby / Brian $75,000 + $40,000); line 55 (no figure); the covered-expatriate sentence; part 2 (Xander Corp example, line 56)",
+     "why": "Worked examples; line 55 gives no amount; the covered-expatriate sentence cites a \"What’s New—Estate and gift tax\" item that does not exist in this revision"
+    },
+    {
+     "what": "Parts I–III specific instructions; Privacy Act notice",
+     "why": "Foreign trusts / administrative"
+    }
+   ]
+  }
+ ]
+}
