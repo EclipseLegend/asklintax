@@ -1,0 +1,394 @@
+{
+ "_comment": "FROZEN held-out retrieval set (Phase 4.2 step 1.2). Written before the scoring change; never tuned against. mustRetrieveAny: at least one of these excerpts must be offered (empty = no requirement). forbiddenPrefixes: none of these may be offered (applicability / precision).",
+ "frozenAt": "2026-10-15T15:20:19.677Z",
+ "cases": [
+  {
+   "id": "ho-01",
+   "lang": "en",
+   "category": "conversational + filler",
+   "question": "Hey, quick question for you. For 2025, I am the only person on my high-deductible health plan, so what is the most I am allowed to stash away in my health savings account?",
+   "mustRetrieveAny": [
+    "irs-p969-2025#limit-2025"
+   ],
+   "forbiddenPrefixes": [
+    "irs-p590a",
+    "irs-n-2025-67",
+    "irs-i3520",
+    "irs-rp-2025-19#"
+   ],
+   "note": "2025 self-only limit"
+  },
+  {
+   "id": "ho-02",
+   "lang": "zh",
+   "category": "mixed EN/ZH",
+   "question": "請問 2026 年 HSA 的 family coverage 上限大概多少？",
+   "mustRetrieveAny": [
+    "irs-rp-2025-19#hsa-2026-amounts"
+   ],
+   "forbiddenPrefixes": [
+    "irs-p590a",
+    "irs-n-2025-67",
+    "irs-i3520",
+    "irs-p969-2025#limit-2025",
+    "irs-p969-2025#hdhp-2025"
+   ],
+   "note": "2026 family limit"
+  },
+  {
+   "id": "ho-03",
+   "lang": "en",
+   "category": "different word order",
+   "question": "Family coverage, 2026, HSA contribution maximum?",
+   "mustRetrieveAny": [
+    "irs-rp-2025-19#hsa-2026-amounts"
+   ],
+   "forbiddenPrefixes": [
+    "irs-p590a",
+    "irs-n-2025-67",
+    "irs-i3520",
+    "irs-p969-2025#limit-2025",
+    "irs-p969-2025#hdhp-2025"
+   ],
+   "note": "2026 family limit"
+  },
+  {
+   "id": "ho-04",
+   "lang": "en",
+   "category": "conversational",
+   "question": "My wife and I are both over 55. Do we each get to put in an extra amount for our HSAs in 2025?",
+   "mustRetrieveAny": [
+    "irs-p969-2025#catch-up-55",
+    "irs-p969-2025#multiple-hsas-married"
+   ],
+   "forbiddenPrefixes": [
+    "irs-p590a",
+    "irs-n-2025-67",
+    "irs-i3520",
+    "irs-rp-2025-19#"
+   ],
+   "note": "catch-up / married rules 2025"
+  },
+  {
+   "id": "ho-05",
+   "lang": "zh",
+   "category": "missing year",
+   "question": "我今年開始領 Medicare 了，HSA 還能繼續存錢嗎？",
+   "mustRetrieveAny": [
+    "irs-p969-2025#medicare"
+   ],
+   "forbiddenPrefixes": [
+    "irs-p590a",
+    "irs-n-2025-67",
+    "irs-i3520"
+   ],
+   "note": "Medicare enrollment"
+  },
+  {
+   "id": "ho-06",
+   "lang": "en",
+   "category": "conversational",
+   "question": "Does the money my job deposits into my health savings account eat into how much I can add on my own?",
+   "mustRetrieveAny": [
+    "irs-p969-2025#employer-contributions"
+   ],
+   "forbiddenPrefixes": [
+    "irs-p590a",
+    "irs-n-2025-67",
+    "irs-i3520"
+   ],
+   "note": "employer contributions"
+  },
+  {
+   "id": "ho-07",
+   "lang": "en",
+   "category": "extra filler",
+   "question": "So I am shopping for insurance right now, and I want to know the lowest deductible a family plan can have in 2025 and still let me open an HSA.",
+   "mustRetrieveAny": [
+    "irs-p969-2025#hdhp-2025"
+   ],
+   "forbiddenPrefixes": [
+    "irs-p590a",
+    "irs-n-2025-67",
+    "irs-i3520",
+    "irs-rp-2025-19#"
+   ],
+   "note": "2025 HDHP family minimum deductible"
+  },
+  {
+   "id": "ho-08",
+   "lang": "zh",
+   "category": "mixed EN/ZH",
+   "question": "2025年我是單身，修正後 AGI 大概 15萬8千，Roth IRA 還能存全額嗎？",
+   "mustRetrieveAny": [
+    "irs-p590a-2025#roth-phaseout-table-2025",
+    "irs-p590a-2025#roth-eligibility-2025"
+   ],
+   "forbiddenPrefixes": [
+    "irs-p969",
+    "irs-rp-2025-19",
+    "irs-i3520",
+    "irs-n-2025-67#"
+   ],
+   "note": "2025 single phase-out"
+  },
+  {
+   "id": "ho-09",
+   "lang": "en",
+   "category": "different word order",
+   "question": "At what income do Roth IRA contributions start to phase out for 2026 if my spouse and I file a joint return?",
+   "mustRetrieveAny": [
+    "irs-n-2025-67#roth-2026"
+   ],
+   "forbiddenPrefixes": [
+    "irs-p969",
+    "irs-rp-2025-19",
+    "irs-i3520",
+    "irs-p590a-2025#"
+   ],
+   "note": "2026 MFJ phase-out"
+  },
+  {
+   "id": "ho-10",
+   "lang": "en",
+   "category": "ambiguous / missing year",
+   "question": "Am I still allowed to put money into a Roth if I earn too much?",
+   "mustRetrieveAny": [
+    "irs-p590a-2025#roth-eligibility-2025",
+    "irs-p590a-2025#roth-phaseout-table-2025",
+    "irs-n-2025-67#roth-2026"
+   ],
+   "forbiddenPrefixes": [
+    "irs-p969",
+    "irs-rp-2025-19",
+    "irs-i3520"
+   ],
+   "note": "Roth income limits, no year"
+  },
+  {
+   "id": "ho-11",
+   "lang": "en",
+   "category": "conversational",
+   "question": "We are married filing separately and I lived with my husband for part of 2025. Can I still fund a Roth IRA?",
+   "mustRetrieveAny": [
+    "irs-p590a-2025#roth-eligibility-2025",
+    "irs-p590a-2025#roth-phaseout-table-2025"
+   ],
+   "forbiddenPrefixes": [
+    "irs-p969",
+    "irs-rp-2025-19",
+    "irs-i3520",
+    "irs-n-2025-67#"
+   ],
+   "note": "2025 MFS lived with spouse"
+  },
+  {
+   "id": "ho-12",
+   "lang": "zh",
+   "category": "unsupported 2026 rule",
+   "question": "2026年 HSA 55歲以上的追加金額是多少？",
+   "mustRetrieveAny": [],
+   "forbiddenPrefixes": [
+    "irs-p590a",
+    "irs-n-2025-67",
+    "irs-i3520",
+    "irs-p969-2025#"
+   ],
+   "note": "no 2026 catch-up source: 2025 Pub 969 must not be offered"
+  },
+  {
+   "id": "ho-13",
+   "lang": "en",
+   "category": "unsupported 2026 rule",
+   "question": "How much can I put into a traditional or Roth IRA for 2026?",
+   "mustRetrieveAny": [],
+   "forbiddenPrefixes": [
+    "irs-p969",
+    "irs-rp-2025-19",
+    "irs-i3520",
+    "irs-p590a-2025#"
+   ],
+   "note": "2026 IRA limit is held: no 2025 Pub 590-A figure may be offered"
+  },
+  {
+   "id": "ho-14",
+   "lang": "en",
+   "category": "foreign individual",
+   "question": "My grandma in Hong Kong is sending me 120k dollars to help me buy a house. Is there an IRS form I need to worry about?",
+   "mustRetrieveAny": [
+    "irs-i3520-2025-12#who-must-file-gifts",
+    "irs-i3520-2025-12#part-iv-reporting"
+   ],
+   "forbiddenPrefixes": [
+    "irs-p969",
+    "irs-rp-2025-19",
+    "irs-p590a",
+    "irs-n-2025-67"
+   ],
+   "note": "gift from foreign individual"
+  },
+  {
+   "id": "ho-15",
+   "lang": "zh",
+   "category": "foreign company vs individual",
+   "question": "日本的公司匯了一筆錢給我當作禮物，跟個人送的申報門檻一樣嗎？",
+   "mustRetrieveAny": [
+    "irs-i3520-2025-12#who-must-file-gifts"
+   ],
+   "forbiddenPrefixes": [
+    "irs-p969",
+    "irs-rp-2025-19",
+    "irs-p590a",
+    "irs-n-2025-67"
+   ],
+   "note": "gift from foreign company"
+  },
+  {
+   "id": "ho-16",
+   "lang": "en",
+   "category": "foreign trust vs personal gift",
+   "question": "Is money from an offshore family trust treated the same as a gift from my uncle overseas on Form 3520?",
+   "mustRetrieveAny": [
+    "irs-i3520-2025-12#part-iv-reporting"
+   ],
+   "forbiddenPrefixes": [
+    "irs-p969",
+    "irs-rp-2025-19",
+    "irs-p590a",
+    "irs-n-2025-67"
+   ],
+   "note": "trust distribution vs gift"
+  },
+  {
+   "id": "ho-17",
+   "lang": "zh",
+   "category": "foreign trust",
+   "question": "從國外的信託拿到的錢，算是贈與嗎？",
+   "mustRetrieveAny": [
+    "irs-i3520-2025-12#part-iv-reporting"
+   ],
+   "forbiddenPrefixes": [
+    "irs-p969",
+    "irs-rp-2025-19",
+    "irs-p590a",
+    "irs-n-2025-67"
+   ],
+   "note": "trust distribution"
+  },
+  {
+   "id": "ho-18",
+   "lang": "en",
+   "category": "conversational",
+   "question": "I am two years late reporting a big gift from my dad in Korea. Am I going to get hit with penalties?",
+   "mustRetrieveAny": [
+    "irs-i3520-2025-12#penalty-6039f"
+   ],
+   "forbiddenPrefixes": [
+    "irs-p969",
+    "irs-rp-2025-19",
+    "irs-p590a",
+    "irs-n-2025-67"
+   ],
+   "note": "late foreign gift penalty"
+  },
+  {
+   "id": "ho-19",
+   "lang": "zh",
+   "category": "conversational",
+   "question": "如果我住在美國，申報海外贈與的 3520 表格截止日是哪天？",
+   "mustRetrieveAny": [
+    "irs-i3520-2025-12#due-date"
+   ],
+   "forbiddenPrefixes": [
+    "irs-p969",
+    "irs-rp-2025-19",
+    "irs-p590a",
+    "irs-n-2025-67"
+   ],
+   "note": "Form 3520 due date"
+  },
+  {
+   "id": "ho-20",
+   "lang": "en",
+   "category": "reporting vs tax",
+   "question": "Do I have to pay US tax on the money my parents in China gave me, or do I just file a form?",
+   "mustRetrieveAny": [
+    "irs-i3520-2025-12#who-must-file-gifts",
+    "irs-i3520-2025-12#part-iv-reporting"
+   ],
+   "forbiddenPrefixes": [
+    "irs-p969",
+    "irs-rp-2025-19",
+    "irs-p590a",
+    "irs-n-2025-67"
+   ],
+   "note": "reporting vs tax liability"
+  },
+  {
+   "id": "ho-21",
+   "lang": "en",
+   "category": "unrelated (filing-status words)",
+   "question": "What is the 2025 standard deduction for married filing jointly?",
+   "mustRetrieveAny": [],
+   "forbiddenPrefixes": [
+    "irs-"
+   ],
+   "note": "unrelated: no official evidence"
+  },
+  {
+   "id": "ho-22",
+   "lang": "en",
+   "category": "unrelated",
+   "question": "Can I deduct my student loan interest in 2025?",
+   "mustRetrieveAny": [],
+   "forbiddenPrefixes": [
+    "irs-"
+   ],
+   "note": "unrelated"
+  },
+  {
+   "id": "ho-23",
+   "lang": "zh",
+   "category": "unrelated",
+   "question": "我的 W-2 上面的薪資跟我實際拿到的不一樣，怎麼辦？",
+   "mustRetrieveAny": [],
+   "forbiddenPrefixes": [
+    "irs-"
+   ],
+   "note": "unrelated"
+  },
+  {
+   "id": "ho-24",
+   "lang": "en",
+   "category": "unrelated",
+   "question": "How is the sale of my house taxed if I lived there for three years?",
+   "mustRetrieveAny": [],
+   "forbiddenPrefixes": [
+    "irs-"
+   ],
+   "note": "unrelated"
+  },
+  {
+   "id": "ho-25",
+   "lang": "en",
+   "category": "unrelated (domestic gift word)",
+   "question": "Is a gift card from my employer taxable?",
+   "mustRetrieveAny": [],
+   "forbiddenPrefixes": [
+    "irs-"
+   ],
+   "note": "domestic employer gift: not a foreign-gift question"
+  },
+  {
+   "id": "ho-26",
+   "lang": "en",
+   "category": "unrelated (income-limit words)",
+   "question": "What are the 2025 income limits for the child tax credit?",
+   "mustRetrieveAny": [],
+   "forbiddenPrefixes": [
+    "irs-"
+   ],
+   "note": "income limits, but not Roth"
+  }
+ ]
+}

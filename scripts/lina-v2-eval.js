@@ -20,6 +20,10 @@
  *                       listed gpt-5.4-mini prices, not verified here; check OpenAI's pricing page)
  *   --model NAME        model id (default: LINA_STAGING_MODEL, else the v2 default)
  *   --out DIR           output directory (default lina-eval-results/<timestamp>, gitignored)
+ *   --set NAME          question set: default (the 20+ library cases below) | official42 (Phase 4.2: 30 questions in
+ *                       data/lina-eval/phase42-official.json, evaluated against the REAL 22-excerpt staging index;
+ *                       needs `LINA_OFFICIAL_INDEX=staging node scripts/build-lina-official.js` first). In dry-run the
+ *                       mocked model replies with each case's scripted answer (and, once, its adversarial badMock).
  *   --simulate-errors   dry-run only: the mocked API returns HTTP 500, to test the error stop
  *   --proxy-auth        the key is added by an egress proxy (cloud staging network secret), not read from the
  *                       environment: requests are sent with NO Authorization header. Needs HTTPS_PROXY and
@@ -66,8 +70,10 @@ const PRICE_IN = parseFloat(opt('--price-in', '0.75'))
 const PRICE_OUT = parseFloat(opt('--price-out', '4.50'))
 const ONLY = opt('--only', '') ? new Set(opt('--only', '').split(',').map(s => s.trim())) : null
 const MODEL = opt('--model', process.env.LINA_STAGING_MODEL || '')
+const SET = opt('--set', 'default')
+if (!['default', 'official42'].includes(SET)) { console.error('--set must be default or official42.'); process.exit(2) }
 const stamp = new Date().toISOString().replace(/[:.]/g, '-')
-const OUT = path.resolve(opt('--out', path.join(ROOT, 'lina-eval-results', `${DRY ? 'dry-' : ''}${stamp}`)))
+const OUT = path.resolve(opt('--out', path.join(ROOT, 'lina-eval-results', `${DRY ? 'dry-' : ''}${SET === 'default' ? '' : SET + '-'}${stamp}`)))
 
 // ── Key handling (paid mode only) ─────────────────────────
 let KEY = ''
@@ -88,8 +94,10 @@ if (PAID && PROXY_AUTH) {
 if (!fs.existsSync(path.join(LINA, 'knowledge.json'))) { console.error('knowledge.json missing: run `npm run build` first.'); process.exit(2) }
 
 const { handleLinaV2, buildEvidence } = require(path.join(LINA, 'core-v2.js'))
-const { createCuratedSources } = require(path.join(LINA, 'official.js'))
-const CURATED = createCuratedSources() // review-approved official sources (Layer 2), same index the handler uses
+const { createCuratedSources, loadCuratedIndex } = require(path.join(LINA, 'official.js'))
+// Layer 2 index: the default set uses the same index the handler would load; official42 explicitly uses the real
+// staging index (sources "Approved for staging evaluation only") and refuses to run on anything else.
+const CURATED = SET === 'official42' ? createCuratedSources({ index: loadCuratedIndex({ env: { LINA_OFFICIAL_INDEX: 'staging' } }) }) : createCuratedSources()
 const { quoteInSource, validateAnswer, validateClarifyingQuestion } = require(path.join(LINA, 'verify.js'))
 
 // ── Evaluation set (synthetic questions) ──────────────────
@@ -122,9 +130,40 @@ const CASES = [
   { id: 'F2', lang: 'zh', topic: '賣股票 → 澄清 → 回覆 (Chinese follow-up)', turns: ['我賣了股票，要繳多少稅？', '是 2025 稅務年度賣的，持有八個月，賺了 $5,000。'], expect: { intent: 'us_tax', decisions: ['answer', 'insufficient'], firstTurn: ['clarify'], answerable: true } },
 ]
 
-const DRY_CLARIFY = new Set(CASES.filter(c => c.turns.length > 1).map(c => c.turns[0]))
+// ── Phase 4.2 official-source set (official42) ────────────
+const DATASET = SET === 'official42' ? JSON.parse(fs.readFileSync(path.join(ROOT, 'data/lina-eval/phase42-official.json'), 'utf8')) : null
+const APPROVED_EXCERPTS = new Set()
+if (DATASET) {
+  const review = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/lina-official/review.json'), 'utf8'))
+  for (const [id, r] of Object.entries(review.sources || {})) if (r.status === 'approved_staging' || r.status === 'approved') for (const sel of Object.keys(r.stagingExcerpts || {})) APPROVED_EXCERPTS.add(`${id}#${sel}`)
+  if (CURATED.target !== 'staging' || CURATED.size !== DATASET.expectedOfficialExcerpts || APPROVED_EXCERPTS.size !== DATASET.expectedOfficialExcerpts) {
+    console.error(`official42 needs the real staging index with ${DATASET.expectedOfficialExcerpts} reviewed excerpts (loaded: ${CURATED.target}, ${CURATED.size}). Run: LINA_OFFICIAL_INDEX=staging node scripts/build-lina-official.js`)
+    process.exit(2)
+  }
+  CASES.length = 0
+  for (const c of DATASET.cases) CASES.push({ id: c.id, lang: c.lang, topic: c.topic, turns: c.turns, spec: c,
+    expect: { intent: c.id.startsWith('scope-01') ? 'non_tax' : 'us_tax', decisions: c.decisions, ...(c.firstTurn ? { firstTurn: c.firstTurn } : {}), answerable: c.answerable } })
+}
+
+const DRY_CLARIFY = new Set(DATASET ? [] : CASES.filter(c => c.turns.length > 1).map(c => c.turns[0]))
 // Dry run only: the mock "answers" this question without claims, so the rejected-draft record is exercised.
-const DRY_REJECT = new Set([CASES.find(c => c.id === '3').turns[0]])
+const DRY_REJECT = new Set(DATASET ? [] : [CASES.find(c => c.id === '3').turns[0]])
+
+// Dry run, official42: the case's scripted reply. Selection ids are resolved to the G ids the server assigned;
+// if a cited excerpt was not retrieved, the mock cannot cite it and declines (recorded as mock_source_unavailable).
+function scriptedReply(cur) {
+  const spec = cur.variant === 'bad' ? cur.spec.badMock : cur.spec.mock
+  const m = Array.isArray(spec) ? spec[Math.min(cur.turn, spec.length - 1)] : spec
+  const gid = sel => { for (const [k, v] of cur.evidence) if (v.kind === 'official' && `${v.sourceId}#${v.selectionId}` === sel) return k; return null }
+  const sels = [...(m.claims || []).map(x => x[0]), ...(m.numbers || []).filter(n => n[2]).map(n => n[2])]
+  const missing = sels.filter(x => !gid(x))
+  const out = { intent: m.intent || 'us_tax', decision: m.decision, clarifying_question: m.clarifying_question || '', paragraphs: m.paragraphs || [], claims: [], numbers: [], conflicts: [], handoff_needed: false }
+  if (missing.length) { cur.mockNote = `mock_source_unavailable:${[...new Set(missing)].join(',')}`; return { ...out, decision: 'insufficient', paragraphs: [] } }
+  // Each scripted claim states what its own quote says (a real model writes one claim per supported statement).
+  out.claims = (m.claims || []).map(([sel, quote]) => ({ text: quote.slice(0, 200), source_id: gid(sel), quote, tax_year: m.taxYear || '' }))
+  out.numbers = (m.numbers || []).map(([value, category, sel]) => ({ value, category, source_id: sel ? gid(sel) : '', expression: '' }))
+  return out
+}
 
 // Identifier-like text never goes into result files, even from synthetic questions.
 const redact = s => String(s || '').replace(/\b\d{3}[- ]\d{2}[- ]\d{4}\b|\b\d{9,}\b/g, '[redacted]').replace(/[\w.+-]+@[\w-]+\.[\w.]+/g, '[redacted]').slice(0, 1200)
@@ -159,6 +198,10 @@ async function recordingFetch(url, opts) {
   if (DRY && SIMULATE_ERRORS) {
     status = 500
     data = { error: { type: 'server_error' } }
+  } else if (DRY && current.spec) {
+    status = 200
+    data = { status: 'completed', usage: { input_tokens: estIn, output_tokens: 300, output_tokens_details: { reasoning_tokens: 100 } },
+      output: [{ type: 'message', content: [{ type: 'output_text', text: JSON.stringify(scriptedReply(current)) }] }] }
   } else if (DRY) {
     // Mocked model: "clarify" for the first turn of a follow-up case (so the follow-up path runs), otherwise a
     // valid "insufficient" decision, so the full pipeline and the report can be checked without any network.
@@ -220,10 +263,10 @@ const req = body => ({
   text: async () => JSON.stringify(body),
 })
 
-async function runTurn(c, run, turnIndex, question, followUp) {
+async function runTurn(c, run, turnIndex, question, followUp, variant = 'main') {
   const evidenceQuery = followUp ? `${followUp.previousQuestion} ${question}` : question
   const evidence = buildEvidence(evidenceQuery, CURATED)
-  current = { calls: [], codes: [] }
+  current = { calls: [], codes: [], spec: c.spec || null, evidence, turn: turnIndex, variant, mockNote: null }
   const t0 = Date.now()
   const body = { question, locale: c.lang === 'zh' ? 'zh-tw' : 'en', ...(followUp ? { followUp } : {}) }
   let res
@@ -232,6 +275,7 @@ async function runTurn(c, run, turnIndex, question, followUp) {
       env: { OPENAI_API_KEY: DRY ? 'dry-run-no-key' : KEY, ...(MODEL ? { LINA_MODEL: MODEL } : {}) },
       ip: '', // in-process: the per-IP limiter is not exercised here
       fetchImpl: recordingFetch,
+      curated: CURATED,
       log: code => current.codes.push(code),
     })
   } catch (err) {
@@ -244,7 +288,7 @@ async function runTurn(c, run, turnIndex, question, followUp) {
   // Per-claim check against the evidence the server supplied (for review; the server already enforced it).
   const claims = mj && Array.isArray(mj.claims) ? mj.claims.map(cl => {
     const src = evidence.get(cl.source_id || '') || null
-    return { source_id: cl.source_id, articleId: src ? (src.articleId || src.sourceId) : null, tax_year: cl.tax_year, quote: String(cl.quote || '').slice(0, 300), quoteFound: !!(src && quoteInSource(cl.quote || '', src.text)), text: String(cl.text || '').slice(0, 300) }
+    return { source_id: cl.source_id, articleId: src ? (src.articleId || src.sourceId) : null, official: src && src.kind === 'official' ? `${src.sourceId}#${src.selectionId}` : null, tax_year: cl.tax_year, quote: String(cl.quote || '').slice(0, 300), quoteFound: !!(src && quoteInSource(cl.quote || '', src.text)), text: String(cl.text || '').slice(0, 300) }
   }) : []
   if (usage.stopReason && res.status === 503 && !current.calls.length) return { stopped: true }
   // Rejected or replaced decision: keep the draft and recompute the validator's reason offline (no network).
@@ -271,8 +315,13 @@ async function runTurn(c, run, turnIndex, question, followUp) {
     reasonCodes: current.codes, draft,
     reply: res.body.paragraphs || [],
     guides: res.body.guides || [], officialSources: res.body.officialSources || [], handoff: !!res.body.handoff,
-    evidence: [...evidence.entries()].map(([id, s]) => ({ id, articleId: s.articleId || s.sourceId, heading: String(s.heading || s.location || '').slice(0, 120), taxYear: s.taxYear })),
+    evidence: [...evidence.entries()].map(([id, s]) => ({ id, articleId: s.articleId || s.sourceId, heading: String(s.heading || s.location || '').slice(0, 120), taxYear: s.taxYear,
+      ...(s.kind === 'official' ? { official: `${s.sourceId}#${s.selectionId}`, approvalScope: s.approvalScope, excerpt: redact(s.text).slice(0, 200) } : {}) })),
+    variant, mockNote: current.mockNote,
     claims, numbers: mj && Array.isArray(mj.numbers) ? mj.numbers : [],
+    // The model's complete structured reply (identifier-like text redacted), for every turn — not only rejected ones.
+    modelReply: mj ? { intent: mj.intent, decision: mj.decision, clarifyingQuestion: redact(mj.clarifying_question), paragraphs: Array.isArray(mj.paragraphs) ? mj.paragraphs.slice(0, 4).map(redact) : [],
+      conflicts: Array.isArray(mj.conflicts) ? mj.conflicts : [], handoff: !!mj.handoff_needed } : null,
     latencyMs, calls: current.calls.map(({ modelJson, ...rest }) => rest),
     tokens: current.calls.reduce((a, x) => ({ input: a.input + ((x.usage && x.usage.input) || 0), output: a.output + ((x.usage && x.usage.output) || 0), reasoning: a.reasoning + ((x.usage && x.usage.reasoning) || 0) }), { input: 0, output: 0, reasoning: 0 }),
     estCost: current.calls.reduce((a, x) => a + (x.cost || 0), 0),
@@ -297,12 +346,33 @@ async function runTurn(c, run, turnIndex, question, followUp) {
         const r = await runTurn(c, run, t, c.turns[t], followUp)
         if (r.stopped) break outer
         records.push(r)
+        // official42 safety stop (Phase 4.2 step 2): a user-visible answer asserting tax liability on a gift, or any
+        // evidence outside the 22 staging-approved excerpts, halts the run before the next call.
+        if (DATASET) {
+          const o42 = require('./lina-v2-eval-official42.js')
+          const outside = r.evidence.filter(e => e.official && (!APPROVED_EXCERPTS.has(e.official) || e.approvalScope !== 'staging' || o42.HELD_OR_EXCLUDED.test(e.excerpt || '')))
+          if (outside.length) usage.stopReason = `SAFETY STOP: source-isolation failure in case ${c.id} (${outside.map(e => e.official).join(',')})`
+          else if (r.kind === 'answer' && o42.OWES_TAX.test(r.reply.join(' '))) usage.stopReason = `SAFETY STOP: unsupported tax-liability claim shown to the user in case ${c.id}`
+          // Step 4: roth-06 (MFS, lived apart, 2026) must not tell the user the living arrangement is irrelevant or apply
+          // the MFS range without authority that addresses it.
+          else if (c.id === 'roth-06' && r.kind === 'answer' && /does(?:n['’]t| not) (?:change|affect|matter)|regardless|even if|\$0|\$10,000|不影響|不論|無論|即使/i.test(r.reply.join(' '))) usage.stopReason = 'SAFETY STOP: roth-06 unsupported applicability conclusion shown to the user'
+        }
         process.stdout.write(`  run ${run} case ${c.id.padEnd(3)} turn ${t + 1}: ${String(r.kind || r.error).padEnd(12)} ${String(r.latencyMs).padStart(6)} ms  ${r.reasonCodes.join(',')}\n`)
         followUp = r.kind === 'clarify' && t + 1 < c.turns.length
           ? { previousQuestion: followUp ? `${followUp.previousQuestion} / ${c.turns[t]}`.slice(0, 600) : c.turns[t], clarifyingQuestion: (r.reply[0] || '').slice(0, 400), round: (followUp ? followUp.round : 0) + 1 }
           : null
         if (usage.stopReason) break outer
       }
+    }
+  }
+  // official42 dry run only: one adversarial (badMock) reply per case that has one — kept apart from the scoring.
+  const adversarial = []
+  if (DRY && DATASET && !usage.stopReason) {
+    for (const c of cases.filter(x => x.spec.badMock)) {
+      const r = await runTurn(c, 1, 0, c.turns[0], null, 'bad')
+      if (r.stopped) break
+      adversarial.push(r)
+      process.stdout.write(`  adversarial case ${c.id.padEnd(8)}: ${String(r.kind || r.error).padEnd(12)} ${r.reasonCodes.join(',')}\n`)
     }
   }
 
@@ -345,7 +415,18 @@ async function runTurn(c, run, turnIndex, question, followUp) {
   }
 
   fs.mkdirSync(OUT, { recursive: true })
-  fs.writeFileSync(path.join(OUT, 'results.json'), JSON.stringify({ summary, records }, null, 1))
+  let official42 = null
+  if (DATASET) {
+    const o42 = require('./lina-v2-eval-official42.js')
+    const scored = o42.score(cases, records, adversarial, APPROVED_EXCERPTS)
+    const meta = { mode: summary.mode, generated: summary.generated, excerpts: CURATED.size, calls: usage.calls, cost: summary.estimatedCostUSD }
+    fs.writeFileSync(path.join(OUT, 'official42-review.md'), o42.reviewMarkdown(scored, meta))
+    fs.writeFileSync(path.join(OUT, 'official42-review.csv'), o42.reviewCsv(scored))
+    official42 = { tally: scored.tally, flagged: scored.rows.filter(r => r.fails.length).map(r => ({ id: r.id, run: r.run, kind: r.final.kind, fails: r.fails, mockNote: r.final.mockNote })),
+      adversarial: scored.adv, perCallEstInputTokens: records.flatMap(r => r.calls.map(x => x.estInputTokens)) }
+    summary.official42 = { flaggedCases: official42.flagged.length, adversarialCaught: `${scored.adv.filter(a => a.caught).length}/${scored.adv.filter(a => a.caught !== null).length} tested (${scored.adv.filter(a => a.caught === null).length} not testable: source not retrieved)` }
+  }
+  fs.writeFileSync(path.join(OUT, 'results.json'), JSON.stringify({ summary, records, adversarial, official42 }, null, 1))
   // Review sheet for the human tax review (one row per turn).
   const csv = [['case', 'run', 'turn', 'question', 'kind', 'intent', 'model_decision', 'reason_codes', 'guides', 'reply', 'rejected_draft', 'validator_detail', 'latency_ms', 'tokens_in', 'tokens_out', 'est_cost_usd', 'correct?', 'quotes_support_claims?', 'tax_year_correct?', 'translation_ok?', 'notes']]
     .concat(records.map(r => [r.caseId, r.run, r.turn, r.question, r.kind, r.intent, r.modelDecision, r.reasonCodes.join(' '), r.guides.join(' '), r.reply.join(' / '), r.draft ? [r.draft.decision, r.draft.clarifyingQuestion, ...r.draft.paragraphs].filter(Boolean).join(' / ') : '', r.draft && r.draft.validator ? [r.draft.validator.reason, r.draft.validator.detail].filter(Boolean).join(' ') : '', r.latencyMs, r.tokens.input, r.tokens.output, r.estCost.toFixed(5), '', '', '', '', '']))
@@ -363,5 +444,5 @@ async function runTurn(c, run, turnIndex, question, followUp) {
     'Human review: fill in review.csv (correct?, quotes_support_claims?, tax_year_correct?, translation_ok?).'].join('\n')
   fs.writeFileSync(path.join(OUT, 'summary.md'), md + '\n')
   console.log(`\nturns ${summary.turns}, model calls ${summary.modelCalls}, estimated cost $${summary.estimatedCostUSD}${summary.stopReason ? `, stopped: ${summary.stopReason}` : ''}`)
-  console.log(`results: ${path.relative(ROOT, OUT)}/{results.json,summary.md,review.csv}`)
+  console.log(`results: ${path.relative(ROOT, OUT)}/{results.json,summary.md,review.csv${DATASET ? ',official42-review.md,official42-review.csv' : ''}}`)
 })().catch(err => { console.error(err && err.message ? err.message : err); process.exit(1) })

@@ -19,7 +19,7 @@ const { handleLina } = require(path.join(LINA, 'core.js'))
 const { retrieve } = require(path.join(LINA, 'retrieval.js'))
 const { resolveLinaMode } = require(path.join(LINA, 'mode.js'))
 const { createOfficialResearch, isOfficialUrl, webSearchToolConfig } = require(path.join(LINA, 'official.js'))
-const { extractNumbers, validateAnswer: validateAnswerFn } = require(path.join(LINA, 'verify.js'))
+const { extractNumbers, validateAnswer: validateAnswerFn, quoteInSource: quoteInSourceFn } = require(path.join(LINA, 'verify.js'))
 
 // ── No real network, ever ───────────────────────────────
 const networkAttempts = []
@@ -1509,6 +1509,344 @@ const officialMock = () => createOfficialResearch({
     r = await run(qZ, ans(qZ, 'limit-2025', '2025 年，如果你是個人醫療保險保障的 HDHP，HSA 最多可以存入 $4,300。', qt25, [['2025', 'tax_year'], ['$4,300', 'legal']], '2025'), 'zh-tw')
     check(G, 'e2e Traditional Chinese: 個人醫療保險保障 retrieves Pub 969 and satisfies the self-only condition', r.body.kind === 'answer', JSON.stringify(r.body).slice(0, 300) + r.logs)
     check(G, 'review.json is not modified by these tests', fs.readFileSync(path.join(DATA, 'review.json'), 'utf8') === reviewText)
+  }
+
+  // ── 29. Phase 4.2 step 1: official42 evaluation dataset and checks (offline) ──
+  {
+    const fs = require('fs')
+    const lib = require(path.join(__dirname, 'lina-official/lib.js'))
+    const o42 = require(path.join(__dirname, 'lina-v2-eval-official42.js'))
+    const G = 'eval-42'
+    const ds = JSON.parse(fs.readFileSync(path.join(__dirname, '../data/lina-eval/phase42-official.json'), 'utf8'))
+    const DATA = path.join(__dirname, '../data/lina-official')
+    const review = JSON.parse(fs.readFileSync(path.join(DATA, 'review.json'), 'utf8'))
+    const manifest = JSON.parse(fs.readFileSync(path.join(DATA, 'sources.json'), 'utf8'))
+    const stg = lib.buildIndex(manifest, review, (id, h) => JSON.parse(fs.readFileSync(path.join(DATA, 'snapshots', id, `${h}.json`), 'utf8')), { target: 'staging' })
+    const byId = new Map(stg.passages.map(p => [p.id, p]))
+    const cs = ds.cases
+    check(G, 'dataset: 30 unique cases, English and Traditional Chinese, every topic area covered', cs.length === 30 && new Set(cs.map(c => c.id)).size === 30 && cs.filter(c => c.lang === 'zh').length >= 10 &&
+      ['hsa-', 'roth-', 'ira-', 'gift-', 'trust-', 'f3520-', 'scope-'].every(p => cs.some(c => c.id.startsWith(p))))
+    check(G, 'dataset: every case records year, applicability, expected sources, behavior, conditions, forbidden claims, clarification and abstention', cs.every(c =>
+      'taxYear' in c && c.applicability && Array.isArray(c.officialEvidence) && Array.isArray(c.allowedSources) && c.behavior && Array.isArray(c.decisions) && c.decisions.length &&
+      c.conditions && Array.isArray(c.forbiddenClaims) && typeof c.clarificationRequired === 'boolean' && typeof c.abstain === 'boolean' && Array.isArray(c.requiredFacts)))
+    check(G, 'dataset: expected official excerpts exist in the real 22-excerpt staging index; none is held or excluded', cs.every(c => c.officialEvidence.every(id => byId.has(id))) && !cs.some(c => c.officialEvidence.some(id => /ira-limit-2026/.test(id))))
+    check(G, 'dataset: every regex compiles', cs.every(c => c.forbiddenClaims.every(rx => { try { new RegExp(rx, 'i'); return true } catch { return false } })))
+    const mocks = cs.flatMap(c => [c.mock, c.badMock].filter(Boolean).flatMap(m => (Array.isArray(m) ? m : [m])))
+    check(G, 'dataset: every scripted mock quote is verbatim in its cited real excerpt', mocks.every(m => (m.claims || []).every(([sel, q]) => byId.has(sel) && quoteInSourceFn(q, byId.get(sel).text))))
+    check(G, 'dataset: abstention cases expect no answer; the held 2026 IRA limit and MFS-2026 cases forbid the unsupported figures',
+      cs.filter(c => c.abstain).every(c => !c.decisions.includes('answer')) && cs.find(c => c.id === 'ira-01').forbiddenClaims.includes('\\$7,500') && cs.find(c => c.id === 'roth-06').forbiddenClaims.includes('\\$153,000'))
+    // Checks themselves: citation presence alone is not support.
+    const spec = cs.find(c => c.id === 'hsa-01')
+    const ev = [{ id: 'G1', official: 'irs-p969-2025#limit-2025', approvalScope: 'staging', excerpt: 'For 2025, if you have self-only HDHP coverage' }]
+    const rec = (reply, claims) => ({ kind: 'answer', reply, claims, evidence: ev, question: spec.turns[0] })
+    const okClaim = [{ source_id: 'G1', official: 'irs-p969-2025#limit-2025', quote: 'For 2025, if you have self-only HDHP coverage, you can contribute up to $4,300.', quoteFound: true, text: 'limit is $4,300' }]
+    const good = o42.checkRecord(spec, rec(['For 2025, if you have self-only HDHP coverage, you can contribute up to $4,300.'], okClaim), rec([], []), new Set(['irs-p969-2025#limit-2025']))
+    const cite = o42.checkRecord(spec, rec(['For 2025, you can contribute up to $4,300.'], [{ ...okClaim[0], text: 'limit is $4,400' }]), rec([], []), new Set(['irs-p969-2025#limit-2025']))
+    check(G, 'checks: a correct answer passes; a cited answer missing its condition, or whose claim states a figure not in its quote, is flagged', good.fails.length === 0 && cite.fails.includes('requiredFacts') && cite.fails.includes('claimFiguresInQuote'), JSON.stringify([good.fails, cite.fails]))
+    check(G, 'checks: "tax is owed" is flagged as reporting-vs-tax (Chinese and English), negations are not', o42.OWES_TAX.test('你需要為這筆贈與繳稅') && o42.OWES_TAX.test('You must pay tax on this gift') && !o42.OWES_TAX.test('你不需要為這筆贈與繳稅') && !o42.OWES_TAX.test('只要申報，不用繳稅'))
+    check(G, 'checks: evidence outside the 22 approved excerpts, or held/excluded text, fails approvedExcerptsOnly', o42.checkRecord(spec, rec([], []), { ...rec([], []), evidence: [{ id: 'G1', official: 'irs-n-2025-67#ira-limit-2026', approvalScope: 'staging', excerpt: 'increased from $7,000 to $7,500' }] }, new Set()).fails.includes('approvedExcerptsOnly'))
+  }
+
+  // ── 30. Phase 4.2 step 1.1: Form 3520 identity, reporting vs tax liability, targeted retrieval ──
+  {
+    const fs = require('fs')
+    const lib = require(path.join(__dirname, 'lina-official/lib.js'))
+    const { buildEvidence } = require(path.join(LINA, 'core-v2.js'))
+    const official = require(path.join(LINA, 'official.js'))
+    const { statesLiability } = require(path.join(LINA, 'verify.js'))
+    const G = '4.2-fixes'
+    const DATA = path.join(__dirname, '../data/lina-official')
+    const review = JSON.parse(fs.readFileSync(path.join(DATA, 'review.json'), 'utf8'))
+    const manifest = JSON.parse(fs.readFileSync(path.join(DATA, 'sources.json'), 'utf8'))
+    const stg = lib.buildIndex(manifest, review, (id, h) => JSON.parse(fs.readFileSync(path.join(DATA, 'snapshots', id, `${h}.json`), 'utf8')), { target: 'staging' })
+    const curated = official.createCuratedSources({ index: { target: 'staging', passages: stg.passages } })
+    const P = id => stg.passages.find(p => p.id === id)
+    const ev = (...ps) => buildEvidence('zz', { enabled: true, evidence: () => ps })
+    const va = (question, paragraphs, claims, numbers, e) => validateAnswerFn({ paragraphs: [].concat(paragraphs), claims: claims.map(([id, quote]) => ({ text: 'x', source_id: id, quote, tax_year: '' })), numbers }, { question, evidence: e })
+    const L = (v, id = 'G1') => ({ value: v, category: 'legal', source_id: id, expression: '' })
+    const qtG = 'More than $100,000 from a nonresident alien individual or a foreign estate'
+    const who = P('irs-i3520-2025-12#who-must-file-gifts')
+
+    // 1. A reviewed official title establishes only the document's identity.
+    let r = va('My parents in Taiwan sent me $150,000. Do I need to report it?', 'If your parents are nonresident alien individuals, you must report on Form 3520 if you received more than $100,000 from a nonresident alien individual or a foreign estate that you treated as gifts.', [['G1', qtG]], [L('$100,000')], ev(who))
+    check(G, 'Form 3520 identity: naming the form is accepted when the cited reviewed excerpt\'s title is "Instructions for Form 3520" (the quote itself does not name it)', r.ok, JSON.stringify(r))
+    r = va('Can I contribute to my HSA in 2025?', 'For 2025, if you have self-only HDHP coverage, you can contribute up to $4,300 to your HSA and report it on Form 3520.', [['G1', 'For 2025, if you have self-only HDHP coverage, you can contribute up to $4,300.']], [{ value: '2025', category: 'tax_year', source_id: '', expression: '' }, L('$4,300')], ev(P('irs-p969-2025#limit-2025')))
+    check(G, 'identity is per cited document: Form 3520 named in an answer citing only Pub 969 → unsupported_reference', !r.ok && r.reason === 'unsupported_reference', JSON.stringify(r))
+    r = va('Do I need to file anything for a gift from abroad?', ['You must report on Form 3520 if you received more than $100,000 from a nonresident alien individual or a foreign estate.', 'You must also file Form 3520 every year for your foreign bank accounts.'], [['G1', qtG]], [L('$100,000')], ev(who))
+    check(G, 'the title does not establish a filing obligation: an extra Form 3520 obligation the quote does not state → rejected', !r.ok && /unsupported_reference|uncited_statement/.test(r.reason), JSON.stringify(r))
+    const fx = { kind: 'official', layer: 'curated', sourceId: 'fx-title', selectionId: 'a', url: 'https://www.irs.gov/test-fixture/title', publisher: 'IRS', yearScope: 'effective_period', effectiveFrom: '2030', taxYear: '', location: 'Who must file',
+      title: 'TEST FIXTURE Instructions for Form 9999 (2031): $5,000 threshold, 10% penalty, required for all U.S. persons', text: 'TEST FIXTURE. File Form 9999 if you received a reportable payment from a foreign person.', approvalScope: 'staging' }
+    const evF = new Map([['G1', fx]])
+    const qF = 'Do I need Form 9999 for a payment from a foreign person?'
+    const okF = va(qF, 'You file Form 9999 if you received a reportable payment from a foreign person.', [['G1', 'File Form 9999 if you received a reportable payment from a foreign person.']], [], evF)
+    const yrF = va(qF, 'For 2031, you file Form 9999 if you received a reportable payment from a foreign person.', [['G1', 'File Form 9999 if you received a reportable payment from a foreign person.']], [{ value: '2031', category: 'tax_year', source_id: '', expression: '' }], evF)
+    const amtF = va(qF, 'You file Form 9999 if you received more than $5,000 from a foreign person.', [['G1', 'File Form 9999 if you received a reportable payment from a foreign person.']], [L('$5,000')], evF)
+    const penF = va(qF, 'Filing Form 9999 late carries a 10% penalty.', [['G1', 'File Form 9999 if you received a reportable payment from a foreign person.']], [L('10%')], evF)
+    check(G, 'the title never supplies a tax year, a dollar threshold or a penalty rate (fixture title states all three)', okF.ok && !yrF.ok && yrF.reason === 'unsupported_year' && !amtF.ok && /legal_number_not_in_source|legal_number_context_mismatch/.test(amtF.reason) && !penF.ok, JSON.stringify([okF, yrF, amtF, penF]))
+    const lib1 = { kind: 'library', articleId: 'x', title: 'Form 3520 guide', heading: 'h', text: 'TEST FIXTURE. Gifts from a nonresident alien above the threshold are reported.', taxYear: '', status: 'published' }
+    r = va('Do I report a gift from abroad?', 'Gifts from a nonresident alien above the threshold are reported on Form 3520.', [['L1', 'Gifts from a nonresident alien above the threshold are reported.']], [], new Map([['L1', lib1]]))
+    check(G, 'only reviewed official titles count: a library guide title does not establish a form name', !r.ok && r.reason === 'unsupported_reference', JSON.stringify(r))
+
+    // 4. Reporting vs tax liability (runtime).
+    const liab = ['You must pay tax on this gift.', 'The gift is taxable to you.', 'You will owe gift tax on the $150,000.', 'You are liable for income tax on the gift.', 'Gift tax is due on this amount.', 'You have to pay taxes on money your parents send.',
+      '你需要為這筆贈與繳稅。', '這筆贈與要課稅。', '你得繳贈與稅。', '這筆錢算是應稅所得。', '收到這筆錢會被課稅。', '你必須付稅。']
+    const notLiab = ['You do not owe tax on this gift.', 'Reporting on Form 3520 is not the same as paying tax.', "You don't need to pay tax just because you file Form 3520.", '你不需要為這筆贈與繳稅。', '這筆贈與免稅。', '你不用繳稅，但要申報。', '申報不等於繳稅。', 'You must report the gift on Form 3520.', '你必須用 Form 3520 申報。', 'No tax is due on the gift itself.']
+    check(G, 'liability detector: 12 English/Chinese "must pay tax" paraphrases detected; negations and pure reporting statements are not', liab.every(statesLiability) && !notLiab.some(statesLiability), JSON.stringify([liab.filter(t => !statesLiability(t)), notLiab.filter(statesLiability)]))
+    const zhBad = va('我爸媽不是美國人，給我20萬美元要繳稅嗎？', '從非居民外國人收到超過 $100,000 的贈與，你需要為這筆贈與繳稅。', [['G1', qtG]], [L('$100,000')], ev(who))
+    const enBad = va('Do I owe tax on a gift from my parents abroad?', ['You must report on Form 3520 if you received more than $100,000 from a nonresident alien individual or a foreign estate.', 'You will also owe gift tax on that gift.'], [['G1', qtG]], [L('$100,000')], ev(who))
+    const enPara = va('Do I owe tax on a gift from my parents abroad?', 'Because you received more than $100,000 from a nonresident alien individual or a foreign estate, the gift is taxable to you.', [['G1', qtG]], [L('$100,000')], ev(who))
+    check(G, 'runtime: "must pay tax" on a foreign gift backed only by the Form 3520 reporting excerpt → rejected (Chinese, English, paraphrase)', [zhBad, enBad, enPara].every(x => !x.ok && x.reason === 'reporting_not_tax_liability'), JSON.stringify([zhBad, enBad, enPara]))
+    const zhOk = va('我爸媽不是美國人，給我20萬美元要繳稅嗎？', '從非居民外國人收到超過 $100,000 的贈與，你要用 Form 3520 申報；申報不等於繳稅。', [['G1', qtG]], [L('$100,000')], ev(who))
+    check(G, 'runtime: reporting-only answers (and "reporting is not paying tax") stay accepted; no tax-free claim is required', zhOk.ok, JSON.stringify(zhOk))
+    const cg = { kind: 'official', layer: 'curated', sourceId: 'fx-cg', selectionId: 'a', url: 'https://www.irs.gov/test-fixture/cg', title: 'TEST FIXTURE', publisher: 'IRS', yearScope: 'stable', taxYear: '', location: 'Capital gains', text: 'TEST FIXTURE. Short-term capital gains are taxed at ordinary income tax rates.', approvalScope: 'staging' }
+    const cgR = va('How are short-term gains taxed?', 'You must pay tax on short-term capital gains at ordinary income tax rates.', [['G1', 'Short-term capital gains are taxed at ordinary income tax rates.']], [], new Map([['G1', cg]]))
+    const x2801 = { ...cg, sourceId: 'fx-2801', text: 'TEST FIXTURE. Section 2801 imposes a tax on U.S. citizens and residents who receive gifts or bequests from covered expatriates.' }
+    const xR = va('Is there tax on gifts from a covered expatriate?', 'You may have to pay tax on gifts or bequests you receive from a covered expatriate.', [['G1', 'Section 2801 imposes a tax on U.S. citizens and residents who receive gifts or bequests from covered expatriates.']], [], new Map([['G1', x2801]]))
+    check(G, 'narrow scope: non-gift tax statements are unaffected; a cited quote that itself states a tax on gifts still supports a liability statement', cgR.ok && xR.ok, JSON.stringify([cgR, xR]))
+
+    // 2–3. Targeted retrieval (official42 cases) and the topic gate.
+    const ds = JSON.parse(fs.readFileSync(path.join(__dirname, '../data/lina-eval/phase42-official.json'), 'utf8'))
+    const miss = ds.cases.filter(c => c.officialEvidence.length).filter(c => { const got = curated.evidence(c.turns.join(' ')).map(p => p.id); return !c.officialEvidence.some(x => got.includes(x)) || got.some(g => c.forbiddenEvidence.some(f => g.startsWith(f))) })
+    check(G, 'retrieval: every official42 case gets an expected excerpt and no forbidden one (incl. hsa-05/07/09/10, roth-01/07/08, gift-03, f3520-02)', miss.length === 0, miss.map(c => c.id).join(','))
+    check(G, 'retrieval: roth-01 ("single and made about $160,000 in 2025") now gets the 2025 phase-out table', curated.evidence(ds.cases.find(c => c.id === 'roth-01').turns[0]).some(p => p.id === 'irs-p590a-2025#roth-phaseout-table-2025'))
+    const none = ['幫我算一下我2025年要繳多少聯邦所得稅，我年薪十萬。', 'How much federal income tax will I owe on $100,000 of wages in 2025?', 'What is the maximum standard deduction for 2025?', 'How much can I deduct for charitable donations?', 'When is my tax return due?', 'What is the penalty for filing my 1040 late?']
+    check(G, 'topic gate: questions with no HSA/IRA/Form 3520 topic get no official evidence (scope-02 over-retrieval fixed)', none.every(q => curated.evidence(q).length === 0), none.filter(q => curated.evidence(q).length).join(' | '))
+    check(G, 'topic gate keeps genuine questions: HSA, Roth IRA and Form 3520 questions still retrieve', ['What is the 2026 HSA limit for family coverage?', '2025年Roth IRA的收入上限是多少？', 'When is Form 3520 due?'].every(q => curated.evidence(q).length > 0))
+    check(G, 'restrictions unchanged: wrong-year excerpts stay out (2026 HSA question gets no 2025 Pub 969 figure); held $7,500 never offered',
+      curated.evidence('I will be 56 in 2026. How much extra can I put in my HSA?').every(p => p.taxYear !== '2025') && !['What is the IRA contribution limit for 2026?', 'IRA catch-up for people over 50 in 2026'].some(q => curated.evidence(q).some(p => /\$7,500/.test(p.text))))
+  }
+
+  // ── 31. Phase 4.2 step 1.2: concept-weighted retrieval, topic groups, frozen held-out set ──
+  {
+    const fs = require('fs')
+    const crypto = require('crypto')
+    const lib = require(path.join(__dirname, 'lina-official/lib.js'))
+    const official = require(path.join(LINA, 'official.js'))
+    const G = '4.2-generalize'
+    const DATA = path.join(__dirname, '../data/lina-official')
+    const stg = lib.buildIndex(JSON.parse(fs.readFileSync(path.join(DATA, 'sources.json'), 'utf8')), JSON.parse(fs.readFileSync(path.join(DATA, 'review.json'), 'utf8')),
+      (id, h) => JSON.parse(fs.readFileSync(path.join(DATA, 'snapshots', id, `${h}.json`), 'utf8')), { target: 'staging' })
+    const curated = official.createCuratedSources({ index: { target: 'staging', passages: stg.passages } })
+    const hoText = fs.readFileSync(path.join(__dirname, '../data/lina-eval/heldout-retrieval.json'), 'utf8')
+    check(G, 'held-out set is the frozen version (sha256 recorded before the scoring change)', crypto.createHash('sha256').update(hoText).digest('hex') === 'e9e3b8adeb84ba1db4f4c396a0f318101799e684414ce40fc5805b30b5ff26cb')
+    const ho = JSON.parse(hoText).cases
+    const runs = ho.map(x => ({ x, got: curated.evidence(x.question).map(p => p.id) }))
+    const need = runs.filter(r => r.x.mustRetrieveAny.length)
+    const hits = need.filter(r => r.x.mustRetrieveAny.some(m => r.got.includes(m)))
+    const fps = runs.filter(r => r.got.some(g => r.x.forbiddenPrefixes.some(f => g.startsWith(f))))
+    check(G, `held-out precision: no irrelevant or inapplicable excerpt offered in any of the ${ho.length} questions (unrelated topics, other topic groups, wrong years)`, fps.length === 0, fps.map(r => r.x.id).join(','))
+    check(G, `held-out recall does not regress below the measured ${hits.length}/${need.length} (≥ 14/18)`, hits.length >= 14, need.filter(r => !hits.includes(r)).map(r => r.x.id).join(','))
+    const ev = q => curated.evidence(q).map(p => p.topic)
+    check(G, 'topic groups stay separate: HSA, Roth IRA and Form 3520 questions only get their own topic', ev('What is the HSA limit for 2025 with self-only coverage?').every(t => t === 'hsa') &&
+      ev('What are the 2025 Roth IRA income limits?').every(t => t === 'roth-ira') && ev('When is Form 3520 due?').every(t => t === 'foreign-gift'))
+    check(G, 'gift words open Form 3520 only with a foreign signal: a domestic employer gift card or a gift from my US mom gets nothing',
+      curated.evidence('Is a gift card from my employer taxable?').length === 0 && curated.evidence('My mom in Ohio gave me $20,000 as a gift. Is that taxable?').length === 0 && curated.evidence('My mom in Taiwan gave me $200,000 as a gift. Do I report it?').length > 0)
+    check(G, 'filler words no longer sink a covered question; unrelated questions with tax words still get nothing',
+      curated.evidence('Okay so, honestly, I was just wondering, if I go on Medicare in July 2025, what basically happens to my HSA contributions?').some(p => p.selectionId === 'medicare') &&
+      ['What is the 2025 standard deduction for married filing jointly?', 'What are the 2025 income limits for the child tax credit?', 'How much can I contribute to my 401(k) in 2025?'].every(q => curated.evidence(q).length === 0))
+    check(G, 'applicability unchanged: a 2026 catch-up question gets no 2025 Pub 969 excerpt; the held $7,500 is never offered',
+      curated.evidence('2026年 HSA 55歲以上的追加金額是多少？').every(p => p.sourceId !== 'irs-p969-2025') && !['How much can I put into a traditional or Roth IRA for 2026?', 'IRA limit 2026'].some(q => curated.evidence(q).some(p => /\$7,500/.test(p.text))))
+  }
+
+  // ── 32. Phase 4.2 step 3: fixes from the first real-model run (frozen gpt-5.4-mini fixtures) ──
+  {
+    const fs = require('fs')
+    const crypto = require('crypto')
+    const lib = require(path.join(__dirname, 'lina-official/lib.js'))
+    const official = require(path.join(LINA, 'official.js'))
+    const { buildEvidence, decide, INSTRUCTIONS_V2: PROMPT } = require(path.join(LINA, 'core-v2.js'))
+    const { validateClarifyingQuestion } = require(path.join(LINA, 'verify.js'))
+    const G = '4.2-realfix'
+    const DATA = path.join(__dirname, '../data/lina-official')
+    const stg = lib.buildIndex(JSON.parse(fs.readFileSync(path.join(DATA, 'sources.json'), 'utf8')), JSON.parse(fs.readFileSync(path.join(DATA, 'review.json'), 'utf8')),
+      (id, h) => JSON.parse(fs.readFileSync(path.join(DATA, 'snapshots', id, `${h}.json`), 'utf8')), { target: 'staging' })
+    const curated = official.createCuratedSources({ index: { target: 'staging', passages: stg.passages } })
+    const fxText = fs.readFileSync(path.join(__dirname, '../data/lina-eval/fixtures/official42-run1.json'), 'utf8')
+    check(G, 'real-model fixtures are the frozen, unedited first-run replies (sha256)', crypto.createHash('sha256').update(fxText).digest('hex') === '3c7cb521d00d9182eb87f488aa4e8bcd91147570b501f0270275d663df0676b6')
+    const fx = JSON.parse(fxText).records
+    const replay = id => {
+      const f = fx.find(x => x.caseId === id)
+      const r = decide(JSON.parse(JSON.stringify(f.model)), { userText: f.question, lang: f.lang === 'zh' ? 'zh-tw' : 'en', evidence: buildEvidence(f.question, curated), stage: 'first', officialEnabled: false, followUpRound: 0 })
+      return { kind: r.reply ? r.reply.kind : 'error', code: r.code || '', text: r.reply ? r.reply.paragraphs.join(' ') : '' }
+    }
+    const R = Object.fromEntries(fx.map(f => [f.caseId, replay(f.caseId)]))
+    check(G, 'roth-06: the unchanged real draft ("living apart does not change that limit") is now REJECTED', R['roth-06'].kind === 'insufficient' && R['roth-06'].code === 'unsupported_condition_irrelevance', JSON.stringify(R['roth-06']))
+    check(G, 'previously rejected correct drafts now pass unchanged: hsa-01, hsa-05, hsa-07, roth-02, roth-04, gift-02 (answer) and hsa-04 (clarifying question)',
+      ['hsa-01', 'hsa-05', 'hsa-07', 'roth-02', 'roth-04', 'gift-02'].every(id => R[id].kind === 'answer') && R['hsa-04'].kind === 'clarify', JSON.stringify(['hsa-01', 'hsa-04', 'hsa-05', 'hsa-07', 'roth-02', 'roth-04', 'gift-02'].map(id => [id, R[id].kind, R[id].code])))
+    check(G, 'citation integrity kept: the real paraphrased-quote drafts (roth-01, roth-03, roth-05) are still rejected (quote_not_in_source)', ['roth-01', 'roth-03', 'roth-05'].every(id => R[id].kind === 'insufficient' && R[id].code === 'quote_not_in_source'))
+    check(G, 'safety kept: f3520-03 ($100,000 without the donor condition) still rejected; correct answers and abstentions unchanged',
+      R['f3520-03'].code === 'figure_condition_missing' && ['hsa-02', 'hsa-03', 'hsa-08', 'hsa-09', 'hsa-10', 'gift-01', 'trust-01', 'trust-02', 'f3520-02'].every(id => R[id].kind === 'answer') &&
+      ['hsa-06', 'ira-01', 'gift-03', 'gift-04'].every(id => R[id].kind === 'insufficient') && R['scope-01'].kind === 'not_tax' && R['scope-02'].kind === 'clarify')
+    check(G, 'Chinese polish on the real trust-02 draft: no duplicated translation, "distribution"/"foreign gift" translated', !/外國信託（外國信託）/.test(R['trust-02'].text) && !/distribution|foreign gift/i.test(R['trust-02'].text) && /分配/.test(R['trust-02'].text), R['trust-02'].text)
+
+    // The roth-06 class: unsupported "does not matter" conclusions, and the spouse-living condition.
+    const P = id => stg.passages.find(p => p.id === id)
+    const ev = (...ps) => buildEvidence('zz', { enabled: true, evidence: () => ps })
+    const va = (question, paragraphs, claims, numbers, e) => validateAnswerFn({ paragraphs: [].concat(paragraphs), claims: claims.map(([id, quote, ty = '']) => ({ text: 'x', source_id: id, quote, tax_year: ty })), numbers }, { question, evidence: e })
+    const L = (v, id = 'G1') => ({ value: v, category: 'legal', source_id: id, expression: '' })
+    const Y = v => ({ value: v, category: 'tax_year', source_id: '', expression: '' })
+    const n67 = P('irs-n-2025-67#roth-2026')
+    const qMfs = 'We file married filing separately and lived apart all of 2026. Which Roth IRA income limit applies to me?'
+    const qtMfs = 'For a married individual filing a separate return, the phase-out range is not subject to an annual cost-of-living adjustment and remains between $0 and $10,000.'
+    const bad = [
+      va(qMfs, 'For 2026, because you file married filing separately, the applicable Roth IRA phase-out range is the married filing separately range, between $0 and $10,000.', [['G1', qtMfs]], [Y('2026'), L('$0'), L('$10,000')], ev(n67)),
+      va(qMfs, 'For 2026, living apart does not affect your Roth IRA limit: for a married individual filing a separate return the phase-out range remains between $0 and $10,000.', [['G1', qtMfs]], [Y('2026'), L('$0'), L('$10,000')], ev(n67)),
+      va(qMfs, 'For 2026, regardless of whether you lived together, the phase-out range for a married individual filing a separate return remains between $0 and $10,000.', [['G1', qtMfs]], [Y('2026'), L('$0'), L('$10,000')], ev(n67)),
+      va('我們 2026 年夫妻分開申報而且分居，Roth IRA 上限是多少？', '2026 年，即使你們分居，夫妻分開申報的 Roth IRA 收入逐步遞減範圍仍是 $0 到 $10,000。', [['G1', qtMfs]], [Y('2026'), L('$0'), L('$10,000')], ev(n67)),
+    ]
+    check(G, 'roth-06 class rejected: MFS rule applied to a user who lived apart (no source addresses it), "does not affect", "regardless", Chinese 「即使…分居」',
+      bad.every(r => !r.ok && /unsupported_condition_irrelevance|applicability_condition_unaddressed/.test(r.reason)), JSON.stringify(bad.map(r => r.reason)))
+    const hsaAge = va('What is the 2025 HSA limit for self-only coverage? I am 40.', 'For 2025, your age does not change the HSA limit: if you have self-only HDHP coverage, you can contribute up to $4,300.', [['G1', 'For 2025, if you have self-only HDHP coverage, you can contribute up to $4,300.']], [Y('2025'), L('$4,300'), { value: '40', category: 'user', source_id: '', expression: '' }], ev(P('irs-p969-2025#limit-2025')))
+    check(G, 'other unsupported "does not change the limit" claims are rejected too (HSA age)', !hsaAge.ok && hsaAge.reason === 'unsupported_condition_irrelevance', JSON.stringify(hsaAge))
+    const p590e = P('irs-p590a-2025#roth-eligibility-2025'), p590t = P('irs-p590a-2025#roth-phaseout-table-2025')
+    const okAge = va('Can I contribute to a Roth IRA at 72?', 'Contributions can be made to your Roth IRA regardless of your age.', [['G1', 'Contributions can be made to your Roth IRA regardless of your age.']], [{ value: '72', category: 'user', source_id: '', expression: '' }], ev(p590e))
+    const okApart = va('I file married filing separately and did not live with my spouse in 2025. Is my Roth IRA contribution reduced at $155,000?', 'For 2025, if you file married filing separately and you didn’t live with your spouse at any time during the year, your Roth IRA contribution is reduced when your modified AGI is at least $150,000 but less than $165,000.',
+      [['G1', 'single, head of household, or married filing separately (and you didn’t live with your spouse at any time during the year) | at least $150,000 but less than $165,000 | the amount you can contribute is reduced']], [Y('2025'), L('$150,000'), L('$165,000'), { value: '$155,000', category: 'user', source_id: '', expression: '' }], ev(p590t))
+    const okNeg = va('Can we contribute to a Roth IRA for 2025? We are married filing jointly with MAGI of $250,000.', "For 2025, if you are married filing jointly and your modified AGI is $246,000 or more, you can't contribute to a Roth IRA.", [['G1', 'married filing jointly or qualifying surviving spouse | $246,000 or more | you can’t contribute to a Roth IRA.']], [Y('2025'), L('$246,000')], ev(p590t))
+    check(G, 'not overly broad: a quoted "regardless of your age", a source that states the living condition, and ordinary negative rules are accepted', okAge.ok && okApart.ok && okNeg.ok, JSON.stringify([okAge, okApart, okNeg]))
+
+    // Each relaxed check, with its negative control.
+    const lim = P('irs-p969-2025#limit-2025'), cu = P('irs-p969-2025#catch-up-55')
+    const twoPara = (q, p2year) => va(q, ['For 2025, if you have self-only HDHP coverage, you can contribute up to $4,300.', `If you are age 55 or older at the end of your tax year${p2year ? `, ${p2year}` : ''}, your contribution limit is increased by $1,000.`],
+      [['G1', 'For 2025, if you have self-only HDHP coverage, you can contribute up to $4,300.'], ['G2', 'If you are an eligible individual who is age 55 or older at the end of your tax year, your contribution limit is increased by $1,000.']], [Y('2025'), L('$4,300'), L('55', 'G2'), L('$1,000', 'G2')], ev(lim, cu))
+    const yA = twoPara('What is my 2025 HSA limit for self-only coverage?')
+    const yB = va('What is my HSA limit for self-only coverage in 2025 and 2026?', ['For 2025, if you have self-only HDHP coverage, you can contribute up to $4,300. For 2026 the figures differ.', 'If you are age 55 or older at the end of your tax year, your contribution limit is increased by $1,000.'],
+      [['G1', 'For 2025, if you have self-only HDHP coverage, you can contribute up to $4,300.'], ['G2', 'If you are an eligible individual who is age 55 or older at the end of your tax year, your contribution limit is increased by $1,000.']], [Y('2025'), Y('2026'), L('$4,300'), L('55', 'G2'), L('$1,000', 'G2')], ev(lim, cu))
+    const yC = va('What is my 2026 HSA limit for self-only coverage?', ['For 2026, if you have self-only HDHP coverage, you can contribute up to $4,300.'], [['G1', 'For 2025, if you have self-only HDHP coverage, you can contribute up to $4,300.']], [Y('2026'), L('$4,300')], ev(lim))
+    check(G, 'year context: one year named in the answer carries to a later paragraph; with two years named it does not; a wrong-year figure is still rejected', yA.ok && !yB.ok && yB.reason === 'tax_year_not_stated' && !yC.ok, JSON.stringify([yA, yB, yC]))
+    const med = P('irs-p969-2025#medicare')
+    const z0 = va('I enrolled in Medicare in 2025. Can I still contribute to my HSA?', 'For 2025, beginning with the first month you are enrolled in Medicare, your HSA contribution limit is 0.', [['G1', 'Beginning with the first month you are enrolled in Medicare, your contribution limit is zero.']], [Y('2025'), L('0')], ev(med))
+    const z1 = va('I enrolled in Medicare in 2025. Can I still contribute to my HSA?', 'For 2025, beginning with the first month you are enrolled in Medicare, your HSA contribution limit is $1,000.', [['G1', 'Beginning with the first month you are enrolled in Medicare, your contribution limit is zero.']], [Y('2025'), L('$1,000')], ev(med))
+    check(G, '"zero" in the quote supports 0; any other figure is still rejected', z0.ok && !z1.ok, JSON.stringify([z0, z1]))
+    const qMfj = "We're married filing jointly and our MAGI was $250,000 in 2025. Can we contribute to Roth IRAs?"
+    const rowMfj = 'married filing jointly or qualifying surviving spouse | $246,000 or more | you can’t contribute to a Roth IRA.'
+    const cmpOk = va(qMfj, ["For 2025, if you are married filing jointly and your modified AGI is $246,000 or more, you can't contribute to a Roth IRA.", 'Since your MAGI was $250,000, you are over that limit.'], [['G1', rowMfj]], [Y('2025'), L('$246,000'), { value: '$250,000', category: 'user', source_id: '', expression: '' }], ev(p590t))
+    const cmpRule = va(qMfj, ["For 2025, if you are married filing jointly and your modified AGI is $246,000 or more, you can't contribute to a Roth IRA.", 'Since your MAGI was $250,000, the limit for you is $250,000.'], [['G1', rowMfj]], [Y('2025'), L('$246,000'), { value: '$250,000', category: 'user', source_id: '', expression: '' }], ev(p590t))
+    const cmpNoLimit = va(qMfj, 'Since your MAGI was $250,000, you are over that limit.', [['G1', rowMfj]], [{ value: '$250,000', category: 'user', source_id: '', expression: '' }], ev(p590t))
+    check(G, "user facts compared with an established limit are accepted; the user's figure stated as the limit, or a comparison with no cited limit, is still rejected", cmpOk.ok && !cmpRule.ok && !cmpNoLimit.ok, JSON.stringify([cmpOk, cmpRule, cmpNoLimit]))
+    const qtS = 'For singles and heads of household, the income phase-out range is between $153,000 and $168,000'
+    const qtII = 'The adjusted gross income limitation under section 408A(c)(3)(B)(ii)(II) for all other taxpayers (other than married taxpayers filing separate returns) is increased from $150,000 to $153,000.'
+    const exOk = va('What are the Roth IRA income limits for 2026 for a single person?', 'For 2026, the Roth IRA phase-out range for a single person is between $153,000 and $168,000. The adjusted gross income limitation for all other taxpayers, other than married taxpayers filing separate returns, is $153,000.', [['G1', qtS], ['G1', qtII]], [Y('2026'), L('$153,000'), L('$168,000')], ev(n67))
+    const exBad = va('What are the Roth IRA income limits for 2026 for a single person?', 'For 2026, the Roth IRA phase-out range for married filing separately is between $153,000 and $168,000.', [['G1', qtS]], [Y('2026'), L('$153,000'), L('$168,000')], ev(n67))
+    const exBad2 = va('What are the Roth IRA income limits for 2026?', 'For 2026, for everyone other than single filers and heads of household, the phase-out range is between $153,000 and $168,000.', [['G1', qtS]], [Y('2026'), L('$153,000'), L('$168,000')], ev(n67))
+    check(G, '"other than married filing separately" is an exclusion (accepted); applying the range to MFS, or to "everyone other than single filers", is still rejected', exOk.ok && !exBad.ok && !exBad2.ok, JSON.stringify([exOk, exBad, exBad2]))
+    check(G, 'clarifying questions may mention an age condition ("55 or older", 「55 歲以上」) but still not an amount',
+      validateClarifyingQuestion('Which tax year, what type of HDHP coverage do you have, and were you 55 or older?', 'How much can I contribute to my HSA?') && validateClarifyingQuestion('請問是哪個稅務年度？你在年底時是否 55 歲以上？', '我的 HSA 可以存多少？') &&
+      !validateClarifyingQuestion('Is your limit $4,300 or $8,550 for this year?', 'How much can I contribute to my HSA?'))
+    const who = P('irs-i3520-2025-12#who-must-file-gifts')
+    const qtG = 'More than $100,000 from a nonresident alien individual or a foreign estate'
+    const gp = 'You must report on Form 3520 if you received more than $100,000 from a nonresident alien individual or a foreign estate that you treated as gifts.'
+    const tyPeriod = va('Do I report gifts from my parents abroad?', gp, [['G1', qtG, '2025 and subsequent years until a superseding revision is issued (Rev. December 2025)']], [L('$100,000')], ev(who))
+    const tyLabel = va('What is my 2025 HSA limit for self-only coverage?', 'For 2025, if you have self-only HDHP coverage, you can contribute up to $4,300.', [['G1', 'For 2025, if you have self-only HDHP coverage, you can contribute up to $4,300.', '2025年']], [Y('2025'), L('$4,300')], ev(lim))
+    const tyTwo = va('What is my 2025 HSA limit for self-only coverage?', 'For 2025, if you have self-only HDHP coverage, you can contribute up to $4,300.', [['G1', 'For 2025, if you have self-only HDHP coverage, you can contribute up to $4,300.', '2024-2025']], [Y('2025'), L('$4,300')], ev(lim))
+    const tyWrong = va('What is my 2025 HSA limit for self-only coverage?', 'For 2025, if you have self-only HDHP coverage, you can contribute up to $4,300.', [['G1', 'For 2025, if you have self-only HDHP coverage, you can contribute up to $4,300.', 'TY 2026']], [Y('2025'), L('$4,300')], ev(lim))
+    check(G, 'malformed year metadata: a copied effective period or "2025年" is normalised; two years are rejected; a wrong year is never silently accepted',
+      tyPeriod.ok && tyLabel.ok && !tyTwo.ok && tyTwo.reason === 'bad_tax_year' && !tyWrong.ok && tyWrong.reason === 'tax_year_mismatch', JSON.stringify([tyPeriod, tyLabel, tyTwo, tyWrong]))
+
+    // Negative controls (still rejected).
+    const fam = va('What is my 2025 HSA limit with self-only coverage?', 'For 2025, if you have self-only HDHP coverage, you can contribute up to $8,550.', [['G1', 'If you have family HDHP coverage, you can contribute up to $8,550.']], [Y('2025'), L('$8,550')], ev(lim))
+    const wrongFig = va('What is my 2025 HSA limit with self-only coverage?', 'For 2025, if you have self-only HDHP coverage, you can contribute up to $4,500.', [['G1', 'For 2025, if you have self-only HDHP coverage, you can contribute up to $4,300.']], [Y('2025'), L('$4,500')], ev(lim))
+    const wrongStatus = va('What are the Roth IRA income limits for 2026?', 'For 2026, if you file as single, the Roth IRA phase-out range is between $242,000 and $252,000.', [['G1', 'the adjusted gross income phase-out range for taxpayers making contributions to a Roth IRA is between $242,000 and $252,000 for married couples filing jointly']], [Y('2026'), L('$242,000'), L('$252,000')], ev(n67))
+    const owes = va('Do I owe tax on a gift from my parents abroad?', ['You must report on Form 3520 if you received more than $100,000 from a nonresident alien individual or a foreign estate.', 'You will also owe gift tax on that gift.'], [['G1', qtG]], [L('$100,000')], ev(who))
+    const exception = va('Do I report gifts from my parents abroad?', ['You must report on Form 3520 if you received more than $100,000 from a nonresident alien individual or a foreign estate.', 'Even if your parents are U.S. citizens, the same rule applies.'], [['G1', qtG]], [L('$100,000')], ev(who))
+    const held = va('What is the IRA contribution limit for 2026?', 'For 2026, the IRA contribution limit is $7,500.', [['G1', qtS]], [Y('2026'), L('$7,500')], ev(n67))
+    check(G, 'negative controls still rejected: wrong coverage type, wrong legal figure, wrong filing status, gift tax liability from reporting evidence, an unsupported exception claim, the held 2026 IRA limit',
+      [fam, wrongFig, wrongStatus, owes, exception, held].every(r => !r.ok), JSON.stringify([fam, wrongFig, wrongStatus, owes, exception, held].map(r => r.reason)))
+    check(G, 'prompt: exact one-span quotes (no "..."), no "does not matter" without a quote, no carrying a year forward, prefer the official general rule, Chinese terminology rules',
+      /ONE continuous span copied character for character: no "\.\.\."/.test(PROMPT) && /Never conclude that a fact the user mentioned/.test(PROMPT) && /Do not carry one tax year's rule into another year/.test(PROMPT) &&
+      /Prefer the official source's general wording/.test(PROMPT) && /外國信託（外國信託）/.test(PROMPT) && /modified AGI/.test(PROMPT))
+  }
+
+  // ── 33. Phase 4.2 step 5: final offline stabilisation (frozen run 1 and run 2 real-model drafts) ──
+  {
+    const fs = require('fs')
+    const crypto = require('crypto')
+    const lib = require(path.join(__dirname, 'lina-official/lib.js'))
+    const official = require(path.join(LINA, 'official.js'))
+    const { buildEvidence, decide, INSTRUCTIONS_V2: PROMPT } = require(path.join(LINA, 'core-v2.js'))
+    const G = '4.2-stabilize'
+    const DATA = path.join(__dirname, '../data/lina-official')
+    const stg = lib.buildIndex(JSON.parse(fs.readFileSync(path.join(DATA, 'sources.json'), 'utf8')), JSON.parse(fs.readFileSync(path.join(DATA, 'review.json'), 'utf8')),
+      (id, h) => JSON.parse(fs.readFileSync(path.join(DATA, 'snapshots', id, `${h}.json`), 'utf8')), { target: 'staging' })
+    const curated = official.createCuratedSources({ index: { target: 'staging', passages: stg.passages } })
+    const FX = path.join(__dirname, '../data/lina-eval/fixtures')
+    const h = f => crypto.createHash('sha256').update(fs.readFileSync(path.join(FX, f))).digest('hex')
+    check(G, 'both real-model fixture files are the frozen, unedited drafts (sha256)', h('official42-run1.json') === '3c7cb521d00d9182eb87f488aa4e8bcd91147570b501f0270275d663df0676b6' && h('official42-run2.json') === 'cdbb64de6f4a48b4113ae7c4ad527db45269353642b0703f7de3c949b0e4a4f5')
+    const replay = file => Object.fromEntries(JSON.parse(fs.readFileSync(path.join(FX, file), 'utf8')).records.map(f => {
+      if (!f.model) return [`${f.caseId}#${f.turn}`, { kind: 'not_evaluated', code: '' }]
+      const userText = f.followUp ? `${f.followUp.previousQuestion}\n${f.question}` : f.question
+      const r = decide(JSON.parse(JSON.stringify(f.model)), { userText, lang: f.lang === 'zh' ? 'zh-tw' : 'en', evidence: buildEvidence(f.followUp ? `${f.followUp.previousQuestion} ${f.question}` : f.question, curated), stage: 'first', officialEnabled: false, followUpRound: f.followUp ? f.followUp.round : 0 })
+      return [`${f.caseId}#${f.turn}`, { kind: r.reply ? r.reply.kind : 'error', code: r.code || '' }]
+    }))
+    const want = (R, spec) => Object.entries(spec).filter(([k, v]) => `${R[k].kind}${R[k].code ? ':' + R[k].code : ''}` !== v).map(([k, v]) => `${k} ${R[k].kind}:${R[k].code} (want ${v})`)
+    const A = 'answer', I = 'insufficient'
+    const R1 = replay('official42-run1.json')
+    const bad1 = want(R1, { 'hsa-01#1': A, 'hsa-02#1': A, 'hsa-03#1': A, 'hsa-04#1': 'clarify', 'hsa-05#1': A, 'hsa-06#1': I, 'hsa-07#1': A, 'hsa-08#1': A, 'hsa-09#1': A, 'hsa-10#1': A,
+      'roth-01#1': `${I}:quote_not_in_source`, 'roth-02#1': A, 'roth-03#1': `${I}:quote_not_in_source`, 'roth-04#1': A, 'roth-05#1': `${I}:quote_not_in_source`, 'roth-06#1': `${I}:unsupported_condition_irrelevance`,
+      'roth-07#1': 'clarify:tax_year_needed', 'roth-08#1': 'clarify', 'ira-01#1': I, 'gift-01#1': A, 'gift-02#1': A, 'gift-03#1': I, 'gift-04#1': I, 'trust-01#1': A, 'trust-02#1': A,
+      'f3520-01#1': 'clarify:tax_year_needed', 'f3520-02#1': A, 'f3520-03#1': `${I}:figure_condition_missing`, 'scope-01#1': 'not_tax', 'scope-02#1': 'clarify' })
+    check(G, 'run 1 drafts replay to the documented outcomes (unchanged from step 3)', bad1.length === 0, bad1.join(' | '))
+    const R2 = replay('official42-run2.json')
+    const bad2 = want(R2, { 'hsa-01#1': A, 'hsa-02#1': `${I}:quote_not_in_source`, 'hsa-03#1': A, 'hsa-04#1': 'clarify', 'hsa-04#2': A, 'hsa-05#1': A, 'hsa-06#1': I, 'hsa-07#1': A, 'hsa-08#1': A, 'hsa-09#1': A,
+      'hsa-10#1': `${I}:figure_condition_missing`, 'roth-01#1': `${I}:quote_not_in_source`, 'roth-02#1': A, 'roth-03#1': `${I}:legal_number_not_in_source`, 'roth-04#1': `${I}:undeclared_number`, 'roth-05#1': `${I}:undeclared_number`,
+      'roth-06#1': I, 'roth-07#1': A, 'roth-08#1': I, 'ira-01#1': 'clarify', 'gift-01#1': A, 'gift-02#1': `${I}:donor_status_assumed`, 'gift-03#1': I, 'gift-04#1': 'clarify', 'trust-01#1': A, 'trust-02#1': A,
+      'f3520-01#1': `${I}:legal_number_context_mismatch`, 'f3520-02#1': 'clarify', 'f3520-03#1': 'not_evaluated', 'scope-01#1': 'not_tax', 'scope-02#1': 'clarify' })
+    check(G, 'run 2 drafts replay to the documented outcomes: gift-02 now rejected (donor assumed); f3520-01 passes the declaration check and is rejected only for its unquoted "April 15" inference', bad2.length === 0, bad2.join(' | '))
+
+    const P = id => stg.passages.find(p => p.id === id)
+    const ev = (...ps) => buildEvidence('zz', { enabled: true, evidence: () => ps })
+    const va = (question, paragraphs, claims, numbers, e) => validateAnswerFn({ paragraphs: [].concat(paragraphs), claims: claims.map(([id, quote, ty = '']) => ({ text: 'x', source_id: id, quote, tax_year: ty })), numbers }, { question, evidence: e })
+    const L = (v, id = 'G1') => ({ value: v, category: 'legal', source_id: id, expression: '' })
+    const U = v => ({ value: v, category: 'user', source_id: '', expression: '' })
+    const Y = v => ({ value: v, category: 'tax_year', source_id: '', expression: '' })
+
+    // 1. Ordinal/date phrases declare each number.
+    const due = P('irs-i3520-2025-12#due-date')
+    const qtDue = 'Form 3520 is due by the 15th day of the 4th month following the end of the taxpayer’s tax year.'
+    const qD = 'When is Form 3520 due if I live in the US?'
+    const d1 = va(qD, 'If you live in the U.S., Form 3520 is due by the 15th day of the 4th month following the end of your tax year.', [['G1', qtDue]], [L('15th day of the 4th month')], ev(due))
+    const d2 = va(qD, 'If you live in the U.S., Form 3520 is due by the 15th day of the 6th month following the end of your tax year.', [['G1', qtDue]], [L('15th day of the 6th month')], ev(due))
+    const d3 = va(qD, 'If you live in the U.S., Form 3520 is due by the 15th day of the 4th month following the end of your tax year.', [['G1', qtDue]], [L('15th')], ev(due))
+    const d4 = va(qD, 'Form 3520 is due by the 15th day of the 4th month, and the penalty is $10,000.', [['G1', qtDue]], [L('15th day of the 4th month, $10,000')], ev(due))
+    check(G, '"15th day of the 4th month" declared as one phrase is accepted; a wrong ordinal (6th), a missing one (only "15th") and a dollar figure riding in the phrase are rejected',
+      d1.ok && !d2.ok && !d3.ok && d3.reason === 'undeclared_number' && !d4.ok, JSON.stringify([d1, d2, d3, d4]))
+
+    // 3. Donor status: "not American" is not "nonresident alien".
+    const who = P('irs-i3520-2025-12#who-must-file-gifts')
+    const qtG = 'More than $100,000 from a nonresident alien individual or a foreign estate'
+    const qZh = '我爸媽住在台灣，不是美國人，今年給我20萬美元，要繳稅嗎？還是只要申報？'
+    const g1 = va(qZh, '你爸媽不是美國人，所以你收到的 $200,000 超過 $100,000，要用 Form 3520 申報。', [['G1', qtG]], [U('$200,000'), L('$100,000')], ev(who))
+    const g2 = va("My parents aren't US citizens and sent me $150,000. Do I file Form 3520?", 'Since they are not U.S. citizens, the $150,000 you received is over $100,000 and you must report it on Form 3520.', [['G1', qtG]], [U('$150,000'), L('$100,000')], ev(who))
+    const g3 = va(qZh, '如果你爸媽在美國稅法上是非居民外國人，你收到的 $200,000 超過 $100,000，就要用 Form 3520 申報；申報不等於繳稅。', [['G1', qtG]], [U('$200,000'), L('$100,000')], ev(who))
+    const g4 = va(qZh, '從非居民外國人收到超過 $100,000 的贈與，要用 Form 3520 申報；申報不等於繳稅。', [['G1', qtG]], [L('$100,000')], ev(who))
+    const g5 = va('My parents in Taiwan sent me $150,000. Do I need to report it?', 'If your parents are nonresident aliens, you must report on Form 3520 if you received more than $100,000 from a nonresident alien individual or a foreign estate.', [['G1', qtG]], [U('$150,000'), L('$100,000')], ev(who))
+    // Asserting the status outright (naming the condition but not as a condition) is the case the donor rule exists for.
+    const g1b = va(qZh, '你爸媽是非居民外國人，所以你收到的 $200,000 超過 $100,000，要用 Form 3520 申報。', [['G1', qtG]], [U('$200,000'), L('$100,000')], ev(who))
+    const g2b = va("My parents aren't US citizens and sent me $150,000. Do I file Form 3520?", 'Your parents are nonresident aliens, so the $150,000 you received from a nonresident alien individual is over $100,000 and you must report it on Form 3520.', [['G1', qtG]], [U('$150,000'), L('$100,000')], ev(who))
+    check(G, '"not American / 不是美國人" never settles nonresident-alien status: asserting it and applying $100,000 is rejected (donor_status_assumed), as is ignoring it; conditional answers and general rules are accepted',
+      !g1.ok && !g2.ok && !g1b.ok && g1b.reason === 'donor_status_assumed' && !g2b.ok && g2b.reason === 'donor_status_assumed' && g3.ok && g4.ok && g5.ok, JSON.stringify([g1, g2, g1b, g2b, g3, g4, g5].map(r => r.reason || 'ok')))
+    const g6 = va(qZh, '如果你爸媽在美國稅法上是非居民外國人，你收到的 $200,000 超過 $100,000，就要用 Form 3520 申報，而且你要為這筆贈與繳稅。', [['G1', qtG]], [U('$200,000'), L('$100,000')], ev(who))
+    check(G, 'the conditional donor answer still may not claim tax is owed (reporting vs liability kept)', !g6.ok && g6.reason === 'reporting_not_tax_liability', JSON.stringify(g6))
+
+    // 4. Spouses' HSA additional contributions.
+    const mh = P('irs-p969-2025#multiple-hsas-married'), cu = P('irs-p969-2025#catch-up-55')
+    const qtBoth = 'If both spouses meet the age requirement, the total contributions under family coverage can’t be more than $10,550.'
+    const qtOwn = 'Each spouse must make the additional contribution to their own HSA.'
+    const qS = 'My wife and I are both 56 and have family HDHP coverage in 2025. How much can we contribute?'
+    const s1 = va(qS, 'For 2025, if both spouses meet the age requirement, the total contributions under family coverage can’t be more than $10,550. Each spouse must make the additional contribution to their own HSA.', [['G1', qtBoth], ['G1', qtOwn]], [Y('2025'), L('$10,550'), U('56')], ev(mh))
+    const s2 = va(qS, 'For 2025, both spouses can put their additional contributions into one HSA, up to $10,550 under family coverage.', [['G1', qtBoth]], [Y('2025'), L('$10,550'), U('56')], ev(mh))
+    const s3 = va('我和太太都 56 歲，2025 年有家庭保障，可以存多少？', '2025 年，夫妻雙方都符合年齡條件時，家庭醫療保險保障的總供款上限是 $10,550，兩人的追加金額可以都存到同一個 HSA。', [['G1', qtBoth]], [Y('2025'), L('$10,550'), U('56')], ev(mh))
+    const s4 = va('My wife and I are both 57 in 2026 with family coverage. How much can we contribute?', 'For 2026, if both spouses meet the age requirement, the total contributions under family coverage can’t be more than $10,550.', [['G1', qtBoth]], [Y('2026'), L('$10,550'), U('57')], ev(mh))
+    const s5 = va(qS, 'For 2025, under family coverage the total contributions can’t be more than $10,550.', [['G1', qtBoth]], [Y('2025'), L('$10,550'), U('56')], ev(mh))
+    check(G, 'HSA spouses 55+: the two-spouse rule with "each to their own HSA" is accepted; one/the same HSA (EN, 中文), a 2025 figure for 2026, and $10,550 without the both-spouses condition are rejected',
+      s1.ok && !s2.ok && s2.reason === 'hsa_spouse_catch_up_one_account' && !s3.ok && !s4.ok && !s5.ok, JSON.stringify([s1, s2, s3, s4, s5]))
+
+    // 5. Chinese quality signals and prompt rules.
+    const coreSrc = fs.readFileSync(path.join(LINA, 'core-v2.js'), 'utf8')
+    check(G, 'prompt: figure must be inside its own quote and row; declare each number incl. $0 and both range ends; no pasted English/table rows in Chinese; modified AGI terminology; citizenship ≠ residency; each spouse own HSA; general rule before optional details',
+      /Each figure you state must appear inside the quote of the claim that supports it/.test(PROMPT) && /including \$0, both ends of a range/.test(PROMPT) && /never paste an English sentence or a raw table row/.test(PROMPT) &&
+      /修正後調整總所得（modified AGI）/.test(PROMPT) && /Citizenship is not tax residency/.test(PROMPT) && /to their own HSA; never say both spouses/.test(PROMPT) && /give that rule even if an optional personal detail/.test(PROMPT) &&
+      /zh_raw_english_text/.test(coreSrc))
   }
 
   // ── Summary ─────────────────────────────────────────────

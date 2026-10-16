@@ -115,6 +115,8 @@ function extractNumbers(text, { words = false } = {}) {
   // Chinese punctuation is a separator, not a thousands comma ("$10,000，一般" is two tokens).
   let t = stripIdentifiers(String(text).replace(/[，、；]/g, ', '))
   if (words) {
+    // "zero" in a source equals 0 written with digits (Phase 4.2 step 3: "limit is zero" supports "limit is 0").
+    t = t.replace(/\bzero\b/gi, m => { out.push({ raw: m, value: 0, percent: false, currency: null, unit: null, valid: true }); return ' ' })
     t = t.replace(EN_WORD_DURATION, (m, w, u) => { out.push({ raw: m, value: EN_WORD_NUM[w.toLowerCase()], percent: false, currency: null, unit: u.toLowerCase(), valid: true }); return ' ' })
     t = t.replace(new RegExp(`([${CN_CHARS}]+)\\s?(個月|个月|年|天|週|周|星期)`, 'g'), (m, run, u) => {
       const v = /[萬万億亿]/.test(run) ? null : parseChineseNumeral(run)
@@ -419,6 +421,67 @@ const SMALL_CONSTANTS = new Set([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 100])
  * @param ctx      { question, evidence: Map(id → { kind: 'library'|'official', text, taxYear, articleId?, url?, title }) }
  * @returns        { ok: true, paragraphs, guides, officialSources } | { ok: false, reason }
  */
+const COMPARISON = /\b(?:over|above|below|under|exceeds?|exceeding|more than|less than|higher than|lower than|within|inside|outside)\b|超過|高於|低於|未達|超出|之內|以內/i
+const BACKREF = /\b(?:that|this|the|these|those|your)\s+(?:limit|limits|threshold|thresholds|range|ranges|cap|amount|phase-out)\b|這個(?:上限|門檻|範圍)|該(?:上限|門檻|範圍)|上述/i
+// Exclusion phrases ("other than married taxpayers filing separate returns", 「除了…以外」): a status named inside
+// one is excluded, not applied, so it is ignored when checking which status a figure is applied to.
+const EXCLUSION = /\b(?:other than|except(?: for)?|excluding|not including|but not)\b[^,;.)]{0,80}|除了[^，。；]{0,30}|不包括[^，。；]{0,30}|不含[^，。；]{0,30}/gi
+const stripExclusions = t => String(t).replace(EXCLUSION, ' ')
+
+// ── A condition "does not matter" (Phase 4.2 step 3) ──
+// Saying that a fact does not change / affect a rule, or that a rule applies "regardless", is a legal conclusion:
+// it needs a cited quote that itself says so ("regardless of your age"). An official source's silence about a
+// condition never establishes that the condition is irrelevant (roth-06: "living apart does not change that limit").
+const INDIFFERENCE_EN = /\b(?:does(?:n['’]t| not)|do(?:n['’]t| not)|won['’]t|will not|would(?:n['’]t| not))\s+(?:change|affect|matter|alter|make a difference)\b|\b(?:regardless of|irrespective of|no matter (?:whether|if|how|what|where))\b|\beven if you\b|\bwhether or not\b|\bstill applies\b|\bthe same (?:limit|rule|range|threshold) applies\b/i
+const INDIFFERENCE_ZH = /不(?:會)?(?:影響|改變)|沒有影響|不受[^。，]{0,6}影響|不論|無論|不管|即使|一樣適用|同樣適用/
+const QUOTE_INDIFFERENCE = /regardless|irrespective|whether or not|even if|no matter|does not (?:change|affect|matter)|doesn['’]t (?:change|affect|matter)|不論|無論|不管|即使/i
+// The spouse-living condition (Roth IRA filing status): a question saying the user lived apart / with the spouse,
+// answered with a married-filing-separately rule, must cite a quote that states the living condition.
+const LIVING_IN_QUESTION = /lived? apart|living apart|did ?n['’]?t live with|did not live with|not living with|lived (?:together|with (?:my|our|their) (?:spouse|wife|husband))|live together|separated|分居|分開住|沒(?:有)?(?:住在一起|同住)|未(?:與|和)配偶同住|(?:與|和|跟)配偶同住|住在一起/i
+const LIVING_IN_QUOTE = /lived? with (?:your|the|their|his|her) spouse|did ?n['’]?t live with|did not live with|與配偶同住/i
+
+// ── Donor status (Phase 4.2 step 5) ──
+// "Not American" / 「不是美國人」 (citizenship) is not the same as "nonresident alien" (tax residency). When the user
+// describes the donor only that way, the Form 3520 threshold for gifts from nonresident aliens ($100,000) may be
+// stated only conditionally ("if your parents are nonresident aliens …") — never applied as settled.
+const NOT_US_DONOR = /\bnot (?:an? )?(?:american|u\.?s\.? citizens?|us citizens?)\b|\b(?:is|are)n['’]t (?:an? )?(?:american|u\.?s\.? citizens?|us citizens?)\b|\bnon-?(?:u\.?s\.?|american) citizens?\b|\bforeign (?:nationals?|citizens?)\b|不是美國人|不是美國公民|非美國公民|非美籍|不是美籍|外國籍|外籍人士/i
+// A sentence applies the threshold to THIS user when it names their donor, their amount or "this gift"; a general
+// rule ("gifts from a nonresident alien above $100,000 must be reported") assumes nothing about the donor.
+const USERS_DONOR = /\b(?:your|my|the) (?:parents?|mom|mum|mother|dad|father|grand(?:ma|pa|mother|father|parents?)|relatives?|family)\b|\b(?:they|them)\b|\bthis (?:gift|money|amount|transfer)\b|爸媽|父母|媽媽|爸爸|母親|父親|祖父母|奶奶|爺爺|外婆|外公|他們|這筆|這些錢|你收到的/i
+const CONDITIONAL_NRA = /(?:\bif\b|\bassuming\b|\bprovided\b|\bonly when\b|如果|若|假如|倘若|假設|只要)[^.。;；!?！？]{0,80}(?:nonresident aliens?|非居民外國人|foreign estates?|外國遺產)/i
+// ── Spouses' HSA additional contributions (Phase 4.2 step 5) ──
+// Each spouse must make the additional (age 55+) contribution to their own HSA: a sentence putting both spouses'
+// additional contributions into one / the same / a joint HSA is rejected.
+const ONE_HSA = /\b(?:into|in|to|from) (?:one|a single|the same|a joint|a shared|one spouse['’]s|your spouse['’]s) (?:hsa|account)\b|\bboth (?:catch-up|additional|extra) (?:contributions?|amounts?)\b[^.]{0,60}\b(?:one|your|the same|a single) hsa\b|同一個\s*HSA|一個\s*HSA(?:帳戶)?(?:裡|中|內)|合併存入|都存(?:入|到)(?:你的|一個)/i
+const SPOUSES = /\b(?:both|two|each|either) spouses?\b|\byou and your (?:spouse|wife|husband)\b|夫妻|雙方|配偶/i
+const CATCH_UP = /additional contribution|catch-up|\bextra\b|\b55\b|\$1,000|\$2,000|\$10,550|追加|額外|多存/i
+
+// ── Reporting vs tax liability (Phase 4.2) ──
+const GIFT_CONTEXT = /\bgifts?\b|\bbequests?\b|\binherit|\b3520\b|贈與|遺贈|餽贈|禮金|遺產|繼承|匯款|匯給/i
+// Affirmative statements that someone owes / must pay tax, or that the gift is taxable (English and Traditional
+// Chinese paraphrases). A statement whose own clause is negated ("don't owe", "不需要繳稅", "免稅") does not match.
+const LIABILITY_EN = [
+  /\b(?:owe[sd]?|must pay|have to pay|has to pay|had to pay|need to pay|needs to pay|will pay|would pay|required to pay|liable for|subject to|responsible for paying|pay(?:ing)?)\b[^.;:]{0,30}\btax(?:es)?\b/i,
+  /\b(?:is|are|will be|would be|becomes?|counts? as)\s+(?:taxable|income tax(?:able)?|taxed)\b/i,
+  /\btax(?:es)?\s+(?:is|are|will be|would be)\s+(?:due|owed|payable|owing)\b/i,
+  /\bimposes?\s+(?:a|the|an)\s+(?:\w+\s+)?tax\b/i,
+]
+const LIABILITY_ZH = [
+  /(?:要|需要|必須|得|應該|應|會|須|需)[^。，,；;！？]{0,12}(?:繳|付|交|納)(?:交|納)?[^。，,；;]{0,4}稅/,
+  /(?:要|需要|必須|會|須|需|將)?(?:被)?課(?:徵)?(?:贈與|所得)?稅/,
+  /(?:算|是|屬於|視為|當作)[^。，,；;]{0,6}應稅/,
+  /應繳(?:贈與|所得)?稅/,
+]
+const NEGATION_EN = /\b(?:not|n't|no|never|without|nor)\b|n['’]t\b/i
+const NEGATION_ZH = /不|無須|無需|免|毋須|沒有|沒/
+function statesLiability(text) {
+  for (const part of String(text).split(/(?<=[.!?。！？；;])\s*|\n/)) {
+    for (const re of LIABILITY_EN) { const m = re.exec(part); if (m && !NEGATION_EN.test(part.slice(Math.max(0, m.index - 25), m.index + m[0].length))) return true }
+    for (const re of LIABILITY_ZH) { const m = re.exec(part); if (m && !NEGATION_ZH.test(part.slice(Math.max(0, m.index - 4), m.index + m[0].length))) return true }
+  }
+  return false
+}
+
 // Applicability of an official passage to a tax year (year-specific vs. verified continuing rule); see official.js.
 const appliesToYear = (...a) => require('./official.js').appliesToYear(...a)
 
@@ -443,8 +506,8 @@ function clauseOf(sentence, raw) {
 function conditionProblem(src, n, sentence, paragraph) {
   const conds = (src && Array.isArray(src.figureConditions) ? src.figureConditions : []).filter(c => sameFigure(extractNumbers(c.figure)[0], n))
   if (!conds.length) return null
-  const para = normText(paragraph)
-  const clause = normText(clauseOf(sentence, n.raw))
+  const para = normText(stripExclusions(paragraph))
+  const clause = normText(stripExclusions(clauseOf(sentence, n.raw)))
   for (const c of conds) {
     // A term inside a longer term of the same condition does not count ("與配偶同住" inside "未與配偶同住").
     const all = [...(c.anyOf || []), ...(c.noneOf || []), ...(c.exclusiveWith || [])].map(normText)
@@ -504,9 +567,18 @@ function validateAnswer(parsed, ctx) {
     const src = ctx.evidence.get(c.source_id)
     if (!src) return fail('unknown_source')
     if (!quoteInSource(c.quote, src.text)) return fail('quote_not_in_source')
-    const year = String(c.tax_year || '').trim()
+    let year = String(c.tax_year || '').trim()
+    if (year && !/^(19|20)\d\d$/.test(year)) {
+      // Phase 4.2 step 3: model metadata is sometimes malformed. The source's own effective period copied into the
+      // claim ("2025 and subsequent years until …") names no single tax year → treated as no year. A field that is
+      // just one year with labels ("2025年", "TY 2025") → that year (then checked as usual). Anything else
+      // (two years, other text) is still rejected: an incorrect year is never silently accepted.
+      const ys = [...new Set(year.match(/\b(?:19|20)\d\d\b/g) || [])]
+      if (src.effectivePeriod && year.length >= 15 && normText(src.effectivePeriod).includes(normText(year))) year = ''
+      else if (ys.length === 1 && !year.replace(ys[0], '').replace(/tax|year|ty|稅務|年度|年|[\s().:（）-]/gi, '')) year = ys[0]
+      else return fail('bad_tax_year')
+    }
     if (year) {
-      if (!/^(19|20)\d\d$/.test(year)) return fail('bad_tax_year')
       // A quoted table row takes the year of its directly applicable header; then the claim must carry exactly
       // that year (a 2026 row cannot be labelled 2025 just because the guide's review year is 2025). Otherwise the
       // claim's year must be the source's year, or be stated in the quoted text itself.
@@ -549,7 +621,15 @@ function validateAnswer(parsed, ctx) {
   // threshold cannot pass as an illustration. Hypothetical arithmetic may use example figures only inside a
   // labelled example.
   const declared = (Array.isArray(parsed.numbers) ? parsed.numbers : []).slice(0, 40)
-  const decl = declared.map(d => ({ ...d, parsed: extractNumbers(String(d.value || ''))[0] })).filter(d => d.parsed && d.parsed.valid)
+  // A declared ordinal/date phrase ("15th day of the 4th month") declares EACH of its numbers, with the same
+  // category and source (Phase 4.2 step 5). Every number is still checked on its own like any other declaration;
+  // any other multi-number value keeps only its first number, as before.
+  const ORDINAL_PHRASE = /\b\d{1,2}(?:st|nd|rd|th)\b[^$%]*\b\d{1,2}(?:st|nd|rd|th)\b|第\s*\d+\s*[個個]?[月日天][^$%]*第\s*\d+/i
+  const decl = declared.flatMap(d => {
+    const nums = extractNumbers(String(d.value || ''))
+    const parts = ORDINAL_PHRASE.test(String(d.value || '')) && nums.length > 1 && nums.every(n => n.valid && !n.currency && !n.percent) ? nums : nums.slice(0, 1)
+    return parts.map(parsed => ({ ...d, parsed }))
+  }).filter(d => d.parsed && d.parsed.valid)
   // A year is ATTACHED to a figure when it is in the same sentence or table row of the quote, or in the table
   // header that directly applies to the quoted row in the cited passage (quoting only "Single | $15,750" from a
   // "Tax Year 2025" table does not make it a stable rule). A year in another sentence, or the header of another
@@ -653,6 +733,7 @@ function validateAnswer(parsed, ctx) {
     }
   }
   const yearAllowed = v => questionYears.includes(v) || quoteYears.has(v)
+  const answerYears = [...new Set(paragraphs.flatMap(p => extractNumbers(p).filter(isYear).map(n => n.value)))]
 
   for (const p of paragraphs) {
     const paragraphYears = extractNumbers(p).filter(isYear).map(n => n.value)
@@ -707,7 +788,11 @@ function validateAnswer(parsed, ctx) {
             if (!questionYears.length) return fail('tax_year_needed', n.raw)
             const fitting = qs.filter(q => yearsOf(q).some(y => questionYears.includes(y)))
             if (!fitting.length) return fail('tax_year_mismatch', n.raw)
-            if (!fitting.some(q => yearsOf(q).some(y => paragraphYears.includes(y)))) return fail('tax_year_not_stated', n.raw)
+            // The year must be named in this paragraph — or, when the whole answer names exactly ONE tax year and it is
+            // the figure's (and the user's) year, earlier in the answer (no other year can be confused with it).
+            const yearInContext = fitting.some(q => yearsOf(q).some(y => paragraphYears.includes(y))) ||
+              (answerYears.length === 1 && questionYears.includes(answerYears[0]) && fitting.some(q => yearsOf(q).includes(answerYears[0])))
+            if (!yearInContext) return fail('tax_year_not_stated', n.raw)
             established.push({ value: n.value, currency: currency(legalMatch), unit: unit(legalMatch), years: [...new Set(fitting.flatMap(yearsOf))] })
           } else {
             established.push({ value: n.value, currency: currency(legalMatch), unit: unit(legalMatch), years: [] })
@@ -759,13 +844,63 @@ function validateAnswer(parsed, ctx) {
     }
   }
 
+  // Reporting is not tax liability (Phase 4.2). In an answer about a gift or bequest, a sentence concluding that the
+  // recipient owes or must pay tax needs a CITED quote that itself states a tax liability; a Form 3520 reporting
+  // requirement does not. Narrow by design: only gift/bequest contexts, only affirmative liability statements
+  // (negations are not checked here), and it never adds a "tax-free" claim.
+  const quotesStateLiability = quoteInfo.some(q => statesLiability(q.claim.quote))
+  if (!quotesStateLiability) for (const p of paragraphs) {
+    if (!GIFT_CONTEXT.test(p)) continue
+    for (const sentence of sentences(p)) if (statesLiability(sentence)) return fail('reporting_not_tax_liability', sentence.slice(0, 40))
+  }
+
+  // Donor status and spouses' HSA catch-up (Phase 4.2 step 5).
+  if (NOT_US_DONOR.test(ctx.question)) {
+    let before = ''
+    for (const p of paragraphs) for (const sentence of sentences(p)) {
+      before += ` ${sentence}`
+      const nums = extractNumbers(sentence).filter(n => n.valid && !n.percent)
+      const states100k = nums.some(n => n.value === 100000)
+      const appliesToUser = USERS_DONOR.test(sentence) || nums.some(n => n.value !== 100000 && hasValue(questionNumbers, n.value, n.currency, n.unit))
+      if (states100k && appliesToUser && GIFT_CONTEXT.test(`${p} ${ctx.question}`) && !CONDITIONAL_NRA.test(before)) return fail('donor_status_assumed', sentence.slice(0, 40))
+    }
+  }
+  for (const p of paragraphs) for (const sentence of sentences(p)) {
+    if (ONE_HSA.test(sentence) && SPOUSES.test(sentence) && CATCH_UP.test(sentence)) return fail('hsa_spouse_catch_up_one_account', sentence.slice(0, 40))
+  }
+
+  // A condition "does not matter" / applicability of the spouse-living condition (Phase 4.2 step 3).
+  const quotesIndifference = quoteInfo.some(q => QUOTE_INDIFFERENCE.test(q.claim.quote))
+  for (const p of paragraphs) for (const sentence of sentences(p)) {
+    if (!quotesIndifference && (INDIFFERENCE_EN.test(sentence) || INDIFFERENCE_ZH.test(sentence)) && !missingInfoOnly(sentence, questionYears)) return fail('unsupported_condition_irrelevance', sentence.slice(0, 40))
+  }
+  if (LIVING_IN_QUESTION.test(ctx.question) && paragraphs.some(p => statusMentions(stripExclusions(p)).some(m => m.status === 'mfs')) && !quoteInfo.some(q => LIVING_IN_QUOTE.test(q.claim.quote))) {
+    return fail('applicability_condition_unaddressed', 'lived with / apart from spouse')
+  }
+
   // Citation integrity (Phase 3). This is a LEXICAL check — it cannot prove that a quote means what the sentence
   // says. It guarantees that every English sentence stating tax content shares at least one topic word with some
   // cited quote, and that any form, schedule or regime the answer names appears in a cited quote or in the user's
   // question. Offers, sign-offs and referrals need no source; neither does a sentence that only applies the
   // user's own figures ("Your $30,000 in wages is above that") without naming a rule.
   const quoteText = quoteInfo.map(q => q.claim.quote).join(' \n ')
+  // Phase 4.2: the reviewed title of a CITED official source ("Instructions for Form 3520") establishes only the
+  // document's identity — that the answer may NAME that form. It is used for this reference check alone: never to
+  // ground a sentence, attach a tax year, support a figure, or establish an obligation, penalty or applicability.
+  const titled = [...citedIds].filter(id => { const s = ctx.evidence.get(id); return s && s.kind === 'official' && s.layer === 'curated' })
+  const titleAnchors = new Map() // anchor → cited source ids whose reviewed title names it
+  for (const id of titled) for (const a of anchorsOf(ctx.evidence.get(id).title || '')) titleAnchors.set(a, [...(titleAnchors.get(a) || []), id])
   const knownAnchors = new Set([...anchorsOf(quoteText), ...anchorsOf(ctx.question)])
+  // A sentence that may name the form only because of a title must itself be substantively supported by a quote
+  // from THAT document: two shared topic words (English), or a figure verified from it (Chinese). Weak overlap
+  // ("foreign") is not enough, so the title cannot carry an obligation the quote does not state.
+  const titleNameOk = (anchor, sentence) => {
+    const ids = titleAnchors.get(anchor) || []
+    const qs = quoteInfo.filter(q => ids.includes(q.claim.source_id))
+    if (!qs.length) return false
+    if (CJK.test(sentence)) return extractNumbers(sentence).some(n => n.valid && !isYear(n) && decl.some(d => d.category === 'legal' && d.ok && ids.includes(d.source_id) && sameValue(d.parsed.value, n.value)))
+    return qs.some(q => overlap(contentWords(sentence), q.words) >= 2)
+  }
   // Phase 3.1: a form or agency the quote omits may still be named when a CITED passage names it in a sentence
   // about the same subject (sharing a topic word, or another form/program, with the answer's sentence). A
   // mention in an unrelated sentence, or only in an uncited passage, does not count.
@@ -783,7 +918,7 @@ function validateAnswer(parsed, ctx) {
     if (CONVERSATIONAL.test(s)) continue
     if (missingInfoOnly(s, questionYears)) continue
     const anchors = anchorsOf(s)
-    for (const a of anchors) if (!knownAnchors.has(a) && !passageSupports(a, s)) return fail('unsupported_reference', a)
+    for (const a of anchors) if (!knownAnchors.has(a) && !passageSupports(a, s) && !titleNameOk(a, s)) return fail('unsupported_reference', a)
     const hasFigure = extractNumbers(s).some(n => n.valid && !isYear(n))
     if (!TAX_TERMS.test(s) && !hasFigure && !anchors.size) continue
     if (REFERRAL.test(s) && !hasFigure && !anchors.size) continue
@@ -792,6 +927,11 @@ function validateAnswer(parsed, ctx) {
     const appliesUserFacts = figures.length > 0 && !anchors.size && !LEGAL_NOUN.test(s) &&
       figures.every(n => hasValue(questionNumbers, n.value, n.currency, n.unit) || decl.some(x => x.category === 'arithmetic' && x.ok && !x.viaExample && sameValue(x.parsed.value, n.value)))
     if (appliesUserFacts) continue
+    // "Since your MAGI was $250,000, you are over that limit": the user's own figures compared with a limit this
+    // answer already established from a cited quote (Phase 4.2 step 3). No new rule, form or figure is stated.
+    const comparesUserFacts = figures.length > 0 && !anchors.size && established.length > 0 && COMPARISON.test(s) && BACKREF.test(s) &&
+      figures.every(n => hasValue(questionNumbers, n.value, n.currency, n.unit))
+    if (comparesUserFacts) continue
     // A calculation line built only from the user's figures, verified results and legal figures already validated
     // earlier in this answer restates what was cited; it needs no new source (Phase 3.1).
     const calculationOfVerified = CALCULATION.test(s) && figures.length > 0 && !anchors.size && figures.every(n =>
@@ -823,7 +963,9 @@ function validateClarifyingQuestion(text, question) {
   if (!q || q.length > 400 || /https?:\/\//i.test(q)) return false
   const allowed = extractNumbers(question, { words: true })
   const duration = n => !!n.unit && !n.currency && !n.percent
-  return extractNumbers(q).every(n => n.valid && (isYear(n) || duration(n) || hasValue(allowed, n.value, n.currency, n.unit)))
+  // An age condition ("55 or older", 「55 歲以上」) is a fact to ask about, not an amount or rule (Phase 4.2 step 3).
+  const age = n => !n.currency && !n.percent && !n.unit && Number.isInteger(n.value) && n.value >= 18 && n.value <= 120 && !!conditionAround(q, n.raw)
+  return extractNumbers(q).every(n => n.valid && (isYear(n) || duration(n) || age(n) || hasValue(allowed, n.value, n.currency, n.unit)))
 }
 
-module.exports = { normText, quoteInSource, extractNumbers, evaluate, validateAnswer, validateClarifyingQuestion, CJK }
+module.exports = { normText, quoteInSource, extractNumbers, evaluate, validateAnswer, validateClarifyingQuestion, CJK, statesLiability }

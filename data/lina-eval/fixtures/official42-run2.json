@@ -1,0 +1,1770 @@
+{
+ "_comment": "FIXED regression fixtures: the unedited gpt-5.4-mini replies from the second paid official42 run (2026-10-15, lina-eval-results/official42-2026-10-15T16-45-20-171Z). f3520-03 had a network error (no model reply). Do not edit the model fields.",
+ "model": "gpt-5.4-mini",
+ "sourceRun": "lina-eval-results/official42-2026-10-15T16-45-20-171Z",
+ "records": [
+  {
+   "caseId": "hsa-01",
+   "turn": 1,
+   "lang": "en",
+   "question": "My HSA-eligible plan only covers me. How much can I put in for 2025?",
+   "followUp": null,
+   "original": {
+    "kind": "answer",
+    "reasonCodes": [],
+    "validator": null
+   },
+   "model": {
+    "intent": "us_tax",
+    "decision": "answer",
+    "clarifying_question": "",
+    "paragraphs": [
+     "For 2025, if you have self-only HDHP coverage, you can contribute up to $4,300 to an HSA. If you are age 55 or older at the end of your tax year, your contribution limit is increased by $1,000.",
+     "If you were eligible for the full year and did not change coverage, IRS guidance says you can contribute the full amount based on your type of coverage."
+    ],
+    "claims": [
+     {
+      "text": "For 2025, if you have self-only HDHP coverage, you can contribute up to $4,300.",
+      "source_id": "G1",
+      "quote": "For 2025, if you have self-only HDHP coverage, you can contribute up to $4,300.",
+      "tax_year": "2025"
+     },
+     {
+      "text": "If you are age 55 or older at the end of your tax year, your contribution limit is increased by $1,000.",
+      "source_id": "G2",
+      "quote": "If you are an eligible individual who is age 55 or older at the end of your tax year, your contribution limit is increased by $1,000.",
+      "tax_year": "2025"
+     },
+     {
+      "text": "If you were eligible for the full year and did not change coverage, IRS guidance says you can contribute the full amount based on your type of coverage.",
+      "source_id": "G3",
+      "quote": "if you are or were considered (under the last-month rule, discussed later) an eligible individual for the entire year and didn’t change your type of coverage, you can contribute the full amount based on your type of coverage.",
+      "tax_year": "2025"
+     }
+    ],
+    "numbers": [
+     {
+      "value": "2025",
+      "category": "tax_year",
+      "source_id": "G1",
+      "expression": ""
+     },
+     {
+      "value": "$4,300",
+      "category": "legal",
+      "source_id": "G1",
+      "expression": ""
+     },
+     {
+      "value": "55",
+      "category": "legal",
+      "source_id": "G2",
+      "expression": ""
+     },
+     {
+      "value": "$1,000",
+      "category": "legal",
+      "source_id": "G2",
+      "expression": ""
+     }
+    ],
+    "conflicts": [],
+    "handoff_needed": false
+   }
+  },
+  {
+   "caseId": "hsa-02",
+   "turn": 1,
+   "lang": "en",
+   "question": "What's the HSA max for a family plan in 2026?",
+   "followUp": null,
+   "original": {
+    "kind": "insufficient",
+    "reasonCodes": [
+     "quote_not_in_source"
+    ],
+    "validator": {
+     "ok": false,
+     "reason": "quote_not_in_source",
+     "detail": null
+    }
+   },
+   "model": {
+    "intent": "us_tax",
+    "decision": "answer",
+    "clarifying_question": "",
+    "paragraphs": [
+     "For calendar year 2026, the annual HSA contribution limit for family coverage is $8,750.",
+     "The IRS source also says that for 2026, family coverage under a high deductible health plan must have an annual deductible of at least $3,400, and annual out-of-pocket expenses cannot exceed $17,000."
+    ],
+    "claims": [
+     {
+      "text": "For calendar year 2026, the annual limitation on deductions under § 223(b)(2)(B) for an individual with family coverage under a high deductible health plan is $8,750.",
+      "source_id": "G1",
+      "quote": "For calendar year 2026, the annual limitation on deductions under § 223(b)(2)(B) for an individual with family coverage under a high deductible health plan is $8,750.",
+      "tax_year": "2026"
+     },
+     {
+      "text": "for calendar year 2026, a “high deductible health plan” is defined under § 223(c)(2)(A) as a health plan with an annual deductible that is not less than $3,400 for family coverage, and for which the annual out-of-pocket expenses (deductibles, co-payments, and other amounts, but not premiums) do not ",
+      "source_id": "G1",
+      "quote": "for calendar year 2026, a “high deductible health plan” is defined under § 223(c)(2)(A) as a health plan with an annual deductible that is not less than $3,400 for family coverage, and for which the annual out-of-pocket expenses (deductibles, co-payments, and other amounts, but not premiums) do not ",
+      "tax_year": "2026"
+     }
+    ],
+    "numbers": [
+     {
+      "value": "2026",
+      "category": "tax_year",
+      "source_id": "G1",
+      "expression": ""
+     },
+     {
+      "value": "$8,750",
+      "category": "legal",
+      "source_id": "G1",
+      "expression": ""
+     },
+     {
+      "value": "$3,400",
+      "category": "legal",
+      "source_id": "G1",
+      "expression": ""
+     },
+     {
+      "value": "$17,000",
+      "category": "legal",
+      "source_id": "G1",
+      "expression": ""
+     }
+    ],
+    "conflicts": [],
+    "handoff_needed": false
+   }
+  },
+  {
+   "caseId": "hsa-03",
+   "turn": 1,
+   "lang": "zh",
+   "question": "2026年家庭醫療保險保障的HSA最多可以存多少？",
+   "followUp": null,
+   "original": {
+    "kind": "answer",
+    "reasonCodes": [],
+    "validator": null
+   },
+   "model": {
+    "intent": "us_tax",
+    "decision": "answer",
+    "clarifying_question": "",
+    "paragraphs": [
+     "2026年，若你是家庭醫療保險保障，HSA 的年度最高供款額是 $8,750。"
+    ],
+    "claims": [
+     {
+      "text": "For calendar year 2026, the annual limitation on deductions under § 223(b)(2)(B) for an individual with family coverage under a high deductible health plan is $8,750.",
+      "source_id": "G1",
+      "quote": "For calendar year 2026, the annual limitation on deductions under § 223(b)(2)(B) for an individual with family coverage under a high deductible health plan is $8,750.",
+      "tax_year": "2026"
+     }
+    ],
+    "numbers": [
+     {
+      "value": "2026",
+      "category": "tax_year",
+      "source_id": "G1",
+      "expression": ""
+     },
+     {
+      "value": "$8,750",
+      "category": "legal",
+      "source_id": "G1",
+      "expression": ""
+     }
+    ],
+    "conflicts": [],
+    "handoff_needed": false
+   }
+  },
+  {
+   "caseId": "hsa-04",
+   "turn": 1,
+   "lang": "en",
+   "question": "How much can I contribute to my HSA?",
+   "followUp": null,
+   "original": {
+    "kind": "clarify",
+    "reasonCodes": [],
+    "validator": null
+   },
+   "model": {
+    "intent": "us_tax",
+    "decision": "clarify",
+    "clarifying_question": "Which tax year, and do you have self-only or family HDHP coverage?",
+    "paragraphs": [],
+    "claims": [
+     {
+      "text": "The amount you or any other person can contribute to your HSA depends on the type of HDHP coverage you have, your age, the date you become an eligible individual, and the date you cease to be an eligible individual.",
+      "source_id": "G2",
+      "quote": "The amount you or any other person can contribute to your HSA depends on the type of HDHP coverage you have, your age, the date you become an eligible individual, and the date you cease to be an eligible individual.",
+      "tax_year": "2025"
+     }
+    ],
+    "numbers": [],
+    "conflicts": [],
+    "handoff_needed": false
+   }
+  },
+  {
+   "caseId": "hsa-04",
+   "turn": 2,
+   "lang": "en",
+   "question": "For 2025. It is family coverage.",
+   "followUp": {
+    "previousQuestion": "How much can I contribute to my HSA?",
+    "clarifyingQuestion": "Which tax year, and do you have self-only or family HDHP coverage?",
+    "round": 1
+   },
+   "original": {
+    "kind": "answer",
+    "reasonCodes": [],
+    "validator": null
+   },
+   "model": {
+    "intent": "us_tax",
+    "decision": "answer",
+    "clarifying_question": "",
+    "paragraphs": [
+     "For 2025, if you have family HDHP coverage, you can contribute up to $8,550 to your HSA. IRS guidance also says that if both spouses are 55 or older and not enrolled in Medicare, the total contributions under family coverage can’t be more than $10,550.",
+     "The exact amount for you can be higher only if the age-based additional contribution applies; the source says each spouse must make the additional contribution to their own HSA."
+    ],
+    "claims": [
+     {
+      "text": "For 2025, if you have family HDHP coverage, you can contribute up to $8,550 to your HSA.",
+      "source_id": "G2",
+      "quote": "For 2025, if you have self-only HDHP coverage, you can contribute up to $4,300. If you have family HDHP coverage, you can contribute up to $8,550.",
+      "tax_year": "2025"
+     },
+     {
+      "text": "IRS guidance also says that if both spouses are 55 or older and not enrolled in Medicare, the total contributions under family coverage can’t be more than $10,550.",
+      "source_id": "G1",
+      "quote": "If both spouses are 55 or older and not enrolled in Medicare, each spouse’s contribution limit is increased by the additional contribution. If both spouses meet the age requirement, the total contributions under family coverage can’t be more than $10,550.",
+      "tax_year": "2025"
+     },
+     {
+      "text": "The exact amount for you can be higher only if the age-based additional contribution applies; the source says each spouse must make the additional contribution to their own HSA.",
+      "source_id": "G1",
+      "quote": "Each spouse must make the additional contribution to their own HSA.",
+      "tax_year": "2025"
+     }
+    ],
+    "numbers": [
+     {
+      "value": "2025",
+      "category": "tax_year",
+      "source_id": "G2",
+      "expression": ""
+     },
+     {
+      "value": "$8,550",
+      "category": "legal",
+      "source_id": "G2",
+      "expression": ""
+     },
+     {
+      "value": "55",
+      "category": "legal",
+      "source_id": "G1",
+      "expression": ""
+     },
+     {
+      "value": "$10,550",
+      "category": "legal",
+      "source_id": "G1",
+      "expression": ""
+     }
+    ],
+    "conflicts": [],
+    "handoff_needed": false
+   }
+  },
+  {
+   "caseId": "hsa-05",
+   "turn": 1,
+   "lang": "en",
+   "question": "I'll be 56 at the end of 2025. Can I put extra money in my HSA?",
+   "followUp": null,
+   "original": {
+    "kind": "answer",
+    "reasonCodes": [],
+    "validator": null
+   },
+   "model": {
+    "intent": "us_tax",
+    "decision": "answer",
+    "clarifying_question": "",
+    "paragraphs": [
+     "Yes. If you are an eligible individual who is age 55 or older at the end of your tax year, your HSA contribution limit is increased by $1,000. So being 56 at the end of 2025 can make you eligible for the extra HSA contribution, if you otherwise qualify for an HSA contribution.",
+     "If both spouses are 55 or older and not enrolled in Medicare, each spouse’s contribution limit is increased by the additional contribution. For 2025, the total contributions under family coverage can’t be more than $10,550."
+    ],
+    "claims": [
+     {
+      "text": "If you are an eligible individual who is age 55 or older at the end of your tax year, your contribution limit is increased by $1,000.",
+      "source_id": "G1",
+      "quote": "If you are an eligible individual who is age 55 or older at the end of your tax year, your contribution limit is increased by $1,000.",
+      "tax_year": "2025"
+     },
+     {
+      "text": "If both spouses are 55 or older and not enrolled in Medicare, each spouse’s contribution limit is increased by the additional contribution.",
+      "source_id": "G2",
+      "quote": "If both spouses are 55 or older and not enrolled in Medicare, each spouse’s contribution limit is increased by the additional contribution.",
+      "tax_year": "2025"
+     },
+     {
+      "text": "For 2025, the total contributions under family coverage can’t be more than $10,550.",
+      "source_id": "G2",
+      "quote": "the total contributions under family coverage can’t be more than $10,550.",
+      "tax_year": "2025"
+     }
+    ],
+    "numbers": [
+     {
+      "value": "56",
+      "category": "user",
+      "source_id": "",
+      "expression": ""
+     },
+     {
+      "value": "2025",
+      "category": "tax_year",
+      "source_id": "",
+      "expression": ""
+     },
+     {
+      "value": "55",
+      "category": "legal",
+      "source_id": "G1",
+      "expression": ""
+     },
+     {
+      "value": "$1,000",
+      "category": "legal",
+      "source_id": "G1",
+      "expression": ""
+     },
+     {
+      "value": "55",
+      "category": "legal",
+      "source_id": "G2",
+      "expression": ""
+     },
+     {
+      "value": "2025",
+      "category": "tax_year",
+      "source_id": "",
+      "expression": ""
+     },
+     {
+      "value": "$10,550",
+      "category": "legal",
+      "source_id": "G2",
+      "expression": ""
+     }
+    ],
+    "conflicts": [],
+    "handoff_needed": false
+   }
+  },
+  {
+   "caseId": "hsa-06",
+   "turn": 1,
+   "lang": "en",
+   "question": "I turn 57 in 2026. How much extra can I add to my HSA that year?",
+   "followUp": null,
+   "original": {
+    "kind": "insufficient",
+    "reasonCodes": [],
+    "validator": null
+   },
+   "model": {
+    "intent": "us_tax",
+    "decision": "insufficient",
+    "clarifying_question": "",
+    "paragraphs": [
+     "I can’t answer this from the sources I have because they do not cover the HSA catch-up contribution amount for 2026.",
+     "If you want, I can answer once I have a source that covers the 2026 HSA rules."
+    ],
+    "claims": [],
+    "numbers": [
+     {
+      "value": "57",
+      "category": "user",
+      "source_id": "",
+      "expression": ""
+     },
+     {
+      "value": "2026",
+      "category": "user",
+      "source_id": "",
+      "expression": ""
+     }
+    ],
+    "conflicts": [],
+    "handoff_needed": false
+   }
+  },
+  {
+   "caseId": "hsa-07",
+   "turn": 1,
+   "lang": "en",
+   "question": "I signed up for Medicare in 2025. Can I keep contributing to my HSA?",
+   "followUp": null,
+   "original": {
+    "kind": "answer",
+    "reasonCodes": [],
+    "validator": null
+   },
+   "model": {
+    "intent": "us_tax",
+    "decision": "answer",
+    "clarifying_question": "",
+    "paragraphs": [
+     "No. Beginning with the first month you are enrolled in Medicare, your HSA contribution limit is zero, and this rule also applies to retroactive Medicare coverage.",
+     "If your Medicare enrollment is backdated, any HSA contributions made during the retroactive coverage period are treated as excess."
+    ],
+    "claims": [
+     {
+      "text": "Beginning with the first month you are enrolled in Medicare, your contribution limit is zero.",
+      "source_id": "G1",
+      "quote": "Beginning with the first month you are enrolled in Medicare, your contribution limit is zero.",
+      "tax_year": "2025"
+     },
+     {
+      "text": "This rule applies to periods of retroactive Medicare coverage.",
+      "source_id": "G1",
+      "quote": "This rule applies to periods of retroactive Medicare coverage.",
+      "tax_year": "2025"
+     },
+     {
+      "text": "any contributions to your HSA made during the period of retroactive coverage are considered excess.",
+      "source_id": "G1",
+      "quote": "any contributions to your HSA made during the period of retroactive coverage are considered excess.",
+      "tax_year": "2025"
+     }
+    ],
+    "numbers": [
+     {
+      "value": "0",
+      "category": "legal",
+      "source_id": "G1",
+      "expression": ""
+     },
+     {
+      "value": "2025",
+      "category": "tax_year",
+      "source_id": "",
+      "expression": ""
+     }
+    ],
+    "conflicts": [],
+    "handoff_needed": false
+   }
+  },
+  {
+   "caseId": "hsa-08",
+   "turn": 1,
+   "lang": "zh",
+   "question": "我太太和我都可以開HSA，我們可以共用一個HSA帳戶嗎？",
+   "followUp": null,
+   "original": {
+    "kind": "answer",
+    "reasonCodes": [
+     "zh_english_terms"
+    ],
+    "validator": null
+   },
+   "model": {
+    "intent": "us_tax",
+    "decision": "answer",
+    "clarifying_question": "",
+    "paragraphs": [
+     "不可以。IRS 的指引寫明，若夫妻雙方都是符合資格的人，想要 HSA，則每人都要各自開立一個 HSA，不能共用同一個帳戶。",
+     "IRS 的指引也說：\"Each spouse who is an eligible individual who wants an HSA must open a separate HSA. You can’t have a joint HSA.\""
+    ],
+    "claims": [
+     {
+      "text": "Each spouse who is an eligible individual who wants an HSA must open a separate HSA. You can’t have a joint HSA.",
+      "source_id": "G2",
+      "quote": "Each spouse who is an eligible individual who wants an HSA must open a separate HSA. You can’t have a joint HSA.",
+      "tax_year": "2025"
+     }
+    ],
+    "numbers": [],
+    "conflicts": [],
+    "handoff_needed": false
+   }
+  },
+  {
+   "caseId": "hsa-09",
+   "turn": 1,
+   "lang": "en",
+   "question": "My employer puts $1,000 a year into my HSA. Does that count toward my contribution limit?",
+   "followUp": null,
+   "original": {
+    "kind": "answer",
+    "reasonCodes": [],
+    "validator": null
+   },
+   "model": {
+    "intent": "us_tax",
+    "decision": "answer",
+    "clarifying_question": "",
+    "paragraphs": [
+     "Yes. IRS guidance says you must reduce what you or anyone else can contribute to your HSA by employer contributions that are excludable from your income, so your employer’s $1,000 counts toward your HSA contribution limit.",
+     "AskLinTax’s guides say employer contributions to your HSA are not taxable and should be entered on Form 8889."
+    ],
+    "claims": [
+     {
+      "text": "You must reduce the amount you or any other person can contribute to your HSA by the amount of any contributions made by your employer that are excludable from your income.",
+      "source_id": "G1",
+      "quote": "You must reduce the amount you or any other person can contribute to your HSA by the amount of any contributions made by your employer that are excludable from your income.",
+      "tax_year": "2025"
+     },
+     {
+      "text": "Code W = employer contributions to your Health Savings Account (HSA).",
+      "source_id": "L1",
+      "quote": "Code W = employer contributions to your Health Savings Account (HSA);",
+      "tax_year": "2025"
+     },
+     {
+      "text": "Employer contributions to your HSA | Not taxable | Enter on Form 8889",
+      "source_id": "L2",
+      "quote": "W | Employer contributions to your HSA | Not taxable | Enter on Form 8889",
+      "tax_year": "2025"
+     }
+    ],
+    "numbers": [
+     {
+      "value": "$1,000",
+      "category": "user",
+      "source_id": "",
+      "expression": ""
+     },
+     {
+      "value": "2025",
+      "category": "tax_year",
+      "source_id": "",
+      "expression": ""
+     }
+    ],
+    "conflicts": [],
+    "handoff_needed": false
+   }
+  },
+  {
+   "caseId": "hsa-10",
+   "turn": 1,
+   "lang": "zh",
+   "question": "2025年如果只有我自己投保，高自付額健保的最低自付額是多少？",
+   "followUp": null,
+   "original": {
+    "kind": "insufficient",
+    "reasonCodes": [
+     "figure_condition_missing"
+    ],
+    "validator": {
+     "ok": false,
+     "reason": "figure_condition_missing",
+     "detail": "$1,650"
+    }
+   },
+   "model": {
+    "intent": "us_tax",
+    "decision": "answer",
+    "clarifying_question": "",
+    "paragraphs": [
+     "2025 年如果是 self-only coverage，HDHP 的最低自付額是 $1,650。",
+     "IRS 的指引寫的是：\"Minimum annual deductible | $1,650 | $3,300\"。"
+    ],
+    "claims": [
+     {
+      "text": "2025 年如果是 self-only coverage，HDHP 的最低自付額是 $1,650。",
+      "source_id": "G2",
+      "quote": "Minimum annual deductible | $1,650 | $3,300",
+      "tax_year": "2025"
+     }
+    ],
+    "numbers": [
+     {
+      "value": "2025",
+      "category": "tax_year",
+      "source_id": "",
+      "expression": ""
+     },
+     {
+      "value": "$1,650",
+      "category": "legal",
+      "source_id": "G2",
+      "expression": ""
+     }
+    ],
+    "conflicts": [],
+    "handoff_needed": false
+   }
+  },
+  {
+   "caseId": "roth-01",
+   "turn": 1,
+   "lang": "en",
+   "question": "Can I still put money in a Roth IRA? I'm single and made about $160,000 in 2025.",
+   "followUp": null,
+   "original": {
+    "kind": "insufficient",
+    "reasonCodes": [
+     "quote_not_in_source"
+    ],
+    "validator": {
+     "ok": false,
+     "reason": "quote_not_in_source",
+     "detail": null
+    }
+   },
+   "model": {
+    "intent": "us_tax",
+    "decision": "answer",
+    "clarifying_question": "",
+    "paragraphs": [
+     "For 2025, a single filer can contribute to a Roth IRA if modified AGI is less than $165,000, and the contribution is reduced when modified AGI is at least $150,000 but less than $165,000. If modified AGI is $165,000 or more, you can’t contribute to a Roth IRA. The IRS also says you need taxable compensation to contribute.",
+     "So if your 2025 modified AGI is about $160,000 and you have taxable compensation, you are in the phase-out range, which means your Roth IRA contribution is reduced rather than fully allowed or fully barred."
+    ],
+    "claims": [
+     {
+      "text": "Generally, you can contribute to a Roth IRA if you have taxable compensation (defined later) and your modified AGI (defined later) is less than: ... $165,000 for single, head of household, or married filing separately and you didn’t live with your spouse at any time during the year",
+      "source_id": "G2",
+      "quote": "Generally, you can contribute to a Roth IRA if you have taxable compensation (defined later) and your modified AGI (defined later) is less than: ... $165,000 for single, head of household, or married filing separately and you didn’t live with your spouse at any time during the year;",
+      "tax_year": "2025"
+     },
+     {
+      "text": "IF you have taxable compensation and your filing status is... | AND your modified AGI is... | THEN... single, head of household, or married filing separately (and you didn’t live with your spouse at any time during the year) | at least $150,000 but less than $165,000 | the amount you can contribute ",
+      "source_id": "G1",
+      "quote": "single, head of household, or married filing separately (and you didn’t live with your spouse at any time during the year) | at least $150,000 but less than $165,000 | the amount you can contribute is reduced",
+      "tax_year": "2025"
+     },
+     {
+      "text": "single, head of household, or married filing separately (and you didn’t live with your spouse at any time during the year) | $165,000 or more | you can’t contribute to a Roth IRA",
+      "source_id": "G1",
+      "quote": "single, head of household, or married filing separately (and you didn’t live with your spouse at any time during the year) | $165,000 or more | you can’t contribute to a Roth IRA.",
+      "tax_year": "2025"
+     },
+     {
+      "text": "Contributions can be made to your Roth IRA regardless of your age.",
+      "source_id": "G2",
+      "quote": "Contributions can be made to your Roth IRA regardless of your age.",
+      "tax_year": "2025"
+     }
+    ],
+    "numbers": [
+     {
+      "value": "2025",
+      "category": "tax_year",
+      "source_id": "G1",
+      "expression": ""
+     },
+     {
+      "value": "2025",
+      "category": "tax_year",
+      "source_id": "G2",
+      "expression": ""
+     },
+     {
+      "value": "$165,000",
+      "category": "legal",
+      "source_id": "G2",
+      "expression": ""
+     },
+     {
+      "value": "$150,000",
+      "category": "legal",
+      "source_id": "G1",
+      "expression": ""
+     },
+     {
+      "value": "$165,000",
+      "category": "legal",
+      "source_id": "G1",
+      "expression": ""
+     },
+     {
+      "value": "$160,000",
+      "category": "user",
+      "source_id": "",
+      "expression": ""
+     }
+    ],
+    "conflicts": [],
+    "handoff_needed": false
+   }
+  },
+  {
+   "caseId": "roth-02",
+   "turn": 1,
+   "lang": "en",
+   "question": "We're married filing jointly and our MAGI was $250,000 in 2025. Can we contribute to Roth IRAs?",
+   "followUp": null,
+   "original": {
+    "kind": "answer",
+    "reasonCodes": [],
+    "validator": null
+   },
+   "model": {
+    "intent": "us_tax",
+    "decision": "answer",
+    "clarifying_question": "",
+    "paragraphs": [
+     "For 2025, if you are married filing jointly and your modified AGI is $246,000 or more, you can’t contribute to a Roth IRA. With a MAGI of $250,000, the general rule says you cannot contribute.",
+     "Roth IRA contributions can be made regardless of age, but you still need taxable compensation and your modified AGI must be below the limit for your filing status."
+    ],
+    "claims": [
+     {
+      "text": "For 2025, if you are married filing jointly and your modified AGI is $246,000 or more, you can’t contribute to a Roth IRA.",
+      "source_id": "G1",
+      "quote": "married filing jointly or qualifying surviving spouse | $246,000 or more | you can’t contribute to a Roth IRA.",
+      "tax_year": "2025"
+     },
+     {
+      "text": "Roth IRA contributions can be made regardless of age, but you still need taxable compensation and your modified AGI must be below the limit for your filing status.",
+      "source_id": "G2",
+      "quote": "Contributions can be made to your Roth IRA regardless of your age.",
+      "tax_year": "2025"
+     }
+    ],
+    "numbers": [
+     {
+      "value": "2025",
+      "category": "tax_year",
+      "source_id": "",
+      "expression": ""
+     },
+     {
+      "value": "250,000",
+      "category": "user",
+      "source_id": "",
+      "expression": ""
+     },
+     {
+      "value": "246,000",
+      "category": "legal",
+      "source_id": "G1",
+      "expression": ""
+     }
+    ],
+    "conflicts": [],
+    "handoff_needed": false
+   }
+  },
+  {
+   "caseId": "roth-03",
+   "turn": 1,
+   "lang": "zh",
+   "question": "2026年夫妻合併申報，收入多少以上就不能存Roth IRA？",
+   "followUp": null,
+   "original": {
+    "kind": "insufficient",
+    "reasonCodes": [
+     "legal_number_not_in_source"
+    ],
+    "validator": {
+     "ok": false,
+     "reason": "legal_number_not_in_source",
+     "detail": "$242,000"
+    }
+   },
+   "model": {
+    "intent": "us_tax",
+    "decision": "answer",
+    "clarifying_question": "",
+    "paragraphs": [
+     "2026 年夫妻合併申報時，Roth IRA 的調整後總收入（AGI）退場區間是 $242,000 到 $252,000。",
+     "也就是說，若你的 AGI 2026 年超過 $252,000，通常就不能再存 Roth IRA；若落在 $242,000 到 $252,000 之間，則只能部分供款。"
+    ],
+    "claims": [
+     {
+      "text": "2026 年夫妻合併申報時，Roth IRA 的調整後總收入（AGI）退場區間是 $242,000 到 $252,000。",
+      "source_id": "G1",
+      "quote": "For singles and heads of household, the income phase-out range is between $153,000 and $168,000, increased from between $150,000 and $165,000.",
+      "tax_year": "2026"
+     },
+     {
+      "text": "也就是說，若你的 AGI 2026 年超過 $252,000，通常就不能再存 Roth IRA；若落在 $242,000 到 $252,000 之間，則只能部分供款。",
+      "source_id": "G1",
+      "quote": "For a married individual filing a separate return, the phase-out range is not subject to an annual cost-of-living adjustment and remains between $0 and $10,000.",
+      "tax_year": "2026"
+     }
+    ],
+    "numbers": [
+     {
+      "value": "2026",
+      "category": "tax_year",
+      "source_id": "G1",
+      "expression": ""
+     },
+     {
+      "value": "$242,000",
+      "category": "legal",
+      "source_id": "G1",
+      "expression": ""
+     },
+     {
+      "value": "$252,000",
+      "category": "legal",
+      "source_id": "G1",
+      "expression": ""
+     }
+    ],
+    "conflicts": [],
+    "handoff_needed": false
+   }
+  },
+  {
+   "caseId": "roth-04",
+   "turn": 1,
+   "lang": "en",
+   "question": "What are the Roth IRA income limits for 2026 for a single person?",
+   "followUp": null,
+   "original": {
+    "kind": "insufficient",
+    "reasonCodes": [
+     "undeclared_number"
+    ],
+    "validator": {
+     "ok": false,
+     "reason": "undeclared_number",
+     "detail": "$10,000"
+    }
+   },
+   "model": {
+    "intent": "us_tax",
+    "decision": "answer",
+    "clarifying_question": "",
+    "paragraphs": [
+     "For 2026, the Roth IRA income phase-out range for singles is $153,000 to $168,000. If your modified AGI is below $153,000, you are below the phase-out range; if it is $168,000 or more, you are above it. The IRS guidance also says this same range applies to heads of household.",
+     "For a married individual filing a separate return, the phase-out range is different and remains between $0 and $10,000."
+    ],
+    "claims": [
+     {
+      "text": "For singles and heads of household, the income phase-out range is between $153,000 and $168,000, increased from between $150,000 and $165,000.",
+      "source_id": "G1",
+      "quote": "For singles and heads of household, the income phase-out range is between $153,000 and $168,000, increased from between $150,000 and $165,000.",
+      "tax_year": "2026"
+     },
+     {
+      "text": "The applicable amount under section 408A(c)(3)(B)(ii)(III) for a married individual filing a separate return is not subject to an annual cost-of-living adjustment and remains $0.",
+      "source_id": "G1",
+      "quote": "The applicable amount under section 408A(c)(3)(B)(ii)(III) for a married individual filing a separate return is not subject to an annual cost-of-living adjustment and remains $0.",
+      "tax_year": "2026"
+     },
+     {
+      "text": "The adjusted gross income phase-out range for taxpayers making contributions to a Roth IRA is between $242,000 and $252,000 for married couples filing jointly, increased from between $236,000 and $246,000.",
+      "source_id": "G1",
+      "quote": "the adjusted gross income phase-out range for taxpayers making contributions to a Roth IRA is between $242,000 and $252,000 for married couples filing jointly",
+      "tax_year": "2026"
+     }
+    ],
+    "numbers": [
+     {
+      "value": "2026",
+      "category": "tax_year",
+      "source_id": "G1",
+      "expression": ""
+     },
+     {
+      "value": "153,000",
+      "category": "legal",
+      "source_id": "G1",
+      "expression": ""
+     },
+     {
+      "value": "168,000",
+      "category": "legal",
+      "source_id": "G1",
+      "expression": ""
+     },
+     {
+      "value": "0",
+      "category": "legal",
+      "source_id": "G1",
+      "expression": ""
+     }
+    ],
+    "conflicts": [],
+    "handoff_needed": false
+   }
+  },
+  {
+   "caseId": "roth-05",
+   "turn": 1,
+   "lang": "en",
+   "question": "I'm married but we file separately, and we lived together all of 2025. My MAGI is $40,000. Can I contribute to a Roth IRA?",
+   "followUp": null,
+   "original": {
+    "kind": "insufficient",
+    "reasonCodes": [
+     "undeclared_number"
+    ],
+    "validator": {
+     "ok": false,
+     "reason": "undeclared_number",
+     "detail": "$0"
+    }
+   },
+   "model": {
+    "intent": "us_tax",
+    "decision": "answer",
+    "clarifying_question": "",
+    "paragraphs": [
+     "No. For 2025, if you are married filing separately and you lived with your spouse at any time during the year, you can contribute to a Roth IRA only if your modified AGI is $0, and your contribution is reduced if your modified AGI is more than $0 but less than $10,000; if it is $10,000 or more, you can’t contribute to a Roth IRA. Your MAGI of $40,000 is above that limit.",
+     "The IRS also says Roth IRA contributions require taxable compensation, so even apart from the MAGI rule, you would need that too."
+    ],
+    "claims": [
+     {
+      "text": "married filing separately (and you lived with your spouse at any time during the year) | zero (-0-) | you can contribute up to $7,000 ($8,000 if you are age 50 or older) as explained under How Much Can Be Contributed , earlier.",
+      "source_id": "G1",
+      "quote": "married filing separately (and you lived with your spouse at any time during the year) | zero (-0-) | you can contribute up to $7,000 ($8,000 if you are age 50 or older) as explained under How Much Can Be Contributed , earlier.",
+      "tax_year": "2025"
+     },
+     {
+      "text": "married filing separately (and you lived with your spouse at any time during the year) | more than zero (-0-) but less than $10,000 | the amount you can contribute is reduced as explained under Contribution limit reduced , earlier.",
+      "source_id": "G1",
+      "quote": "married filing separately (and you lived with your spouse at any time during the year) | more than zero (-0-) but less than $10,000 | the amount you can contribute is reduced as explained under Contribution limit reduced , earlier.",
+      "tax_year": "2025"
+     },
+     {
+      "text": "married filing separately (and you lived with your spouse at any time during the year) | $10,000 or more | you can’t contribute to a Roth IRA.",
+      "source_id": "G1",
+      "quote": "married filing separately (and you lived with your spouse at any time during the year) | $10,000 or more | you can’t contribute to a Roth IRA.",
+      "tax_year": "2025"
+     },
+     {
+      "text": "Generally, you can contribute to a Roth IRA if you have taxable compensation (defined later) and your modified AGI (defined later) is less than:",
+      "source_id": "G2",
+      "quote": "Generally, you can contribute to a Roth IRA if you have taxable compensation (defined later) and your modified AGI (defined later) is less than:",
+      "tax_year": "2025"
+     }
+    ],
+    "numbers": [
+     {
+      "value": "2025",
+      "category": "tax_year",
+      "source_id": "",
+      "expression": ""
+     },
+     {
+      "value": "40,000",
+      "category": "user",
+      "source_id": "",
+      "expression": ""
+     },
+     {
+      "value": "10,000",
+      "category": "legal",
+      "source_id": "G1",
+      "expression": ""
+     }
+    ],
+    "conflicts": [],
+    "handoff_needed": false
+   }
+  },
+  {
+   "caseId": "roth-06",
+   "turn": 1,
+   "lang": "en",
+   "question": "We file married filing separately and lived apart all of 2026. Which Roth IRA income limit applies to me?",
+   "followUp": null,
+   "original": {
+    "kind": "insufficient",
+    "reasonCodes": [],
+    "validator": null
+   },
+   "model": {
+    "intent": "us_tax",
+    "decision": "insufficient",
+    "clarifying_question": "",
+    "paragraphs": [
+     "For a married individual filing a separate return, the source says the Roth IRA phase-out range “remains between $0 and $10,000.”",
+     "But the source does not say whether living apart all 2026 changes that limit, so it does not settle which Roth IRA income limit applies to you."
+    ],
+    "claims": [
+     {
+      "text": "The applicable amount under section 408A(c)(3)(B)(ii)(III) for a married individual filing a separate return is not subject to an annual cost-of-living adjustment and remains $0.",
+      "source_id": "G1",
+      "quote": "The applicable amount under section 408A(c)(3)(B)(ii)(III) for a married individual filing a separate return is not subject to an annual cost-of-living adjustment and remains $0.",
+      "tax_year": "2026"
+     },
+     {
+      "text": "For singles and heads of household, the income phase-out range is between $153,000 and $168,000, increased from between $150,000 and $165,000.",
+      "source_id": "G1",
+      "quote": "For singles and heads of household, the income phase-out range is between $153,000 and $168,000, increased from between $150,000 and $165,000.",
+      "tax_year": "2026"
+     }
+    ],
+    "numbers": [
+     {
+      "value": "2026",
+      "category": "tax_year",
+      "source_id": "G1",
+      "expression": ""
+     },
+     {
+      "value": "$0",
+      "category": "legal",
+      "source_id": "G1",
+      "expression": ""
+     },
+     {
+      "value": "$10,000",
+      "category": "legal",
+      "source_id": "G1",
+      "expression": ""
+     },
+     {
+      "value": "$153,000",
+      "category": "legal",
+      "source_id": "G1",
+      "expression": ""
+     },
+     {
+      "value": "$168,000",
+      "category": "legal",
+      "source_id": "G1",
+      "expression": ""
+     },
+     {
+      "value": "$150,000",
+      "category": "legal",
+      "source_id": "G1",
+      "expression": ""
+     },
+     {
+      "value": "$165,000",
+      "category": "legal",
+      "source_id": "G1",
+      "expression": ""
+     }
+    ],
+    "conflicts": [],
+    "handoff_needed": false
+   }
+  },
+  {
+   "caseId": "roth-07",
+   "turn": 1,
+   "lang": "zh",
+   "question": "我72歲了，還可以存Roth IRA嗎？",
+   "followUp": null,
+   "original": {
+    "kind": "answer",
+    "reasonCodes": [],
+    "validator": null
+   },
+   "model": {
+    "intent": "us_tax",
+    "decision": "answer",
+    "clarifying_question": "",
+    "paragraphs": [
+     "可以。IRS 的指引寫明，Roth IRA 供款沒有年齡限制。",
+     "不過你還是要同時符合其他條件，例如有符合規定的應稅工作所得，且你的 modified AGI 低於適用門檻。"
+    ],
+    "claims": [
+     {
+      "text": "Contributions can be made to your Roth IRA regardless of your age.",
+      "source_id": "G1",
+      "quote": "Contributions can be made to your Roth IRA regardless of your age.",
+      "tax_year": "2025"
+     },
+     {
+      "text": "Generally, you can contribute to a Roth IRA if you have taxable compensation (defined later) and your modified AGI (defined later) is less than:",
+      "source_id": "G1",
+      "quote": "Generally, you can contribute to a Roth IRA if you have taxable compensation (defined later) and your modified AGI (defined later) is less than:",
+      "tax_year": "2025"
+     }
+    ],
+    "numbers": [
+     {
+      "value": "72",
+      "category": "user",
+      "source_id": "",
+      "expression": ""
+     },
+     {
+      "value": "2025",
+      "category": "tax_year",
+      "source_id": "G1",
+      "expression": ""
+     }
+    ],
+    "conflicts": [],
+    "handoff_needed": false
+   }
+  },
+  {
+   "caseId": "roth-08",
+   "turn": 1,
+   "lang": "zh",
+   "question": "我2025年沒有工作，只有股票投資收益，可以存Roth IRA嗎？",
+   "followUp": null,
+   "original": {
+    "kind": "insufficient",
+    "reasonCodes": [],
+    "validator": null
+   },
+   "model": {
+    "intent": "us_tax",
+    "decision": "insufficient",
+    "clarifying_question": "",
+    "paragraphs": [
+     "IRS 的指引說，Roth IRA 一般需要你有 taxable compensation，且你的 modified AGI 低於適用門檻，才可以供款。AskLinTax 的指南也寫到，Roth IRA 供款取決於 taxable compensation 與 modified AGI。",
+     "但這些來源沒有說明你說的「股票投資收益」是否算 taxable compensation，所以我不能只根據目前資料判定你 2025 年能不能存 Roth IRA。"
+    ],
+    "claims": [
+     {
+      "text": "Generally, you can contribute to a Roth IRA if you have taxable compensation (defined later) and your modified AGI (defined later) is less than:",
+      "source_id": "G2",
+      "quote": "Generally, you can contribute to a Roth IRA if you have taxable compensation (defined later) and your modified AGI (defined later) is less than:",
+      "tax_year": "2025"
+     },
+     {
+      "text": "If contributions are made only to Roth IRAs, your contribution limit is generally the lesser of:",
+      "source_id": "G1",
+      "quote": "If contributions are made only to Roth IRAs, your contribution limit is generally the lesser of:",
+      "tax_year": "2025"
+     }
+    ],
+    "numbers": [
+     {
+      "value": "2025",
+      "category": "tax_year",
+      "source_id": "G2",
+      "expression": ""
+     }
+    ],
+    "conflicts": [],
+    "handoff_needed": false
+   }
+  },
+  {
+   "caseId": "ira-01",
+   "turn": 1,
+   "lang": "en",
+   "question": "What is the IRA contribution limit for 2026?",
+   "followUp": null,
+   "original": {
+    "kind": "clarify",
+    "reasonCodes": [],
+    "validator": null
+   },
+   "model": {
+    "intent": "us_tax",
+    "decision": "clarify",
+    "clarifying_question": "Do you mean a traditional IRA or a Roth IRA, and is this for 2026?",
+    "paragraphs": [],
+    "claims": [],
+    "numbers": [],
+    "conflicts": [],
+    "handoff_needed": false
+   }
+  },
+  {
+   "caseId": "gift-01",
+   "turn": 1,
+   "lang": "en",
+   "question": "My parents in Taiwan wired me $150,000 last year. Do I need to report it to the IRS?",
+   "followUp": null,
+   "original": {
+    "kind": "answer",
+    "reasonCodes": [],
+    "validator": null
+   },
+   "model": {
+    "intent": "us_tax",
+    "decision": "answer",
+    "clarifying_question": "",
+    "paragraphs": [
+     "If your parents were nonresident aliens, yes: a U.S. person who received more than $100,000 from a nonresident alien individual or a foreign estate must complete Form 3520, Part IV. The amount from your parents was $150,000, so it is over that threshold.",
+     "If your parents were U.S. citizens or U.S. tax residents, it is usually not a foreign gift for Form 3520. AskLinTax’s guides say a gift from parents who are U.S. citizens living in Taiwan is not a gift from a foreign person."
+    ],
+    "claims": [
+     {
+      "text": "You are a U.S. person who, during the current tax year, received either: More than $100,000 from a nonresident alien individual or a foreign estate",
+      "source_id": "G1",
+      "quote": "You are a U.S. person who, during the current tax year, received either:\nMore than $100,000 from a nonresident alien individual or a foreign estate",
+      "tax_year": "2025"
+     },
+     {
+      "text": "Complete Part IV if you are a U.S. person who has received gifts or bequests from a foreign person or estate.",
+      "source_id": "G2",
+      "quote": "Complete Part IV if you are a U.S. person who has received gifts or bequests from a foreign person or estate.",
+      "tax_year": "2025"
+     },
+     {
+      "text": "Parents are U.S. citizens living in Taiwan and gave $150,000 | No — not a gift from a foreign person",
+      "source_id": "L3",
+      "quote": "Parents are U.S. citizens living in Taiwan and gave $150,000 | No — not a gift from a foreign person",
+      "tax_year": "2025"
+     },
+     {
+      "text": "A lawful permanent resident is generally a U.S. resident for tax purposes, so a gift from them is usually not a foreign gift.",
+      "source_id": "L6",
+      "quote": "A lawful permanent resident is generally a U.S. resident for tax purposes, so a gift from them is usually not a foreign gift.",
+      "tax_year": "2025"
+     }
+    ],
+    "numbers": [
+     {
+      "value": "2025",
+      "category": "tax_year",
+      "source_id": "G1",
+      "expression": ""
+     },
+     {
+      "value": "$100,000",
+      "category": "legal",
+      "source_id": "G1",
+      "expression": ""
+     },
+     {
+      "value": "$150,000",
+      "category": "user",
+      "source_id": "",
+      "expression": ""
+     }
+    ],
+    "conflicts": [],
+    "handoff_needed": false
+   }
+  },
+  {
+   "caseId": "gift-02",
+   "turn": 1,
+   "lang": "zh",
+   "question": "我爸媽住在台灣，不是美國人，今年給我20萬美元，要繳稅嗎？還是只要申報？",
+   "followUp": null,
+   "original": {
+    "kind": "answer",
+    "reasonCodes": [],
+    "validator": null
+   },
+   "model": {
+    "intent": "us_tax",
+    "decision": "answer",
+    "clarifying_question": "",
+    "paragraphs": [
+     "如果這是你爸媽給你的真正贈與，一般不算你的美國應稅所得；你通常不是在「繳稅」，而是有申報義務。",
+     "因為你今年收到的是 $200,000，而且超過 $100,000，依 IRS 的指引，你要用 Form 3520 申報這筆來自外國人的贈與／遺贈。若你今年還有從你爸媽或其他相關非居民外國人收到其他贈與，還要把相關總額一起合併看是否超過 $100,000。"
+    ],
+    "claims": [
+     {
+      "text": "Gifts from foreign individuals are not taxable income in the U.S.",
+      "source_id": "L3",
+      "quote": "Gifts from foreign individuals are not taxable income in the U.S.",
+      "tax_year": "2025"
+     },
+     {
+      "text": "you must report it on Form 3520 — even though you don't owe tax on it.",
+      "source_id": "L3",
+      "quote": "you must report it on Form 3520 — even though you don't owe tax on it.",
+      "tax_year": "2025"
+     },
+     {
+      "text": "if during the current tax year, you received more than $100,000 that you treated as gifts or bequests from a nonresident alien",
+      "source_id": "G1",
+      "quote": "Check “Yes” if during the current tax year, you received more than $100,000 that you treated as gifts or bequests from a nonresident alien",
+      "tax_year": "2025"
+     },
+     {
+      "text": "To calculate the threshold amount of $100,000, you must aggregate gifts from different foreign nonresident aliens and foreign estates",
+      "source_id": "G1",
+      "quote": "To calculate the threshold amount of $100,000, you must aggregate gifts from different foreign nonresident aliens and foreign estates",
+      "tax_year": "2025"
+     }
+    ],
+    "numbers": [
+     {
+      "value": "200000",
+      "category": "user",
+      "source_id": "",
+      "expression": ""
+     },
+     {
+      "value": "100000",
+      "category": "legal",
+      "source_id": "L3",
+      "expression": ""
+     },
+     {
+      "value": "100000",
+      "category": "legal",
+      "source_id": "G1",
+      "expression": ""
+     },
+     {
+      "value": "2025",
+      "category": "tax_year",
+      "source_id": "L3",
+      "expression": ""
+     },
+     {
+      "value": "2025",
+      "category": "tax_year",
+      "source_id": "G1",
+      "expression": ""
+     }
+    ],
+    "conflicts": [],
+    "handoff_needed": false
+   }
+  },
+  {
+   "caseId": "gift-03",
+   "turn": 1,
+   "lang": "en",
+   "question": "A Taiwanese company I used to work for sent me a $20,000 'gift'. Do I file Form 3520 for it?",
+   "followUp": null,
+   "original": {
+    "kind": "insufficient",
+    "reasonCodes": [],
+    "validator": null
+   },
+   "model": {
+    "intent": "us_tax",
+    "decision": "insufficient",
+    "clarifying_question": "",
+    "paragraphs": [
+     "A purported gift from a foreign corporation is reported on Form 3520 line 55, not line 54, and the IRS may also treat such a \"gift\" as taxable income. The sources here do not give the line 55 threshold amount, so they do not let me say whether your $20,000 payment by itself requires filing.",
+     "Because you said it came from a company you used to work for, the sources also warn that money from a business may need professional review if it might be a payment rather than a gift. "
+    ],
+    "claims": [
+     {
+      "text": "A purported gift from a foreign corporation or foreign partnership has its own, much lower annual threshold and is reported on line 55, not line 54.",
+      "source_id": "L2",
+      "quote": "A purported gift from a foreign corporation or foreign partnership has its own, much lower annual threshold and is reported on line 55, not line 54.",
+      "tax_year": "2025"
+     },
+     {
+      "text": "The IRS may also treat such a \"gift\" as taxable income.",
+      "source_id": "L2",
+      "quote": "The IRS may also treat such a \"gift\" as taxable income.",
+      "tax_year": "2025"
+     },
+     {
+      "text": "More than the section 6039F threshold amount from foreign corporations or foreign partnerships (including foreign persons related to such foreign corporations or foreign partnerships) that you treated as gifts",
+      "source_id": "G1",
+      "quote": "More than the section 6039F threshold amount from foreign corporations or foreign partnerships (including foreign persons related to such foreign corporations or foreign partnerships) that you treated as gifts;",
+      "tax_year": "2025"
+     },
+     {
+      "text": "Get help from a CPA or tax attorney if the money might be a loan or payment rather than a gift, if any of it came from a family company or a trust,",
+      "source_id": "L4",
+      "quote": "Get help from a CPA or tax attorney if the money might be a loan or payment rather than a gift, if any of it came from a family company or a trust,",
+      "tax_year": "2025"
+     }
+    ],
+    "numbers": [
+     {
+      "value": "55",
+      "category": "legal",
+      "source_id": "L2",
+      "expression": ""
+     },
+     {
+      "value": "20,000",
+      "category": "user",
+      "source_id": "",
+      "expression": ""
+     },
+     {
+      "value": "6039F",
+      "category": "legal",
+      "source_id": "G1",
+      "expression": ""
+     },
+     {
+      "value": "2025",
+      "category": "tax_year",
+      "source_id": "L2",
+      "expression": ""
+     }
+    ],
+    "conflicts": [],
+    "handoff_needed": true
+   }
+  },
+  {
+   "caseId": "gift-04",
+   "turn": 1,
+   "lang": "zh",
+   "question": "外國公司送我的錢超過多少要申報3520？",
+   "followUp": null,
+   "original": {
+    "kind": "clarify",
+    "reasonCodes": [
+     "zh_english_terms"
+    ],
+    "validator": null
+   },
+   "model": {
+    "intent": "us_tax",
+    "decision": "clarify",
+    "clarifying_question": "你問的是哪個稅務年度？外國公司或外國合夥企業送你的款項，要看該年度的 section 6039F threshold amount。",
+    "paragraphs": [
+     "IRS 的指引說，來自外國公司或外國合夥企業、被你當作贈與的款項，要看「more than the section 6039F threshold amount」；AskLinTax 的指南也說這類款項有「its own, much lower annual threshold」。",
+     "因為這個門檻會隨稅務年度變動，而且你還沒有告訴我稅務年度，所以我先需要這個資訊。"
+    ],
+    "claims": [
+     {
+      "text": "More than the section 6039F threshold amount from foreign corporations or foreign partnerships",
+      "source_id": "G1",
+      "quote": "More than the section 6039F threshold amount from foreign corporations or foreign partnerships (including foreign persons related to such foreign corporations or foreign partnerships) that you treated as gifts;",
+      "tax_year": "2025"
+     },
+     {
+      "text": "A purported gift from a foreign corporation or foreign partnership has its own, much lower annual threshold",
+      "source_id": "L4",
+      "quote": "A purported gift from a foreign corporation or foreign partnership has its own, much lower annual threshold and is reported on line 55, not line 54.",
+      "tax_year": "2025"
+     }
+    ],
+    "numbers": [
+     {
+      "value": "6039F",
+      "category": "legal",
+      "source_id": "G1",
+      "expression": ""
+     },
+     {
+      "value": "2025",
+      "category": "tax_year",
+      "source_id": "G1",
+      "expression": ""
+     }
+    ],
+    "conflicts": [],
+    "handoff_needed": false
+   }
+  },
+  {
+   "caseId": "trust-01",
+   "turn": 1,
+   "lang": "en",
+   "question": "I got a distribution from my grandfather's trust in Singapore. Do I report it as a foreign gift?",
+   "followUp": null,
+   "original": {
+    "kind": "answer",
+    "reasonCodes": [],
+    "validator": null
+   },
+   "model": {
+    "intent": "us_tax",
+    "decision": "answer",
+    "clarifying_question": "",
+    "paragraphs": [
+     "No. If money came from your grandfather’s trust in Singapore, it is reported as a trust distribution in Part III of Form 3520, not as a foreign gift in Part IV.",
+     "AskLinTax’s guides also say that money you receive from a foreign trust is not reported as a gift in Part IV, and it may be taxable depending on the trust."
+    ],
+    "claims": [
+     {
+      "text": "If a foreign trust makes a distribution to a U.S. person, the U.S. person must report the amount as a distribution in Part III, rather than as a gift in Part IV.",
+      "source_id": "G1",
+      "quote": "If a foreign trust makes a distribution to a U.S. person, the U.S. person must report the amount as a distribution in Part III, rather than as a gift in Part IV.",
+      "tax_year": "2025"
+     },
+     {
+      "text": "Money you receive from a foreign trust is not reported as a gift in Part IV.",
+      "source_id": "L5",
+      "quote": "Money you receive from a foreign trust is not reported as a gift in Part IV.",
+      "tax_year": "2025"
+     },
+     {
+      "text": "it may be taxable.",
+      "source_id": "L5",
+      "quote": "it may be taxable.",
+      "tax_year": "2025"
+     }
+    ],
+    "numbers": [
+     {
+      "value": "III",
+      "category": "legal",
+      "source_id": "G1",
+      "expression": ""
+     },
+     {
+      "value": "IV",
+      "category": "legal",
+      "source_id": "G1",
+      "expression": ""
+     },
+     {
+      "value": "2025",
+      "category": "tax_year",
+      "source_id": "G1",
+      "expression": ""
+     }
+    ],
+    "conflicts": [],
+    "handoff_needed": false
+   }
+  },
+  {
+   "caseId": "trust-02",
+   "turn": 1,
+   "lang": "zh",
+   "question": "海外信託給我的錢，要用3520的哪一部分申報？",
+   "followUp": null,
+   "original": {
+    "kind": "answer",
+    "reasonCodes": [],
+    "validator": null
+   },
+   "model": {
+    "intent": "us_tax",
+    "decision": "answer",
+    "clarifying_question": "",
+    "paragraphs": [
+     "如果是海外信託給你的分配，通常要在 Form 3520 的 Part III 申報，不是 Part IV。IRS 的指引寫明：如果 foreign trust 付給 U.S. person，一定要把金額當作 Part III 的 distribution 申報。",
+     "如果是親人個人直接給你的禮物，才是另一類，會走 Part IV；但只要是 foreign trust 參與，來源資料都明確說要用 Part III。"
+    ],
+    "claims": [
+     {
+      "text": "If a foreign trust makes a distribution to a U.S. person, the U.S. person must report the amount as a distribution in Part III, rather than as a gift in Part IV.",
+      "source_id": "G1",
+      "quote": "If a foreign trust makes a distribution to a U.S. person, the U.S. person must report the amount as a distribution in Part III, rather than as a gift in Part IV.",
+      "tax_year": "2025"
+     },
+     {
+      "text": "Distributions from a foreign trust — these go in Part III, not Part IV",
+      "source_id": "L4",
+      "quote": "Distributions from a foreign trust — these go in Part III, not Part IV",
+      "tax_year": "2025"
+     },
+     {
+      "text": "A distribution from a foreign trust is reported in Part III of Form 3520, not Part IV",
+      "source_id": "L1",
+      "quote": "A distribution from a foreign trust is reported in Part III of Form 3520, not Part IV",
+      "tax_year": "2025"
+     }
+    ],
+    "numbers": [
+     {
+      "value": "III",
+      "category": "legal",
+      "source_id": "G1",
+      "expression": ""
+     },
+     {
+      "value": "IV",
+      "category": "legal",
+      "source_id": "G1",
+      "expression": ""
+     },
+     {
+      "value": "2025",
+      "category": "tax_year",
+      "source_id": "",
+      "expression": ""
+     }
+    ],
+    "conflicts": [],
+    "handoff_needed": false
+   }
+  },
+  {
+   "caseId": "f3520-01",
+   "turn": 1,
+   "lang": "en",
+   "question": "When is Form 3520 due if I live in the US?",
+   "followUp": null,
+   "original": {
+    "kind": "insufficient",
+    "reasonCodes": [
+     "undeclared_number"
+    ],
+    "validator": {
+     "ok": false,
+     "reason": "undeclared_number",
+     "detail": "4th"
+    }
+   },
+   "model": {
+    "intent": "us_tax",
+    "decision": "answer",
+    "clarifying_question": "",
+    "paragraphs": [
+     "If you live in the U.S., Form 3520 is generally due by the 15th day of the 4th month after the end of your tax year. For a calendar-year filer, that is usually April 15.",
+     "If you are only asking about a U.S. resident who lives in the U.S., the general rule above applies. If you also need the extension deadline, that depends on whether you extended your income tax return."
+    ],
+    "claims": [
+     {
+      "text": "Form 3520 is due by the 15th day of the 4th month following the end of the taxpayer’s tax year.",
+      "source_id": "G1",
+      "quote": "Form 3520 is due by the 15th day of the 4th month following the end of the taxpayer’s tax year.",
+      "tax_year": "2025"
+     },
+     {
+      "text": "However, taxpayers who live and work outside the United States have until the 15th day of the 6th month to file the form.",
+      "source_id": "G1",
+      "quote": "However, taxpayers who live and work outside the United States have until the 15th day of the 6th month to file the form.",
+      "tax_year": "2025"
+     }
+    ],
+    "numbers": [
+     {
+      "value": "15th day of the 4th month",
+      "category": "legal",
+      "source_id": "G1",
+      "expression": ""
+     },
+     {
+      "value": "2025",
+      "category": "tax_year",
+      "source_id": "G1",
+      "expression": ""
+     },
+     {
+      "value": "15th day of the 6th month",
+      "category": "legal",
+      "source_id": "G1",
+      "expression": ""
+     }
+    ],
+    "conflicts": [],
+    "handoff_needed": false
+   }
+  },
+  {
+   "caseId": "f3520-02",
+   "turn": 1,
+   "lang": "en",
+   "question": "I forgot to file Form 3520 for a $200,000 gift from my mom, who lives in Japan and isn't a US person. What's the penalty?",
+   "followUp": null,
+   "original": {
+    "kind": "clarify",
+    "reasonCodes": [],
+    "validator": null
+   },
+   "model": {
+    "intent": "us_tax",
+    "decision": "clarify",
+    "clarifying_question": "How many months late was Form 3520 filed?",
+    "paragraphs": [],
+    "claims": [
+     {
+      "text": "a penalty equal to 5% of the amount of such foreign gifts applies for each month for which the failure to report continues (not to exceed a total of 25%).",
+      "source_id": "G2",
+      "quote": "a penalty equal to 5% of the amount of such foreign gifts applies for each month for which the failure to report continues (not to exceed a total of 25%).",
+      "tax_year": "2025"
+     },
+     {
+      "text": "No penalties will be imposed if the taxpayer can demonstrate that the failure to comply was due to reasonable cause and not willful neglect.",
+      "source_id": "G2",
+      "quote": "No penalties will be imposed if the taxpayer can demonstrate that the failure to comply was due to reasonable cause and not willful neglect.",
+      "tax_year": "2025"
+     }
+    ],
+    "numbers": [
+     {
+      "value": "5%",
+      "category": "legal",
+      "source_id": "G2",
+      "expression": ""
+     },
+     {
+      "value": "25%",
+      "category": "legal",
+      "source_id": "G2",
+      "expression": ""
+     },
+     {
+      "value": "2025",
+      "category": "tax_year",
+      "source_id": "G2",
+      "expression": ""
+     }
+    ],
+    "conflicts": [],
+    "handoff_needed": false
+   }
+  },
+  {
+   "caseId": "f3520-03",
+   "turn": 1,
+   "lang": "zh",
+   "question": "收到國外父母的贈與，美國這邊要繳贈與稅嗎？",
+   "followUp": null,
+   "original": {
+    "kind": null,
+    "reasonCodes": [
+     "upstream_network_error"
+    ],
+    "validator": null
+   },
+   "model": null
+  },
+  {
+   "caseId": "scope-01",
+   "turn": 1,
+   "lang": "en",
+   "question": "Should I move my HSA money into an S&P 500 index fund?",
+   "followUp": null,
+   "original": {
+    "kind": "not_tax",
+    "reasonCodes": [],
+    "validator": null
+   },
+   "model": {
+    "intent": "non_tax",
+    "decision": "not_tax",
+    "clarifying_question": "",
+    "paragraphs": [],
+    "claims": [],
+    "numbers": [],
+    "conflicts": [],
+    "handoff_needed": false
+   }
+  },
+  {
+   "caseId": "scope-02",
+   "turn": 1,
+   "lang": "zh",
+   "question": "幫我算一下我2025年要繳多少聯邦所得稅，我年薪十萬。",
+   "followUp": null,
+   "original": {
+    "kind": "clarify",
+    "reasonCodes": [],
+    "validator": null
+   },
+   "model": {
+    "intent": "us_tax",
+    "decision": "clarify",
+    "clarifying_question": "你的 2025 報稅身分是什麼，$100,000 是你的工資總額還是應稅所得，另外你有沒有其他扣除額或抵免？",
+    "paragraphs": [],
+    "claims": [],
+    "numbers": [
+     {
+      "value": "2025",
+      "category": "tax_year",
+      "source_id": "",
+      "expression": ""
+     },
+     {
+      "value": "100,000",
+      "category": "user",
+      "source_id": "",
+      "expression": ""
+     }
+    ],
+    "conflicts": [],
+    "handoff_needed": false
+   }
+  }
+ ]
+}

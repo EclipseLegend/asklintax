@@ -1,0 +1,2000 @@
+{
+ "_comment": "Lina v2 Phase 4.2 step 1 evaluation dataset (synthetic questions). Expectations are for the 22 staging-approved IRS excerpts plus the AskLinTax library; they are NOT professional tax verification. mock/badMock are used only in --dry-run. Regex strings in forbiddenClaims are case-insensitive.",
+ "version": 1,
+ "index": "staging",
+ "expectedOfficialExcerpts": 22,
+ "cases": [
+  {
+   "id": "hsa-01",
+   "lang": "en",
+   "topic": "HSA 2025 self-only limit",
+   "turns": [
+    "My HSA-eligible plan only covers me. How much can I put in for 2025?"
+   ],
+   "taxYear": "2025",
+   "applicability": "coverage: self-only",
+   "officialEvidence": [
+    "irs-p969-2025#limit-2025"
+   ],
+   "forbiddenEvidence": [
+    "irs-p590a",
+    "irs-n-2025-67",
+    "irs-i3520"
+   ],
+   "allowedSources": [
+    "irs-p969-2025#"
+   ],
+   "behavior": "answer",
+   "decisions": [
+    "answer"
+   ],
+   "clarificationRequired": false,
+   "abstain": false,
+   "answerable": true,
+   "requiredFacts": [
+    [
+     "$4,300"
+    ],
+    [
+     "self-only",
+     "covers only you",
+     "only you"
+    ]
+   ],
+   "forbiddenClaims": [
+    "\\$4,400",
+    "\\$8,750",
+    "\\$8,550[^.]*self-only",
+    "self-only[^.]*\\$8,550"
+   ],
+   "yearStated": true,
+   "conditions": "Self-only HDHP coverage; eligible individual; full-year eligibility (partial-year/last-month rule otherwise).",
+   "mock": {
+    "decision": "answer",
+    "paragraphs": [
+     "For 2025, if you have self-only HDHP coverage, you can contribute up to $4,300 to your HSA."
+    ],
+    "claims": [
+     [
+      "irs-p969-2025#limit-2025",
+      "For 2025, if you have self-only HDHP coverage, you can contribute up to $4,300."
+     ]
+    ],
+    "numbers": [
+     [
+      "2025",
+      "tax_year"
+     ],
+     [
+      "$4,300",
+      "legal",
+      "irs-p969-2025#limit-2025"
+     ]
+    ]
+   }
+  },
+  {
+   "id": "hsa-02",
+   "lang": "en",
+   "topic": "HSA 2026 family limit",
+   "turns": [
+    "What's the HSA max for a family plan in 2026?"
+   ],
+   "taxYear": "2026",
+   "applicability": "coverage: family",
+   "officialEvidence": [
+    "irs-rp-2025-19#hsa-2026-amounts"
+   ],
+   "forbiddenEvidence": [
+    "irs-p590a",
+    "irs-n-2025-67",
+    "irs-i3520",
+    "irs-p969-2025#limit-2025",
+    "irs-p969-2025#hdhp-2025"
+   ],
+   "allowedSources": [
+    "irs-rp-2025-19#"
+   ],
+   "behavior": "answer",
+   "decisions": [
+    "answer"
+   ],
+   "clarificationRequired": false,
+   "abstain": false,
+   "answerable": true,
+   "requiredFacts": [
+    [
+     "$8,750"
+    ],
+    [
+     "family"
+    ]
+   ],
+   "forbiddenClaims": [
+    "\\$8,550",
+    "\\$4,300"
+   ],
+   "yearStated": true,
+   "conditions": "Family HDHP coverage; calendar year 2026 (Rev. Proc. 2025-19).",
+   "mock": {
+    "decision": "answer",
+    "paragraphs": [
+     "For 2026, if you have family coverage under a high deductible health plan, the HSA contribution limit is $8,750."
+    ],
+    "claims": [
+     [
+      "irs-rp-2025-19#hsa-2026-amounts",
+      "For calendar year 2026, the annual limitation on deductions under § 223(b)(2)(B) for an individual with family coverage under a high deductible health plan is $8,750."
+     ]
+    ],
+    "numbers": [
+     [
+      "2026",
+      "tax_year"
+     ],
+     [
+      "$8,750",
+      "legal",
+      "irs-rp-2025-19#hsa-2026-amounts"
+     ]
+    ]
+   },
+   "badMock": {
+    "note": "wrong year: 2025 family figure presented for 2026",
+    "decision": "answer",
+    "paragraphs": [
+     "For 2026, the HSA family limit is $8,550."
+    ],
+    "claims": [
+     [
+      "irs-rp-2025-19#hsa-2026-amounts",
+      "for an individual with family coverage under a high deductible health plan is $8,750."
+     ]
+    ],
+    "numbers": [
+     [
+      "2026",
+      "tax_year"
+     ],
+     [
+      "$8,550",
+      "legal",
+      "irs-rp-2025-19#hsa-2026-amounts"
+     ]
+    ],
+    "expectRejected": true
+   }
+  },
+  {
+   "id": "hsa-03",
+   "lang": "zh",
+   "topic": "HSA 2026 family limit (Chinese)",
+   "turns": [
+    "2026年家庭醫療保險保障的HSA最多可以存多少？"
+   ],
+   "taxYear": "2026",
+   "applicability": "coverage: family",
+   "officialEvidence": [
+    "irs-rp-2025-19#hsa-2026-amounts"
+   ],
+   "forbiddenEvidence": [
+    "irs-p590a",
+    "irs-n-2025-67",
+    "irs-i3520",
+    "irs-p969-2025#limit-2025"
+   ],
+   "allowedSources": [
+    "irs-rp-2025-19#"
+   ],
+   "behavior": "answer",
+   "decisions": [
+    "answer"
+   ],
+   "clarificationRequired": false,
+   "abstain": false,
+   "answerable": true,
+   "requiredFacts": [
+    [
+     "$8,750"
+    ],
+    [
+     "家庭醫療保險保障",
+     "家庭保障"
+    ]
+   ],
+   "forbiddenClaims": [
+    "\\$8,550"
+   ],
+   "yearStated": true,
+   "zhTerms": [
+    "家庭醫療保險保障"
+   ],
+   "conditions": "Family HDHP coverage; 2026.",
+   "mock": {
+    "decision": "answer",
+    "paragraphs": [
+     "2026 年，如果你是高自付額健保（HDHP）的家庭醫療保險保障，HSA 最多可以存入 $8,750。"
+    ],
+    "claims": [
+     [
+      "irs-rp-2025-19#hsa-2026-amounts",
+      "for an individual with family coverage under a high deductible health plan is $8,750."
+     ]
+    ],
+    "numbers": [
+     [
+      "2026",
+      "tax_year"
+     ],
+     [
+      "$8,750",
+      "legal",
+      "irs-rp-2025-19#hsa-2026-amounts"
+     ]
+    ]
+   }
+  },
+  {
+   "id": "hsa-04",
+   "lang": "en",
+   "topic": "HSA limit, no year or coverage → clarify → follow-up",
+   "turns": [
+    "How much can I contribute to my HSA?",
+    "For 2025. It is family coverage."
+   ],
+   "taxYear": null,
+   "applicability": "coverage unknown, year unknown",
+   "officialEvidence": [
+    "irs-p969-2025#limit-2025"
+   ],
+   "forbiddenEvidence": [
+    "irs-p590a",
+    "irs-n-2025-67",
+    "irs-i3520"
+   ],
+   "allowedSources": [
+    "irs-p969-2025#",
+    "irs-rp-2025-19#"
+   ],
+   "behavior": "clarify (tax year and coverage type), then answer for 2025 family",
+   "decisions": [
+    "answer"
+   ],
+   "firstTurn": [
+    "clarify"
+   ],
+   "clarificationRequired": true,
+   "abstain": false,
+   "answerable": true,
+   "requiredFacts": [
+    [
+     "$8,550"
+    ],
+    [
+     "family"
+    ]
+   ],
+   "forbiddenClaims": [
+    "\\$8,750"
+   ],
+   "yearStated": true,
+   "conditions": "Year-specific figure: must ask the year; the answer depends on coverage type.",
+   "mock": [
+    {
+     "decision": "clarify",
+     "clarifying_question": "Which tax year is this for, and do you have self-only or family HDHP coverage?"
+    },
+    {
+     "decision": "answer",
+     "paragraphs": [
+      "For 2025, if you have family HDHP coverage, you can contribute up to $8,550 to your HSA."
+     ],
+     "claims": [
+      [
+       "irs-p969-2025#limit-2025",
+       "If you have family HDHP coverage, you can contribute up to $8,550."
+      ]
+     ],
+     "numbers": [
+      [
+       "2025",
+       "tax_year"
+      ],
+      [
+       "$8,550",
+       "legal",
+       "irs-p969-2025#limit-2025"
+      ]
+     ],
+     "taxYear": "2025"
+    }
+   ]
+  },
+  {
+   "id": "hsa-05",
+   "lang": "en",
+   "topic": "HSA catch-up (age 55), 2025",
+   "turns": [
+    "I'll be 56 at the end of 2025. Can I put extra money in my HSA?"
+   ],
+   "taxYear": "2025",
+   "applicability": "age 55 or older at year end",
+   "officialEvidence": [
+    "irs-p969-2025#catch-up-55"
+   ],
+   "forbiddenEvidence": [
+    "irs-p590a",
+    "irs-n-2025-67",
+    "irs-i3520"
+   ],
+   "allowedSources": [
+    "irs-p969-2025#"
+   ],
+   "behavior": "answer",
+   "decisions": [
+    "answer"
+   ],
+   "clarificationRequired": false,
+   "abstain": false,
+   "answerable": true,
+   "requiredFacts": [
+    [
+     "$1,000"
+    ],
+    [
+     "55"
+    ]
+   ],
+   "forbiddenClaims": [
+    "\\$1,100"
+   ],
+   "yearStated": true,
+   "conditions": "Eligible individual; age 55 or older at the end of the tax year; 2025 source.",
+   "mock": {
+    "decision": "answer",
+    "paragraphs": [
+     "For 2025, if you are an eligible individual who is age 55 or older at the end of your tax year, your HSA contribution limit is increased by $1,000."
+    ],
+    "claims": [
+     [
+      "irs-p969-2025#catch-up-55",
+      "If you are an eligible individual who is age 55 or older at the end of your tax year, your contribution limit is increased by $1,000."
+     ]
+    ],
+    "numbers": [
+     [
+      "2025",
+      "tax_year"
+     ],
+     [
+      "$1,000",
+      "legal",
+      "irs-p969-2025#catch-up-55"
+     ],
+     [
+      "56",
+      "user"
+     ]
+    ]
+   }
+  },
+  {
+   "id": "hsa-06",
+   "lang": "en",
+   "topic": "HSA catch-up for 2026 (no 2026 source)",
+   "turns": [
+    "I turn 57 in 2026. How much extra can I add to my HSA that year?"
+   ],
+   "taxYear": "2026",
+   "applicability": "age 55+; 2026",
+   "officialEvidence": [],
+   "forbiddenEvidence": [
+    "irs-p590a",
+    "irs-n-2025-67",
+    "irs-i3520",
+    "irs-p969-2025#"
+   ],
+   "allowedSources": [
+    "irs-rp-2025-19#"
+   ],
+   "behavior": "abstain: no approved 2026 source states the catch-up amount (2025 Pub 969 must not be used for 2026)",
+   "decisions": [
+    "insufficient",
+    "clarify"
+   ],
+   "clarificationRequired": false,
+   "abstain": true,
+   "answerable": false,
+   "requiredFacts": [],
+   "forbiddenClaims": [
+    "\\$1,000",
+    "\\$1,100"
+   ],
+   "yearStated": false,
+   "conditions": "Missing authority: 2026 catch-up amount not in the approved excerpts.",
+   "mock": {
+    "decision": "insufficient"
+   }
+  },
+  {
+   "id": "hsa-07",
+   "lang": "en",
+   "topic": "HSA and Medicare enrollment",
+   "turns": [
+    "I signed up for Medicare in 2025. Can I keep contributing to my HSA?"
+   ],
+   "taxYear": "2025",
+   "applicability": "enrolled in Medicare",
+   "officialEvidence": [
+    "irs-p969-2025#medicare"
+   ],
+   "forbiddenEvidence": [
+    "irs-p590a",
+    "irs-n-2025-67",
+    "irs-i3520"
+   ],
+   "allowedSources": [
+    "irs-p969-2025#"
+   ],
+   "behavior": "answer",
+   "decisions": [
+    "answer"
+   ],
+   "clarificationRequired": false,
+   "abstain": false,
+   "answerable": true,
+   "requiredFacts": [
+    [
+     "zero",
+     "$0",
+     "no longer",
+     "can't",
+     "cannot"
+    ]
+   ],
+   "forbiddenClaims": [],
+   "yearStated": false,
+   "conditions": "Limit is zero from the first month of Medicare enrollment (incl. retroactive coverage).",
+   "mock": {
+    "decision": "answer",
+    "paragraphs": [
+     "Beginning with the first month you are enrolled in Medicare, your HSA contribution limit is zero."
+    ],
+    "claims": [
+     [
+      "irs-p969-2025#medicare",
+      "Beginning with the first month you are enrolled in Medicare, your contribution limit is zero."
+     ]
+    ],
+    "numbers": []
+   }
+  },
+  {
+   "id": "hsa-08",
+   "lang": "zh",
+   "topic": "Joint HSA for spouses (Chinese)",
+   "turns": [
+    "我太太和我都可以開HSA，我們可以共用一個HSA帳戶嗎？"
+   ],
+   "taxYear": null,
+   "applicability": "married; both eligible",
+   "officialEvidence": [
+    "irs-p969-2025#hsa-eligibility"
+   ],
+   "forbiddenEvidence": [
+    "irs-p590a",
+    "irs-n-2025-67",
+    "irs-i3520"
+   ],
+   "allowedSources": [
+    "irs-p969-2025#"
+   ],
+   "behavior": "answer: no joint HSA; each spouse opens a separate HSA",
+   "decisions": [
+    "answer"
+   ],
+   "clarificationRequired": false,
+   "abstain": false,
+   "answerable": true,
+   "requiredFacts": [
+    [
+     "不能",
+     "不可以",
+     "無法",
+     "沒有共同"
+    ],
+    [
+     "各自",
+     "分別",
+     "自己的"
+    ]
+   ],
+   "forbiddenClaims": [
+    "可以共用"
+   ],
+   "yearStated": false,
+   "conditions": "Each eligible spouse who wants an HSA opens a separate HSA.",
+   "mock": {
+    "decision": "answer",
+    "paragraphs": [
+     "不可以。每位想開 HSA 的符合資格配偶都必須各自開立自己的 HSA，不能有共同的 joint HSA。"
+    ],
+    "claims": [
+     [
+      "irs-p969-2025#hsa-eligibility",
+      "Each spouse who is an eligible individual who wants an HSA must open a separate HSA. You can’t have a joint HSA."
+     ]
+    ],
+    "numbers": []
+   }
+  },
+  {
+   "id": "hsa-09",
+   "lang": "en",
+   "topic": "Employer HSA contributions",
+   "turns": [
+    "My employer puts $1,000 a year into my HSA. Does that count toward my contribution limit?"
+   ],
+   "taxYear": null,
+   "applicability": "employer contributions excludable from income",
+   "officialEvidence": [
+    "irs-p969-2025#employer-contributions"
+   ],
+   "forbiddenEvidence": [
+    "irs-p590a",
+    "irs-n-2025-67",
+    "irs-i3520"
+   ],
+   "allowedSources": [
+    "irs-p969-2025#"
+   ],
+   "behavior": "answer",
+   "decisions": [
+    "answer"
+   ],
+   "clarificationRequired": false,
+   "abstain": false,
+   "answerable": true,
+   "requiredFacts": [
+    [
+     "reduce",
+     "counts",
+     "count toward"
+    ]
+   ],
+   "forbiddenClaims": [
+    "does not count"
+   ],
+   "yearStated": false,
+   "conditions": "Excludable employer contributions (incl. cafeteria plan) reduce what you or others can contribute.",
+   "mock": {
+    "decision": "answer",
+    "paragraphs": [
+     "Yes. You must reduce the amount you or any other person can contribute to your HSA by the amount of contributions made by your employer that are excludable from your income."
+    ],
+    "claims": [
+     [
+      "irs-p969-2025#employer-contributions",
+      "You must reduce the amount you or any other person can contribute to your HSA by the amount of any contributions made by your employer that are excludable from your income."
+     ]
+    ],
+    "numbers": []
+   }
+  },
+  {
+   "id": "hsa-10",
+   "lang": "zh",
+   "topic": "HDHP 2025 minimum deductible, self-only (Chinese)",
+   "turns": [
+    "2025年如果只有我自己投保，高自付額健保的最低自付額是多少？"
+   ],
+   "taxYear": "2025",
+   "applicability": "coverage: self-only",
+   "officialEvidence": [
+    "irs-p969-2025#hdhp-2025"
+   ],
+   "forbiddenEvidence": [
+    "irs-p590a",
+    "irs-n-2025-67",
+    "irs-i3520",
+    "irs-rp-2025-19#"
+   ],
+   "allowedSources": [
+    "irs-p969-2025#"
+   ],
+   "behavior": "answer",
+   "decisions": [
+    "answer"
+   ],
+   "clarificationRequired": false,
+   "abstain": false,
+   "answerable": true,
+   "requiredFacts": [
+    [
+     "$1,650"
+    ],
+    [
+     "個人醫療保險保障",
+     "個人保障",
+     "只有你自己",
+     "本人"
+    ]
+   ],
+   "forbiddenClaims": [
+    "\\$1,700",
+    "\\$3,300[^。]*(個人|本人)"
+   ],
+   "yearStated": true,
+   "zhTerms": [
+    "個人醫療保險保障"
+   ],
+   "conditions": "Self-only column of the 2025 table.",
+   "mock": {
+    "decision": "answer",
+    "paragraphs": [
+     "2025 年，個人醫療保險保障的高自付額健保（HDHP），最低年度自付額是 $1,650。"
+    ],
+    "claims": [
+     [
+      "irs-p969-2025#hdhp-2025",
+      "Minimum annual deductible | $1,650 | $3,300"
+     ]
+    ],
+    "numbers": [
+     [
+      "2025",
+      "tax_year"
+     ],
+     [
+      "$1,650",
+      "legal",
+      "irs-p969-2025#hdhp-2025"
+     ]
+    ]
+   }
+  },
+  {
+   "id": "roth-01",
+   "lang": "en",
+   "topic": "Roth 2025 single in phase-out",
+   "turns": [
+    "Can I still put money in a Roth IRA? I'm single and made about $160,000 in 2025."
+   ],
+   "taxYear": "2025",
+   "applicability": "filing status: single",
+   "officialEvidence": [
+    "irs-p590a-2025#roth-phaseout-table-2025",
+    "irs-p590a-2025#roth-eligibility-2025"
+   ],
+   "forbiddenEvidence": [
+    "irs-p969",
+    "irs-rp-2025-19",
+    "irs-i3520"
+   ],
+   "allowedSources": [
+    "irs-p590a-2025#"
+   ],
+   "behavior": "answer: reduced contribution (phase-out $150,000–$165,000); MAGI, not salary, is the test",
+   "decisions": [
+    "answer",
+    "clarify"
+   ],
+   "clarificationRequired": false,
+   "abstain": false,
+   "answerable": true,
+   "requiredFacts": [
+    [
+     "$150,000"
+    ],
+    [
+     "$165,000"
+    ],
+    [
+     "reduced",
+     "phase"
+    ]
+   ],
+   "forbiddenClaims": [
+    "\\$153,000",
+    "\\$168,000",
+    "\\$246,000"
+   ],
+   "yearStated": true,
+   "conditions": "Single; modified AGI (not salary); taxable compensation required.",
+   "mock": {
+    "decision": "answer",
+    "paragraphs": [
+     "For 2025, if you are single and your modified AGI is at least $150,000 but less than $165,000, the amount you can contribute to a Roth IRA is reduced."
+    ],
+    "claims": [
+     [
+      "irs-p590a-2025#roth-phaseout-table-2025",
+      "single, head of household, or married filing separately (and you didn’t live with your spouse at any time during the year) | at least $150,000 but less than $165,000 | the amount you can contribute is reduced"
+     ]
+    ],
+    "numbers": [
+     [
+      "2025",
+      "tax_year"
+     ],
+     [
+      "$150,000",
+      "legal",
+      "irs-p590a-2025#roth-phaseout-table-2025"
+     ],
+     [
+      "$165,000",
+      "legal",
+      "irs-p590a-2025#roth-phaseout-table-2025"
+     ]
+    ],
+    "taxYear": "2025"
+   }
+  },
+  {
+   "id": "roth-02",
+   "lang": "en",
+   "topic": "Roth 2025 MFJ above limit",
+   "turns": [
+    "We're married filing jointly and our MAGI was $250,000 in 2025. Can we contribute to Roth IRAs?"
+   ],
+   "taxYear": "2025",
+   "applicability": "filing status: MFJ",
+   "officialEvidence": [
+    "irs-p590a-2025#roth-phaseout-table-2025",
+    "irs-p590a-2025#roth-eligibility-2025"
+   ],
+   "forbiddenEvidence": [
+    "irs-p969",
+    "irs-rp-2025-19",
+    "irs-i3520"
+   ],
+   "allowedSources": [
+    "irs-p590a-2025#"
+   ],
+   "behavior": "answer: no ($246,000 or more can't contribute)",
+   "decisions": [
+    "answer"
+   ],
+   "clarificationRequired": false,
+   "abstain": false,
+   "answerable": true,
+   "requiredFacts": [
+    [
+     "$246,000"
+    ],
+    [
+     "can't",
+     "cannot",
+     "not able"
+    ]
+   ],
+   "forbiddenClaims": [
+    "\\$252,000"
+   ],
+   "yearStated": true,
+   "conditions": "MFJ/QSS; modified AGI $246,000 or more.",
+   "mock": {
+    "decision": "answer",
+    "paragraphs": [
+     "For 2025, if you are married filing jointly and your modified AGI is $246,000 or more, you can't contribute to a Roth IRA."
+    ],
+    "claims": [
+     [
+      "irs-p590a-2025#roth-phaseout-table-2025",
+      "married filing jointly or qualifying surviving spouse | $246,000 or more | you can’t contribute to a Roth IRA."
+     ]
+    ],
+    "numbers": [
+     [
+      "2025",
+      "tax_year"
+     ],
+     [
+      "$246,000",
+      "legal",
+      "irs-p590a-2025#roth-phaseout-table-2025"
+     ]
+    ],
+    "taxYear": "2025"
+   }
+  },
+  {
+   "id": "roth-03",
+   "lang": "zh",
+   "topic": "Roth 2026 MFJ upper limit (Chinese)",
+   "turns": [
+    "2026年夫妻合併申報，收入多少以上就不能存Roth IRA？"
+   ],
+   "taxYear": "2026",
+   "applicability": "filing status: MFJ",
+   "officialEvidence": [
+    "irs-n-2025-67#roth-2026"
+   ],
+   "forbiddenEvidence": [
+    "irs-p969",
+    "irs-rp-2025-19",
+    "irs-i3520",
+    "irs-p590a-2025#"
+   ],
+   "allowedSources": [
+    "irs-n-2025-67#"
+   ],
+   "behavior": "answer: phase-out $242,000–$252,000",
+   "decisions": [
+    "answer"
+   ],
+   "clarificationRequired": false,
+   "abstain": false,
+   "answerable": true,
+   "requiredFacts": [
+    [
+     "$252,000"
+    ],
+    [
+     "合併申報"
+    ]
+   ],
+   "forbiddenClaims": [
+    "\\$246,000",
+    "\\$236,000"
+   ],
+   "yearStated": true,
+   "zhTerms": [
+    "夫妻合併申報",
+    "合併申報"
+   ],
+   "conditions": "MFJ; adjusted gross income phase-out range 2026.",
+   "mock": {
+    "decision": "answer",
+    "paragraphs": [
+     "2026 年，夫妻合併申報的 Roth IRA 收入逐步遞減範圍是 $242,000 到 $252,000。"
+    ],
+    "claims": [
+     [
+      "irs-n-2025-67#roth-2026",
+      "the adjusted gross income phase-out range for taxpayers making contributions to a Roth IRA is between $242,000 and $252,000 for married couples filing jointly"
+     ]
+    ],
+    "numbers": [
+     [
+      "2026",
+      "tax_year"
+     ],
+     [
+      "$242,000",
+      "legal",
+      "irs-n-2025-67#roth-2026"
+     ],
+     [
+      "$252,000",
+      "legal",
+      "irs-n-2025-67#roth-2026"
+     ]
+    ],
+    "taxYear": "2026"
+   }
+  },
+  {
+   "id": "roth-04",
+   "lang": "en",
+   "topic": "Roth 2026 single range",
+   "turns": [
+    "What are the Roth IRA income limits for 2026 for a single person?"
+   ],
+   "taxYear": "2026",
+   "applicability": "filing status: single",
+   "officialEvidence": [
+    "irs-n-2025-67#roth-2026"
+   ],
+   "forbiddenEvidence": [
+    "irs-p969",
+    "irs-rp-2025-19",
+    "irs-i3520",
+    "irs-p590a-2025#"
+   ],
+   "allowedSources": [
+    "irs-n-2025-67#"
+   ],
+   "behavior": "answer: $153,000–$168,000",
+   "decisions": [
+    "answer"
+   ],
+   "clarificationRequired": false,
+   "abstain": false,
+   "answerable": true,
+   "requiredFacts": [
+    [
+     "$153,000"
+    ],
+    [
+     "$168,000"
+    ],
+    [
+     "single"
+    ]
+   ],
+   "forbiddenClaims": [
+    "\\$150,000",
+    "\\$165,000"
+   ],
+   "yearStated": true,
+   "conditions": "Single/HOH; 2026; prior-year values not citable.",
+   "mock": {
+    "decision": "answer",
+    "paragraphs": [
+     "For 2026, for singles and heads of household, the Roth IRA income phase-out range is between $153,000 and $168,000."
+    ],
+    "claims": [
+     [
+      "irs-n-2025-67#roth-2026",
+      "For singles and heads of household, the income phase-out range is between $153,000 and $168,000"
+     ]
+    ],
+    "numbers": [
+     [
+      "2026",
+      "tax_year"
+     ],
+     [
+      "$153,000",
+      "legal",
+      "irs-n-2025-67#roth-2026"
+     ],
+     [
+      "$168,000",
+      "legal",
+      "irs-n-2025-67#roth-2026"
+     ]
+    ],
+    "taxYear": "2026"
+   },
+   "badMock": {
+    "note": "prior-year values from the Notice presented as 2026",
+    "decision": "answer",
+    "paragraphs": [
+     "For 2026, for singles and heads of household, the Roth IRA income phase-out range is between $150,000 and $165,000."
+    ],
+    "claims": [
+     [
+      "irs-n-2025-67#roth-2026",
+      "increased from between $150,000 and $165,000"
+     ]
+    ],
+    "numbers": [
+     [
+      "2026",
+      "tax_year"
+     ],
+     [
+      "$150,000",
+      "legal",
+      "irs-n-2025-67#roth-2026"
+     ],
+     [
+      "$165,000",
+      "legal",
+      "irs-n-2025-67#roth-2026"
+     ]
+    ],
+    "taxYear": "2026",
+    "expectRejected": true
+   }
+  },
+  {
+   "id": "roth-05",
+   "lang": "en",
+   "topic": "Roth 2025 MFS lived with spouse",
+   "turns": [
+    "I'm married but we file separately, and we lived together all of 2025. My MAGI is $40,000. Can I contribute to a Roth IRA?"
+   ],
+   "taxYear": "2025",
+   "applicability": "filing status: MFS, lived with spouse",
+   "officialEvidence": [
+    "irs-p590a-2025#roth-phaseout-table-2025",
+    "irs-p590a-2025#roth-eligibility-2025"
+   ],
+   "forbiddenEvidence": [
+    "irs-p969",
+    "irs-rp-2025-19",
+    "irs-i3520"
+   ],
+   "allowedSources": [
+    "irs-p590a-2025#"
+   ],
+   "behavior": "answer: no — MAGI $10,000 or more can't contribute",
+   "decisions": [
+    "answer"
+   ],
+   "clarificationRequired": false,
+   "abstain": false,
+   "answerable": true,
+   "requiredFacts": [
+    [
+     "$10,000"
+    ],
+    [
+     "lived with your spouse",
+     "lived with"
+    ]
+   ],
+   "forbiddenClaims": [
+    "you can contribute up to \\$7,000"
+   ],
+   "yearStated": true,
+   "conditions": "MFS and lived with spouse at any time during the year.",
+   "mock": {
+    "decision": "answer",
+    "paragraphs": [
+     "For 2025, if you are married filing separately and you lived with your spouse at any time during the year, you can't contribute to a Roth IRA once your modified AGI is $10,000 or more."
+    ],
+    "claims": [
+     [
+      "irs-p590a-2025#roth-phaseout-table-2025",
+      "married filing separately (and you lived with your spouse at any time during the year) | $10,000 or more | you can’t contribute to a Roth IRA."
+     ]
+    ],
+    "numbers": [
+     [
+      "2025",
+      "tax_year"
+     ],
+     [
+      "$10,000",
+      "legal",
+      "irs-p590a-2025#roth-phaseout-table-2025"
+     ],
+     [
+      "$40,000",
+      "user"
+     ]
+    ],
+    "taxYear": "2025"
+   }
+  },
+  {
+   "id": "roth-06",
+   "lang": "en",
+   "topic": "Roth 2026 MFS lived apart (no source support)",
+   "turns": [
+    "We file married filing separately and lived apart all of 2026. Which Roth IRA income limit applies to me?"
+   ],
+   "taxYear": "2026",
+   "applicability": "filing status: MFS, did not live with spouse",
+   "officialEvidence": [],
+   "forbiddenEvidence": [
+    "irs-p969",
+    "irs-rp-2025-19",
+    "irs-i3520",
+    "irs-p590a-2025#"
+   ],
+   "allowedSources": [
+    "irs-n-2025-67#"
+   ],
+   "behavior": "abstain (or clarify): the 2026 Notice does not say how MFS living apart is treated; must not apply the single/HOH range",
+   "decisions": [
+    "insufficient",
+    "clarify"
+   ],
+   "clarificationRequired": false,
+   "abstain": true,
+   "answerable": false,
+   "requiredFacts": [],
+   "forbiddenClaims": [
+    "\\$153,000",
+    "\\$168,000"
+   ],
+   "yearStated": false,
+   "conditions": "Decision 2 (Phase 4.1): conservative — no source support.",
+   "mock": {
+    "decision": "insufficient"
+   },
+   "badMock": {
+    "note": "single/HOH range applied to MFS living apart",
+    "decision": "answer",
+    "paragraphs": [
+     "For 2026, if you are married filing separately and did not live with your spouse, the Roth IRA phase-out range is between $153,000 and $168,000."
+    ],
+    "claims": [
+     [
+      "irs-n-2025-67#roth-2026",
+      "For singles and heads of household, the income phase-out range is between $153,000 and $168,000"
+     ]
+    ],
+    "numbers": [
+     [
+      "2026",
+      "tax_year"
+     ],
+     [
+      "$153,000",
+      "legal",
+      "irs-n-2025-67#roth-2026"
+     ],
+     [
+      "$168,000",
+      "legal",
+      "irs-n-2025-67#roth-2026"
+     ]
+    ],
+    "taxYear": "2026",
+    "expectRejected": true
+   }
+  },
+  {
+   "id": "roth-07",
+   "lang": "zh",
+   "topic": "Roth age limit (Chinese)",
+   "turns": [
+    "我72歲了，還可以存Roth IRA嗎？"
+   ],
+   "taxYear": null,
+   "applicability": "age 72",
+   "officialEvidence": [
+    "irs-p590a-2025#roth-eligibility-2025"
+   ],
+   "forbiddenEvidence": [
+    "irs-p969",
+    "irs-rp-2025-19",
+    "irs-i3520"
+   ],
+   "allowedSources": [
+    "irs-p590a-2025#"
+   ],
+   "behavior": "answer: no age limit (still needs taxable compensation and MAGI under the limit)",
+   "decisions": [
+    "answer",
+    "clarify"
+   ],
+   "clarificationRequired": false,
+   "abstain": false,
+   "answerable": true,
+   "requiredFacts": [
+    [
+     "年齡",
+     "不論",
+     "沒有年齡"
+    ]
+   ],
+   "forbiddenClaims": [
+    "72 歲[^。]*不能"
+   ],
+   "yearStated": false,
+   "conditions": "Regardless of age; taxable compensation and MAGI conditions still apply.",
+   "mock": {
+    "decision": "answer",
+    "paragraphs": [
+     "可以。不論年齡多大，都可以存 Roth IRA；但你仍須有符合 IRA 供款規定的應稅工作所得，且修正後 AGI 要低於上限。"
+    ],
+    "claims": [
+     [
+      "irs-p590a-2025#roth-eligibility-2025",
+      "Contributions can be made to your Roth IRA regardless of your age."
+     ],
+     [
+      "irs-p590a-2025#roth-eligibility-2025",
+      "Generally, you can contribute to a Roth IRA if you have taxable compensation (defined later) and your modified AGI (defined later) is less than:"
+     ]
+    ],
+    "numbers": [
+     [
+      "72",
+      "user"
+     ]
+    ]
+   }
+  },
+  {
+   "id": "roth-08",
+   "lang": "zh",
+   "topic": "Roth without earned income (Chinese)",
+   "turns": [
+    "我2025年沒有工作，只有股票投資收益，可以存Roth IRA嗎？"
+   ],
+   "taxYear": "2025",
+   "applicability": "no taxable compensation",
+   "officialEvidence": [
+    "irs-p590a-2025#roth-eligibility-2025",
+    "irs-p590a-2025#roth-only-limit-2025"
+   ],
+   "forbiddenEvidence": [
+    "irs-p969",
+    "irs-rp-2025-19",
+    "irs-i3520"
+   ],
+   "allowedSources": [
+    "irs-p590a-2025#"
+   ],
+   "behavior": "answer: taxable compensation is required (investment income is not compensation per the definition) — or clarify",
+   "decisions": [
+    "answer",
+    "clarify"
+   ],
+   "clarificationRequired": false,
+   "abstain": false,
+   "answerable": true,
+   "requiredFacts": [
+    [
+     "應稅工作所得",
+     "報酬",
+     "工作所得"
+    ]
+   ],
+   "forbiddenClaims": [
+    "可以存[^。]*\\$7,000"
+   ],
+   "yearStated": false,
+   "zhTerms": [
+    "符合 IRA 供款規定的應稅工作所得",
+    "應稅工作所得"
+   ],
+   "conditions": "Requires taxable compensation; the compensation definition excerpt lists wages, self-employment income etc.",
+   "mock": {
+    "decision": "answer",
+    "paragraphs": [
+     "2025 年，要存 Roth IRA，一般需要有符合 IRA 供款規定的應稅工作所得；只有投資收益通常不符合這個條件。"
+    ],
+    "claims": [
+     [
+      "irs-p590a-2025#roth-eligibility-2025",
+      "Generally, you can contribute to a Roth IRA if you have taxable compensation (defined later)"
+     ]
+    ],
+    "numbers": [
+     [
+      "2025",
+      "tax_year"
+     ]
+    ],
+    "taxYear": "2025"
+   }
+  },
+  {
+   "id": "ira-01",
+   "lang": "en",
+   "topic": "2026 IRA contribution limit (held excerpt)",
+   "turns": [
+    "What is the IRA contribution limit for 2026?"
+   ],
+   "taxYear": "2026",
+   "applicability": "general",
+   "officialEvidence": [],
+   "forbiddenEvidence": [
+    "irs-p969",
+    "irs-rp-2025-19",
+    "irs-i3520",
+    "irs-p590a-2025#"
+   ],
+   "allowedSources": [
+    "irs-n-2025-67#"
+   ],
+   "behavior": "abstain: the $7,500 excerpt is held (needs supporting authority)",
+   "decisions": [
+    "insufficient",
+    "clarify"
+   ],
+   "clarificationRequired": false,
+   "abstain": true,
+   "answerable": false,
+   "requiredFacts": [],
+   "forbiddenClaims": [
+    "\\$7,500",
+    "\\$7,000",
+    "\\$1,100"
+   ],
+   "yearStated": false,
+   "conditions": "Held: §219(b)(1)/§408A(c)(2) authority and a 2026 IRS source required.",
+   "mock": {
+    "decision": "insufficient"
+   },
+   "badMock": {
+    "note": "held figure stated without evidence",
+    "decision": "answer",
+    "paragraphs": [
+     "For 2026, the IRA contribution limit is $7,500."
+    ],
+    "claims": [
+     [
+      "irs-n-2025-67#roth-2026",
+      "For singles and heads of household, the income phase-out range is between $153,000 and $168,000"
+     ]
+    ],
+    "numbers": [
+     [
+      "2026",
+      "tax_year"
+     ],
+     [
+      "$7,500",
+      "legal",
+      "irs-n-2025-67#roth-2026"
+     ]
+    ],
+    "taxYear": "2026",
+    "expectRejected": true
+   }
+  },
+  {
+   "id": "gift-01",
+   "lang": "en",
+   "topic": "Gift from parents in Taiwan (residency unknown)",
+   "turns": [
+    "My parents in Taiwan wired me $150,000 last year. Do I need to report it to the IRS?"
+   ],
+   "taxYear": null,
+   "applicability": "donor: individuals (residency not stated)",
+   "officialEvidence": [
+    "irs-i3520-2025-12#who-must-file-gifts",
+    "irs-i3520-2025-12#part-iv-reporting"
+   ],
+   "forbiddenEvidence": [
+    "irs-p969",
+    "irs-rp-2025-19",
+    "irs-p590a",
+    "irs-n-2025-67"
+   ],
+   "allowedSources": [
+    "irs-i3520-2025-12#"
+   ],
+   "behavior": "answer conditionally (if the parents are nonresident aliens: Form 3520, more than $100,000) or clarify residency; reporting is not paying tax",
+   "decisions": [
+    "answer",
+    "clarify"
+   ],
+   "clarificationRequired": false,
+   "abstain": false,
+   "answerable": true,
+   "requiredFacts": [
+    [
+     "3520"
+    ],
+    [
+     "$100,000"
+    ],
+    [
+     "nonresident alien"
+    ]
+   ],
+   "forbiddenClaims": [
+    "(you|they) (will )?(owe|must pay|have to pay|need to pay) (gift |income )?tax on (the|this|that) gift",
+    "((?<![不無免需])要|(?<![不無免])需要|(?<![不無免])必須|(?<![不無免])得)[^。，,；;]{0,12}繳(交)?(贈與|所得)?稅",
+    "(?<![不無免])應繳(贈與)?稅"
+   ],
+   "yearStated": false,
+   "conditions": "U.S. person recipient; donor nonresident alien individual or foreign estate; more than $100,000 aggregated with related persons.",
+   "mock": {
+    "decision": "answer",
+    "paragraphs": [
+     "If your parents are nonresident alien individuals, you must report on Form 3520 if you received more than $100,000 from a nonresident alien individual or a foreign estate that you treated as gifts."
+    ],
+    "claims": [
+     [
+      "irs-i3520-2025-12#who-must-file-gifts",
+      "More than $100,000 from a nonresident alien individual or a foreign estate (including foreign persons related to that nonresident alien individual or foreign estate) that you treated as gifts or bequests"
+     ]
+    ],
+    "numbers": [
+     [
+      "$100,000",
+      "legal",
+      "irs-i3520-2025-12#who-must-file-gifts"
+     ],
+     [
+      "$150,000",
+      "user"
+     ]
+    ]
+   }
+  },
+  {
+   "id": "gift-02",
+   "lang": "zh",
+   "topic": "Gift from NRA parents: tax vs reporting (Chinese)",
+   "turns": [
+    "我爸媽住在台灣，不是美國人，今年給我20萬美元，要繳稅嗎？還是只要申報？"
+   ],
+   "taxYear": null,
+   "applicability": "donor: nonresident alien individuals",
+   "officialEvidence": [
+    "irs-i3520-2025-12#who-must-file-gifts",
+    "irs-i3520-2025-12#part-iv-reporting"
+   ],
+   "forbiddenEvidence": [
+    "irs-p969",
+    "irs-rp-2025-19",
+    "irs-p590a",
+    "irs-n-2025-67"
+   ],
+   "allowedSources": [
+    "irs-i3520-2025-12#"
+   ],
+   "behavior": "answer: report on Form 3520 (more than $100,000 from NRA); do not state that tax is owed",
+   "decisions": [
+    "answer"
+   ],
+   "clarificationRequired": false,
+   "abstain": false,
+   "answerable": true,
+   "requiredFacts": [
+    [
+     "3520"
+    ],
+    [
+     "$100,000"
+    ],
+    [
+     "申報"
+    ]
+   ],
+   "forbiddenClaims": [
+    "(you|they) (will )?(owe|must pay|have to pay|need to pay) (gift |income )?tax on (the|this|that) gift",
+    "((?<![不無免需])要|(?<![不無免])需要|(?<![不無免])必須|(?<![不無免])得)[^。，,；;]{0,12}繳(交)?(贈與|所得)?稅",
+    "(?<![不無免])應繳(贈與)?稅"
+   ],
+   "yearStated": false,
+   "zhTerms": [
+    "非居民外國人"
+   ],
+   "conditions": "Reporting (申報) is not paying tax (繳稅).",
+   "mock": {
+    "decision": "answer",
+    "paragraphs": [
+     "如果你從非居民外國人收到超過 $100,000、並當作贈與的款項，就要用 Form 3520 申報。"
+    ],
+    "claims": [
+     [
+      "irs-i3520-2025-12#who-must-file-gifts",
+      "More than $100,000 from a nonresident alien individual or a foreign estate"
+     ]
+    ],
+    "numbers": [
+     [
+      "$100,000",
+      "legal",
+      "irs-i3520-2025-12#who-must-file-gifts"
+     ]
+    ]
+   },
+   "badMock": {
+    "note": "claims tax is owed (reporting confused with tax liability); figures and donor type are right, so the validator alone cannot catch it",
+    "decision": "answer",
+    "paragraphs": [
+     "從非居民外國人收到超過 $100,000 的贈與，你需要為這筆贈與繳稅。"
+    ],
+    "claims": [
+     [
+      "irs-i3520-2025-12#who-must-file-gifts",
+      "More than $100,000 from a nonresident alien individual or a foreign estate"
+     ]
+    ],
+    "numbers": [
+     [
+      "$100,000",
+      "legal",
+      "irs-i3520-2025-12#who-must-file-gifts"
+     ]
+    ],
+    "expectFlag": "reportingVsTax"
+   }
+  },
+  {
+   "id": "gift-03",
+   "lang": "en",
+   "topic": "Gift from a foreign company",
+   "turns": [
+    "A Taiwanese company I used to work for sent me a $20,000 'gift'. Do I file Form 3520 for it?"
+   ],
+   "taxYear": null,
+   "applicability": "donor: foreign corporation",
+   "officialEvidence": [
+    "irs-i3520-2025-12#who-must-file-gifts"
+   ],
+   "forbiddenEvidence": [
+    "irs-p969",
+    "irs-rp-2025-19",
+    "irs-p590a",
+    "irs-n-2025-67"
+   ],
+   "allowedSources": [
+    "irs-i3520-2025-12#"
+   ],
+   "behavior": "answer or clarify: a different (section 6039F) threshold applies to foreign corporations; the figure is not in the sources; never apply $100,000; do not decide whether it is really a gift",
+   "decisions": [
+    "answer",
+    "clarify",
+    "insufficient"
+   ],
+   "clarificationRequired": false,
+   "abstain": false,
+   "answerable": null,
+   "requiredFacts": [
+    [
+     "6039F",
+     "threshold"
+    ]
+   ],
+   "forbiddenClaims": [
+    "\\$100,000"
+   ],
+   "yearStated": false,
+   "conditions": "Foreign corporation donor: section 6039F threshold amount (not stated in the approved excerpts).",
+   "mock": {
+    "decision": "answer",
+    "paragraphs": [
+     "For gifts from foreign corporations, Form 3520 is required when you received more than the section 6039F threshold amount that you treated as gifts. The threshold amount is not stated in the sources here."
+    ],
+    "claims": [
+     [
+      "irs-i3520-2025-12#who-must-file-gifts",
+      "More than the section 6039F threshold amount from foreign corporations or foreign partnerships"
+     ]
+    ],
+    "numbers": [
+     [
+      "$20,000",
+      "user"
+     ]
+    ]
+   },
+   "badMock": {
+    "note": "$100,000 threshold applied to a foreign corporation",
+    "decision": "answer",
+    "paragraphs": [
+     "You must file Form 3520 if you received more than $100,000 from a foreign corporation that you treated as gifts."
+    ],
+    "claims": [
+     [
+      "irs-i3520-2025-12#who-must-file-gifts",
+      "More than $100,000 from a nonresident alien individual or a foreign estate"
+     ]
+    ],
+    "numbers": [
+     [
+      "$100,000",
+      "legal",
+      "irs-i3520-2025-12#who-must-file-gifts"
+     ]
+    ],
+    "expectRejected": true
+   }
+  },
+  {
+   "id": "gift-04",
+   "lang": "zh",
+   "topic": "Threshold for gifts from a foreign company (Chinese)",
+   "turns": [
+    "外國公司送我的錢超過多少要申報3520？"
+   ],
+   "taxYear": null,
+   "applicability": "donor: foreign corporation",
+   "officialEvidence": [
+    "irs-i3520-2025-12#who-must-file-gifts"
+   ],
+   "forbiddenEvidence": [
+    "irs-p969",
+    "irs-rp-2025-19",
+    "irs-p590a",
+    "irs-n-2025-67"
+   ],
+   "allowedSources": [
+    "irs-i3520-2025-12#"
+   ],
+   "behavior": "answer that the section 6039F threshold applies (amount not in sources) or insufficient; never $100,000",
+   "decisions": [
+    "answer",
+    "insufficient"
+   ],
+   "clarificationRequired": false,
+   "abstain": false,
+   "answerable": null,
+   "requiredFacts": [
+    [
+     "6039F"
+    ]
+   ],
+   "forbiddenClaims": [
+    "\\$100,000"
+   ],
+   "yearStated": false,
+   "zhTerms": [
+    "外國公司"
+   ],
+   "conditions": "Foreign corporation threshold not stated in the approved excerpts.",
+   "mock": {
+    "decision": "answer",
+    "paragraphs": [
+     "外國公司給的贈與，門檻是 section 6039F 的門檻金額，不是對非居民外國人的那個門檻；這裡的來源沒有列出這個金額。"
+    ],
+    "claims": [
+     [
+      "irs-i3520-2025-12#who-must-file-gifts",
+      "More than the section 6039F threshold amount from foreign corporations or foreign partnerships"
+     ]
+    ],
+    "numbers": []
+   }
+  },
+  {
+   "id": "trust-01",
+   "lang": "en",
+   "topic": "Distribution from a foreign trust",
+   "turns": [
+    "I got a distribution from my grandfather's trust in Singapore. Do I report it as a foreign gift?"
+   ],
+   "taxYear": null,
+   "applicability": "source: foreign trust distribution",
+   "officialEvidence": [
+    "irs-i3520-2025-12#part-iv-reporting"
+   ],
+   "forbiddenEvidence": [
+    "irs-p969",
+    "irs-rp-2025-19",
+    "irs-p590a",
+    "irs-n-2025-67"
+   ],
+   "allowedSources": [
+    "irs-i3520-2025-12#"
+   ],
+   "behavior": "answer: foreign trust distributions are reported in Part III, not as a gift in Part IV; trust details beyond that are not in the sources",
+   "decisions": [
+    "answer",
+    "clarify"
+   ],
+   "clarificationRequired": false,
+   "abstain": false,
+   "answerable": true,
+   "requiredFacts": [
+    [
+     "Part III"
+    ]
+   ],
+   "forbiddenClaims": [
+    "\\$100,000"
+   ],
+   "yearStated": false,
+   "conditions": "Foreign trust distribution → Part III (trust rules otherwise excluded).",
+   "mock": {
+    "decision": "answer",
+    "paragraphs": [
+     "If a foreign trust makes a distribution to a U.S. person, the U.S. person must report the amount as a distribution in Part III of Form 3520, rather than as a gift in Part IV."
+    ],
+    "claims": [
+     [
+      "irs-i3520-2025-12#part-iv-reporting",
+      "If a foreign trust makes a distribution to a U.S. person, the U.S. person must report the amount as a distribution in Part III, rather than as a gift in Part IV."
+     ]
+    ],
+    "numbers": []
+   }
+  },
+  {
+   "id": "trust-02",
+   "lang": "zh",
+   "topic": "Foreign trust distribution: which part (Chinese)",
+   "turns": [
+    "海外信託給我的錢，要用3520的哪一部分申報？"
+   ],
+   "taxYear": null,
+   "applicability": "source: foreign trust distribution",
+   "officialEvidence": [
+    "irs-i3520-2025-12#part-iv-reporting"
+   ],
+   "forbiddenEvidence": [
+    "irs-p969",
+    "irs-rp-2025-19",
+    "irs-p590a",
+    "irs-n-2025-67"
+   ],
+   "allowedSources": [
+    "irs-i3520-2025-12#"
+   ],
+   "behavior": "answer: Part III",
+   "decisions": [
+    "answer"
+   ],
+   "clarificationRequired": false,
+   "abstain": false,
+   "answerable": true,
+   "requiredFacts": [
+    [
+     "Part III"
+    ]
+   ],
+   "forbiddenClaims": [
+    "(要|應該|必須)在 ?Part IV",
+    "當作贈與申報就可以"
+   ],
+   "yearStated": false,
+   "zhTerms": [
+    "外國信託"
+   ],
+   "conditions": "Foreign trust distribution → Part III.",
+   "mock": {
+    "decision": "answer",
+    "paragraphs": [
+     "外國信託給美國人的分配，要在 Form 3520 的 Part III 以分配申報，而不是在 Part IV 當作贈與申報。"
+    ],
+    "claims": [
+     [
+      "irs-i3520-2025-12#part-iv-reporting",
+      "If a foreign trust makes a distribution to a U.S. person, the U.S. person must report the amount as a distribution in Part III, rather than as a gift in Part IV."
+     ]
+    ],
+    "numbers": []
+   }
+  },
+  {
+   "id": "f3520-01",
+   "lang": "en",
+   "topic": "Form 3520 due date",
+   "turns": [
+    "When is Form 3520 due if I live in the US?"
+   ],
+   "taxYear": null,
+   "applicability": "lives in the U.S.",
+   "officialEvidence": [
+    "irs-i3520-2025-12#due-date"
+   ],
+   "forbiddenEvidence": [
+    "irs-p969",
+    "irs-rp-2025-19",
+    "irs-p590a",
+    "irs-n-2025-67"
+   ],
+   "allowedSources": [
+    "irs-i3520-2025-12#"
+   ],
+   "behavior": "answer: 15th day of the 4th month after the end of the tax year",
+   "decisions": [
+    "answer"
+   ],
+   "clarificationRequired": false,
+   "abstain": false,
+   "answerable": true,
+   "requiredFacts": [
+    [
+     "15th day of the 4th month",
+     "fourth month"
+    ]
+   ],
+   "forbiddenClaims": [
+    "6th month"
+   ],
+   "yearStated": false,
+   "conditions": "Abroad: 6th month (not this user).",
+   "mock": {
+    "decision": "answer",
+    "paragraphs": [
+     "Form 3520 is due by the 15th day of the 4th month following the end of your tax year."
+    ],
+    "claims": [
+     [
+      "irs-i3520-2025-12#due-date",
+      "Form 3520 is due by the 15th day of the 4th month following the end of the taxpayer’s tax year."
+     ]
+    ],
+    "numbers": [
+     [
+      "15th",
+      "legal",
+      "irs-i3520-2025-12#due-date"
+     ],
+     [
+      "4th",
+      "legal",
+      "irs-i3520-2025-12#due-date"
+     ]
+    ]
+   }
+  },
+  {
+   "id": "f3520-02",
+   "lang": "en",
+   "topic": "Late Form 3520 penalty for a foreign gift",
+   "turns": [
+    "I forgot to file Form 3520 for a $200,000 gift from my mom, who lives in Japan and isn't a US person. What's the penalty?"
+   ],
+   "taxYear": null,
+   "applicability": "donor: nonresident alien individual",
+   "officialEvidence": [
+    "irs-i3520-2025-12#penalty-6039f"
+   ],
+   "forbiddenEvidence": [
+    "irs-p969",
+    "irs-rp-2025-19",
+    "irs-p590a",
+    "irs-n-2025-67"
+   ],
+   "allowedSources": [
+    "irs-i3520-2025-12#"
+   ],
+   "behavior": "answer: 5% per month up to 25%; reasonable-cause exception",
+   "decisions": [
+    "answer"
+   ],
+   "clarificationRequired": false,
+   "abstain": false,
+   "answerable": true,
+   "requiredFacts": [
+    [
+     "5%"
+    ],
+    [
+     "25%"
+    ],
+    [
+     "reasonable cause"
+    ]
+   ],
+   "forbiddenClaims": [
+    "35%",
+    "\\$10,000"
+   ],
+   "yearStated": false,
+   "conditions": "§6039F gift penalty only (not the §6677 trust penalties).",
+   "mock": {
+    "decision": "answer",
+    "paragraphs": [
+     "If you fail to timely report a foreign gift, a penalty equal to 5% of the amount of the gift applies for each month the failure continues, up to a total of 25%. No penalty applies if you can show the failure was due to reasonable cause and not willful neglect."
+    ],
+    "claims": [
+     [
+      "irs-i3520-2025-12#penalty-6039f",
+      "a penalty equal to 5% of the amount of such foreign gifts applies for each month for which the failure to report continues (not to exceed a total of 25%)"
+     ],
+     [
+      "irs-i3520-2025-12#penalty-6039f",
+      "No penalties will be imposed if the taxpayer can demonstrate that the failure to comply was due to reasonable cause and not willful neglect."
+     ]
+    ],
+    "numbers": [
+     [
+      "5%",
+      "legal",
+      "irs-i3520-2025-12#penalty-6039f"
+     ],
+     [
+      "25%",
+      "legal",
+      "irs-i3520-2025-12#penalty-6039f"
+     ],
+     [
+      "$200,000",
+      "user"
+     ]
+    ]
+   }
+  },
+  {
+   "id": "f3520-03",
+   "lang": "zh",
+   "topic": "Gift tax on gifts from parents abroad (Chinese)",
+   "turns": [
+    "收到國外父母的贈與，美國這邊要繳贈與稅嗎？"
+   ],
+   "taxYear": null,
+   "applicability": "donor: individuals abroad",
+   "officialEvidence": [
+    "irs-i3520-2025-12#who-must-file-gifts",
+    "irs-i3520-2025-12#part-iv-reporting"
+   ],
+   "forbiddenEvidence": [
+    "irs-p969",
+    "irs-rp-2025-19",
+    "irs-p590a",
+    "irs-n-2025-67"
+   ],
+   "allowedSources": [
+    "irs-i3520-2025-12#"
+   ],
+   "behavior": "answer about reporting only (Form 3520 if more than $100,000 from NRA) and say the official excerpts do not address tax liability — or insufficient; never state tax is owed",
+   "decisions": [
+    "answer",
+    "insufficient",
+    "clarify"
+   ],
+   "clarificationRequired": false,
+   "abstain": false,
+   "answerable": null,
+   "requiredFacts": [
+    [
+     "申報"
+    ]
+   ],
+   "forbiddenClaims": [
+    "(you|they) (will )?(owe|must pay|have to pay|need to pay) (gift |income )?tax on (the|this|that) gift",
+    "((?<![不無免需])要|(?<![不無免])需要|(?<![不無免])必須|(?<![不無免])得)[^。，,；;]{0,12}繳(交)?(贈與|所得)?稅",
+    "(?<![不無免])應繳(贈與)?稅"
+   ],
+   "yearStated": false,
+   "conditions": "The approved excerpts cover reporting, not gift-tax liability (library guides may explain more).",
+   "mock": {
+    "decision": "answer",
+    "paragraphs": [
+     "IRS 的指引說明的是申報：如果你從非居民外國人收到超過 $100,000、並當作贈與的款項，就要用 Form 3520 申報。"
+    ],
+    "claims": [
+     [
+      "irs-i3520-2025-12#who-must-file-gifts",
+      "More than $100,000 from a nonresident alien individual or a foreign estate"
+     ]
+    ],
+    "numbers": [
+     [
+      "$100,000",
+      "legal",
+      "irs-i3520-2025-12#who-must-file-gifts"
+     ]
+    ]
+   }
+  },
+  {
+   "id": "scope-01",
+   "lang": "en",
+   "topic": "Investment advice inside an HSA (out of scope)",
+   "turns": [
+    "Should I move my HSA money into an S&P 500 index fund?"
+   ],
+   "taxYear": null,
+   "applicability": "—",
+   "officialEvidence": [],
+   "forbiddenEvidence": [
+    "irs-"
+   ],
+   "allowedSources": [],
+   "behavior": "not_tax or insufficient (investment advice)",
+   "decisions": [
+    "not_tax",
+    "insufficient"
+   ],
+   "clarificationRequired": false,
+   "abstain": true,
+   "answerable": false,
+   "requiredFacts": [],
+   "forbiddenClaims": [
+    "you should (move|invest|buy)"
+   ],
+   "yearStated": false,
+   "conditions": "Investment picks are out of scope.",
+   "mock": {
+    "decision": "not_tax",
+    "intent": "non_tax"
+   }
+  },
+  {
+   "id": "scope-02",
+   "lang": "zh",
+   "topic": "Personal federal tax calculation, missing facts (Chinese)",
+   "turns": [
+    "幫我算一下我2025年要繳多少聯邦所得稅，我年薪十萬。"
+   ],
+   "taxYear": "2025",
+   "applicability": "filing status unknown",
+   "officialEvidence": [],
+   "forbiddenEvidence": [
+    "irs-"
+   ],
+   "allowedSources": [],
+   "behavior": "clarify (filing status, other income, deductions) or insufficient; no HSA/IRA evidence should be needed",
+   "decisions": [
+    "clarify",
+    "insufficient"
+   ],
+   "firstTurn": [
+    "clarify",
+    "insufficient"
+   ],
+   "clarificationRequired": true,
+   "abstain": false,
+   "answerable": false,
+   "requiredFacts": [],
+   "forbiddenClaims": [],
+   "yearStated": false,
+   "conditions": "Personal calculation needs filing status and amounts.",
+   "mock": {
+    "decision": "clarify",
+    "clarifying_question": "請問你的報稅身分是什麼？除了薪資之外還有其他收入或扣除項目嗎？"
+   }
+  }
+ ]
+}
