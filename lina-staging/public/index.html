@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="referrer" content="no-referrer">
+  <title>Lina v2 Staging</title>
+  <link rel="stylesheet" href="app.css">
+</head>
+<body>
+  <header class="top">
+    <div class="brand">Lina v2 <span class="tag">STAGING</span></div>
+    <div class="lang" role="group" aria-label="Language">
+      <button type="button" data-lang="en" class="on">EN</button>
+      <button type="button" data-lang="zh-tw">繁中</button>
+    </div>
+  </header>
+
+  <p class="warn" role="note">
+    <strong>Staging evaluation only. Not tax advice. Do not enter real client data.</strong><br>
+    <span lang="zh-Hant">僅供測試評估。非稅務建議。請勿輸入真實客戶資料。</span>
+  </p>
+
+  <main id="app">
+    <section id="screen-loading" class="screen"><p class="muted" data-t="loading"></p></section>
+
+    <section id="screen-off" class="screen" hidden>
+      <h1 data-t="offTitle"></h1>
+      <p class="muted" data-t="offBody"></p>
+    </section>
+
+    <section id="screen-signin" class="screen" hidden>
+      <h1 data-t="signinTitle"></h1>
+      <form id="signin-form" class="card" autocomplete="on">
+        <label><span data-t="email"></span><input id="email" type="email" required autocomplete="username" inputmode="email"></label>
+        <label><span data-t="password"></span><input id="password" type="password" required autocomplete="current-password"></label>
+        <button type="submit" class="primary" data-t="signin"></button>
+        <p class="error" id="signin-error" hidden></p>
+      </form>
+    </section>
+
+    <section id="screen-mfa" class="screen" hidden>
+      <h1 data-t="mfaTitle"></h1>
+      <div id="enroll" class="card" hidden>
+        <p data-t="enrollBody"></p>
+        <img id="qr" alt="" width="180" height="180">
+        <p class="small"><span data-t="secret"></span> <code id="secret"></code></p>
+      </div>
+      <form id="mfa-form" class="card">
+        <label><span data-t="code"></span><input id="code" inputmode="numeric" pattern="[0-9]{6}" maxlength="6" required autocomplete="one-time-code"></label>
+        <button type="submit" class="primary" data-t="verify"></button>
+        <p class="error" id="mfa-error" hidden></p>
+      </form>
+      <button type="button" class="link" id="mfa-signout" data-t="signout"></button>
+    </section>
+
+    <section id="screen-chat" class="screen" hidden>
+      <div class="bar">
+        <div class="budget" id="budget" aria-live="polite"></div>
+        <label class="diag-toggle"><input type="checkbox" id="diag"> <span data-t="diagnostics"></span></label>
+      </div>
+      <ol id="messages" class="messages" aria-live="polite"></ol>
+      <form id="ask-form" class="ask">
+        <p class="followup" id="followup" hidden data-t="followupHint"></p>
+        <textarea id="question" rows="3" maxlength="500" required></textarea>
+        <div class="row">
+          <button type="submit" class="primary" id="send" data-t="send"></button>
+          <button type="button" class="link" id="new-session" data-t="newSession"></button>
+          <button type="button" class="link" id="signout" data-t="signout"></button>
+        </div>
+      </form>
+    </section>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+# Lina v2 PRIVATE STAGING SITE — used only by the separate staging Netlify site
+# (base directory: repository root · package directory: lina-staging · production branch: lina-v2-staging).
+# The production site (asklintax.com) reads the root netlify.toml and never this file.
+
+[build]
+  # Full site build (the Lina library index is built from the exported guides), then the staging index
+  # with its fail-closed identity checks. Nothing from this build is published except lina-staging/public.
+  command = "npm run build && node lina-staging/scripts/build-staging-index.js"
+  publish = "lina-staging/public"
+
+[build.environment]
+  NODE_VERSION = "22"
+
+[functions]
+  directory    = "lina-staging/netlify/functions"
+  node_bundler = "esbuild"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"
+    Cache-Control = "no-store"
+    Referrer-Policy = "no-referrer"
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=()"
+    Content-Security-Policy = "default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self' https://*.supabase.co; base-uri 'none'; form-action 'none'; frame-ancestors 'none'"
