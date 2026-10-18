@@ -13,7 +13,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'tax-credit-vs-deduction',
-  sourceHash:      '4eb3059a3a89',
+  sourceHash:      '270849bfc511',
   id:            '08',
   title:         '抵稅額（tax credit）與扣除額（deduction）有什麼不同？',
   titleEn:       'Tax credit vs. tax deduction: what\'s the difference?',
@@ -231,7 +231,7 @@ export default function TaxCreditVsDeductionZhTwPage({ translations }) {
               color: '#D97706',
               bgColor: '#FFFBEB',
               desc: '同時有可退還與不可退還的部分。一部分可以產生退稅；其餘部分只能把稅額減到零。',
-              examples: '兒童抵稅額（2025 年每個孩子 $1,700 可退還／$500 不可退還）',
+              examples: '兒童抵稅額（2025 年每個孩子最多 $2,200；如果超過你的稅額，沒用完的部分每個孩子最多 $1,700 可透過額外兒童抵稅額退還）',
               star: '✓ 仍然非常有價值',
             },
             {

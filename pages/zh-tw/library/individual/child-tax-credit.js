@@ -13,7 +13,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'child-tax-credit',
-  sourceHash:      '98878b59feb9',
+  sourceHash:      '6b0a3f5fb24c',
   id: '17',
   title: '兒童抵稅額（Child Tax Credit）：誰符合資格、如何申請',
   titleEn: 'Child Tax Credit: who qualifies and how to claim it',
@@ -42,7 +42,7 @@ const FAQS = [
   { q: '什麼是額外兒童抵稅額（ACTC）？', a: 'ACTC（Additional Child Tax Credit）是兒童抵稅額中可退還的部分。2025 稅務年度，每個符合資格的子女最多 $1,700 可以退還 — 也就是即使你不欠聯邦所得稅，也可以拿到退款。你必須有至少 $2,500 的勞動所得才符合資格，金額依你的收入而定。ACTC 在 Schedule 8812 上計算，報稅軟體會自動算出，不需要另外申報。' },
   { q: '我是新移民，可以申請兒童抵稅額嗎？', a: '如果你是美國稅務居民（居民外國人）、你的符合資格子女有有效 SSN，而且 — 從 2025 稅務年度開始 — 你（或夫妻合併申報時的配偶）有可用於工作的社會安全號碼，就可以申請兒童抵稅額。非居民外國人一般不能申請。綠卡持有人與通過實質居留測試的人是居民外國人，可能符合資格。' },
   { q: '我的孩子和前配偶住在一起，誰來申請抵稅額？', a: '一般是監護父母（Custodial Parent）— 也就是這一年孩子同住較多晚的那一方 — 申請兒童抵稅額。監護父母可以簽署 Form 8332，在特定年度把這項權利讓給非監護父母。如果孩子與父母雙方同住的時間相同，預設由調整後總收入（AGI）較高的一方申請。' },
-  { q: '兒童抵稅額是減少我的稅，還是增加我的退稅？', a: '兩者都有。不可退還的部分（2025 年每個孩子 $500）可以把你的稅額減到零，但無法產生超過你已繳金額的退稅。可退還的部分 — 額外兒童抵稅額，每個孩子最多 $1,700 — 即使你不欠稅，也能拿到實際的退款。所以有兩個符合資格子女的家庭，即使應納稅額為零，只要有足夠的勞動所得（至少需要 $2,500 才符合 ACTC 資格），最多可以拿到 $3,400 的可退還抵稅額。' },
+  { q: '兒童抵稅額是減少我的稅，還是增加我的退稅？', a: '兩者都有可能。兒童抵稅額（2025 年每名符合資格子女最高 $2,200）會先用來減少你應繳的聯邦所得稅。如果抵稅額比你的稅還多，沒用完的部分可能透過額外兒童抵稅額（ACTC）以退稅方式發給你。可退還的金額每個孩子最多 $1,700，而且一般不能超過你勞動所得中超過 $2,500 部分的 15%（有三個以上符合資格子女的家庭，可能可以改用另一種算法）。例如：一個有兩個符合資格子女、勞動所得 $30,000、沒有應繳所得稅的家庭，最多可以拿到 $3,400 的退稅，因為 $27,500（$30,000 減 $2,500）的 15% 是 $4,125，比 2 × $1,700 還多。如果勞動所得只有 $10,000，可退還的金額一般會限制在 $7,500 的 15%，也就是 $1,125。Schedule 8812 會幫你算出這些金額。' },
   { q: '我在經濟上扶養一個孩子，但他沒有和我住在一起，可以申請嗎？', a: '一般不行 — 居住測試要求孩子和你同住超過半年。例外是監護父母簽署 Form 8332，把抵稅額讓給你。但只是提供經濟支援、孩子沒有和你同住，並不足以申請兒童抵稅額。' },
 ]
 
@@ -68,17 +68,17 @@ export default function ChildTaxCreditZhTwPage({ translations }) {
   function toggleFaq(i) { setOpenFaq(p => ({ ...p, [i]: !p[i] })) }
 
   return (
-    <Layout t={t} locale="zh-tw" meta={{ title: '2025 兒童抵稅額：誰符合資格、如何申請 | AskLinTax 繁體中文', description: '2025 稅務年度兒童抵稅額完整指南 — 每個孩子最高 $2,200，其中 $1,700 可退還。包括 7 項資格測試、收入遞減門檻，以及新移民如何申請。' }}>
+    <Layout t={t} locale="zh-tw" meta={{ title: '2025 兒童抵稅額：誰符合資格、如何申請 | AskLinTax 繁體中文', description: '2025 稅務年度兒童抵稅額完整指南 — 每個孩子最高 $2,200，其中最多 $1,700 可退還。包括 7 項資格測試、收入遞減門檻，以及新移民如何申請。' }}>
       <KnowledgePage meta={META} faqs={FAQS} openFaq={openFaq} toggleFaq={toggleFaq} relatedArticles={RELATED} locale="zh-tw">
 
         <h2>什麼是兒童抵稅額？</h2>
-        <p>兒童抵稅額（Child Tax Credit, CTC）是有子女的家庭最有價值的稅務優惠之一。2025 稅務年度，每個未滿 17 歲的<strong>符合資格子女最高 $2,200</strong> — 其中<strong>最多 $1,700 可以退還</strong>，也就是即使你不欠聯邦稅，也可以拿到現金退款。</p>
+        <p>兒童抵稅額（Child Tax Credit, CTC）是有子女的家庭最有價值的稅務優惠之一。2025 稅務年度，每個未滿 17 歲的<strong>符合資格子女最高 $2,200</strong> — 其中<strong>最多 $1,700 可以退還</strong>，也就是即使你不欠聯邦所得稅，只要有足夠的勞動所得，也可能拿到現金退款。</p>
         <p>許多符合資格的華人移民家庭從來沒有申請 — 有的是不知道有這項抵稅額，有的是以為非公民不適用。事實上，只要你（或合併申報時的配偶）也有可用於工作的 SSN，擁有有效 SSN 符合資格子女的居民外國人就適用。</p>
 
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: '14px', margin: '28px 0' }}>
           {[
             { label: '每個符合資格子女的抵稅額', value: '$2,200', sub: '2025 稅務年度', color: 'var(--navy)' },
-            { label: '可退還部分（ACTC）', value: '$1,700', sub: '每個孩子 — 即使應納稅額為 $0', color: 'var(--green)' },
+            { label: '可退還部分（ACTC）', value: '$1,700', sub: '每個孩子 — 依你的勞動所得而定', color: 'var(--green)' },
             { label: '開始遞減的門檻', value: '$200,000', sub: '單身／夫妻合併申報 $400,000', color: 'var(--gold)' },
           ].map((item, i) => (
             <div key={i} style={{ background: 'var(--cream)', border: `1.5px solid ${item.color}30`, borderRadius: '12px', padding: '20px 18px', textAlign: 'center' }}>
@@ -125,7 +125,7 @@ export default function ChildTaxCreditZhTwPage({ translations }) {
         <ol>
           <li><strong>列出你的符合資格子女</strong>：在 Form 1040 的受扶養人（Dependents）欄位填寫，包括他們的 SSN。</li>
           <li><strong>填寫 Schedule 8812</strong> — Credits for Qualifying Children and Other Dependents。報稅軟體會自動處理。</li>
-          <li><strong>抵稅額會自動計算</strong> — 軟體會算出每個孩子的 $2,200 中，有多少用來減少你的稅（不可退還部分），有多少變成退款（ACTC，最多 $1,700）。</li>
+          <li><strong>抵稅額會自動計算</strong> — 軟體會先用抵稅額（每個孩子最多 $2,200）減少你的稅，再算出沒用完的部分是否可以透過 ACTC 退還給你（每個孩子最多 $1,700，依你的勞動所得計算）。</li>
         </ol>
 
         <div className="callout callout-warning">

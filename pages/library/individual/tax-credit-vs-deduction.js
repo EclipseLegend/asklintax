@@ -230,7 +230,7 @@ export default function TaxCreditVsDeductionPage({ translations }) {
               color: '#D97706',
               bgColor: '#FFFBEB',
               desc: 'Has both a refundable and non-refundable portion. Part of it can generate a refund; the rest only reduces tax to zero.',
-              examples: 'Child Tax Credit ($1,700 refundable / $500 non-refundable per child in 2025)',
+              examples: 'Child Tax Credit (up to $2,200 per child in 2025; if it is more than your tax, up to $1,700 per child of the unused part can be refunded as the Additional Child Tax Credit)',
               star: '✓ Still very valuable',
             },
             {

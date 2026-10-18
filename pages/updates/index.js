@@ -90,12 +90,18 @@ const TAX_YEAR_2026 = [
   },
 ]
 
-// Upcoming as of REVIEWED_ON.
+// Upcoming as of CALENDAR_AS_OF (dates checked against IRS Form 1040-ES (2026)). The calendar is maintained
+// separately from the rest of the page, so it has its own date; REVIEWED_ON covers the page content.
+const CALENDAR_AS_OF = 'October 18, 2026'
 const CALENDAR = [
-  { date: 'October 15, 2026', title: 'Extended 2025 individual returns due', detail: 'If you have an automatic 6-month extension, file Form 1040 or 1040-SR and pay any tax, interest, and penalties due.', source: { label: 'IRS Pub. 509 (2026)', url: 'https://www.irs.gov/publications/p509' } },
-  { date: 'October 15, 2026', title: 'FBAR extended deadline for 2025', detail: 'FinCEN Form 114 has an automatic 6-month extension from April 15 to October 15.', source: { label: 'IRS — Form 8938 vs. FBAR', url: 'https://www.irs.gov/businesses/comparison-of-form-8938-and-fbar-requirements' } },
   { date: 'January 15, 2027', title: 'Fourth 2026 estimated tax payment due', detail: 'Last quarterly payment for 2026 income.', source: { label: 'IRS Form 1040-ES (2026)', url: 'https://www.irs.gov/pub/irs-pdf/f1040es.pdf' } },
   { date: 'February 1, 2027', title: 'Skip the January payment by filing early', detail: 'You don’t have to make the January 15 payment if you file your 2026 return by February 1, 2027 and pay the entire balance due.', source: { label: 'IRS Form 1040-ES (2026)', url: 'https://www.irs.gov/pub/irs-pdf/f1040es.pdf' } },
+]
+
+// Deadlines that have passed, kept for reference (people who missed them still need the date).
+const RECENTLY_PASSED = [
+  { date: 'October 15, 2026', title: 'Extended 2025 individual returns were due', detail: 'This was the deadline for 2025 returns filed with an automatic 6-month extension. If you have not filed yet, file as soon as you can.', source: { label: 'IRS Pub. 509 (2026)', url: 'https://www.irs.gov/publications/p509' }, related: { href: '/library/irs/missed-tax-deadline/', label: 'I missed the tax deadline — what happens now?' } },
+  { date: 'October 15, 2026', title: 'FBAR extended deadline for 2025', detail: 'FinCEN Form 114 for 2025 had an automatic extension from April 15 to October 15, 2026.', source: { label: 'IRS — Form 8938 vs. FBAR', url: 'https://www.irs.gov/businesses/comparison-of-form-8938-and-fbar-requirements' }, related: { href: '/library/investment/late-fbar/', label: 'I forgot to file an FBAR — what should I do?' } },
 ]
 
 function UpdateItem({ item, taxYear }) {
@@ -177,7 +183,7 @@ export default function TaxUpdatesPage({ translations }) {
           <div className={lib.sectionHead}>
             <span className="section-label">Tax calendar</span>
             <h2 id="calendar-title" className={lib.sectionTitle}>Upcoming federal deadlines</h2>
-            <p className={lib.sectionSub}>As of {REVIEWED_ON}. If a deadline falls on a weekend or legal holiday, it moves to the next business day.</p>
+            <p className={lib.sectionSub}>As of {CALENDAR_AS_OF}. If a deadline falls on a weekend or legal holiday, it moves to the next business day.</p>
           </div>
           <ol className={styles.calendar}>
             {CALENDAR.map(d => (
@@ -187,6 +193,20 @@ export default function TaxUpdatesPage({ translations }) {
                   <strong>{d.title}</strong>
                   <span>{d.detail}</span>
                   <a href={d.source.url} target="_blank" rel="noopener noreferrer" className={styles.calendarSource}>{d.source.label}</a>
+                </span>
+              </li>
+            ))}
+          </ol>
+          <h3 className={styles.calendarSubhead}>Recently passed</h3>
+          <ol className={styles.calendar}>
+            {RECENTLY_PASSED.map(d => (
+              <li key={d.date + d.title} className={styles.calendarRow}>
+                <span className={styles.calendarDate}>{d.date}</span>
+                <span className={styles.calendarText}>
+                  <strong>{d.title}</strong>
+                  <span>{d.detail}</span>
+                  <a href={d.source.url} target="_blank" rel="noopener noreferrer" className={styles.calendarSource}>{d.source.label}</a>
+                  <Link href={d.related.href} className={styles.calendarSource}>{d.related.label} →</Link>
                 </span>
               </li>
             ))}
