@@ -19,6 +19,7 @@ const META = {
   verification:  'official-sources-verified',
   sources: [
     { label: 'IRS — 1040 and 1040-SR instructions (2025), filing requirements', url: 'https://www.irs.gov/instructions/i1040gi' },
+    { label: 'IRS — Revenue Procedure 2025-32 (tax year 2026 inflation adjustments)', url: 'https://www.irs.gov/pub/irs-drop/rp-25-32.pdf' },
     { label: 'IRS Publication 501 — Dependents, Standard Deduction, and Filing Information', url: 'https://www.irs.gov/publications/p501' },
     { label: 'IRS — Time IRS can assess tax', url: 'https://www.irs.gov/filing/time-irs-can-assess-tax' },
     { label: 'IRS Publication 590-A — Contributions to Individual Retirement Arrangements', url: 'https://www.irs.gov/publications/p590a' },
@@ -152,6 +153,7 @@ export default function DoINeedToFilePage({ translations }) {
         <p style={{ fontSize: '13.5px', color: 'var(--muted)', marginTop: '-8px' }}>
           Source: 2025 Form 1040 instructions (Chart A), reflecting the 2025 standard deduction as amended in 2025. Thresholds equal the standard deduction for each filing status and age combination. Different, lower thresholds apply if someone can claim you as a dependent (Chart B).
           The $5 threshold for Married Filing Separately applies regardless of age.
+          For Tax Year 2026 (returns filed in 2027), the standard deduction is $16,100 for single filers, $32,200 for married filing jointly, and $24,150 for head of household. The IRS publishes the 2026 filing thresholds in the 2026 Form 1040 instructions.
         </p>
 
         <div className="callout callout-info">

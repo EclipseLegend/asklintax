@@ -23,7 +23,7 @@ const META = {
   confidence:    'Covers Part IV of Form 3520 (gifts and bequests from foreign persons) for individual U.S. citizens and resident aliens. Foreign trust reporting (Parts I–III) is outside the scope of this guide',
   persona:       ['Anyone who received more than $100,000 from family abroad', 'Heirs of parents who lived outside the U.S.', 'New immigrants', 'Tax preparers helping family members'],
   relatedJourney: ['Cross-border finances', 'New to the U.S.'],
-  actionRequired: 'If gifts or inheritances from related nonresident aliens totaled more than $100,000 in 2025, complete Form 3520 Part IV and mail it to the IRS in Ogden, Utah, by April 15, 2026 — or by October 15, 2026 if you extended your income tax return. It is not attached to your tax return.',
+  actionRequired: 'If gifts or inheritances from related nonresident aliens totaled more than $100,000 in 2026, complete Form 3520 Part IV and mail it to the IRS in Ogden, Utah, by April 15, 2027 — or by October 15, 2027 if you extended your income tax return. (For 2025 gifts, the dates were April 15, 2026 and October 15, 2026.) It is not attached to your tax return.',
   sources: [
     { label: 'IRS — Instructions for Form 3520 (Rev. 12/2025)', url: 'https://www.irs.gov/instructions/i3520' },
     { label: 'IRS — Form 3520 (Rev. December 2023), Part IV', url: 'https://www.irs.gov/pub/irs-pdf/f3520.pdf' },
@@ -147,11 +147,11 @@ export default function Form3520Page({ translations }) {
 
         <h2>When and where to file</h2>
         <ArticleTable
-          head={['Your situation (calendar-year individual)', 'Form 3520 due for 2025 gifts']}
+          head={['Your situation (calendar-year individual)', 'Form 3520 due for 2025 gifts', 'Form 3520 due for 2026 gifts']}
           rows={[
-            ['Standard', 'April 15, 2026'],
-            ['U.S. citizen or resident living and working outside the U.S. and Puerto Rico (or on military duty abroad) on the return due date', 'June 15, 2026 — attach a statement showing you qualify'],
-            ['You extended your income tax return (Form 4868)', 'October 15, 2026 — check box 1k and enter the form number of the extended return'],
+            ['Standard', 'April 15, 2026', 'April 15, 2027'],
+            ['U.S. citizen or resident living and working outside the U.S. and Puerto Rico (or on military duty abroad) on the return due date', 'June 15, 2026 — attach a statement showing you qualify', 'June 15, 2027 — attach a statement showing you qualify'],
+            ['You extended your income tax return (Form 4868)', 'October 15, 2026 — check box 1k and enter the form number of the extended return', 'October 15, 2027 — check box 1k and enter the form number of the extended return'],
           ]}
         />
         <p>

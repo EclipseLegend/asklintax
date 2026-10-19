@@ -13,7 +13,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'business-deductions',
-  sourceHash:      '4410fd2aff99',
+  sourceHash:      '1bd590821775',
   id:            '14',
   title:         '小型企業老闆可以扣除哪些費用？',
   titleEn:       'What can I deduct as a small business owner?',
@@ -113,7 +113,7 @@ const DEDUCTION_CATEGORIES = [
     color: '#7C3AED',
     summary: '以 IRS 標準里程費率扣除營業行車，或記錄實際的車輛費用。',
     items: [
-      { name: '標準里程費率（2025 年）', detail: '營業行車每英里 70 美分。把你的營業里程乘以 $0.70。每一趟營業行程都要記錄日期、目的地與目的。' },
+      { name: '標準里程費率（2025 與 2026 年）', detail: '2025 年營業行車每英里 70 美分。2026 年 1 月 1 日至 6 月 30 日每英里 72.5 美分，7 月 1 日起每英里 76 美分。把你的營業里程乘以行車期間適用的費率。每一趟營業行程都要記錄日期、目的地與目的。' },
       { name: '實際費用法', detail: '記錄所有車輛費用（油錢、保險、牌照、修理、折舊），再乘以營業使用比例。如果是營業使用比例高的昂貴車輛，扣除額可能比較高。' },
       { name: '哪些算營業行車', detail: '與客戶會面、前往第二個工作地點、處理營業事務、採購用品。從家裡通勤到你固定的辦公室「不算」。' },
     ],

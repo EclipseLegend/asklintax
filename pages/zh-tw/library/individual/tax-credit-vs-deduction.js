@@ -13,7 +13,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'tax-credit-vs-deduction',
-  sourceHash:      '270849bfc511',
+  sourceHash:      '55e87f6214ab',
   id:            '08',
   title:         '抵稅額（tax credit）與扣除額（deduction）有什麼不同？',
   titleEn:       'Tax credit vs. tax deduction: what\'s the difference?',
@@ -25,6 +25,9 @@ const META = {
   verification:  'official-sources-verified',
   sources: [
     { label: 'IRS — 1040 與 1040-SR 填寫說明（2025），稅率表（tax rate schedules）', url: 'https://www.irs.gov/instructions/i1040gi' },
+    { label: 'IRS — 2026 稅務年度通膨調整（IR-2025-103）', url: 'https://www.irs.gov/newsroom/irs-releases-tax-inflation-adjustments-for-tax-year-2026-including-amendments-from-the-one-big-beautiful-bill' },
+    { label: 'IRS — Revenue Procedure 2025-32（2026 稅務年度通膨調整）', url: 'https://www.irs.gov/pub/irs-drop/rp-25-32.pdf' },
+    { label: 'IRS — 2026 年 401(k) 與 IRA 上限（IR-2025-111）', url: 'https://www.irs.gov/newsroom/401k-limit-increases-to-24500-for-2026-ira-limit-increases-to-7500' },
     { label: 'IRS — 兒童抵稅額（Child Tax Credit）', url: 'https://www.irs.gov/credits-deductions/individuals/child-tax-credit' },
     { label: 'IRS Publication 503 — 兒童與受扶養人照顧費用（Child and Dependent Care Expenses）', url: 'https://www.irs.gov/publications/p503' },
     { label: 'IRS — 退休儲蓄提撥抵稅額（Retirement Savings Contributions Credit, Saver’s Credit）', url: 'https://www.irs.gov/retirement-plans/plan-participant-employee/retirement-savings-contributions-savers-credit' },
@@ -55,7 +58,7 @@ const FAQS = [
   },
   {
     q: '什麼是標準扣除額？誰應該使用？',
-    a: '標準扣除額（Standard Deduction）是每個人都可以申請、不需要記錄個別費用的固定扣除額。2025 稅務年度，單身申報為 $15,750，夫妻合併申報為 $31,500。大多數人 — 特別是沒有房貸、州稅不高，或沒有大額捐款的人 — 使用標準扣除額會比列舉扣除（Itemizing）划算。不確定時，讓報稅軟體兩種都算，選金額較大的一個。',
+    a: '標準扣除額（Standard Deduction）是每個人都可以申請、不需要記錄個別費用的固定扣除額。2025 稅務年度，單身申報為 $15,750，夫妻合併申報為 $31,500；2026 稅務年度分別為 $16,100 與 $32,200。大多數人 — 特別是沒有房貸、州稅不高，或沒有大額捐款的人 — 使用標準扣除額會比列舉扣除（Itemizing）划算。不確定時，讓報稅軟體兩種都算，選金額較大的一個。',
   },
   {
     q: '「線上」與「線下」扣除有什麼不同？',
@@ -63,7 +66,7 @@ const FAQS = [
   },
   {
     q: '我聽過兒童抵稅額，它是抵稅額還是扣除額？',
-    a: '它是抵稅額 — 而且部分可退還。2025 稅務年度，每個未滿 17 歲的符合資格子女最高 $2,200。其中最多 $1,700 可以作為額外兒童抵稅額（ACTC）退還，也就是即使不欠稅的家庭，每個孩子也可以拿到最多 $1,700 的退稅。這是有子女的家庭最有價值的抵稅額之一。',
+    a: '它是抵稅額 — 而且部分可退還。2025 與 2026 稅務年度，每個未滿 17 歲的符合資格子女最高 $2,200。其中最多 $1,700 可以作為額外兒童抵稅額（ACTC）退還，也就是即使不欠稅的家庭，每個孩子也可以拿到最多 $1,700 的退稅。這是有子女的家庭最有價值的抵稅額之一。',
   },
   {
     q: '收入越高，扣除額的幫助越大嗎？',
@@ -231,7 +234,7 @@ export default function TaxCreditVsDeductionZhTwPage({ translations }) {
               color: '#D97706',
               bgColor: '#FFFBEB',
               desc: '同時有可退還與不可退還的部分。一部分可以產生退稅；其餘部分只能把稅額減到零。',
-              examples: '兒童抵稅額（2025 年每個孩子最多 $2,200；如果超過你的稅額，沒用完的部分每個孩子最多 $1,700 可透過額外兒童抵稅額退還）',
+              examples: '兒童抵稅額（2025 與 2026 年每個孩子最多 $2,200；如果超過你的稅額，沒用完的部分每個孩子最多 $1,700 可透過額外兒童抵稅額退還）',
               star: '✓ 仍然非常有價值',
             },
             {
@@ -269,9 +272,9 @@ export default function TaxCreditVsDeductionZhTwPage({ translations }) {
             </thead>
             <tbody>
               {[
-                ['標準扣除額（單身 $15,750）', '每個人 — 不需要記錄', '$1,890', '$3,465'],
+                ['標準扣除額（2025 年單身 $15,750）', '每個人 — 不需要記錄', '$1,890', '$3,465'],
                 ['學生貸款利息（最高 $2,500）', '支付學生貸款利息、收入在限額以下', '$300', '$550'],
-                ['IRA 提撥（最高 $7,000）', '有勞動所得、未滿 50 歲、符合收入限制', '$840', '$1,540'],
+                ['IRA 提撥（2025 年最高 $7,000；2026 年 $7,500 — 節稅金額以 $7,000 計算）', '有勞動所得、未滿 50 歲、符合收入限制', '$840', '$1,540'],
                 ['自雇者健康保險', '自雇、自己支付保費', '不一定', '不一定'],
                 ['居家辦公室（自雇者）', '專門用於營業的工作空間', '不一定', '不一定'],
                 ['營業費用（Schedule C）', '自雇 — 所有一般且必要的費用', '不一定', '不一定'],
@@ -304,7 +307,7 @@ export default function TaxCreditVsDeductionZhTwPage({ translations }) {
             </thead>
             <tbody>
               {[
-                ['勞動所得抵稅額（Earned Income Tax Credit, EITC）', '最高 $8,046', '✅ 是', '有勞動所得的中低收入工作者'],
+                ['勞動所得抵稅額（Earned Income Tax Credit, EITC）', '最高 $8,046（2025）；$8,231（2026）', '✅ 是', '有勞動所得的中低收入工作者'],
                 ['兒童抵稅額（Child Tax Credit）', '每個孩子最高 $2,200', '⚡ 部分（$1,700）', '未滿 17 歲、有 SSN 的符合資格子女'],
                 ['兒童與受扶養人照顧抵稅額（Child & Dependent Care Credit）', '最高 $1,050（1 個孩子）', '❌ 否', '為了工作而支付托育費用'],
                 ['美國機會抵稅額（American Opportunity Credit）', '最高 $2,500', '⚡ 部分（$1,000）', '大學前 4 年，有收入限制'],
@@ -333,7 +336,7 @@ export default function TaxCreditVsDeductionZhTwPage({ translations }) {
             { step: '1', label: '從總收入開始', desc: '所有來源的收入 — 薪資、接案、投資、租金收入。', color: 'var(--navy)' },
             { step: '2', label: '減去線上扣除', desc: 'IRA 提撥、學生貸款利息、自雇者健康保險等。這些會減少你的調整後總收入（AGI）。', color: 'var(--navy)' },
             { step: '3', label: '= 調整後總收入（AGI）', desc: '一個關鍵數字 — 許多抵稅額與扣除額都依 AGI 設有收入限制。', color: 'var(--gold)', isMilestone: true },
-            { step: '4', label: '減去標準扣除額或分項扣除額', desc: '標準扣除額（2025 年單身 $15,750）或你實際的分項扣除費用 — 以較大者為準。', color: 'var(--navy)' },
+            { step: '4', label: '減去標準扣除額或分項扣除額', desc: '標準扣除額（2025 年單身 $15,750；2026 年 $16,100）或你實際的分項扣除費用 — 以較大者為準。', color: 'var(--navy)' },
             { step: '5', label: '= 應稅所得', desc: '扣除所有扣除額後的所得。你的稅就是依這個數字計算。', color: 'var(--gold)', isMilestone: true },
             { step: '6', label: '計算應稅所得的稅額', desc: '把稅率級距套用到你的應稅所得。', color: 'var(--navy)' },
             { step: '7', label: '減去抵稅額', desc: '先減不可退還的抵稅額（最多減到零），再減可退還的抵稅額（可以產生退稅）。', color: 'var(--green)' },

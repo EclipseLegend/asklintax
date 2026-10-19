@@ -14,7 +14,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'form-3520',
-  sourceHash:      'ad26f584e3d4',
+  sourceHash:      'e30e55acaf2b',
   id:            '22',
   title:         'Form 3520：申報大額海外贈與',
   titleEn:       'Form 3520: reporting large foreign gifts',
@@ -29,7 +29,7 @@ const META = {
   confidence:    '涵蓋美國公民與居民外國人個人申報的 Form 3520 Part IV（來自外國人的贈與與遺產）。海外信託申報（Parts I–III）不在本指南範圍內',
   persona:       ['從海外家人收到超過 $100,000 的人', '父母住在美國境外的繼承人', '新移民', '協助家人報稅的報稅人員'],
   relatedJourney: ['跨境財務', '剛到美國'],
-  actionRequired: '如果 2025 年來自有親屬關係的非居民外國人的贈與或遺產合計超過 $100,000，請填寫 Form 3520 Part IV，並在 2026 年 4 月 15 日前寄到 IRS 位於猶他州 Ogden 的地址 — 如果你的所得稅表已申請延期，則為 2026 年 10 月 15 日前。這份表格不附在稅表裡。',
+  actionRequired: '如果 2026 年來自有親屬關係的非居民外國人的贈與或遺產合計超過 $100,000，請填寫 Form 3520 Part IV，並在 2027 年 4 月 15 日前寄到 IRS 位於猶他州 Ogden 的地址 — 如果你的所得稅表已申請延期，則為 2027 年 10 月 15 日前。（2025 年的贈與，截止日為 2026 年 4 月 15 日與 2026 年 10 月 15 日。）這份表格不附在稅表裡。',
   sources: [
     { label: 'IRS — Form 3520 填寫說明（Instructions for Form 3520，Rev. 12/2025）', url: 'https://www.irs.gov/instructions/i3520' },
     { label: 'IRS — Form 3520（Rev. December 2023），Part IV', url: 'https://www.irs.gov/pub/irs-pdf/f3520.pdf' },
@@ -153,11 +153,11 @@ export default function Form3520ZhTwPage({ translations }) {
 
         <h2>什麼時候、寄到哪裡</h2>
         <ArticleTable
-          head={['你的情況（曆年制個人）', '2025 年贈與的 Form 3520 截止日']}
+          head={['你的情況（曆年制個人）', '2025 年贈與的 Form 3520 截止日', '2026 年贈與的 Form 3520 截止日']}
           rows={[
-            ['一般情況', '2026 年 4 月 15 日'],
-            ['在稅表截止日當天住在並工作於美國與波多黎各以外（或在海外服兵役）的美國公民或居民', '2026 年 6 月 15 日 — 附上證明你符合資格的說明'],
-            ['你的所得稅表申請了延期（Form 4868）', '2026 年 10 月 15 日 — 勾選 box 1k 並填入延期稅表的表號'],
+            ['一般情況', '2026 年 4 月 15 日', '2027 年 4 月 15 日'],
+            ['在稅表截止日當天住在並工作於美國與波多黎各以外（或在海外服兵役）的美國公民或居民', '2026 年 6 月 15 日 — 附上證明你符合資格的說明', '2027 年 6 月 15 日 — 附上證明你符合資格的說明'],
+            ['你的所得稅表申請了延期（Form 4868）', '2026 年 10 月 15 日 — 勾選 box 1k 並填入延期稅表的表號', '2027 年 10 月 15 日 — 勾選 box 1k 並填入延期稅表的表號'],
           ]}
         />
         <p>

@@ -39,7 +39,7 @@ const META = {
 const FAQS = [
   {
     q: 'I did some freelance work but didn\'t receive a 1099. Do I still need to report that income?',
-    a: 'Yes. You are required to report all income regardless of whether you received a 1099. Clients are only required to send a 1099-NEC if they paid you $600 or more, but your obligation to report income has no minimum. If you earned $200 from a freelance project and received no 1099, you still report that $200 on Schedule C.',
+    a: 'Yes. You are required to report all income regardless of whether you received a 1099. A client generally must send a 1099-NEC if it paid you at least $600 in 2025, or at least $2,000 for payments made in 2026, but your obligation to report income has no minimum. If you earned $200 from a freelance project and received no 1099, you still report that $200 on Schedule C.',
   },
   {
     q: 'What is self-employment tax and why do 1099 workers pay more?',
@@ -212,7 +212,7 @@ export default function W2vs1099Page({ translations }) {
             { category: 'Equipment & Tech', items: ['Computer and peripherals', 'Phone (business use %)', 'Software subscriptions', 'Office furniture and supplies'], color: 'var(--navy)' },
             { category: 'Professional Costs', items: ['Accounting and tax preparation', 'Legal fees (business related)', 'Professional memberships', 'Business insurance'], color: '#7C3AED' },
             { category: 'Marketing & Growth', items: ['Website and hosting', 'Advertising costs', 'Business cards and materials', 'Business meals (generally 50%; entertainment isn\'t deductible)'], color: 'var(--gold)' },
-            { category: 'Travel & Transport', items: ['Business mileage (70 cents/mile in 2025)', 'Flights and hotels for business', 'Parking and tolls', 'Rideshare for business trips'], color: 'var(--green)' },
+            { category: 'Travel & Transport', items: ['Business mileage (70 cents/mile in 2025; for 2026, 72.5 cents/mile through June 30 and 76 cents/mile from July 1)', 'Flights and hotels for business', 'Parking and tolls', 'Rideshare for business trips'], color: 'var(--green)' },
             { category: 'Education & Training', items: ['Courses related to your business', 'Books and professional development', 'Conferences and seminars', 'Subscriptions to industry publications'], color: '#DC2626' },
           ].map((cat, i) => (
             <div key={i} style={{ background: 'var(--cream)', border: `1.5px solid ${cat.color}30`, borderRadius: '12px', padding: '18px 16px', borderTop: `3px solid ${cat.color}` }}>
@@ -251,8 +251,8 @@ export default function W2vs1099Page({ translations }) {
             </thead>
             <tbody>
               {[
-                ['1099-NEC',  'Freelance / contractor income',          '$600+',     'Schedule C'],
-                ['1099-MISC', 'Rent, prizes, legal settlements',        '$600+',     'Schedule C or other income'],
+                ['1099-NEC',  'Freelance / contractor income',          '$600+ for 2025 payments; $2,000+ for 2026 payments',     'Schedule C'],
+                ['1099-MISC', 'Rent, prizes, legal settlements',        'Rents, prizes, and other income: $600+ for 2025 payments; $2,000+ for 2026 payments. Some payments have other thresholds — for example, royalties ($10+) and gross proceeds paid to an attorney ($600+)',     'Schedule C or other income'],
                 ['1099-INT',  'Bank and investment interest',           '$10+',      'Schedule B / Form 1040'],
                 ['1099-DIV',  'Dividends from stocks/funds',            '$10+',      'Schedule B / Form 1040'],
                 ['1099-B',    'Securities sales through a broker (stocks, funds, etc.)', 'All sales', 'Schedule D / Form 8949'],

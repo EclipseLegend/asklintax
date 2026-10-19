@@ -13,7 +13,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'child-tax-credit',
-  sourceHash:      '6b0a3f5fb24c',
+  sourceHash:      '7680ae210933',
   id: '17',
   title: '兒童抵稅額（Child Tax Credit）：誰符合資格、如何申請',
   titleEn: 'Child Tax Credit: who qualifies and how to claim it',
@@ -26,6 +26,7 @@ const META = {
   sources: [
     { label: 'IRS — 兒童抵稅額（Child Tax Credit）', url: 'https://www.irs.gov/credits-deductions/individuals/child-tax-credit' },
     { label: 'IRS Publication 501 — 受扶養人、標準扣除額與報稅資訊（Dependents, Standard Deduction, and Filing Information）', url: 'https://www.irs.gov/publications/p501' },
+    { label: 'IRS — Revenue Procedure 2025-32（2026 稅務年度通膨調整）', url: 'https://www.irs.gov/pub/irs-drop/rp-25-32.pdf' },
     { label: 'IRS — One, Big, Beautiful Bill 相關條款（One, Big, Beautiful Bill provisions）', url: 'https://www.irs.gov/newsroom/one-big-beautiful-bill-provisions' },
   ],
   updatedDate: TAX_CONFIG.lastReviewed,
@@ -72,7 +73,7 @@ export default function ChildTaxCreditZhTwPage({ translations }) {
       <KnowledgePage meta={META} faqs={FAQS} openFaq={openFaq} toggleFaq={toggleFaq} relatedArticles={RELATED} locale="zh-tw">
 
         <h2>什麼是兒童抵稅額？</h2>
-        <p>兒童抵稅額（Child Tax Credit, CTC）是有子女的家庭最有價值的稅務優惠之一。2025 稅務年度，每個未滿 17 歲的<strong>符合資格子女最高 $2,200</strong> — 其中<strong>最多 $1,700 可以退還</strong>，也就是即使你不欠聯邦所得稅，只要有足夠的勞動所得，也可能拿到現金退款。</p>
+        <p>兒童抵稅額（Child Tax Credit, CTC）是有子女的家庭最有價值的稅務優惠之一。2025 稅務年度，每個未滿 17 歲的<strong>符合資格子女最高 $2,200</strong> — 其中<strong>最多 $1,700 可以退還</strong>，也就是即使你不欠聯邦所得稅，只要有足夠的勞動所得，也可能拿到現金退款。2026 稅務年度，每個符合資格子女的最高抵稅額仍為 $2,200，可退還的金額仍為最多 $1,700。</p>
         <p>許多符合資格的華人移民家庭從來沒有申請 — 有的是不知道有這項抵稅額，有的是以為非公民不適用。事實上，只要你（或合併申報時的配偶）也有可用於工作的 SSN，擁有有效 SSN 符合資格子女的居民外國人就適用。</p>
 
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: '14px', margin: '28px 0' }}>

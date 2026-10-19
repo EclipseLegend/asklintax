@@ -189,7 +189,7 @@ export default function LLCvsSCorpPage({ translations }) {
           The tax savings are real — but so are the additional costs and requirements. Before electing S-Corp status, understand what you're taking on:
         </p>
         <ul>
-          <li><strong>Separate business tax return (Form 1120-S)</strong> — Due by the 15th day of the 3rd month after the tax year ends (March 16, 2026 for calendar-year 2025, because March 15 falls on a Sunday). More complex than a Schedule C, and many owners pay a tax professional to prepare it.</li>
+          <li><strong>Separate business tax return (Form 1120-S)</strong> — Due by the 15th day of the 3rd month after the tax year ends (March 16, 2026 for calendar-year 2025, because March 15 falls on a Sunday; March 15, 2027 for calendar-year 2026). More complex than a Schedule C, and many owners pay a tax professional to prepare it.</li>
           <li><strong>Payroll setup and quarterly filings</strong> — You must run payroll for yourself as an employee, file quarterly payroll tax returns (Form 941), and issue yourself a W-2 at year end. Many owners use a payroll service, which adds cost.</li>
           <li><strong>More accounting work</strong> — With payroll, quarterly filings, and a separate business return, your bookkeeping becomes more demanding. Factor in CPA costs accordingly.</li>
           <li><strong>Reasonable salary scrutiny</strong> — The IRS watches for S-Corp owners who pay themselves unreasonably low salaries to maximize distributions. Getting this wrong can trigger audits and penalties.</li>

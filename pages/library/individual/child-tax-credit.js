@@ -20,6 +20,7 @@ const META = {
   sources: [
     { label: 'IRS — Child Tax Credit', url: 'https://www.irs.gov/credits-deductions/individuals/child-tax-credit' },
     { label: 'IRS Publication 501 — Dependents, Standard Deduction, and Filing Information', url: 'https://www.irs.gov/publications/p501' },
+    { label: 'IRS — Revenue Procedure 2025-32 (tax year 2026 inflation adjustments)', url: 'https://www.irs.gov/pub/irs-drop/rp-25-32.pdf' },
     { label: 'IRS — One, Big, Beautiful Bill provisions', url: 'https://www.irs.gov/newsroom/one-big-beautiful-bill-provisions' },
   ],
   updatedDate: TAX_CONFIG.lastReviewed,
@@ -66,7 +67,7 @@ export default function ChildTaxCreditPage({ translations }) {
       <KnowledgePage meta={META} faqs={FAQS} openFaq={openFaq} toggleFaq={toggleFaq} relatedArticles={RELATED}>
 
         <h2>What is the Child Tax Credit?</h2>
-        <p>The Child Tax Credit (CTC) is one of the most valuable tax benefits available to families with children. For Tax Year 2025, it's worth up to <strong>$2,200 per qualifying child</strong> under 17 — and up to <strong>$1,700 of that is refundable</strong>, meaning you may receive it as a cash refund even if you owe no federal income tax, as long as you have enough earned income.</p>
+        <p>The Child Tax Credit (CTC) is one of the most valuable tax benefits available to families with children. For Tax Year 2025, it's worth up to <strong>$2,200 per qualifying child</strong> under 17 — and up to <strong>$1,700 of that is refundable</strong>, meaning you may receive it as a cash refund even if you owe no federal income tax, as long as you have enough earned income. For Tax Year 2026, the maximum credit remains $2,200 per qualifying child and the refundable amount remains up to $1,700.</p>
         <p>Many Chinese immigrant families who qualify for this credit never claim it — either because they don't know it exists, or because they assume it doesn't apply to them as non-citizens. It does apply to resident aliens with qualifying children who have valid SSNs — as long as you (or your spouse, if filing jointly) also have an SSN valid for employment.</p>
 
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: '14px', margin: '28px 0' }}>

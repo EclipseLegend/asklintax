@@ -14,7 +14,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'claim-parent-as-dependent',
-  sourceHash:      '9f0176cfa4e4',
+  sourceHash:      'c34cdcb6ba6a',
   id:            '59',
   title:         '父母住在海外，可以申報為受扶養人嗎？',
   titleEn:       'Can I claim my parents as dependents if they live abroad?',
@@ -32,6 +32,7 @@ const META = {
   actionRequired: '先看公民或居民測試。如果父母不是美國公民、美國居民外國人或美國國民 — 也不是加拿大或墨西哥的居民 — 一般就不能申報，不論你提供多少扶養費。只有通過這項測試，扶養、收入等合格親屬測試才有意義。',
   sources: [
     { label: 'IRS — Publication 501（2025），受扶養人、標準扣除額與申報資訊（Dependents, Standard Deduction, and Filing Information）', url: 'https://www.irs.gov/publications/p501' },
+    { label: 'IRS — Revenue Procedure 2025-32（2026 稅務年度通膨調整）', url: 'https://www.irs.gov/pub/irs-drop/rp-25-32.pdf' },
   ],
 }
 
@@ -46,7 +47,7 @@ const FAQS = [
   },
   {
     q: '我的父母是持有美國綠卡、和我同住的人，還需要符合什麼？',
-    a: '如果父母符合公民或居民測試，仍要適用合格親屬的各項測試。依 Publication 501，2025 稅務年度這個人的總收入一般必須少於 $5,200，而且你一般必須提供他這一年總扶養費的一半以上。其他受扶養人測試也同樣適用。',
+    a: '如果父母符合公民或居民測試，仍要適用合格親屬的各項測試。依 Publication 501，2025 稅務年度這個人的總收入一般必須少於 $5,200（2026 稅務年度的上限為 $5,300），而且你一般必須提供他這一年總扶養費的一半以上。其他受扶養人測試也同樣適用。',
   },
   {
     q: '我和兄弟姊妹一起分攤扶養媽媽的費用，誰可以申報她？',
@@ -121,7 +122,7 @@ export default function ClaimParentAsDependentZhTwPage({ translations }) {
           rows={[
             ['關係', '父母符合 — 不需要和你同住'],
             ['不是合格子女', '父母不能是你（或其他任何人）的合格子女（qualifying child）'],
-            ['總收入', '2025 年一般必須少於 $5,200'],
+            ['總收入', '2025 年一般必須少於 $5,200（2026 年為 $5,300）'],
             ['扶養', '你一般必須提供他這一年總扶養費的一半以上'],
             ['合併申報', '一般來說，這個人不能申報合併稅表，有少數例外'],
           ]}

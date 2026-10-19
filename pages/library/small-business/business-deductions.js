@@ -107,7 +107,7 @@ const DEDUCTION_CATEGORIES = [
     color: '#7C3AED',
     summary: 'Deduct business driving at the IRS standard mileage rate, or track actual vehicle expenses.',
     items: [
-      { name: 'Standard mileage rate (2025)', detail: '70 cents per mile for business driving. Multiply your business miles by $0.70. Keep a mileage log with date, destination, and purpose for every business trip.' },
+      { name: 'Standard mileage rate (2025 and 2026)', detail: 'For 2025, 70 cents per mile for business driving. For 2026, 72.5 cents per mile for miles driven January 1 – June 30 and 76 cents per mile from July 1. Multiply your business miles by the rate for the period you drove them. Keep a mileage log with date, destination, and purpose for every business trip.' },
       { name: 'Actual expense method', detail: 'Track all vehicle costs (gas, insurance, registration, repairs, depreciation) and multiply by business use percentage. May give higher deduction for expensive vehicles with high business use.' },
       { name: 'What counts as business driving', detail: 'Client meetings, going to a secondary work location, business errands, picking up supplies. Commuting from home to your regular office does NOT count.' },
     ],

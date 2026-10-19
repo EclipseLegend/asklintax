@@ -27,13 +27,13 @@ const META = {
   confidence:    'Box definitions are standard across all employers. Box 12 codes are the most complex area — consult a CPA if you see unusual codes you don\'t recognize.',
   persona:       ['First-time employee', 'New immigrant with first U.S. job', 'Anyone who has never read a W-2 before'],
   relatedJourney: ['First-time filer', 'New to the U.S.'],
-  actionRequired: 'When your W-2 arrives (generally by January 31, or the next business day — February 2, 2026 for 2025 W-2s), check that your name, SSN, and Box 1 wages match your last pay stub. If anything looks wrong, contact your HR department immediately — errors on your W-2 must be corrected before you file.',
+  actionRequired: 'When your W-2 arrives (generally by January 31, or the next business day — February 2, 2026 for 2025 W-2s, and February 1, 2027 for 2026 W-2s), check that your name, SSN, and Box 1 wages match your last pay stub. If anything looks wrong, contact your HR department immediately — errors on your W-2 must be corrected before you file.',
 }
 
 const FAQS = [
   {
     q: 'When should my W-2 arrive?',
-    a: 'Employers must generally send W-2s by January 31 (moved to the next business day when it falls on a weekend — for 2025 W-2s, the IRS date is February 2, 2026). If you haven\'t received yours by then, contact your HR or payroll department. Many employers also make W-2s available electronically through payroll portals like ADP or Paychex — check there first if you haven\'t received a paper copy.',
+    a: 'Employers must generally send W-2s by January 31 (moved to the next business day when it falls on a weekend — for 2025 W-2s, the IRS date is February 2, 2026, and for 2026 W-2s, it is February 1, 2027). If you haven\'t received yours by then, contact your HR or payroll department. Many employers also make W-2s available electronically through payroll portals like ADP or Paychex — check there first if you haven\'t received a paper copy.',
   },
   {
     q: 'I have multiple W-2s. Do I need to file all of them?',

@@ -13,7 +13,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'do-i-need-to-file',
-  sourceHash:      '6634a1e1c2c6',
+  sourceHash:      'c0b672db3e13',
   id:            '06',
   title:         '我需要申報美國聯邦稅表嗎？',
   titleEn:       'Do I need to file a U.S. tax return?',
@@ -25,6 +25,7 @@ const META = {
   verification:  'official-sources-verified',
   sources: [
     { label: 'IRS — 1040 與 1040-SR 填寫說明（2025），申報要求（filing requirements）', url: 'https://www.irs.gov/instructions/i1040gi' },
+    { label: 'IRS — Revenue Procedure 2025-32（2026 稅務年度通膨調整）', url: 'https://www.irs.gov/pub/irs-drop/rp-25-32.pdf' },
     { label: 'IRS Publication 501 — 受扶養人、標準扣除額與報稅資訊（Dependents, Standard Deduction, and Filing Information）', url: 'https://www.irs.gov/publications/p501' },
     { label: 'IRS — IRS 可以核定稅額的期限（Time IRS can assess tax）', url: 'https://www.irs.gov/filing/time-irs-can-assess-tax' },
     { label: 'IRS Publication 590-A — 個人退休帳戶提撥（Contributions to Individual Retirement Arrangements）', url: 'https://www.irs.gov/publications/p590a' },
@@ -158,6 +159,7 @@ export default function DoINeedToFileZhTwPage({ translations }) {
         <p style={{ fontSize: '13.5px', color: 'var(--muted)', marginTop: '-8px' }}>
           資料來源：2025 年 Form 1040 填寫說明（Chart A），反映 2025 年修訂後的 2025 年標準扣除額。門檻等於每一種報稅身分與年齡組合的標準扣除額。如果有人可以把你列為受扶養人，適用不同且較低的門檻（Chart B）。
           夫妻分開申報的 $5 門檻不論年齡都適用。
+          2026 稅務年度（2027 年申報），標準扣除額為單身申報 $16,100、夫妻合併申報 $32,200、戶長 $24,150。IRS 會在 2026 年 Form 1040 填寫說明中公布 2026 年的申報門檻。
         </p>
 
         <div className="callout callout-info">

@@ -19,6 +19,9 @@ const META = {
   verification:  'official-sources-verified',
   sources: [
     { label: 'IRS — IRS Free File', url: 'https://www.irs.gov/filing/irs-free-file-do-your-taxes-for-free' },
+    { label: 'IRS — General Instructions for Forms W-2 and W-3 (2026)', url: 'https://www.irs.gov/instructions/iw2w3' },
+    { label: 'IRS — Instructions for Forms 1099-MISC and 1099-NEC', url: 'https://www.irs.gov/instructions/i1099mec' },
+    { label: 'IRS — Revenue Procedure 2025-32 (tax year 2026 inflation adjustments)', url: 'https://www.irs.gov/pub/irs-drop/rp-25-32.pdf' },
     { label: 'IRS — Get an extension to file your tax return', url: 'https://www.irs.gov/filing/get-an-extension-to-file-your-tax-return' },
     { label: 'IRS — Refunds', url: 'https://www.irs.gov/refunds' },
     { label: 'IRS — Failure to file penalty', url: 'https://www.irs.gov/payments/failure-to-file-penalty' },
@@ -44,7 +47,7 @@ const FAQS = [
   },
   {
     q: 'What is the standard deduction and should I take it?',
-    a: 'The standard deduction is a fixed amount you can subtract from your income without having to itemize individual expenses. For Tax Year 2025, it\'s $15,750 for single filers. Most first-time filers should take the standard deduction — it\'s simpler and often larger than the sum of itemized deductions for people just starting out. You only benefit from itemizing if your qualifying expenses (mortgage interest, state taxes, charitable donations, etc.) exceed the standard deduction amount.',
+    a: 'The standard deduction is a fixed amount you can subtract from your income without having to itemize individual expenses. For Tax Year 2025, it\'s $15,750 for single filers ($16,100 for Tax Year 2026). Most first-time filers should take the standard deduction — it\'s simpler and often larger than the sum of itemized deductions for people just starting out. You only benefit from itemizing if your qualifying expenses (mortgage interest, state taxes, charitable donations, etc.) exceed the standard deduction amount.',
   },
   {
     q: 'What if I make a mistake on my tax return?',
@@ -92,7 +95,7 @@ const STEPS = [
     color: 'var(--navy)',
     items: [
       { label: 'W-2', desc: 'From every employer you worked for this year. Should arrive by January 31.' },
-      { label: '1099-NEC', desc: 'If you did freelance or contract work. From any client who paid you $600+.' },
+      { label: '1099-NEC', desc: 'If you did freelance or contract work. From any client who paid you $600+ in 2025 (the threshold is $2,000+ for payments made in 2026).' },
       { label: '1099-INT', desc: 'From your bank if you earned interest. Even small amounts need to be reported.' },
       { label: '1099-DIV', desc: 'If you received dividends from investments.' },
       { label: '1099-B', desc: 'If you sold stocks, crypto, or other investments.' },
@@ -129,7 +132,7 @@ const STEPS = [
     color: 'var(--green)',
     items: [
       { label: 'Report all income', desc: 'Enter every W-2, 1099, and any other income — including cash income and tips.' },
-      { label: 'Choose standard or itemized deduction', desc: 'Most first-time filers take the standard deduction ($15,750 single in 2025).' },
+      { label: 'Choose standard or itemized deduction', desc: 'Most first-time filers take the standard deduction ($15,750 single in 2025; $16,100 in 2026).' },
       { label: 'Claim your credits', desc: 'Common credits: Child Tax Credit, Earned Income Credit, education credits. Software will ask.' },
       { label: 'Review before submitting', desc: 'Double-check your name, SSN, bank info, and income totals. Errors on these are the most common.' },
     ],
@@ -247,7 +250,7 @@ export default function FirstTimeFillerPage({ translations }) {
           <div style={{ background: 'var(--cream)', border: '1.5px solid var(--border)', borderRadius: '12px', padding: '22px 20px' }}>
             <h4 style={{ fontSize: '17px', fontWeight: '600', color: 'var(--navy)', marginBottom: '10px' }}>Standard Deduction</h4>
             <div style={{ fontSize: '22px', fontWeight: '700', color: 'var(--gold)', marginBottom: '12px' }}>$15,750</div>
-            <p style={{ fontSize: '14.5px', color: 'var(--muted)', lineHeight: '1.7', marginBottom: '12px' }}>Fixed amount for single filers in Tax Year 2025. No receipts needed. Just choose it.</p>
+            <p style={{ fontSize: '14.5px', color: 'var(--muted)', lineHeight: '1.7', marginBottom: '12px' }}>Fixed amount for single filers in Tax Year 2025 ($16,100 for Tax Year 2026). No receipts needed. Just choose it.</p>
             <p style={{ fontSize: '14px', color: 'var(--green)', fontWeight: '500' }}>✓ Best for most first-time filers</p>
           </div>
           <div style={{ background: 'var(--cream)', border: '1.5px solid var(--border)', borderRadius: '12px', padding: '22px 20px' }}>
@@ -258,7 +261,7 @@ export default function FirstTimeFillerPage({ translations }) {
           </div>
         </div>
 
-        <h2>Key deadlines to know</h2>
+        <h2>Key deadlines for 2026 returns (filed in 2027)</h2>
         <div style={{ overflowX: 'auto', margin: '24px 0' }}>
           <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '15.5px' }}>
             <thead>
@@ -269,10 +272,10 @@ export default function FirstTimeFillerPage({ translations }) {
             </thead>
             <tbody>
               {[
-                ['February 2, 2026', 'Employers must send your 2025 W-2 (January 31 fell on a Saturday, so the deadline moved to the next business day). Check your email and mailbox.'],
-                ['April 15, 2026', 'Federal tax return due. Pay any taxes owed by this date even if you file an extension.'],
-                ['April 15, 2026', 'Deadline to file Form 4868 for a 6-month extension (moves filing deadline to October 15).'],
-                ['October 15, 2026', 'Extended filing deadline (if you filed Form 4868 by April 15).'],
+                ['February 1, 2027', 'Employers must send your 2026 W-2 (January 31 falls on a Sunday, so the deadline moves to the next business day). Check your email and mailbox.'],
+                ['April 15, 2027', 'Federal tax return for 2026 due. Pay any taxes owed by this date even if you file an extension.'],
+                ['April 15, 2027', 'Deadline to file Form 4868 for a 6-month extension (moves the filing deadline to October 15, 2027).'],
+                ['October 15, 2027', 'Extended filing deadline for 2026 returns (if you filed Form 4868 by April 15, 2027).'],
               ].map(([date, what], i) => (
                 <tr key={i}>
                   <td style={{ padding: '12px 16px', borderBottom: '1px solid var(--border-l)', fontWeight: '600', color: 'var(--navy)', whiteSpace: 'nowrap', background: i % 2 === 1 ? 'var(--cream)' : 'white' }}>{date}</td>

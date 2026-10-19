@@ -13,7 +13,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'llc-vs-scorp',
-  sourceHash:      'bad3105fad7f',
+  sourceHash:      '0221559b6c66',
   id:            '03',
   title:         'LLC 與 S-Corp：哪種適合你的企業？',
   titleEn:       'LLC vs S-Corp: which is right for your business?',
@@ -195,7 +195,7 @@ export default function LLCvsSCorpZhTwPage({ translations }) {
           省稅是真的 — 但額外的成本與要求也是真的。選擇 S-Corp 身分之前，先了解你要承擔什麼：
         </p>
         <ul>
-          <li><strong>另外申報企業稅表（Form 1120-S）</strong> — 稅務年度結束後第 3 個月的 15 日到期（2025 曆年制為 2026 年 3 月 16 日，因為 3 月 15 日是星期日）。比 Schedule C 複雜，許多擁有人會請稅務專業人士代為準備。</li>
+          <li><strong>另外申報企業稅表（Form 1120-S）</strong> — 稅務年度結束後第 3 個月的 15 日到期（2025 曆年制為 2026 年 3 月 16 日，因為 3 月 15 日是星期日；2026 曆年制為 2027 年 3 月 15 日）。比 Schedule C 複雜，許多擁有人會請稅務專業人士代為準備。</li>
           <li><strong>設定薪資與每季申報</strong> — 你必須以員工身分為自己跑薪資、每季申報薪資稅表（Form 941），並在年底開 W-2 給自己。許多擁有人會使用薪資服務，這會增加成本。</li>
           <li><strong>更多會計工作</strong> — 有了薪資、每季申報與另外的企業稅表，你的記帳會更繁重。請相應地把 CPA 費用考慮進去。</li>
           <li><strong>合理薪資的審查</strong> — IRS 會注意那些為了把分配款最大化、而付給自己不合理低薪的 S-Corp 擁有人。處理不當可能引來查帳與罰款。</li>

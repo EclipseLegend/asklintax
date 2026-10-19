@@ -13,7 +13,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'w2-vs-1099',
-  sourceHash:      '1541604abc69',
+  sourceHash:      '2bf036462ea6',
   id:            '10',
   title:         'W-2 與 1099：有什麼差別？為什麼重要？',
   titleEn:       'W-2 vs 1099: what\'s the difference and why it matters',
@@ -45,7 +45,7 @@ const META = {
 const FAQS = [
   {
     q: '我做了一些接案工作，但沒有收到 1099。還需要申報這筆收入嗎？',
-    a: '需要。不論是否收到 1099，你都必須申報所有收入。客戶只有在付給你 $600 以上時才需要寄 1099-NEC，但你申報收入的義務沒有最低金額。如果你從一個接案專案賺了 $200、沒有收到 1099，你仍然要在 Schedule C 上申報這 $200。',
+    a: '需要。不論是否收到 1099，你都必須申報所有收入。客戶在 2025 年付給你 $600 以上，或在 2026 年付給你 $2,000 以上時，一般必須寄 1099-NEC，但你申報收入的義務沒有最低金額。如果你從一個接案專案賺了 $200、沒有收到 1099，你仍然要在 Schedule C 上申報這 $200。',
   },
   {
     q: '什麼是自雇稅？為什麼 1099 工作者要繳比較多？',
@@ -218,7 +218,7 @@ export default function W2vs1099ZhTwPage({ translations }) {
             { category: '設備與科技', items: ['電腦與周邊設備', '手機（營業使用比例）', '軟體訂閱', '辦公家具與用品'], color: 'var(--navy)' },
             { category: '專業費用', items: ['會計與報稅', '律師費（與營業相關）', '專業會員資格', '企業保險'], color: '#7C3AED' },
             { category: '行銷與成長', items: ['網站與主機', '廣告費用', '名片與宣傳品', '商務餐費（一般 50%；娛樂費用不能扣除）'], color: 'var(--gold)' },
-            { category: '差旅與交通', items: ['營業里程（2025 年每英里 70 美分）', '商務機票與住宿', '停車費與過路費', '商務行程的叫車費用'], color: 'var(--green)' },
+            { category: '差旅與交通', items: ['營業里程（2025 年每英里 70 美分；2026 年 6 月 30 日前每英里 72.5 美分，7 月 1 日起每英里 76 美分）', '商務機票與住宿', '停車費與過路費', '商務行程的叫車費用'], color: 'var(--green)' },
             { category: '教育與訓練', items: ['與你事業相關的課程', '書籍與專業進修', '研討會與講座', '產業刊物訂閱'], color: '#DC2626' },
           ].map((cat, i) => (
             <div key={i} style={{ background: 'var(--cream)', border: `1.5px solid ${cat.color}30`, borderRadius: '12px', padding: '18px 16px', borderTop: `3px solid ${cat.color}` }}>
@@ -257,8 +257,8 @@ export default function W2vs1099ZhTwPage({ translations }) {
             </thead>
             <tbody>
               {[
-                ['1099-NEC',  '接案／承包商收入',          '$600 以上',     'Schedule C'],
-                ['1099-MISC', '租金、獎金、法律和解金',        '$600 以上',     'Schedule C 或其他收入'],
+                ['1099-NEC',  '接案／承包商收入',          '2025 年付款 $600 以上；2026 年付款 $2,000 以上',     'Schedule C'],
+                ['1099-MISC', '租金、獎金、法律和解金',        '租金、獎金與其他收入：2025 年付款 $600 以上；2026 年付款 $2,000 以上。有些付款適用其他門檻 — 例如權利金（$10 以上）與付給律師的總收入（$600 以上）',     'Schedule C 或其他收入'],
                 ['1099-INT',  '銀行與投資利息',           '$10 以上',      'Schedule B／Form 1040'],
                 ['1099-DIV',  '股票／基金股利',            '$10 以上',      'Schedule B／Form 1040'],
                 ['1099-B',    '透過經紀商出售證券（股票、基金等）', '所有出售', 'Schedule D／Form 8949'],

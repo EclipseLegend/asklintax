@@ -13,7 +13,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'first-time-filer',
-  sourceHash:      'cdbb989e8b62',
+  sourceHash:      '8d3607b4a9c2',
   id:            '07',
   title:         '在美國第一次報稅：完整步驟指南',
   titleEn:       'First-time filer in the U.S.: a complete step-by-step guide',
@@ -25,6 +25,9 @@ const META = {
   verification:  'official-sources-verified',
   sources: [
     { label: 'IRS — IRS 免費報稅（IRS Free File）', url: 'https://www.irs.gov/filing/irs-free-file-do-your-taxes-for-free' },
+    { label: 'IRS — Form W-2 與 W-3 一般填寫說明（2026）（General Instructions for Forms W-2 and W-3）', url: 'https://www.irs.gov/instructions/iw2w3' },
+    { label: 'IRS — Form 1099-MISC 與 1099-NEC 填寫說明（Instructions for Forms 1099-MISC and 1099-NEC）', url: 'https://www.irs.gov/instructions/i1099mec' },
+    { label: 'IRS — Revenue Procedure 2025-32（2026 稅務年度通膨調整）', url: 'https://www.irs.gov/pub/irs-drop/rp-25-32.pdf' },
     { label: 'IRS — 申請延期申報稅表（Get an extension to file your tax return）', url: 'https://www.irs.gov/filing/get-an-extension-to-file-your-tax-return' },
     { label: 'IRS — 退稅（Refunds）', url: 'https://www.irs.gov/refunds' },
     { label: 'IRS — 未申報罰款（Failure to file penalty）', url: 'https://www.irs.gov/payments/failure-to-file-penalty' },
@@ -50,7 +53,7 @@ const FAQS = [
   },
   {
     q: '什麼是標準扣除額？我應該使用嗎？',
-    a: '標準扣除額（Standard Deduction）是一個固定金額，你不需要列舉個別費用，就可以從收入中扣除。2025 稅務年度，單身申報人為 $15,750。大多數第一次報稅的人都應該使用標準扣除額 — 比較簡單，而且對剛起步的人來說，通常比分項扣除的總和還高。只有在你符合資格的費用（房貸利息、州稅、慈善捐款等）超過標準扣除額時，分項扣除（Itemizing）才划算。',
+    a: '標準扣除額（Standard Deduction）是一個固定金額，你不需要列舉個別費用，就可以從收入中扣除。2025 稅務年度，單身申報人為 $15,750（2026 稅務年度為 $16,100）。大多數第一次報稅的人都應該使用標準扣除額 — 比較簡單，而且對剛起步的人來說，通常比分項扣除的總和還高。只有在你符合資格的費用（房貸利息、州稅、慈善捐款等）超過標準扣除額時，分項扣除（Itemizing）才划算。',
   },
   {
     q: '如果我的稅表填錯了，怎麼辦？',
@@ -98,7 +101,7 @@ const STEPS = [
     color: 'var(--navy)',
     items: [
       { label: 'W-2', desc: '今年你工作過的每一位雇主都會寄。應該在 1 月 31 日前寄到。' },
-      { label: '1099-NEC', desc: '如果你做了接案或承包工作。任何付給你 $600 以上的客戶都會寄。' },
+      { label: '1099-NEC', desc: '如果你做了接案或承包工作。2025 年付給你 $600 以上的客戶會寄（2026 年的付款門檻是 $2,000 以上）。' },
       { label: '1099-INT', desc: '如果你有利息收入，由你的銀行寄出。即使金額很小也要申報。' },
       { label: '1099-DIV', desc: '如果你有投資股利。' },
       { label: '1099-B', desc: '如果你賣了股票、加密貨幣或其他投資。' },
@@ -135,7 +138,7 @@ const STEPS = [
     color: 'var(--green)',
     items: [
       { label: '申報所有收入', desc: '輸入每一份 W-2、1099 與任何其他收入 — 包括現金收入與小費。' },
-      { label: '選擇標準扣除額或分項扣除', desc: '大多數第一次報稅的人使用標準扣除額（2025 年單身 $15,750）。' },
+      { label: '選擇標準扣除額或分項扣除', desc: '大多數第一次報稅的人使用標準扣除額（2025 年單身 $15,750；2026 年 $16,100）。' },
       { label: '申請你的抵稅額', desc: '常見的抵稅額：兒童抵稅額、勞動所得抵稅額、教育抵稅額。軟體會問你。' },
       { label: '送出前檢查', desc: '再確認一次你的姓名、SSN、銀行資料與收入總額。這些地方最常出錯。' },
     ],
@@ -251,7 +254,7 @@ export default function FirstTimeFilerZhTwPage({ translations }) {
           <div style={{ background: 'var(--cream)', border: '1.5px solid var(--border)', borderRadius: '12px', padding: '22px 20px' }}>
             <h4 style={{ fontSize: '17px', fontWeight: '600', color: 'var(--navy)', marginBottom: '10px' }}>標準扣除額（Standard Deduction）</h4>
             <div style={{ fontSize: '22px', fontWeight: '700', color: 'var(--gold)', marginBottom: '12px' }}>$15,750</div>
-            <p style={{ fontSize: '14.5px', color: 'var(--muted)', lineHeight: '1.7', marginBottom: '12px' }}>2025 稅務年度單身申報人的固定金額。不需要收據，直接選擇就好。</p>
+            <p style={{ fontSize: '14.5px', color: 'var(--muted)', lineHeight: '1.7', marginBottom: '12px' }}>2025 稅務年度單身申報人的固定金額（2026 稅務年度為 $16,100）。不需要收據，直接選擇就好。</p>
             <p style={{ fontSize: '14px', color: 'var(--green)', fontWeight: '500' }}>✓ 最適合大多數第一次報稅的人</p>
           </div>
           <div style={{ background: 'var(--cream)', border: '1.5px solid var(--border)', borderRadius: '12px', padding: '22px 20px' }}>
@@ -262,7 +265,7 @@ export default function FirstTimeFilerZhTwPage({ translations }) {
           </div>
         </div>
 
-        <h2>需要知道的重要截止日</h2>
+        <h2>2026 年稅表（2027 年申報）的重要截止日</h2>
         <div style={{ overflowX: 'auto', margin: '24px 0' }}>
           <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '15.5px' }}>
             <thead>
@@ -273,10 +276,10 @@ export default function FirstTimeFilerZhTwPage({ translations }) {
             </thead>
             <tbody>
               {[
-                ['2026 年 2 月 2 日', '雇主必須寄出你的 2025 年 W-2（1 月 31 日是星期六，所以截止日順延到下一個工作日）。請留意你的電子郵件與信箱。'],
-                ['2026 年 4 月 15 日', '聯邦稅表截止日。即使申請延期，也要在這一天前繳清欠稅。'],
-                ['2026 年 4 月 15 日', '申報 Form 4868 申請 6 個月延期的截止日（申報截止日延到 10 月 15 日）。'],
-                ['2026 年 10 月 15 日', '延期後的申報截止日（如果你在 4 月 15 日前申報了 Form 4868）。'],
+                ['2027 年 2 月 1 日', '雇主必須寄出你的 2026 年 W-2（1 月 31 日是星期日，所以截止日順延到下一個工作日）。請留意你的電子郵件與信箱。'],
+                ['2027 年 4 月 15 日', '2026 年聯邦稅表截止日。即使申請延期，也要在這一天前繳清欠稅。'],
+                ['2027 年 4 月 15 日', '申報 Form 4868 申請 6 個月延期的截止日（申報截止日延到 2027 年 10 月 15 日）。'],
+                ['2027 年 10 月 15 日', '2026 年稅表延期後的申報截止日（如果你在 2027 年 4 月 15 日前申報了 Form 4868）。'],
               ].map(([date, what], i) => (
                 <tr key={i}>
                   <td style={{ padding: '12px 16px', borderBottom: '1px solid var(--border-l)', fontWeight: '600', color: 'var(--navy)', whiteSpace: 'nowrap', background: i % 2 === 1 ? 'var(--cream)' : 'white' }}>{date}</td>

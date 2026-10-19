@@ -26,6 +26,7 @@ const META = {
   actionRequired: 'Check the citizen or resident test first. A parent who is not a U.S. citizen, U.S. resident alien, or U.S. national — and not a resident of Canada or Mexico — generally cannot be claimed, no matter how much support you provide. Only if that test is met do the support, income, and other qualifying-relative tests matter.',
   sources: [
     { label: 'IRS — Publication 501 (2025), Dependents, Standard Deduction, and Filing Information', url: 'https://www.irs.gov/publications/p501' },
+    { label: 'IRS — Revenue Procedure 2025-32 (tax year 2026 inflation adjustments)', url: 'https://www.irs.gov/pub/irs-drop/rp-25-32.pdf' },
   ],
 }
 
@@ -40,7 +41,7 @@ const FAQS = [
   },
   {
     q: 'My parent is a U.S. green card holder living with me. What else is required?',
-    a: 'If your parent meets the citizen or resident test, the qualifying-relative tests still apply. For tax year 2025, Publication 501 says the person\'s gross income generally must be less than $5,200, and you generally must provide more than half of their total support for the year. The other dependency tests also apply.',
+    a: 'If your parent meets the citizen or resident test, the qualifying-relative tests still apply. For tax year 2025, Publication 501 says the person\'s gross income generally must be less than $5,200 (for tax year 2026, the limit is $5,300), and you generally must provide more than half of their total support for the year. The other dependency tests also apply.',
   },
   {
     q: 'My siblings and I share the cost of supporting our mother. Who claims her?',
@@ -115,7 +116,7 @@ export default function ClaimParentAsDependentPage({ translations }) {
           rows={[
             ['Relationship', 'A parent meets it — they do not have to live with you'],
             ['Not a qualifying child', 'The parent cannot be your (or anyone else\'s) qualifying child'],
-            ['Gross income', 'Generally less than $5,200 for 2025'],
+            ['Gross income', 'Generally less than $5,200 for 2025 ($5,300 for 2026)'],
             ['Support', 'You generally must provide more than half of their total support for the year'],
             ['Joint return', 'Generally, the person cannot file a joint return, with limited exceptions'],
           ]}
