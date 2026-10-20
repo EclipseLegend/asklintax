@@ -21,7 +21,10 @@ const META = {
     { label: 'IRS — S corporations', url: 'https://www.irs.gov/businesses/small-businesses-self-employed/s-corporations' },
     { label: 'IRS — Instructions for Form 2553', url: 'https://www.irs.gov/instructions/i2553' },
     { label: 'IRS — Instructions for Form 1120-S', url: 'https://www.irs.gov/instructions/i1120s' },
+    { label: 'IRS — Revenue Procedure 2024-40 (2025 adjusted items; S corporation late-filing penalty, section 2.57)', url: 'https://www.irs.gov/pub/irs-drop/rp-24-40.pdf' },
+    { label: 'IRS — Revenue Procedure 2025-32 (2026 adjusted items; S corporation late-filing penalty, section 4.56)', url: 'https://www.irs.gov/pub/irs-drop/rp-25-32.pdf' },
     { label: 'IRS — S corporation compensation and medical insurance issues', url: 'https://www.irs.gov/businesses/small-businesses-self-employed/s-corporation-compensation-and-medical-insurance-issues' },
+    { label: 'IRS — Qualified business income deduction', url: 'https://www.irs.gov/newsroom/qualified-business-income-deduction' },
     { label: 'IRS — Self-employment tax (Social Security and Medicare taxes)', url: 'https://www.irs.gov/businesses/small-businesses-self-employed/self-employment-tax-social-security-and-medicare-taxes' },
   ],
   updatedDate:   TAX_CONFIG.lastReviewed,
@@ -39,7 +42,7 @@ const FAQS = [
   },
   {
     q: 'When should I make the S-Corp election?',
-    a: 'For the election to apply to the current tax year, you generally must file Form 2553 no more than 2 months and 15 days after the beginning of that tax year (or at any time during the preceding tax year). For a new LLC, the first tax year begins when it has shareholders, acquires assets, or begins doing business, whichever comes first. If you miss that window, the election generally applies to the following year. You can also file a late election in some circumstances — a CPA can help with this.',
+    a: 'For the election to apply to the current tax year, you generally must file Form 2553 no more than 2 months and 15 days after the beginning of that tax year (or at any time during the preceding tax year). For a new LLC, the first tax year begins when it has shareholders, acquires assets, or begins doing business, whichever comes first. If you miss that window, the election generally applies to the following year. If you miss it, relief for a late election may be available under Rev. Proc. 2013-30 — generally within 3 years and 75 days of the intended effective date, if the conditions in the Form 2553 instructions are met.',
   },
   {
     q: 'What salary do I need to pay myself as an S-Corp owner?',
@@ -176,7 +179,7 @@ export default function LLCvsSCorpPage({ translations }) {
 
         <div className="callout callout-info">
           <div className="callout-title">ℹ️ These are estimates, not guarantees</div>
-          <p>The actual savings depend on your salary amount, state taxes, and the specific costs of running payroll and filing an S-Corp return. Always run the numbers with a CPA for your situation before making the election.</p>
+          <p>The actual savings depend on your salary amount, state taxes, and the specific costs of running payroll and filing an S-Corp return. It also leaves out the QBI deduction: an S-Corp owner's salary is not qualified business income, so a higher salary can mean a smaller QBI deduction. Always run the numbers with a CPA for your situation before making the election.</p>
         </div>
 
         <h2>When does an S-Corp make sense?</h2>
@@ -199,6 +202,14 @@ export default function LLCvsSCorpPage({ translations }) {
           <div className="callout-title">⚠️ The "reasonable salary" requirement is serious</div>
           <p>The IRS has successfully challenged S-Corp owners who paid themselves below-market salaries to avoid payroll taxes. Your salary must be comparable to what you'd pay an employee to do the same work. A CPA can help you establish a defensible salary for your industry and income level.</p>
         </div>
+
+        <h2>Four rules to know before you elect</h2>
+        <ul>
+          <li><strong>Reasonable compensation comes first.</strong> The IRS says an S corporation must pay reasonable compensation to a shareholder-employee for services before making non-wage distributions, and it can reclassify distributions as wages. Factors it lists include training and experience, duties, time devoted to the business, and what comparable businesses pay. See <a href="/library/business-formation/s-corp-reasonable-salary/">running an S-Corp</a>.</li>
+          <li><strong>Salary is not QBI.</strong> Amounts received as reasonable compensation from an S corporation are not qualified business income, so moving profit into salary can reduce your QBI deduction. Your K-1 share of business income can still be QBI. See <a href="/library/small-business/qbi-deduction/">the QBI deduction</a>.</li>
+          <li><strong>Form 1120-S has a real deadline.</strong> It is due by the 15th day of the 3rd month after the tax year ends (March 15, 2027 for calendar-year 2026). Form 7004 generally gives an automatic 6-month extension to file. The late-filing penalty, per shareholder for each month or part of a month (up to 12 months), is $255 for calendar-year 2025 returns and $260 for calendar-year 2026 returns (Rev. Procs. 2024-40 and 2025-32), plus more if tax is due.</li>
+          <li><strong>Late elections can sometimes be fixed.</strong> The Form 2553 instructions describe relief under Rev. Proc. 2013-30, generally available within 3 years and 75 days of the intended effective date if there was reasonable cause and all affected shareholders reported consistently.</li>
+        </ul>
 
         <h2>Side-by-side comparison</h2>
 

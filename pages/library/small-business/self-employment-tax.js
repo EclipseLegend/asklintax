@@ -20,7 +20,7 @@ const META = {
   verification:  'official-sources-verified',
   updatedDate:   TAX_CONFIG.lastReviewed,
   taxYear:       String(TAX_CONFIG.currentTaxYear),
-  confidence:    'Covers how self-employment tax works for individual freelancers, independent contractors, and sole proprietors. The Social Security wage base changes each year, and the Additional Medicare Tax, church employees, and nonresident aliens have rules not covered here',
+  confidence:    'Covers how self-employment tax works for individual freelancers, independent contractors, and sole proprietors. It includes the 2025 and 2026 Social Security wage bases, the Additional Medicare Tax thresholds, and how W-2 wages interact with self-employment tax. Church employees, optional methods, and nonresident aliens have rules not covered here',
   persona:       ['Freelancers and independent contractors', 'Gig workers paid on a 1099', 'Sole proprietors with a side business', 'Anyone surprised by a tax bill on 1099 income'],
   relatedJourney: ['Starting a small business', 'First year of self-employment'],
   actionRequired: 'If your net earnings from self-employment are $400 or more, figure self-employment tax on Schedule SE, in addition to income tax. Plan for it during the year with estimated tax payments.',
@@ -29,6 +29,7 @@ const META = {
     { label: 'IRS — Topic no. 554, Self-employment tax', url: 'https://www.irs.gov/taxtopics/tc554' },
     { label: 'IRS — Publication 334 (2025), Tax Guide for Small Business', url: 'https://www.irs.gov/publications/p334' },
     { label: 'IRS — Instructions for Schedule SE (Form 1040)', url: 'https://www.irs.gov/instructions/i1040sse' },
+    { label: 'IRS — Publication 15 (2026), Employer\'s Tax Guide (2026 Social Security wage base)', url: 'https://www.irs.gov/pub/irs-pdf/p15.pdf' },
   ],
 }
 
@@ -43,7 +44,7 @@ const FAQS = [
   },
   {
     q: 'Is the 15.3% applied to everything I was paid?',
-    a: 'No. It is generally figured on 92.35% of your net earnings from self-employment — after your business expenses — not on your gross receipts. The Social Security portion also stops at an annual wage base that changes each year.',
+    a: 'No. It is generally figured on 92.35% of your net earnings from self-employment — after your business expenses — not on your gross receipts. The Social Security portion also stops at the annual wage base — $176,100 for 2025 and $184,500 for 2026, counting any W-2 Social Security wages first.',
   },
   {
     q: 'Do business expenses lower my self-employment tax?',
@@ -106,11 +107,34 @@ export default function SelfEmploymentTaxPage({ translations }) {
             ['Medicare', '2.9%'],
             ['Total self-employment tax rate', '15.3%'],
             ['Amount the rate is generally applied to', '92.35% of net earnings from self-employment'],
-            ['Social Security limit', 'Applies only up to an annual wage base that changes each year'],
+            ['Social Security limit', 'Applies only up to the annual wage base: $176,100 for 2025, $184,500 for 2026'],
           ]}
         />
         <p>
-          At higher income levels, an <strong>Additional Medicare Tax</strong> can also apply. Its details are outside this guide; the Schedule SE instructions and Topic 554 point to the rules.
+          At higher income levels, an <strong>Additional Medicare Tax</strong> can also apply — see below.
+        </p>
+
+        <h2>Social Security wage base and Additional Medicare Tax</h2>
+        <ArticleTable
+          head={['', '2025', '2026']}
+          rows={[
+            ['Maximum combined wages and self-employment earnings subject to the 12.4% Social Security part', '$176,100', '$184,500'],
+            ['Medicare part (2.9%)', 'No limit', 'No limit'],
+          ]}
+        />
+        <p>
+          The 2025 amount is from the Schedule SE instructions; the 2026 amount is from Publication 334 and Publication 15 (2026).
+        </p>
+        <p>
+          <strong>Additional Medicare Tax:</strong> a 0.9% Additional Medicare Tax may apply if your self-employment income (Schedule SE, line 6) is more than <strong>$200,000</strong> (single, head of household, or qualifying surviving spouse), <strong>$250,000</strong> (married filing jointly), or <strong>$125,000</strong> (married filing separately). If you also have wages, the threshold for your self-employment income is reduced (but not below zero) by your wages subject to Additional Medicare Tax. It is figured on Form 8959.
+        </p>
+
+        <h2>If you also have a W-2 job</h2>
+        <p>
+          Social Security wages from a job count toward the same wage base. On Schedule SE, your Social Security wages and tips (boxes 3 and 7 of Form W-2) are subtracted from the maximum, so the 12.4% Social Security part applies only to the self-employment earnings that fit under what is left. The 2.9% Medicare part still applies to all of your net earnings from self-employment.
+        </p>
+        <p>
+          <strong>Example (illustrative, 2025):</strong> Raj has $150,000 of Social Security wages from his job and $60,000 of Schedule C profit. His net earnings from self-employment are $55,410 ($60,000 × 92.35%). Only $26,100 ($176,100 − $150,000) is left under the wage base, so the Social Security part is about $3,236 ($26,100 × 12.4%) and the Medicare part is about $1,607 ($55,410 × 2.9%) — about <strong>$4,843</strong> in total, instead of about $8,478 without the W-2 wages. Because his wages plus self-employment earnings are more than $200,000, he may also owe some Additional Medicare Tax on Form 8959.
         </p>
 
         <h2>Example (illustrative)</h2>

@@ -13,7 +13,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'llc-basics',
-  sourceHash:      '09a2a6b6c6cc',
+  sourceHash:      'cfcbff434a3d',
   id:            '02',
   title:         '什麼是 LLC？我需要成立嗎？',
   titleEn:       'What is an LLC, and do I need one?',
@@ -26,23 +26,23 @@ const META = {
   sources: [
     { label: 'IRS — 有限責任公司（Limited liability company, LLC）', url: 'https://www.irs.gov/businesses/small-businesses-self-employed/limited-liability-company-llc' },
     { label: 'IRS — S 型公司（S corporations）', url: 'https://www.irs.gov/businesses/small-businesses-self-employed/s-corporations' },
+    { label: 'IRS — 單一成員有限責任公司（Single member limited liability companies）', url: 'https://www.irs.gov/businesses/small-businesses-self-employed/single-member-limited-liability-companies' },
     { label: '加州稅務局（California Franchise Tax Board）— 有限責任公司（Limited liability company）', url: 'https://www.ftb.ca.gov/file/business/types/limited-liability-company/index.html' },
-    { label: '懷俄明州州務卿（Wyoming Secretary of State）— 企業申請費用（Business filing fees）', url: 'https://sos.wyo.gov/Business/Docs/BusinessFees.pdf' },
   ],
   updatedDate:   TAX_CONFIG.lastReviewed,
   taxYear:       String(TAX_CONFIG.currentTaxYear),
-  confidence:    '一般原則適用於大多數州；加州與紐約州另有額外的費用與要求',
+  confidence:    '一般原則適用於大多數州。各州的 LLC 稅、規費與申報規定不同；本文沒有查證各州的具體金額',
   persona:       ['自雇人士', '接案者', '小型企業老闆', '新創業者'],
   relatedJourney: ['創業或經營小型企業', '第一次當老闆'],
   actionRequired: '用下方的決策表評估 LLC 是否適合你的情況。如果適合，接下來的兩個步驟是：選擇企業名稱，並確認你所在州的申請費用。',
 }
 
 const FAQS = [
-  { q: '成立 LLC 要花多少錢？', a: '各州的申請費差異很大 — 例如，懷俄明州申請成立章程（Articles of Organization）的費用是 $100。加州還要求每一家在加州營業或在加州成立的 LLC，不論收入多少，每年都要繳 $800 的年度稅。決定在哪一州成立之前，請務必先查看該州州務卿（Secretary of State）的網站。' },
+  { q: '成立 LLC 要花多少錢？', a: '要看州別。大多數州申請成立文件（通常稱為成立章程，Articles of Organization）要繳申請費，有些州還會收年費，或課徵每年的 LLC 稅。一次性的申請費和每年的稅不一樣。決定在哪一州成立之前，請先查看該州州務卿（Secretary of State）與稅務機關的網站。' },
   { q: '非美國公民或綠卡持有人可以成立 LLC 嗎？', a: '可以。在美國成立 LLC 沒有國籍要求，非居民也可以成立美國 LLC。不過，非居民擁有人的稅務處理比較複雜 — 你可能會面臨預扣要求與額外的申報義務。請諮詢專精國際稅務的 CPA。' },
   { q: '如果我剛起步、收入不多，需要成立 LLC 嗎？', a: '不一定。以獨資方式經營比較簡單，也不用花錢。等事業成長後，隨時都可以再成立 LLC。關鍵問題是：在你所在的州，責任保護現在是否值得每年的費用與合規工作。' },
-  { q: '單一成員 LLC 和多成員 LLC 有什麼不同？', a: '單一成員 LLC（Single-Member LLC）只有一位擁有人，預設以獨資方式課稅 — 收入與費用列在你的個人稅表上（Schedule C）。多成員 LLC（Multi-Member LLC）有兩位以上擁有人，預設以合夥方式課稅，需要另外申報 Form 1065。兩者都可以選擇 S-Corp 課稅。' },
-  { q: '成立 LLC 之後，還要繳自雇稅嗎？', a: '要。預設情況下，在事業中工作的 LLC 擁有人，要就全部淨利繳自雇稅（15.3%）— 和獨資經營者一樣。要減少自雇稅，你需要選擇 S-Corp 課稅。是否能省錢，取決於你的利潤、你這份工作的合理薪資，以及薪資作業與另外報稅的額外成本 — IRS 沒有收入門檻。' },
+  { q: '單一成員 LLC 和多成員 LLC 有什麼不同？', a: '單一成員 LLC（Single-Member LLC）只有一位擁有人，預設是「被忽略實體」，以獨資方式課稅 — 收入與費用列在你的個人稅表上（Schedule C）。多成員 LLC（Multi-Member LLC）有兩位以上擁有人，預設以合夥方式課稅，需要另外申報 Form 1065。兩者都可以選擇 S-Corp 課稅。' },
+  { q: '成立 LLC 之後，還要繳自雇稅嗎？', a: '要。預設情況下，在事業中工作的 LLC 擁有人，一般要就自雇淨收入繳自雇稅 — 和獨資經營者一樣。15.3% 的稅率一般是套用在淨利的 92.35% 上，而 12.4% 的社會安全稅部分只算到每年的工資上限（2025 年 $176,100，2026 年 $184,500）。要減少自雇稅，你需要選擇 S-Corp 課稅。是否能省錢，取決於你的利潤、你這份工作的合理薪資，以及薪資作業與另外報稅的額外成本 — IRS 沒有收入門檻。' },
   { q: '如果我的事業被告，LLC 能保護我的住家與存款嗎？', a: '一般可以 — 這是 LLC 的主要目的。兩個重要的例外：(1) 如果你個人為企業貸款作保，你要為這筆債務負個人責任；(2) 如果你把個人與企業的財務混在一起，法院可能「揭穿公司面紗」（Pierce the Corporate Veil），不承認這項保護。請務必使用分開的銀行帳戶。' },
   { q: '我經營 Airbnb，應該把它放進 LLC 嗎？', a: '要看情況。如果房客受傷，LLC 可以保護個人資產。不過在加州，把有房貸的房產移轉到 LLC，可能觸發房貸的「出售即到期」（Due on Sale）條款。LLC 也不會改變 Airbnb 收入的課稅方式。把房產移轉到 LLC 之前，請先諮詢 CPA 與不動產律師。' },
 ]
@@ -99,7 +99,7 @@ export default function LLCBasicsZhTwPage({ translations }) {
             </thead>
             <tbody>
               {[
-                ['單一成員 LLC（1 位擁有人）', '獨資 — 在你的個人稅表上申報 Schedule C', 'S-Corp 或 C-Corp'],
+                ['單一成員 LLC（1 位擁有人）', '被忽略實體 — 以獨資方式課稅，通常在你的個人稅表上申報 Schedule C', 'S-Corp 或 C-Corp'],
                 ['多成員 LLC（2 位以上擁有人）', '合夥 — 需要另外申報 Form 1065', 'S-Corp 或 C-Corp'],
               ].map(([type, def, elect], i) => (
                 <tr key={i}>
@@ -111,6 +111,8 @@ export default function LLCBasicsZhTwPage({ translations }) {
             </tbody>
           </table>
         </div>
+
+        <p>就所得稅而言，IRS 把維持預設處理方式的單一成員 LLC 稱為<strong>「被忽略實體」</strong>（disregarded entity）：它的活動申報在擁有人的稅表上，好像 LLC 沒有和擁有人分開一樣。但就僱傭稅與某些消費稅而言，它仍然被當作獨立的實體，所以有員工的 LLC 要用自己的名稱與 EIN 處理薪資稅。請見<a href="/zh-tw/library/business-formation/single-member-llc-taxes/">單一成員 LLC 的稅務</a>。</p>
 
         <p>對大多數小型企業老闆來說，實際的意義是：<strong>LLC 本身不會改變你的稅單</strong>。你仍然要就淨利繳自雇稅。主要的好處是法律保護。</p>
 
@@ -147,7 +149,7 @@ export default function LLCBasicsZhTwPage({ translations }) {
         <p>成立 LLC 比大多數人想的簡單。基本流程：</p>
         <ol>
           <li><strong>選擇企業名稱</strong> — 必須包含「LLC」或「Limited Liability Company」，而且不能與你所在州現有的企業名稱重複。</li>
-          <li><strong>選擇州別</strong> — 大多數小型企業在營運所在的州成立。如果你在加州營運，不論在哪裡成立，都要繳加州的費用。</li>
+          <li><strong>選擇州別</strong> — 大多數小型企業在營運所在的州成立。如果你在其他州營業，即使 LLC 是在別州成立，那一州的 LLC 規定、稅與規費也可能適用 — 請向該州確認。</li>
           <li><strong>申請成立章程（Articles of Organization）</strong> — 這是向你所在州的州務卿提交的正式表格，通常可以線上申請。各州的申請費不同。</li>
           <li><strong>建立營運協議（Operating Agreement）</strong> — 法律上不一定必要，但強烈建議。它界定持股比例，以及合夥人退出時怎麼處理。</li>
           <li><strong>申請 EIN</strong> — 你企業的稅籍號碼，在 IRS.gov 免費申請，開立企業銀行帳戶時需要。<a href="/zh-tw/library/business-formation/ein/">完整指南 →</a></li>
@@ -155,8 +157,8 @@ export default function LLCBasicsZhTwPage({ translations }) {
         </ol>
 
         <div className="callout callout-warning">
-          <div className="callout-title">⚠️ 加州特有：$800 最低特許經營稅</div>
-          <p>加州 LLC 每年最少要繳 $800 給州政府 — 即使事業完全沒有收入。只要 LLC 存在，每年都要繳。決定要立刻成立，還是等有收入再成立時，請把這一點考慮進去。</p>
+          <div className="callout-title">⚠️ 各州的 LLC 稅與規費不同</div>
+          <p>有些州（包括加州）可能每年對 LLC 課稅或收取規費，並要求申報州稅表，這和一次性的成立費用不同。AskLinTax 撰寫本文時，沒有依官方州政府資料查證加州或其他州目前的金額，因此本文不列出。決定什麼時候成立之前，請先查看加州稅務局（Franchise Tax Board）或你所在州稅務機關的資料。</p>
         </div>
 
         <h2>最常見的 LLC 錯誤</h2>

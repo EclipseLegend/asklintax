@@ -13,7 +13,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'business-deductions',
-  sourceHash:      '1bd590821775',
+  sourceHash:      'a5576d42e347',
   id:            '14',
   title:         '小型企業老闆可以扣除哪些費用？',
   titleEn:       'What can I deduct as a small business owner?',
@@ -30,6 +30,10 @@ const META = {
     { label: 'IRS Publication 587 — 住家的營業使用（Business Use of Your Home）', url: 'https://www.irs.gov/publications/p587' },
     { label: 'IRS — 居家辦公室扣除額（Home office deduction）', url: 'https://www.irs.gov/businesses/small-businesses-self-employed/home-office-deduction' },
     { label: 'IRS — 標準里程費率（Standard mileage rates）', url: 'https://www.irs.gov/tax-professionals/standard-mileage-rates' },
+    { label: 'IRS — Schedule C（Form 1040）填寫說明（2025）', url: 'https://www.irs.gov/instructions/i1040sc' },
+    { label: 'IRS Publication 946（2025）— 財產如何折舊（How To Depreciate Property）', url: 'https://www.irs.gov/publications/p946' },
+    { label: 'IRS — Revenue Procedure 2025-32（2026 年第 179 條上限，第 4.24 節）', url: 'https://www.irs.gov/pub/irs-drop/rp-25-32.pdf' },
+    { label: 'IRS — Notice 2026-11，第 168(k) 條首年額外折舊扣除額過渡指引', url: 'https://www.irs.gov/pub/irs-drop/n-26-11.pdf' },
     { label: 'IRS — 自雇稅（Self-employment tax：社會安全稅與聯邦醫療保險稅）', url: 'https://www.irs.gov/businesses/small-businesses-self-employed/self-employment-tax-social-security-and-medicare-taxes' },
   ],
   updatedDate:   TAX_CONFIG.lastReviewed,
@@ -55,7 +59,7 @@ const FAQS = [
   },
   {
     q: '扣除與折舊有什麼不同？',
-    a: '當年就用完的東西（用品、軟體訂閱、廣告），在支付的那一年扣除全部費用。使用年限超過一年的東西（電腦、車輛、家具），一般必須把扣除分攤到好幾年 — 這就是折舊（Depreciation）。不過，Section 179 與加速折舊（Bonus Depreciation）規則允許你在購買當年就扣除許多資產的全部成本，但有一定的上限。你的報稅軟體或 CPA 可以判斷哪些資產符合資格。',
+    a: '當年就用完的東西（用品、軟體訂閱、廣告），在支付的那一年扣除全部費用。使用年限超過一年的東西（電腦、車輛、家具），一般必須把扣除分攤到好幾年 — 這就是折舊（Depreciation）。不過，Section 179 與加速折舊（Bonus Depreciation）規則允許你在第一年就扣除許多資產的全部成本，但有一定的上限。Section 179 在 2025 年開始的稅務年度上限為 $2,500,000，2026 年為 $2,560,000；2025 年 1 月 19 日之後取得並開始使用的合格財產，適用 100% 加速折舊。你的報稅軟體或 CPA 可以判斷哪些資產符合資格。',
   },
   {
     q: '剛開始創業的開辦費可以扣除嗎？',
@@ -67,7 +71,7 @@ const FAQS = [
   },
   {
     q: '成立 LLC 的費用可以扣除嗎？',
-    a: '可以，作為組織費 — 第一年最多 $5,000（超過的部分在 180 個月內攤銷）。組織費包括州政府申請費、起草營運協議（Operating Agreement）的律師費，以及與設立相關的會計費。州政府申請費本身可以作為組織費扣除。加州每年 $800 的特許經營稅（Franchise Tax）也可以作為營業費用扣除。',
+    a: '可以，作為組織費 — 第一年最多 $5,000（超過的部分在 180 個月內攤銷）。組織費包括州政府申請費、起草營運協議（Operating Agreement）的律師費，以及與設立相關的會計費。州政府申請費本身可以作為組織費扣除。你的事業每年支付給州或地方政府的執照與規範費用，一般可以在 Schedule C 第 23 行扣除。有些州（例如加州）也可能對 LLC 課徵每年的稅或收取規費，這和一次性的成立費用不同 — 特定州稅如何處理，請查看 Schedule C 填寫說明。',
   },
 ]
 
@@ -129,7 +133,7 @@ const DEDUCTION_CATEGORIES = [
       { name: '電腦與周邊設備', detail: '如果 100% 用於營業，可以全額扣除。如果私人與營業混用，只扣除營業的比例。' },
       { name: '軟體訂閱', detail: '可以作為營業費用全額扣除（例如 Adobe Creative Cloud、QuickBooks、Zoom、Slack、GitHub）。在支付的那一年扣除。' },
       { name: '手機', detail: '扣除每月帳單中營業使用的比例。常見做法：估計一個比例（例如 60% 營業用途），並一致地套用。' },
-      { name: 'Section 179／加速折舊', detail: '你可能可以在第一年就扣除設備的全部購買價格，而不必分好幾年折舊。適用於電腦、相機、辦公家具與許多其他資產。' },
+      { name: 'Section 179／加速折舊', detail: '你可能可以在第一年就扣除設備的全部成本，而不必分好幾年折舊。Section 179：2025 年開始的稅務年度最多 $2,500,000（當年度開始使用的財產超過 $4,000,000 時減少），2026 年最多 $2,560,000（超過 $4,090,000 時減少）；同時用於事業與私人用途的財產，事業使用必須超過 50%。加速折舊：2025 年 1 月 19 日之後取得並開始使用的合格財產為 100%；2025 年 1 月 20 日之前取得、2025 年開始使用的合格財產一般以 40% 為限。適用於電腦、相機、辦公家具與許多其他資產。' },
     ],
   },
   {

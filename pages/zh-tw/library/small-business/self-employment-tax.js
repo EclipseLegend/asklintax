@@ -14,7 +14,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'self-employment-tax',
-  sourceHash:      '0665a3f8b1ad',
+  sourceHash:      'ef3b94cfc447',
   id:            '57',
   title:         '什麼是自雇稅？怎麼計算？',
   titleEn:       'What is self-employment tax and how does it work?',
@@ -26,7 +26,7 @@ const META = {
   verification:  'official-sources-verified',
   updatedDate:   TAX_CONFIG.lastReviewed,
   taxYear:       String(TAX_CONFIG.currentTaxYear),
-  confidence:    '涵蓋個人自由工作者、獨立承包商與獨資經營者的自雇稅如何運作。社會安全稅的工資上限每年都會調整；額外聯邦醫療保險稅、教會員工與非居民外國人的規定不在本文範圍內',
+  confidence:    '涵蓋個人自由工作者、獨立承包商與獨資經營者的自雇稅如何運作。包括 2025 與 2026 年社會安全稅工資上限、額外聯邦醫療保險稅門檻，以及 W-2 工資與自雇稅的互動。教會員工、選擇性計算方法與非居民外國人的規定不在本文範圍內',
   persona:       ['自由工作者與獨立承包商', '領 1099 的零工工作者', '有副業的獨資經營者', '被 1099 收入的稅單嚇到的人'],
   relatedJourney: ['創業或經營小型企業', '自雇第一年'],
   actionRequired: '如果你的自雇淨收入達到 $400 或以上，除了所得稅之外，還要用 Schedule SE 計算自雇稅。年中就用預估稅款預先規劃。',
@@ -35,6 +35,7 @@ const META = {
     { label: 'IRS — Topic no. 554，自雇稅（Self-employment tax）', url: 'https://www.irs.gov/taxtopics/tc554' },
     { label: 'IRS — Publication 334（2025），小型企業稅務指南（Tax Guide for Small Business）', url: 'https://www.irs.gov/publications/p334' },
     { label: 'IRS — Schedule SE（Form 1040）填寫說明', url: 'https://www.irs.gov/instructions/i1040sse' },
+    { label: 'IRS — Publication 15（2026），雇主稅務指南（2026 年社會安全稅工資上限）', url: 'https://www.irs.gov/pub/irs-pdf/p15.pdf' },
   ],
 }
 
@@ -49,7 +50,7 @@ const FAQS = [
   },
   {
     q: '15.3% 是套用在我收到的全部款項上嗎？',
-    a: '不是。它一般是以自雇淨收入（扣除營業費用後）的 92.35% 來計算，不是以總收入計算。社會安全稅的部分，也只算到每年調整的工資上限為止。',
+    a: '不是。它一般是以自雇淨收入（扣除營業費用後）的 92.35% 來計算，不是以總收入計算。社會安全稅的部分，也只算到每年的工資上限為止 — 2025 年 $176,100，2026 年 $184,500，而且 W-2 的社會安全稅工資會先計入。',
   },
   {
     q: '營業費用可以降低自雇稅嗎？',
@@ -112,11 +113,34 @@ export default function SelfEmploymentTaxZhTwPage({ translations }) {
             ['聯邦醫療保險稅（Medicare）', '2.9%'],
             ['自雇稅合計稅率', '15.3%'],
             ['稅率一般套用的金額', '自雇淨收入的 92.35%'],
-            ['社會安全稅上限', '只算到每年調整的工資上限'],
+            ['社會安全稅上限', '只算到每年的工資上限：2025 年 $176,100，2026 年 $184,500'],
           ]}
         />
         <p>
-          收入較高時，也可能要繳<strong>額外聯邦醫療保險稅</strong>（Additional Medicare Tax）。細節不在本文範圍內；Schedule SE 填寫說明與 Topic 554 有指引相關規定。
+          收入較高時，也可能要繳<strong>額外聯邦醫療保險稅</strong>（Additional Medicare Tax）— 請見下方說明。
+        </p>
+
+        <h2>社會安全稅工資上限與額外聯邦醫療保險稅</h2>
+        <ArticleTable
+          head={['', '2025', '2026']}
+          rows={[
+            ['適用 12.4% 社會安全稅部分的工資與自雇收入合計上限', '$176,100', '$184,500'],
+            ['聯邦醫療保險稅部分（2.9%）', '沒有上限', '沒有上限'],
+          ]}
+        />
+        <p>
+          2025 年的金額來自 Schedule SE 填寫說明；2026 年的金額來自 Publication 334 與 Publication 15（2026）。
+        </p>
+        <p>
+          <strong>額外聯邦醫療保險稅：</strong>如果你的自雇收入（Schedule SE 第 6 行）超過 <strong>$200,000</strong>（單身、戶長或符合資格的未亡配偶）、<strong>$250,000</strong>（夫妻合併申報）或 <strong>$125,000</strong>（夫妻分開申報），可能要繳 0.9% 的額外聯邦醫療保險稅。如果你也有工資，自雇收入適用的門檻要減去你需繳額外聯邦醫療保險稅的工資（但不會低於零）。這項稅在 Form 8959 上計算。
+        </p>
+
+        <h2>如果你也有 W-2 工作</h2>
+        <p>
+          工作的社會安全稅工資會計入同一個工資上限。在 Schedule SE 上，你的社會安全稅工資與小費（Form W-2 的 box 3 與 box 7）會從上限中減去，所以 12.4% 的社會安全稅部分，只適用於剩餘額度內的自雇收入。2.9% 的聯邦醫療保險稅部分，仍然適用於你所有的自雇淨收入。
+        </p>
+        <p>
+          <strong>例子（舉例用，2025 年）：</strong>Raj 的工作有 $150,000 的社會安全稅工資，Schedule C 利潤是 $60,000。他的自雇淨收入是 $55,410（$60,000 × 92.35%）。工資上限只剩 $26,100（$176,100 − $150,000），所以社會安全稅部分大約是 $3,236（$26,100 × 12.4%），聯邦醫療保險稅部分大約是 $1,607（$55,410 × 2.9%）— 合計大約 <strong>$4,843</strong>，而不是沒有 W-2 工資時的大約 $8,478。因為他的工資加上自雇收入超過 $200,000，他可能也要在 Form 8959 上繳一些額外聯邦醫療保險稅。
         </p>
 
         <h2>例子（舉例用）</h2>

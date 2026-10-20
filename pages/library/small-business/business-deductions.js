@@ -24,6 +24,10 @@ const META = {
     { label: 'IRS Publication 587 — Business Use of Your Home', url: 'https://www.irs.gov/publications/p587' },
     { label: 'IRS — Home office deduction', url: 'https://www.irs.gov/businesses/small-businesses-self-employed/home-office-deduction' },
     { label: 'IRS — Standard mileage rates', url: 'https://www.irs.gov/tax-professionals/standard-mileage-rates' },
+    { label: 'IRS — Instructions for Schedule C (Form 1040) (2025)', url: 'https://www.irs.gov/instructions/i1040sc' },
+    { label: 'IRS Publication 946 (2025) — How To Depreciate Property', url: 'https://www.irs.gov/publications/p946' },
+    { label: 'IRS — Revenue Procedure 2025-32 (2026 section 179 limits, section 4.24)', url: 'https://www.irs.gov/pub/irs-drop/rp-25-32.pdf' },
+    { label: 'IRS — Notice 2026-11, Interim Guidance on Additional First Year Depreciation Deduction under § 168(k)', url: 'https://www.irs.gov/pub/irs-drop/n-26-11.pdf' },
     { label: 'IRS — Self-employment tax (Social Security and Medicare taxes)', url: 'https://www.irs.gov/businesses/small-businesses-self-employed/self-employment-tax-social-security-and-medicare-taxes' },
   ],
   updatedDate:   TAX_CONFIG.lastReviewed,
@@ -49,7 +53,7 @@ const FAQS = [
   },
   {
     q: 'What\'s the difference between a deduction and depreciation?',
-    a: 'When you buy something used up in the current year (supplies, software subscriptions, advertising), you deduct the full cost in the year you paid. When you buy something with a useful life longer than one year (a computer, a vehicle, furniture), you generally must spread the deduction over several years — this is depreciation. However, Section 179 and bonus depreciation rules allow you to deduct the full cost of many assets in the year of purchase, up to certain limits. Your tax software or CPA can determine which assets qualify.',
+    a: 'When you buy something used up in the current year (supplies, software subscriptions, advertising), you deduct the full cost in the year you paid. When you buy something with a useful life longer than one year (a computer, a vehicle, furniture), you generally must spread the deduction over several years — this is depreciation. However, Section 179 and bonus depreciation rules allow you to deduct the full cost of many assets in the first year, up to certain limits. Section 179 is limited to $2,500,000 for tax years beginning in 2025 and $2,560,000 for 2026, and 100% bonus depreciation applies to qualified property acquired and placed in service after January 19, 2025. Your tax software or CPA can determine which assets qualify.',
   },
   {
     q: 'Can I deduct startup costs for a business I\'m just starting?',
@@ -61,7 +65,7 @@ const FAQS = [
   },
   {
     q: 'Can I deduct the cost of forming my LLC?',
-    a: 'Yes, as organizational costs — up to $5,000 in the first year (amounts above are amortized over 180 months). Organizational costs include state filing fees, legal fees for drafting the operating agreement, and accounting fees related to setup. The state filing fee itself is deductible as an organizational cost. The annual $800 California franchise tax is also deductible as a business expense.',
+    a: 'Yes, as organizational costs — up to $5,000 in the first year (amounts above are amortized over 180 months). Organizational costs include state filing fees, legal fees for drafting the operating agreement, and accounting fees related to setup. The state filing fee itself is deductible as an organizational cost. Licenses and regulatory fees your business pays each year to state or local governments are generally deductible on Schedule C, line 23. Some states, such as California, may also charge LLCs annual taxes or fees, which are different from one-time formation fees — check the Schedule C instructions for how a specific state tax is treated.',
   },
 ]
 
@@ -123,7 +127,7 @@ const DEDUCTION_CATEGORIES = [
       { name: 'Computers and peripherals', detail: 'Fully deductible if used 100% for business. If mixed personal/business use, deduct the business percentage only.' },
       { name: 'Software subscriptions', detail: 'Fully deductible as a business expense (e.g., Adobe Creative Cloud, QuickBooks, Zoom, Slack, GitHub). Deducted in the year paid.' },
       { name: 'Phone', detail: 'Deduct the business use percentage of your monthly bill. Typical approach: estimate percentage (e.g., 60% business) and apply consistently.' },
-      { name: 'Section 179 / bonus depreciation', detail: 'Instead of depreciating equipment over several years, you may be able to deduct the full purchase price in year one. Applies to computers, cameras, office furniture, and many other assets.' },
+      { name: 'Section 179 / bonus depreciation', detail: 'Instead of depreciating equipment over several years, you may be able to deduct the full cost in year one. Section 179: up to $2,500,000 for tax years beginning in 2025 (reduced when property placed in service exceeds $4,000,000) and $2,560,000 for 2026 (above $4,090,000); property used for both business and personal purposes must be used more than 50% for business. Bonus depreciation: 100% for qualified property acquired and placed in service after January 19, 2025; qualified property acquired before January 20, 2025, and placed in service in 2025 is generally limited to 40%. Applies to computers, cameras, office furniture, and many other assets.' },
     ],
   },
   {

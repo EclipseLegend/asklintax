@@ -20,23 +20,23 @@ const META = {
   sources: [
     { label: 'IRS — Limited liability company (LLC)', url: 'https://www.irs.gov/businesses/small-businesses-self-employed/limited-liability-company-llc' },
     { label: 'IRS — S corporations', url: 'https://www.irs.gov/businesses/small-businesses-self-employed/s-corporations' },
+    { label: 'IRS — Single member limited liability companies', url: 'https://www.irs.gov/businesses/small-businesses-self-employed/single-member-limited-liability-companies' },
     { label: 'California Franchise Tax Board — Limited liability company', url: 'https://www.ftb.ca.gov/file/business/types/limited-liability-company/index.html' },
-    { label: 'Wyoming Secretary of State — Business filing fees', url: 'https://sos.wyo.gov/Business/Docs/BusinessFees.pdf' },
   ],
   updatedDate:   TAX_CONFIG.lastReviewed,
   taxYear:       String(TAX_CONFIG.currentTaxYear),
-  confidence:    'General principles apply in most states; California and New York have additional fees and requirements',
+  confidence:    'General principles apply in most states. State LLC taxes, fees, and filing requirements vary; specific state amounts are not verified in this guide',
   persona:       ['Self-employed', 'Freelancer', 'Small business owner', 'New entrepreneur'],
   relatedJourney: ['Starting a small business', 'First-time business owner'],
   actionRequired: 'Use the decision table below to assess if an LLC fits your situation. If yes, your two next steps are: choose a business name and confirm your state filing fee.',
 }
 
 const FAQS = [
-  { q: 'How much does it cost to form an LLC?', a: 'State filing fees vary widely — for example, Wyoming charges $100 to file Articles of Organization. California also requires every LLC doing business or organized there to pay an $800 annual tax, every year, regardless of income. Always check your state\'s Secretary of State website before deciding where to form.' },
+  { q: 'How much does it cost to form an LLC?', a: 'It depends on the state. Most states charge a fee to file formation documents (often called Articles of Organization), and some states also charge annual fees or impose an annual LLC tax. A one-time filing fee is not the same as an annual tax. Check your state\'s Secretary of State and tax agency websites before deciding where to form.' },
   { q: 'Can a non-U.S. citizen or green card holder form an LLC?', a: 'Yes. There\'s no citizenship requirement to form an LLC in the U.S. Non-residents can also form a U.S. LLC. However, tax treatment for non-resident owners is more complex — you may face withholding requirements and additional filing obligations. Consult a CPA who specializes in international taxation.' },
   { q: 'Do I need an LLC if I\'m just starting out and not making much money?', a: 'Not necessarily. Operating as a sole proprietor is simpler and costs nothing. You can always form an LLC later when the business grows. The key question is whether the liability protection is worth the annual fees and compliance in your state right now.' },
-  { q: 'What\'s the difference between a single-member LLC and a multi-member LLC?', a: 'A single-member LLC has one owner and is taxed as a sole proprietorship by default — income and expenses go on your personal return (Schedule C). A multi-member LLC has two or more owners and is taxed as a partnership by default, requiring a separate Form 1065. Both can elect S-Corp taxation.' },
-  { q: 'If I form an LLC, do I still pay self-employment tax?', a: 'Yes. By default, LLC owners who work in the business pay self-employment tax (15.3%) on all net profits — the same as a sole proprietor. To reduce self-employment taxes, you would need to elect S-Corp taxation. Whether that saves money depends on your profit, a reasonable salary for your work, and the added costs of payroll and a separate return — there is no IRS income threshold.' },
+  { q: 'What\'s the difference between a single-member LLC and a multi-member LLC?', a: 'A single-member LLC has one owner. By default it is a "disregarded entity" taxed like a sole proprietorship — income and expenses go on your personal return (Schedule C). A multi-member LLC has two or more owners and is taxed as a partnership by default, requiring a separate Form 1065. Both can elect S-Corp taxation.' },
+  { q: 'If I form an LLC, do I still pay self-employment tax?', a: 'Yes. By default, LLC owners who work in the business generally pay self-employment tax on their net earnings from self-employment — the same as a sole proprietor. The 15.3% rate is generally applied to 92.35% of net profit, and the 12.4% Social Security part applies only up to the annual wage base ($176,100 for 2025, $184,500 for 2026). To reduce self-employment taxes, you would need to elect S-Corp taxation. Whether that saves money depends on your profit, a reasonable salary for your work, and the added costs of payroll and a separate return — there is no IRS income threshold.' },
   { q: 'Does an LLC protect my personal home and savings if my business is sued?', a: 'Generally yes — that\'s the main purpose of an LLC. Two important exceptions: (1) if you personally guarantee a business loan, you\'re personally liable for that obligation; (2) if you mix personal and business finances, a court may "pierce the corporate veil" and disregard the protection. Keep separate bank accounts always.' },
   { q: 'I run an Airbnb. Should I put it in an LLC?', a: 'It depends. An LLC can protect personal assets if a guest is injured. However, in California, transferring a mortgaged property into an LLC can trigger a "due on sale" clause in your mortgage. An LLC also doesn\'t change how Airbnb income is taxed. Talk to a CPA and a real estate attorney before transferring property to an LLC.' },
 ]
@@ -93,7 +93,7 @@ export default function LLCBasicsPage({ translations }) {
             </thead>
             <tbody>
               {[
-                ['Single-member LLC (1 owner)', 'Sole proprietorship — Schedule C on your personal return', 'S-Corp or C-Corp'],
+                ['Single-member LLC (1 owner)', 'Disregarded entity — taxed like a sole proprietorship, usually on Schedule C of your personal return', 'S-Corp or C-Corp'],
                 ['Multi-member LLC (2+ owners)', 'Partnership — separate Form 1065 required', 'S-Corp or C-Corp'],
               ].map(([type, def, elect], i) => (
                 <tr key={i}>
@@ -105,6 +105,8 @@ export default function LLCBasicsPage({ translations }) {
             </tbody>
           </table>
         </div>
+
+        <p>For income tax, the IRS calls a single-member LLC with default treatment a <strong>"disregarded entity"</strong>: its activity is reported on the owner's return as if the LLC were not separate. It is still treated as a separate entity for employment taxes and certain excise taxes, so an LLC with employees uses its own name and EIN for payroll. See <a href="/library/business-formation/single-member-llc-taxes/">single-member LLC taxes</a>.</p>
 
         <p>For most small business owners, the practical implication is: <strong>an LLC doesn't change your tax bill on its own</strong>. You'll still pay self-employment tax on net profit. The main benefit is legal protection.</p>
 
@@ -141,7 +143,7 @@ export default function LLCBasicsPage({ translations }) {
         <p>Forming an LLC is simpler than most people expect. The basic process:</p>
         <ol>
           <li><strong>Choose a business name</strong> — must include "LLC" or "Limited Liability Company," and can't duplicate an existing business name in your state.</li>
-          <li><strong>Choose your state</strong> — most small businesses form in the state where they operate. If you operate in California, you'll pay California fees regardless of where you form.</li>
+          <li><strong>Choose your state</strong> — most small businesses form in the state where they operate. If you do business in another state, that state's LLC rules, taxes, and fees may also apply, even if you formed the LLC elsewhere — check with that state.</li>
           <li><strong>File Articles of Organization</strong> — the official form submitted to your state's Secretary of State, usually online. Filing fees vary by state.</li>
           <li><strong>Create an Operating Agreement</strong> — not always legally required, but strongly recommended. It defines ownership percentages and what happens if a partner leaves.</li>
           <li><strong>Apply for an EIN</strong> — your business's tax ID number, free at IRS.gov, needed for a business bank account. <a href="/library/business-formation/ein">Full guide →</a></li>
@@ -149,8 +151,8 @@ export default function LLCBasicsPage({ translations }) {
         </ol>
 
         <div className="callout callout-warning">
-          <div className="callout-title">⚠️ California-specific: the $800 minimum franchise tax</div>
-          <p>California LLCs owe a minimum of $800 per year to the state — even if the business earned nothing. This fee is due every year you're in existence. Factor this into your decision about whether to form right away or wait until you have revenue.</p>
+          <div className="callout-title">⚠️ State LLC taxes and fees vary</div>
+          <p>Some states, including California, may impose annual LLC taxes or fees and require state filings, separate from any one-time formation fee. AskLinTax has not verified current California or other state amounts against official state sources for this guide, so it does not state them. Check the California Franchise Tax Board, or your own state's tax agency, before deciding when to form.</p>
         </div>
 
         <h2>The most common LLC mistakes</h2>

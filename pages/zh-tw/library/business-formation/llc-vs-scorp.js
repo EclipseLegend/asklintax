@@ -13,7 +13,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'llc-vs-scorp',
-  sourceHash:      '0221559b6c66',
+  sourceHash:      'd50a4553b93b',
   id:            '03',
   title:         'LLC 與 S-Corp：哪種適合你的企業？',
   titleEn:       'LLC vs S-Corp: which is right for your business?',
@@ -27,7 +27,10 @@ const META = {
     { label: 'IRS — S 型公司（S corporations）', url: 'https://www.irs.gov/businesses/small-businesses-self-employed/s-corporations' },
     { label: 'IRS — Form 2553 填寫說明（Instructions for Form 2553）', url: 'https://www.irs.gov/instructions/i2553' },
     { label: 'IRS — Form 1120-S 填寫說明（Instructions for Form 1120-S）', url: 'https://www.irs.gov/instructions/i1120s' },
+    { label: 'IRS — Revenue Procedure 2024-40（2025 年調整項目；S 公司逾期申報罰款，第 2.57 節）', url: 'https://www.irs.gov/pub/irs-drop/rp-24-40.pdf' },
+    { label: 'IRS — Revenue Procedure 2025-32（2026 年調整項目；S 公司逾期申報罰款，第 4.56 節）', url: 'https://www.irs.gov/pub/irs-drop/rp-25-32.pdf' },
     { label: 'IRS — S 型公司薪酬與醫療保險問題（S corporation compensation and medical insurance issues）', url: 'https://www.irs.gov/businesses/small-businesses-self-employed/s-corporation-compensation-and-medical-insurance-issues' },
+    { label: 'IRS — 合格事業所得扣除額（Qualified business income deduction）', url: 'https://www.irs.gov/newsroom/qualified-business-income-deduction' },
     { label: 'IRS — 自雇稅（Self-employment tax：社會安全稅與聯邦醫療保險稅）', url: 'https://www.irs.gov/businesses/small-businesses-self-employed/self-employment-tax-social-security-and-medicare-taxes' },
   ],
   updatedDate:   TAX_CONFIG.lastReviewed,
@@ -45,7 +48,7 @@ const FAQS = [
   },
   {
     q: '什麼時候該做 S-Corp 選擇？',
-    a: '要讓這項選擇適用於當年度，一般必須在該稅務年度開始後 2 個月又 15 天內（或在前一個稅務年度的任何時候）申報 Form 2553。新成立的 LLC，第一個稅務年度從它開始有股東、取得資產或開始營業（以最早者為準）時起算。如果錯過這個期限，選擇一般會從下一年開始適用。某些情況下也可以申請逾期選擇 — CPA 可以協助。',
+    a: '要讓這項選擇適用於當年度，一般必須在該稅務年度開始後 2 個月又 15 天內（或在前一個稅務年度的任何時候）申報 Form 2553。新成立的 LLC，第一個稅務年度從它開始有股東、取得資產或開始營業（以最早者為準）時起算。如果錯過這個期限，選擇一般會從下一年開始適用。如果錯過了，依 Rev. Proc. 2013-30 可能可以申請逾期選擇的救濟 — 一般要在預定生效日後 3 年又 75 天內，並符合 Form 2553 填寫說明列出的條件。',
   },
   {
     q: '身為 S-Corp 擁有人，我需要付自己多少薪水？',
@@ -182,7 +185,7 @@ export default function LLCvsSCorpZhTwPage({ translations }) {
 
         <div className="callout callout-info">
           <div className="callout-title">ℹ️ 這些是估算，不是保證</div>
-          <p>實際能省多少，取決於你的薪資金額、州稅，以及薪資作業與申報 S-Corp 稅表的實際成本。做出選擇之前，請務必與 CPA 依你的情況試算。</p>
+          <p>實際能省多少，取決於你的薪資金額、州稅，以及薪資作業與申報 S-Corp 稅表的實際成本。這個估算也沒有考慮 QBI 扣除額：S-Corp 擁有人的薪資不是合格事業所得，所以薪資越高，QBI 扣除額可能越少。做出選擇之前，請務必與 CPA 依你的情況試算。</p>
         </div>
 
         <h2>什麼時候選擇 S-Corp 比較合理？</h2>
@@ -205,6 +208,14 @@ export default function LLCvsSCorpZhTwPage({ translations }) {
           <div className="callout-title">⚠️「合理薪資」的要求是認真的</div>
           <p>IRS 曾成功挑戰那些為了逃避薪資稅、付給自己低於市場薪資的 S-Corp 擁有人。你的薪資必須與你請員工做同樣工作要付的薪資相當。CPA 可以協助你依你的行業與收入水準，訂出站得住腳的薪資。</p>
         </div>
+
+        <h2>選擇之前要知道的四項規定</h2>
+        <ul>
+          <li><strong>先付合理薪資。</strong>IRS 表示，S 公司在對股東員工做非薪資分配之前，必須先為其服務支付合理的薪酬，而且 IRS 可以把分配重新歸類為工資。IRS 列出的因素包括訓練與經驗、職責、投入事業的時間，以及類似企業支付的薪資。請見<a href="/zh-tw/library/business-formation/s-corp-reasonable-salary/">經營 S 公司</a>。</li>
+          <li><strong>薪資不是 QBI。</strong>從 S 公司領取的合理薪酬不是合格事業所得，所以把利潤改為薪資，可能會減少你的 QBI 扣除額。你在 K-1 上分到的事業所得仍然可以算 QBI。請見<a href="/zh-tw/library/small-business/qbi-deduction/">QBI 扣除額</a>。</li>
+          <li><strong>Form 1120-S 有明確的截止日。</strong>要在稅務年度結束後第 3 個月的第 15 天前申報（2026 曆年為 2027 年 3 月 15 日）。Form 7004 一般可以自動延長 6 個月的申報期限。逾期申報罰款按每位股東、每逾期一個月或不足一個月計算（最多 12 個月）：2025 曆年稅表為 $255，2026 曆年稅表為 $260（Rev. Proc. 2024-40 與 2025-32），如果有應繳稅款，罰款更多。</li>
+          <li><strong>逾期選擇有時可以補救。</strong>Form 2553 填寫說明說明了 Rev. Proc. 2013-30 的救濟：如果有合理原因，而且所有相關股東都一致申報，一般可以在預定生效日後 3 年又 75 天內獲得救濟。</li>
+        </ul>
 
         <h2>並列比較</h2>
 
