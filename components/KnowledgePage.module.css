@@ -253,6 +253,11 @@
   .layout { grid-template-columns: 1fr; }
   .sidebar { position: static; }
   .relatedGrid { grid-template-columns: 1fr; }
+  /* .main's padding shorthand cancels .container's side gutter; restore it below desktop. */
+  .main { padding-left: 32px; padding-right: 32px; }
+}
+@media (max-width: 640px) {
+  .main { padding-left: 18px; padding-right: 18px; }
 }
 
 /* English master title under a translated title (Traditional Chinese guides) */

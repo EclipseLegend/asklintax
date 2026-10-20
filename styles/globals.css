@@ -103,6 +103,9 @@ html[lang="zh-Hant"] body {
 
 @media (max-width: 640px) {
   .container { padding: 0 18px; }
+  /* Article pages lay out comparison cards with inline grid styles; stack them on phones
+     so long words can't push the page wider than the screen. */
+  .article-body [style*="grid-template-columns"] { grid-template-columns: 1fr !important; }
 }
 
 /* ── TAGS ── */
