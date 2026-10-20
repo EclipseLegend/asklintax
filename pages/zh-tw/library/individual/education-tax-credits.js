@@ -14,7 +14,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'education-tax-credits',
-  sourceHash:      'f8dbf702a57a',
+  sourceHash:      'ea8c5492ed0c',
   id:            '60',
   title:         '教育抵稅額：AOTC 與 Lifetime Learning Credit 怎麼選？',
   titleEn:       'Education tax credits: AOTC vs. Lifetime Learning Credit',
@@ -26,7 +26,7 @@ const META = {
   verification:  'official-sources-verified',
   updatedDate:   TAX_CONFIG.lastReviewed,
   taxYear:       String(TAX_CONFIG.currentTaxYear),
-  confidence:    '比較 2025 稅務年度的美國機會抵稅額（American Opportunity Tax Credit）與終身學習抵稅額（Lifetime Learning Credit）。學生貸款利息、529 計畫、Coverdell ESA 與獎學金的課稅不在本文範圍內；完整的資格規定請看 Publication 970',
+  confidence:    '比較 2025 稅務年度的美國機會抵稅額（American Opportunity Tax Credit）與終身學習抵稅額（Lifetime Learning Credit），並說明 Publication 970（2025）所述 2026 年的社會安全號碼規定。學生貸款利息、529 計畫、Coverdell ESA 與獎學金的課稅不在本文範圍內；完整的資格規定請看 Publication 970',
   persona:       ['大學生與他們的父母', '研究生', '為了提升工作技能而上課的成年人', '要支付不只一位學生費用的家庭'],
   relatedJourney: ['支付大學學費', '金錢與福利'],
   actionRequired: '先確認每位學生適合哪一種抵稅額：AOTC 適用於攻讀學位或認可證書、至少半時就讀的大學前四年；終身學習抵稅額適用於其他課程，包括提升工作技能的課程。接著再確認 2025 年的收入限制。',
@@ -139,6 +139,11 @@ export default function EducationTaxCreditsZhTwPage({ translations }) {
           <li><strong>夫妻分開申報（married filing separately）</strong>一般不能申請這些教育抵稅額。</li>
           <li><strong>如果有人把你申報為受扶養人</strong>，你就不能在自己的稅表上申請教育抵稅額。</li>
         </ul>
+
+        <h2>2026 年新規定：社會安全號碼</h2>
+        <p>
+          Publication 970（2025）表示，從 2026 年起，申請 AOTC 或終身學習抵稅額的人，必須有<strong>可用於工作的社會安全號碼（SSN）</strong>，而且是在報稅截止日前核發的。如果申請抵稅額的人不是學生本人，<strong>學生也需要有效的 SSN</strong>。這項規定從 2026 年的稅表開始適用；本文說明的 2025 年規定不變。
+        </p>
 
         <h2>例子（舉例用）</h2>
         <p>

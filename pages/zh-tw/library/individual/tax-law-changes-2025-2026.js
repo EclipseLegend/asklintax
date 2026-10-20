@@ -14,7 +14,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'tax-law-changes-2025-2026',
-  sourceHash:      '04897aad6a19',
+  sourceHash:      '23e5ab073121',
   id:            '66',
   title:         '美國新稅法：2025 與 2026 年報稅有哪些改變？',
   titleEn:       'The 2025 Tax Law: What Changed for Your 2025 and 2026 Returns',
@@ -147,7 +147,7 @@ export default function TaxLawChanges20252026ZhTwPage({ translations }) {
           ]}
         />
         <p>
-          小費、加班費、汽車貸款利息與長者的新扣除額在 2026 年繼續適用。2026 年的小費與加班費由雇主在 Form W-2 上申報，這會改變你找到金額的方式 — 請見小費與加班費指南。IRS 尚未公布最終版的 2026 年 Schedule 1-A 填寫說明。
+          小費、加班費、汽車貸款利息與長者的新扣除額在 2026 年繼續適用。2026 年的小費與加班費由雇主在 Form W-2 上申報，這會改變你找到金額的方式 — 請見小費與加班費指南。IRS 尚未公布最終版的 2026 年 Schedule 1-A 填寫說明。詳細說明：<a href="/zh-tw/library/individual/charitable-deduction-2026/">2026 年慈善捐款</a> · <a href="/zh-tw/library/individual/child-dependent-care-credit/">兒童與受扶養人照顧抵稅額</a> · <a href="/zh-tw/library/individual/trump-accounts/">Trump 帳戶</a>
         </p>
 
         <h2>四項新扣除額怎麼運作</h2>
@@ -166,7 +166,7 @@ export default function TaxLawChanges20252026ZhTwPage({ translations }) {
 
         <h2>汽車貸款利息扣除額</h2>
         <p>
-          你每年最多可以扣除 <strong>$10,000</strong> 用來購買<strong>個人使用</strong>合格車輛的貸款利息。根據 IRS，貸款必須在 2024 年 12 月 31 日之後成立、以車輛設定第一順位擔保（first lien），並用來購買由你首次使用的車輛。車輛必須是總重量評等低於 14,000 磅的轎車、廂型休旅車、廂型車、SUV、皮卡或機車，並在<strong>美國完成最終組裝</strong>。租賃付款不適用，你也必須在稅表上填寫車輛識別號碼（VIN）。
+          你每年最多可以扣除 <strong>$10,000</strong> 用來購買<strong>個人使用</strong>合格車輛的貸款利息。根據 IRS，貸款必須在 2024 年 12 月 31 日之後成立、以車輛設定第一順位擔保（first lien），並用來購買由你首次使用的車輛。車輛必須是總重量評等低於 14,000 磅的轎車、廂型休旅車、廂型車、SUV、皮卡或機車，並在<strong>美國完成最終組裝</strong>。租賃付款不適用，你也必須在稅表上填寫車輛識別號碼（VIN）。詳細說明請見<a href="/zh-tw/library/individual/car-loan-interest-deduction/">汽車貸款利息扣除額指南</a>。
         </p>
 
         <div className="callout callout-warning">

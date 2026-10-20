@@ -141,7 +141,7 @@ export default function TaxLawChanges20252026Page({ translations }) {
           ]}
         />
         <p>
-          The new deductions for tips, overtime, car loan interest, and seniors continue for 2026. For 2026 tips and overtime, employers report the amounts on Form W-2, which changes how you find the numbers — see the tips and overtime guides. The IRS has not yet published final 2026 Schedule 1-A instructions.
+          The new deductions for tips, overtime, car loan interest, and seniors continue for 2026. For 2026 tips and overtime, employers report the amounts on Form W-2, which changes how you find the numbers — see the tips and overtime guides. The IRS has not yet published final 2026 Schedule 1-A instructions. More detail: <a href="/library/individual/charitable-deduction-2026/">charitable donations in 2026</a> · <a href="/library/individual/child-dependent-care-credit/">Child and Dependent Care Credit</a> · <a href="/library/individual/trump-accounts/">Trump accounts</a>
         </p>
 
         <h2>How the four new deductions work</h2>
@@ -160,7 +160,7 @@ export default function TaxLawChanges20252026Page({ translations }) {
 
         <h2>The car loan interest deduction</h2>
         <p>
-          You may deduct up to <strong>$10,000</strong> a year of interest on a loan used to buy a qualifying vehicle for <strong>personal use</strong>. According to the IRS, the loan must have originated after December 31, 2024, be secured by a first lien on the vehicle, and be used to buy a vehicle whose original use began with you. The vehicle must be a car, minivan, van, SUV, pickup truck, or motorcycle with a gross vehicle weight rating under 14,000 pounds that underwent <strong>final assembly in the United States</strong>. Lease payments do not qualify, and you must include the vehicle identification number (VIN) on your return.
+          You may deduct up to <strong>$10,000</strong> a year of interest on a loan used to buy a qualifying vehicle for <strong>personal use</strong>. According to the IRS, the loan must have originated after December 31, 2024, be secured by a first lien on the vehicle, and be used to buy a vehicle whose original use began with you. The vehicle must be a car, minivan, van, SUV, pickup truck, or motorcycle with a gross vehicle weight rating under 14,000 pounds that underwent <strong>final assembly in the United States</strong>. Lease payments do not qualify, and you must include the vehicle identification number (VIN) on your return. See <a href="/library/individual/car-loan-interest-deduction/">the car loan interest deduction guide</a> for details.
         </p>
 
         <div className="callout callout-warning">

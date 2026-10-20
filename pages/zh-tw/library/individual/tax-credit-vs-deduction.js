@@ -13,7 +13,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'tax-credit-vs-deduction',
-  sourceHash:      '55e87f6214ab',
+  sourceHash:      '0393d5d9a085',
   id:            '08',
   title:         '抵稅額（tax credit）與扣除額（deduction）有什麼不同？',
   titleEn:       'Tax credit vs. tax deduction: what\'s the difference?',
@@ -309,7 +309,7 @@ export default function TaxCreditVsDeductionZhTwPage({ translations }) {
               {[
                 ['勞動所得抵稅額（Earned Income Tax Credit, EITC）', '最高 $8,046（2025）；$8,231（2026）', '✅ 是', '有勞動所得的中低收入工作者'],
                 ['兒童抵稅額（Child Tax Credit）', '每個孩子最高 $2,200', '⚡ 部分（$1,700）', '未滿 17 歲、有 SSN 的符合資格子女'],
-                ['兒童與受扶養人照顧抵稅額（Child & Dependent Care Credit）', '最高 $1,050（1 個孩子）', '❌ 否', '為了工作而支付托育費用'],
+                ['兒童與受扶養人照顧抵稅額（Child & Dependent Care Credit）', '1 位符合資格者最高 $1,050（2025：35% × $3,000）；1 位符合資格者最高 $1,500（2026：最高 50% 比率 × $3,000）', '❌ 否', '為了工作而支付托育費用'],
                 ['美國機會抵稅額（American Opportunity Credit）', '最高 $2,500', '⚡ 部分（$1,000）', '大學前 4 年，有收入限制'],
                 ['終身學習抵稅額（Lifetime Learning Credit）', '最高 $2,000', '❌ 否', '任何高中後教育，有收入限制'],
                 ['退休儲蓄抵稅額（Saver\'s Credit）', '最高 $1,000（夫妻合併申報 $2,000）', '❌ 否', '中低收入、有提撥退休帳戶'],
@@ -325,6 +325,10 @@ export default function TaxCreditVsDeductionZhTwPage({ translations }) {
             </tbody>
           </table>
         </div>
+
+        <p>
+          上表中兒童與受扶養人照顧抵稅額的金額，是<strong>1 位符合資格者在最高抵稅比率下的上限</strong>。你實際可以申請的抵稅額，取決於你的收入、與工作相關的照顧費用，以及其他資格規定 — 請見<a href="/zh-tw/library/individual/child-dependent-care-credit/">兒童與受扶養人照顧抵稅額說明</a>。
+        </p>
 
         <h2>兩者如何一起運作：完整流程</h2>
         <p>

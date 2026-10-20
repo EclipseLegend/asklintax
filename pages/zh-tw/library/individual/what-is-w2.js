@@ -13,7 +13,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'what-is-w2',
-  sourceHash:      '1f7566df68d6',
+  sourceHash:      '5f1b6c86b4e7',
   id:            '09',
   title:         '什麼是 W-2？該怎麼看？',
   titleEn:       'What is a W-2 and how do I read it?',
@@ -107,7 +107,7 @@ const W2_BOXES = [
   { box: '4',    label: '已預扣的社會安全稅（Social Security tax withheld）',             color: 'var(--muted)', highlight: false, desc: 'Box 3 的 6.2%。如果 Box 3 是 $0，這裡也應該是 $0。2025 年上限：$10,918（$176,100 薪資上限的 6.2%）。如果你有多位雇主、合計超過上限，超過的部分可能可以退還。', importance: 'Important' },
   { box: '5',    label: '聯邦醫療保險稅薪資與小費（Medicare wages and tips）',                  color: 'var(--muted)', highlight: false, desc: '要繳聯邦醫療保險稅的薪資。通常與 Box 3 相同。和社會安全稅不同，聯邦醫療保險稅沒有薪資上限。', importance: 'Standard' },
   { box: '6',    label: '已預扣的聯邦醫療保險稅（Medicare tax withheld）',                    color: 'var(--muted)', highlight: false, desc: 'Box 5 的 1.45%。高收入者（單身超過 $200,000／夫妻合併申報超過 $250,000）還要繳 0.9% 的額外聯邦醫療保險稅（Additional Medicare Tax）。', importance: 'Standard' },
-  { box: '10',   label: '受扶養人照顧福利（Dependent care benefits）',                  color: 'var(--muted)', highlight: false, desc: '如果雇主提供受扶養人照顧福利（例如受扶養人照顧 FSA），金額會顯示在這裡。前 $5,000 一般免稅。', importance: 'If applicable' },
+  { box: '10',   label: '受扶養人照顧福利（Dependent care benefits）',                  color: 'var(--muted)', highlight: false, desc: '如果雇主提供受扶養人照顧福利（例如受扶養人照顧 FSA），金額會顯示在這裡。2025 年一般最多 $5,000 免稅；2026 年如果雇主的計畫允許，最多 $7,500。', importance: 'If applicable' },
   { box: '12',   label: '代碼（見下方 Box 12 說明）',           color: '#7C3AED',      highlight: true,  desc: '以字母代碼申報的各種薪酬與福利。最常見：Code D（401k 提撥）、Code W（雇主的 HSA 提撥）、Code DD（健康保險成本）。請見下方的 Box 12 說明。', importance: 'Important' },
   { box: '13',   label: '勾選欄（法定員工、退休計畫、第三方病假給付）', color: 'var(--muted)', highlight: false, desc: '「退休計畫」（Retirement plan）勾選欄很重要 — 如果有勾選，依你的收入，可能會影響你扣除傳統 IRA 提撥的能力。', importance: 'Check it' },
   { box: '14',   label: '其他（Other）',                                    color: 'var(--muted)', highlight: false, desc: '雇主申報、不屬於其他欄位的項目。常見內容：州失能保險（SDI）、工會會費、教育補助。多數情況下僅供參考。', importance: 'Informational' },

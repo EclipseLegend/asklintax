@@ -308,7 +308,7 @@ export default function TaxCreditVsDeductionPage({ translations }) {
               {[
                 ['Earned Income Tax Credit (EITC)', 'Up to $8,046 (2025); $8,231 (2026)', '✅ Yes', 'Low-to-moderate income workers with earned income'],
                 ['Child Tax Credit', 'Up to $2,200/child', '⚡ Partial ($1,700)', 'Qualifying children under 17 with SSN'],
-                ['Child & Dependent Care Credit', 'Up to $1,050 (1 child)', '❌ No', 'Paid for childcare while you worked'],
+                ['Child & Dependent Care Credit', 'Up to $1,050 for one qualifying person (2025: 35% × $3,000); up to $1,500 for one qualifying person (2026: maximum 50% rate × $3,000)', '❌ No', 'Paid for childcare while you worked'],
                 ['American Opportunity Credit', 'Up to $2,500', '⚡ Partial ($1,000)', 'First 4 years of college, income limits apply'],
                 ['Lifetime Learning Credit', 'Up to $2,000', '❌ No', 'Any post-secondary education, income limits'],
                 ['Retirement Savings Credit (Saver\'s Credit)', 'Up to $1,000 ($2,000 MFJ)', '❌ No', 'Low-to-moderate income, contributed to retirement account'],
@@ -324,6 +324,10 @@ export default function TaxCreditVsDeductionPage({ translations }) {
             </tbody>
           </table>
         </div>
+
+        <p>
+          The Child and Dependent Care Credit amounts above are the <strong>maximum for one qualifying person at the highest credit rate</strong>. Your actual credit depends on your income, your work-related care expenses, and other eligibility rules — see the <a href="/library/individual/child-dependent-care-credit/">Child and Dependent Care Credit guide</a>.
+        </p>
 
         <h2>How they work together: the full picture</h2>
         <p>

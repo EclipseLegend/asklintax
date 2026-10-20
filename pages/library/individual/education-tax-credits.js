@@ -20,7 +20,7 @@ const META = {
   verification:  'official-sources-verified',
   updatedDate:   TAX_CONFIG.lastReviewed,
   taxYear:       String(TAX_CONFIG.currentTaxYear),
-  confidence:    'Compares the American Opportunity Tax Credit and the Lifetime Learning Credit for tax year 2025. Student loan interest, 529 plans, Coverdell ESAs, and the taxation of scholarships are outside this guide; Publication 970 has the full eligibility rules',
+  confidence:    'Compares the American Opportunity Tax Credit and the Lifetime Learning Credit for tax year 2025, and notes the Social Security number requirement that Publication 970 (2025) describes for 2026. Student loan interest, 529 plans, Coverdell ESAs, and the taxation of scholarships are outside this guide; Publication 970 has the full eligibility rules',
   persona:       ['College students and their parents', 'Graduate students', 'Adults taking courses to improve job skills', 'Families paying for more than one student'],
   relatedJourney: ['Paying for college', 'Money & Benefits'],
   actionRequired: 'Check which credit fits each student: the AOTC for the first four years of postsecondary education toward a degree or credential, at least half-time; the Lifetime Learning Credit for other courses, including job-skills courses. Then check the 2025 income limits.',
@@ -133,6 +133,11 @@ export default function EducationTaxCreditsPage({ translations }) {
           <li><strong>Married filing separately</strong> generally cannot claim these education credits.</li>
           <li><strong>If someone else claims you as a dependent</strong>, you cannot claim the education credit on your own return.</li>
         </ul>
+
+        <h2>New for 2026: Social Security number requirement</h2>
+        <p>
+          Publication 970 (2025) says that beginning in 2026, anyone claiming the AOTC or the Lifetime Learning Credit must have a <strong>Social Security number (SSN) that is valid for work</strong> and that was issued before the due date of the return. If the person claiming the credit is not the student, the <strong>student also needs a valid SSN</strong>. This applies starting with 2026 returns; the 2025 rules in this guide are unchanged.
+        </p>
 
         <h2>Examples (illustrative)</h2>
         <p>
