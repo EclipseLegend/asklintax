@@ -14,7 +14,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'owe-taxes-withholding-w4',
-  sourceHash: '90a802075205',
+  sourceHash: '67333e63cfa3',
   id:            '65',
   title:         '為什麼今年要補稅？看懂 W-4 與預扣稅',
   titleEn:       'Why do I owe taxes this year? Understanding your W-4 and withholding',
@@ -138,7 +138,7 @@ export default function OweTaxesWithholdingW4ZhTwPage({ translations }) {
 
         <div className="callout callout-info">
           <div className="callout-title">ℹ️ 2026 年的 Form W-4</div>
-          <p>2026 年的 Form W-4 已經更新，員工可以透過 Step 4(b) 的扣除額計算表（Deductions Worksheet），把 2025 年稅法下的新聯邦扣除額 — 例如合格小費、加班費與乘用車貸款利息的扣除 — 納入考量。每一項扣除都有自己的資格與上限；本文不說明這些細節。</p>
+          <p>2026 年的 Form W-4 已經更新，員工可以透過 Step 4(b) 的扣除額計算表（Deductions Worksheet），把 2025 年稅法下的新聯邦扣除額 — 例如合格小費、加班費與乘用車貸款利息的扣除 — 納入考量。每一項扣除都有自己的資格與上限 — 請見<a href="/zh-tw/library/individual/no-tax-on-tips/">小費免稅？</a>、<a href="/zh-tw/library/individual/no-tax-on-overtime/">加班費免稅？</a>，以及<a href="/zh-tw/library/individual/tax-law-changes-2025-2026/">2025 年新稅法總覽</a>。</p>
         </div>
 
         <h2>預扣稅與預估稅</h2>

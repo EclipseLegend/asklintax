@@ -132,7 +132,7 @@ export default function OweTaxesWithholdingW4Page({ translations }) {
 
         <div className="callout callout-info">
           <div className="callout-title">ℹ️ The 2026 Form W-4</div>
-          <p>The 2026 Form W-4 was updated so employees can account for new federal deductions under the 2025 tax law — such as those for qualified tips, overtime pay, and passenger vehicle loan interest — through the Step 4(b) Deductions Worksheet. Each deduction has its own eligibility rules and limits; this guide does not cover them.</p>
+          <p>The 2026 Form W-4 was updated so employees can account for new federal deductions under the 2025 tax law — such as those for qualified tips, overtime pay, and passenger vehicle loan interest — through the Step 4(b) Deductions Worksheet. Each deduction has its own eligibility rules and limits — see <a href="/library/individual/no-tax-on-tips/">No Tax on Tips</a>, <a href="/library/individual/no-tax-on-overtime/">No Tax on Overtime</a>, and <a href="/library/individual/tax-law-changes-2025-2026/">the 2025 tax law overview</a>.</p>
         </div>
 
         <h2>Withholding vs. estimated tax</h2>
