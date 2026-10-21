@@ -20,10 +20,15 @@ const META = {
   sources: [
     { label: 'IRS — Digital assets', url: 'https://www.irs.gov/filing/digital-assets' },
     { label: 'IRS — Topic no. 409, Capital gains and losses', url: 'https://www.irs.gov/taxtopics/tc409' },
+    { label: 'IRS — Frequently asked questions on digital asset transactions', url: 'https://www.irs.gov/individuals/international-taxpayers/frequently-asked-questions-on-digital-asset-transactions' },
+    { label: 'IRS — Revenue Ruling 2023-14 (staking rewards)', url: 'https://www.irs.gov/pub/irs-drop/rr-23-14.pdf' },
+    { label: 'IRS — Notice 2023-27 (certain NFTs as collectibles)', url: 'https://www.irs.gov/pub/irs-drop/n-23-27.pdf' },
+    { label: 'IRS — Revenue Procedure 2024-28 (basis by wallet or account as of January 1, 2025)', url: 'https://www.irs.gov/pub/irs-drop/rp-24-28.pdf' },
+    { label: 'IRS — 2025 Instructions for Form 8949 (digital asset boxes G through L)', url: 'https://www.irs.gov/pub/irs-pdf/i8949.pdf' },
   ],
   updatedDate: TAX_CONFIG.lastReviewed,
   taxYear: String(TAX_CONFIG.currentTaxYear),
-  confidence: 'Covers the IRS\'s current position on cryptocurrency taxation as of Tax Year 2025. This is a rapidly evolving area — rules for DeFi, NFTs, and staking rewards continue to develop.',
+  confidence: 'Covers the IRS\'s current position on cryptocurrency taxation for tax years 2025 and 2026, including Form 1099-DA, wallet-by-wallet basis, staking (Revenue Ruling 2023-14), and NFTs (Notice 2023-27). This is a rapidly evolving area — rules for DeFi, NFTs, and staking continue to develop.',
   persona: ['Crypto investor', 'Bitcoin holder', 'NFT buyer or seller', 'DeFi participant', 'Anyone who bought or sold cryptocurrency'],
   relatedJourney: ['Investments & crypto', 'Side income from investments'],
   actionRequired: 'If you bought, sold, traded, or earned any cryptocurrency this year, you have a tax reporting obligation. Pull your complete transaction history from every exchange and wallet before filing. Sales, exchanges, and other dispositions go on Form 8949; ordinary income such as staking or mining rewards goes on Schedule 1 (or Schedule C if you received it in a business).',
@@ -34,8 +39,9 @@ const FAQS = [
   { q: 'I traded one cryptocurrency for another. Is that taxable?', a: 'Yes. Trading one cryptocurrency for another — Bitcoin for Ethereum, for example — is treated as a taxable sale. You are deemed to have sold the first currency at its fair market value at the time of the trade, and any gain or loss from your original purchase price is taxable. This surprises many crypto investors who assume swapping between coins is not a taxable event.' },
   { q: 'What records do I need to keep for crypto taxes?', a: 'For every crypto transaction, you need: the date of acquisition, the amount purchased and the cost basis (what you paid, in USD at time of purchase), the date of disposal, the amount received and the fair market value at time of disposal, and the type of transaction (purchase, sale, trade, gift, etc.). Most exchanges provide transaction history exports. Use crypto tax software (Koinly, TaxBit, CoinTracker) to aggregate across multiple exchanges and wallets.' },
   { q: 'I lost money on crypto. Can I use those losses?', a: 'Yes. Capital losses from crypto can offset capital gains from crypto and other investments. If your net capital losses exceed your gains, you can deduct up to $3,000 of net losses against ordinary income per year. Excess losses carry forward to future years. This is called tax-loss harvesting, and it\'s one of the few silver linings of a crypto downturn.' },
-  { q: 'Are staking rewards and mining income taxable?', a: 'Yes. Staking rewards and mining income are treated as ordinary income at the fair market value of the crypto when received. You then have a cost basis equal to that value for when you later sell. So you pay ordinary income tax when you receive the reward, and capital gains tax (or loss) when you eventually sell it.' },
-  { q: 'What about NFTs — are they taxed the same as crypto?', a: 'The IRS treats NFTs similarly to other capital assets. Selling an NFT for more than you paid is a taxable capital gain. Buying an NFT with cryptocurrency is also a taxable event — you\'re selling the crypto. Creating and selling NFTs as a business activity may generate self-employment income rather than capital gains. The NFT space is still evolving from a tax perspective.' },
+  { q: 'Are staking rewards and mining income taxable?', a: 'Yes. Staking rewards and mining income are treated as ordinary income at the fair market value of the crypto when received. You then have a cost basis equal to that value for when you later sell. So you pay ordinary income tax when you receive the reward, and capital gains tax (or loss) when you eventually sell it. Under Revenue Ruling 2023-14, a cash-method taxpayer includes staking rewards in income in the tax year the taxpayer gains dominion and control over them.' },
+  { q: 'What about NFTs — are they taxed the same as crypto?', a: 'The IRS treats NFTs similarly to other capital assets. Selling an NFT for more than you paid is a taxable capital gain. Buying an NFT with cryptocurrency is also a taxable event — you\'re selling the crypto. Creating and selling NFTs as a business activity may generate self-employment income rather than capital gains. Under Notice 2023-27, the IRS intends to treat an NFT as a collectible if its associated right or asset is a collectible (for example, a work of art or a gem), so long-term gain on it may be taxed at up to 28%. The NFT space is still evolving from a tax perspective.' },
+  { q: 'Do transaction fees affect my taxes?', a: 'Yes. Fees you pay to acquire crypto are included in your basis. Moving crypto between your own wallets is not taxable, except that crypto you use, or that is withheld, to pay the transaction fee is a disposition of that crypto, according to the IRS digital asset FAQs.' },
   { q: 'I used crypto to buy something. Is that taxable?', a: 'Yes. Using cryptocurrency to purchase goods or services is treated as a sale of that crypto at its fair market value at the time of purchase. If the crypto appreciated since you acquired it, you have a capital gain. If it declined, you have a capital loss. Every crypto purchase — even buying a coffee with Bitcoin — is potentially a taxable event.' },
 ]
 
@@ -54,9 +60,9 @@ const TAXABLE_EVENTS = [
   { event: 'Airdrops received', taxable: true, type: 'Ordinary income (at receipt)' },
   { event: 'Receiving crypto as payment for work', taxable: true, type: 'Ordinary income' },
   { event: 'Holding crypto (even with unrealized gains)', taxable: false, type: 'Not taxable — no realization event' },
-  { event: 'Transferring crypto between your own wallets', taxable: false, type: 'Not taxable — same owner' },
+  { event: 'Transferring crypto between your own wallets', taxable: false, type: 'Not taxable — same owner (but crypto used to pay the transfer fee is disposed of)' },
   { event: 'Buying crypto with USD', taxable: false, type: 'Not taxable — establishes cost basis' },
-  { event: 'Gifting crypto (under annual gift limit)', taxable: false, type: 'Not taxable for giver; recipient takes your basis' },
+  { event: 'Giving crypto as a bona fide gift', taxable: false, type: 'Not a sale by the giver; a gift tax return may be needed for gifts over $19,000 per person (2025 and 2026). The recipient generally takes your basis, with a special rule for losses' },
 ]
 
 export default function CryptoTaxPage({ translations }) {
@@ -119,7 +125,7 @@ export default function CryptoTaxPage({ translations }) {
 
         <div className="callout callout-action">
           <div className="callout-title">✅ How to report crypto on your return</div>
-          <p>Report every sale, trade, and disposal on <strong>Form 8949</strong> (Sales and Other Dispositions of Capital Assets). Totals flow to <strong>Schedule D</strong>. Most tax software imports crypto transaction history directly from major exchanges. For complex situations (multiple wallets, DeFi activity), dedicated crypto tax software (Koinly, TaxBit, CoinTracker) aggregates transactions across platforms and generates the necessary forms.</p>
+          <p>Report every sale, trade, and disposal on <strong>Form 8949</strong> (Sales and Other Dispositions of Capital Assets). For 2025, use the new digital asset boxes <strong>G, H, or I</strong> (short-term) and <strong>J, K, or L</strong> (long-term) — not boxes C or F. Totals flow to <strong>Schedule D</strong>. Brokers report 2025 sales on the new <strong>Form 1099-DA</strong>, generally showing gross proceeds but not basis; basis reporting starts with covered assets in 2026. Since January 1, 2025, basis must also be tracked <strong>wallet by wallet</strong> (Revenue Procedure 2024-28). See <a href="/library/investment/form-1099-da/">Form 1099-DA</a>. Most tax software imports crypto transaction history directly from major exchanges. For complex situations (multiple wallets, DeFi activity), dedicated crypto tax software (Koinly, TaxBit, CoinTracker) aggregates transactions across platforms and generates the necessary forms.</p>
         </div>
 
       </KnowledgePage>

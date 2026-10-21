@@ -14,7 +14,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'stock-sale-capital-gains',
-  sourceHash:      '309862cddc80',
+  sourceHash:      '0e1a7d029031',
   id:            '61',
   title:         '賣股票賺錢，資本利得怎麼課稅？',
   titleEn:       'I sold stock — how are capital gains taxed?',
@@ -111,6 +111,10 @@ export default function StockSaleCapitalGainsZhTwPage({ translations }) {
         <p>
           每一筆出售的獲利或虧損，一般是你收到的金額減去<strong>成本基礎</strong>（cost basis）。成本基礎通常從你買進股票的價格開始，包括某些買進費用。如果你在不同時間買進同一檔股票，每一批都可能有不同的成本基礎與持有期間。
         </p>
+        <div className="callout callout-warning">
+          <div className="callout-title">⚠️ 來自工作的公司股票</div>
+          <p>如果你是透過 <a href="/zh-tw/library/investment/rsu-taxes/">RSU</a>、<a href="/zh-tw/library/investment/espp-taxes/">ESPP</a> 或股票選擇權取得股票，你已經以工資申報的所得是成本基礎的一部分。2013 年之後授予的獎酬，Form 1099-B 上的成本基礎不會包含這筆所得，所以你可能需要在 Form 8949 上更正，以免被課兩次稅。請見<a href="/zh-tw/library/investment/cost-basis-form-1099-b/">成本基礎與 Form 1099-B</a>。</p>
+        </div>
 
         <h2>第二步：短期還是長期？</h2>
         <ArticleTable
@@ -174,7 +178,7 @@ export default function StockSaleCapitalGainsZhTwPage({ translations }) {
         <ul>
           <li><strong>收藏品</strong>的獲利最高可能適用 28% 稅率；某些不動產獲利（unrecaptured section 1250 gain）最高 25%。</li>
           <li>合格小型企業股票有自己的規定。</li>
-          <li><strong>加密貨幣</strong>也是財產，但有自己的申報細節 — 請見<a href="/zh-tw/library/investment/crypto-tax/">加密貨幣稅務說明</a>。</li>
+          <li><strong>加密貨幣</strong>也是財產，但有自己的申報細節 — 請見<a href="/zh-tw/library/investment/crypto-tax/">加密貨幣稅務說明</a>。經紀商用新的 <a href="/zh-tw/library/investment/form-1099-da/">Form 1099-DA</a>（不是 Form 1099-B）申報數位資產的出售，而且要填在 Form 8949 專用的欄位（G 至 L）。</li>
           <li><strong>海外</strong>的證券帳戶還會牽涉 FBAR 與 Form 8938 — 請見<a href="/zh-tw/library/investment/foreign-brokerage-account/">海外股票與證券帳戶怎麼申報？</a></li>
         </ul>
         <p>

@@ -31,6 +31,7 @@ const META = {
     { label: 'IRS — Instructions for Form 8949 (2025)', url: 'https://www.irs.gov/instructions/i8949' },
     { label: 'IRS — Rev. Rul. 2008-5, wash sales and IRAs', url: 'https://www.irs.gov/pub/irs-drop/rr-08-05.pdf' },
     { label: 'IRS — Publication 544 (2025), Sales and Other Dispositions of Assets', url: 'https://www.irs.gov/publications/p544' },
+    { label: 'IRS — 2026 Instructions for Form 1099-DA (box 1i, wash sales of tokenized securities)', url: 'https://www.irs.gov/pub/irs-pdf/i1099da.pdf' },
   ],
 }
 
@@ -137,6 +138,9 @@ export default function CapitalLossesPage({ translations }) {
         />
         <p>
           A wash sale applies even if it does not appear on your Form 1099-B.
+        </p>
+        <p>
+          <strong>Digital assets:</strong> the wash sale rule applies to stock or securities. The 2026 Instructions for Form 1099-DA require brokers to report disallowed wash sale losses for <strong>tokenized securities</strong> — digital assets treated as stock or securities — in box 1i. The IRS sources reviewed for this guide do not say whether, or how, the wash sale rule applies to other digital assets, such as bitcoin, so this guide takes no position. Do not assume every crypto transaction is exempt; check current IRS guidance or get professional advice. See <a href="/library/investment/crypto-tax/">Crypto taxes explained</a>.
         </p>
 
         <div className="callout callout-warning">

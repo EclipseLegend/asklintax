@@ -105,6 +105,10 @@ export default function StockSaleCapitalGainsPage({ translations }) {
         <p>
           For each sale, your gain or loss is generally the amount you received minus your <strong>cost basis</strong>. Basis usually starts with what you paid for the shares, including certain costs of buying them. If you bought the same stock at different times, each lot can have a different basis and holding period.
         </p>
+        <div className="callout callout-warning">
+          <div className="callout-title">⚠️ Company stock from your job</div>
+          <p>If you got the shares through <a href="/library/investment/rsu-taxes/">RSUs</a>, an <a href="/library/investment/espp-taxes/">ESPP</a>, or stock options, the income you already reported as wages is part of your basis. For awards granted after 2013, the basis on Form 1099-B won't include that income, so you may need to correct it on Form 8949 to avoid being taxed twice. See <a href="/library/investment/cost-basis-form-1099-b/">cost basis and Form 1099-B</a>.</p>
+        </div>
 
         <h2>Step 2: short-term or long-term?</h2>
         <ArticleTable
@@ -168,7 +172,7 @@ export default function StockSaleCapitalGainsPage({ translations }) {
         <ul>
           <li>Gains on <strong>collectibles</strong> can be taxed at up to 28%, and some gain on real property (unrecaptured section 1250 gain) at up to 25%.</li>
           <li>Qualified small business stock has its own rules.</li>
-          <li><strong>Crypto</strong> is also property but has its own reporting details — see <a href="/library/investment/crypto-tax/">Crypto taxes explained</a>.</li>
+          <li><strong>Crypto</strong> is also property but has its own reporting details — see <a href="/library/investment/crypto-tax/">Crypto taxes explained</a>. Brokers report digital asset sales on the new <a href="/library/investment/form-1099-da/">Form 1099-DA</a>, not Form 1099-B, and they go in their own Form 8949 boxes (G through L).</li>
           <li>A brokerage account <strong>abroad</strong> also raises FBAR and Form 8938 questions — see <a href="/library/investment/foreign-brokerage-account/">Foreign brokerage accounts and stocks</a>.</li>
         </ul>
         <p>

@@ -13,7 +13,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'crypto-tax',
-  sourceHash:      '422497bf0cea',
+  sourceHash:      '837949f96b57',
   id: '19',
   title: '加密貨幣稅務說明：什麼時候要繳稅？',
   titleEn: 'Crypto taxes explained: when is crypto taxable?',
@@ -26,10 +26,15 @@ const META = {
   sources: [
     { label: 'IRS — 數位資產（Digital assets）', url: 'https://www.irs.gov/filing/digital-assets' },
     { label: 'IRS — Topic no. 409，資本利得與損失（Capital gains and losses）', url: 'https://www.irs.gov/taxtopics/tc409' },
+    { label: 'IRS — 數位資產交易常見問題（Frequently asked questions on digital asset transactions）', url: 'https://www.irs.gov/individuals/international-taxpayers/frequently-asked-questions-on-digital-asset-transactions' },
+    { label: 'IRS — Revenue Ruling 2023-14（質押獎勵）', url: 'https://www.irs.gov/pub/irs-drop/rr-23-14.pdf' },
+    { label: 'IRS — Notice 2023-27（某些 NFT 視為收藏品）', url: 'https://www.irs.gov/pub/irs-drop/n-23-27.pdf' },
+    { label: 'IRS — Revenue Procedure 2024-28（2025 年 1 月 1 日起按錢包或帳戶分配成本基礎）', url: 'https://www.irs.gov/pub/irs-drop/rp-24-28.pdf' },
+    { label: 'IRS — 2025 年 Form 8949 填寫說明（數位資產 G 至 L 欄）', url: 'https://www.irs.gov/pub/irs-pdf/i8949.pdf' },
   ],
   updatedDate: TAX_CONFIG.lastReviewed,
   taxYear: String(TAX_CONFIG.currentTaxYear),
-  confidence: '涵蓋截至 2025 稅務年度 IRS 對加密貨幣課稅的現行立場。這是變化很快的領域 — DeFi、NFT 與質押（Staking）獎勵的規則仍在發展中。',
+  confidence: '涵蓋 2025 與 2026 稅務年度 IRS 對加密貨幣課稅的現行立場，包括 Form 1099-DA、按錢包計算的成本基礎、質押（Revenue Ruling 2023-14）與 NFT（Notice 2023-27）。這是變化很快的領域 — DeFi、NFT 與質押（Staking）的規則仍在發展中。',
   persona: ['加密貨幣投資人', '比特幣持有人', 'NFT 買家或賣家', 'DeFi 參與者', '買賣過加密貨幣的人'],
   relatedJourney: ['投資與加密貨幣', '投資帶來的副業收入'],
   actionRequired: '如果你今年買入、賣出、交易或賺取了任何加密貨幣，你就有稅務申報義務。報稅前，從每一個交易所與錢包匯出完整的交易紀錄。出售、交換與其他處分在 Form 8949 上申報；質押或挖礦獎勵等一般所得，則在 Schedule 1 上申報（如果是在營業中收到，則在 Schedule C 上申報）。',
@@ -40,8 +45,9 @@ const FAQS = [
   { q: '我把一種加密貨幣換成另一種，要繳稅嗎？', a: '要。把一種加密貨幣換成另一種 — 例如用比特幣換以太幣 — 會被視為應稅的出售。你被視為以交易當時的公平市價賣出第一種貨幣，與你原始購買價格之間的任何利得或損失都要課稅。許多加密貨幣投資人以為幣與幣之間的交換不是應稅事件，這讓他們很意外。' },
   { q: '加密貨幣報稅需要保留哪些紀錄？', a: '每一筆加密貨幣交易，你都需要：取得日期、購買數量與成本基礎（Cost Basis，購買當時以美元計算的支付金額）、處分日期、收到的金額與處分當時的公平市價，以及交易類型（買入、賣出、交易、贈與等）。多數交易所都能匯出交易紀錄。可以使用加密貨幣報稅軟體（Koinly、TaxBit、CoinTracker）彙整多個交易所與錢包的資料。' },
   { q: '我在加密貨幣上虧了錢，這些損失可以用嗎？', a: '可以。加密貨幣的資本損失可以抵銷加密貨幣與其他投資的資本利得。如果你的淨資本損失超過利得，每年最多可以用 $3,000 的淨損失抵減一般所得，超過的部分可以結轉到以後年度。這叫做稅損收割（Tax-Loss Harvesting），是加密貨幣下跌時少數的好處之一。' },
-  { q: '質押獎勵與挖礦收入要繳稅嗎？', a: '要。質押獎勵與挖礦收入，以收到時加密貨幣的公平市價，視為一般所得（Ordinary Income）。之後你出售時，成本基礎就等於這個價值。所以你在收到獎勵時繳一般所得稅，最後出售時再繳資本利得稅（或認列損失）。' },
-  { q: 'NFT 呢？和加密貨幣的課稅方式一樣嗎？', a: 'IRS 對 NFT 的處理方式與其他資本資產類似。以高於購買價格的金額出售 NFT，是應稅的資本利得。用加密貨幣購買 NFT 也是應稅事件 — 因為你等於賣出了加密貨幣。以營業活動的方式創作與出售 NFT，可能產生自雇收入，而不是資本利得。從稅務角度來看，NFT 領域仍在發展中。' },
+  { q: '質押獎勵與挖礦收入要繳稅嗎？', a: '要。質押獎勵與挖礦收入，以收到時加密貨幣的公平市價，視為一般所得（Ordinary Income）。之後你出售時，成本基礎就等於這個價值。所以你在收到獎勵時繳一般所得稅，最後出售時再繳資本利得稅（或認列損失）。依 Revenue Ruling 2023-14，採現金收付制的納稅人，要在取得獎勵的支配與控制權（dominion and control）的那個稅務年度，把質押獎勵計入所得。' },
+  { q: 'NFT 呢？和加密貨幣的課稅方式一樣嗎？', a: 'IRS 對 NFT 的處理方式與其他資本資產類似。以高於購買價格的金額出售 NFT，是應稅的資本利得。用加密貨幣購買 NFT 也是應稅事件 — 因為你等於賣出了加密貨幣。以營業活動的方式創作與出售 NFT，可能產生自雇收入，而不是資本利得。依 Notice 2023-27，如果 NFT 所連結的權利或資產是收藏品（例如藝術品或寶石），IRS 打算把這個 NFT 視為收藏品，因此長期利得的稅率最高可能是 28%。從稅務角度來看，NFT 領域仍在發展中。' },
+  { q: '交易手續費會影響我的稅嗎？', a: '會。為了取得加密貨幣而支付的手續費，要計入你的成本基礎。在你自己的錢包之間移轉加密貨幣不用繳稅，但依 IRS 數位資產常見問題，用來支付（或被扣下支付）移轉手續費的加密貨幣，屬於處分這部分加密貨幣。' },
   { q: '我用加密貨幣買東西，要繳稅嗎？', a: '要。用加密貨幣購買商品或服務，會被視為以購買當時的公平市價出售這筆加密貨幣。如果加密貨幣在你取得之後升值，你就有資本利得；如果下跌，你就有資本損失。每一筆用加密貨幣的消費 — 即使是用比特幣買一杯咖啡 — 都可能是應稅事件。' },
 ]
 
@@ -60,9 +66,9 @@ const TAXABLE_EVENTS = [
   { event: '收到空投（Airdrop）', taxable: true, type: '一般所得（收到時）' },
   { event: '以加密貨幣收取工作報酬', taxable: true, type: '一般所得' },
   { event: '持有加密貨幣（即使有未實現利得）', taxable: false, type: '不用繳稅 — 沒有實現事件' },
-  { event: '在你自己的錢包之間轉移加密貨幣', taxable: false, type: '不用繳稅 — 同一個擁有人' },
+  { event: '在你自己的錢包之間轉移加密貨幣', taxable: false, type: '不用繳稅 — 同一個擁有人（但用來支付移轉手續費的加密貨幣屬於處分）' },
   { event: '用美元購買加密貨幣', taxable: false, type: '不用繳稅 — 建立成本基礎' },
-  { event: '贈送加密貨幣（在年度贈與免稅額以內）', taxable: false, type: '贈與人不用繳稅；受贈人沿用你的成本基礎' },
+  { event: '以真正的贈與送出加密貨幣', taxable: false, type: '對贈與人來說不是出售；送給同一人超過 $19,000（2025 與 2026 年）時可能需要申報贈與稅表。受贈人一般沿用你的成本基礎，損失另有特別規定' },
 ]
 
 export default function CryptoTaxZhTwPage({ translations }) {
@@ -125,7 +131,7 @@ export default function CryptoTaxZhTwPage({ translations }) {
 
         <div className="callout callout-action">
           <div className="callout-title">✅ 如何在稅表上申報加密貨幣</div>
-          <p>每一筆出售、交易與處分都要在 <strong>Form 8949</strong>（Sales and Other Dispositions of Capital Assets）上申報，合計數字再轉到 <strong>Schedule D</strong>。多數報稅軟體可以直接從主要交易所匯入加密貨幣交易紀錄。比較複雜的情況（多個錢包、DeFi 活動），可以用專門的加密貨幣報稅軟體（Koinly、TaxBit、CoinTracker）彙整各平台的交易，並產生所需的表格。</p>
+          <p>每一筆出售、交易與處分都要在 <strong>Form 8949</strong>（Sales and Other Dispositions of Capital Assets）上申報。2025 年請使用新的數位資產欄位 <strong>G、H 或 I</strong>（短期）與 <strong>J、K 或 L</strong>（長期）— 不要用 C 或 F 欄。合計數字再轉到 <strong>Schedule D</strong>。經紀商用新的 <strong>Form 1099-DA</strong> 申報 2025 年的出售，一般列出總收入但不列成本基礎；成本基礎申報從 2026 年的受涵蓋資產開始。從 2025 年 1 月 1 日起，成本基礎也必須<strong>按錢包</strong>分別追蹤（Revenue Procedure 2024-28）。請見<a href="/zh-tw/library/investment/form-1099-da/">Form 1099-DA</a>。多數報稅軟體可以直接從主要交易所匯入加密貨幣交易紀錄。比較複雜的情況（多個錢包、DeFi 活動），可以用專門的加密貨幣報稅軟體（Koinly、TaxBit、CoinTracker）彙整各平台的交易，並產生所需的表格。</p>
         </div>
 
       </KnowledgePage>

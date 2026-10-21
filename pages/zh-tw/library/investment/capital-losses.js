@@ -14,7 +14,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'capital-losses',
-  sourceHash:      'afc7ec360739',
+  sourceHash:      'd58c1c71ac99',
   id:            '62',
   title:         '股票賠錢，可以抵稅嗎？',
   titleEn:       'I lost money on stocks — can I deduct it?',
@@ -37,6 +37,7 @@ const META = {
     { label: 'IRS — Form 8949 填寫說明（2025）', url: 'https://www.irs.gov/instructions/i8949' },
     { label: 'IRS — Rev. Rul. 2008-5，洗售與 IRA（wash sales and IRAs）', url: 'https://www.irs.gov/pub/irs-drop/rr-08-05.pdf' },
     { label: 'IRS — Publication 544（2025），資產的出售與處分（Sales and Other Dispositions of Assets）', url: 'https://www.irs.gov/publications/p544' },
+    { label: 'IRS — 2026 年 Form 1099-DA 填寫說明（box 1i，代幣化證券的洗售）', url: 'https://www.irs.gov/pub/irs-pdf/i1099da.pdf' },
   ],
 }
 
@@ -143,6 +144,9 @@ export default function CapitalLossesZhTwPage({ translations }) {
         />
         <p>
           即使 Form 1099-B 上沒有顯示，洗售規定仍然適用。
+        </p>
+        <p>
+          <strong>數位資產：</strong>洗售規定適用於股票或證券。2026 年 Form 1099-DA 填寫說明要求經紀商在 box 1i 申報<strong>代幣化證券</strong>（tokenized securities，也就是被視為股票或證券的數位資產）被否認的洗售虧損。本文查閱的 IRS 資料沒有說明洗售規定是否、或如何適用於其他數位資產（例如比特幣），因此本文不表示立場。不要以為所有加密貨幣交易都不受洗售規定限制；請查看最新的 IRS 指引或尋求專業建議。請見<a href="/zh-tw/library/investment/crypto-tax/">加密貨幣稅務說明</a>。
         </p>
 
         <div className="callout callout-warning">
