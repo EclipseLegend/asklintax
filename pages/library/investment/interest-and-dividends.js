@@ -116,7 +116,7 @@ export default function InterestAndDividendsPage({ translations }) {
           ]}
         />
         <p>
-          To be qualified, you generally must have held the stock for <strong>more than 60 days</strong> during the <strong>121-day period</strong> that begins 60 days before the ex-dividend date (preferred stock has a longer test). Some dividends never qualify. Box 1b is a starting point, but it is not the final word: payers may include dividends in Box 1b when it is impractical for them to determine whether the holding period was met, so check your own holding period before treating a Box 1b amount as qualified. For the capital gain rate thresholds by year, see <a href="/library/investment/stock-sale-capital-gains/">I sold stock — how are capital gains taxed?</a>
+          To be qualified, you generally must have held the stock for <strong>more than 60 days</strong> during the <strong>121-day period</strong> that begins 60 days before the ex-dividend date. For preferred stock with dividends due to periods totaling more than 366 days, the test is more than 90 days during the 181-day period that begins 90 days before the ex-dividend date. Some dividends never qualify. Box 1b is a starting point, but it is not the final word: payers may include dividends in Box 1b when it is impractical for them to determine whether the holding period was met, so check your own holding period before treating a Box 1b amount as qualified. For the other boxes on your forms, such as capital gain distributions and return of capital, see <a href="/library/investment/form-1099-div-1099-int-boxes/">Form 1099-DIV and 1099-INT explained box by box</a>. For the capital gain rate thresholds by year, see <a href="/library/investment/stock-sale-capital-gains/">I sold stock — how are capital gains taxed?</a>
         </p>
 
         <p>
@@ -140,7 +140,7 @@ export default function InterestAndDividendsPage({ translations }) {
 
         <h2>At higher incomes</h2>
         <p>
-          Interest and dividends are investment income for the separate 3.8% net investment income tax, which can apply when modified adjusted gross income exceeds $200,000 (single or head of household), $250,000 (married filing jointly), or $125,000 (married filing separately).
+          Interest and dividends are investment income for the separate 3.8% net investment income tax, which can apply when modified adjusted gross income exceeds $200,000 (single or head of household), $250,000 (married filing jointly or qualifying surviving spouse), or $125,000 (married filing separately). See <a href="/library/investment/net-investment-income-tax/">the net investment income tax guide</a>. If you borrowed to buy investments, see <a href="/library/investment/investment-interest-expense/">investment interest expense</a>.
         </p>
 
       </KnowledgePage>

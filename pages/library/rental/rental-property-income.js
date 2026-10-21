@@ -50,7 +50,7 @@ const FAQS = [
   },
   {
     q: 'Does depreciation matter when I sell?',
-    a: 'Yes. Depreciation reduces your basis in the property, which affects your gain when you sell. If the property was once your main home, see "I sold my house — do I have to pay tax on the profit?"',
+    a: 'Yes. Depreciation reduces your basis in the property, which affects your gain when you sell. See "Selling a Rental Property: Depreciation Recapture and the 25% Rate." If the property was once your main home, see "I sold my house — do I have to pay tax on the profit?"',
   },
 ]
 
@@ -127,7 +127,7 @@ export default function RentalPropertyIncomePage({ translations }) {
           <li>A residential rental building is generally depreciated over <strong>27.5 years</strong> under the normal General Depreciation System (GDS) rules.</li>
           <li><strong>Land is not depreciated.</strong> Only the building (and certain improvements) can be depreciated, so the cost has to be split between land and building.</li>
           <li>Depreciation generally begins when the property is <strong>placed in service</strong> — when it is ready and available for rent.</li>
-          <li>Depreciation reduces your basis, which affects your gain when you eventually sell.</li>
+          <li>Depreciation reduces your basis, which affects your gain when you eventually sell. See <a href="/library/rental/selling-rental-property/">selling a rental property</a>.</li>
         </ul>
         <p>
           Publication 946 and Publication 527 explain how to figure it.

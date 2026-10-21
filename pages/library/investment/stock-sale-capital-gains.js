@@ -150,7 +150,7 @@ export default function StockSaleCapitalGainsPage({ translations }) {
 
         <div className="callout callout-info">
           <div className="callout-title">ℹ️ A separate 3.8% tax at higher incomes</div>
-          <p>The net investment income tax is a separate 3.8% tax that can apply to investment income, including capital gains, when modified adjusted gross income exceeds $200,000 (single or head of household), $250,000 (married filing jointly), or $125,000 (married filing separately). These thresholds are not adjusted for inflation.</p>
+          <p>The net investment income tax is a separate 3.8% tax that can apply to investment income, including capital gains, when modified adjusted gross income exceeds $200,000 (single or head of household), $250,000 (married filing jointly or qualifying surviving spouse), or $125,000 (married filing separately). These thresholds are not adjusted for inflation. See <a href="/library/investment/net-investment-income-tax/">the net investment income tax guide</a>.</p>
         </div>
 
         <h2>Step 3: report it</h2>
@@ -170,7 +170,7 @@ export default function StockSaleCapitalGainsPage({ translations }) {
 
         <h2>Exceptions to know about</h2>
         <ul>
-          <li>Gains on <strong>collectibles</strong> can be taxed at up to 28%, and some gain on real property (unrecaptured section 1250 gain) at up to 25%.</li>
+          <li>Gains on <strong>collectibles</strong> can be taxed at up to 28% — see <a href="/library/investment/collectibles-tax/">the collectibles guide</a> — and some gain on real property (unrecaptured section 1250 gain) at up to 25% — see <a href="/library/rental/selling-rental-property/">selling a rental property</a>. Both are maximum rates, not flat rates.</li>
           <li>Qualified small business stock has its own rules.</li>
           <li><strong>Crypto</strong> is also property but has its own reporting details — see <a href="/library/investment/crypto-tax/">Crypto taxes explained</a>. Brokers report digital asset sales on the new <a href="/library/investment/form-1099-da/">Form 1099-DA</a>, not Form 1099-B, and they go in their own Form 8949 boxes (G through L).</li>
           <li>A brokerage account <strong>abroad</strong> also raises FBAR and Form 8938 questions — see <a href="/library/investment/foreign-brokerage-account/">Foreign brokerage accounts and stocks</a>.</li>

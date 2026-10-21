@@ -148,7 +148,7 @@ export default function SellingYourHomePage({ translations }) {
 
         <h2>When the home was also a rental or business</h2>
         <p>
-          Prior rental or business use can change the calculation materially. In particular, <strong>depreciation</strong> allowed or allowable for business or rental use after May 6, 1997 generally cannot simply be sheltered by the home-sale exclusion. Periods when the home was not used as your main home can also affect how much gain qualifies. These calculations are beyond this guide — have the sale reviewed. For how rental depreciation works, see <a href="/library/rental/rental-property-income/">Renting out a house or apartment</a>.
+          Prior rental or business use can change the calculation materially. In particular, <strong>depreciation</strong> allowed or allowable for business or rental use after May 6, 1997 generally cannot simply be sheltered by the home-sale exclusion. Periods when the home was not used as your main home can also affect how much gain qualifies. These calculations are beyond this guide — have the sale reviewed. For how rental depreciation works, see <a href="/library/rental/rental-property-income/">Renting out a house or apartment</a>. The home-sale exclusion and the rental depreciation rules can apply to the same sale: gain due to that depreciation is generally taxable even when the rest of the gain is excluded, and how it is taxed is explained in <a href="/library/rental/selling-rental-property/">Selling a rental property</a>.
         </p>
 
         <h2>Example</h2>

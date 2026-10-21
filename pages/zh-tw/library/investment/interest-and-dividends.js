@@ -14,7 +14,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'interest-and-dividends',
-  sourceHash: 'fbd16dcd5d8d',
+  sourceHash: '4387e1526525',
   id:            '63',
   title:         '銀行利息和股利要申報嗎？',
   titleEn:       'Do I have to report bank interest and dividends?',
@@ -122,7 +122,7 @@ export default function InterestAndDividendsZhTwPage({ translations }) {
           ]}
         />
         <p>
-          要成為合格股利，一般你必須在除息日前 60 天開始的 <strong>121 天期間</strong>內，持有股票<strong>超過 60 天</strong>（特別股的測試期間較長）。有些股利無論如何都不符合資格。Box 1b 是起點，但不是最終答案：當付款人難以判斷持有期間是否符合規定時，可能仍會把股利列在 Box 1b，所以把 Box 1b 的金額當成合格股利之前，請先確認你自己的持有期間。各年度的資本利得稅率門檻，請見<a href="/zh-tw/library/investment/stock-sale-capital-gains/">賣股票賺錢，資本利得怎麼課稅？</a>
+          要成為合格股利，一般你必須在除息日前 60 天開始的 <strong>121 天期間</strong>內，持有股票<strong>超過 60 天</strong>。對於股利所屬期間合計超過 366 天的特別股，條件是在除息日前 90 天開始的 181 天期間內持有超過 90 天。有些股利無論如何都不符合資格。Box 1b 是起點，但不是最終答案：當付款人難以判斷持有期間是否符合規定時，可能仍會把股利列在 Box 1b，所以把 Box 1b 的金額當成合格股利之前，請先確認你自己的持有期間。表格上的其他欄位，例如資本利得分配與資本返還，請見<a href="/zh-tw/library/investment/form-1099-div-1099-int-boxes/">Form 1099-DIV 與 1099-INT 逐欄解說</a>。各年度的資本利得稅率門檻，請見<a href="/zh-tw/library/investment/stock-sale-capital-gains/">賣股票賺錢，資本利得怎麼課稅？</a>
         </p>
 
         <p>
@@ -146,7 +146,7 @@ export default function InterestAndDividendsZhTwPage({ translations }) {
 
         <h2>收入較高時</h2>
         <p>
-          利息與股利屬於另外 3.8% 淨投資收入稅的投資收入；當修正後調整總收入超過 $200,000（單身或戶長）、$250,000（夫妻合併申報）或 $125,000（夫妻分開申報）時，可能適用。
+          利息與股利屬於另外 3.8% 淨投資收入稅的投資收入；當修正後調整總收入超過 $200,000（單身或戶長）、$250,000（夫妻合併申報或符合資格的喪偶者）或 $125,000（夫妻分開申報）時，可能適用。請見<a href="/zh-tw/library/investment/net-investment-income-tax/">淨投資所得稅指南</a>。如果你借錢買投資，請見<a href="/zh-tw/library/investment/investment-interest-expense/">投資利息費用</a>。
         </p>
 
       </KnowledgePage>

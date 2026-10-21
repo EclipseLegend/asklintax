@@ -14,7 +14,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'rental-property-income',
-  sourceHash:      '939ccf1d4397',
+  sourceHash:      '93e8c2de8e19',
   id:            '56',
   title:         '出租房子或公寓，租金收入怎麼課稅？',
   titleEn:       'Renting out a house or apartment — how is rental income taxed?',
@@ -56,7 +56,7 @@ const FAQS = [
   },
   {
     q: '折舊在賣房時有影響嗎？',
-    a: '有。折舊會降低你的房產成本，進而影響賣房時的獲利。如果這個房產曾經是你的主要住宅，請見「我賣了房子，獲利要繳稅嗎？」',
+    a: '有。折舊會降低你的房產成本，進而影響賣房時的獲利。請見「出售出租房產：折舊回收與 25% 稅率」。如果這個房產曾經是你的主要住宅，請見「我賣了房子，獲利要繳稅嗎？」',
   },
 ]
 
@@ -133,7 +133,7 @@ export default function RentalPropertyIncomeZhTwPage({ translations }) {
           <li>依一般的 General Depreciation System（GDS）規定，住宅出租建築物一般分 <strong>27.5 年</strong>提列折舊。</li>
           <li><strong>土地不能提列折舊。</strong>只有建築物（以及某些改良）可以提列折舊，所以成本要拆分成土地與建築物。</li>
           <li>折舊一般從房產<strong>開始使用（placed in service）</strong>時開始 — 也就是準備好、可以出租的時候。</li>
-          <li>折舊會降低你的成本，影響之後賣房時的獲利。</li>
+          <li>折舊會降低你的成本，影響之後賣房時的獲利。請見<a href="/zh-tw/library/rental/selling-rental-property/">出售出租房產</a>。</li>
         </ul>
         <p>
           Publication 946 與 Publication 527 說明了怎麼計算。

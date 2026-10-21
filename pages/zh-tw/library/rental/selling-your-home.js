@@ -14,7 +14,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'selling-your-home',
-  sourceHash:      'eeff20b8efc2',
+  sourceHash:      'cefa67037c01',
   id:            '54',
   title:         '我賣了房子，獲利要繳稅嗎？',
   titleEn:       'I sold my house — do I have to pay tax on the profit?',
@@ -154,7 +154,7 @@ export default function SellingYourHomeZhTwPage({ translations }) {
 
         <h2>房子曾經出租或作營業用時</h2>
         <p>
-          曾經出租或營業使用，可能會大幅改變計算結果。特別是，1997 年 5 月 6 日之後因營業或出租使用而允許或可提列的<strong>折舊</strong>，一般不能單純用主要住宅排除額來排除。房子沒有作為主要住宅的期間，也可能影響可排除的獲利。這些計算超出本文範圍 — 請找人檢視這筆出售。出租折舊怎麼運作，請見<a href="/zh-tw/library/rental/rental-property-income/">出租房子或公寓，租金收入怎麼課稅？</a>
+          曾經出租或營業使用，可能會大幅改變計算結果。特別是，1997 年 5 月 6 日之後因營業或出租使用而允許或可提列的<strong>折舊</strong>，一般不能單純用主要住宅排除額來排除。房子沒有作為主要住宅的期間，也可能影響可排除的獲利。這些計算超出本文範圍 — 請找人檢視這筆出售。出租折舊怎麼運作，請見<a href="/zh-tw/library/rental/rental-property-income/">出租房子或公寓，租金收入怎麼課稅？</a>。賣屋排除額與出租折舊的規定可能同時適用於同一筆出售：即使其餘獲利可以排除，由那些折舊產生的獲利一般仍要課稅，課稅方式請見<a href="/zh-tw/library/rental/selling-rental-property/">出售出租房產</a>。
         </p>
 
         <h2>例子</h2>

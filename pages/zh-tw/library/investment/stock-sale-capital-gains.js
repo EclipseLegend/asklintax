@@ -14,7 +14,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'stock-sale-capital-gains',
-  sourceHash:      '0e1a7d029031',
+  sourceHash:      '6c00d2bc85f2',
   id:            '61',
   title:         '賣股票賺錢，資本利得怎麼課稅？',
   titleEn:       'I sold stock — how are capital gains taxed?',
@@ -156,7 +156,7 @@ export default function StockSaleCapitalGainsZhTwPage({ translations }) {
 
         <div className="callout callout-info">
           <div className="callout-title">ℹ️ 高收入時另外的 3.8% 稅</div>
-          <p>淨投資收入稅（net investment income tax）是另外的 3.8% 稅，當修正後調整總收入超過 $200,000（單身或戶長）、$250,000（夫妻合併申報）或 $125,000（夫妻分開申報）時，可能適用於包括資本利得在內的投資收入。這些門檻不隨通膨調整。</p>
+          <p>淨投資收入稅（net investment income tax）是另外的 3.8% 稅，當修正後調整總收入超過 $200,000（單身或戶長）、$250,000（夫妻合併申報或符合資格的喪偶者）或 $125,000（夫妻分開申報）時，可能適用於包括資本利得在內的投資收入。這些門檻不隨通膨調整。請見<a href="/zh-tw/library/investment/net-investment-income-tax/">淨投資所得稅指南</a>。</p>
         </div>
 
         <h2>第三步：申報</h2>
@@ -176,7 +176,7 @@ export default function StockSaleCapitalGainsZhTwPage({ translations }) {
 
         <h2>要注意的例外</h2>
         <ul>
-          <li><strong>收藏品</strong>的獲利最高可能適用 28% 稅率；某些不動產獲利（unrecaptured section 1250 gain）最高 25%。</li>
+          <li><strong>收藏品</strong>的獲利最高可能適用 28% 稅率，請見<a href="/zh-tw/library/investment/collectibles-tax/">收藏品指南</a>；某些不動產獲利（unrecaptured section 1250 gain）最高 25%，請見<a href="/zh-tw/library/rental/selling-rental-property/">出售出租房產</a>。兩者都是最高稅率，不是統一稅率。</li>
           <li>合格小型企業股票有自己的規定。</li>
           <li><strong>加密貨幣</strong>也是財產，但有自己的申報細節 — 請見<a href="/zh-tw/library/investment/crypto-tax/">加密貨幣稅務說明</a>。經紀商用新的 <a href="/zh-tw/library/investment/form-1099-da/">Form 1099-DA</a>（不是 Form 1099-B）申報數位資產的出售，而且要填在 Form 8949 專用的欄位（G 至 L）。</li>
           <li><strong>海外</strong>的證券帳戶還會牽涉 FBAR 與 Form 8938 — 請見<a href="/zh-tw/library/investment/foreign-brokerage-account/">海外股票與證券帳戶怎麼申報？</a></li>
