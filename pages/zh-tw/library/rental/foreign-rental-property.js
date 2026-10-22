@@ -14,7 +14,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'foreign-rental-property',
-  sourceHash:      '5474860e46dd',
+  sourceHash:      'c0cab6d6ce55',
   id:            '26',
   title:         '海外出租房產與美國稅務',
   titleEn:       'Foreign rental property and U.S. taxes',
@@ -174,7 +174,7 @@ export default function ForeignRentalPropertyZhTwPage({ translations }) {
 
         <h2>步驟 5：用外國稅額抵免避免重複課稅</h2>
         <p>
-          如果你就租金收入繳納了符合資格的外國<strong>所得</strong>稅，一般可以選擇<strong>外國稅額抵免</strong>（Foreign Tax Credit，Form 1116）來減少美國稅額，或列為分項扣除額來減少應稅所得。多數情況下，抵免比較划算。只有所得稅類的稅款才符合抵免資格。
+          如果你就租金收入繳納了符合資格的外國<strong>所得</strong>稅，一般可以選擇<strong>外國稅額抵免</strong>（Foreign Tax Credit，Form 1116）來減少美國稅額，或列為分項扣除額來減少應稅所得。多數情況下，抵免比較划算。只有所得稅類的稅款才符合抵免資格。請參考<a href="/zh-tw/library/individual/foreign-tax-credit/">外國稅額抵免指南</a>。
         </p>
 
         <div className="callout callout-tip">

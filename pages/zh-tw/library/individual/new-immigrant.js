@@ -13,7 +13,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'new-immigrant',
-  sourceHash:      '5cf09cbff32a',
+  sourceHash:      '8b8d9a6c0aa3',
   id:            '04',
   title:         '剛來美國？新移民完整報稅指南',
   titleEn:       'New to the U.S.? A complete tax guide for new immigrants',
@@ -223,6 +223,7 @@ export default function NewImmigrantZhTwPage({ translations }) {
         <div className="callout callout-warning">
           <div className="callout-title">⚠️ 即使你不欠稅，FBAR 仍然適用</div>
           <p>許多新移民以為，海外帳戶不用繳稅，就不需要申報 FBAR。這是錯的。FBAR 是揭露義務，不是稅。不論帳戶是否產生應稅收入，這項義務都存在。</p>
+          <p>如果你帶著海外共同基金、ETF 或退休金帳戶來到美國，請參考 <a href="/zh-tw/library/investment/pfic-form-8621/">PFIC 規定與 Form 8621</a> 與<a href="/zh-tw/library/investment/foreign-pension-retirement-accounts/">海外退休金與退休帳戶</a>。</p>
         </div>
 
         <h2>步驟 5：了解重要截止日</h2>

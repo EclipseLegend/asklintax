@@ -168,7 +168,7 @@ export default function ForeignRentalPropertyPage({ translations }) {
 
         <h2>Step 5: Avoid double tax with the foreign tax credit</h2>
         <p>
-          If you paid qualifying foreign <strong>income</strong> taxes on the rental income, you can generally choose either a <strong>foreign tax credit</strong> (Form 1116), which reduces your U.S. tax, or an itemized deduction, which reduces your taxable income. In most cases the credit is more valuable. Only income-type taxes qualify for the credit.
+          If you paid qualifying foreign <strong>income</strong> taxes on the rental income, you can generally choose either a <strong>foreign tax credit</strong> (Form 1116), which reduces your U.S. tax, or an itemized deduction, which reduces your taxable income. In most cases the credit is more valuable. Only income-type taxes qualify for the credit. See <a href="/library/individual/foreign-tax-credit/">the foreign tax credit guide</a>.
         </p>
 
         <div className="callout callout-tip">

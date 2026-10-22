@@ -14,7 +14,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'fbar-vs-form-8938',
-  sourceHash:      '40f1795b5767',
+  sourceHash:      '29c44e61adbd',
   id:            '23',
   title:         'FBAR 與 Form 8938 有什麼不同？',
   titleEn:       'FBAR vs. Form 8938: what\'s the difference?',
@@ -36,6 +36,7 @@ const META = {
     { label: 'IRS — 海外銀行與金融帳戶申報（Report of Foreign Bank and Financial Accounts, FBAR）', url: 'https://www.irs.gov/businesses/small-businesses-self-employed/report-of-foreign-bank-and-financial-accounts-fbar' },
     { label: 'FinCEN — 申報海外銀行與金融帳戶（Report Foreign Bank and Financial Accounts）', url: 'https://www.fincen.gov/report-foreign-bank-and-financial-accounts' },
     { label: 'IRS — Schedule B（Form 1040）填寫說明，Part III', url: 'https://www.irs.gov/instructions/i1040sb' },
+    { label: 'IRS — Internal Revenue Manual 4.26.16，海外銀行與金融帳戶申報（FBAR）', url: 'https://www.irs.gov/irm/part4/irm_04-026-016' },
   ],
 }
 
@@ -163,6 +164,9 @@ export default function FbarVsForm8938ZhTwPage({ translations }) {
           ]}
         />
         <p style={{ fontSize: '14px', color: 'var(--muted)' }}>整理自 IRS 的比較表。完整規則請參閱各表格的填寫說明。</p>
+        <p>
+          <strong>海外退休金：</strong>Form 8938 填寫說明要求申報你在外國退休金或遞延報酬計畫中的權益（不是計畫另外持有的資產），而外國政府的社會安全類計畫不需要申報。在 FBAR 方面，Internal Revenue Manual 指出退休計畫例外只涵蓋 IRA 與美國稅務合格計畫，外國計畫通常需要申報。某一個計畫是否為海外金融帳戶，要看該計畫。請參考<a href="/zh-tw/library/investment/foreign-pension-retirement-accounts/">海外退休金與退休帳戶</a>。
+        </p>
 
         <h2>四種常見情況</h2>
         <ArticleTable

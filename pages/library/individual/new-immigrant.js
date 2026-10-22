@@ -217,6 +217,7 @@ export default function NewImmigrantPage({ translations }) {
         <div className="callout callout-warning">
           <div className="callout-title">⚠️ FBAR applies even if you owe no tax</div>
           <p>Many new immigrants believe they don't need to file FBAR because they don't owe taxes on the foreign accounts. This is incorrect. FBAR is a disclosure requirement, not a tax. The obligation exists regardless of whether the accounts generated taxable income.</p>
+          <p>If you brought foreign mutual funds, ETFs, or pension accounts with you, see <a href="/library/investment/pfic-form-8621/">PFIC rules and Form 8621</a> and <a href="/library/investment/foreign-pension-retirement-accounts/">foreign pensions and retirement accounts</a>.</p>
         </div>
 
         <h2>Step 5: Understand the key deadlines</h2>

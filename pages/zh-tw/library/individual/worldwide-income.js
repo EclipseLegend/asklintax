@@ -14,7 +14,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'worldwide-income',
-  sourceHash:      'dc4047528b0e',
+  sourceHash:      'c1ded01015a4',
   id:            '30',
   title:         '海外收入：美國稅務居民要申報全球所得嗎？',
   titleEn:       'Foreign income: do U.S. tax residents report worldwide income?',
@@ -36,6 +36,7 @@ const META = {
     { label: 'IRS — 外國稅額抵免（Foreign tax credit）', url: 'https://www.irs.gov/individuals/international-taxpayers/foreign-tax-credit' },
     { label: 'IRS — 海外工作所得排除額（Foreign earned income exclusion）', url: 'https://www.irs.gov/individuals/international-taxpayers/foreign-earned-income-exclusion' },
     { label: 'IRS Revenue Procedure 2024-40 — 2025 年海外工作所得排除額金額', url: 'https://www.irs.gov/pub/irs-drop/rp-24-40.pdf' },
+    { label: 'IRS Revenue Procedure 2025-32 — 2026 年海外工作所得排除額', url: 'https://www.irs.gov/pub/irs-drop/rp-25-32.pdf' },
     { label: 'IRS — 外幣與匯率（Foreign currency and currency exchange rates）', url: 'https://www.irs.gov/individuals/international-taxpayers/foreign-currency-and-currency-exchange-rates' },
     { label: 'IRS Publication 525 — 應稅與免稅所得（Taxable and Nontaxable Income：贈與與遺產）', url: 'https://www.irs.gov/publications/p525' },
     { label: 'IRS — 美國所得稅協定一覽（United States income tax treaties A to Z）', url: 'https://www.irs.gov/businesses/international-businesses/united-states-income-tax-treaties-a-to-z' },
@@ -143,18 +144,18 @@ export default function WorldwideIncomeZhTwPage({ translations }) {
         <h2>避免重複課稅</h2>
         <h3>1. 外國稅額抵免</h3>
         <p>
-          如果你就同時被美國課稅的所得，繳納或應計了<strong>外國所得稅</strong>，一般可以選擇<strong>抵免</strong>（Form 1116）來減少你的美國應納稅額（有上限），或列為<strong>分項扣除額</strong>。多數情況下，抵免比較划算。只有所得稅類的稅款才符合資格 — 而且已經排除的所得，不能再就其稅款申請抵免。
+          如果你就同時被美國課稅的所得，繳納或應計了<strong>外國所得稅</strong>，一般可以選擇<strong>抵免</strong>（Form 1116）來減少你的美國應納稅額（有上限），或列為<strong>分項扣除額</strong>。多數情況下，抵免比較划算。只有所得稅類的稅款才符合資格 — 而且已經排除的所得，不能再就其稅款申請抵免。請參考<a href="/zh-tw/library/individual/foreign-tax-credit/">外國稅額抵免指南</a>。
         </p>
         <h3>2. 海外工作所得排除額（適用住在海外的人）</h3>
         <p>
-          海外工作所得排除額（Foreign Earned Income Exclusion, FEIE）讓符合資格的人排除海外<strong>工作</strong>所得 — <strong>2025 年最高 $130,000</strong>。要符合資格，你需要有海外工作所得、稅務住所在外國，並符合以下其中一項：
+          海外工作所得排除額（Foreign Earned Income Exclusion, FEIE）讓符合資格的人排除海外<strong>工作</strong>所得 — <strong>2025 年最高 $130,000</strong>、<strong>2026 年最高 $132,900</strong>。要符合資格，你需要有海外工作所得、稅務住所在外國，並符合以下其中一項：
         </p>
         <ul>
           <li>在外國有包含一整個稅務年度的不間斷真實居住（對居民外國人來說，這個方式要求你是與美國簽有有效所得稅協定國家的公民或國民），或</li>
           <li>在任何連續 12 個月期間內，實際在外國至少 <strong>330 個整天</strong>。</li>
         </ul>
         <p>
-          它不涵蓋利息、股利或租金等投資收入，而且在美國生活和工作的人一般不符合資格。
+          它不涵蓋利息、股利或租金等投資收入，而且在美國生活和工作的人一般不符合資格。請參考<a href="/zh-tw/library/individual/foreign-earned-income-exclusion/">海外工作所得排除額指南</a>。
         </p>
         <h3>3. 租稅協定</h3>
         <p>
@@ -179,7 +180,7 @@ export default function WorldwideIncomeZhTwPage({ translations }) {
 
         <div className="callout callout-tip">
           <div className="callout-title">💡 什麼時候該找專業協助</div>
-          <p>如果你有海外退休金或退休帳戶、擁有外國公司的部分股權、持有外國共同基金或保險商品，或過去幾年沒有申報海外收入，請尋求協助。這些情況涉及本總覽以外的規則。</p>
+          <p>如果你有海外退休金或退休帳戶、擁有外國公司的部分股權、持有外國共同基金或保險商品，或過去幾年沒有申報海外收入，請尋求協助。這些情況涉及本總覽以外的規則。請參考<a href="/zh-tw/library/investment/foreign-pension-retirement-accounts/">海外退休金與退休帳戶</a>與<a href="/zh-tw/library/investment/pfic-form-8621/">海外共同基金與 ETF（PFIC）</a>。</p>
         </div>
 
       </KnowledgePage>

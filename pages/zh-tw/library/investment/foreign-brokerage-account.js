@@ -14,7 +14,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'foreign-brokerage-account',
-  sourceHash:      'e740df975cd3',
+  sourceHash:      'e78c5d826f6b',
   id:            '46',
   title:         '海外股票與證券帳戶怎麼申報？',
   titleEn:       'Foreign brokerage accounts and stocks: what goes on FBAR and Form 8938?',
@@ -53,7 +53,7 @@ const FAQS = [
   },
   {
     q: '我持有海外共同基金，這算一般股票嗎？',
-    a: '不一定。海外共同基金與類似的集合基金，在所得稅上可能被視為被動外國投資公司（PFIC），有自己的申報規定（Form 8621）。這不在本文範圍內 — 請尋求專業協助。',
+    a: '不一定。海外共同基金與類似的集合基金，在所得稅上可能被視為被動外國投資公司（PFIC），有自己的申報規定（Form 8621）。這不在本文範圍內；請參考「海外共同基金與 ETF：PFIC 規定與 Form 8621」，並尋求專業協助。',
   },
 ]
 
@@ -124,7 +124,7 @@ export default function ForeignBrokerageAccountZhTwPage({ translations }) {
 
         <div className="callout callout-warning">
           <div className="callout-title">⚠️ 申報和所得稅是兩回事</div>
-          <p>對美國公民與居民來說，海外投資的股利與資本利得是應稅收入，要在稅表上申報。海外共同基金與類似的集合基金可能是被動外國投資公司（PFIC），有自己複雜的規定和 Form 8621。本文不涵蓋這些規定 — 如果你持有海外基金，請尋求專業協助。</p>
+          <p>對美國公民與居民來說，海外投資的股利與資本利得是應稅收入，要在稅表上申報。海外共同基金與類似的集合基金可能是被動外國投資公司（PFIC），有自己複雜的規定和 Form 8621。本文不涵蓋這些規定；請參考<a href="/zh-tw/library/investment/pfic-form-8621/">海外共同基金與 ETF：PFIC 規定與 Form 8621</a>，如果你持有海外基金，請尋求專業協助。</p>
         </div>
 
       </KnowledgePage>

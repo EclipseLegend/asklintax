@@ -134,7 +134,7 @@ export default function ForeignBankAccountPage({ translations }) {
           Example: NT$15,000 of interest during 2025 ÷ 31.167 ≈ <strong>$481</strong> of interest income.
         </p>
         <p>
-          If Taiwan withheld income tax on that interest, you may be able to claim a <strong>foreign tax credit</strong> on Form 1116, or deduct qualifying foreign income taxes as an itemized deduction.
+          If Taiwan withheld income tax on that interest, you may be able to claim a <strong>foreign tax credit</strong> on Form 1116, or deduct qualifying foreign income taxes as an itemized deduction. See <a href="/library/individual/foreign-tax-credit/">the foreign tax credit guide</a>.
         </p>
 
         <h2>Question 2: Do I need to file an FBAR?</h2>

@@ -14,7 +14,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'foreign-bank-account',
-  sourceHash:      'a48a9c82846d',
+  sourceHash:      '421f933ba8ca',
   id:            '24',
   title:         '台灣或海外銀行帳戶需要申報嗎？',
   titleEn:       'Do I need to report a Taiwan or foreign bank account?',
@@ -140,7 +140,7 @@ export default function ForeignBankAccountZhTwPage({ translations }) {
           例子：2025 年利息 NT$15,000 ÷ 31.167 ≈ <strong>$481</strong> 的利息收入。
         </p>
         <p>
-          如果台灣對這筆利息預扣了所得稅，你可能可以用 Form 1116 申請<strong>外國稅額抵免</strong>，或把符合資格的外國所得稅列為分項扣除額。
+          如果台灣對這筆利息預扣了所得稅，你可能可以用 Form 1116 申請<strong>外國稅額抵免</strong>，或把符合資格的外國所得稅列為分項扣除額。請參考<a href="/zh-tw/library/individual/foreign-tax-credit/">外國稅額抵免指南</a>。
         </p>
 
         <h2>問題 2：我需要申報 FBAR 嗎？</h2>

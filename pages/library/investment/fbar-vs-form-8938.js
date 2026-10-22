@@ -30,6 +30,7 @@ const META = {
     { label: 'IRS — Report of Foreign Bank and Financial Accounts (FBAR)', url: 'https://www.irs.gov/businesses/small-businesses-self-employed/report-of-foreign-bank-and-financial-accounts-fbar' },
     { label: 'FinCEN — Report Foreign Bank and Financial Accounts', url: 'https://www.fincen.gov/report-foreign-bank-and-financial-accounts' },
     { label: 'IRS — Instructions for Schedule B (Form 1040), Part III', url: 'https://www.irs.gov/instructions/i1040sb' },
+    { label: 'IRS — Internal Revenue Manual 4.26.16, Report of Foreign Bank and Financial Accounts (FBAR)', url: 'https://www.irs.gov/irm/part4/irm_04-026-016' },
   ],
 }
 
@@ -157,6 +158,9 @@ export default function FbarVsForm8938Page({ translations }) {
           ]}
         />
         <p style={{ fontSize: '14px', color: 'var(--muted)' }}>Summarized from the IRS comparison table. Check the instructions for each form for complete rules.</p>
+        <p>
+          <strong>Foreign pensions:</strong> the Form 8938 instructions require you to report your interest in a foreign pension or deferred compensation plan (not the plan's separate assets), while foreign government social security–type programs are not reportable. For the FBAR, the Internal Revenue Manual says the retirement plan exception covers IRAs and U.S. tax-qualified plans only, and that foreign plans are normally reportable. Whether a particular plan is a foreign financial account depends on the plan. See <a href="/library/investment/foreign-pension-retirement-accounts/">Foreign pensions and retirement accounts</a>.
+        </p>
 
         <h2>Four common situations</h2>
         <ArticleTable

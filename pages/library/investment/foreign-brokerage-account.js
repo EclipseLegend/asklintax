@@ -47,7 +47,7 @@ const FAQS = [
   },
   {
     q: 'I own a foreign mutual fund. Is that just another stock?',
-    a: 'Not necessarily. Foreign mutual funds and similar pooled funds can be treated as passive foreign investment companies (PFICs) for income tax purposes, which has its own reporting (Form 8621). That is outside this guide — get professional help.',
+    a: 'Not necessarily. Foreign mutual funds and similar pooled funds can be treated as passive foreign investment companies (PFICs) for income tax purposes, which has its own reporting (Form 8621). That is outside this guide; see "Foreign Mutual Funds and ETFs: PFIC Rules and Form 8621" and get professional help.',
   },
 ]
 
@@ -118,7 +118,7 @@ export default function ForeignBrokerageAccountPage({ translations }) {
 
         <div className="callout callout-warning">
           <div className="callout-title">⚠️ Reporting is separate from income tax</div>
-          <p>Dividends and gains from foreign investments are taxable income for U.S. citizens and residents, reported on your tax return. Foreign mutual funds and similar pooled funds may be passive foreign investment companies (PFICs) with their own complex rules and Form 8621. This guide does not cover those rules — get professional help if you hold foreign funds.</p>
+          <p>Dividends and gains from foreign investments are taxable income for U.S. citizens and residents, reported on your tax return. Foreign mutual funds and similar pooled funds may be passive foreign investment companies (PFICs) with their own complex rules and Form 8621. This guide does not cover those rules; see <a href="/library/investment/pfic-form-8621/">Foreign mutual funds and ETFs: PFIC rules and Form 8621</a>, and get professional help if you hold foreign funds.</p>
         </div>
 
       </KnowledgePage>

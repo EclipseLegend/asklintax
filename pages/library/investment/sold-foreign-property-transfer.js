@@ -149,7 +149,7 @@ export default function SoldForeignPropertyTransferPage({ translations }) {
 
         <h2>Foreign tax and the foreign tax credit</h2>
         <p>
-          If the other country taxed your gain and that tax is a qualifying foreign <strong>income</strong> tax, you may be able to claim a foreign tax credit (Form 1116) or take a deduction, so the same gain is not fully taxed twice. Some taxes connected with property — for example, transfer or registration taxes — may not qualify as income taxes. Have the specific foreign tax reviewed.
+          If the other country taxed your gain and that tax is a qualifying foreign <strong>income</strong> tax, you may be able to claim a foreign tax credit (Form 1116) or take a deduction, so the same gain is not fully taxed twice. Some taxes connected with property — for example, transfer or registration taxes — may not qualify as income taxes. Have the specific foreign tax reviewed. See <a href="/library/individual/foreign-tax-credit/">the foreign tax credit guide</a>.
         </p>
 
         <h2>Was it your main home?</h2>

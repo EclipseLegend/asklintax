@@ -14,7 +14,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'sold-foreign-property-transfer',
-  sourceHash:      '5352f0f92078',
+  sourceHash:      '5c6a631cc8fc',
   id:            '36',
   title:         '海外賣房後把錢匯到美國，要申報什麼？',
   titleEn:       'I sold property overseas and moved the money to the U.S. — what must I report?',
@@ -155,7 +155,7 @@ export default function SoldForeignPropertyTransferZhTwPage({ translations }) {
 
         <h2>外國稅與外國稅額抵免</h2>
         <p>
-          如果當地國家對你的利得課稅，而且那是合格的外國<strong>所得</strong>稅，你或許可以申請外國稅額抵免（Form 1116）或列為扣除，避免同一筆利得被完整課兩次稅。某些與房產相關的稅 — 例如移轉稅或登記稅 — 可能不屬於所得稅。請找人檢視具體是哪一種外國稅。
+          如果當地國家對你的利得課稅，而且那是合格的外國<strong>所得</strong>稅，你或許可以申請外國稅額抵免（Form 1116）或列為扣除，避免同一筆利得被完整課兩次稅。某些與房產相關的稅 — 例如移轉稅或登記稅 — 可能不屬於所得稅。請找人檢視具體是哪一種外國稅。請參考<a href="/zh-tw/library/individual/foreign-tax-credit/">外國稅額抵免指南</a>。
         </p>
 
         <h2>是你的自住房屋嗎？</h2>

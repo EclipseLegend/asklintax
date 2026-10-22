@@ -158,7 +158,7 @@ export default function ForeignPropertyPage({ translations }) {
         </p>
         <h3>Foreign tax and the foreign tax credit</h3>
         <p>
-          If you paid qualifying foreign <strong>income</strong> taxes on the gain, you may be able to claim a foreign tax credit on Form 1116 (or deduct them) so the same gain is not fully taxed twice.
+          If you paid qualifying foreign <strong>income</strong> taxes on the gain, you may be able to claim a foreign tax credit on Form 1116 (or deduct them) so the same gain is not fully taxed twice. See <a href="/library/individual/foreign-tax-credit/">the foreign tax credit guide</a>.
         </p>
         <h3>Was it your main home?</h3>
         <p>

@@ -14,7 +14,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'foreign-property',
-  sourceHash:      '28946d7fd2a1',
+  sourceHash:      'e965ca6ff5ae',
   id:            '25',
   title:         '海外房產：美國納稅人需要知道的事',
   titleEn:       'Foreign property: what U.S. taxpayers need to know',
@@ -164,7 +164,7 @@ export default function ForeignPropertyZhTwPage({ translations }) {
         </p>
         <h3>外國稅與外國稅額抵免</h3>
         <p>
-          如果你就這筆利得繳納了符合資格的外國<strong>所得</strong>稅，你可能可以用 Form 1116 申請外國稅額抵免（或列為扣除），讓同一筆利得不會被完全重複課稅。
+          如果你就這筆利得繳納了符合資格的外國<strong>所得</strong>稅，你可能可以用 Form 1116 申請外國稅額抵免（或列為扣除），讓同一筆利得不會被完全重複課稅。請參考<a href="/zh-tw/library/individual/foreign-tax-credit/">外國稅額抵免指南</a>。
         </p>
         <h3>那是你的主要住所嗎？</h3>
         <p>

@@ -30,6 +30,7 @@ const META = {
     { label: 'IRS — Foreign tax credit', url: 'https://www.irs.gov/individuals/international-taxpayers/foreign-tax-credit' },
     { label: 'IRS — Foreign earned income exclusion', url: 'https://www.irs.gov/individuals/international-taxpayers/foreign-earned-income-exclusion' },
     { label: 'IRS Revenue Procedure 2024-40 — 2025 foreign earned income exclusion amount', url: 'https://www.irs.gov/pub/irs-drop/rp-24-40.pdf' },
+    { label: 'IRS Revenue Procedure 2025-32 — 2026 foreign earned income exclusion amount', url: 'https://www.irs.gov/pub/irs-drop/rp-25-32.pdf' },
     { label: 'IRS — Foreign currency and currency exchange rates', url: 'https://www.irs.gov/individuals/international-taxpayers/foreign-currency-and-currency-exchange-rates' },
     { label: 'IRS Publication 525 — Taxable and Nontaxable Income (gifts and inheritances)', url: 'https://www.irs.gov/publications/p525' },
     { label: 'IRS — United States income tax treaties A to Z', url: 'https://www.irs.gov/businesses/international-businesses/united-states-income-tax-treaties-a-to-z' },
@@ -137,18 +138,18 @@ export default function WorldwideIncomePage({ translations }) {
         <h2>Avoiding double tax</h2>
         <h3>1. The foreign tax credit</h3>
         <p>
-          If you paid or accrued <strong>foreign income taxes</strong> on income that the U.S. also taxes, you can generally take either a <strong>credit</strong> (Form 1116), which reduces your U.S. tax liability (subject to limits), or an <strong>itemized deduction</strong>. In most cases the credit is worth more. Only income-type taxes qualify — and you cannot take a credit for tax on income you exclude.
+          If you paid or accrued <strong>foreign income taxes</strong> on income that the U.S. also taxes, you can generally take either a <strong>credit</strong> (Form 1116), which reduces your U.S. tax liability (subject to limits), or an <strong>itemized deduction</strong>. In most cases the credit is worth more. Only income-type taxes qualify — and you cannot take a credit for tax on income you exclude. See <a href="/library/individual/foreign-tax-credit/">the foreign tax credit guide</a>.
         </p>
         <h3>2. The foreign earned income exclusion (for people living abroad)</h3>
         <p>
-          The foreign earned income exclusion lets qualifying people exclude foreign <strong>earned</strong> income — up to <strong>$130,000 for 2025</strong>. To qualify you need foreign earned income, a tax home in a foreign country, and one of:
+          The foreign earned income exclusion lets qualifying people exclude foreign <strong>earned</strong> income — up to <strong>$130,000 for 2025</strong> and <strong>$132,900 for 2026</strong>. To qualify you need foreign earned income, a tax home in a foreign country, and one of:
         </p>
         <ul>
           <li>Bona fide residence in a foreign country for an uninterrupted period that includes a full tax year (for resident aliens, this route requires being a citizen or national of a country with which the U.S. has an income tax treaty in effect), or</li>
           <li>Physical presence in a foreign country for at least <strong>330 full days</strong> during any 12-month period.</li>
         </ul>
         <p>
-          It does not cover investment income such as interest, dividends, or rent, and people who live and work in the U.S. generally do not qualify.
+          It does not cover investment income such as interest, dividends, or rent, and people who live and work in the U.S. generally do not qualify. See <a href="/library/individual/foreign-earned-income-exclusion/">the foreign earned income exclusion guide</a>.
         </p>
         <h3>3. Tax treaties</h3>
         <p>
@@ -173,7 +174,7 @@ export default function WorldwideIncomePage({ translations }) {
 
         <div className="callout callout-tip">
           <div className="callout-title">💡 When to get professional help</div>
-          <p>Get help if you have foreign pensions or retirement accounts, own part of a foreign company, have foreign mutual funds or insurance products, or have not reported foreign income in past years. These carry rules beyond this overview.</p>
+          <p>Get help if you have foreign pensions or retirement accounts, own part of a foreign company, have foreign mutual funds or insurance products, or have not reported foreign income in past years. These carry rules beyond this overview. See <a href="/library/investment/foreign-pension-retirement-accounts/">foreign pensions and retirement accounts</a> and <a href="/library/investment/pfic-form-8621/">foreign mutual funds and ETFs (PFICs)</a>.</p>
         </div>
 
       </KnowledgePage>
