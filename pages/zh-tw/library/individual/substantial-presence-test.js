@@ -14,7 +14,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'substantial-presence-test',
-  sourceHash:      '60c2a161a546',
+  sourceHash:      '792970d45e8f',
   id:            '29',
   title:         '實質居留測試：如何計算你在美國的天數',
   titleEn:       'Substantial Presence Test explained: how to count your days',
@@ -24,7 +24,7 @@ const META = {
   difficulty:    'Intermediate',
   readTime:      '6 min read',
   verification:  'official-sources-verified',
-  updatedDate:   TAX_CONFIG.lastReviewed,
+  updatedDate:   null,
   taxYear:       String(TAX_CONFIG.currentTaxYear),
   confidence:    '涵蓋實質居留測試（Substantial Presence Test）的天數計算、不計入的天數、豁免個人（Exempt Individual）、Form 8843，以及更密切關聯例外（Closer Connection Exception）。租稅協定的居民身分判定（Tie-Breaker）規則與放棄國籍只做摘要說明',
   persona:       ['簽證持有人（H-1B、L-1、F-1、J-1）', '來美國探望成年子女的父母', '在美國與台灣或中國兩地生活的人', '剛抵達美國的人'],

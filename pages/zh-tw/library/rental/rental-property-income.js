@@ -14,7 +14,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'rental-property-income',
-  sourceHash:      '93e8c2de8e19',
+  sourceHash:      'ec895a93838d',
   id:            '56',
   title:         '出租房子或公寓，租金收入怎麼課稅？',
   titleEn:       'Renting out a house or apartment — how is rental income taxed?',
@@ -24,7 +24,7 @@ const META = {
   difficulty:    'Intermediate',
   readTime:      '6 min read',
   verification:  'official-sources-verified',
-  updatedDate:   TAX_CONFIG.lastReviewed,
+  updatedDate:   null,
   taxYear:       String(TAX_CONFIG.currentTaxYear),
   confidence:    '涵蓋長期出租美國房子或公寓的個人。Airbnb 等短期出租、自己也會使用的房產，以及海外房產，有各自的規定與指南；被動損失限制與折舊計算需要個別檢視',
   persona:       ['第一次當房東的人', '把以前自住的房子出租的人', '出租公寓或獨棟房屋的屋主', '把一個單位租給房客的家庭'],

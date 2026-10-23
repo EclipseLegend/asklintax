@@ -14,7 +14,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'foreign-earned-income-exclusion',
-  sourceHash:      '8bdfc42369d0',
+  sourceHash:      'bd66589515b4',
   id:            '92',
   title:         '海外工作所得排除額（Form 2555）：2025 與 2026 年規定',
   titleEn:       'Foreign Earned Income Exclusion (Form 2555): 2025 and 2026 Rules',
@@ -24,7 +24,7 @@ const META = {
   difficulty:    'Advanced',
   readTime:      '9 min read',
   verification:  'official-sources-verified',
-  updatedDate:   TAX_CONFIG.lastReviewed,
+  updatedDate:   'October 2026',
   taxYear:       String(TAX_CONFIG.currentTaxYear),
   confidence:    '依據 Form 2555 及其 2025 年填寫說明、2026 年 Form 2555 與填寫說明草案、Publication 54（2025 年 12 月修訂版）、Rev. Proc. 2024-40、Rev. Proc. 2025-32、Notice 2025-16、Notice 2026-25，以及 2025 年 Form 1040 填寫說明，說明 2025 與 2026 稅務年度的海外工作所得排除額，以及海外住房排除額與扣除額。本文不涵蓋美國政府員工、戰區、自僱稅規劃，也不涵蓋州稅',
   persona:       ['在台灣或其他海外地區工作的美國公民', '外派海外的綠卡持有人', '計畫搬到海外的人', '在排除額與外國稅額抵免之間做選擇的人'],

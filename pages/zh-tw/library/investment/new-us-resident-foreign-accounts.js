@@ -14,7 +14,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'new-us-resident-foreign-accounts',
-  sourceHash:      '0ed1121bc705',
+  sourceHash:      '017243672ff8',
   id:            '43',
   title:         '剛搬來美國，原本的台灣／海外帳戶要申報嗎？',
   titleEn:       'I just moved to the U.S. — do I need to report my foreign bank accounts?',
@@ -24,7 +24,7 @@ const META = {
   difficulty:    'Intermediate',
   readTime:      '5 min read',
   verification:  'official-sources-verified',
-  updatedDate:   TAX_CONFIG.lastReviewed,
+  updatedDate:   null,
   taxYear:       String(TAX_CONFIG.currentTaxYear),
   confidence:    '涵蓋在這一年成為美國居民、並保留海外帳戶的個人。抵美那一年，居民身分開始日之前的帳戶金額在 FBAR 上如何處理，本指南查閱的官方資料並沒有明確說明，因此抵美那一年的 FBAR 需要個別檢視',
   persona:       ['新拿到綠卡的人', '第一年在美國的 H-1B 或 L-1 工作者', '豁免年數已結束的學生', '今年從台灣或中國搬來的家庭'],

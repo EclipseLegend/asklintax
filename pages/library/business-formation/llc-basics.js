@@ -23,7 +23,7 @@ const META = {
     { label: 'IRS — Single member limited liability companies', url: 'https://www.irs.gov/businesses/small-businesses-self-employed/single-member-limited-liability-companies' },
     { label: 'California Franchise Tax Board — Limited liability company', url: 'https://www.ftb.ca.gov/file/business/types/limited-liability-company/index.html' },
   ],
-  updatedDate:   TAX_CONFIG.lastReviewed,
+  updatedDate:   null,
   taxYear:       String(TAX_CONFIG.currentTaxYear),
   confidence:    'General principles apply in most states. State LLC taxes, fees, and filing requirements vary; specific state amounts are not verified in this guide',
   persona:       ['Self-employed', 'Freelancer', 'Small business owner', 'New entrepreneur'],

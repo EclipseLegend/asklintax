@@ -27,7 +27,7 @@ const META = {
     { label: 'IRS — Report phishing and online scams', url: 'https://www.irs.gov/privacy-disclosure/report-phishing' },
     { label: 'IRS — Penalties', url: 'https://www.irs.gov/payments/penalties' },
   ],
-  updatedDate:   TAX_CONFIG.lastReviewed,
+  updatedDate:   null,
   taxYear:       String(TAX_CONFIG.currentTaxYear),
   confidence:    'Covers the most common notice types. Audits, liens, levies, and legal action require case-by-case professional assessment.',
   persona:       ['Anyone who received an IRS letter', 'New immigrant unfamiliar with IRS process', 'Small business owner'],

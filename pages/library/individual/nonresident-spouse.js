@@ -18,7 +18,7 @@ const META = {
   difficulty:    'Intermediate',
   readTime:      '6 min read',
   verification:  'official-sources-verified',
-  updatedDate:   TAX_CONFIG.lastReviewed,
+  updatedDate:   null,
   taxYear:       String(TAX_CONFIG.currentTaxYear),
   confidence:    'Covers the election to treat a nonresident spouse as a U.S. resident and the main alternatives. Treaty positions, Social Security and Medicare tax, and state returns are outside the scope of this guide',
   persona:       ['U.S. citizens or residents married to someone living in Taiwan or China', 'H-1B and green card holders whose spouse has not moved yet', 'Newly married couples', 'Spouses arriving partway through the year'],

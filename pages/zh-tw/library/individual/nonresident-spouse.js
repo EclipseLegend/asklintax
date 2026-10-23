@@ -14,7 +14,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'nonresident-spouse',
-  sourceHash:      'f7052de5b1e3',
+  sourceHash:      '5fe91107f322',
   id:            '27',
   title:         '非居民配偶：我們可以合併報稅嗎？',
   titleEn:       'Nonresident spouse: can we file jointly?',
@@ -24,7 +24,7 @@ const META = {
   difficulty:    'Intermediate',
   readTime:      '6 min read',
   verification:  'official-sources-verified',
-  updatedDate:   TAX_CONFIG.lastReviewed,
+  updatedDate:   null,
   taxYear:       String(TAX_CONFIG.currentTaxYear),
   confidence:    '涵蓋將非居民配偶視為美國居民的選擇，以及主要的替代方案。租稅協定主張、社會安全稅與聯邦醫療保險稅（Social Security and Medicare Tax），以及州稅表，不在本指南範圍內',
   persona:       ['配偶住在台灣或中國的美國公民或居民', '配偶尚未搬來的 H-1B 與綠卡持有人', '新婚夫妻', '年中才抵達美國的配偶'],

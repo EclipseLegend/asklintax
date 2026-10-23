@@ -14,7 +14,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'salt-deduction',
-  sourceHash:      '546f4d2f9179',
+  sourceHash:      '1d6707f56ccb',
   id:            '70',
   title:         '州稅與地方稅（SALT）扣除額：上限、收入限制與實例',
   titleEn:       'SALT Deduction: Limits, Income Rules, and Examples',
@@ -24,7 +24,7 @@ const META = {
   difficulty:    'Intermediate',
   readTime:      '7 min read',
   verification:  'official-sources-verified',
-  updatedDate:   TAX_CONFIG.lastReviewed,
+  updatedDate:   null,
   taxYear:       String(TAX_CONFIG.currentTaxYear),
   confidence:    '依據 2025 年 Schedule A 填寫說明、IRS Topic 503 與 IRS Publication 505（2026），說明 2025 與 2026 稅務年度聯邦分項扣除中的州稅與地方稅（SALT）扣除額。計算步驟與範例使用 2025 年的規定。本文不涵蓋州所得稅規定或企業層級的稅務選擇',
   persona:       ['繳房屋稅（地產稅）的屋主', '住在州所得稅較高的州的人', '正在考慮是否分項扣除的納稅人', '收入接近門檻的較高收入家庭'],

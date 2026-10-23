@@ -14,7 +14,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'foreign-gift-over-100000',
-  sourceHash:      'fadf8d52ad77',
+  sourceHash:      '70912b9f103e',
   id:            '31',
   title:         '海外父母匯超過 10 萬美元給我，要報 Form 3520 嗎？',
   titleEn:       'Parents overseas sent me more than $100,000 — do I need Form 3520?',
@@ -24,7 +24,7 @@ const META = {
   difficulty:    'Beginner',
   readTime:      '7 min read',
   verification:  'official-sources-verified',
-  updatedDate:   TAX_CONFIG.lastReviewed,
+  updatedDate:   null,
   taxYear:       String(TAX_CONFIG.currentTaxYear),
   confidence:    '涵蓋美國公民與居民外國人（Resident Alien）從身為非居民外國人（Nonresident Alien）的父母或其他親人、或從海外遺產收到的贈與與遺產。來自外國公司、海外信託（Foreign Trust）、適用對象放棄國籍者（Covered Expatriate）的款項，以及其實是借款或報酬的錢，適用不同規則',
   persona:       ['父母住在台灣、中國或香港的子女', '接受家人經濟支援的綠卡持有人', '準備買第一間房的年輕上班族', '父母在海外過世的繼承人'],

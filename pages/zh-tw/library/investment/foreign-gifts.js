@@ -14,7 +14,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'foreign-gifts',
-  sourceHash:      '14a6a5a1a78a',
+  sourceHash:      '36185c075f0e',
   id:            '21',
   title:         '海外贈與：父母從海外匯來的錢要繳稅嗎？',
   titleEn:       'Foreign gifts: is money from parents overseas taxable?',
@@ -24,7 +24,7 @@ const META = {
   difficulty:    'Beginner',
   readTime:      '6 min read',
   verification:  'official-sources-verified',
-  updatedDate:   TAX_CONFIG.lastReviewed,
+  updatedDate:   null,
   taxYear:       String(TAX_CONFIG.currentTaxYear),
   confidence:    '涵蓋美國公民與居民外國人（Resident Alien）從非居民外國人（Nonresident Alien）個人、海外遺產與外國公司收到的贈與與遺產。借款、工作報酬、海外信託，以及來自「適用對象放棄國籍者」（Covered Expatriate）的贈與，適用不同規則',
   persona:       ['父母住在台灣或中國的子女', '接受家人經濟支援的新移民', '學生與年輕上班族', '收到海外親人匯款的人'],
@@ -93,6 +93,12 @@ const RELATED = [
     cat:  'Individuals & Families',
     title: '海外收入：美國稅務居民要申報全球所得嗎？',
     desc:  '贈與不是收入，但海外的利息、租金與薪資是。看看美國居民需要申報什麼。',
+  },
+  {
+    href: '/library/individual/gift-tax-form-709',
+    cat: 'Individuals & Families',
+    title: '贈與稅與 Form 709：美國贈與人 2025 與 2026 年何時要申報',
+    desc: '如果你是美國贈與人，而不是受贈人。',
   },
 ]
 

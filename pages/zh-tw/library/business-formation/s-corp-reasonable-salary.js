@@ -14,7 +14,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 's-corp-reasonable-salary',
-  sourceHash:      'd1c88b31b480',
+  sourceHash:      '3ad7a5231324',
   id:            '77',
   title:         '經營 S 公司：合理薪資、Form 1120-S 與 Schedule K-1',
   titleEn:       'Running an S-Corp: Reasonable Salary, Form 1120-S and Schedule K-1',
@@ -24,7 +24,7 @@ const META = {
   difficulty:    'Advanced',
   readTime:      '9 min read',
   verification:  'official-sources-verified',
-  updatedDate:   TAX_CONFIG.lastReviewed,
+  updatedDate:   null,
   taxYear:       String(TAX_CONFIG.currentTaxYear),
   confidence:    '依據 IRS 關於 S 公司薪酬的指引、2025 年 Form 1120-S 填寫說明、Form 2553、7004 與 7203 填寫說明、Publication 15（2026），以及 IRS 關於合格事業所得扣除額的指引，說明 2025 與 2026 稅務年度 S 公司股東員工的聯邦規定。撰寫本文時，2026 年 Form 1120-S 填寫說明尚未定案。IRS 沒有規定固定的合理薪資金額，本文也不涵蓋州的 S 公司稅',
   persona:       ['LLC 或公司已選擇 S-Corp 身分的擁有人', '正在決定要領多少薪資的企業主', '第一次申報 Form 1120-S 的人', '正在看 Schedule K-1 的 S-Corp 股東'],

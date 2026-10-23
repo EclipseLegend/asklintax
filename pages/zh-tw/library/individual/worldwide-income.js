@@ -14,7 +14,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'worldwide-income',
-  sourceHash:      'c1ded01015a4',
+  sourceHash:      '1c7fc067a916',
   id:            '30',
   title:         '海外收入：美國稅務居民要申報全球所得嗎？',
   titleEn:       'Foreign income: do U.S. tax residents report worldwide income?',
@@ -24,7 +24,7 @@ const META = {
   difficulty:    'Beginner',
   readTime:      '5 min read',
   verification:  'official-sources-verified',
-  updatedDate:   TAX_CONFIG.lastReviewed,
+  updatedDate:   null,
   taxYear:       String(TAX_CONFIG.currentTaxYear),
   confidence:    '涵蓋美國公民與居民外國人的全球所得規則、外國稅額抵免、海外工作所得排除額（Foreign Earned Income Exclusion），以及匯率換算。租稅協定主張、海外退休金與外國公司，需要個別檢視',
   persona:       ['在台灣或中國有收入的綠卡持有人與 H-1B 工作者', '新移民', '有海外租金、利息或投資的人', '一年中有部分時間在海外的人'],

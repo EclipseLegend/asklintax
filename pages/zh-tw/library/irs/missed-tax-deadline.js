@@ -14,7 +14,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'missed-tax-deadline',
-  sourceHash:      '62bb754eeacf',
+  sourceHash:      'c123d0c83b9f',
   id:            '53',
   title:         '錯過報稅截止日，現在該怎麼辦？',
   titleEn:       'I missed the tax deadline — what happens now?',
@@ -24,7 +24,7 @@ const META = {
   difficulty:    'Beginner',
   readTime:      '5 min read',
   verification:  'official-sources-verified',
-  updatedDate:   TAX_CONFIG.lastReviewed,
+  updatedDate:   null,
   taxYear:       String(TAX_CONFIG.currentTaxYear),
   confidence:    '涵蓋應申報、但沒有在截止日前申報的聯邦個人所得稅表。逾期 FBAR 與逾期 Form 3520 有各自的規定與指南；州稅表與公司稅表不在本文範圍內',
   persona:       ['錯過 4 月截止日的人', '有一年或多年沒報稅的納稅人', '申請了延期但沒有繳稅的人', '認為某個沒報稅的年度有退稅可拿的人'],

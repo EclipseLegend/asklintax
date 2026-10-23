@@ -18,7 +18,7 @@ const META = {
   difficulty:    'Intermediate',
   readTime:      '9 min read',
   verification:  'official-sources-verified',
-  updatedDate:   TAX_CONFIG.lastReviewed,
+  updatedDate:   'October 2026',
   taxYear:       String(TAX_CONFIG.currentTaxYear),
   confidence:    'Explains cost basis for stock and fund sales reported on Form 1099-B for tax years 2025 and 2026, based on the 2026 Instructions for Form 1099-B, the 2025 Form 8949 and its instructions, the 2025 Instructions for Schedule D, Publication 550 (2025), and Publication 551 (Rev. December 2025). It covers individuals selling securities in taxable accounts; it does not cover dealers, traders with mark-to-market elections, options strategies, or state tax',
   persona:       ['Investors who received Form 1099-B', 'Employees selling company stock', 'People who inherited or were given shares', 'Anyone whose broker shows missing or wrong basis'],

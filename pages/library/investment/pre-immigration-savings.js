@@ -18,7 +18,7 @@ const META = {
   difficulty:    'Beginner',
   readTime:      '4 min read',
   verification:  'official-sources-verified',
-  updatedDate:   TAX_CONFIG.lastReviewed,
+  updatedDate:   null,
   taxYear:       String(TAX_CONFIG.currentTaxYear),
   confidence:    'Separates the income tax treatment of savings accumulated before becoming a U.S. resident from the FBAR and Form 8938 reporting of the accounts that hold them. Arrival-year reporting periods and treaty positions need individual review',
   persona:       ['New immigrants with savings left in Taiwan, China, or Hong Kong', 'Green card holders who kept home-country accounts', 'People planning to move savings to the U.S.', 'Families helping a newly arrived relative'],

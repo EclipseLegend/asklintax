@@ -18,7 +18,7 @@ const META = {
   difficulty:    'Intermediate',
   readTime:      '5 min read',
   verification:  'official-sources-verified',
-  updatedDate:   TAX_CONFIG.lastReviewed,
+  updatedDate:   null,
   taxYear:       String(TAX_CONFIG.currentTaxYear),
   confidence:    'Covers individuals who became U.S. residents during the year and kept accounts abroad. How FBAR treats account values from before your residency starting date in the year of arrival is not spelled out in the official guidance reviewed for this guide, so arrival-year FBARs need individual review',
   persona:       ['New green card holders', 'Workers on H-1B or L-1 visas in their first U.S. year', 'Students whose exempt years have ended', 'Families who moved from Taiwan or China this year'],

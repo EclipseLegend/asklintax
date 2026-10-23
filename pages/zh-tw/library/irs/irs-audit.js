@@ -14,7 +14,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'irs-audit',
-  sourceHash: '3024a7298121',
+  sourceHash: 'a3e63ba7421f',
   id:            '64',
   title:         '被 IRS 查帳（audit），接下來會怎樣？',
   titleEn:       'I\'m being audited by the IRS — what happens next?',
@@ -24,7 +24,7 @@ const META = {
   difficulty:    'Intermediate',
   readTime:      '6 min read',
   verification:  'official-sources-verified',
-  updatedDate:   TAX_CONFIG.lastReviewed,
+  updatedDate:   null,
   taxYear:       String(TAX_CONFIG.currentTaxYear),
   confidence:    '概要說明 IRS 對個人與小型企業所得稅表的查核（examination）。本文不預測結果，也不能取代專業代理；薪資稅、遺產稅、刑事與催收事項不在本文範圍內。請一律依你收到的信件上的日期與說明處理',
   persona:       ['收到 IRS 查核信的納稅人', '被要求提供紀錄的小型企業老闆', '不確定信件或電話是否真的來自 IRS 的人', '正在考慮是否請人代理的人'],

@@ -14,7 +14,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'amend-tax-return',
-  sourceHash:      'a10b51f3cdc0',
+  sourceHash:      'f1d8acc1969e',
   id:            '52',
   title:         '報稅表填錯了，要怎麼修改？',
   titleEn:       'I made a mistake on my tax return — how do I amend it?',
@@ -24,7 +24,7 @@ const META = {
   difficulty:    'Beginner',
   readTime:      '5 min read',
   verification:  'official-sources-verified',
-  updatedDate:   TAX_CONFIG.lastReviewed,
+  updatedDate:   null,
   taxYear:       String(TAX_CONFIG.currentTaxYear),
   confidence:    '涵蓋用 Form 1040-X 更正已申報的聯邦個人稅表（Form 1040、1040-SR 或 1040-NR）。退稅申請的特殊規定、州稅表，以及因 IRS 查核而做的更正，不在本文範圍內',
   persona:       ['報稅後才發現錯誤的人', '收到更正或遲來的 W-2、1099 的納稅人', '忘了申請抵稅額或受扶養人的人', '選錯報稅身分的人'],

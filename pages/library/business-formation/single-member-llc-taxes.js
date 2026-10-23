@@ -18,7 +18,7 @@ const META = {
   difficulty:    'Intermediate',
   readTime:      '8 min read',
   verification:  'official-sources-verified',
-  updatedDate:   TAX_CONFIG.lastReviewed,
+  updatedDate:   null,
   taxYear:       String(TAX_CONFIG.currentTaxYear),
   confidence:    'Explains how the IRS taxes a single-member LLC for tax years 2025 and 2026, based on the IRS single-member LLC guidance, Publication 334 (2025), the Instructions for Schedule C and Schedule SE (2025), Form W-9 and its instructions, and the Instructions for Forms 2553 and 5472. It covers federal rules only; state LLC taxes and fees are not verified here',
   persona:       ['One-owner LLCs', 'Freelancers who formed an LLC', 'New LLC owners filing for the first time', 'Married couples who own an LLC together'],

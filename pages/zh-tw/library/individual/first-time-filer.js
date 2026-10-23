@@ -13,7 +13,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'first-time-filer',
-  sourceHash:      '8d3607b4a9c2',
+  sourceHash:      '2c835d849004',
   id:            '07',
   title:         '在美國第一次報稅：完整步驟指南',
   titleEn:       'First-time filer in the U.S.: a complete step-by-step guide',
@@ -34,7 +34,7 @@ const META = {
     { label: 'IRS Publication 17 — 你的聯邦所得稅（Your Federal Income Tax）', url: 'https://www.irs.gov/publications/p17' },
     { label: 'IRS — Topic no. 154，Form W-2 與 Form 1099-R（資料錯誤或沒有收到時該怎麼辦）', url: 'https://www.irs.gov/taxtopics/tc154' },
   ],
-  updatedDate:   TAX_CONFIG.lastReviewed,
+  updatedDate:   null,
   taxYear:       String(TAX_CONFIG.currentTaxYear),
   confidence:    '涵蓋居民外國人與美國公民的一般報稅流程。非居民外國人（F-1、J-1）使用 Form 1040-NR — 步驟類似，但表格與部分規則不同。',
   persona:       ['第一次報稅的人', '第一次報稅的新移民', '有第一份工作的大學生', '從來沒有申報過美國稅表的人'],

@@ -18,7 +18,7 @@ const META = {
   difficulty:    'Intermediate',
   readTime:      '5 min read',
   verification:  'official-sources-verified',
-  updatedDate:   TAX_CONFIG.lastReviewed,
+  updatedDate:   null,
   taxYear:       String(TAX_CONFIG.currentTaxYear),
   confidence:    'Covers residential property abroad that a U.S. citizen or resident alien owns directly and rents out. Property held through a foreign company, foreign property tax treatment, and passive-loss limits need professional review',
   persona:       ['Owners renting out an apartment in Taiwan or China', 'New immigrants who kept a rental property abroad', 'People who inherited a rental home overseas', 'Green card holders'],

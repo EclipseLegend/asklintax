@@ -18,7 +18,7 @@ const META = {
   difficulty:    'Intermediate',
   readTime:      '6 min read',
   verification:  'official-sources-verified',
-  updatedDate:   TAX_CONFIG.lastReviewed,
+  updatedDate:   null,
   taxYear:       String(TAX_CONFIG.currentTaxYear),
   confidence:    'Covers the sale of a U.S. main home (principal residence) by individuals. Homes that were also rented or used for business, partial exclusions, and nonqualified-use periods need individual review; property abroad has its own guide',
   persona:       ['Homeowners who just sold or are about to sell', 'Married couples selling a home they lived in', 'People who received Form 1099-S at closing', 'Sellers who once rented out part of the home'],

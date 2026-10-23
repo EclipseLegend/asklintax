@@ -14,7 +14,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'foreign-rental-property',
-  sourceHash:      'c0cab6d6ce55',
+  sourceHash:      '415181658916',
   id:            '26',
   title:         '海外出租房產與美國稅務',
   titleEn:       'Foreign rental property and U.S. taxes',
@@ -24,7 +24,7 @@ const META = {
   difficulty:    'Intermediate',
   readTime:      '5 min read',
   verification:  'official-sources-verified',
-  updatedDate:   TAX_CONFIG.lastReviewed,
+  updatedDate:   null,
   taxYear:       String(TAX_CONFIG.currentTaxYear),
   confidence:    '涵蓋美國公民或居民外國人直接持有並出租的海外住宅房產。透過外國公司持有的房產、海外房屋稅的處理方式，以及被動損失限制（Passive-Loss Limits），需要專業檢視',
   persona:       ['出租台灣或中國公寓的屋主', '保留海外出租房產的新移民', '繼承海外出租房屋的人', '綠卡持有人'],

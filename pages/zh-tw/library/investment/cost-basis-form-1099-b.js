@@ -14,7 +14,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'cost-basis-form-1099-b',
-  sourceHash:      'bdb813a42349',
+  sourceHash:      '4e761b673ae2',
   id:            '85',
   title:         '成本基礎與 Form 1099-B：受涵蓋股票、調整與 Form 8949',
   titleEn:       'Cost Basis and Form 1099-B: Covered Shares, Adjustments and Form 8949',
@@ -24,7 +24,7 @@ const META = {
   difficulty:    'Intermediate',
   readTime:      '9 min read',
   verification:  'official-sources-verified',
-  updatedDate:   TAX_CONFIG.lastReviewed,
+  updatedDate:   'October 2026',
   taxYear:       String(TAX_CONFIG.currentTaxYear),
   confidence:    '依據 2026 年 Form 1099-B 填寫說明、2025 年 Form 8949 及其填寫說明、2025 年 Schedule D 填寫說明、Publication 550（2025）與 Publication 551（2025 年 12 月修訂版），說明 2025 與 2026 稅務年度在 Form 1099-B 上申報的股票與基金出售的成本基礎。本文涵蓋在應稅帳戶出售證券的個人；不涵蓋交易商、選擇按市價計值的交易者、選擇權策略，以及州稅',
   persona:       ['收到 Form 1099-B 的投資人', '出售公司股票的員工', '繼承或受贈股票的人', '券商成本基礎遺漏或錯誤的人'],

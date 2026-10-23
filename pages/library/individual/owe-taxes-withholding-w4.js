@@ -18,7 +18,7 @@ const META = {
   difficulty:    'Beginner',
   readTime:      '6 min read',
   verification:  'official-sources-verified',
-  updatedDate:   TAX_CONFIG.lastReviewed,
+  updatedDate:   null,
   taxYear:       String(TAX_CONFIG.currentTaxYear),
   confidence:    'Covers W-2 employees whose federal income tax withholding fell short. It explains common causes and how Form W-4 works; it does not cover state withholding, pension withholding (Form W-4P), or the detailed rules for the new deductions shown on the 2026 Form W-4',
   persona:       ['W-2 employees who owed at filing time', 'Two-income couples', 'People with two jobs or a mid-year job change', 'Employees who received a bonus or have side income'],

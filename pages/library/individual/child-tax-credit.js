@@ -23,7 +23,7 @@ const META = {
     { label: 'IRS — Revenue Procedure 2025-32 (tax year 2026 inflation adjustments)', url: 'https://www.irs.gov/pub/irs-drop/rp-25-32.pdf' },
     { label: 'IRS — One, Big, Beautiful Bill provisions', url: 'https://www.irs.gov/newsroom/one-big-beautiful-bill-provisions' },
   ],
-  updatedDate: TAX_CONFIG.lastReviewed,
+  updatedDate: null,
   taxYear: String(TAX_CONFIG.currentTaxYear),
   confidence: 'Covers the standard Child Tax Credit rules for Tax Year 2025. Credit amounts and phase-out thresholds are set by current law and may change in future years.',
   persona: ['Parent with children under 17', 'New immigrant with children', 'Anyone who has never claimed the CTC before'],

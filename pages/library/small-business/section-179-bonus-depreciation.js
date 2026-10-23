@@ -18,7 +18,7 @@ const META = {
   difficulty:    'Intermediate',
   readTime:      '8 min read',
   verification:  'official-sources-verified',
-  updatedDate:   TAX_CONFIG.lastReviewed,
+  updatedDate:   null,
   taxYear:       String(TAX_CONFIG.currentTaxYear),
   confidence:    'Explains the federal section 179 deduction and bonus (special) depreciation for small businesses for tax years 2025 and 2026, based on Publication 946 (2025), the 2025 Instructions for Schedule C, Publication 334 (2025), Revenue Procedure 2025-32, and IRS Notice 2026-11. Notice 2026-11 is interim guidance; proposed regulations are expected. Passenger automobile depreciation caps, real property, and state conformity are not covered in detail',
   persona:       ['Small business owners buying equipment', 'Freelancers buying computers, cameras, or tools', 'Sole proprietors and single-member LLC owners', 'Business owners planning year-end purchases'],

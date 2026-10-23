@@ -18,7 +18,7 @@ const META = {
   difficulty:    'Intermediate',
   readTime:      '9 min read',
   verification:  'official-sources-verified',
-  updatedDate:   TAX_CONFIG.lastReviewed,
+  updatedDate:   'October 2026',
   taxYear:       String(TAX_CONFIG.currentTaxYear),
   confidence:    'Explains the recipient boxes on Forms 1099-DIV and 1099-INT (Rev. January 2024, used for tax years 2025 and 2026) and where each amount generally goes on a 2025 Form 1040, based on the forms\' recipient instructions, the Instructions for Forms 1099-DIV and 1099-INT, Publication 550 (2025), the 2025 Instructions for Form 1040, Schedule B, and Schedule D. Liquidation distributions, section 897 amounts for foreign persons, market discount, REMICs, and state tax are not covered in detail',
   persona:       ['Mutual fund and ETF investors', 'People holding Treasury bills, notes, or savings bonds', 'Bond investors who paid a premium', 'Anyone with boxes beyond 1a and 1b filled in'],

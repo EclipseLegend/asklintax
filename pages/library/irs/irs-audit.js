@@ -18,7 +18,7 @@ const META = {
   difficulty:    'Intermediate',
   readTime:      '6 min read',
   verification:  'official-sources-verified',
-  updatedDate:   TAX_CONFIG.lastReviewed,
+  updatedDate:   null,
   taxYear:       String(TAX_CONFIG.currentTaxYear),
   confidence:    'A general overview of IRS examinations of individual and small-business income tax returns. It does not predict outcomes or replace professional representation; employment tax, estate, criminal, and collection matters are outside this guide. Always follow the dates and instructions in your own letter',
   persona:       ['Taxpayers who received an IRS examination letter', 'Small business owners asked for records', 'People unsure whether a letter or call is really from the IRS', 'Anyone deciding whether to get representation'],

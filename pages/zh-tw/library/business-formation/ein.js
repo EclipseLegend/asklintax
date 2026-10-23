@@ -13,7 +13,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'ein',
-  sourceHash:      'f52b61a987eb',
+  sourceHash:      '496ea98f9eed',
   id:            '15',
   title:         '如何申請 EIN：逐步指南',
   titleEn:       'How to apply for an EIN: a step-by-step guide',
@@ -28,7 +28,7 @@ const META = {
     { label: 'IRS — Form SS-4 填寫說明（Instructions for Form SS-4）', url: 'https://www.irs.gov/instructions/iss4' },
     { label: 'IRS — 你需要新的 EIN 嗎？（Do you need a new EIN?）', url: 'https://www.irs.gov/businesses/small-businesses-self-employed/do-you-need-a-new-ein' },
   ],
-  updatedDate:   TAX_CONFIG.lastReviewed,
+  updatedDate:   null,
   taxYear:       String(TAX_CONFIG.currentTaxYear),
   confidence:    'IRS 對 EIN 申請流程有清楚的說明，流程也相當簡單。負責人（Responsible Party）沒有 SSN 或 ITIN 的申請人不能線上申請，必須以傳真或郵寄申請（如果企業在美國沒有主要營業地點，也可以電話申請）。',
   persona:       ['新創業的老闆', 'LLC 負責人', '要開立企業帳戶的接案者', '正在創立小型企業的人'],

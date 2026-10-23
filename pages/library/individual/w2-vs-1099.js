@@ -28,7 +28,7 @@ const META = {
     { label: 'IRS — Form 1040-ES, Estimated Tax for Individuals (2026)', url: 'https://www.irs.gov/pub/irs-pdf/f1040es.pdf' },
     { label: 'IRS — Digital assets (Form 1099-DA reporting)', url: 'https://www.irs.gov/filing/digital-assets' },
   ],
-  updatedDate:   TAX_CONFIG.lastReviewed,
+  updatedDate:   null,
   taxYear:       String(TAX_CONFIG.currentTaxYear),
   confidence:    'Covers general principles of employee vs. independent contractor classification. Worker classification disputes are complex — consult a CPA or attorney if your classification is unclear or being challenged.',
   persona:       ['Employee with side freelance income', 'New freelancer or contractor', 'Anyone who received a 1099 for the first time', 'Gig economy worker'],

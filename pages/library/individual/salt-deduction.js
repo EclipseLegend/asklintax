@@ -18,7 +18,7 @@ const META = {
   difficulty:    'Intermediate',
   readTime:      '7 min read',
   verification:  'official-sources-verified',
-  updatedDate:   TAX_CONFIG.lastReviewed,
+  updatedDate:   null,
   taxYear:       String(TAX_CONFIG.currentTaxYear),
   confidence:    'Explains the federal itemized deduction for state and local taxes (SALT) for tax years 2025 and 2026, based on the 2025 Schedule A instructions, IRS Topic 503, and IRS Publication 505 (2026). The step-by-step calculation and examples use the 2025 rules. It does not cover state income tax rules or business-level tax elections',
   persona:       ['Homeowners who pay property tax', 'People in states with high income taxes', 'Taxpayers deciding whether to itemize', 'Higher-income households near the income limit'],

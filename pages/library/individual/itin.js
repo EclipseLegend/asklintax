@@ -21,7 +21,7 @@ const META = {
     { label: 'IRS — Individual Taxpayer Identification Number (ITIN)', url: 'https://www.irs.gov/individuals/individual-taxpayer-identification-number' },
     { label: 'IRS — Instructions for Form W-7', url: 'https://www.irs.gov/instructions/iw7' },
   ],
-  updatedDate: TAX_CONFIG.lastReviewed,
+  updatedDate: null,
   taxYear: String(TAX_CONFIG.currentTaxYear),
   confidence: 'ITIN application process is well-established. Processing times vary — apply early. Certified Acceptance Agents can verify documents without sending originals to the IRS.',
   persona: ['F-1 student', 'Dependent spouse without work authorization', 'Non-resident alien with U.S. income', 'Anyone without SSN eligibility who has U.S. tax obligations'],

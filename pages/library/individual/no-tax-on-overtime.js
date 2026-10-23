@@ -18,7 +18,7 @@ const META = {
   difficulty:    'Intermediate',
   readTime:      '8 min read',
   verification:  'official-sources-verified',
-  updatedDate:   TAX_CONFIG.lastReviewed,
+  updatedDate:   null,
   taxYear:       String(TAX_CONFIG.currentTaxYear),
   confidence:    'Explains the federal income tax deduction for qualified overtime compensation for tax years 2025 and 2026, based on IRS forms and instructions, Notice 2025-69, and the IRS overtime FAQs (FS-2026-13). IRS FAQs are guidance, not regulations. It does not cover state income tax, employer payroll obligations, or every special overtime arrangement, such as rules for federal employees',
   persona:       ['Hourly workers who are paid overtime', 'Married couples who both work overtime', 'Workers checking their 2026 Form W-2', 'Anyone unsure whether their overtime qualifies'],

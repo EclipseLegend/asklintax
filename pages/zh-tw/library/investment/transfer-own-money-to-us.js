@@ -14,7 +14,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'transfer-own-money-to-us',
-  sourceHash:      '00307718afb2',
+  sourceHash:      '25ff13d73968',
   id:            '35',
   title:         '把自己海外帳戶的錢匯到美國，要繳稅嗎？',
   titleEn:       'I transferred my own money from overseas to the U.S. — is it taxable?',
@@ -24,7 +24,7 @@ const META = {
   difficulty:    'Beginner',
   readTime:      '6 min read',
   verification:  'official-sources-verified',
-  updatedDate:   TAX_CONFIG.lastReviewed,
+  updatedDate:   null,
   taxYear:       String(TAX_CONFIG.currentTaxYear),
   confidence:    '涵蓋把自己的資金從海外帳戶移到美國的美國公民與居民外國人。說明哪些問題取決於匯款本身、哪些取決於錢的來源。透過外國公司或信託持有的資金、外幣債務，以及有未申報收入的年度，需要專業人士檢視',
   persona:       ['把存款帶到美國的新移民', '正在結清台灣或中國銀行帳戶的人', '在海外有存款的綠卡持有人', '在海外出售資產、正在移轉款項的人'],

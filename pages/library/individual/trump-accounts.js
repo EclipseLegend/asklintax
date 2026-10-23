@@ -18,7 +18,7 @@ const META = {
   difficulty:    'Intermediate',
   readTime:      '8 min read',
   verification:  'official-sources-verified',
-  updatedDate:   TAX_CONFIG.lastReviewed,
+  updatedDate:   null,
   taxYear:       String(TAX_CONFIG.currentTaxYear),
   confidence:    'Explains Trump accounts (a new type of individual retirement account for children under the 2025 tax law) based on IRS Notice 2025-68, Form 4547 and its instructions, Revenue Procedure 2026-25, the draft 2026 Form 5329 and instructions, and IRS news releases describing proposed regulations. Much of the detailed guidance is still proposed, not final, and may change. It does not cover employer plan design, investment selection, or state law',
   persona:       ['Parents of a child born in 2025 through 2028', 'Parents and grandparents of children under 18', 'Families comparing Trump accounts with 529 plans', 'Employees whose employer offers Trump account contributions'],
@@ -85,6 +85,12 @@ const RELATED = [
     cat:  'Individuals & Families',
     title: 'What is a W-2 and how do I read it?',
     desc:  'Where employer Trump account contributions appear (code TA).',
+  },
+  {
+    href: '/library/individual/ira-roth-ira-contributions',
+    cat: 'Individuals & Families',
+    title: 'Traditional and Roth IRA Contributions: 2025 and 2026 Limits and Income Rules',
+    desc: 'How regular IRA contributions work.',
   },
 ]
 

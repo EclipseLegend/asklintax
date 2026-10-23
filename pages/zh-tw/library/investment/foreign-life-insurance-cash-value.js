@@ -14,7 +14,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'foreign-life-insurance-cash-value',
-  sourceHash:      'f6e1d249a1ff',
+  sourceHash:      'b3c36941c9a4',
   id:            '47',
   title:         '海外儲蓄險／有現金價值的人壽保險要申報嗎？',
   titleEn:       'Foreign life insurance with cash value: is it reportable?',
@@ -24,7 +24,7 @@ const META = {
   difficulty:    'Intermediate',
   readTime:      '4 min read',
   verification:  'official-sources-verified',
-  updatedDate:   TAX_CONFIG.lastReviewed,
+  updatedDate:   null,
   taxYear:       String(TAX_CONFIG.currentTaxYear),
   confidence:    '涵蓋海外發行、有現金價值的人壽保險與年金契約，是否要在 FBAR 與 Form 8938 上申報。不涵蓋這類保單如何課稅、沒有現金價值的保單，以及保費、解約或身故給付的處理',
   persona:       ['有台灣、香港或中國儲蓄險的人', '持有海外年金契約的人', '保留移民前所買保單的新移民', '在海外替子女買保單的父母'],

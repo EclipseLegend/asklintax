@@ -18,7 +18,7 @@ const META = {
   difficulty:    'Advanced',
   readTime:      '9 min read',
   verification:  'official-sources-verified',
-  updatedDate:   TAX_CONFIG.lastReviewed,
+  updatedDate:   'October 2026',
   taxYear:       String(TAX_CONFIG.currentTaxYear),
   confidence:    'Explains federal income tax treatment of employee stock options — incentive stock options (ISOs) and nonstatutory stock options (NSOs) — for tax years 2025 and 2026, based on Publication 525 (2025), IRS Topic no. 427, the Instructions for Form 3921 (Rev. April 2025), the 2025 Instructions for Form 6251, and the 2025 Instructions for Form 8949. Alternative minimum tax (AMT) is explained conceptually only; whether you owe AMT requires the full Form 6251 calculation. It does not cover options with a readily determinable value in detail, early exercise, or state tax',
   persona:       ['Startup and tech employees with stock options', 'People who received Form 3921', 'Employees deciding when to exercise or sell', 'Anyone surprised by AMT after exercising ISOs'],

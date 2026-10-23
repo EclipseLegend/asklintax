@@ -13,7 +13,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'fbar',
-  sourceHash:      '38efd8834094',
+  sourceHash:      'fcb8cf87bcb7',
   id: '20',
   title: 'FBAR：我需要申報海外銀行帳戶嗎？',
   titleEn: 'FBAR: do I need to report my foreign bank accounts?',
@@ -29,7 +29,7 @@ const META = {
     { label: 'IRS — Form 8938 與 FBAR 申報要求比較（Comparison of Form 8938 and FBAR requirements）', url: 'https://www.irs.gov/businesses/comparison-of-form-8938-and-fbar-requirements' },
     { label: 'IRS Publication 519 — 外國人美國稅務指南（U.S. Tax Guide for Aliens）', url: 'https://www.irs.gov/publications/p519' },
   ],
-  updatedDate: TAX_CONFIG.lastReviewed,
+  updatedDate: null,
   taxYear: String(TAX_CONFIG.currentTaxYear),
   confidence: 'FBAR 規則依《銀行保密法》（Bank Secrecy Act）已相當明確。FATCA（Form 8938）是另一項相關但門檻不同的要求 — 兩者可能同時適用。',
   persona: ['在台灣或中國有帳戶的新移民', '綠卡持有人', '有海外帳戶的美國公民', '在美國境外有銀行帳戶的人'],

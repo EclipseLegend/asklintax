@@ -14,7 +14,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'form-3520',
-  sourceHash:      'e30e55acaf2b',
+  sourceHash:      '25b690d179d8',
   id:            '22',
   title:         'Form 3520：申報大額海外贈與',
   titleEn:       'Form 3520: reporting large foreign gifts',
@@ -24,7 +24,7 @@ const META = {
   difficulty:    'Intermediate',
   readTime:      '5 min read',
   verification:  'official-sources-verified',
-  updatedDate:   TAX_CONFIG.lastReviewed,
+  updatedDate:   null,
   taxYear:       String(TAX_CONFIG.currentTaxYear),
   confidence:    '涵蓋美國公民與居民外國人個人申報的 Form 3520 Part IV（來自外國人的贈與與遺產）。海外信託申報（Parts I–III）不在本指南範圍內',
   persona:       ['從海外家人收到超過 $100,000 的人', '父母住在美國境外的繼承人', '新移民', '協助家人報稅的報稅人員'],

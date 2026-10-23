@@ -18,7 +18,7 @@ const META = {
   difficulty:    'Advanced',
   readTime:      '8 min read',
   verification:  'official-sources-verified',
-  updatedDate:   TAX_CONFIG.lastReviewed,
+  updatedDate:   'October 2026',
   taxYear:       String(TAX_CONFIG.currentTaxYear),
   confidence:    'Explains the federal deduction for investment interest expense for individuals for tax years 2025 and 2026, based on Form 4952 and its instructions (2025), Publication 550 (2025), IRS Topic no. 505, Rev. Proc. 2025-32, and the 2026 draft Instructions for Form 8960 describing section 70111 of P.L. 119-21. The 2026 section 68 limitation is described from draft instructions only. Interest tracing rules, passive activities, estates and trusts, and state tax are not covered',
   persona:       ['Investors who borrow on margin', 'People who took a loan to buy stocks or other investments', 'Itemizers with investment income', 'High-income investors planning for 2026'],

@@ -515,6 +515,50 @@ if (fs.existsSync(OUT_DIR)) {
   }
 }
 
+// Article review dates. Each article page sets META.updatedDate to the month ('Month YYYY') of
+// its most recent substantive content update or documented tax-accuracy review; the English
+// page and its Traditional Chinese translation must use the same month. Articles that predate
+// per-article dates are listed in lib/article-date-backfill.js and use `updatedDate: null`
+// (their pages show no article-level date) until their review date is confirmed.
+// The library-wide TAX_CONFIG.lastReviewed must not be used as an article date.
+const { DATE_BACKFILL_PENDING } = require('../lib/article-date-backfill')
+const DATE_MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+const pendingDates = new Set(DATE_BACKFILL_PENDING)
+for (const id of pendingDates) {
+  if (!articleById.has(id)) error(`lib/article-date-backfill.js lists "${id}", which is not a published article in lib/articles.js.`)
+}
+const nowMonth = (() => { const d = new Date(); return d.getFullYear() * 12 + d.getMonth() })()
+const readUpdatedDate = file => {
+  const m = /\n\s*updatedDate:\s*([^\n]*?),?\s*(?:\/\/[^\n]*)?\n/.exec(fs.readFileSync(file, 'utf8'))
+  return m ? m[1].trim() : undefined
+}
+let pendingCount = 0
+for (const a of ARTICLES) {
+  if (typeof a.path !== 'string') continue
+  const files = [['en', sourceFile(PAGES_LIBRARY, a.path)], ['zh-tw', sourceFile(ZH_PAGES_LIBRARY, a.path)]]
+  const values = {}
+  for (const [lang, file] of files) {
+    if (!fs.existsSync(file)) continue
+    const raw = readUpdatedDate(file)
+    const where = `${label(a)} (${lang})`
+    values[lang] = raw
+    if (raw === undefined) { error(`${where}: META.updatedDate is missing. Set it to the month of the last substantive review, e.g. 'October 2026'.`); continue }
+    if (raw === 'null') {
+      if (!pendingDates.has(a.id)) error(`${where}: META.updatedDate is null, but the article is not in lib/article-date-backfill.js. New and reviewed articles need an explicit 'Month YYYY' date.`)
+      continue
+    }
+    const m = /^'([A-Za-z]+) (\d{4})'$/.exec(raw)
+    if (!m || !DATE_MONTHS.includes(m[1])) { error(`${where}: META.updatedDate must be a 'Month YYYY' string (for example 'October 2026') or null for articles pending a date review; found ${raw}.`); continue }
+    if (Number(m[2]) * 12 + DATE_MONTHS.indexOf(m[1]) > nowMonth) error(`${where}: META.updatedDate ${raw} is in the future.`)
+    if (pendingDates.has(a.id)) error(`${where}: META.updatedDate is set to ${raw}; remove "${a.id}" from lib/article-date-backfill.js.`)
+  }
+  if (values.en !== undefined && values['zh-tw'] !== undefined && values.en !== values['zh-tw']) {
+    error(`${label(a)}: the English (${values.en}) and Traditional Chinese (${values['zh-tw']}) pages must use the same META.updatedDate.`)
+  }
+  if (values.en === 'null') pendingCount++
+}
+if (pendingCount) warn(`${pendingCount} article(s) still await a confirmed review date (lib/article-date-backfill.js); their pages show no article-level date.`)
+
 // ── Report ────────────────────────────────────────────────
 
 for (const w of warnings) console.warn(`validate-articles: WARNING ${w}`)

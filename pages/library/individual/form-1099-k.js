@@ -18,7 +18,7 @@ const META = {
   difficulty:    'Beginner',
   readTime:      '5 min read',
   verification:  'official-sources-verified',
-  updatedDate:   TAX_CONFIG.lastReviewed,
+  updatedDate:   null,
   taxYear:       String(TAX_CONFIG.currentTaxYear),
   confidence:    'Covers individuals who received Form 1099-K from a payment app or online marketplace. It explains the reporting threshold and what the form means; it is not a complete guide to reporting business income or selling investments',
   persona:       ['People who sold used items online', 'Side-gig sellers and service providers paid through apps', 'Anyone who received a 1099-K they did not expect', 'Friends and family who split costs through payment apps'],

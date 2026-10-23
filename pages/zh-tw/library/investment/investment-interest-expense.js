@@ -14,7 +14,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'investment-interest-expense',
-  sourceHash:      '8b8d68ff7cfa',
+  sourceHash:      '811bb114974d',
   id:            '88',
   title:         '融資與投資借款利息：Form 4952 投資利息扣除',
   titleEn:       'Margin and Investment Loan Interest: The Form 4952 Deduction',
@@ -24,7 +24,7 @@ const META = {
   difficulty:    'Advanced',
   readTime:      '8 min read',
   verification:  'official-sources-verified',
-  updatedDate:   TAX_CONFIG.lastReviewed,
+  updatedDate:   'October 2026',
   taxYear:       String(TAX_CONFIG.currentTaxYear),
   confidence:    '依據 Form 4952 及其填寫說明（2025）、Publication 550（2025）、IRS Topic no. 505、Rev. Proc. 2025-32，以及說明 P.L. 119-21 第 70111 條的 2026 年 Form 8960 填寫說明草案，說明 2025 與 2026 稅務年度個人的投資利息費用扣除。2026 年第 68 條限制只依草案說明。本文不涵蓋利息追蹤規定、被動活動、遺產與信託，也不涵蓋州稅',
   persona:       ['用融資（保證金）借錢的投資人', '借錢買股票或其他投資的人', '有投資所得、採用分項扣除的人', '為 2026 年做規劃的高收入投資人'],

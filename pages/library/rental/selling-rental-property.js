@@ -18,7 +18,7 @@ const META = {
   difficulty:    'Advanced',
   readTime:      '9 min read',
   verification:  'official-sources-verified',
-  updatedDate:   TAX_CONFIG.lastReviewed,
+  updatedDate:   'October 2026',
   taxYear:       String(TAX_CONFIG.currentTaxYear),
   confidence:    'Explains the federal income tax treatment of selling U.S. residential rental real estate held more than one year, for tax years 2025 and 2026, based on Publications 544, 527, 550, and 551, the 2025 Instructions for Form 4797, and the 2025 Instructions for Schedule D. It does not cover installment sales, like-kind (section 1031) exchanges, passive activity loss rules, a former main home, correcting depreciation that was never claimed, property abroad, or state tax',
   persona:       ['Landlords selling a rental house or condo', 'People who inherited or kept a former rental', 'Owners comparing their sale price with what they paid', 'Anyone who received Form 1099-S for a rental sale'],

@@ -18,7 +18,7 @@ const META = {
   difficulty:    'Intermediate',
   readTime:      '8 min read',
   verification:  'official-sources-verified',
-  updatedDate:   TAX_CONFIG.lastReviewed,
+  updatedDate:   'October 2026',
   taxYear:       String(TAX_CONFIG.currentTaxYear),
   confidence:    'A federal filing checklist for U.S. citizens and resident aliens living outside the United States for tax years 2025 and 2026, based on Publication 54 (Rev. December 2025), the 2025 Instructions for Form 1040, the 2025 Instructions for Form 2555, the Instructions for Form 8938, the IRS FBAR page, the IRS yearly average currency exchange rates, and the IRS list of U.S. income tax treaties. It links to detailed guides rather than repeating them. It does not cover U.S. state tax, renouncing citizenship, or Taiwan tax law',
   persona:       ['U.S. citizens living in Taiwan', 'Green card holders working abroad', 'Americans who recently moved overseas', 'Families with income or accounts in more than one country'],

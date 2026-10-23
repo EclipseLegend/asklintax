@@ -18,7 +18,7 @@ const META = {
   difficulty:    'Advanced',
   readTime:      '9 min read',
   verification:  'official-sources-verified',
-  updatedDate:   TAX_CONFIG.lastReviewed,
+  updatedDate:   'October 2026',
   taxYear:       String(TAX_CONFIG.currentTaxYear),
   confidence:    'Explains the passive foreign investment company (PFIC) rules and Form 8621 filing for individuals for tax years 2025 and 2026, based on Form 8621 and its instructions (Rev. December 2025), the Instructions for Form 8938, Publication 514 (2025), and the preamble to the final section 1298(f) regulations (T.D. 9806, Internal Revenue Bulletin 2017-4). It does not determine whether any particular fund is a PFIC, does not compute the section 1291 tax and interest charge, and does not cover PFICs owned through partnerships, trusts, or other PFICs in detail, or state tax',
   persona:       ['People holding Taiwan or other non-U.S. mutual funds or ETFs', 'U.S. residents with a foreign brokerage or bank investment account', 'New U.S. residents who bought foreign funds before moving', 'Anyone who received a foreign fund distribution or sold foreign fund shares'],

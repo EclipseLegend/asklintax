@@ -18,7 +18,7 @@ const META = {
   difficulty:    'Intermediate',
   readTime:      '8 min read',
   verification:  'official-sources-verified',
-  updatedDate:   TAX_CONFIG.lastReviewed,
+  updatedDate:   null,
   taxYear:       String(TAX_CONFIG.currentTaxYear),
   confidence:    'Explains federal tax rules for 529 plans (qualified tuition programs) based on IRS Tax Topic 313 (updated September 2026) and Publication 970 (2025), including the expanded K-12 and postsecondary credentialing expenses. Per Tax Topic 313, the K-12 annual limit is $10,000 for 2025 and $20,000 beginning in 2026. The IRS sources reviewed do not state the exact dates the expanded K-12 and credentialing expenses began to apply. State tax rules for 529 plans differ and are not covered',
   persona:       ['Parents saving for K-12 or college costs', 'Adults pursuing a license or professional credential', 'Families coordinating 529 withdrawals with education credits', 'Grandparents who contribute to a 529 plan'],
@@ -77,6 +77,12 @@ const RELATED = [
     cat:  'Individuals & Families',
     title: 'The 2025 Tax Law: What Changed for Your 2025 and 2026 Returns',
     desc:  'All the major changes, year by year.',
+  },
+  {
+    href: '/library/individual/gift-tax-form-709',
+    cat: 'Individuals & Families',
+    title: 'Gift Tax and Form 709: When U.S. Givers Must File in 2025 and 2026',
+    desc: 'Gifts to a 529 plan and the 5-year election on Form 709.',
   },
 ]
 

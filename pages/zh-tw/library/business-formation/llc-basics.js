@@ -13,7 +13,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'llc-basics',
-  sourceHash:      'cfcbff434a3d',
+  sourceHash:      'c4f9dbdc5cc9',
   id:            '02',
   title:         '什麼是 LLC？我需要成立嗎？',
   titleEn:       'What is an LLC, and do I need one?',
@@ -29,7 +29,7 @@ const META = {
     { label: 'IRS — 單一成員有限責任公司（Single member limited liability companies）', url: 'https://www.irs.gov/businesses/small-businesses-self-employed/single-member-limited-liability-companies' },
     { label: '加州稅務局（California Franchise Tax Board）— 有限責任公司（Limited liability company）', url: 'https://www.ftb.ca.gov/file/business/types/limited-liability-company/index.html' },
   ],
-  updatedDate:   TAX_CONFIG.lastReviewed,
+  updatedDate:   null,
   taxYear:       String(TAX_CONFIG.currentTaxYear),
   confidence:    '一般原則適用於大多數州。各州的 LLC 稅、規費與申報規定不同；本文沒有查證各州的具體金額',
   persona:       ['自雇人士', '接案者', '小型企業老闆', '新創業者'],

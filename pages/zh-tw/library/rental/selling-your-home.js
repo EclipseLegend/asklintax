@@ -14,7 +14,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'selling-your-home',
-  sourceHash:      'cefa67037c01',
+  sourceHash:      'cddc1b1bfafd',
   id:            '54',
   title:         '我賣了房子，獲利要繳稅嗎？',
   titleEn:       'I sold my house — do I have to pay tax on the profit?',
@@ -24,7 +24,7 @@ const META = {
   difficulty:    'Intermediate',
   readTime:      '6 min read',
   verification:  'official-sources-verified',
-  updatedDate:   TAX_CONFIG.lastReviewed,
+  updatedDate:   null,
   taxYear:       String(TAX_CONFIG.currentTaxYear),
   confidence:    '涵蓋個人出售美國自住主要住宅（main home / principal residence）。曾經出租或作營業用的房子、部分排除，以及非合格使用期間，需要個別檢視；海外房產另有指南',
   persona:       ['剛賣房或準備賣房的屋主', '出售自住房子的夫妻', '過戶時收到 Form 1099-S 的人', '曾經把部分房子出租的賣方'],

@@ -18,7 +18,7 @@ const META = {
   difficulty:    'Beginner',
   readTime:      '7 min read',
   verification:  'official-sources-verified',
-  updatedDate:   TAX_CONFIG.lastReviewed,
+  updatedDate:   null,
   taxYear:       String(TAX_CONFIG.currentTaxYear),
   confidence:    'An overview of the main federal changes for individuals under Public Law 119-21 (enacted July 4, 2025), which the IRS now also calls the Working Families Tax Cuts. It summarizes and links to detailed guides; it does not cover every provision, business provisions, or state tax rules, which can differ from federal law',
   persona:       ['Anyone filing a 2025 return', 'Workers who receive tips or overtime pay', 'Taxpayers age 65 or older', 'Homeowners and people in high-tax states who itemize'],

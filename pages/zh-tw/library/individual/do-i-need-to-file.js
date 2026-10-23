@@ -13,7 +13,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'do-i-need-to-file',
-  sourceHash:      'c0b672db3e13',
+  sourceHash:      '90ce127a618e',
   id:            '06',
   title:         '我需要申報美國聯邦稅表嗎？',
   titleEn:       'Do I need to file a U.S. tax return?',
@@ -31,7 +31,7 @@ const META = {
     { label: 'IRS Publication 590-A — 個人退休帳戶提撥（Contributions to Individual Retirement Arrangements）', url: 'https://www.irs.gov/publications/p590a' },
     { label: 'IRS — 自雇稅（Self-employment tax：社會安全稅與聯邦醫療保險稅）', url: 'https://www.irs.gov/businesses/small-businesses-self-employed/self-employment-tax-social-security-and-medicare-taxes' },
   ],
-  updatedDate:   TAX_CONFIG.lastReviewed,
+  updatedDate:   null,
   taxYear:       String(TAX_CONFIG.currentTaxYear),
   confidence:    '涵蓋居民外國人與美國公民的一般申報要求。非居民外國人（申報 Form 1040-NR 者）的門檻不同 — 請見文中的說明。',
   persona:       ['第一次報稅的人', '新移民', '有兼職收入的學生', '不確定是否需要報稅的人'],

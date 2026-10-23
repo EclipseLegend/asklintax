@@ -18,7 +18,7 @@ const META = {
   difficulty:    'Intermediate',
   readTime:      '6 min read',
   verification:  'official-sources-verified',
-  updatedDate:   TAX_CONFIG.lastReviewed,
+  updatedDate:   null,
   taxYear:       String(TAX_CONFIG.currentTaxYear),
   confidence:    'Covers individuals with capital losses from selling stocks or similar securities in a taxable account. Worthless securities, section 1256 contracts, losses inside retirement accounts, and dealer or trader rules are outside this guide',
   persona:       ['Investors who sold shares at a loss', 'People with a loss carryover from an earlier year', 'Anyone who sold and bought back the same stock', 'Couples deciding how losses apply on separate returns'],

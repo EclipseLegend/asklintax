@@ -27,7 +27,7 @@ const META = {
     { label: 'IRS — Qualified business income deduction', url: 'https://www.irs.gov/newsroom/qualified-business-income-deduction' },
     { label: 'IRS — Self-employment tax (Social Security and Medicare taxes)', url: 'https://www.irs.gov/businesses/small-businesses-self-employed/self-employment-tax-social-security-and-medicare-taxes' },
   ],
-  updatedDate:   TAX_CONFIG.lastReviewed,
+  updatedDate:   null,
   taxYear:       String(TAX_CONFIG.currentTaxYear),
   confidence:    'General principles apply broadly; individual tax savings depend on your specific income level, salary, and state. Consult a CPA before making an S-Corp election.',
   persona:       ['Self-employed', 'Freelancer', 'Small business owner', 'LLC owner considering tax optimization'],

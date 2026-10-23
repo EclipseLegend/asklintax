@@ -13,7 +13,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'what-is-w2',
-  sourceHash:      '5f1b6c86b4e7',
+  sourceHash:      'f48ee844c27a',
   id:            '09',
   title:         '什麼是 W-2？該怎麼看？',
   titleEn:       'What is a W-2 and how do I read it?',
@@ -28,7 +28,7 @@ const META = {
     { label: 'IRS — Topic no. 154，Form W-2 與 Form 1099-R（資料錯誤或沒有收到時該怎麼辦）', url: 'https://www.irs.gov/taxtopics/tc154' },
     { label: 'IRS Publication 15（2025）— 雇主稅務指南（Employer\'s Tax Guide：社會安全稅薪資上限）', url: 'https://www.irs.gov/pub/irs-prior/p15--2025.pdf' },
   ],
-  updatedDate:   TAX_CONFIG.lastReviewed,
+  updatedDate:   null,
   taxYear:       String(TAX_CONFIG.currentTaxYear),
   confidence:    '各欄位的定義對所有雇主都一樣。Box 12 代碼是最複雜的部分 — 如果看到不認識的特殊代碼，請諮詢 CPA。',
   persona:       ['第一次上班的人', '在美國找到第一份工作的新移民', '從來沒看過 W-2 的人'],
@@ -85,6 +85,12 @@ const RELATED = [
     cat:   'Individuals & Families',
     title: '抵稅額（tax credit）與扣除額（deduction）有什麼不同？',
     desc:  '了解抵稅額與扣除額，可以幫你知道 W-2 基本數字以外還要注意什麼。',
+  },
+  {
+    href:  '/library/individual/ira-roth-ira-contributions',
+    cat:   'Individuals & Families',
+    title: '傳統 IRA 與 Roth IRA 存款：2025 與 2026 年上限與收入規定',
+    desc:  '「Retirement plan」方框如何影響 IRA 扣除。',
   },
 ]
 

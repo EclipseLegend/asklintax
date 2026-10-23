@@ -14,7 +14,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'foreign-account-no-interest',
-  sourceHash:      '5ffbf9d8d7d5',
+  sourceHash:      '6c5a65915242',
   id:            '44',
   title:         '海外帳戶沒有利息，也要報 FBAR 嗎？',
   titleEn:       'My foreign bank account earned no interest — do I still need to report it?',
@@ -24,7 +24,7 @@ const META = {
   difficulty:    'Beginner',
   readTime:      '4 min read',
   verification:  'official-sources-verified',
-  updatedDate:   TAX_CONFIG.lastReviewed,
+  updatedDate:   null,
   taxYear:       String(TAX_CONFIG.currentTaxYear),
   confidence:    '涵蓋海外帳戶幾乎沒有或完全沒有收入的美國公民與居民外國人。把帳戶申報（FBAR、Form 8938）與稅表上的收入申報分開說明',
   persona:       ['海外活存帳戶沒有利息的人', '在台灣或中國保留閒置帳戶的人', '保留原居住國帳戶的新移民', '名字在父母帳戶上的成年子女'],

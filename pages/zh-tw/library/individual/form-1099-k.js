@@ -14,7 +14,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'form-1099-k',
-  sourceHash:      '4ddde2b9dfaa',
+  sourceHash:      '4955983bb564',
   id:            '55',
   title:         '收到 PayPal、Venmo 或 eBay 的 1099-K，要繳稅嗎？',
   titleEn:       'I got a 1099-K from PayPal, Venmo, or eBay — is it taxable?',
@@ -24,7 +24,7 @@ const META = {
   difficulty:    'Beginner',
   readTime:      '5 min read',
   verification:  'official-sources-verified',
-  updatedDate:   TAX_CONFIG.lastReviewed,
+  updatedDate:   null,
   taxYear:       String(TAX_CONFIG.currentTaxYear),
   confidence:    '涵蓋從支付 App 或網路平台收到 Form 1099-K 的個人。說明申報門檻與這份表格代表什麼；不是申報營業收入或出售投資的完整指南',
   persona:       ['在網路上賣二手物品的人', '透過 App 收款的副業賣家與服務提供者', '收到意料之外 1099-K 的人', '用支付 App 分攤費用的朋友與家人'],

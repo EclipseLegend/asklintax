@@ -18,7 +18,7 @@ const META = {
   difficulty:    'Advanced',
   readTime:      '9 min read',
   verification:  'official-sources-verified',
-  updatedDate:   TAX_CONFIG.lastReviewed,
+  updatedDate:   'October 2026',
   taxYear:       String(TAX_CONFIG.currentTaxYear),
   confidence:    'Explains the foreign tax credit for individuals for tax years 2025 and 2026, based on Publication 514 (2025), the 2025 Instructions for Form 1116, the 2026 draft Instructions for Form 1116, the 2025 Instructions for Form 1040, the IRS foreign tax credit pages, and the IRS list of U.S. income tax treaties. It does not decide whether a particular foreign tax is creditable, and it does not cover businesses, controlled foreign corporations, or state tax',
   persona:       ['U.S. residents who pay Taiwan tax on interest, dividends, or rent', 'People with foreign wages who do not use the exclusion', 'Investors with foreign tax shown on Form 1099-DIV or 1099-INT', 'Anyone who sold property abroad and paid foreign tax'],

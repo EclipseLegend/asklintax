@@ -18,7 +18,7 @@ const META = {
   difficulty:    'Intermediate',
   readTime:      '6 min read',
   verification:  'official-sources-verified',
-  updatedDate:   TAX_CONFIG.lastReviewed,
+  updatedDate:   null,
   taxYear:       String(TAX_CONFIG.currentTaxYear),
   confidence:    'Covers U.S. citizens and resident aliens who missed, or filed late, a Form 3520 Part IV for gifts or bequests from foreign persons. Foreign trust reporting, years with unreported income, and cases already under IRS examination need individual professional advice. This guide does not predict whether any penalty will be assessed or waived',
   persona:       ['People who just learned about Form 3520', 'Anyone who received a large gift or inheritance from abroad in an earlier year', 'Taxpayers who received an IRS penalty notice for Form 3520', 'Family members helping a relative catch up'],

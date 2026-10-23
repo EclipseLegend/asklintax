@@ -14,7 +14,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'rsu-taxes',
-  sourceHash:      'dd8acde38471',
+  sourceHash:      '97bd1bf42412',
   id:            '81',
   title:         'RSU 限制性股票單位怎麼課稅：歸屬、W-2 所得與出售時的成本基礎',
   titleEn:       'RSU Taxes: Vesting, W-2 Income and Cost Basis When You Sell',
@@ -24,7 +24,7 @@ const META = {
   difficulty:    'Intermediate',
   readTime:      '8 min read',
   verification:  'official-sources-verified',
-  updatedDate:   TAX_CONFIG.lastReviewed,
+  updatedDate:   'October 2026',
   taxYear:       String(TAX_CONFIG.currentTaxYear),
   confidence:    '依據 Publication 525（2025）、2025 年 Form 8949 填寫說明、2026 年 Form 1099-B 填寫說明、Publication 15（2026），以及 IRS 股權（股票）薪酬查核技術指南（Publication 5992，2024 年 6 月；IRS 表示它不是官方的法律見解），說明 2025 與 2026 稅務年度以股票交割的限制性股票單位（RSU）的聯邦所得稅處理。本文不詳細涵蓋以現金交割的 RSU、延後交割的計畫、非居民的所得來源，以及州稅',
   persona:       ['領取 RSU 的上市公司員工', '出售已歸屬股票的科技業員工', 'Form 1099-B 上成本基礎為零或偏低的人', '規劃歸屬所得預扣稅的員工'],

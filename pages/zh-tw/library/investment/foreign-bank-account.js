@@ -14,7 +14,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'foreign-bank-account',
-  sourceHash:      '421f933ba8ca',
+  sourceHash:      '9e8cd79b6777',
   id:            '24',
   title:         '台灣或海外銀行帳戶需要申報嗎？',
   titleEn:       'Do I need to report a Taiwan or foreign bank account?',
@@ -24,7 +24,7 @@ const META = {
   difficulty:    'Beginner',
   readTime:      '5 min read',
   verification:  'official-sources-verified',
-  updatedDate:   TAX_CONFIG.lastReviewed,
+  updatedDate:   null,
   taxYear:       String(TAX_CONFIG.currentTaxYear),
   confidence:    '涵蓋在海外有一般銀行帳戶的美國公民與居民外國人個人。企業帳戶、信託、退休帳戶與租稅協定主張，需要個別檢視',
   persona:       ['在台灣、中國或其他海外地區有銀行帳戶的人', '保留母國帳戶的新移民', '名字列在父母帳戶上的成年子女', '綠卡持有人'],

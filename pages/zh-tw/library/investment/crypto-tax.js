@@ -13,7 +13,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'crypto-tax',
-  sourceHash:      '837949f96b57',
+  sourceHash:      '87faf6527704',
   id: '19',
   title: '加密貨幣稅務說明：什麼時候要繳稅？',
   titleEn: 'Crypto taxes explained: when is crypto taxable?',
@@ -32,7 +32,7 @@ const META = {
     { label: 'IRS — Revenue Procedure 2024-28（2025 年 1 月 1 日起按錢包或帳戶分配成本基礎）', url: 'https://www.irs.gov/pub/irs-drop/rp-24-28.pdf' },
     { label: 'IRS — 2025 年 Form 8949 填寫說明（數位資產 G 至 L 欄）', url: 'https://www.irs.gov/pub/irs-pdf/i8949.pdf' },
   ],
-  updatedDate: TAX_CONFIG.lastReviewed,
+  updatedDate: null,
   taxYear: String(TAX_CONFIG.currentTaxYear),
   confidence: '涵蓋 2025 與 2026 稅務年度 IRS 對加密貨幣課稅的現行立場，包括 Form 1099-DA、按錢包計算的成本基礎、質押（Revenue Ruling 2023-14）與 NFT（Notice 2023-27）。這是變化很快的領域 — DeFi、NFT 與質押（Staking）的規則仍在發展中。',
   persona: ['加密貨幣投資人', '比特幣持有人', 'NFT 買家或賣家', 'DeFi 參與者', '買賣過加密貨幣的人'],

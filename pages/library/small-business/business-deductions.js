@@ -30,7 +30,7 @@ const META = {
     { label: 'IRS — Notice 2026-11, Interim Guidance on Additional First Year Depreciation Deduction under § 168(k)', url: 'https://www.irs.gov/pub/irs-drop/n-26-11.pdf' },
     { label: 'IRS — Self-employment tax (Social Security and Medicare taxes)', url: 'https://www.irs.gov/businesses/small-businesses-self-employed/self-employment-tax-social-security-and-medicare-taxes' },
   ],
-  updatedDate:   TAX_CONFIG.lastReviewed,
+  updatedDate:   null,
   taxYear:       String(TAX_CONFIG.currentTaxYear),
   confidence:    'Covers the most common deductions for sole proprietors and single-member LLCs filing Schedule C. S-Corps, partnerships, and C-Corps have additional or different rules. Always verify with a CPA for your specific situation.',
   persona:       ['Freelancer', 'Self-employed', 'LLC owner', 'Small business owner', 'Side hustle earner'],

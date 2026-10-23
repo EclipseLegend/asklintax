@@ -14,7 +14,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'senior-deduction',
-  sourceHash:      '49893af3bf7b',
+  sourceHash:      '4c2e7d967a21',
   id:            '69',
   title:         '65 歲以上新增 $6,000 扣除額：資格與收入限制',
   titleEn:       'The New $6,000 Senior Deduction: Eligibility and Income Limits',
@@ -24,7 +24,7 @@ const META = {
   difficulty:    'Beginner',
   readTime:      '6 min read',
   verification:  'official-sources-verified',
-  updatedDate:   TAX_CONFIG.lastReviewed,
+  updatedDate:   null,
   taxYear:       String(TAX_CONFIG.currentTaxYear),
   confidence:    '依據 IRS 表格、填寫說明與指引，說明 2025 與 2026 稅務年度的聯邦長者加強扣除額，以及它和 65 歲以上原有額外標準扣除額的差別。本文不涵蓋非居民外國人、州所得稅，也不詳細說明社會安全福利有多少要課稅',
   persona:       ['65 歲以上的納稅人', '有社會安全福利與其他收入的退休人士', '一方或雙方 65 歲以上的夫妻', '協助父母報稅的成年子女'],
@@ -86,6 +86,12 @@ const RELATED = [
     cat:  'Individuals & Families',
     title: '抵稅額（tax credit）與扣除額（deduction）有什麼不同？',
     desc:  '扣除額如何降低你的稅。',
+  },
+  {
+    href: '/library/individual/social-security-benefits-tax',
+    cat: 'Individuals & Families',
+    title: '社會安全福利要繳稅嗎？50% 與 85% 規則說明',
+    desc: '福利中有多少要課稅。',
   },
 ]
 

@@ -14,7 +14,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'qbi-deduction',
-  sourceHash:      '48f93bb748bc',
+  sourceHash:      '2762ccce6fc0',
   id:            '78',
   title:         'QBI 扣除額：2025 與 2026 年規定',
   titleEn:       'The QBI Deduction: 2025 and 2026 Rules',
@@ -24,7 +24,7 @@ const META = {
   difficulty:    'Intermediate',
   readTime:      '9 min read',
   verification:  'official-sources-verified',
-  updatedDate:   TAX_CONFIG.lastReviewed,
+  updatedDate:   null,
   taxYear:       String(TAX_CONFIG.currentTaxYear),
   confidence:    '依據 2025 年 Form 8995 與 8995-A 填寫說明、IRS 關於 QBI 扣除額的指引、Revenue Procedure 2025-32、2026 年 Form 1040-ES，以及 2026 年 Form 8995 填寫說明草稿，說明 2025 與 2026 稅務年度的聯邦合格事業所得（QBI）扣除額。2026 年的門檻與 $400 最低扣除額來自正式 IRS 指引；最低扣除額的實質參與細節來自 2026 年填寫說明草稿。本文不詳細涵蓋 REIT 與 PTP 的計算、合併計算，以及信託與遺產',
   persona:       ['獨資經營者與自由業者', '單一成員 LLC 擁有人', 'S-Corp 股東與合夥人', '在服務業工作的較高收入專業人士'],

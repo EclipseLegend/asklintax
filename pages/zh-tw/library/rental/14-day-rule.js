@@ -13,7 +13,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: '14-day-rule',
-  sourceHash:      '217a0779ca93',
+  sourceHash:      '34ac3822f4ea',
   id:            '12',
   title:         '14 天規則：Airbnb 收入何時完全免稅',
   titleEn:       'The 14-day rule: when Airbnb income is completely tax-free',
@@ -28,7 +28,7 @@ const META = {
     { label: 'IRS — Topic no. 415，出租住宅與度假房產（Renting residential and vacation property）', url: 'https://www.irs.gov/taxtopics/tc415' },
     { label: 'IRS — 了解你的 Form 1099-K（Understanding your Form 1099-K）', url: 'https://www.irs.gov/businesses/understanding-your-form-1099-k' },
   ],
-  updatedDate:   TAX_CONFIG.lastReviewed,
+  updatedDate:   null,
   taxYear:       String(TAX_CONFIG.currentTaxYear),
   confidence:    '14 天規則在美國國稅法（IRC）Section 280A 中有明確規定。主要的複雜之處在於正確計算自用天數 — 自用的定義比大多數人以為的更廣。',
   persona:       ['偶爾出租的 Airbnb 房東', '考慮短租的屋主', '一年出租自家住宅幾週的人'],

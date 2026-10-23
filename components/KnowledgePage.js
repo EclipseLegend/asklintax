@@ -50,6 +50,7 @@ const UI = {
     trustVerified: 'Official Sources Verified — checked by AskLinTax against the official government sources listed above',
     trustDraft: 'Draft — not yet verified against official sources',
     trustMeta: (id, date, y) => `Foundation ${id} · Last reviewed ${date} · Applies to ${y} tax year`,
+    trustMetaNoDate: (id, y) => `Foundation ${id} · Applies to ${y} tax year`,
     disclaimer: c => `${c}. This article is for general educational purposes and does not constitute tax advice. Consult a qualified tax professional for your specific situation.`,
     related: 'Related guides',
   },
@@ -86,6 +87,7 @@ const UI = {
     trustVerified: '官方來源查核 — 本指南的英文原文已由 AskLinTax 依上列官方政府來源查核',
     trustDraft: '草稿 — 尚未依官方來源查核',
     trustMeta: (id, date, y) => `基礎指南 ${id} · 最後審閱：${date} · 適用 ${y} 稅務年度`,
+    trustMetaNoDate: (id, y) => `基礎指南 ${id} · 適用 ${y} 稅務年度`,
     disclaimer: c => `${c.replace(/[。.]$/, '')}。本文僅供一般教育用途，不構成稅務建議。請就你的具體情況諮詢合格的稅務專業人士。`,
     translationNote: '本指南依據 AskLinTax 已完成官方來源查核的英文原文翻譯整理。重要稅務名詞保留英文，方便你對照 IRS 表格與官方資料。若翻譯內容與英文原文或官方來源有差異，以英文原文及官方來源為準。',
     related: '相關指南',
@@ -120,7 +122,11 @@ export default function KnowledgePage({
   const emotion = T.emotions[meta.userEmotion] || T.emotions.learning
   // Publication status: every published guide is 'official-sources-verified' (see lib/articles.js).
   const verified = meta.verification === 'official-sources-verified'
-  const updatedDate = formatMonthYear(meta.updatedDate, locale)
+  // Article-level date: META.updatedDate ('Month YYYY'). Articles still awaiting a confirmed
+  // review date (lib/article-date-backfill.js) use null and show no date at all — the
+  // library-wide review date (TAX_CONFIG.lastReviewed) belongs to the Library and category pages only.
+  const hasArticleDate = typeof meta.updatedDate === 'string' && meta.updatedDate.trim() !== ''
+  const updatedDate = hasArticleDate ? formatMonthYear(meta.updatedDate, locale) : null
 
   // Structural labels come from the official taxonomy (lib/categories.js); META text is the fallback.
   const categoryName = href => {
@@ -167,8 +173,8 @@ export default function KnowledgePage({
               </span>
             )}
             {verified && <span className={styles.statDivider}>·</span>}
-            <span>{T.updated} {updatedDate}</span>
-            <span className={styles.statDivider}>·</span>
+            {hasArticleDate && <span>{T.updated} {updatedDate}</span>}
+            {hasArticleDate && <span className={styles.statDivider}>·</span>}
             <span>{T.taxYear(meta.taxYear)}</span>
           </div>
         </div>
@@ -310,7 +316,7 @@ export default function KnowledgePage({
             </div>
           )}
           <span className={styles.trustMeta}>
-            {T.trustMeta(meta.id, updatedDate, meta.taxYear)}
+            {hasArticleDate ? T.trustMeta(meta.id, updatedDate, meta.taxYear) : T.trustMetaNoDate(meta.id, meta.taxYear)}
           </span>
           {zh && (
             <p className={styles.trustDisclaimer} data-translation-note="">{T.translationNote}</p>

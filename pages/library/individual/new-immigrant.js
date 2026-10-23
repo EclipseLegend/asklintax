@@ -24,7 +24,7 @@ const META = {
     { label: 'IRS — Report of Foreign Bank and Financial Accounts (FBAR)', url: 'https://www.irs.gov/businesses/small-businesses-self-employed/report-of-foreign-bank-and-financial-accounts-fbar' },
     { label: 'IRS — Individual Taxpayer Identification Number (ITIN)', url: 'https://www.irs.gov/individuals/individual-taxpayer-identification-number' },
   ],
-  updatedDate:   TAX_CONFIG.lastReviewed,
+  updatedDate:   null,
   taxYear:       String(TAX_CONFIG.currentTaxYear),
   confidence:    'General principles apply to most new immigrants; dual-status years and treaty benefits require case-by-case analysis',
   persona:       ['New immigrant', 'F-1 student', 'H-1B visa holder', 'Green card holder (first year)', 'New U.S. resident'],

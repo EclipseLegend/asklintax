@@ -29,7 +29,7 @@ const META = {
     { label: 'IRS Publication 596 — Earned Income Credit', url: 'https://www.irs.gov/publications/p596' },
     { label: 'IRS — Foreign tax credit: how to figure the credit', url: 'https://www.irs.gov/individuals/international-taxpayers/foreign-tax-credit-how-to-figure-the-credit' },
   ],
-  updatedDate:   TAX_CONFIG.lastReviewed,
+  updatedDate:   null,
   taxYear:       String(TAX_CONFIG.currentTaxYear),
   confidence:    'Covers standard definitions and examples. Specific credit and deduction amounts change annually — always verify current figures before filing.',
   persona:       ['First-time filer', 'Anyone confused by tax terminology', 'New immigrant learning the U.S. tax system'],
@@ -86,6 +86,12 @@ const RELATED = [
     cat:   'Individuals & Families',
     title: 'Child Tax Credit: who qualifies and how to claim it',
     desc:  'One of the most valuable credits for families — and one of the most commonly underclaimed.',
+  },
+  {
+    href:  '/library/individual/ira-roth-ira-contributions',
+    cat:   'Individuals & Families',
+    title: 'Traditional and Roth IRA Contributions: 2025 and 2026 Limits and Income Rules',
+    desc:  'A common deduction: traditional IRA contributions.',
   },
 ]
 

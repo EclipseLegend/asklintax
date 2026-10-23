@@ -18,7 +18,7 @@ const META = {
   difficulty:    'Beginner',
   readTime:      '4 min read',
   verification:  'official-sources-verified',
-  updatedDate:   TAX_CONFIG.lastReviewed,
+  updatedDate:   null,
   taxYear:       String(TAX_CONFIG.currentTaxYear),
   confidence:    'Covers time deposits and certificates of deposit held by individuals at foreign banks. Structured deposits, deposits held through a foreign company, and accounts at a foreign branch of a U.S. bank need separate review',
   persona:       ['People with a 定存 (time deposit) in Taiwan', 'Families with fixed deposits in Hong Kong or China', 'New immigrants who kept savings in CDs abroad', 'Retirees with foreign deposits'],

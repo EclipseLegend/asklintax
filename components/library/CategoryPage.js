@@ -8,6 +8,10 @@ import { localePath } from '../../lib/locale-routes'
 import TAX_CONFIG from '../../lib/tax-config'
 import styles from './library.module.css'
 
+// The library-wide review date (TAX_CONFIG.lastReviewed) is hidden for now: it is not a
+// documented review of every guide. Set to true to show it again; article dates are per page.
+const SHOW_LIBRARY_REVIEW_DATE = false
+
 const articleById = new Map(ARTICLES.map(a => [a.id, a]))
 
 /**
@@ -52,8 +56,8 @@ export default function CategoryPage({ categoryKey, translations, locale = 'en' 
             <span className={styles.heroCount}>{guideCount}</span>
             <span aria-hidden="true">·</span>
             <span>{tl('category.taxYear').replace('{year}', TAX_CONFIG.currentTaxYear)}</span>
-            <span aria-hidden="true">·</span>
-            <span>{tl('category.lastReviewed').replace('{date}', formatMonthYear(TAX_CONFIG.lastReviewed, locale))}</span>
+            {SHOW_LIBRARY_REVIEW_DATE && <span aria-hidden="true">·</span>}
+            {SHOW_LIBRARY_REVIEW_DATE && <span>{tl('category.lastReviewed').replace('{date}', formatMonthYear(TAX_CONFIG.lastReviewed, locale))}</span>}
           </p>
         </div>
       </section>

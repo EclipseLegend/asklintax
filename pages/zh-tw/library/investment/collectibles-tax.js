@@ -14,7 +14,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'collectibles-tax',
-  sourceHash:      '6052a20d38fa',
+  sourceHash:      'f055f2972f48',
   id:            '89',
   title:         '出售黃金、白銀、錢幣或藝術品：28% 收藏品稅率',
   titleEn:       'Selling Gold, Silver, Coins, or Art: The 28% Collectibles Rate',
@@ -24,7 +24,7 @@ const META = {
   difficulty:    'Intermediate',
   readTime:      '7 min read',
   verification:  'official-sources-verified',
-  updatedDate:   TAX_CONFIG.lastReviewed,
+  updatedDate:   'October 2026',
   taxYear:       String(TAX_CONFIG.currentTaxYear),
   confidence:    '依據 Publication 550（2025）、Publication 544、2025 年 Schedule D 填寫說明、2025 年 Form 8949 填寫說明，以及 Form 1099-DIV 填寫說明，說明 2025 與 2026 稅務年度出售退休帳戶以外收藏品的聯邦所得稅規定。本文不涵蓋持有金屬的交易所交易產品、IRA 與退休計畫中的收藏品、經銷商與事業、NFT，也不涵蓋州稅',
   persona:       ['出售金幣、銀幣或金條、銀條的人', '藝術品、郵票、古董或酒類的收藏者', '出售繼承收藏品的繼承人', '想知道收藏品損失能不能扣除的人'],

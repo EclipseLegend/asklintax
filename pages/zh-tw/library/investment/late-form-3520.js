@@ -14,7 +14,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'late-form-3520',
-  sourceHash:      '315848ff520c',
+  sourceHash:      'd2ef347b8b58',
   id:            '37',
   title:         'Form 3520 忘記報或晚報，現在怎麼辦？',
   titleEn:       'I filed Form 3520 late — what should I do now?',
@@ -24,7 +24,7 @@ const META = {
   difficulty:    'Intermediate',
   readTime:      '6 min read',
   verification:  'official-sources-verified',
-  updatedDate:   TAX_CONFIG.lastReviewed,
+  updatedDate:   null,
   taxYear:       String(TAX_CONFIG.currentTaxYear),
   confidence:    '涵蓋漏報或晚報 Form 3520 Part IV（來自外國人的贈與或遺產）的美國公民與居民外國人。海外信託申報、有未申報收入的年度，以及已在 IRS 查核中的案件，需要個別的專業建議。本指南不預測是否會被罰款或獲得免罰',
   persona:       ['最近才知道有 Form 3520 的人', '以前年度收到海外大額贈與或遺產的人', '收到 IRS 關於 Form 3520 罰款通知的人', '協助家人補報的家屬'],

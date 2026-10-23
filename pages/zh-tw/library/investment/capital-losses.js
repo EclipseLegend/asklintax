@@ -14,7 +14,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'capital-losses',
-  sourceHash:      'd58c1c71ac99',
+  sourceHash:      'fd103288d56c',
   id:            '62',
   title:         '股票賠錢，可以抵稅嗎？',
   titleEn:       'I lost money on stocks — can I deduct it?',
@@ -24,7 +24,7 @@ const META = {
   difficulty:    'Intermediate',
   readTime:      '6 min read',
   verification:  'official-sources-verified',
-  updatedDate:   TAX_CONFIG.lastReviewed,
+  updatedDate:   null,
   taxYear:       String(TAX_CONFIG.currentTaxYear),
   confidence:    '涵蓋個人在應稅帳戶中賣出股票或類似證券所產生的資本損失。無價值證券、section 1256 合約、退休帳戶內的虧損，以及交易商或專業交易者的規定，不在本文範圍內',
   persona:       ['賠錢賣出股票的投資人', '有以前年度虧損結轉的人', '賣出後又買回同一檔股票的人', '考慮虧損在分開申報時如何適用的夫妻'],

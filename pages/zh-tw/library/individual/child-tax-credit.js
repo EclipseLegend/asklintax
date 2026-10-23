@@ -13,7 +13,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'child-tax-credit',
-  sourceHash:      '7680ae210933',
+  sourceHash:      '6fa926111d8b',
   id: '17',
   title: '兒童抵稅額（Child Tax Credit）：誰符合資格、如何申請',
   titleEn: 'Child Tax Credit: who qualifies and how to claim it',
@@ -29,7 +29,7 @@ const META = {
     { label: 'IRS — Revenue Procedure 2025-32（2026 稅務年度通膨調整）', url: 'https://www.irs.gov/pub/irs-drop/rp-25-32.pdf' },
     { label: 'IRS — One, Big, Beautiful Bill 相關條款（One, Big, Beautiful Bill provisions）', url: 'https://www.irs.gov/newsroom/one-big-beautiful-bill-provisions' },
   ],
-  updatedDate: TAX_CONFIG.lastReviewed,
+  updatedDate: null,
   taxYear: String(TAX_CONFIG.currentTaxYear),
   confidence: '涵蓋 2025 稅務年度的一般兒童抵稅額規則。抵稅額金額與遞減門檻由現行法律規定，未來年度可能改變。',
   persona: ['有未滿 17 歲子女的父母', '有子女的新移民', '從來沒有申請過兒童抵稅額的人'],

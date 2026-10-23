@@ -18,7 +18,7 @@ const META = {
   difficulty:    'Intermediate',
   readTime:      '5 min read',
   verification:  'official-sources-verified',
-  updatedDate:   TAX_CONFIG.lastReviewed,
+  updatedDate:   null,
   taxYear:       String(TAX_CONFIG.currentTaxYear),
   confidence:    'Covers the federal home office deduction for self-employed people and others using part of a home for business. It does not cover W-2 employees working remotely, state rules, or the detailed actual-expense and depreciation calculations on Form 8829',
   persona:       ['Freelancers who work from home', 'Sole proprietors with a home-based business', 'Sellers who store inventory at home', 'Home daycare providers'],

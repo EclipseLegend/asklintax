@@ -14,7 +14,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'dual-status',
-  sourceHash:      '3d62b3dedd8d',
+  sourceHash:      'd2ce06589a46',
   id:            '28',
   title:         '雙重身分報稅：抵達或離開美國的那一年',
   titleEn:       'Dual-status tax returns: your year of arrival or departure',
@@ -24,7 +24,7 @@ const META = {
   difficulty:    'Advanced',
   readTime:      '5 min read',
   verification:  'official-sources-verified',
-  updatedDate:   TAX_CONFIG.lastReviewed,
+  updatedDate:   null,
   taxYear:       String(TAX_CONFIG.currentTaxYear),
   confidence:    '涵蓋個人在抵達或離開美國那一年的一般雙重身分規則。租稅協定主張、放棄國籍（Expatriation），以及非居民期間與美國業務有實質關聯的所得（Effectively Connected Income），需要專業檢視',
   persona:       ['持 H-1B、L-1 或其他工作簽證剛抵達的人', '新的綠卡持有人', '從學生身分轉為工作身分的人', '永久離開美國的人'],

@@ -18,7 +18,7 @@ const META = {
   difficulty:    'Intermediate',
   readTime:      '8 min read',
   verification:  'official-sources-verified',
-  updatedDate:   TAX_CONFIG.lastReviewed,
+  updatedDate:   'October 2026',
   taxYear:       String(TAX_CONFIG.currentTaxYear),
   confidence:    'Explains the 3.8% net investment income tax for individuals for tax years 2025 and 2026, based on section 1411, IRS Topic no. 559, the IRS questions and answers on the NIIT, the 2025 Instructions for Form 8960, and the 2026 draft Instructions for Form 8960 (posted October 15, 2026). Estates and trusts, controlled foreign corporations and PFICs, the trader and real estate professional rules, and state tax are not covered in detail',
   persona:       ['Higher-income investors', 'Landlords with rental income', 'People with a large one-time gain from selling stock, a business, or property', 'Couples whose income is near the thresholds'],

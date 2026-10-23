@@ -18,7 +18,7 @@ const META = {
   difficulty:    'Intermediate',
   readTime:      '9 min read',
   verification:  'official-sources-verified',
-  updatedDate:   TAX_CONFIG.lastReviewed,
+  updatedDate:   null,
   taxYear:       String(TAX_CONFIG.currentTaxYear),
   confidence:    'Explains the federal qualified business income (QBI) deduction for tax years 2025 and 2026, based on the 2025 Instructions for Forms 8995 and 8995-A, IRS guidance on the QBI deduction, Revenue Procedure 2025-32, the 2026 Form 1040-ES, and the draft 2026 Instructions for Form 8995. The 2026 thresholds and the $400 minimum deduction come from final IRS guidance; the material participation details for the minimum deduction come from draft 2026 instructions. It does not cover REIT and PTP calculations, aggregation, or trusts and estates in detail',
   persona:       ['Sole proprietors and freelancers', 'Single-member LLC owners', 'S-Corp shareholders and partners', 'Higher-income professionals in service businesses'],

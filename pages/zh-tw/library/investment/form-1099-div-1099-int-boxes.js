@@ -14,7 +14,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'form-1099-div-1099-int-boxes',
-  sourceHash:      '4f998b0f4c79',
+  sourceHash:      '86e83433e1bf',
   id:            '90',
   title:         'Form 1099-DIV 與 1099-INT 逐欄解說',
   titleEn:       'Form 1099-DIV and 1099-INT Explained Box by Box',
@@ -24,7 +24,7 @@ const META = {
   difficulty:    'Intermediate',
   readTime:      '9 min read',
   verification:  'official-sources-verified',
-  updatedDate:   TAX_CONFIG.lastReviewed,
+  updatedDate:   'October 2026',
   taxYear:       String(TAX_CONFIG.currentTaxYear),
   confidence:    '依據表格上的收件人說明、Form 1099-DIV 與 1099-INT 填寫說明、Publication 550（2025），以及 2025 年 Form 1040、Schedule B 與 Schedule D 填寫說明，說明 Form 1099-DIV 與 1099-INT（2024 年 1 月修訂版，用於 2025 與 2026 稅務年度）上的收件人欄位，以及各金額一般填在 2025 年 Form 1040 的哪裡。本文不詳細涵蓋清算分配、外國人的第 897 條金額、市場折價、REMIC，也不涵蓋州稅',
   persona:       ['共同基金與 ETF 投資人', '持有美國國庫券、國庫票據、國庫債券或儲蓄債券的人', '以溢價購買債券的投資人', '表格上除了 1a 與 1b 之外還有其他欄位有金額的人'],

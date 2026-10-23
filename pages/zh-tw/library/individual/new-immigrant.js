@@ -13,7 +13,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'new-immigrant',
-  sourceHash:      '8b8d9a6c0aa3',
+  sourceHash:      'cd56912df164',
   id:            '04',
   title:         '剛來美國？新移民完整報稅指南',
   titleEn:       'New to the U.S.? A complete tax guide for new immigrants',
@@ -30,7 +30,7 @@ const META = {
     { label: 'IRS — 海外銀行與金融帳戶申報（Report of Foreign Bank and Financial Accounts, FBAR）', url: 'https://www.irs.gov/businesses/small-businesses-self-employed/report-of-foreign-bank-and-financial-accounts-fbar' },
     { label: 'IRS — 個人納稅識別號碼（Individual Taxpayer Identification Number, ITIN）', url: 'https://www.irs.gov/individuals/individual-taxpayer-identification-number' },
   ],
-  updatedDate:   TAX_CONFIG.lastReviewed,
+  updatedDate:   null,
   taxYear:       String(TAX_CONFIG.currentTaxYear),
   confidence:    '一般原則適用於大多數新移民；雙重身分年度與租稅協定優惠需要個案分析',
   persona:       ['新移民', 'F-1 學生', 'H-1B 簽證持有人', '綠卡持有人（第一年）', '新的美國居民'],

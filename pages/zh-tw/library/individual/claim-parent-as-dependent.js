@@ -14,7 +14,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'claim-parent-as-dependent',
-  sourceHash:      'c34cdcb6ba6a',
+  sourceHash:      'c5625eea0513',
   id:            '59',
   title:         '父母住在海外，可以申報為受扶養人嗎？',
   titleEn:       'Can I claim my parents as dependents if they live abroad?',
@@ -24,7 +24,7 @@ const META = {
   difficulty:    'Intermediate',
   readTime:      '5 min read',
   verification:  'official-sources-verified',
-  updatedDate:   TAX_CONFIG.lastReviewed,
+  updatedDate:   null,
   taxYear:       String(TAX_CONFIG.currentTaxYear),
   confidence:    '涵蓋美國納稅人能否把父母申報為合格親屬（qualifying relative），重點在住在美國境外的父母。總收入金額是 2025 稅務年度的數字。戶長（head of household）身分與受扶養人相關的抵稅額另有規定，本文不做判斷',
   persona:       ['匯錢給台灣或中國父母的成年子女', '父母一年中有部分時間和自己住在美國的人', '和兄弟姊妹分攤扶養父母費用的人', '扶養海外家人的移民'],

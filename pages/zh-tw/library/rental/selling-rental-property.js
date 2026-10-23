@@ -14,7 +14,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'selling-rental-property',
-  sourceHash:      'ff0417462169',
+  sourceHash:      '54a8ec69e7ec',
   id:            '87',
   title:         '出售出租房產：折舊回收與 25% 稅率',
   titleEn:       'Selling a Rental Property: Depreciation Recapture and the 25% Rate',
@@ -24,7 +24,7 @@ const META = {
   difficulty:    'Advanced',
   readTime:      '9 min read',
   verification:  'official-sources-verified',
-  updatedDate:   TAX_CONFIG.lastReviewed,
+  updatedDate:   'October 2026',
   taxYear:       String(TAX_CONFIG.currentTaxYear),
   confidence:    '依據 Publication 544、527、550 與 551、2025 年 Form 4797 填寫說明，以及 2025 年 Schedule D 填寫說明，說明 2025 與 2026 稅務年度出售持有超過一年的美國住宅出租房地產的聯邦所得稅規定。本文不涵蓋分期付款出售、同類交換（第 1031 條）、被動活動損失規定、曾經的自住房屋、更正從未申報的折舊、海外房產，也不涵蓋州稅',
   persona:       ['要出售出租房屋或公寓的房東', '繼承或保留以前出租房產的人', '比較售價與當初買價的屋主', '出售出租房產後收到 Form 1099-S 的人'],

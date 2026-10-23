@@ -22,7 +22,7 @@ const META = {
     { label: 'IRS — Instructions for Form SS-4', url: 'https://www.irs.gov/instructions/iss4' },
     { label: 'IRS — Do you need a new EIN?', url: 'https://www.irs.gov/businesses/small-businesses-self-employed/do-you-need-a-new-ein' },
   ],
-  updatedDate:   TAX_CONFIG.lastReviewed,
+  updatedDate:   null,
   taxYear:       String(TAX_CONFIG.currentTaxYear),
   confidence:    'EIN application process is straightforward and well-documented by the IRS. Applicants whose responsible party has no SSN or ITIN cannot apply online and must apply by fax or mail (or by phone if the business has no principal place of business in the U.S.).',
   persona:       ['New business owner', 'LLC owner', 'Freelancer opening a business account', 'Anyone starting a small business'],

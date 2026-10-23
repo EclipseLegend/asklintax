@@ -18,7 +18,7 @@ const META = {
   difficulty:    'Beginner',
   readTime:      '4 min read',
   verification:  'official-sources-verified',
-  updatedDate:   TAX_CONFIG.lastReviewed,
+  updatedDate:   null,
   taxYear:       String(TAX_CONFIG.currentTaxYear),
   confidence:    'Covers the FBAR filing threshold for individual U.S. persons with foreign financial accounts. Business accounts, trusts, and signature authority held through an employer need separate review',
   persona:       ['Anyone with more than one bank account in Taiwan, China, or elsewhere abroad', 'New immigrants and green card holders', 'Students who have become U.S. tax residents', 'Adult children named on parents\' accounts'],

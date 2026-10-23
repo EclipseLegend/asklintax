@@ -18,7 +18,7 @@ const META = {
   difficulty:    'Intermediate',
   readTime:      '6 min read',
   verification:  'official-sources-verified',
-  updatedDate:   TAX_CONFIG.lastReviewed,
+  updatedDate:   null,
   taxYear:       String(TAX_CONFIG.currentTaxYear),
   confidence:    'Covers the substantial presence test day count, excluded days, exempt individuals, Form 8843, and the closer connection exception. Tax treaty tie-breaker rules and expatriation are only summarized',
   persona:       ['Visa holders (H-1B, L-1, F-1, J-1)', 'Parents visiting adult children in the U.S.', 'People splitting time between the U.S. and Taiwan or China', 'New arrivals'],

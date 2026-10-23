@@ -13,7 +13,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'irs-notice',
-  sourceHash:      'c221004b9816',
+  sourceHash:      '80f25dd1b912',
   id:            '01',
   title:         '我收到 IRS 的信，該怎麼辦？',
   titleEn:       'I received an IRS letter. What do I do?',
@@ -32,7 +32,7 @@ const META = {
     { label: 'IRS — 檢舉網路釣魚與線上詐騙（Report phishing and online scams）', url: 'https://www.irs.gov/privacy-disclosure/report-phishing' },
     { label: 'IRS — 罰款（Penalties）', url: 'https://www.irs.gov/payments/penalties' },
   ],
-  updatedDate:   TAX_CONFIG.lastReviewed,
+  updatedDate:   null,
   taxYear:       String(TAX_CONFIG.currentTaxYear),
   confidence:    '涵蓋最常見的通知類型。查帳、留置權、強制執行（Levy）與法律行動，需要專業人士個案評估。',
   persona:       ['收到 IRS 信件的人', '不熟悉 IRS 流程的新移民', '小型企業老闆'],

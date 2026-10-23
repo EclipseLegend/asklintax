@@ -14,7 +14,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'form-1099-da',
-  sourceHash:      '59ad79d4e016',
+  sourceHash:      '50b1ff76456a',
   id:            '84',
   title:         'Form 1099-DA：加密貨幣經紀商 2025 與 2026 年申報什麼',
   titleEn:       'Form 1099-DA: What Crypto Brokers Report for 2025 and 2026',
@@ -24,7 +24,7 @@ const META = {
   difficulty:    'Intermediate',
   readTime:      '9 min read',
   verification:  'official-sources-verified',
-  updatedDate:   TAX_CONFIG.lastReviewed,
+  updatedDate:   'October 2026',
   taxYear:       String(TAX_CONFIG.currentTaxYear),
   confidence:    '依據正式法規（T.D. 10000，2024 年 7 月 9 日）、2026 年 Form 1099-DA 填寫說明、IRS 數位資產網頁、Revenue Procedure 2024-28，以及 Notice 2024-56、2024-57、2025-7 與 2025-33，加上 2025 年 Form 8949 及其填寫說明，說明 2025 與 2026 稅務年度經紀商在 Form 1099-DA 上申報數位資產出售的規定。本文涵蓋託管型經紀商；正式法規不包括去中心化或非託管經紀商的申報規定。本文不詳細涵蓋經紀商的義務，也不涵蓋州稅',
   persona:       ['在交易所或 App 上賣出加密貨幣的人', '收到 Form 1099-DA 的人', '有多個錢包與帳戶的加密貨幣持有人', '透過去中心化平台或自託管錢包交易的人'],

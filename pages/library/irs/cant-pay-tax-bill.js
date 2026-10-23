@@ -18,7 +18,7 @@ const META = {
   difficulty:    'Beginner',
   readTime:      '5 min read',
   verification:  'official-sources-verified',
-  updatedDate:   TAX_CONFIG.lastReviewed,
+  updatedDate:   null,
   taxYear:       String(TAX_CONFIG.currentTaxYear),
   confidence:    'Covers individuals who owe a federal income tax balance they cannot pay in full. Eligibility limits and fees are the IRS figures for online payment plans at the time of review and can change; business balances, payroll taxes, and state taxes are outside this guide',
   persona:       ['Taxpayers who owe more than they can pay by the deadline', 'Freelancers with a larger-than-expected balance due', 'People who received an IRS balance-due notice', 'Anyone deciding between a payment plan and other options'],

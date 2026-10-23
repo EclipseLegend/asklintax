@@ -18,7 +18,7 @@ const META = {
   difficulty:    'Intermediate',
   readTime:      '6 min read',
   verification:  'official-sources-verified',
-  updatedDate:   TAX_CONFIG.lastReviewed,
+  updatedDate:   null,
   taxYear:       String(TAX_CONFIG.currentTaxYear),
   confidence:    'Compares the American Opportunity Tax Credit and the Lifetime Learning Credit for tax year 2025, and notes the Social Security number requirement that Publication 970 (2025) describes for 2026. Student loan interest, 529 plans, Coverdell ESAs, and the taxation of scholarships are outside this guide; Publication 970 has the full eligibility rules',
   persona:       ['College students and their parents', 'Graduate students', 'Adults taking courses to improve job skills', 'Families paying for more than one student'],

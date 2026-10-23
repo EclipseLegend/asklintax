@@ -18,7 +18,7 @@ const META = {
   difficulty:    'Intermediate',
   readTime:      '5 min read',
   verification:  'official-sources-verified',
-  updatedDate:   TAX_CONFIG.lastReviewed,
+  updatedDate:   null,
   taxYear:       String(TAX_CONFIG.currentTaxYear),
   confidence:    'Covers FBAR (FinCEN Form 114) and Form 8938 for individuals. Thresholds for specified domestic entities, U.S. territories, and dual-resident treaty filers are only summarized',
   persona:       ['Anyone with bank or investment accounts outside the U.S.', 'New immigrants', 'Green card holders', 'Families with accounts in Taiwan or China'],

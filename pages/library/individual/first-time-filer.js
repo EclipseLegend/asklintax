@@ -28,7 +28,7 @@ const META = {
     { label: 'IRS Publication 17 — Your Federal Income Tax', url: 'https://www.irs.gov/publications/p17' },
     { label: 'IRS — Topic no. 154, Form W-2 and Form 1099-R (what to do if incorrect or not received)', url: 'https://www.irs.gov/taxtopics/tc154' },
   ],
-  updatedDate:   TAX_CONFIG.lastReviewed,
+  updatedDate:   null,
   taxYear:       String(TAX_CONFIG.currentTaxYear),
   confidence:    'Covers the standard filing process for resident aliens and U.S. citizens. Nonresident aliens (F-1, J-1) use Form 1040-NR — the steps are similar but the form and some rules differ.',
   persona:       ['First-time filer', 'New immigrant filing for the first time', 'College student with first job', 'Anyone who has never filed a U.S. tax return'],

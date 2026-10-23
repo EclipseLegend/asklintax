@@ -18,7 +18,7 @@ const META = {
   difficulty:    'Intermediate',
   readTime:      '9 min read',
   verification:  'official-sources-verified',
-  updatedDate:   TAX_CONFIG.lastReviewed,
+  updatedDate:   null,
   taxYear:       String(TAX_CONFIG.currentTaxYear),
   confidence:    'Explains Schedule C (Form 1040) for tax years 2025 and 2026, based on the 2025 Schedule C and its instructions, Publication 334 (2025), the 2025 Instructions for Form 461, IRS Notice 2026-10 and Announcement 2026-11 (2026 standard mileage rates), and Revenue Procedures 2024-40 and 2025-32. The 2026 Schedule C and its instructions were drafts when this guide was written. It does not cover farming (Schedule F), statutory employees in detail, or state returns',
   persona:       ['Freelancers and independent contractors', 'Gig workers and online sellers', 'Single-member LLC owners', 'Anyone filing their first Schedule C'],

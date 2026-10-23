@@ -14,7 +14,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'foreign-gift-vs-inheritance',
-  sourceHash:      'dc43a4acb87e',
+  sourceHash:      '2445165c7c50',
   id:            '39',
   title:         '海外贈與和海外遺產，在美國申報有什麼不同？',
   titleEn:       'Foreign gift vs. foreign inheritance: what U.S. taxpayers need to report',
@@ -24,7 +24,7 @@ const META = {
   difficulty:    'Intermediate',
   readTime:      '6 min read',
   verification:  'official-sources-verified',
-  updatedDate:   TAX_CONFIG.lastReviewed,
+  updatedDate:   null,
   taxYear:       String(TAX_CONFIG.currentTaxYear),
   confidence:    '比較美國公民與居民外國人從非居民外國人個人與海外遺產收到的贈與與遺產。外國的遺產稅與繼承稅、遺產本身在美國的申報、繼承的海外退休帳戶、海外信託，以及適用對象放棄國籍者（Covered Expatriate），需要專業人士檢視',
   persona:       ['父母或祖父母住在海外的繼承人', '生前收到海外家人贈與的人', '正在考慮如何接受海外家族資產的人', '在美國協助處理遺產的家屬'],

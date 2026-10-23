@@ -22,7 +22,7 @@ const META = {
     { label: 'IRS — Topic no. 415, Renting residential and vacation property', url: 'https://www.irs.gov/taxtopics/tc415' },
     { label: 'IRS — Understanding your Form 1099-K', url: 'https://www.irs.gov/businesses/understanding-your-form-1099-k' },
   ],
-  updatedDate:   TAX_CONFIG.lastReviewed,
+  updatedDate:   null,
   taxYear:       String(TAX_CONFIG.currentTaxYear),
   confidence:    'Covers standard short-term rental rules for U.S. tax residents. Mixed-use properties, vacation homes, and properties in certain states may have additional rules. Consult a CPA for your specific situation.',
   persona:       ['Airbnb host', 'VRBO host', 'Short-term rental owner', 'Anyone renting a room or property'],

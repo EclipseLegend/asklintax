@@ -13,7 +13,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'itin',
-  sourceHash:      '9e27312e7c66',
+  sourceHash:      'ed468c37fccc',
   id: '18',
   title: '什麼是 ITIN？如何申請？',
   titleEn: 'What is an ITIN and how do I apply?',
@@ -27,7 +27,7 @@ const META = {
     { label: 'IRS — 個人納稅識別號碼（Individual Taxpayer Identification Number, ITIN）', url: 'https://www.irs.gov/individuals/individual-taxpayer-identification-number' },
     { label: 'IRS — Form W-7 填寫說明（Instructions for Form W-7）', url: 'https://www.irs.gov/instructions/iw7' },
   ],
-  updatedDate: TAX_CONFIG.lastReviewed,
+  updatedDate: null,
   taxYear: String(TAX_CONFIG.currentTaxYear),
   confidence: 'ITIN 的申請流程相當明確。處理時間不一 — 請提早申請。認證接受代理人（Certified Acceptance Agent, CAA）可以查驗文件，你不必把正本寄給 IRS。',
   persona: ['F-1 學生', '沒有工作許可的受扶養配偶', '有美國收入的非居民外國人', '不符合 SSN 資格但有美國稅務義務的人'],

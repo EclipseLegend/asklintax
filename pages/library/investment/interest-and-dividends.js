@@ -18,7 +18,7 @@ const META = {
   difficulty:    'Beginner',
   readTime:      '5 min read',
   verification:  'official-sources-verified',
-  updatedDate:   TAX_CONFIG.lastReviewed,
+  updatedDate:   null,
   taxYear:       String(TAX_CONFIG.currentTaxYear),
   confidence:    'Covers U.S. bank interest and investment dividends received by individuals, and how they are reported on the federal income tax return. Foreign account reporting (FBAR, Form 8938), savings bond and original issue discount details, and state tax treatment are outside this guide',
   persona:       ['Anyone with a savings account or CD', 'People who received Form 1099-INT or 1099-DIV', 'New investors receiving dividends', 'People who earned a small amount of interest with no form'],
@@ -80,6 +80,12 @@ const RELATED = [
     cat:  'Individuals & Families',
     title: 'First-time filer in the U.S.: a complete step-by-step guide',
     desc:  'Where interest and dividends fit on your first return.',
+  },
+  {
+    href: '/library/individual/kiddie-tax',
+    cat: 'Individuals & Families',
+    title: 'Kiddie Tax: When a Child\'s Investment Income Is Taxed at the Parent\'s Rate',
+    desc: 'When a child\'s interest and dividends are taxed at the parent\'s rate.',
   },
 ]
 

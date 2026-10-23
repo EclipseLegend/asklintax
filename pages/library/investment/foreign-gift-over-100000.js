@@ -18,7 +18,7 @@ const META = {
   difficulty:    'Beginner',
   readTime:      '7 min read',
   verification:  'official-sources-verified',
-  updatedDate:   TAX_CONFIG.lastReviewed,
+  updatedDate:   null,
   taxYear:       String(TAX_CONFIG.currentTaxYear),
   confidence:    'Covers U.S. citizens and resident aliens who receive gifts or bequests from parents or other relatives who are nonresident aliens, or from a foreign estate. Gifts from foreign companies, foreign trusts, covered expatriates, and money that is really a loan or payment follow different rules',
   persona:       ['Children of parents living in Taiwan, China, or Hong Kong', 'Green card holders receiving family support', 'Young professionals buying a first home', 'Heirs of parents who lived abroad'],

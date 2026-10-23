@@ -18,7 +18,7 @@ const META = {
   difficulty:    'Beginner',
   readTime:      '6 min read',
   verification:  'official-sources-verified',
-  updatedDate:   TAX_CONFIG.lastReviewed,
+  updatedDate:   null,
   taxYear:       String(TAX_CONFIG.currentTaxYear),
   confidence:    'Covers U.S. citizens and resident aliens moving their own funds from a foreign account to the U.S. It explains which questions depend on the transfer and which depend on where the money came from. Money held through a foreign company or trust, foreign-currency debt, and years with unreported income need professional review',
   persona:       ['New immigrants bringing savings to the U.S.', 'People closing a bank account in Taiwan or China', 'Green card holders with savings abroad', 'Anyone who sold an asset abroad and is moving the proceeds'],

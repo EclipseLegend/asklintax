@@ -14,7 +14,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'single-member-llc-taxes',
-  sourceHash:      '450cb3226207',
+  sourceHash:      'ab464582a464',
   id:            '76',
   title:         '單一成員 LLC 的稅務：被忽略實體、Schedule C、EIN 與 W-9 規定',
   titleEn:       'Single-Member LLC Taxes: Disregarded Entity, Schedule C, EIN and W-9 Rules',
@@ -24,7 +24,7 @@ const META = {
   difficulty:    'Intermediate',
   readTime:      '8 min read',
   verification:  'official-sources-verified',
-  updatedDate:   TAX_CONFIG.lastReviewed,
+  updatedDate:   null,
   taxYear:       String(TAX_CONFIG.currentTaxYear),
   confidence:    '依據 IRS 單一成員 LLC 指引、Publication 334（2025）、Schedule C 與 Schedule SE 填寫說明（2025）、Form W-9 及其說明，以及 Form 2553 與 Form 5472 填寫說明，說明 2025 與 2026 稅務年度 IRS 如何對單一成員 LLC 課稅。本文只涵蓋聯邦規定；州的 LLC 稅與規費未在此查證',
   persona:       ['只有一位擁有人的 LLC', '成立了 LLC 的自由業者', '第一次報稅的新 LLC 擁有人', '共同擁有 LLC 的夫妻'],

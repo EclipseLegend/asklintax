@@ -18,7 +18,7 @@ const META = {
   difficulty:    'Beginner',
   readTime:      '5 min read',
   verification:  'official-sources-verified',
-  updatedDate:   TAX_CONFIG.lastReviewed,
+  updatedDate:   null,
   taxYear:       String(TAX_CONFIG.currentTaxYear),
   confidence:    'Covers a required federal individual income tax return that was not filed by its deadline. Late FBARs and late Form 3520 have separate rules and their own guides; state returns and business returns are outside this guide',
   persona:       ['People who missed the April deadline', 'Taxpayers with one or more past years not filed', 'People who filed an extension but did not pay', 'Anyone who thinks they are owed a refund for an unfiled year'],

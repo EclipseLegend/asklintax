@@ -14,7 +14,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'stock-options-iso-nso',
-  sourceHash:      'c1f93555368f',
+  sourceHash:      'daebd05ea457',
   id:            '83',
   title:         '員工股票選擇權：ISO 與 NSO、Form 3921 與另類最低稅',
   titleEn:       'Stock Options: ISOs vs. NSOs, Form 3921 and the AMT',
@@ -24,7 +24,7 @@ const META = {
   difficulty:    'Advanced',
   readTime:      '9 min read',
   verification:  'official-sources-verified',
-  updatedDate:   TAX_CONFIG.lastReviewed,
+  updatedDate:   'October 2026',
   taxYear:       String(TAX_CONFIG.currentTaxYear),
   confidence:    '依據 Publication 525（2025）、IRS Topic no. 427、Form 3921 填寫說明（2025 年 4 月修訂版）、2025 年 Form 6251 填寫說明，以及 2025 年 Form 8949 填寫說明，說明 2025 與 2026 稅務年度員工股票選擇權 — 激勵型股票選擇權（ISO）與非法定股票選擇權（NSO）— 的聯邦所得稅處理。另類最低稅（AMT）只做概念說明；是否要繳 AMT，必須完成整份 Form 6251 的計算。本文不詳細涵蓋有容易確定價值的選擇權、提前行使，以及州稅',
   persona:       ['持有股票選擇權的新創與科技業員工', '收到 Form 3921 的人', '正在決定何時行使或賣出的員工', '行使 ISO 後意外被課 AMT 的人'],

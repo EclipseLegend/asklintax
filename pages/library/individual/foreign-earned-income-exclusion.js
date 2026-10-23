@@ -18,7 +18,7 @@ const META = {
   difficulty:    'Advanced',
   readTime:      '9 min read',
   verification:  'official-sources-verified',
-  updatedDate:   TAX_CONFIG.lastReviewed,
+  updatedDate:   'October 2026',
   taxYear:       String(TAX_CONFIG.currentTaxYear),
   confidence:    'Explains the foreign earned income exclusion and the foreign housing exclusion and deduction for tax years 2025 and 2026, based on Form 2555 and its 2025 instructions, the 2026 draft Form 2555 and instructions, Publication 54 (Rev. December 2025), Rev. Proc. 2024-40, Rev. Proc. 2025-32, Notice 2025-16, Notice 2026-25, and the 2025 Instructions for Form 1040. It does not cover U.S. government employees, combat zones, self-employment tax planning, or state tax',
   persona:       ['U.S. citizens working in Taiwan or elsewhere abroad', 'Green card holders on a foreign assignment', 'People planning a move overseas', 'Anyone deciding between the exclusion and the foreign tax credit'],

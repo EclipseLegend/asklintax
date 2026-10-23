@@ -18,7 +18,7 @@ const META = {
   difficulty:    'Intermediate',
   readTime:      '6 min read',
   verification:  'official-sources-verified',
-  updatedDate:   TAX_CONFIG.lastReviewed,
+  updatedDate:   null,
   taxYear:       String(TAX_CONFIG.currentTaxYear),
   confidence:    'Covers individuals who rent out a U.S. house or apartment long-term. Short-term rentals such as Airbnb, property you also use personally, and property abroad have their own rules and guides; passive-loss limits and depreciation calculations need individual review',
   persona:       ['First-time landlords', 'People renting out a former home', 'Owners of a condo or single-family rental', 'Families renting a unit to a tenant'],

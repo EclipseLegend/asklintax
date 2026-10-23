@@ -14,7 +14,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'joint-foreign-account-fbar',
-  sourceHash:      '4d6126d7326f',
+  sourceHash:      '67940e171960',
   id:            '49',
   title:         '夫妻共同海外帳戶，FBAR 怎麼報？',
   titleEn:       'Joint foreign accounts: how do married couples file FBAR?',
@@ -24,7 +24,7 @@ const META = {
   difficulty:    'Intermediate',
   readTime:      '4 min read',
   verification:  'official-sources-verified',
-  updatedDate:   TAX_CONFIG.lastReviewed,
+  updatedDate:   null,
   taxYear:       String(TAX_CONFIG.currentTaxYear),
   confidence:    '涵蓋已婚美國人共同持有的海外帳戶如何申報 FBAR，包括配偶代報的例外。Form 8938 有自己的夫妻規定，本文不把它套用到 FBAR',
   persona:       ['在台灣、中國或其他國家有夫妻共同帳戶的人', '只有一方配偶是美國人的夫妻', '其中一方另有個人海外帳戶的夫妻', '對彼此帳戶有簽署權的配偶'],

@@ -18,7 +18,7 @@ const META = {
   difficulty:    'Advanced',
   readTime:      '9 min read',
   verification:  'official-sources-verified',
-  updatedDate:   TAX_CONFIG.lastReviewed,
+  updatedDate:   null,
   taxYear:       String(TAX_CONFIG.currentTaxYear),
   confidence:    'Explains federal rules for owner-employees of an S corporation for tax years 2025 and 2026, based on IRS guidance on S corporation compensation, the 2025 Instructions for Form 1120-S, the Instructions for Forms 2553, 7004, and 7203, Publication 15 (2026), and IRS guidance on the qualified business income deduction. The 2026 Form 1120-S instructions were not yet final when this guide was written. The IRS does not set a fixed reasonable salary amount, and state S corporation taxes are not covered',
   persona:       ['Owners whose LLC or corporation elected S-Corp status', 'Business owners deciding how much salary to take', 'First-time Form 1120-S filers', 'S-Corp shareholders reading a Schedule K-1'],

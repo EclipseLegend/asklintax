@@ -18,7 +18,7 @@ const META = {
   difficulty:    'Beginner',
   readTime:      '4 min read',
   verification:  'official-sources-verified',
-  updatedDate:   TAX_CONFIG.lastReviewed,
+  updatedDate:   null,
   taxYear:       String(TAX_CONFIG.currentTaxYear),
   confidence:    'Covers individual U.S. citizens and resident aliens with foreign accounts that earned little or no income. It separates account reporting (FBAR, Form 8938) from income reporting on the tax return',
   persona:       ['People with checking accounts abroad that pay no interest', 'Anyone keeping a dormant account in Taiwan or China', 'New immigrants who kept a home-country account', 'Parents\' accounts that list an adult child'],

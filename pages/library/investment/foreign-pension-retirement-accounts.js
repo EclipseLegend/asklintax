@@ -18,7 +18,7 @@ const META = {
   difficulty:    'Advanced',
   readTime:      '8 min read',
   verification:  'official-sources-verified',
-  updatedDate:   TAX_CONFIG.lastReviewed,
+  updatedDate:   'October 2026',
   taxYear:       String(TAX_CONFIG.currentTaxYear),
   confidence:    'Explains U.S. information reporting for interests in foreign pension and retirement arrangements for tax years 2025 and 2026, based on the Instructions for Form 8938, the Instructions for Form 3520 (Rev. December 2025), Rev. Proc. 2020-17, the IRS FBAR page, and Internal Revenue Manual 4.26.16. FinCEN\'s regulations could not be accessed for this review. It does not decide whether any specific Taiwan plan is a financial account, a foreign trust, or a tax-favored foreign retirement trust, and it does not determine the U.S. income tax treatment of contributions, earnings, or distributions',
   persona:       ['U.S. residents with a Taiwan employer pension or labor pension account', 'People who moved to the U.S. with retirement savings abroad', 'U.S. citizens working abroad who join a foreign plan', 'Anyone unsure whether a foreign pension goes on FBAR or Form 8938'],
@@ -82,6 +82,12 @@ const RELATED = [
     cat:  'Individuals & Families',
     title: 'Living in Taiwan or Abroad: Your U.S. Tax Filing Checklist',
     desc:  'Other filing steps for people with ties abroad.',
+  },
+  {
+    href: '/library/individual/retirement-withdrawals-rmd',
+    cat: 'Individuals & Families',
+    title: 'Retirement Account Withdrawals and RMDs: Taxes, the 10% Penalty, and Deadlines',
+    desc: 'How U.S. IRA and 401(k) withdrawals are taxed.',
   },
 ]
 

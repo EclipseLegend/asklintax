@@ -14,7 +14,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'foreign-tax-credit',
-  sourceHash:      'da270735306c',
+  sourceHash:      '34af8301aa12',
   id:            '91',
   title:         '外國稅額抵免（Form 1116）：避免台灣與其他海外所得被雙重課稅',
   titleEn:       'Foreign Tax Credit (Form 1116): Avoiding Double Tax on Taiwan and Other Foreign Income',
@@ -24,7 +24,7 @@ const META = {
   difficulty:    'Advanced',
   readTime:      '9 min read',
   verification:  'official-sources-verified',
-  updatedDate:   TAX_CONFIG.lastReviewed,
+  updatedDate:   'October 2026',
   taxYear:       String(TAX_CONFIG.currentTaxYear),
   confidence:    '依據 Publication 514（2025）、2025 年 Form 1116 填寫說明、2026 年 Form 1116 填寫說明草案、2025 年 Form 1040 填寫說明、IRS 外國稅額抵免網頁，以及 IRS 美國所得稅協定清單，說明 2025 與 2026 稅務年度個人的外國稅額抵免。本文不判定某一項外國稅是否可以抵免，也不涵蓋企業、受控外國公司或州稅',
   persona:       ['在台灣的利息、股利或租金上繳稅的美國居民', '有海外工資但不使用排除額的人', 'Form 1099-DIV 或 1099-INT 上有外國稅的投資人', '出售海外房產並繳了外國稅的人'],

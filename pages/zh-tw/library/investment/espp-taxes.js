@@ -14,7 +14,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'espp-taxes',
-  sourceHash:      'ea4b93481491',
+  sourceHash:      '70a31d3cb6ef',
   id:            '82',
   title:         'ESPP 員工購股計畫怎麼課稅：合格與不合格處分及 Form 3922',
   titleEn:       'ESPP Taxes: Qualifying vs. Disqualifying Dispositions and Form 3922',
@@ -24,7 +24,7 @@ const META = {
   difficulty:    'Intermediate',
   readTime:      '9 min read',
   verification:  'official-sources-verified',
-  updatedDate:   TAX_CONFIG.lastReviewed,
+  updatedDate:   'October 2026',
   taxYear:       String(TAX_CONFIG.currentTaxYear),
   confidence:    '依據 Publication 525（2025）、IRS Topic no. 427、Form 3922 與 2025 年 Form 8949 填寫說明，說明 2025 與 2026 稅務年度透過第 423 條員工購股計畫（ESPP）購買的股票的聯邦所得稅處理。公式依照 Publication 525。本文不涵蓋非第 423 條的購股計畫、美國以外的計畫，以及州稅',
   persona:       ['透過 ESPP 購買公司股票的員工', '收到 Form 3922 的人', '正在決定何時賣出 ESPP 股票的員工', 'ESPP 出售在 Form 1099-B 上成本基礎錯誤的人'],

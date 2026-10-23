@@ -14,7 +14,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'foreign-time-deposit-cd',
-  sourceHash:      '275ae68f2a61',
+  sourceHash:      '852636a85b4f',
   id:            '45',
   title:         '台灣／海外定存要報 FBAR 或 Form 8938 嗎？',
   titleEn:       'Foreign CDs and time deposits: do they go on FBAR or Form 8938?',
@@ -24,7 +24,7 @@ const META = {
   difficulty:    'Beginner',
   readTime:      '4 min read',
   verification:  'official-sources-verified',
-  updatedDate:   TAX_CONFIG.lastReviewed,
+  updatedDate:   null,
   taxYear:       String(TAX_CONFIG.currentTaxYear),
   confidence:    '涵蓋個人在海外銀行的定存（time deposit）與存單（CD）。結構型存款、透過外國公司持有的存款，以及美國銀行海外分行的帳戶，需要另外檢視',
   persona:       ['在台灣有定存的人', '在香港或中國有定期存款的家庭', '把存款放在海外定存的新移民', '有海外存款的退休人士'],

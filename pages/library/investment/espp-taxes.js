@@ -18,7 +18,7 @@ const META = {
   difficulty:    'Intermediate',
   readTime:      '9 min read',
   verification:  'official-sources-verified',
-  updatedDate:   TAX_CONFIG.lastReviewed,
+  updatedDate:   'October 2026',
   taxYear:       String(TAX_CONFIG.currentTaxYear),
   confidence:    'Explains federal income tax treatment of shares bought through a section 423 employee stock purchase plan (ESPP) for tax years 2025 and 2026, based on Publication 525 (2025), IRS Topic no. 427, Form 3922 and the 2025 Instructions for Form 8949. The formulas follow Publication 525. It does not cover non-qualified (non-section 423) purchase plans, plans outside the United States, or state tax',
   persona:       ['Employees who buy company stock through an ESPP', 'People who received Form 3922', 'Employees deciding when to sell ESPP shares', 'Anyone whose ESPP sale shows the wrong basis on Form 1099-B'],

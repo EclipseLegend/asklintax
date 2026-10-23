@@ -14,7 +14,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'fbar-10000-rule',
-  sourceHash:      '1d584cf7fee4',
+  sourceHash:      'c9c7158be4f1',
   id:            '41',
   title:         '海外帳戶超過 $10,000 就要報 FBAR 嗎？',
   titleEn:       'Do I need to file an FBAR? How the $10,000 rule really works',
@@ -24,7 +24,7 @@ const META = {
   difficulty:    'Beginner',
   readTime:      '4 min read',
   verification:  'official-sources-verified',
-  updatedDate:   TAX_CONFIG.lastReviewed,
+  updatedDate:   null,
   taxYear:       String(TAX_CONFIG.currentTaxYear),
   confidence:    '涵蓋擁有海外金融帳戶（foreign financial account）的美國人（U.S. person）個人的 FBAR 申報門檻。公司帳戶、信託，以及因工作而有的簽署權，需要另外檢視',
   persona:       ['在台灣、中國或其他國家有不只一個銀行帳戶的人', '新移民與綠卡持有人', '已成為美國稅務居民的學生', '名字在父母帳戶上的成年子女'],

@@ -14,7 +14,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'pre-immigration-savings',
-  sourceHash:      'f5f9d3114e58',
+  sourceHash:      'f6a8b1dd17d7',
   id:            '50',
   title:         '搬來美國以前就有的海外存款，需要申報嗎？',
   titleEn:       'I had this money before moving to America — does that change FBAR or Form 8938?',
@@ -24,7 +24,7 @@ const META = {
   difficulty:    'Beginner',
   readTime:      '4 min read',
   verification:  'official-sources-verified',
-  updatedDate:   TAX_CONFIG.lastReviewed,
+  updatedDate:   null,
   taxYear:       String(TAX_CONFIG.currentTaxYear),
   confidence:    '把成為美國居民之前累積的存款在所得稅上的處理，和存放這些存款的帳戶在 FBAR 與 Form 8938 上的申報分開說明。抵美那一年的申報期間與租稅協定主張，需要個別檢視',
   persona:       ['存款還留在台灣、中國或香港的新移民', '保留原居住國帳戶的綠卡持有人', '打算把存款移到美國的人', '協助剛抵美親人的家庭'],

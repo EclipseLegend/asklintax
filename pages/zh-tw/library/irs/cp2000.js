@@ -13,7 +13,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'cp2000',
-  sourceHash:      'ddfbce79dd41',
+  sourceHash:      '9ac6b8a58df4',
   id:            '16',
   title:         'CP2000 通知：代表什麼？該如何回覆？',
   titleEn:       'CP2000 notice: what it means and how to respond',
@@ -29,7 +29,7 @@ const META = {
     { label: 'IRS — 了解你的 Form 1099-K（Understanding your Form 1099-K）', url: 'https://www.irs.gov/businesses/understanding-your-form-1099-k' },
     { label: 'IRS — 數位資產（Digital assets：Form 1099-DA 申報）', url: 'https://www.irs.gov/filing/digital-assets' },
   ],
-  updatedDate:   TAX_CONFIG.lastReviewed,
+  updatedDate:   null,
   taxYear:       String(TAX_CONFIG.currentTaxYear),
   confidence:    '涵蓋一般的 CP2000 回覆流程。如果提議的金額很大（超過 $5,000）、你不同意 IRS 的看法，或涉及多個年度，回覆前請先諮詢 CPA。',
   persona:       ['收到 CP2000 通知的人', '漏報 1099 的接案者', '有未申報收入的投資人', '不熟悉 IRS 通知的新移民'],
@@ -86,6 +86,12 @@ const RELATED = [
     cat:   'Individuals & Families',
     title: '在美國第一次報稅：完整步驟指南',
     desc:  '許多 CP2000 通知來自第一年報稅的錯誤。這份指南幫你一次就做對。',
+  },
+  {
+    href:  '/library/individual/retirement-withdrawals-rmd',
+    cat:   'Individuals & Families',
+    title: '退休帳戶提領與 RMD：稅、10% 罰款與期限',
+    desc:  'Form 1099-R 上申報的 IRA 與 401(k) 提領的稅。',
   },
 ]
 

@@ -18,7 +18,7 @@ const META = {
   difficulty:    'Intermediate',
   readTime:      '4 min read',
   verification:  'official-sources-verified',
-  updatedDate:   TAX_CONFIG.lastReviewed,
+  updatedDate:   null,
   taxYear:       String(TAX_CONFIG.currentTaxYear),
   confidence:    'Covers how individuals determine the maximum account value reported on the FBAR (FinCEN Form 114). Form 8938 uses its own valuation rules, and accounts whose value cannot be determined need separate review',
   persona:       ['Anyone who has already determined they must file an FBAR', 'People with several foreign accounts in different currencies', 'Families filing their first FBAR', 'Tax preparers checking FBAR values'],

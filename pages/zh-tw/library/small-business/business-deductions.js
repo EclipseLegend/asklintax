@@ -13,7 +13,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'business-deductions',
-  sourceHash:      'a5576d42e347',
+  sourceHash:      'c908378cf87b',
   id:            '14',
   title:         '小型企業老闆可以扣除哪些費用？',
   titleEn:       'What can I deduct as a small business owner?',
@@ -36,7 +36,7 @@ const META = {
     { label: 'IRS — Notice 2026-11，第 168(k) 條首年額外折舊扣除額過渡指引', url: 'https://www.irs.gov/pub/irs-drop/n-26-11.pdf' },
     { label: 'IRS — 自雇稅（Self-employment tax：社會安全稅與聯邦醫療保險稅）', url: 'https://www.irs.gov/businesses/small-businesses-self-employed/self-employment-tax-social-security-and-medicare-taxes' },
   ],
-  updatedDate:   TAX_CONFIG.lastReviewed,
+  updatedDate:   null,
   taxYear:       String(TAX_CONFIG.currentTaxYear),
   confidence:    '涵蓋申報 Schedule C 的獨資經營者與單一成員 LLC 最常見的扣除項目。S-Corp、合夥事業與 C-Corp 另有不同或額外的規則。具體情況請務必向 CPA 確認。',
   persona:       ['接案者', '自雇人士', 'LLC 負責人', '小型企業老闆', '有副業收入的人'],

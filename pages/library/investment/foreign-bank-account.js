@@ -18,7 +18,7 @@ const META = {
   difficulty:    'Beginner',
   readTime:      '5 min read',
   verification:  'official-sources-verified',
-  updatedDate:   TAX_CONFIG.lastReviewed,
+  updatedDate:   null,
   taxYear:       String(TAX_CONFIG.currentTaxYear),
   confidence:    'Covers individual U.S. citizens and resident aliens with ordinary bank accounts abroad. Business accounts, trusts, retirement accounts, and treaty positions need case-by-case review',
   persona:       ['Anyone with a bank account in Taiwan, China, or elsewhere abroad', 'New immigrants who kept their home-country accounts', 'Adult children named on parents\' accounts', 'Green card holders'],

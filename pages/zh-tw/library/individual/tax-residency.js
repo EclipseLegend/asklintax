@@ -13,7 +13,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'tax-residency',
-  sourceHash:      'e05c263b3f64',
+  sourceHash:      'ad090f65bd4c',
   id:            '05',
   title:         '我是美國稅務居民嗎？',
   titleEn:       'Am I a U.S. tax resident?',
@@ -30,7 +30,7 @@ const META = {
     { label: 'IRS — 非居民配偶（Nonresident spouse）', url: 'https://www.irs.gov/individuals/international-taxpayers/nonresident-spouse' },
     { label: 'IRS — 海外銀行與金融帳戶申報（Report of Foreign Bank and Financial Accounts, FBAR）', url: 'https://www.irs.gov/businesses/small-businesses-self-employed/report-of-foreign-bank-and-financial-accounts-fbar' },
   ],
-  updatedDate:   TAX_CONFIG.lastReviewed,
+  updatedDate:   null,
   taxYear:       String(TAX_CONFIG.currentTaxYear),
   confidence:    '涵蓋兩項主要測試（綠卡測試與實質居留測試）。租稅協定選擇、雙重身分稅表與豁免個人類別，需要個案分析。',
   persona:       ['新移民', 'F-1 學生', 'H-1B 簽證持有人', 'J-1 簽證持有人', '不確定自己報稅身分的人'],

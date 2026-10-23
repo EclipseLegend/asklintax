@@ -13,7 +13,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'llc-vs-scorp',
-  sourceHash:      'd50a4553b93b',
+  sourceHash:      'c89c14c8bb49',
   id:            '03',
   title:         'LLC 與 S-Corp：哪種適合你的企業？',
   titleEn:       'LLC vs S-Corp: which is right for your business?',
@@ -33,7 +33,7 @@ const META = {
     { label: 'IRS — 合格事業所得扣除額（Qualified business income deduction）', url: 'https://www.irs.gov/newsroom/qualified-business-income-deduction' },
     { label: 'IRS — 自雇稅（Self-employment tax：社會安全稅與聯邦醫療保險稅）', url: 'https://www.irs.gov/businesses/small-businesses-self-employed/self-employment-tax-social-security-and-medicare-taxes' },
   ],
-  updatedDate:   TAX_CONFIG.lastReviewed,
+  updatedDate:   null,
   taxYear:       String(TAX_CONFIG.currentTaxYear),
   confidence:    '一般原則普遍適用；個人能省下多少稅，取決於你的收入水準、薪資與所在州。選擇 S-Corp 之前，請先諮詢 CPA。',
   persona:       ['自雇人士', '接案者', '小型企業老闆', '考慮稅務規劃的 LLC 負責人'],

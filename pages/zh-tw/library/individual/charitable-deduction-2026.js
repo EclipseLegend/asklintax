@@ -14,7 +14,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'charitable-deduction-2026',
-  sourceHash:      'b7c799e0a7cf',
+  sourceHash:      '08f31bd188e7',
   id:            '72',
   title:         '2026 年慈善捐款：不分項扣除也能扣除的新規定',
   titleEn:       'Charitable Donations in 2026: The New Deduction If You Don\'t Itemize',
@@ -24,7 +24,7 @@ const META = {
   difficulty:    'Beginner',
   readTime:      '7 min read',
   verification:  'official-sources-verified',
-  updatedDate:   TAX_CONFIG.lastReviewed,
+  updatedDate:   null,
   taxYear:       String(TAX_CONFIG.currentTaxYear),
   confidence:    '依據 IRS Working Families Tax Cuts 頁面、Publication 505（2026）、Publication 526（2025）與 2026 年 Form W-4，說明 2025 與 2026 稅務年度的聯邦慈善捐款扣除 — 不分項扣除者的新扣除額（2026 年起）與分項扣除者的 2026 年改變。2026 年的表格行次來自草稿表格。本文不涵蓋非現金捐贈的估價、企業捐贈或州法規定',
   persona:       ['使用標準扣除額、也會捐款給慈善機構的人', '有大額慈善捐款的分項扣除者', '規劃年底捐款的家庭', '捐款給宗教團體的人'],

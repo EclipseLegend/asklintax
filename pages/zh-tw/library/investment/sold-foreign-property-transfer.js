@@ -14,7 +14,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'sold-foreign-property-transfer',
-  sourceHash:      '5c6a631cc8fc',
+  sourceHash:      '128440fdcd7f',
   id:            '36',
   title:         '海外賣房後把錢匯到美國，要申報什麼？',
   titleEn:       'I sold property overseas and moved the money to the U.S. — what must I report?',
@@ -24,7 +24,7 @@ const META = {
   difficulty:    'Intermediate',
   readTime:      '6 min read',
   verification:  'official-sources-verified',
-  updatedDate:   TAX_CONFIG.lastReviewed,
+  updatedDate:   null,
   taxYear:       String(TAX_CONFIG.currentTaxYear),
   confidence:    '涵蓋出售自己直接持有的海外不動產、再把款項匯到美國的美國公民與居民外國人。透過外國公司持有的房產、外幣房貸、曾出租房產的折舊，以及租稅協定的主張，需要專業人士檢視',
   persona:       ['在台灣或中國賣掉房子或公寓的人', '出售父母海外房產的繼承人', '出售留在原居住國房產的新移民', '在海外有不動產的綠卡持有人'],

@@ -18,7 +18,7 @@ const META = {
   difficulty:    'Intermediate',
   readTime:      '6 min read',
   verification:  'official-sources-verified',
-  updatedDate:   TAX_CONFIG.lastReviewed,
+  updatedDate:   null,
   taxYear:       String(TAX_CONFIG.currentTaxYear),
   confidence:    'Explains how Form 3520 Part IV applies when a married couple receives gifts from nonresident parents. For married U.S. persons filing a joint income tax return, IRS-published proposed regulations state that the $100,000 threshold applies separately to each spouse. Which spouse received a particular gift — especially gifts to both spouses or to a joint account — depends on the facts and may need individual review',
   persona:       ['Married couples receiving help from either set of parents abroad', 'Couples where one spouse is a nonresident alien', 'Couples buying a home with family money from overseas', 'Tax preparers handling a joint return'],

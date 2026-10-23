@@ -18,7 +18,7 @@ const META = {
   difficulty:    'Intermediate',
   readTime:      '6 min read',
   verification:  'official-sources-verified',
-  updatedDate:   TAX_CONFIG.lastReviewed,
+  updatedDate:   null,
   taxYear:       String(TAX_CONFIG.currentTaxYear),
   confidence:    'Covers U.S. citizens and resident aliens who sell real estate they own directly abroad and then move the proceeds to the U.S. Property held through a foreign company, foreign-currency mortgages, depreciation on former rentals, and treaty positions need professional review',
   persona:       ['People who sold a home or apartment in Taiwan or China', 'Heirs selling a parent\'s property abroad', 'New immigrants selling property left behind', 'Green card holders with real estate overseas'],

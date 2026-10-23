@@ -14,7 +14,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'us-taxpayer-living-abroad',
-  sourceHash:      '085b2f615c47',
+  sourceHash:      '162ea742b48e',
   id:            '95',
   title:         '住在台灣或海外：美國報稅清單',
   titleEn:       'Living in Taiwan or Abroad: Your U.S. Tax Filing Checklist',
@@ -24,7 +24,7 @@ const META = {
   difficulty:    'Intermediate',
   readTime:      '8 min read',
   verification:  'official-sources-verified',
-  updatedDate:   TAX_CONFIG.lastReviewed,
+  updatedDate:   'October 2026',
   taxYear:       String(TAX_CONFIG.currentTaxYear),
   confidence:    '依據 Publication 54（2025 年 12 月修訂版）、2025 年 Form 1040 填寫說明、2025 年 Form 2555 填寫說明、Form 8938 填寫說明、IRS FBAR 網頁、IRS 年平均匯率，以及 IRS 美國所得稅協定清單，為 2025 與 2026 稅務年度住在美國境外的美國公民與居民外國人整理的聯邦報稅清單。本文連結到詳細指南，而不重複說明。本文不涵蓋美國州稅、放棄國籍或台灣稅法',
   persona:       ['住在台灣的美國公民', '在海外工作的綠卡持有人', '最近搬到海外的美國人', '在不只一個國家有收入或帳戶的家庭'],

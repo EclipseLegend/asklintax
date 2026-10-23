@@ -14,7 +14,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'car-loan-interest-deduction',
-  sourceHash:      '1c74e92fac88',
+  sourceHash:      '7bca647a2e90',
   id:            '71',
   title:         '汽車貸款利息扣除額：哪些車輛與貸款符合資格？',
   titleEn:       'Car Loan Interest Deduction: Which Vehicles and Loans Qualify',
@@ -24,7 +24,7 @@ const META = {
   difficulty:    'Intermediate',
   readTime:      '8 min read',
   verification:  'official-sources-verified',
-  updatedDate:   TAX_CONFIG.lastReviewed,
+  updatedDate:   null,
   taxYear:       String(TAX_CONFIG.currentTaxYear),
   confidence:    '依據最終法規（T.D. 10054，Internal Revenue Bulletin 2026-39）、2025 年 Schedule 1-A 與 Form 1040 填寫說明、Notice 2025-57，以及 Form 1098-VLI 填寫說明，說明 2025 至 2028 稅務年度的聯邦合格乘用車貸款利息扣除額。2026 年的表格行次來自草稿表格。本文不涵蓋營業用車輛扣除或州稅規定',
   persona:       ['2024 年之後以貸款購買新轎車、SUV、皮卡或機車的人', '比較貸款與租賃的購車者', '主要個人使用、偶爾開共乘的駕駛', '把汽車貸款轉貸的人'],

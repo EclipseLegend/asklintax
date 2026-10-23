@@ -14,7 +14,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'no-tax-on-tips',
-  sourceHash:      'ed7a264c640e',
+  sourceHash:      'f9f5ba80fcc8',
   id:            '67',
   title:         '小費免稅？誰符合小費扣除資格？',
   titleEn:       'No Tax on Tips: Who Qualifies for the Deduction?',
@@ -24,7 +24,7 @@ const META = {
   difficulty:    'Intermediate',
   readTime:      '8 min read',
   verification:  'official-sources-verified',
-  updatedDate:   TAX_CONFIG.lastReviewed,
+  updatedDate:   null,
   taxYear:       String(TAX_CONFIG.currentTaxYear),
   confidence:    '依據 IRS 表格、填寫說明、列出小費職業的最終法規（final regulations）與 IRS 通知，說明 2025 與 2026 稅務年度的聯邦合格小費所得稅扣除額。本文不涵蓋州所得稅、雇主的薪資稅規定，或每一種特殊情況，例如在一個以上職業收到小費',
   persona:       ['餐廳、酒吧與旅館業工作者', '髮型師、共乘司機等收小費的工作者', '收到小費的自雇人士', '夫妻都有小費收入的家庭'],

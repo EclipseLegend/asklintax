@@ -14,7 +14,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'late-fbar',
-  sourceHash:      '667be682f899',
+  sourceHash:      '991dcae46548',
   id:            '48',
   title:         '忘記報 FBAR 怎麼辦？',
   titleEn:       'I forgot to file an FBAR — what should I do?',
@@ -24,7 +24,7 @@ const META = {
   difficulty:    'Intermediate',
   readTime:      '4 min read',
   verification:  'official-sources-verified',
-  updatedDate:   TAX_CONFIG.lastReviewed,
+  updatedDate:   null,
   taxYear:       String(TAX_CONFIG.currentTaxYear),
   confidence:    '概要說明 IRS 對漏報 FBAR 的個人提供的處理方式。本文不預測罰款，也不決定哪一種方式適合個別情況；是否故意、是否有未申報收入，以及是否正在接受 IRS 查核，都會改變分析，需要專業建議',
   persona:       ['剛知道有 FBAR 的人', '以前年度漏報 FBAR 的新移民', '名字在父母海外帳戶上、從未申報的人', '收到 IRS 關於海外帳戶信件的納稅人'],

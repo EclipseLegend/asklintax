@@ -23,7 +23,7 @@ const META = {
     { label: 'IRS — Comparison of Form 8938 and FBAR requirements', url: 'https://www.irs.gov/businesses/comparison-of-form-8938-and-fbar-requirements' },
     { label: 'IRS Publication 519 — U.S. Tax Guide for Aliens', url: 'https://www.irs.gov/publications/p519' },
   ],
-  updatedDate: TAX_CONFIG.lastReviewed,
+  updatedDate: null,
   taxYear: String(TAX_CONFIG.currentTaxYear),
   confidence: 'FBAR rules are well-established under the Bank Secrecy Act. FATCA (Form 8938) is a separate but related requirement with different thresholds — both may apply simultaneously.',
   persona: ['New immigrant with accounts in Taiwan or China', 'Green card holder', 'U.S. citizen with foreign accounts', 'Anyone with bank accounts outside the United States'],

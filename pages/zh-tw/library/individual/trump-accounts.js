@@ -14,7 +14,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'trump-accounts',
-  sourceHash:      'eba01c3231f9',
+  sourceHash:      'de5d679af211',
   id:            '73',
   title:         'Trump 帳戶：誰可以開戶、$1,000 政府提撥與相關規定',
   titleEn:       'Trump Accounts: Who Can Open One, the $1,000 Contribution, and the Rules',
@@ -24,7 +24,7 @@ const META = {
   difficulty:    'Intermediate',
   readTime:      '8 min read',
   verification:  'official-sources-verified',
-  updatedDate:   TAX_CONFIG.lastReviewed,
+  updatedDate:   null,
   taxYear:       String(TAX_CONFIG.currentTaxYear),
   confidence:    '依據 IRS Notice 2025-68、Form 4547 與填寫說明、Revenue Procedure 2026-25、2026 年 Form 5329 草稿與填寫說明草稿，以及說明擬議法規（proposed regulations）的 IRS 新聞稿，說明 Trump 帳戶（2025 年稅法為兒童設立的新型個人退休帳戶）。許多細節目前仍是擬議、尚未定案，可能會改變。本文不涵蓋雇主計畫設計、投資選擇或州法',
   persona:       ['2025 至 2028 年出生孩子的父母', '未滿 18 歲孩子的父母與祖父母', '比較 Trump 帳戶與 529 計畫的家庭', '雇主提供 Trump 帳戶提撥的員工'],
@@ -91,6 +91,12 @@ const RELATED = [
     cat:  'Individuals & Families',
     title: '什麼是 W-2？該怎麼看？',
     desc:  '雇主的 Trump 帳戶提撥出現在哪裡（代碼 TA）。',
+  },
+  {
+    href: '/library/individual/ira-roth-ira-contributions',
+    cat: 'Individuals & Families',
+    title: '傳統 IRA 與 Roth IRA 存款：2025 與 2026 年上限與收入規定',
+    desc: '一般 IRA 存款的規定。',
   },
 ]
 

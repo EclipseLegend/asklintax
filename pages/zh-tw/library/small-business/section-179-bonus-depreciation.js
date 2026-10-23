@@ -14,7 +14,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'section-179-bonus-depreciation',
-  sourceHash:      'a67207a38e96',
+  sourceHash:      'b7b72ef94cdd',
   id:            '80',
   title:         '第 179 條與加速折舊：2025 與 2026 年規定',
   titleEn:       'Section 179 and Bonus Depreciation: 2025 and 2026 Rules',
@@ -24,7 +24,7 @@ const META = {
   difficulty:    'Intermediate',
   readTime:      '8 min read',
   verification:  'official-sources-verified',
-  updatedDate:   TAX_CONFIG.lastReviewed,
+  updatedDate:   null,
   taxYear:       String(TAX_CONFIG.currentTaxYear),
   confidence:    '依據 Publication 946（2025）、2025 年 Schedule C 填寫說明、Publication 334（2025）、Revenue Procedure 2025-32，以及 IRS Notice 2026-11，說明 2025 與 2026 稅務年度小型企業適用的聯邦第 179 條扣除額與加速（特別）折舊。Notice 2026-11 是過渡指引，之後預計會發布擬議法規。本文不詳細涵蓋小客車折舊上限、不動產，以及州是否跟進聯邦規定',
   persona:       ['購買設備的小型企業老闆', '購買電腦、相機或工具的自由業者', '獨資經營者與單一成員 LLC 擁有人', '規劃年底採購的企業主'],

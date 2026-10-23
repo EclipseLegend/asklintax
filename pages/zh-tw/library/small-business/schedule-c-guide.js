@@ -14,7 +14,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'schedule-c-guide',
-  sourceHash:      '0c37ec7fa003',
+  sourceHash:      '2c20131b6abc',
   id:            '79',
   title:         'Schedule C 說明：如何申報自雇收入與費用',
   titleEn:       'Schedule C Explained: Self-Employment Income and Expenses',
@@ -24,7 +24,7 @@ const META = {
   difficulty:    'Intermediate',
   readTime:      '9 min read',
   verification:  'official-sources-verified',
-  updatedDate:   TAX_CONFIG.lastReviewed,
+  updatedDate:   null,
   taxYear:       String(TAX_CONFIG.currentTaxYear),
   confidence:    '依據 2025 年 Schedule C 及其填寫說明、Publication 334（2025）、2025 年 Form 461 填寫說明、IRS Notice 2026-10 與 Announcement 2026-11（2026 年標準里程費率），以及 Revenue Procedure 2024-40 與 2025-32，說明 2025 與 2026 稅務年度的 Schedule C（Form 1040）。撰寫本文時，2026 年 Schedule C 及其填寫說明仍是草稿。本文不涵蓋農業（Schedule F）、法定員工的細節，以及州稅表',
   persona:       ['自由業者與獨立承包人', '零工工作者與網路賣家', '單一成員 LLC 擁有人', '第一次申報 Schedule C 的人'],

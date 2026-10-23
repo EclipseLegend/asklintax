@@ -18,7 +18,7 @@ const META = {
   difficulty:    'Intermediate',
   readTime:      '4 min read',
   verification:  'official-sources-verified',
-  updatedDate:   TAX_CONFIG.lastReviewed,
+  updatedDate:   null,
   taxYear:       String(TAX_CONFIG.currentTaxYear),
   confidence:    'Covers how foreign brokerage accounts and foreign stock are treated for FBAR and Form 8938 reporting by individuals. It does not explain the income tax rules for foreign investments; foreign mutual funds and similar pooled funds may raise separate PFIC issues',
   persona:       ['People with a securities account in Taiwan, Hong Kong, or China', 'Employees holding shares of a foreign employer', 'Heirs who received foreign shares', 'New immigrants with investment accounts abroad'],

@@ -14,7 +14,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'foreign-property',
-  sourceHash:      'e965ca6ff5ae',
+  sourceHash:      '5cd684ec5c1e',
   id:            '25',
   title:         '海外房產：美國納稅人需要知道的事',
   titleEn:       'Foreign property: what U.S. taxpayers need to know',
@@ -24,7 +24,7 @@ const META = {
   difficulty:    'Intermediate',
   readTime:      '5 min read',
   verification:  'official-sources-verified',
-  updatedDate:   TAX_CONFIG.lastReviewed,
+  updatedDate:   null,
   taxYear:       String(TAX_CONFIG.currentTaxYear),
   confidence:    '涵蓋美國公民與居民外國人直接持有的海外不動產。透過外國公司持有的房產、外幣房貸，以及出售海外主要住所，需要專業檢視',
   persona:       ['在台灣或中國擁有房屋或公寓的人', '繼承海外父母房產的人', '保留母國房產的新移民', '綠卡持有人'],

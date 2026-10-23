@@ -18,7 +18,7 @@ const META = {
   difficulty:    'Intermediate',
   readTime:      '4 min read',
   verification:  'official-sources-verified',
-  updatedDate:   TAX_CONFIG.lastReviewed,
+  updatedDate:   null,
   taxYear:       String(TAX_CONFIG.currentTaxYear),
   confidence:    'Describes, at a high level, the IRS compliance options for individuals who missed FBARs. It does not predict penalties or decide which option fits a particular case; willfulness, unreported income, and open IRS examinations change the analysis and need professional advice',
   persona:       ['People who just learned about the FBAR', 'New immigrants who missed FBARs for earlier years', 'Anyone named on a parent\'s foreign account who never reported it', 'Taxpayers who received an IRS letter about foreign accounts'],

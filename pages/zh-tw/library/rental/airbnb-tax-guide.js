@@ -13,7 +13,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'airbnb-tax-guide',
-  sourceHash:      '53dd6d3270f8',
+  sourceHash:      '356292f1fb30',
   id:            '11',
   title:         'Airbnb 房東報稅指南：要申報什麼、可以扣除什麼',
   titleEn:       'Airbnb host tax guide: what to report and what to deduct',
@@ -28,7 +28,7 @@ const META = {
     { label: 'IRS — Topic no. 415，出租住宅與度假房產（Renting residential and vacation property）', url: 'https://www.irs.gov/taxtopics/tc415' },
     { label: 'IRS — 了解你的 Form 1099-K（Understanding your Form 1099-K）', url: 'https://www.irs.gov/businesses/understanding-your-form-1099-k' },
   ],
-  updatedDate:   TAX_CONFIG.lastReviewed,
+  updatedDate:   null,
   taxYear:       String(TAX_CONFIG.currentTaxYear),
   confidence:    '涵蓋美國稅務居民的一般短租規則。混合用途房產、度假屋，以及某些州的房產可能有額外規則。具體情況請諮詢 CPA。',
   persona:       ['Airbnb 房東', 'VRBO 房東', '短租房產擁有人', '出租房間或房產的人'],

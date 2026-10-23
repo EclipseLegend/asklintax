@@ -14,7 +14,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'form-3520-multiple-gifts',
-  sourceHash:      'a8dfe2006a9c',
+  sourceHash:      '9fe9c56817b7',
   id:            '32',
   title:         '父母分多次匯款，Form 3520 的 10 萬美元門檻怎麼算？',
   titleEn:       'Multiple foreign gifts: how does the $100,000 Form 3520 threshold work?',
@@ -24,7 +24,7 @@ const META = {
   difficulty:    'Intermediate',
   readTime:      '6 min read',
   verification:  'official-sources-verified',
-  updatedDate:   TAX_CONFIG.lastReviewed,
+  updatedDate:   null,
   taxYear:       String(TAX_CONFIG.currentTaxYear),
   confidence:    '說明美國公民與居民外國人如何加總來自非居民外國人個人與海外遺產的贈與與遺產，以判斷 Form 3520 Part IV 門檻。來自外國公司或外國合夥事業的贈與有另一個較低的門檻，海外信託分配則在表格的其他部分申報',
   persona:       ['一年內多次收到海外家人匯款的人', '同時收到父母、祖父母或海外兄弟姊妹匯款的人', '父母透過親戚或公司匯款的人', '協助客戶判斷 Form 3520 申報義務的報稅人員'],

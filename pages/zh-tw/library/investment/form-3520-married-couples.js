@@ -14,7 +14,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'form-3520-married-couples',
-  sourceHash:      'a24c27ad1890',
+  sourceHash:      'd0320518507a',
   id:            '38',
   title:         '夫妻收到海外父母贈與，Form 3520 怎麼判斷？',
   titleEn:       'My spouse and I received money from overseas parents — how does Form 3520 work?',
@@ -24,7 +24,7 @@ const META = {
   difficulty:    'Intermediate',
   readTime:      '6 min read',
   verification:  'official-sources-verified',
-  updatedDate:   TAX_CONFIG.lastReviewed,
+  updatedDate:   null,
   taxYear:       String(TAX_CONFIG.currentTaxYear),
   confidence:    '說明已婚夫妻收到非居民父母贈與時，Form 3520 Part IV 如何適用。對於合併申報所得稅的已婚美國人，IRS 發布的擬議法規指出，$100,000 門檻是由每位配偶分別計算。某筆贈與是哪一位配偶收到的 — 特別是給兩人或匯進聯名帳戶的贈與 — 取決於事實，可能需要個別檢視',
   persona:       ['收到任何一方海外父母資助的夫妻', '一方配偶是非居民外國人的夫妻', '用海外家人的錢買房的夫妻', '處理合併申報的報稅人員'],

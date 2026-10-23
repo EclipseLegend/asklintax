@@ -18,7 +18,7 @@ const META = {
   difficulty:    'Intermediate',
   readTime:      '4 min read',
   verification:  'official-sources-verified',
-  updatedDate:   TAX_CONFIG.lastReviewed,
+  updatedDate:   null,
   taxYear:       String(TAX_CONFIG.currentTaxYear),
   confidence:    'Covers FBAR reporting of foreign accounts owned jointly by married U.S. persons, including the spouse filing exception. Form 8938 has its own married-couple rules, which this guide does not apply to the FBAR',
   persona:       ['Married couples with a joint account in Taiwan, China, or elsewhere', 'Couples where only one spouse is a U.S. person', 'Couples where one spouse also has a separate foreign account', 'Spouses with signature authority over each other\'s accounts'],

@@ -23,7 +23,7 @@ const META = {
     { label: 'IRS — Pay your taxes by debit or credit card', url: 'https://www.irs.gov/payments/pay-your-taxes-by-debit-or-credit-card' },
     { label: 'IRS — EFTPS: The Electronic Federal Tax Payment System', url: 'https://www.irs.gov/payments/eftps-the-electronic-federal-tax-payment-system' },
   ],
-  updatedDate:   TAX_CONFIG.lastReviewed,
+  updatedDate:   null,
   taxYear:       String(TAX_CONFIG.currentTaxYear),
   confidence:    'Covers federal estimated tax rules. State estimated tax requirements vary — most states follow a similar system but with different thresholds and deadlines. Check your state\'s requirements separately.',
   persona:       ['Freelancer', 'Self-employed', 'LLC owner', 'Contractor with 1099 income', 'Small business owner'],

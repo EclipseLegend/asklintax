@@ -18,7 +18,7 @@ const META = {
   difficulty:    'Beginner',
   readTime:      '5 min read',
   verification:  'official-sources-verified',
-  updatedDate:   TAX_CONFIG.lastReviewed,
+  updatedDate:   null,
   taxYear:       String(TAX_CONFIG.currentTaxYear),
   confidence:    'Covers the worldwide income rule for U.S. citizens and resident aliens, the foreign tax credit, the foreign earned income exclusion, and currency conversion. Treaty positions, foreign pensions, and foreign companies need case-by-case review',
   persona:       ['Green card holders and H-1B workers with income in Taiwan or China', 'New immigrants', 'Anyone with foreign rent, interest, or investments', 'People who spend part of the year abroad'],

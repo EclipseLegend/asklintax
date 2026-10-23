@@ -22,7 +22,7 @@ const META = {
     { label: 'IRS — Topic no. 154, Form W-2 and Form 1099-R (what to do if incorrect or not received)', url: 'https://www.irs.gov/taxtopics/tc154' },
     { label: 'IRS Publication 15 (2025) — Employer\'s Tax Guide (Social Security wage base)', url: 'https://www.irs.gov/pub/irs-prior/p15--2025.pdf' },
   ],
-  updatedDate:   TAX_CONFIG.lastReviewed,
+  updatedDate:   null,
   taxYear:       String(TAX_CONFIG.currentTaxYear),
   confidence:    'Box definitions are standard across all employers. Box 12 codes are the most complex area — consult a CPA if you see unusual codes you don\'t recognize.',
   persona:       ['First-time employee', 'New immigrant with first U.S. job', 'Anyone who has never read a W-2 before'],
@@ -79,6 +79,12 @@ const RELATED = [
     cat:   'Individuals & Families',
     title: 'Tax credit vs. tax deduction: what\'s the difference?',
     desc:  'Understanding credits and deductions helps you know what to look for beyond the basic W-2 numbers.',
+  },
+  {
+    href:  '/library/individual/ira-roth-ira-contributions',
+    cat:   'Individuals & Families',
+    title: 'Traditional and Roth IRA Contributions: 2025 and 2026 Limits and Income Rules',
+    desc:  'How the Retirement plan box affects your IRA deduction.',
   },
 ]
 

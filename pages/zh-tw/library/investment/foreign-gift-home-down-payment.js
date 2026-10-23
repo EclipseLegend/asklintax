@@ -14,7 +14,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'foreign-gift-home-down-payment',
-  sourceHash:      '6e45a89b5cb3',
+  sourceHash:      '5d53d97fb16d',
   id:            '33',
   title:         '海外父母幫我付美國房屋頭期款，要申報嗎？',
   titleEn:       'Parents overseas helped with my U.S. home down payment — is it a foreign gift?',
@@ -24,7 +24,7 @@ const META = {
   difficulty:    'Beginner',
   readTime:      '6 min read',
   verification:  'official-sources-verified',
-  updatedDate:   TAX_CONFIG.lastReviewed,
+  updatedDate:   null,
   taxYear:       String(TAX_CONFIG.currentTaxYear),
   confidence:    '涵蓋美國公民與居民外國人從非居民外國人父母收到、用於購買美國房屋的款項。父母借款、父母成為共同持有人、來自外國公司或信託的資金，以及房貸機構的要求，不在本指南範圍內',
   persona:       ['父母在海外的首購族', '有家人資助買房的夫妻', '父母在台灣或中國的綠卡持有人與美國公民', '被貸款機構要求說明海外資金來源的人'],

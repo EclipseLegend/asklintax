@@ -18,7 +18,7 @@ const META = {
   difficulty:    'Intermediate',
   readTime:      '8 min read',
   verification:  'official-sources-verified',
-  updatedDate:   TAX_CONFIG.lastReviewed,
+  updatedDate:   null,
   taxYear:       String(TAX_CONFIG.currentTaxYear),
   confidence:    'Explains the federal income tax deduction for qualified tips for tax years 2025 and 2026, based on IRS forms, instructions, final regulations listing tipped occupations, and IRS notices. It does not cover state income tax, payroll tax rules for employers, or every special situation, such as tips earned in more than one occupation',
   persona:       ['Restaurant, bar, and hospitality workers', 'Hair stylists, rideshare drivers, and other tipped workers', 'Self-employed workers who receive tips', 'Married couples who both receive tips'],

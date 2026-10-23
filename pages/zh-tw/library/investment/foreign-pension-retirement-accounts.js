@@ -14,7 +14,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'foreign-pension-retirement-accounts',
-  sourceHash:      'cac881d6f73b',
+  sourceHash:      '4ea36f19bc4e',
   id:            '94',
   title:         '海外退休金與退休帳戶：美國納稅人要申報什麼',
   titleEn:       'Foreign Pensions and Retirement Accounts: What U.S. Taxpayers Must Report',
@@ -24,7 +24,7 @@ const META = {
   difficulty:    'Advanced',
   readTime:      '8 min read',
   verification:  'official-sources-verified',
-  updatedDate:   TAX_CONFIG.lastReviewed,
+  updatedDate:   'October 2026',
   taxYear:       String(TAX_CONFIG.currentTaxYear),
   confidence:    '依據 Form 8938 填寫說明、Form 3520 填寫說明（2025 年 12 月修訂版）、Rev. Proc. 2020-17、IRS FBAR 網頁，以及 Internal Revenue Manual 4.26.16，說明 2025 與 2026 稅務年度海外退休金與退休安排權益的美國資訊申報。本次檢視無法取得 FinCEN 的法規。本文不判定任何特定台灣計畫是否為金融帳戶、外國信託或稅務優惠外國退休信託，也不判定提撥、收益或分配的美國所得稅處理',
   persona:       ['有台灣雇主退休金或勞工退休金帳戶的美國居民', '帶著海外退休儲蓄搬來美國的人', '在海外工作並加入外國計畫的美國公民', '不確定海外退休金要不要申報 FBAR 或 Form 8938 的人'],
@@ -88,6 +88,12 @@ const RELATED = [
     cat:  'Individuals & Families',
     title: '住在台灣或海外：美國報稅清單',
     desc:  '與海外有連結的人的其他申報步驟。',
+  },
+  {
+    href: '/library/individual/retirement-withdrawals-rmd',
+    cat: 'Individuals & Families',
+    title: '退休帳戶提領與 RMD：稅、10% 罰款與期限',
+    desc: '美國 IRA 與 401(k) 提領怎麼課稅。',
   },
 ]
 

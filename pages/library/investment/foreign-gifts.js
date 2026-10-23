@@ -18,7 +18,7 @@ const META = {
   difficulty:    'Beginner',
   readTime:      '6 min read',
   verification:  'official-sources-verified',
-  updatedDate:   TAX_CONFIG.lastReviewed,
+  updatedDate:   null,
   taxYear:       String(TAX_CONFIG.currentTaxYear),
   confidence:    'Covers gifts and bequests that U.S. citizens and resident aliens receive from nonresident alien individuals, foreign estates, and foreign companies. Loans, payments for work, foreign trusts, and gifts from covered expatriates follow different rules',
   persona:       ['Children of parents living in Taiwan or China', 'New immigrants receiving family support', 'Students and young professionals', 'Anyone receiving money from relatives abroad'],
@@ -87,6 +87,12 @@ const RELATED = [
     cat:  'Individuals & Families',
     title: 'Foreign income: do U.S. tax residents report worldwide income?',
     desc:  'Gifts are not income, but interest, rent, and salary from abroad are. See what U.S. residents must report.',
+  },
+  {
+    href: '/library/individual/gift-tax-form-709',
+    cat: 'Individuals & Families',
+    title: 'Gift Tax and Form 709: When U.S. Givers Must File in 2025 and 2026',
+    desc: 'If you are the U.S. giver rather than the recipient.',
   },
 ]
 

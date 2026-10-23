@@ -18,7 +18,7 @@ const META = {
   difficulty:    'Beginner',
   readTime:      '7 min read',
   verification:  'official-sources-verified',
-  updatedDate:   TAX_CONFIG.lastReviewed,
+  updatedDate:   null,
   taxYear:       String(TAX_CONFIG.currentTaxYear),
   confidence:    'Explains federal charitable contribution deductions for tax years 2025 and 2026 — the new deduction for people who do not itemize (starting 2026) and the 2026 changes for itemizers — based on the IRS Working Families Tax Cuts page, Publication 505 (2026), Publication 526 (2025), and the 2026 Form W-4. 2026 form line numbers come from draft forms. It does not cover noncash gift valuation, business giving, or state rules',
   persona:       ['People who take the standard deduction and give to charity', 'Itemizers who make large charitable gifts', 'Families planning year-end giving', 'Donors to religious organizations'],

@@ -18,7 +18,7 @@ const META = {
   difficulty:    'Intermediate',
   readTime:      '8 min read',
   verification:  'official-sources-verified',
-  updatedDate:   TAX_CONFIG.lastReviewed,
+  updatedDate:   'October 2026',
   taxYear:       String(TAX_CONFIG.currentTaxYear),
   confidence:    'Explains federal income tax treatment of restricted stock units (RSUs) settled in stock for tax years 2025 and 2026, based on Publication 525 (2025), the 2025 Instructions for Form 8949, the 2026 Instructions for Form 1099-B, Publication 15 (2026), and the IRS Equity (Stock)-Based Compensation Audit Technique Guide (Publication 5992, June 2024), which the IRS says is not an official pronouncement of the law. It does not cover cash-settled RSUs in detail, deferred-settlement plans, nonresident sourcing, or state tax',
   persona:       ['Employees of public companies who receive RSUs', 'Tech workers selling vested shares', 'People who see a zero or low cost basis on Form 1099-B', 'Employees planning withholding on vesting income'],

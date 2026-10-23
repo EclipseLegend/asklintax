@@ -14,7 +14,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'foreign-gift-tuition-paid-directly',
-  sourceHash:      '67141895e89f',
+  sourceHash:      '96825270ed9a',
   id:            '34',
   title:         '海外父母直接付我的學費，要報 Form 3520 嗎？',
   titleEn:       'My parents paid my tuition directly — do I report a foreign gift?',
@@ -24,7 +24,7 @@ const META = {
   difficulty:    'Beginner',
   readTime:      '5 min read',
   verification:  'official-sources-verified',
-  updatedDate:   TAX_CONFIG.lastReviewed,
+  updatedDate:   null,
   taxYear:       String(TAX_CONFIG.currentTaxYear),
   confidence:    '涵蓋父母為非居民外國人、由父母支付學校費用的美國公民與居民外國人。說明合格學費與醫療費用在 Form 3520 Part IV 上如何處理。不涵蓋教育抵稅額、獎學金、529 計畫，或贈與人所在國家的稅務規定',
   persona:       ['父母在海外的大學生與研究生', '已成為美國稅務居民的學生', '子女是美國稅務居民、在美國讀書的家長', '替在美國的家人支付醫療費用的家庭'],
@@ -88,6 +88,12 @@ const RELATED = [
     cat:  'Investments & Foreign Accounts',
     title: '海外父母匯超過 10 萬美元給我，要報 Form 3520 嗎？',
     desc:  '總支援金額超過 $100,000 時的直接答案。',
+  },
+  {
+    href: '/library/individual/gift-tax-form-709',
+    cat: 'Individuals & Families',
+    title: '贈與稅與 Form 709：美國贈與人 2025 與 2026 年何時要申報',
+    desc: '美國贈與人的學費與醫療費排除。',
   },
 ]
 

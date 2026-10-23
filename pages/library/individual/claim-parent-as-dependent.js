@@ -18,7 +18,7 @@ const META = {
   difficulty:    'Intermediate',
   readTime:      '5 min read',
   verification:  'official-sources-verified',
-  updatedDate:   TAX_CONFIG.lastReviewed,
+  updatedDate:   null,
   taxYear:       String(TAX_CONFIG.currentTaxYear),
   confidence:    'Covers whether a U.S. taxpayer can claim a parent as a qualifying relative, with a focus on parents living outside the U.S. The gross income figure is for tax year 2025. Head of household status and dependent-related credits have separate rules that this guide does not decide',
   persona:       ['Adult children who send money to parents in Taiwan or China', 'People whose parents live with them in the U.S. part of the year', 'Siblings who share the cost of supporting a parent', 'Immigrants supporting family abroad'],

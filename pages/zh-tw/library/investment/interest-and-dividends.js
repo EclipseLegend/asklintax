@@ -14,7 +14,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'interest-and-dividends',
-  sourceHash: '4387e1526525',
+  sourceHash: '9e0cd96ac808',
   id:            '63',
   title:         '銀行利息和股利要申報嗎？',
   titleEn:       'Do I have to report bank interest and dividends?',
@@ -24,7 +24,7 @@ const META = {
   difficulty:    'Beginner',
   readTime:      '5 min read',
   verification:  'official-sources-verified',
-  updatedDate:   TAX_CONFIG.lastReviewed,
+  updatedDate:   null,
   taxYear:       String(TAX_CONFIG.currentTaxYear),
   confidence:    '涵蓋個人收到的美國銀行利息與投資股利，以及如何在聯邦所得稅表上申報。海外帳戶申報（FBAR、Form 8938）、儲蓄債券與原始發行折價的細節，以及州稅處理，不在本文範圍內',
   persona:       ['有儲蓄帳戶或定存的人', '收到 Form 1099-INT 或 1099-DIV 的人', '開始領股利的新手投資人', '賺到一點利息卻沒收到表格的人'],
@@ -86,6 +86,12 @@ const RELATED = [
     cat:  'Individuals & Families',
     title: '在美國第一次報稅：完整步驟指南',
     desc:  '利息與股利在第一次報稅時放在哪裡。',
+  },
+  {
+    href: '/library/individual/kiddie-tax',
+    cat: 'Individuals & Families',
+    title: '兒童稅（Kiddie Tax）：孩子的投資所得何時按父母稅率課稅',
+    desc: '孩子的利息與股利何時按父母稅率課稅。',
   },
 ]
 

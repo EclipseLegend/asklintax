@@ -14,7 +14,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'fbar-vs-form-8938',
-  sourceHash:      '29c44e61adbd',
+  sourceHash:      'c135840dbddd',
   id:            '23',
   title:         'FBAR 與 Form 8938 有什麼不同？',
   titleEn:       'FBAR vs. Form 8938: what\'s the difference?',
@@ -24,7 +24,7 @@ const META = {
   difficulty:    'Intermediate',
   readTime:      '5 min read',
   verification:  'official-sources-verified',
-  updatedDate:   TAX_CONFIG.lastReviewed,
+  updatedDate:   null,
   taxYear:       String(TAX_CONFIG.currentTaxYear),
   confidence:    '涵蓋個人的 FBAR（FinCEN Form 114）與 Form 8938。特定國內實體（Specified Domestic Entity）、美國屬地，以及依租稅協定具雙重居民身分的申報人，門檻只做摘要說明',
   persona:       ['在美國境外有銀行或投資帳戶的人', '新移民', '綠卡持有人', '在台灣或中國有帳戶的家庭'],

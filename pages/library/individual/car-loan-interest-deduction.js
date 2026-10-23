@@ -18,7 +18,7 @@ const META = {
   difficulty:    'Intermediate',
   readTime:      '8 min read',
   verification:  'official-sources-verified',
-  updatedDate:   TAX_CONFIG.lastReviewed,
+  updatedDate:   null,
   taxYear:       String(TAX_CONFIG.currentTaxYear),
   confidence:    'Explains the federal deduction for qualified passenger vehicle loan interest for tax years 2025 through 2028, based on the final regulations (T.D. 10054, Internal Revenue Bulletin 2026-39), the 2025 Schedule 1-A and Form 1040 instructions, Notice 2025-57, and the Form 1098-VLI instructions. 2026 form line numbers come from draft forms. It does not cover business vehicle deductions or state tax rules',
   persona:       ['People who financed a new car, SUV, pickup, or motorcycle after 2024', 'Buyers comparing a loan with a lease', 'Rideshare drivers who mostly use the car personally', 'Borrowers who refinanced a car loan'],

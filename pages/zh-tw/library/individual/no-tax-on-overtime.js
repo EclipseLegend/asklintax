@@ -14,7 +14,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'no-tax-on-overtime',
-  sourceHash:      '68f154bd2431',
+  sourceHash:      '545142988cb6',
   id:            '68',
   title:         '加班費免稅？加班費扣除額如何計算？',
   titleEn:       'No Tax on Overtime: How the Deduction Really Works',
@@ -24,7 +24,7 @@ const META = {
   difficulty:    'Intermediate',
   readTime:      '8 min read',
   verification:  'official-sources-verified',
-  updatedDate:   TAX_CONFIG.lastReviewed,
+  updatedDate:   null,
   taxYear:       String(TAX_CONFIG.currentTaxYear),
   confidence:    '依據 IRS 表格與填寫說明、Notice 2025-69，以及 IRS 加班費常見問題（FS-2026-13），說明 2025 與 2026 稅務年度的聯邦合格加班費所得稅扣除額。IRS 常見問題屬於指引，不是法規。本文不涵蓋州所得稅、雇主的薪資義務，或每一種特殊加班安排，例如聯邦公務員的規定',
   persona:       ['領加班費的時薪工作者', '夫妻都有加班費的家庭', '正在核對 2026 年 Form W-2 的工作者', '不確定自己的加班費是否符合資格的人'],

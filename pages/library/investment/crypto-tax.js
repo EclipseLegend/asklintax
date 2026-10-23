@@ -26,7 +26,7 @@ const META = {
     { label: 'IRS — Revenue Procedure 2024-28 (basis by wallet or account as of January 1, 2025)', url: 'https://www.irs.gov/pub/irs-drop/rp-24-28.pdf' },
     { label: 'IRS — 2025 Instructions for Form 8949 (digital asset boxes G through L)', url: 'https://www.irs.gov/pub/irs-pdf/i8949.pdf' },
   ],
-  updatedDate: TAX_CONFIG.lastReviewed,
+  updatedDate: null,
   taxYear: String(TAX_CONFIG.currentTaxYear),
   confidence: 'Covers the IRS\'s current position on cryptocurrency taxation for tax years 2025 and 2026, including Form 1099-DA, wallet-by-wallet basis, staking (Revenue Ruling 2023-14), and NFTs (Notice 2023-27). This is a rapidly evolving area — rules for DeFi, NFTs, and staking continue to develop.',
   persona: ['Crypto investor', 'Bitcoin holder', 'NFT buyer or seller', 'DeFi participant', 'Anyone who bought or sold cryptocurrency'],

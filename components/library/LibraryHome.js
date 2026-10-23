@@ -12,6 +12,10 @@ import { searchArticles } from '../../lib/search'
 import TAX_CONFIG from '../../lib/tax-config'
 import styles from './library.module.css'
 
+// The library-wide review date (TAX_CONFIG.lastReviewed) is hidden for now: it is not a
+// documented review of every guide. Set to true to show it again; article dates are per page.
+const SHOW_LIBRARY_REVIEW_DATE = false
+
 /**
  * Knowledge Library landing page (/library/).
  * All content comes from lib/articles.js, lib/categories.js, TAX_CONFIG, and locales/<lang>/library.json.
@@ -272,8 +276,8 @@ export default function LibraryHome({ translations, locale = 'en' }) {
             <span>{tl('home.trustOfficial')}</span>
             <span aria-hidden="true">·</span>
             <span>{tl('category.taxYear').replace('{year}', TAX_CONFIG.currentTaxYear)}</span>
-            <span aria-hidden="true">·</span>
-            <span>{tl('category.lastReviewed').replace('{date}', formatMonthYear(TAX_CONFIG.lastReviewed, locale))}</span>
+            {SHOW_LIBRARY_REVIEW_DATE && <span aria-hidden="true">·</span>}
+            {SHOW_LIBRARY_REVIEW_DATE && <span>{tl('category.lastReviewed').replace('{date}', formatMonthYear(TAX_CONFIG.lastReviewed, locale))}</span>}
             {!isEn && (
               <>
                 <span aria-hidden="true">·</span>

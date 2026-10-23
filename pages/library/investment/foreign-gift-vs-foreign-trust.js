@@ -18,7 +18,7 @@ const META = {
   difficulty:    'Advanced',
   readTime:      '6 min read',
   verification:  'official-sources-verified',
-  updatedDate:   TAX_CONFIG.lastReviewed,
+  updatedDate:   null,
   taxYear:       String(TAX_CONFIG.currentTaxYear),
   confidence:    'Explains, at a high level, why a gift from a nonresident individual and a distribution from a foreign trust are different reporting categories on Form 3520 for U.S. citizens and resident aliens. It does not explain how to calculate the tax on a foreign trust distribution, or the trust\'s own filings — foreign trust situations need professional review',
   persona:       ['Beneficiaries of a family trust set up abroad', 'Anyone receiving money from a parent\'s trust, foundation, or similar arrangement overseas', 'Heirs whose inheritance passes through a trust', 'Tax preparers checking which part of Form 3520 applies'],

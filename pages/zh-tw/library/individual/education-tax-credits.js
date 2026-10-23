@@ -14,7 +14,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'education-tax-credits',
-  sourceHash:      'ea8c5492ed0c',
+  sourceHash:      '2e34c85972ce',
   id:            '60',
   title:         '教育抵稅額：AOTC 與 Lifetime Learning Credit 怎麼選？',
   titleEn:       'Education tax credits: AOTC vs. Lifetime Learning Credit',
@@ -24,7 +24,7 @@ const META = {
   difficulty:    'Intermediate',
   readTime:      '6 min read',
   verification:  'official-sources-verified',
-  updatedDate:   TAX_CONFIG.lastReviewed,
+  updatedDate:   null,
   taxYear:       String(TAX_CONFIG.currentTaxYear),
   confidence:    '比較 2025 稅務年度的美國機會抵稅額（American Opportunity Tax Credit）與終身學習抵稅額（Lifetime Learning Credit），並說明 Publication 970（2025）所述 2026 年的社會安全號碼規定。學生貸款利息、529 計畫、Coverdell ESA 與獎學金的課稅不在本文範圍內；完整的資格規定請看 Publication 970',
   persona:       ['大學生與他們的父母', '研究生', '為了提升工作技能而上課的成年人', '要支付不只一位學生費用的家庭'],

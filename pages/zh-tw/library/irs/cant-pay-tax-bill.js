@@ -14,7 +14,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'cant-pay-tax-bill',
-  sourceHash:      '5ba27db1a85d',
+  sourceHash:      'd8926d550385',
   id:            '51',
   title:         '繳不出稅款怎麼辦？有哪些選擇？',
   titleEn:       'I can\'t pay my tax bill — what are my options?',
@@ -24,7 +24,7 @@ const META = {
   difficulty:    'Beginner',
   readTime:      '5 min read',
   verification:  'official-sources-verified',
-  updatedDate:   TAX_CONFIG.lastReviewed,
+  updatedDate:   null,
   taxYear:       String(TAX_CONFIG.currentTaxYear),
   confidence:    '涵蓋欠聯邦所得稅、無法一次繳清的個人。資格門檻與費用是審閱時 IRS 線上分期付款的數字，可能會變動；公司欠稅、薪資稅與州稅不在本文範圍內',
   persona:       ['截止日前繳不出全部稅款的人', '應繳稅款比預期多的自由工作者', '收到 IRS 欠稅通知的人', '正在比較分期付款與其他選擇的人'],

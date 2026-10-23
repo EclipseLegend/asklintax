@@ -14,7 +14,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'stock-sale-capital-gains',
-  sourceHash:      '6c00d2bc85f2',
+  sourceHash:      '81f126ca24c5',
   id:            '61',
   title:         '賣股票賺錢，資本利得怎麼課稅？',
   titleEn:       'I sold stock — how are capital gains taxed?',
@@ -24,7 +24,7 @@ const META = {
   difficulty:    'Beginner',
   readTime:      '6 min read',
   verification:  'official-sources-verified',
-  updatedDate:   TAX_CONFIG.lastReviewed,
+  updatedDate:   null,
   taxYear:       String(TAX_CONFIG.currentTaxYear),
   confidence:    '涵蓋個人在應稅帳戶中出售股票或類似證券。稅率門檻分別列出 2025 與 2026 稅務年度。收藏品、小型企業股票、不動產、加密貨幣與海外帳戶申報，另有規定或指南',
   persona:       ['第一次賣股票的投資人', '賣出公司股票的員工', '收到 Form 1099-B 的人', '正在考慮什麼時候賣的人'],

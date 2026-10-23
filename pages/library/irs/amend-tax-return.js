@@ -18,7 +18,7 @@ const META = {
   difficulty:    'Beginner',
   readTime:      '5 min read',
   verification:  'official-sources-verified',
-  updatedDate:   TAX_CONFIG.lastReviewed,
+  updatedDate:   null,
   taxYear:       String(TAX_CONFIG.currentTaxYear),
   confidence:    'Covers correcting a previously filed federal individual return (Form 1040, 1040-SR, or 1040-NR) with Form 1040-X. Special refund-claim rules, state returns, and changes made in response to an IRS examination are outside this guide',
   persona:       ['People who found a mistake after filing', 'Taxpayers who received a corrected or late W-2 or 1099', 'Anyone who forgot a credit or a dependent', 'People who chose the wrong filing status'],

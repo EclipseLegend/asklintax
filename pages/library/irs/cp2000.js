@@ -23,7 +23,7 @@ const META = {
     { label: 'IRS — Understanding your Form 1099-K', url: 'https://www.irs.gov/businesses/understanding-your-form-1099-k' },
     { label: 'IRS — Digital assets (Form 1099-DA reporting)', url: 'https://www.irs.gov/filing/digital-assets' },
   ],
-  updatedDate:   TAX_CONFIG.lastReviewed,
+  updatedDate:   null,
   taxYear:       String(TAX_CONFIG.currentTaxYear),
   confidence:    'Covers the standard CP2000 response process. If the proposed amount is large (over $5,000), if you disagree with the IRS position, or if this involves multiple years, consult a CPA before responding.',
   persona:       ['Anyone who received a CP2000 notice', 'Freelancer who forgot a 1099', 'Investor with unreported income', 'New immigrant unfamiliar with IRS notices'],
@@ -80,6 +80,12 @@ const RELATED = [
     cat:   'Individuals & Families',
     title: 'First-time filer complete guide',
     desc:  'Many CP2000 notices result from first-year filing mistakes. This guide helps you get it right.',
+  },
+  {
+    href:  '/library/individual/retirement-withdrawals-rmd',
+    cat:   'Individuals & Families',
+    title: 'Retirement Account Withdrawals and RMDs: Taxes, the 10% Penalty, and Deadlines',
+    desc:  'Taxes on IRA and 401(k) withdrawals reported on Form 1099-R.',
   },
 ]
 

@@ -18,7 +18,7 @@ const META = {
   difficulty:    'Intermediate',
   readTime:      '4 min read',
   verification:  'official-sources-verified',
-  updatedDate:   TAX_CONFIG.lastReviewed,
+  updatedDate:   null,
   taxYear:       String(TAX_CONFIG.currentTaxYear),
   confidence:    'Covers whether foreign-issued life insurance and annuity contracts with a cash value are reported on the FBAR and Form 8938. It does not cover how such policies are taxed, policies without a cash value, or the treatment of premiums, surrender, or death benefits',
   persona:       ['People with a savings-type life insurance policy (儲蓄險) from Taiwan, Hong Kong, or China', 'Owners of foreign annuity contracts', 'New immigrants who kept policies bought before moving', 'Parents who bought policies for their children abroad'],

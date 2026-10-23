@@ -14,7 +14,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: '529-plans',
-  sourceHash:      'c4b16333163b',
+  sourceHash:      '152313251eb4',
   id:            '75',
   title:         '529 計畫：擴大的 K-12 與職業證照費用說明',
   titleEn:       '529 Plans: Expanded K-12 and Credential Expenses Explained',
@@ -24,7 +24,7 @@ const META = {
   difficulty:    'Intermediate',
   readTime:      '8 min read',
   verification:  'official-sources-verified',
-  updatedDate:   TAX_CONFIG.lastReviewed,
+  updatedDate:   null,
   taxYear:       String(TAX_CONFIG.currentTaxYear),
   confidence:    '依據 IRS Tax Topic 313（2026 年 9 月更新）與 Publication 970（2025），說明 529 計畫（合格學費計畫，qualified tuition programs）的聯邦稅務規定，包括擴大的 K-12 費用與高等教育後職業證照費用。依 Tax Topic 313，K-12 每年上限 2025 年為 $10,000，2026 年起為 $20,000。本文查閱的 IRS 資料沒有說明擴大的 K-12 費用與證照費用從哪一天開始適用。各州的 529 計畫稅務規定不同，本文不涵蓋',
   persona:       ['為 K-12 或大學費用儲蓄的父母', '正在考取執照或專業證照的成年人', '要協調 529 提領與教育抵稅額的家庭', '提撥到 529 計畫的祖父母'],
@@ -83,6 +83,12 @@ const RELATED = [
     cat:  'Individuals & Families',
     title: '美國新稅法：2025 與 2026 年報稅有哪些改變？',
     desc:  '逐年整理所有主要改變。',
+  },
+  {
+    href: '/library/individual/gift-tax-form-709',
+    cat: 'Individuals & Families',
+    title: '贈與稅與 Form 709：美國贈與人 2025 與 2026 年何時要申報',
+    desc: '存入 529 計畫的贈與與 Form 709 的 5 年選擇。',
   },
 ]
 

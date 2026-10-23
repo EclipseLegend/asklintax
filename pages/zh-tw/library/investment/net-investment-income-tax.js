@@ -14,7 +14,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'net-investment-income-tax',
-  sourceHash:      '6d859680150e',
+  sourceHash:      '34ce021ff122',
   id:            '86',
   title:         '淨投資所得稅（NIIT）：2025 與 2026 年誰要繳 3.8% 的稅',
   titleEn:       'Net Investment Income Tax (NIIT): Who Pays the 3.8% Tax in 2025 and 2026',
@@ -24,7 +24,7 @@ const META = {
   difficulty:    'Intermediate',
   readTime:      '8 min read',
   verification:  'official-sources-verified',
-  updatedDate:   TAX_CONFIG.lastReviewed,
+  updatedDate:   'October 2026',
   taxYear:       String(TAX_CONFIG.currentTaxYear),
   confidence:    '依據第 1411 條、IRS Topic no. 559、IRS 淨投資所得稅問答、2025 年 Form 8960 填寫說明，以及 2026 年 Form 8960 填寫說明草案（2026 年 10 月 15 日公布），說明 2025 與 2026 稅務年度個人的 3.8% 淨投資所得稅。本文不詳細涵蓋遺產與信託、受控外國公司與 PFIC、交易者與房地產專業人士的規定，也不涵蓋州稅',
   persona:       ['高收入投資人', '有租金收入的房東', '因賣股票、事業或房產而有一筆大額一次性獲利的人', '收入接近門檻的夫妻'],

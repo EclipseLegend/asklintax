@@ -18,7 +18,7 @@ const META = {
   difficulty:    'Intermediate',
   readTime:      '6 min read',
   verification:  'official-sources-verified',
-  updatedDate:   TAX_CONFIG.lastReviewed,
+  updatedDate:   null,
   taxYear:       String(TAX_CONFIG.currentTaxYear),
   confidence:    'Covers how U.S. citizens and resident aliens add up gifts and bequests from nonresident alien individuals and foreign estates for the Form 3520 Part IV threshold. Gifts from foreign corporations or partnerships use a separate, lower threshold, and foreign trust distributions are reported elsewhere on the form',
   persona:       ['People receiving several transfers a year from family abroad', 'Anyone receiving money from both parents, grandparents, or siblings overseas', 'People whose parents send money through a relative or a company', 'Tax preparers checking a client\'s Form 3520 requirement'],

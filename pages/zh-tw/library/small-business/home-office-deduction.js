@@ -14,7 +14,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'home-office-deduction',
-  sourceHash:      '150c2744c93c',
+  sourceHash:      'eb36ce0ceff1',
   id:            '58',
   title:         '家庭辦公室扣除額：我符合資格嗎？',
   titleEn:       'Home office deduction — do I qualify?',
@@ -24,7 +24,7 @@ const META = {
   difficulty:    'Intermediate',
   readTime:      '5 min read',
   verification:  'official-sources-verified',
-  updatedDate:   TAX_CONFIG.lastReviewed,
+  updatedDate:   null,
   taxYear:       String(TAX_CONFIG.currentTaxYear),
   confidence:    '涵蓋自雇者與其他把住家一部分作營業用的人，在聯邦稅上的家庭辦公室扣除額。不涵蓋在家遠距工作的 W-2 員工、州稅規定，以及 Form 8829 上詳細的實際費用與折舊計算',
   persona:       ['在家工作的自由工作者', '以住家為營業據點的獨資經營者', '在家存放庫存的賣家', '在家經營托育的人'],

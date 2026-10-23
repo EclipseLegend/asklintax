@@ -18,7 +18,7 @@ const META = {
   difficulty:    'Intermediate',
   readTime:      '8 min read',
   verification:  'official-sources-verified',
-  updatedDate:   TAX_CONFIG.lastReviewed,
+  updatedDate:   null,
   taxYear:       String(TAX_CONFIG.currentTaxYear),
   confidence:    'Explains the federal Child and Dependent Care Credit (Form 2441) for tax years 2025 and 2026, based on the 2025 Form 2441 and instructions, Publication 503 (2025), Publication 15-B (2026), and the IRS Working Families Tax Cuts page. The detailed 2026 percentage schedule comes from the draft 2026 Form 2441 instructions (August 2026), which may change. It does not cover state credits',
   persona:       ['Working parents who pay for child care', 'Families caring for a disabled spouse or dependent', 'Employees with a dependent care FSA', 'Parents comparing the 2025 and 2026 rules'],

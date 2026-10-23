@@ -14,7 +14,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'pfic-form-8621',
-  sourceHash:      '1d9601daabb0',
+  sourceHash:      '97b9194aa5f0',
   id:            '93',
   title:         '海外共同基金與 ETF：PFIC 規定與 Form 8621',
   titleEn:       'Foreign Mutual Funds and ETFs: PFIC Rules and Form 8621',
@@ -24,7 +24,7 @@ const META = {
   difficulty:    'Advanced',
   readTime:      '9 min read',
   verification:  'official-sources-verified',
-  updatedDate:   TAX_CONFIG.lastReviewed,
+  updatedDate:   'October 2026',
   taxYear:       String(TAX_CONFIG.currentTaxYear),
   confidence:    '依據 Form 8621 及其填寫說明（2025 年 12 月修訂版）、Form 8938 填寫說明、Publication 514（2025），以及第 1298(f) 條正式法規的前言（T.D. 9806，Internal Revenue Bulletin 2017-4），說明 2025 與 2026 稅務年度個人的被動外國投資公司（PFIC）規定與 Form 8621 申報。本文不判定任何特定基金是否為 PFIC，不計算第 1291 條的稅額與利息，也不詳細涵蓋透過合夥、信託或其他 PFIC 持有的情況，不涵蓋州稅',
   persona:       ['持有台灣或其他非美國共同基金或 ETF 的人', '有海外證券或銀行投資帳戶的美國居民', '搬來美國前買了海外基金的新美國居民', '收到海外基金分配或賣出海外基金股份的人'],

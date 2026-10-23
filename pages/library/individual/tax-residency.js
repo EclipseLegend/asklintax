@@ -24,7 +24,7 @@ const META = {
     { label: 'IRS — Nonresident spouse', url: 'https://www.irs.gov/individuals/international-taxpayers/nonresident-spouse' },
     { label: 'IRS — Report of Foreign Bank and Financial Accounts (FBAR)', url: 'https://www.irs.gov/businesses/small-businesses-self-employed/report-of-foreign-bank-and-financial-accounts-fbar' },
   ],
-  updatedDate:   TAX_CONFIG.lastReviewed,
+  updatedDate:   null,
   taxYear:       String(TAX_CONFIG.currentTaxYear),
   confidence:    'Covers the two main tests (Green Card and Substantial Presence). Treaty elections, dual-status returns, and exempt individual categories require case-by-case analysis.',
   persona:       ['New immigrant', 'F-1 student', 'H-1B visa holder', 'J-1 visa holder', 'Anyone unsure of their filing status'],

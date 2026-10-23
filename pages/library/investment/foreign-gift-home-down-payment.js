@@ -18,7 +18,7 @@ const META = {
   difficulty:    'Beginner',
   readTime:      '6 min read',
   verification:  'official-sources-verified',
-  updatedDate:   TAX_CONFIG.lastReviewed,
+  updatedDate:   null,
   taxYear:       String(TAX_CONFIG.currentTaxYear),
   confidence:    'Covers U.S. citizens and resident aliens who receive money from nonresident alien parents toward buying a U.S. home. Loans from parents, parents who become co-owners, money from foreign companies or trusts, and mortgage-lender requirements are outside the scope of this guide',
   persona:       ['First-time home buyers with parents abroad', 'Couples buying a home with family help', 'Green card holders and U.S. citizens with parents in Taiwan or China', 'Anyone asked by a lender to document funds from overseas'],

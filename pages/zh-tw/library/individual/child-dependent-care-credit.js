@@ -14,7 +14,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'child-dependent-care-credit',
-  sourceHash:      '64359e5190c9',
+  sourceHash:      '7a5897a7239f',
   id:            '74',
   title:         '兒童與受扶養人照顧抵稅額：2025 與 2026 年規定與範例',
   titleEn:       'Child and Dependent Care Credit: 2025 and 2026 Rules and Examples',
@@ -24,7 +24,7 @@ const META = {
   difficulty:    'Intermediate',
   readTime:      '8 min read',
   verification:  'official-sources-verified',
-  updatedDate:   TAX_CONFIG.lastReviewed,
+  updatedDate:   null,
   taxYear:       String(TAX_CONFIG.currentTaxYear),
   confidence:    '依據 2025 年 Form 2441 與填寫說明、Publication 503（2025）、Publication 15-B（2026）以及 IRS Working Families Tax Cuts 頁面，說明 2025 與 2026 稅務年度的聯邦兒童與受扶養人照顧抵稅額（Form 2441）。2026 年詳細的比率表來自 2026 年 Form 2441 填寫說明草稿（2026 年 8 月），可能會改變。本文不涵蓋州抵稅額',
   persona:       ['支付托育費用的上班父母', '照顧失能配偶或受扶養人的家庭', '有受扶養人照顧 FSA 的員工', '比較 2025 與 2026 年規定的父母'],

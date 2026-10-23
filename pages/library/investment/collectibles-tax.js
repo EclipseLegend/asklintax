@@ -18,7 +18,7 @@ const META = {
   difficulty:    'Intermediate',
   readTime:      '7 min read',
   verification:  'official-sources-verified',
-  updatedDate:   TAX_CONFIG.lastReviewed,
+  updatedDate:   'October 2026',
   taxYear:       String(TAX_CONFIG.currentTaxYear),
   confidence:    'Explains federal income tax on selling collectibles held outside retirement accounts for tax years 2025 and 2026, based on Publication 550 (2025), Publication 544, the 2025 Instructions for Schedule D, the 2025 Instructions for Form 8949, and the Instructions for Form 1099-DIV. Exchange-traded products that hold metals, collectibles in IRAs and retirement plans, dealers and businesses, NFTs, and state tax are not covered',
   persona:       ['People selling gold or silver coins or bullion', 'Collectors of art, stamps, antiques, or wine', 'Heirs selling an inherited collection', 'Anyone deciding whether a loss on a collectible is deductible'],

@@ -14,7 +14,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'owe-taxes-withholding-w4',
-  sourceHash: '67333e63cfa3',
+  sourceHash: '9cae4b75a126',
   id:            '65',
   title:         '為什麼今年要補稅？看懂 W-4 與預扣稅',
   titleEn:       'Why do I owe taxes this year? Understanding your W-4 and withholding',
@@ -24,7 +24,7 @@ const META = {
   difficulty:    'Beginner',
   readTime:      '6 min read',
   verification:  'official-sources-verified',
-  updatedDate:   TAX_CONFIG.lastReviewed,
+  updatedDate:   null,
   taxYear:       String(TAX_CONFIG.currentTaxYear),
   confidence:    '涵蓋聯邦所得稅預扣不足的 W-2 員工，說明常見原因與 Form W-4 如何運作；不涵蓋州稅預扣、退休金預扣（Form W-4P），以及 2026 年 Form W-4 上新扣除額的詳細規定',
   persona:       ['報稅時要補稅的 W-2 員工', '雙薪家庭', '有兩份工作或年中換工作的人', '領到獎金或有副業收入的員工'],

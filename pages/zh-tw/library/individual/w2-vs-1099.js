@@ -13,7 +13,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'w2-vs-1099',
-  sourceHash:      '2bf036462ea6',
+  sourceHash:      'a54a85ca6760',
   id:            '10',
   title:         'W-2 與 1099：有什麼差別？為什麼重要？',
   titleEn:       'W-2 vs 1099: what\'s the difference and why it matters',
@@ -34,7 +34,7 @@ const META = {
     { label: 'IRS — Form 1040-ES（個人預估稅，2026 年版）', url: 'https://www.irs.gov/pub/irs-pdf/f1040es.pdf' },
     { label: 'IRS — 數位資產（Digital assets：Form 1099-DA 申報）', url: 'https://www.irs.gov/filing/digital-assets' },
   ],
-  updatedDate:   TAX_CONFIG.lastReviewed,
+  updatedDate:   null,
   taxYear:       String(TAX_CONFIG.currentTaxYear),
   confidence:    '涵蓋員工與獨立承包商分類的一般原則。工作者分類的爭議很複雜 — 如果你的分類不明確或受到質疑，請諮詢 CPA 或律師。',
   persona:       ['有接案副業收入的員工', '剛開始接案的自由工作者或承包商', '第一次收到 1099 的人', '零工經濟工作者'],

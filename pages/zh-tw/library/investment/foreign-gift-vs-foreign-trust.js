@@ -14,7 +14,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'foreign-gift-vs-foreign-trust',
-  sourceHash:      '7d55ad3e9ed8',
+  sourceHash:      'b17171cd4ae9',
   id:            '40',
   title:         '海外父母贈與 vs. Foreign Trust Distribution，為什麼不能搞混？',
   titleEn:       'Foreign gift from your parents vs. foreign trust distribution — why the difference matters',
@@ -24,7 +24,7 @@ const META = {
   difficulty:    'Advanced',
   readTime:      '6 min read',
   verification:  'official-sources-verified',
-  updatedDate:   TAX_CONFIG.lastReviewed,
+  updatedDate:   null,
   taxYear:       String(TAX_CONFIG.currentTaxYear),
   confidence:    '以概要方式說明，對美國公民與居民外國人而言，為什麼來自非居民個人的贈與與來自海外信託的分配，在 Form 3520 上是不同的申報類別。本指南不說明如何計算海外信託分配的稅，也不說明信託本身的申報 — 海外信託的情況需要專業人士檢視',
   persona:       ['海外家族信託的受益人', '從父母在海外的信託、基金會或類似安排收到錢的人', '遺產透過信託給付的繼承人', '確認 Form 3520 該填哪一部分的報稅人員'],

@@ -18,7 +18,7 @@ const META = {
   difficulty:    'Beginner',
   readTime:      '5 min read',
   verification:  'official-sources-verified',
-  updatedDate:   TAX_CONFIG.lastReviewed,
+  updatedDate:   null,
   taxYear:       String(TAX_CONFIG.currentTaxYear),
   confidence:    'Covers how self-employment tax works for individual freelancers, independent contractors, and sole proprietors. It includes the 2025 and 2026 Social Security wage bases, the Additional Medicare Tax thresholds, and how W-2 wages interact with self-employment tax. Church employees, optional methods, and nonresident aliens have rules not covered here',
   persona:       ['Freelancers and independent contractors', 'Gig workers paid on a 1099', 'Sole proprietors with a side business', 'Anyone surprised by a tax bill on 1099 income'],

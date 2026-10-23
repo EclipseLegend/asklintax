@@ -14,7 +14,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'tax-law-changes-2025-2026',
-  sourceHash:      '23e5ab073121',
+  sourceHash:      'd14a1a13b262',
   id:            '66',
   title:         '美國新稅法：2025 與 2026 年報稅有哪些改變？',
   titleEn:       'The 2025 Tax Law: What Changed for Your 2025 and 2026 Returns',
@@ -24,7 +24,7 @@ const META = {
   difficulty:    'Beginner',
   readTime:      '7 min read',
   verification:  'official-sources-verified',
-  updatedDate:   TAX_CONFIG.lastReviewed,
+  updatedDate:   null,
   taxYear:       String(TAX_CONFIG.currentTaxYear),
   confidence:    '概要說明 Public Law 119-21（2025 年 7 月 4 日生效，IRS 現在也稱為 Working Families Tax Cuts）對個人的主要聯邦稅務改變。本文為摘要並連結到詳細指南；不涵蓋所有條款、企業相關條款，或可能與聯邦法律不同的州稅規定',
   persona:       ['申報 2025 年稅表的人', '有小費或加班費收入的工作者', '65 歲以上的納稅人', '採用分項扣除的屋主與高稅率州居民'],

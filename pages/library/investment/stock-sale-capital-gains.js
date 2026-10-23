@@ -18,7 +18,7 @@ const META = {
   difficulty:    'Beginner',
   readTime:      '6 min read',
   verification:  'official-sources-verified',
-  updatedDate:   TAX_CONFIG.lastReviewed,
+  updatedDate:   null,
   taxYear:       String(TAX_CONFIG.currentTaxYear),
   confidence:    'Covers individuals who sell stocks or similar securities held in a taxable account. Rate thresholds are shown for tax years 2025 and 2026 separately. Collectibles, small business stock, real estate, crypto, and foreign-account reporting have their own rules or guides',
   persona:       ['First-time investors who sold shares', 'Employees who sold company stock', 'People who received a Form 1099-B', 'Anyone deciding when to sell'],

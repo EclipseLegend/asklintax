@@ -13,7 +13,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'tax-credit-vs-deduction',
-  sourceHash:      '0393d5d9a085',
+  sourceHash:      'ddb502fdae42',
   id:            '08',
   title:         '抵稅額（tax credit）與扣除額（deduction）有什麼不同？',
   titleEn:       'Tax credit vs. tax deduction: what\'s the difference?',
@@ -35,7 +35,7 @@ const META = {
     { label: 'IRS Publication 596 — 勞動所得抵稅額（Earned Income Credit）', url: 'https://www.irs.gov/publications/p596' },
     { label: 'IRS — 外國稅額抵免：如何計算（Foreign tax credit: how to figure the credit）', url: 'https://www.irs.gov/individuals/international-taxpayers/foreign-tax-credit-how-to-figure-the-credit' },
   ],
-  updatedDate:   TAX_CONFIG.lastReviewed,
+  updatedDate:   null,
   taxYear:       String(TAX_CONFIG.currentTaxYear),
   confidence:    '涵蓋標準定義與範例。具體的抵稅額與扣除額金額每年都會改變 — 報稅前請務必確認最新數字。',
   persona:       ['第一次報稅的人', '被稅務術語搞混的人', '正在學習美國稅制的新移民'],
@@ -92,6 +92,12 @@ const RELATED = [
     cat:   'Individuals & Families',
     title: '兒童抵稅額（Child Tax Credit）：誰符合資格、如何申請',
     desc:  '對家庭來說最有價值的抵稅額之一 — 也是最常被漏申請的之一。',
+  },
+  {
+    href:  '/library/individual/ira-roth-ira-contributions',
+    cat:   'Individuals & Families',
+    title: '傳統 IRA 與 Roth IRA 存款：2025 與 2026 年上限與收入規定',
+    desc:  '常見的扣除項目：傳統 IRA 存款。',
   },
 ]
 

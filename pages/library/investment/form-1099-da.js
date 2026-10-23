@@ -18,7 +18,7 @@ const META = {
   difficulty:    'Intermediate',
   readTime:      '9 min read',
   verification:  'official-sources-verified',
-  updatedDate:   TAX_CONFIG.lastReviewed,
+  updatedDate:   'October 2026',
   taxYear:       String(TAX_CONFIG.currentTaxYear),
   confidence:    'Explains broker reporting of digital asset sales on Form 1099-DA for tax years 2025 and 2026, based on the final regulations (T.D. 10000, July 9, 2024), the 2026 Instructions for Form 1099-DA, the IRS digital assets pages, Revenue Procedure 2024-28, and Notices 2024-56, 2024-57, 2025-7, and 2025-33, plus the 2025 Form 8949 and its instructions. It covers custodial brokers; the final regulations do not include reporting requirements for decentralized or non-custodial brokers. It does not cover broker obligations in detail or state tax',
   persona:       ['People who sell crypto on an exchange or app', 'Anyone who received a Form 1099-DA', 'Crypto holders with multiple wallets and accounts', 'People who trade through decentralized platforms or self-custody wallets'],

@@ -14,7 +14,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'self-employment-tax',
-  sourceHash:      'ef3b94cfc447',
+  sourceHash:      '24376c08684c',
   id:            '57',
   title:         '什麼是自雇稅？怎麼計算？',
   titleEn:       'What is self-employment tax and how does it work?',
@@ -24,7 +24,7 @@ const META = {
   difficulty:    'Beginner',
   readTime:      '5 min read',
   verification:  'official-sources-verified',
-  updatedDate:   TAX_CONFIG.lastReviewed,
+  updatedDate:   null,
   taxYear:       String(TAX_CONFIG.currentTaxYear),
   confidence:    '涵蓋個人自由工作者、獨立承包商與獨資經營者的自雇稅如何運作。包括 2025 與 2026 年社會安全稅工資上限、額外聯邦醫療保險稅門檻，以及 W-2 工資與自雇稅的互動。教會員工、選擇性計算方法與非居民外國人的規定不在本文範圍內',
   persona:       ['自由工作者與獨立承包商', '領 1099 的零工工作者', '有副業的獨資經營者', '被 1099 收入的稅單嚇到的人'],

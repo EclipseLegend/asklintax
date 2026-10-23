@@ -14,7 +14,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'fbar-maximum-account-value',
-  sourceHash:      '13e74e297994',
+  sourceHash:      '8cc693a925c2',
   id:            '42',
   title:         'FBAR 的海外帳戶最高餘額怎麼算？',
   titleEn:       'What is the maximum value of a foreign account for FBAR?',
@@ -24,7 +24,7 @@ const META = {
   difficulty:    'Intermediate',
   readTime:      '4 min read',
   verification:  'official-sources-verified',
-  updatedDate:   TAX_CONFIG.lastReviewed,
+  updatedDate:   null,
   taxYear:       String(TAX_CONFIG.currentTaxYear),
   confidence:    '說明個人如何決定 FBAR（FinCEN Form 114）上申報的帳戶最高餘額（maximum account value）。Form 8938 有自己的估值規定；無法確定價值的帳戶需要另外檢視',
   persona:       ['已確定需要申報 FBAR 的人', '有好幾個不同幣別海外帳戶的人', '第一次申報 FBAR 的家庭', '核對 FBAR 金額的報稅人員'],

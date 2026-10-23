@@ -14,7 +14,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'foreign-brokerage-account',
-  sourceHash:      'e78c5d826f6b',
+  sourceHash:      'e2010d2e2bcb',
   id:            '46',
   title:         '海外股票與證券帳戶怎麼申報？',
   titleEn:       'Foreign brokerage accounts and stocks: what goes on FBAR and Form 8938?',
@@ -24,7 +24,7 @@ const META = {
   difficulty:    'Intermediate',
   readTime:      '4 min read',
   verification:  'official-sources-verified',
-  updatedDate:   TAX_CONFIG.lastReviewed,
+  updatedDate:   null,
   taxYear:       String(TAX_CONFIG.currentTaxYear),
   confidence:    '涵蓋個人的海外證券帳戶與海外股票，在 FBAR 與 Form 8938 上如何申報。不說明海外投資的所得稅規定；海外共同基金與類似的集合基金可能另有 PFIC 問題',
   persona:       ['在台灣、香港或中國有證券帳戶的人', '持有外國雇主股票的員工', '繼承海外股票的人', '在海外有投資帳戶的新移民'],

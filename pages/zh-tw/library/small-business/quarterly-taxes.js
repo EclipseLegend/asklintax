@@ -13,7 +13,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'quarterly-taxes',
-  sourceHash:      '808d42d014d0',
+  sourceHash:      'ad8cbfaccb78',
   id:            '13',
   title:         '季度預估稅：誰要繳？怎麼算？',
   titleEn:       'Quarterly estimated taxes: who pays and how to calculate',
@@ -29,7 +29,7 @@ const META = {
     { label: 'IRS — 以簽帳卡或信用卡繳稅（Pay your taxes by debit or credit card）', url: 'https://www.irs.gov/payments/pay-your-taxes-by-debit-or-credit-card' },
     { label: 'IRS — EFTPS：電子聯邦稅款繳納系統（Electronic Federal Tax Payment System）', url: 'https://www.irs.gov/payments/eftps-the-electronic-federal-tax-payment-system' },
   ],
-  updatedDate:   TAX_CONFIG.lastReviewed,
+  updatedDate:   null,
   taxYear:       String(TAX_CONFIG.currentTaxYear),
   confidence:    '涵蓋聯邦預估稅規則。各州的預估稅規定不同 — 多數州採用類似制度，但門檻與截止日不同，請另外確認你所在州的規定。',
   persona:       ['接案者', '自雇人士', 'LLC 負責人', '有 1099 收入的承包商', '小型企業老闆'],

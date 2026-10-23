@@ -18,7 +18,7 @@ const META = {
   difficulty:    'Beginner',
   readTime:      '5 min read',
   verification:  'official-sources-verified',
-  updatedDate:   TAX_CONFIG.lastReviewed,
+  updatedDate:   null,
   taxYear:       String(TAX_CONFIG.currentTaxYear),
   confidence:    'Covers U.S. citizens and resident aliens whose nonresident alien parents pay school costs. Explains how qualified tuition and medical payments are treated for Form 3520 Part IV. It does not cover education tax credits, scholarships, 529 plans, or the foreign donor\'s own country\'s tax rules',
   persona:       ['College and graduate students with parents abroad', 'Students who became U.S. tax residents', 'Parents of U.S.-resident children studying in the U.S.', 'Families paying medical bills for a relative in the U.S.'],
@@ -82,6 +82,12 @@ const RELATED = [
     cat:  'Investments & Foreign Accounts',
     title: 'Parents overseas sent me more than $100,000 — do I need Form 3520?',
     desc:  'The direct answer when total support crosses $100,000.',
+  },
+  {
+    href: '/library/individual/gift-tax-form-709',
+    cat: 'Individuals & Families',
+    title: 'Gift Tax and Form 709: When U.S. Givers Must File in 2025 and 2026',
+    desc: 'The tuition and medical exclusions for U.S. givers.',
   },
 ]
 

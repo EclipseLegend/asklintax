@@ -18,7 +18,7 @@ const META = {
   difficulty:    'Intermediate',
   readTime:      '5 min read',
   verification:  'official-sources-verified',
-  updatedDate:   TAX_CONFIG.lastReviewed,
+  updatedDate:   null,
   taxYear:       String(TAX_CONFIG.currentTaxYear),
   confidence:    'Covers real estate abroad owned directly by U.S. citizens and resident aliens. Property held through a foreign company, foreign-currency mortgages, and the sale of a foreign main home need professional review',
   persona:       ['Owners of a home or apartment in Taiwan or China', 'People inheriting property from parents abroad', 'New immigrants who kept property in their home country', 'Green card holders'],

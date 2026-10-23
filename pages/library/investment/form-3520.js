@@ -18,7 +18,7 @@ const META = {
   difficulty:    'Intermediate',
   readTime:      '5 min read',
   verification:  'official-sources-verified',
-  updatedDate:   TAX_CONFIG.lastReviewed,
+  updatedDate:   null,
   taxYear:       String(TAX_CONFIG.currentTaxYear),
   confidence:    'Covers Part IV of Form 3520 (gifts and bequests from foreign persons) for individual U.S. citizens and resident aliens. Foreign trust reporting (Parts I–III) is outside the scope of this guide',
   persona:       ['Anyone who received more than $100,000 from family abroad', 'Heirs of parents who lived outside the U.S.', 'New immigrants', 'Tax preparers helping family members'],

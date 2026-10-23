@@ -18,7 +18,7 @@ const META = {
   difficulty:    'Advanced',
   readTime:      '5 min read',
   verification:  'official-sources-verified',
-  updatedDate:   TAX_CONFIG.lastReviewed,
+  updatedDate:   null,
   taxYear:       String(TAX_CONFIG.currentTaxYear),
   confidence:    'Covers the general dual-status rules for individuals in their year of arrival or departure. Treaty positions, expatriation, and income effectively connected with a U.S. business during the nonresident period need professional review',
   persona:       ['New arrivals on H-1B, L-1, or other work visas', 'New green card holders', 'Students changing to work status', 'People leaving the U.S. permanently'],

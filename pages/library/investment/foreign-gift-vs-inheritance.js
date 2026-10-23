@@ -18,7 +18,7 @@ const META = {
   difficulty:    'Intermediate',
   readTime:      '6 min read',
   verification:  'official-sources-verified',
-  updatedDate:   TAX_CONFIG.lastReviewed,
+  updatedDate:   null,
   taxYear:       String(TAX_CONFIG.currentTaxYear),
   confidence:    'Compares gifts and bequests that U.S. citizens and resident aliens receive from nonresident alien individuals and foreign estates. Foreign estate and inheritance taxes, the estate\'s own U.S. filings, inherited foreign retirement accounts, foreign trusts, and covered expatriates need professional review',
   persona:       ['Heirs of parents or grandparents who lived abroad', 'People receiving lifetime gifts from family overseas', 'Anyone deciding how to accept family assets from abroad', 'Executors\' family members in the U.S.'],

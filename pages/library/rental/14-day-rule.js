@@ -22,7 +22,7 @@ const META = {
     { label: 'IRS — Topic no. 415, Renting residential and vacation property', url: 'https://www.irs.gov/taxtopics/tc415' },
     { label: 'IRS — Understanding your Form 1099-K', url: 'https://www.irs.gov/businesses/understanding-your-form-1099-k' },
   ],
-  updatedDate:   TAX_CONFIG.lastReviewed,
+  updatedDate:   null,
   taxYear:       String(TAX_CONFIG.currentTaxYear),
   confidence:    'The 14-day rule is clearly defined in IRC Section 280A. The main complexity is correctly counting personal use days — the definition is broader than most people assume.',
   persona:       ['Occasional Airbnb host', 'Homeowner considering short-term rentals', 'Anyone who rents their home for a few weeks a year'],

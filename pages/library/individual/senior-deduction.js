@@ -18,7 +18,7 @@ const META = {
   difficulty:    'Beginner',
   readTime:      '6 min read',
   verification:  'official-sources-verified',
-  updatedDate:   TAX_CONFIG.lastReviewed,
+  updatedDate:   null,
   taxYear:       String(TAX_CONFIG.currentTaxYear),
   confidence:    'Explains the federal enhanced deduction for seniors for tax years 2025 and 2026 and how it differs from the existing additional standard deduction for age 65 or older, based on IRS forms, instructions, and guidance. It does not cover nonresident aliens, state income tax, or how much of your Social Security benefits are taxable in detail',
   persona:       ['Taxpayers age 65 or older', 'Retirees with Social Security and other income', 'Married couples where one or both spouses are 65 or older', 'Adult children helping parents with their return'],
@@ -80,6 +80,12 @@ const RELATED = [
     cat:  'Individuals & Families',
     title: 'Tax credit vs. tax deduction: what\'s the difference?',
     desc:  'How a deduction lowers your tax.',
+  },
+  {
+    href: '/library/individual/social-security-benefits-tax',
+    cat: 'Individuals & Families',
+    title: 'Is My Social Security Taxable? The 50% and 85% Rules Explained',
+    desc: 'How much of your benefits is taxable.',
   },
 ]
 

@@ -25,7 +25,7 @@ const META = {
     { label: 'IRS Publication 590-A — Contributions to Individual Retirement Arrangements', url: 'https://www.irs.gov/publications/p590a' },
     { label: 'IRS — Self-employment tax (Social Security and Medicare taxes)', url: 'https://www.irs.gov/businesses/small-businesses-self-employed/self-employment-tax-social-security-and-medicare-taxes' },
   ],
-  updatedDate:   TAX_CONFIG.lastReviewed,
+  updatedDate:   null,
   taxYear:       String(TAX_CONFIG.currentTaxYear),
   confidence:    'Covers standard filing requirements for resident aliens and U.S. citizens. Nonresident aliens (Form 1040-NR filers) have different thresholds — see the note in the article.',
   persona:       ['First-time filer', 'New immigrant', 'Student with part-time income', 'Anyone unsure if they need to file'],
