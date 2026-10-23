@@ -14,7 +14,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'cant-pay-tax-bill',
-  sourceHash:      'd8926d550385',
+  sourceHash:      'f9c92c46b4e7',
   id:            '51',
   title:         '繳不出稅款怎麼辦？有哪些選擇？',
   titleEn:       'I can\'t pay my tax bill — what are my options?',
@@ -81,6 +81,12 @@ const RELATED = [
     cat:  'Small Business & Self-Employment',
     title: '季度預估稅：誰要繳？怎麼算？',
     desc:  '在年中先繳稅，避免明年又欠一大筆。',
+  },
+  {
+    href: '/library/irs/irs-penalty-relief',
+    cat: 'IRS & Tax Issues',
+    title: 'IRS 罰款減免：自動罰款豁免、首次罰款減免與合理原因',
+    desc: '逾期申報與繳稅罰款的減免。',
   },
 ]
 

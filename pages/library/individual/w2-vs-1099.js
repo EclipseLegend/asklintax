@@ -86,6 +86,12 @@ const RELATED = [
     title: 'What is an LLC and do I need one?',
     desc:  'If you\'re consistently earning 1099 income, forming an LLC may make sense. Here\'s how to decide.',
   },
+  {
+    href:  '/library/individual/household-employees-schedule-h',
+    cat:   'Individuals & Families',
+    title: 'Paying a Nanny or Caregiver: Household Employment Taxes and Schedule H',
+    desc:  'Why a nanny is usually a W-2 employee.',
+  },
 ]
 
 export default function W2vs1099Page({ translations }) {

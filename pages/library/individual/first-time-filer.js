@@ -86,6 +86,12 @@ const RELATED = [
     title: 'Tax credit vs. tax deduction: what\'s the difference?',
     desc:  'Understanding the difference helps you spot opportunities to reduce what you owe on your first return.',
   },
+  {
+    href:  '/library/individual/earned-income-tax-credit',
+    cat:   'Individuals & Families',
+    title: 'Earned Income Tax Credit (EITC): 2025 and 2026 Income Limits and Rules',
+    desc:  'A credit many first-time filers miss.',
+  },
 ]
 
 const STEPS = [

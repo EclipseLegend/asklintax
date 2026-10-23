@@ -14,7 +14,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'ira-roth-ira-contributions',
-  sourceHash:      '13ff07a509f0',
+  sourceHash:      '5d0b8195fd3e',
   id:            '96',
   title:         '傳統 IRA 與 Roth IRA 存款：2025 與 2026 年上限與收入規定',
   titleEn:       'Traditional and Roth IRA Contributions: 2025 and 2026 Limits and Income Rules',
@@ -88,6 +88,12 @@ const RELATED = [
     cat:  'Investments & Foreign Accounts',
     title: '海外退休金與退休帳戶：美國納稅人要申報什麼',
     desc:  '美國以外的退休帳戶。',
+  },
+  {
+    href: '/library/individual/health-savings-account-hsa',
+    cat: 'Individuals & Families',
+    title: '健康儲蓄帳戶（HSA）：2025 與 2026 年上限與 2026 年新規定',
+    desc: '另一種有稅務優惠、上限分開計算的帳戶。',
   },
 ]
 

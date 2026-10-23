@@ -14,7 +14,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'child-dependent-care-credit',
-  sourceHash:      '7a5897a7239f',
+  sourceHash:      'b43c01c31db0',
   id:            '74',
   title:         '兒童與受扶養人照顧抵稅額：2025 與 2026 年規定與範例',
   titleEn:       'Child and Dependent Care Credit: 2025 and 2026 Rules and Examples',
@@ -87,6 +87,12 @@ const RELATED = [
     cat:  'Individuals & Families',
     title: '抵稅額（tax credit）與扣除額（deduction）有什麼不同？',
     desc:  '可退還與不可退還抵稅額的說明。',
+  },
+  {
+    href: '/library/individual/household-employees-schedule-h',
+    cat: 'Individuals & Families',
+    title: '聘請保母或看護：家庭雇員稅與 Schedule H',
+    desc: '付錢請保母或看護時的稅。',
   },
 ]
 

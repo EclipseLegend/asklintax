@@ -82,6 +82,12 @@ const RELATED = [
     title: 'Tax credit vs. tax deduction: what\'s the difference?',
     desc:  'Refundable and nonrefundable credits explained.',
   },
+  {
+    href: '/library/individual/household-employees-schedule-h',
+    cat: 'Individuals & Families',
+    title: 'Paying a Nanny or Caregiver: Household Employment Taxes and Schedule H',
+    desc: 'Taxes when you pay a nanny or caregiver.',
+  },
 ]
 
 export default function ChildDependentCareCreditPage({ translations }) {

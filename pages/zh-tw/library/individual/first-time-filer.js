@@ -13,7 +13,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'first-time-filer',
-  sourceHash:      '2c835d849004',
+  sourceHash:      'a6de34128cd6',
   id:            '07',
   title:         '在美國第一次報稅：完整步驟指南',
   titleEn:       'First-time filer in the U.S.: a complete step-by-step guide',
@@ -91,6 +91,12 @@ const RELATED = [
     cat:   'Individuals & Families',
     title: '抵稅額（tax credit）與扣除額（deduction）有什麼不同？',
     desc:  '了解兩者的差別，可以幫你在第一份稅表上找到減少應繳稅額的機會。',
+  },
+  {
+    href:  '/library/individual/earned-income-tax-credit',
+    cat:   'Individuals & Families',
+    title: '勞動所得抵稅額（EITC）：2025 與 2026 年收入上限與規定',
+    desc:  '許多第一次報稅的人會錯過的抵稅額。',
   },
 ]
 

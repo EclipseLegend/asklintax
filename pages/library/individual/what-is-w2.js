@@ -86,6 +86,12 @@ const RELATED = [
     title: 'Traditional and Roth IRA Contributions: 2025 and 2026 Limits and Income Rules',
     desc:  'How the Retirement plan box affects your IRA deduction.',
   },
+  {
+    href:  '/library/individual/health-savings-account-hsa',
+    cat:   'Individuals & Families',
+    title: 'Health Savings Accounts (HSA): 2025 and 2026 Limits and the New 2026 Rules',
+    desc:  'What box 12, code W means for your HSA.',
+  },
 ]
 
 // W-2 Box definitions

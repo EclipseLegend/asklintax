@@ -14,7 +14,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'retirement-withdrawals-rmd',
-  sourceHash:      'd1bfeb31abe9',
+  sourceHash:      'b13f5a8d4b12',
   id:            '98',
   title:         '退休帳戶提領與 RMD：稅、10% 罰款與期限',
   titleEn:       'Retirement Account Withdrawals and RMDs: Taxes, the 10% Penalty, and Deadlines',
@@ -92,6 +92,12 @@ const RELATED = [
     cat:  'Investments & Foreign Accounts',
     title: '淨投資所得稅（NIIT）：2025 與 2026 年誰要繳 3.8% 的稅',
     desc:  'IRA 與計畫分配不是淨投資所得。',
+  },
+  {
+    href: '/library/individual/health-savings-account-hsa',
+    cat: 'Individuals & Families',
+    title: '健康儲蓄帳戶（HSA）：2025 與 2026 年上限與 2026 年新規定',
+    desc: 'HSA 提領適用不同的規定。',
   },
 ]
 

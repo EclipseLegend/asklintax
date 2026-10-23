@@ -75,6 +75,18 @@ const RELATED = [
     title: 'Am I a U.S. tax resident?',
     desc:  'Understanding your tax residency status helps you know what the IRS expects from you — and why you may have received a notice.',
   },
+  {
+    href:  '/library/irs/irs-penalty-relief',
+    cat:   'IRS & Tax Issues',
+    title: 'IRS Penalty Relief: Automatic Exemption, First Time Abate, and Reasonable Cause',
+    desc:  'If your letter is a penalty notice.',
+  },
+  {
+    href:  '/library/irs/irs-identity-theft-ip-pin',
+    cat:   'IRS & Tax Issues',
+    title: 'IRS Identity Theft and the IP PIN: How to Protect Your Tax Return',
+    desc:  'If a letter asks you to verify your identity.',
+  },
 ]
 
 // ── PAGE ──────────────────────────────────────────────────

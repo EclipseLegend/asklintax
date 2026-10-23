@@ -13,7 +13,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'w2-vs-1099',
-  sourceHash:      'a54a85ca6760',
+  sourceHash:      '0fc52fc762dd',
   id:            '10',
   title:         'W-2 與 1099：有什麼差別？為什麼重要？',
   titleEn:       'W-2 vs 1099: what\'s the difference and why it matters',
@@ -91,6 +91,12 @@ const RELATED = [
     cat:   'Business Formation',
     title: '什麼是 LLC？我需要成立嗎？',
     desc:  '如果你持續有 1099 收入，成立 LLC 可能是合理的選擇。這裡說明如何判斷。',
+  },
+  {
+    href:  '/library/individual/household-employees-schedule-h',
+    cat:   'Individuals & Families',
+    title: '聘請保母或看護：家庭雇員稅與 Schedule H',
+    desc:  '為什麼保母通常是 W-2 雇員。',
   },
 ]
 

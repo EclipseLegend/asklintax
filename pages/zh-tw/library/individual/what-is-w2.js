@@ -13,7 +13,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'what-is-w2',
-  sourceHash:      'f48ee844c27a',
+  sourceHash:      '60f1a7d37360',
   id:            '09',
   title:         '什麼是 W-2？該怎麼看？',
   titleEn:       'What is a W-2 and how do I read it?',
@@ -91,6 +91,12 @@ const RELATED = [
     cat:   'Individuals & Families',
     title: '傳統 IRA 與 Roth IRA 存款：2025 與 2026 年上限與收入規定',
     desc:  '「Retirement plan」方框如何影響 IRA 扣除。',
+  },
+  {
+    href:  '/library/individual/health-savings-account-hsa',
+    cat:   'Individuals & Families',
+    title: '健康儲蓄帳戶（HSA）：2025 與 2026 年上限與 2026 年新規定',
+    desc:  '第 12 欄代碼 W 對你的 HSA 代表什麼。',
   },
 ]
 

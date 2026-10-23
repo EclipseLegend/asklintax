@@ -13,7 +13,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'itin',
-  sourceHash:      'ed468c37fccc',
+  sourceHash:      '6fbdc649b287',
   id: '18',
   title: '什麼是 ITIN？如何申請？',
   titleEn: 'What is an ITIN and how do I apply?',
@@ -49,6 +49,8 @@ const RELATED = [
   { href: '/library/individual/new-immigrant', cat: 'Individuals & Families', title: '剛來美國？新移民完整報稅指南', desc: '最常需要 ITIN 的，是還不符合 SSN 資格的新移民。' },
   { href: '/library/individual/tax-residency', cat: 'Individuals & Families', title: '我是美國稅務居民嗎？', desc: '你的稅務居民身分決定你要申報哪一份表格 — 以及你需要 ITIN 還是 SSN。' },
   { href: '/library/individual/first-time-filer', cat: 'Individuals & Families', title: '在美國第一次報稅：完整步驟指南', desc: '拿到 ITIN 之後，這份指南帶你完成第一份美國稅表。' },
+  { href: '/library/individual/earned-income-tax-credit', cat: 'Individuals & Families', title: '勞動所得抵稅額（EITC）：2025 與 2026 年收入上限與規定', desc: '為什麼 EITC 需要有效的 SSN。' },
+  { href: '/library/irs/irs-identity-theft-ip-pin', cat: 'IRS & Tax Issues', title: 'IRS 身分盜用與 IP PIN：如何保護你的報稅', desc: '持有 ITIN 也可以取得 IP PIN。' },
 ]
 
 const ITIN_STEPS = [

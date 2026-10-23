@@ -76,6 +76,12 @@ const RELATED = [
     title: 'Quarterly estimated taxes: who pays and how to calculate',
     desc:  'Avoid a large balance next year by paying during the year.',
   },
+  {
+    href: '/library/irs/irs-penalty-relief',
+    cat: 'IRS & Tax Issues',
+    title: 'IRS Penalty Relief: Automatic Exemption, First Time Abate, and Reasonable Cause',
+    desc: 'Relief from late filing and payment penalties.',
+  },
 ]
 
 export default function CantPayTaxBillPage({ translations }) {

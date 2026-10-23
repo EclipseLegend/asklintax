@@ -43,6 +43,8 @@ const RELATED = [
   { href: '/library/individual/new-immigrant', cat: 'Individuals & Families', title: 'New immigrant complete tax guide', desc: 'ITINs are most commonly needed by new immigrants who aren\'t yet eligible for an SSN.' },
   { href: '/library/individual/tax-residency', cat: 'Individuals & Families', title: 'Am I a U.S. tax resident?', desc: 'Your tax residency status determines which form you file — and whether you need an ITIN or an SSN.' },
   { href: '/library/individual/first-time-filer', cat: 'Individuals & Families', title: 'First-time filer complete guide', desc: 'Once you have your ITIN, this guide walks through filing your first U.S. tax return.' },
+  { href: '/library/individual/earned-income-tax-credit', cat: 'Individuals & Families', title: 'Earned Income Tax Credit (EITC): 2025 and 2026 Income Limits and Rules', desc: 'Why the EITC requires a valid SSN.' },
+  { href: '/library/irs/irs-identity-theft-ip-pin', cat: 'IRS & Tax Issues', title: 'IRS Identity Theft and the IP PIN: How to Protect Your Tax Return', desc: 'ITIN holders can get an IP PIN.' },
 ]
 
 const ITIN_STEPS = [

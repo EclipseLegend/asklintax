@@ -14,7 +14,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'missed-tax-deadline',
-  sourceHash:      'c123d0c83b9f',
+  sourceHash:      '6c526e2110d9',
   id:            '53',
   title:         '錯過報稅截止日，現在該怎麼辦？',
   titleEn:       'I missed the tax deadline — what happens now?',
@@ -81,6 +81,12 @@ const RELATED = [
     cat:  'IRS & Tax Issues',
     title: '我收到 IRS 的信，該怎麼辦？',
     desc:  '如果 IRS 已經就未申報的稅表寫信給你。',
+  },
+  {
+    href: '/library/irs/irs-penalty-relief',
+    cat: 'IRS & Tax Issues',
+    title: 'IRS 罰款減免：自動罰款豁免、首次罰款減免與合理原因',
+    desc: '如何請 IRS 取消罰款。',
   },
 ]
 

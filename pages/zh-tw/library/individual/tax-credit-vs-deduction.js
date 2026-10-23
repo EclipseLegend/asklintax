@@ -13,7 +13,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'tax-credit-vs-deduction',
-  sourceHash:      'ddb502fdae42',
+  sourceHash:      '984509794cab',
   id:            '08',
   title:         '抵稅額（tax credit）與扣除額（deduction）有什麼不同？',
   titleEn:       'Tax credit vs. tax deduction: what\'s the difference?',
@@ -98,6 +98,12 @@ const RELATED = [
     cat:   'Individuals & Families',
     title: '傳統 IRA 與 Roth IRA 存款：2025 與 2026 年上限與收入規定',
     desc:  '常見的扣除項目：傳統 IRA 存款。',
+  },
+  {
+    href:  '/library/individual/earned-income-tax-credit',
+    cat:   'Individuals & Families',
+    title: '勞動所得抵稅額（EITC）：2025 與 2026 年收入上限與規定',
+    desc:  '給在職家庭的可退還抵稅額。',
   },
 ]
 

@@ -83,6 +83,12 @@ const RELATED = [
     title: 'Foreign Pensions and Retirement Accounts: What U.S. Taxpayers Must Report',
     desc:  'Retirement accounts outside the United States.',
   },
+  {
+    href: '/library/individual/health-savings-account-hsa',
+    cat: 'Individuals & Families',
+    title: 'Health Savings Accounts (HSA): 2025 and 2026 Limits and the New 2026 Rules',
+    desc: 'Another tax-advantaged account with separate limits.',
+  },
 ]
 
 export default function IraRothIraContributionsPage({ translations }) {

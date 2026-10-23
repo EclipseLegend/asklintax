@@ -13,7 +13,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'do-i-need-to-file',
-  sourceHash:      '90ce127a618e',
+  sourceHash:      '3263ae8033de',
   id:            '06',
   title:         '我需要申報美國聯邦稅表嗎？',
   titleEn:       'Do I need to file a U.S. tax return?',
@@ -88,6 +88,12 @@ const RELATED = [
     cat:   'Individuals & Families',
     title: '抵稅額（tax credit）與扣除額（deduction）有什麼不同？',
     desc:  '開始報稅之後，了解抵稅額與扣除額可以幫你減少應繳的稅。',
+  },
+  {
+    href:  '/library/individual/earned-income-tax-credit',
+    cat:   'Individuals & Families',
+    title: '勞動所得抵稅額（EITC）：2025 與 2026 年收入上限與規定',
+    desc:  '為什麼收入低也值得報稅。',
   },
 ]
 

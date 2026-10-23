@@ -81,6 +81,12 @@ const RELATED = [
     title: 'LLC vs S-Corp: which is right for your business?',
     desc:  'S-Corp owners run payroll and may have different quarterly payment requirements. Understand the structure before planning your payments.',
   },
+  {
+    href:  '/library/irs/irs-penalty-relief',
+    cat:   'IRS & Tax Issues',
+    title: 'IRS Penalty Relief: Automatic Exemption, First Time Abate, and Reasonable Cause',
+    desc:  'Which penalties can be removed, and which cannot.',
+  },
 ]
 
 // 2026 estimated tax payment deadlines for Tax Year 2026 income (source: 2026 Form 1040-ES)

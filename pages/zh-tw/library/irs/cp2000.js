@@ -13,7 +13,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'cp2000',
-  sourceHash:      '9ac6b8a58df4',
+  sourceHash:      'ad291157064b',
   id:            '16',
   title:         'CP2000 通知：代表什麼？該如何回覆？',
   titleEn:       'CP2000 notice: what it means and how to respond',
@@ -92,6 +92,12 @@ const RELATED = [
     cat:   'Individuals & Families',
     title: '退休帳戶提領與 RMD：稅、10% 罰款與期限',
     desc:  'Form 1099-R 上申報的 IRA 與 401(k) 提領的稅。',
+  },
+  {
+    href:  '/library/irs/irs-identity-theft-ip-pin',
+    cat:   'IRS & Tax Issues',
+    title: 'IRS 身分盜用與 IP PIN：如何保護你的報稅',
+    desc:  '不屬於你的所得可能是身分盜用的徵兆。',
   },
 ]
 

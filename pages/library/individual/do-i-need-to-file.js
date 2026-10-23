@@ -83,6 +83,12 @@ const RELATED = [
     title: 'Tax credit vs. tax deduction: what\'s the difference?',
     desc:  'Once you\'re filing, understanding credits and deductions helps you reduce what you owe.',
   },
+  {
+    href:  '/library/individual/earned-income-tax-credit',
+    cat:   'Individuals & Families',
+    title: 'Earned Income Tax Credit (EITC): 2025 and 2026 Income Limits and Rules',
+    desc:  'Why filing can pay even with low income.',
+  },
 ]
 
 export default function DoINeedToFilePage({ translations }) {

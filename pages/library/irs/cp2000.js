@@ -87,6 +87,12 @@ const RELATED = [
     title: 'Retirement Account Withdrawals and RMDs: Taxes, the 10% Penalty, and Deadlines',
     desc:  'Taxes on IRA and 401(k) withdrawals reported on Form 1099-R.',
   },
+  {
+    href:  '/library/irs/irs-identity-theft-ip-pin',
+    cat:   'IRS & Tax Issues',
+    title: 'IRS Identity Theft and the IP PIN: How to Protect Your Tax Return',
+    desc:  'Income that is not yours can be a sign of identity theft.',
+  },
 ]
 
 const RESPONSE_OPTIONS = [

@@ -13,7 +13,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'irs-notice',
-  sourceHash:      '80f25dd1b912',
+  sourceHash:      '2e5cbee14b33',
   id:            '01',
   title:         '我收到 IRS 的信，該怎麼辦？',
   titleEn:       'I received an IRS letter. What do I do?',
@@ -76,6 +76,18 @@ const RELATED = [
     cat:   'Individuals & Families',
     title: '我是美國稅務居民嗎？',
     desc:  '了解你的稅務居民身分，可以幫你知道 IRS 對你的期待 — 以及你為什麼可能收到通知。',
+  },
+  {
+    href:  '/library/irs/irs-penalty-relief',
+    cat:   'IRS & Tax Issues',
+    title: 'IRS 罰款減免：自動罰款豁免、首次罰款減免與合理原因',
+    desc:  '如果你收到的是罰款通知。',
+  },
+  {
+    href:  '/library/irs/irs-identity-theft-ip-pin',
+    cat:   'IRS & Tax Issues',
+    title: 'IRS 身分盜用與 IP PIN：如何保護你的報稅',
+    desc:  '如果信件要求你確認身分。',
   },
 ]
 

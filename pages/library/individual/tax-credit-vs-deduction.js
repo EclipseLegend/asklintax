@@ -93,6 +93,12 @@ const RELATED = [
     title: 'Traditional and Roth IRA Contributions: 2025 and 2026 Limits and Income Rules',
     desc:  'A common deduction: traditional IRA contributions.',
   },
+  {
+    href:  '/library/individual/earned-income-tax-credit',
+    cat:   'Individuals & Families',
+    title: 'Earned Income Tax Credit (EITC): 2025 and 2026 Income Limits and Rules',
+    desc:  'A refundable credit for working families.',
+  },
 ]
 
 export default function TaxCreditVsDeductionPage({ translations }) {

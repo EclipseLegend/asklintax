@@ -76,6 +76,12 @@ const RELATED = [
     title: 'I received an IRS letter. What do I do?',
     desc:  'If the IRS has already written to you about an unfiled return.',
   },
+  {
+    href: '/library/irs/irs-penalty-relief',
+    cat: 'IRS & Tax Issues',
+    title: 'IRS Penalty Relief: Automatic Exemption, First Time Abate, and Reasonable Cause',
+    desc: 'How to ask the IRS to remove penalties.',
+  },
 ]
 
 export default function MissedTaxDeadlinePage({ translations }) {

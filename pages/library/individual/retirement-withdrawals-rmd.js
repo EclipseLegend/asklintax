@@ -87,6 +87,12 @@ const RELATED = [
     title: 'Net Investment Income Tax (NIIT): Who Pays the 3.8% Tax in 2025 and 2026',
     desc:  'IRA and plan distributions are not net investment income.',
   },
+  {
+    href: '/library/individual/health-savings-account-hsa',
+    cat: 'Individuals & Families',
+    title: 'Health Savings Accounts (HSA): 2025 and 2026 Limits and the New 2026 Rules',
+    desc: 'HSA withdrawals follow different rules.',
+  },
 ]
 
 export default function RetirementWithdrawalsRmdPage({ translations }) {

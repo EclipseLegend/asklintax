@@ -13,7 +13,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'quarterly-taxes',
-  sourceHash:      'ad8cbfaccb78',
+  sourceHash:      '1a3e8082175e',
   id:            '13',
   title:         '季度預估稅：誰要繳？怎麼算？',
   titleEn:       'Quarterly estimated taxes: who pays and how to calculate',
@@ -86,6 +86,12 @@ const RELATED = [
     cat:   'Business Formation',
     title: 'LLC 與 S-Corp：哪種適合你的企業？',
     desc:  'S-Corp 負責人要跑薪資（payroll），按季繳款的要求可能不同。規劃繳款前，先了解公司架構。',
+  },
+  {
+    href:  '/library/irs/irs-penalty-relief',
+    cat:   'IRS & Tax Issues',
+    title: 'IRS 罰款減免：自動罰款豁免、首次罰款減免與合理原因',
+    desc:  '哪些罰款可以取消、哪些不行。',
   },
 ]
 
