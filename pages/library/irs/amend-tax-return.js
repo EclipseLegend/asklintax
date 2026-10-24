@@ -75,6 +75,12 @@ const RELATED = [
     title: 'What is a W-2 and how do I read it?',
     desc:  'A corrected or late W-2 is a common reason to amend.',
   },
+  {
+    href: '/library/irs/irs-tax-transcripts',
+    cat:  'IRS & Tax Issues',
+    title: 'IRS Tax Transcripts: Types, How to Get One, and Transcript vs. Tax Return Copy',
+    desc:  'Check what the IRS has on file with a free transcript.',
+  },
 ]
 
 export default function AmendTaxReturnPage({ translations }) {

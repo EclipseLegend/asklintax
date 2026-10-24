@@ -86,6 +86,12 @@ const RELATED = [
     title: 'Kiddie Tax: When a Child\'s Investment Income Is Taxed at the Parent\'s Rate',
     desc:  'What happens when gifted stock pays dividends to a child.',
   },
+  {
+    href: '/library/individual/estate-tax-inheritance-basics',
+    cat:  'Individuals & Families',
+    title: 'Estate Tax and Inheritance Basics: 2025 and 2026 Exclusions, Form 706, and Nonresidents',
+    desc:  'Estate tax, inheritances, and Form 706-NA for nonresidents.',
+  },
 ]
 
 export default function GiftTaxForm709Page({ translations }) {

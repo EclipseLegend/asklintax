@@ -72,6 +72,12 @@ const RELATED = [
     title: 'Foreign gifts: is money from parents overseas taxable?',
     desc:  'Money moving between you and parents abroad has its own rules.',
   },
+  {
+    href: '/library/individual/filing-status-head-of-household',
+    cat:  'Individuals & Families',
+    title: 'Filing Status and Head of Household: 2025 and 2026 Rules',
+    desc:  'Choosing the right filing status, including head of household.',
+  },
 ]
 
 export default function ClaimParentAsDependentPage({ translations }) {

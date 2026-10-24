@@ -14,7 +14,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'health-savings-account-hsa',
-  sourceHash:      'b30db97ab8ea',
+  sourceHash:      'b97933eeff00',
   id:            '102',
   title:         '健康儲蓄帳戶（HSA）：2025 與 2026 年上限與 2026 年新規定',
   titleEn:       'Health Savings Accounts (HSA): 2025 and 2026 Limits and the New 2026 Rules',
@@ -91,6 +91,12 @@ const RELATED = [
     cat:  'Individuals & Families',
     title: '美國新稅法：2025 與 2026 年報稅有哪些改變？',
     desc:  '2025 年稅法的其他變動。',
+  },
+  {
+    href: '/library/individual/premium-tax-credit-form-8962',
+    cat:  'Individuals & Families',
+    title: '保費抵稅額與 Form 8962：2025 與 2026 年的 Marketplace 健康保險',
+    desc:  'Marketplace 健康保險、Form 8962 與預付款的償還。',
   },
 ]
 

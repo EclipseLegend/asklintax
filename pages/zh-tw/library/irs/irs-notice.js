@@ -13,7 +13,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'irs-notice',
-  sourceHash:      '2e5cbee14b33',
+  sourceHash:      'e271ef784c27',
   id:            '01',
   title:         '我收到 IRS 的信，該怎麼辦？',
   titleEn:       'I received an IRS letter. What do I do?',
@@ -88,6 +88,12 @@ const RELATED = [
     cat:   'IRS & Tax Issues',
     title: 'IRS 身分盜用與 IP PIN：如何保護你的報稅',
     desc:  '如果信件要求你確認身分。',
+  },
+  {
+    href: '/library/irs/irs-tax-transcripts',
+    cat:  'IRS & Tax Issues',
+    title: 'IRS 稅務記錄（transcript）：種類、如何取得，以及和報稅表副本的差別',
+    desc:  '用免費的稅務記錄確認 IRS 檔案中的資料。',
   },
 ]
 

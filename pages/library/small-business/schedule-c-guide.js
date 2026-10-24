@@ -82,6 +82,12 @@ const RELATED = [
     title: 'I got a 1099-K from PayPal, Venmo, or eBay — is it taxable?',
     desc:  'How payment app reports fit into your gross receipts.',
   },
+  {
+    href: '/library/small-business/hobby-vs-business-income',
+    cat:  'Small Business & Self-Employment',
+    title: 'Hobby or Business? How Side Income Is Taxed in 2025 and 2026',
+    desc:  'Whether your side activity is a hobby or a business.',
+  },
 ]
 
 export default function ScheduleCGuidePage({ translations }) {

@@ -83,6 +83,12 @@ const RELATED = [
     title: 'Kiddie Tax: When a Child\'s Investment Income Is Taxed at the Parent\'s Rate',
     desc:  'Another rule that depends on investment income.',
   },
+  {
+    href: '/library/individual/filing-status-head-of-household',
+    cat:  'Individuals & Families',
+    title: 'Filing Status and Head of Household: 2025 and 2026 Rules',
+    desc:  'Choosing the right filing status, including head of household.',
+  },
 ]
 
 export default function EarnedIncomeTaxCreditPage({ translations }) {

@@ -93,6 +93,12 @@ const RELATED = [
     title: 'Health Savings Accounts (HSA): 2025 and 2026 Limits and the New 2026 Rules',
     desc: 'HSA withdrawals follow different rules.',
   },
+  {
+    href: '/library/individual/estate-tax-inheritance-basics',
+    cat:  'Individuals & Families',
+    title: 'Estate Tax and Inheritance Basics: 2025 and 2026 Exclusions, Form 706, and Nonresidents',
+    desc:  'Estate tax, inheritances, and Form 706-NA for nonresidents.',
+  },
 ]
 
 export default function RetirementWithdrawalsRmdPage({ translations }) {

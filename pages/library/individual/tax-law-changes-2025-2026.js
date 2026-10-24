@@ -86,6 +86,12 @@ const RELATED = [
     title: 'SALT Deduction: Limits, Income Rules, and Examples',
     desc:  'The $40,000 limit for 2025 and the high-income reduction.',
   },
+  {
+    href: '/library/individual/premium-tax-credit-form-8962',
+    cat:  'Individuals & Families',
+    title: 'Premium Tax Credit and Form 8962: Marketplace Health Insurance in 2025 and 2026',
+    desc:  'Marketplace health insurance, Form 8962, and repaying advance payments.',
+  },
 ]
 
 export default function TaxLawChanges20252026Page({ translations }) {

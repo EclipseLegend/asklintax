@@ -89,6 +89,12 @@ const RELATED = [
     title: 'Earned Income Tax Credit (EITC): 2025 and 2026 Income Limits and Rules',
     desc:  'Why filing can pay even with low income.',
   },
+  {
+    href: '/library/individual/premium-tax-credit-form-8962',
+    cat:  'Individuals & Families',
+    title: 'Premium Tax Credit and Form 8962: Marketplace Health Insurance in 2025 and 2026',
+    desc:  'Marketplace health insurance, Form 8962, and repaying advance payments.',
+  },
 ]
 
 export default function DoINeedToFilePage({ translations }) {

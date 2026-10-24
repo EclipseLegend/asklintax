@@ -13,7 +13,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'first-time-filer',
-  sourceHash:      'a6de34128cd6',
+  sourceHash:      'f3dcee976700',
   id:            '07',
   title:         '在美國第一次報稅：完整步驟指南',
   titleEn:       'First-time filer in the U.S.: a complete step-by-step guide',
@@ -97,6 +97,12 @@ const RELATED = [
     cat:   'Individuals & Families',
     title: '勞動所得抵稅額（EITC）：2025 與 2026 年收入上限與規定',
     desc:  '許多第一次報稅的人會錯過的抵稅額。',
+  },
+  {
+    href: '/library/individual/filing-status-head-of-household',
+    cat:  'Individuals & Families',
+    title: '報稅身分與戶長身分：2025 與 2026 年規定',
+    desc:  '選擇正確的報稅身分，包括戶長身分。',
   },
 ]
 

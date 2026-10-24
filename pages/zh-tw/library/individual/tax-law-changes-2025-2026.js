@@ -14,7 +14,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'tax-law-changes-2025-2026',
-  sourceHash:      'd14a1a13b262',
+  sourceHash:      '12d5eeaef71b',
   id:            '66',
   title:         '美國新稅法：2025 與 2026 年報稅有哪些改變？',
   titleEn:       'The 2025 Tax Law: What Changed for Your 2025 and 2026 Returns',
@@ -91,6 +91,12 @@ const RELATED = [
     cat:  'Individuals & Families',
     title: '州稅與地方稅（SALT）扣除額：上限、收入限制與實例',
     desc:  '2025 年 $40,000 上限與高收入時的遞減。',
+  },
+  {
+    href: '/library/individual/premium-tax-credit-form-8962',
+    cat:  'Individuals & Families',
+    title: '保費抵稅額與 Form 8962：2025 與 2026 年的 Marketplace 健康保險',
+    desc:  'Marketplace 健康保險、Form 8962 與預付款的償還。',
   },
 ]
 

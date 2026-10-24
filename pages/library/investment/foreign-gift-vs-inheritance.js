@@ -84,6 +84,12 @@ const RELATED = [
     title: 'Foreign gift from your parents vs. foreign trust distribution — why the difference matters',
     desc:  'If the inheritance comes through a trust, it is a different category.',
   },
+  {
+    href: '/library/individual/estate-tax-inheritance-basics',
+    cat:  'Individuals & Families',
+    title: 'Estate Tax and Inheritance Basics: 2025 and 2026 Exclusions, Form 706, and Nonresidents',
+    desc:  'Estate tax, inheritances, and Form 706-NA for nonresidents.',
+  },
 ]
 
 export default function ForeignGiftVsInheritancePage({ translations }) {

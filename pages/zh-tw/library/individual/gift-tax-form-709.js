@@ -14,7 +14,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'gift-tax-form-709',
-  sourceHash:      '5bbcbcd94927',
+  sourceHash:      '47b868dac45f',
   id:            '97',
   title:         '贈與稅與 Form 709：美國贈與人 2025 與 2026 年何時要申報',
   titleEn:       'Gift Tax and Form 709: When U.S. Givers Must File in 2025 and 2026',
@@ -91,6 +91,12 @@ const RELATED = [
     cat:  'Individuals & Families',
     title: '兒童稅（Kiddie Tax）：孩子的投資所得何時按父母稅率課稅',
     desc:  '贈與孩子的股票配發股利時會怎樣。',
+  },
+  {
+    href: '/library/individual/estate-tax-inheritance-basics',
+    cat:  'Individuals & Families',
+    title: '遺產稅與繼承基本概念：2025 與 2026 年免稅額、Form 706 與非居民',
+    desc:  '遺產稅、繼承，以及非居民的 Form 706-NA。',
   },
 ]
 

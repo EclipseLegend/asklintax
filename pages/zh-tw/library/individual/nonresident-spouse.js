@@ -14,7 +14,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'nonresident-spouse',
-  sourceHash:      '5fe91107f322',
+  sourceHash:      '79619b44048d',
   id:            '27',
   title:         '非居民配偶：我們可以合併報稅嗎？',
   titleEn:       'Nonresident spouse: can we file jointly?',
@@ -94,6 +94,12 @@ const RELATED = [
     cat:  'Individuals & Families',
     title: '什麼是 ITIN？如何申請？',
     desc:  '無法取得 SSN 的非居民配偶，不論合併或分開申報，都需要 ITIN。',
+  },
+  {
+    href: '/library/individual/filing-status-head-of-household',
+    cat:  'Individuals & Families',
+    title: '報稅身分與戶長身分：2025 與 2026 年規定',
+    desc:  '選擇正確的報稅身分，包括戶長身分。',
   },
 ]
 

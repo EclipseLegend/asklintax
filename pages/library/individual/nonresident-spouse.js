@@ -89,6 +89,12 @@ const RELATED = [
     title: 'What is an ITIN and how do I apply?',
     desc:  'A nonresident spouse who cannot get an SSN needs an ITIN for a joint or separate return.',
   },
+  {
+    href: '/library/individual/filing-status-head-of-household',
+    cat:  'Individuals & Families',
+    title: 'Filing Status and Head of Household: 2025 and 2026 Rules',
+    desc:  'Choosing the right filing status, including head of household.',
+  },
 ]
 
 export default function NonresidentSpousePage({ translations }) {

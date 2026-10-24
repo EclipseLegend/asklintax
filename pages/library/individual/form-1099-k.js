@@ -75,6 +75,12 @@ const RELATED = [
     title: 'Airbnb host tax guide: what to report and what to deduct',
     desc:  'Hosts who receive a 1099-K from a rental platform.',
   },
+  {
+    href: '/library/small-business/hobby-vs-business-income',
+    cat:  'Small Business & Self-Employment',
+    title: 'Hobby or Business? How Side Income Is Taxed in 2025 and 2026',
+    desc:  'Whether your side activity is a hobby or a business.',
+  },
 ]
 
 export default function Form1099KPage({ translations }) {

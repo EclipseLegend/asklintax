@@ -14,7 +14,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'earned-income-tax-credit',
-  sourceHash:      'ffcf3ed4c5f3',
+  sourceHash:      '3aecfb970601',
   id:            '101',
   title:         '勞動所得抵稅額（EITC）：2025 與 2026 年收入上限與規定',
   titleEn:       'Earned Income Tax Credit (EITC): 2025 and 2026 Income Limits and Rules',
@@ -88,6 +88,12 @@ const RELATED = [
     cat:  'Individuals & Families',
     title: '兒童稅（Kiddie Tax）：孩子的投資所得何時按父母稅率課稅',
     desc:  '另一項取決於投資所得的規定。',
+  },
+  {
+    href: '/library/individual/filing-status-head-of-household',
+    cat:  'Individuals & Families',
+    title: '報稅身分與戶長身分：2025 與 2026 年規定',
+    desc:  '選擇正確的報稅身分，包括戶長身分。',
   },
 ]
 

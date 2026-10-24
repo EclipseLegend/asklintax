@@ -87,6 +87,12 @@ const RELATED = [
     title: 'IRS Identity Theft and the IP PIN: How to Protect Your Tax Return',
     desc:  'If a letter asks you to verify your identity.',
   },
+  {
+    href: '/library/irs/irs-tax-transcripts',
+    cat:  'IRS & Tax Issues',
+    title: 'IRS Tax Transcripts: Types, How to Get One, and Transcript vs. Tax Return Copy',
+    desc:  'Check what the IRS has on file with a free transcript.',
+  },
 ]
 
 // ── PAGE ──────────────────────────────────────────────────

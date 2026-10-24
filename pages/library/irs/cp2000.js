@@ -93,6 +93,12 @@ const RELATED = [
     title: 'IRS Identity Theft and the IP PIN: How to Protect Your Tax Return',
     desc:  'Income that is not yours can be a sign of identity theft.',
   },
+  {
+    href: '/library/irs/irs-tax-transcripts',
+    cat:  'IRS & Tax Issues',
+    title: 'IRS Tax Transcripts: Types, How to Get One, and Transcript vs. Tax Return Copy',
+    desc:  'Check what the IRS has on file with a free transcript.',
+  },
 ]
 
 const RESPONSE_OPTIONS = [

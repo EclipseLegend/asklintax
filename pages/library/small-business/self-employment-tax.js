@@ -75,6 +75,12 @@ const RELATED = [
     title: 'W-2 vs 1099: what\'s the difference and why it matters',
     desc:  'Why employees and contractors pay these taxes differently.',
   },
+  {
+    href: '/library/small-business/hobby-vs-business-income',
+    cat:  'Small Business & Self-Employment',
+    title: 'Hobby or Business? How Side Income Is Taxed in 2025 and 2026',
+    desc:  'Whether your side activity is a hobby or a business.',
+  },
 ]
 
 export default function SelfEmploymentTaxPage({ translations }) {

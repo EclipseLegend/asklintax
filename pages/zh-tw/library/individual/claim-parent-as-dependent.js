@@ -14,7 +14,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'claim-parent-as-dependent',
-  sourceHash:      'c5625eea0513',
+  sourceHash:      '3ab477677d15',
   id:            '59',
   title:         '父母住在海外，可以申報為受扶養人嗎？',
   titleEn:       'Can I claim my parents as dependents if they live abroad?',
@@ -77,6 +77,12 @@ const RELATED = [
     cat:  'Investments & Foreign Accounts',
     title: '海外贈與：父母從海外匯來的錢要繳稅嗎？',
     desc:  '你和海外父母之間的金錢往來，另有規定。',
+  },
+  {
+    href: '/library/individual/filing-status-head-of-household',
+    cat:  'Individuals & Families',
+    title: '報稅身分與戶長身分：2025 與 2026 年規定',
+    desc:  '選擇正確的報稅身分，包括戶長身分。',
   },
 ]
 

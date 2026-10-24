@@ -13,7 +13,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'cp2000',
-  sourceHash:      'ad291157064b',
+  sourceHash:      '3a3b9cd7cf58',
   id:            '16',
   title:         'CP2000 通知：代表什麼？該如何回覆？',
   titleEn:       'CP2000 notice: what it means and how to respond',
@@ -98,6 +98,12 @@ const RELATED = [
     cat:   'IRS & Tax Issues',
     title: 'IRS 身分盜用與 IP PIN：如何保護你的報稅',
     desc:  '不屬於你的所得可能是身分盜用的徵兆。',
+  },
+  {
+    href: '/library/irs/irs-tax-transcripts',
+    cat:  'IRS & Tax Issues',
+    title: 'IRS 稅務記錄（transcript）：種類、如何取得，以及和報稅表副本的差別',
+    desc:  '用免費的稅務記錄確認 IRS 檔案中的資料。',
   },
 ]
 

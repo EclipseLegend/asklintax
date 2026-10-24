@@ -92,6 +92,12 @@ const RELATED = [
     title: 'Earned Income Tax Credit (EITC): 2025 and 2026 Income Limits and Rules',
     desc:  'A credit many first-time filers miss.',
   },
+  {
+    href: '/library/individual/filing-status-head-of-household',
+    cat:  'Individuals & Families',
+    title: 'Filing Status and Head of Household: 2025 and 2026 Rules',
+    desc:  'Choosing the right filing status, including head of household.',
+  },
 ]
 
 const STEPS = [

@@ -14,7 +14,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'foreign-gift-vs-inheritance',
-  sourceHash:      '2445165c7c50',
+  sourceHash:      '5e45e46cf0af',
   id:            '39',
   title:         '海外贈與和海外遺產，在美國申報有什麼不同？',
   titleEn:       'Foreign gift vs. foreign inheritance: what U.S. taxpayers need to report',
@@ -89,6 +89,12 @@ const RELATED = [
     cat:  'Investments & Foreign Accounts',
     title: '海外父母贈與 vs. Foreign Trust Distribution，為什麼不能搞混？',
     desc:  '如果遺產是透過信託給你的，就是另一個類別。',
+  },
+  {
+    href: '/library/individual/estate-tax-inheritance-basics',
+    cat:  'Individuals & Families',
+    title: '遺產稅與繼承基本概念：2025 與 2026 年免稅額、Form 706 與非居民',
+    desc:  '遺產稅、繼承，以及非居民的 Form 706-NA。',
   },
 ]
 

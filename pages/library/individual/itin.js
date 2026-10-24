@@ -21,7 +21,7 @@ const META = {
     { label: 'IRS — Individual Taxpayer Identification Number (ITIN)', url: 'https://www.irs.gov/individuals/individual-taxpayer-identification-number' },
     { label: 'IRS — Instructions for Form W-7', url: 'https://www.irs.gov/instructions/iw7' },
   ],
-  updatedDate: null,
+  updatedDate: 'October 2026',
   taxYear: String(TAX_CONFIG.currentTaxYear),
   confidence: 'ITIN application process is well-established. Processing times vary — apply early. Certified Acceptance Agents can verify documents without sending originals to the IRS.',
   persona: ['F-1 student', 'Dependent spouse without work authorization', 'Non-resident alien with U.S. income', 'Anyone without SSN eligibility who has U.S. tax obligations'],
@@ -33,7 +33,7 @@ const FAQS = [
   { q: 'Can I use an ITIN instead of an SSN for work?', a: 'No. An ITIN is for tax purposes only. It cannot be used for employment — that requires an SSN with work authorization. An ITIN does not confer work authorization, Social Security benefits, or eligibility for most federal programs. Using an ITIN for employment purposes is not permitted.' },
   { q: 'Does having an ITIN affect my immigration status?', a: 'No. An ITIN does not affect, alter, or improve your immigration status. An ITIN is for federal tax purposes only, and you can apply for one regardless of your immigration status.' },
   { q: 'My ITIN hasn\'t been used in several years. Is it still valid?', a: 'An ITIN that wasn\'t included on at least one U.S. federal tax return for the last 3 consecutive tax years expires on December 31 of the third year. An expired ITIN must be renewed before it\'s used again on a federal tax return. Submit a renewal application using Form W-7 (check the "Renew an Existing ITIN" box) with valid identity documentation. Renewal applications must include a U.S. federal tax return unless you meet an exception.' },
-  { q: 'Can I get a refund with an ITIN?', a: 'Yes. You can receive a federal tax refund with an ITIN. However, ITIN holders are not eligible for the Earned Income Tax Credit (EITC) or the Child Tax Credit (which requires a qualifying child with an SSN). Some other credits — like the Child and Dependent Care Credit — may be available depending on your situation.' },
+  { q: 'Can I get a refund with an ITIN?', a: 'Yes. You can receive a federal tax refund with an ITIN. However, you cannot claim the Earned Income Tax Credit (EITC) with an ITIN: you, and your spouse on a joint return, must have valid SSNs. For the Child Tax Credit, beginning in tax year 2025 you must have a valid SSN — but on a joint return only one spouse needs one, and the other spouse can have an ITIN issued by the due date of the return. Each qualifying child must also have a valid SSN; a child with an ITIN may qualify you for the Credit for Other Dependents instead. Some other credits — like the Child and Dependent Care Credit — may be available depending on your situation.' },
   { q: 'What is a Certified Acceptance Agent (CAA)?', a: 'A CAA is an individual or business authorized by the IRS to help taxpayers complete the ITIN application and verify identity documents. The main advantage: a CAA can certify copies of your documents instead of you mailing original documents to the IRS — much safer. Many accounting firms, tax professionals, and some university international student offices are CAAs. Find one at IRS.gov.' },
   { q: 'I have an ITIN but I recently got a Social Security Number. What do I do?', a: 'Once you receive an SSN, you should use it for all tax purposes going forward. Notify the IRS that you received an SSN and want your ITIN rescinded. Write a letter to the IRS including your name, ITIN, SSN, and a statement explaining that you received an SSN. Prior year returns filed with your ITIN remain valid.' },
   { q: 'Can my spouse or child get an ITIN as a dependent?', a: 'Yes, if they are not eligible for an SSN and are claimed on your U.S. tax return for an allowable tax benefit (or file their own return). Spouses and dependents are not eligible for an ITIN otherwise. Include a complete Form W-7 for each person needing an ITIN, along with identity and foreign status documentation for each.' },
@@ -77,7 +77,7 @@ export default function ITINPage({ translations }) {
           </div>
           <div style={{ background: 'var(--red-soft)', border: '1.5px solid rgba(220,38,38,.2)', borderRadius: '12px', padding: '20px 18px' }}>
             <h4 style={{ fontSize: '16px', fontWeight: '700', color: 'var(--red)', marginBottom: '12px' }}>❌ What an ITIN cannot do</h4>
-            {['Authorize you to work in the U.S.', 'Qualify you for Social Security benefits', 'Make you eligible for the Earned Income Tax Credit', 'Allow you to claim the Child Tax Credit for a child', 'Affect or improve your immigration status'].map((item, i) => (
+            {['Authorize you to work in the U.S.', 'Qualify you for Social Security benefits', 'Make you eligible for the Earned Income Tax Credit', 'Qualify a child for the Child Tax Credit (the child needs a valid SSN)', 'Affect or improve your immigration status'].map((item, i) => (
               <div key={i} style={{ fontSize: '14.5px', color: 'var(--mid)', padding: '5px 0', display: 'flex', gap: '8px' }}><span style={{ color: 'var(--red)', flexShrink: 0 }}>·</span>{item}</div>
             ))}
           </div>
@@ -120,7 +120,7 @@ export default function ITINPage({ translations }) {
               ['File tax returns', '✅ Yes', '✅ Yes'],
               ['Receive tax refund', '✅ Yes', '✅ Yes'],
               ['Earned Income Tax Credit', '✅ Yes (if eligible)', '❌ No'],
-              ['Child Tax Credit', '✅ Yes (child needs SSN)', '❌ No'],
+              ['Child Tax Credit', '✅ Yes (child needs SSN)', '⚠️ Only on a joint return where the other spouse has a valid SSN (child needs SSN)'],
               ['Open bank account', '✅ Yes', '⚠️ Depends on bank'],
               ['Expiration', 'Does not expire', 'Expires if unused 3+ years'],
             ].map(([feat, ssn, itin], i) => (

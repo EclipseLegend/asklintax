@@ -14,7 +14,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'self-employment-tax',
-  sourceHash:      '24376c08684c',
+  sourceHash:      '61ecc5a0c646',
   id:            '57',
   title:         '什麼是自雇稅？怎麼計算？',
   titleEn:       'What is self-employment tax and how does it work?',
@@ -80,6 +80,12 @@ const RELATED = [
     cat:  'Individuals & Families',
     title: 'W-2 與 1099：有什麼差別？為什麼重要？',
     desc:  '為什麼員工和承包商繳這些稅的方式不同。',
+  },
+  {
+    href: '/library/small-business/hobby-vs-business-income',
+    cat:  'Small Business & Self-Employment',
+    title: '是興趣還是事業？2025 與 2026 年副業收入如何課稅',
+    desc:  '你的副業是興趣還是事業。',
   },
 ]
 

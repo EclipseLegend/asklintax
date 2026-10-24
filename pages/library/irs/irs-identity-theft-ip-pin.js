@@ -86,6 +86,12 @@ const RELATED = [
     title: 'First-time filer in the U.S.: a complete step-by-step guide',
     desc:  'Filing your first U.S. return safely.',
   },
+  {
+    href: '/library/irs/irs-tax-transcripts',
+    cat:  'IRS & Tax Issues',
+    title: 'IRS Tax Transcripts: Types, How to Get One, and Transcript vs. Tax Return Copy',
+    desc:  'Check what the IRS has on file with a free transcript.',
+  },
 ]
 
 export default function IrsIdentityTheftIpPinPage({ translations }) {

@@ -13,7 +13,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'do-i-need-to-file',
-  sourceHash:      '3263ae8033de',
+  sourceHash:      '8eb62b7f4f4c',
   id:            '06',
   title:         '我需要申報美國聯邦稅表嗎？',
   titleEn:       'Do I need to file a U.S. tax return?',
@@ -94,6 +94,12 @@ const RELATED = [
     cat:   'Individuals & Families',
     title: '勞動所得抵稅額（EITC）：2025 與 2026 年收入上限與規定',
     desc:  '為什麼收入低也值得報稅。',
+  },
+  {
+    href: '/library/individual/premium-tax-credit-form-8962',
+    cat:  'Individuals & Families',
+    title: '保費抵稅額與 Form 8962：2025 與 2026 年的 Marketplace 健康保險',
+    desc:  'Marketplace 健康保險、Form 8962 與預付款的償還。',
   },
 ]
 

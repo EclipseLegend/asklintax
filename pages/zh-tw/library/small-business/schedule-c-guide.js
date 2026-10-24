@@ -14,7 +14,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'schedule-c-guide',
-  sourceHash:      '2c20131b6abc',
+  sourceHash:      '603f6f446fa8',
   id:            '79',
   title:         'Schedule C 說明：如何申報自雇收入與費用',
   titleEn:       'Schedule C Explained: Self-Employment Income and Expenses',
@@ -87,6 +87,12 @@ const RELATED = [
     cat:  'Individuals & Families',
     title: '收到 PayPal、Venmo 或 eBay 的 1099-K，要繳稅嗎？',
     desc:  '支付平台的報表如何算進你的總收入。',
+  },
+  {
+    href: '/library/small-business/hobby-vs-business-income',
+    cat:  'Small Business & Self-Employment',
+    title: '是興趣還是事業？2025 與 2026 年副業收入如何課稅',
+    desc:  '你的副業是興趣還是事業。',
   },
 ]
 

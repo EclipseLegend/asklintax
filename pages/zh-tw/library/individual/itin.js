@@ -13,7 +13,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'itin',
-  sourceHash:      '6fbdc649b287',
+  sourceHash:      'dc06d15ab9cb',
   id: '18',
   title: '什麼是 ITIN？如何申請？',
   titleEn: 'What is an ITIN and how do I apply?',
@@ -27,7 +27,7 @@ const META = {
     { label: 'IRS — 個人納稅識別號碼（Individual Taxpayer Identification Number, ITIN）', url: 'https://www.irs.gov/individuals/individual-taxpayer-identification-number' },
     { label: 'IRS — Form W-7 填寫說明（Instructions for Form W-7）', url: 'https://www.irs.gov/instructions/iw7' },
   ],
-  updatedDate: null,
+  updatedDate: 'October 2026',
   taxYear: String(TAX_CONFIG.currentTaxYear),
   confidence: 'ITIN 的申請流程相當明確。處理時間不一 — 請提早申請。認證接受代理人（Certified Acceptance Agent, CAA）可以查驗文件，你不必把正本寄給 IRS。',
   persona: ['F-1 學生', '沒有工作許可的受扶養配偶', '有美國收入的非居民外國人', '不符合 SSN 資格但有美國稅務義務的人'],
@@ -39,7 +39,7 @@ const FAQS = [
   { q: '我可以用 ITIN 代替 SSN 工作嗎？', a: '不行。ITIN 只能用於稅務用途，不能用於就業 — 就業需要有工作許可的 SSN。ITIN 不會給你工作許可、社會安全福利，或大多數聯邦計畫的資格。不允許把 ITIN 用於就業用途。' },
   { q: '擁有 ITIN 會影響我的移民身分嗎？', a: '不會。ITIN 不會影響、改變或改善你的移民身分。ITIN 只能用於聯邦稅務用途，而且不論你的移民身分為何，都可以申請。' },
   { q: '我的 ITIN 好幾年沒用了，還有效嗎？', a: '如果 ITIN 在最近連續 3 個稅務年度中，沒有出現在至少一份美國聯邦稅表上，會在第三年的 12 月 31 日到期。過期的 ITIN 必須先更新，才能再用在聯邦稅表上。請用 Form W-7（勾選「Renew an Existing ITIN」）並附上有效的身分文件提出更新申請。除非你符合例外，更新申請必須附上美國聯邦稅表。' },
-  { q: '用 ITIN 可以拿到退稅嗎？', a: '可以。你可以用 ITIN 收到聯邦退稅。不過，ITIN 持有人不符合勞動所得抵稅額（Earned Income Tax Credit, EITC）或兒童抵稅額（Child Tax Credit，需要有 SSN 的符合資格子女）的資格。其他某些抵稅額 — 例如兒童與受扶養人照顧抵稅額（Child and Dependent Care Credit）— 視你的情況可能可以申請。' },
+  { q: '用 ITIN 可以拿到退稅嗎？', a: '可以。你可以用 ITIN 收到聯邦退稅。不過，用 ITIN 不能申請勞動所得抵稅額（Earned Income Tax Credit, EITC）：你（以及合併申報時的配偶）都必須有有效的 SSN。至於兒童抵稅額（Child Tax Credit），從 2025 稅務年度開始，你必須有有效的 SSN — 但合併申報時只需要一位配偶有，另一位配偶可以持有在報稅截止日前核發的 ITIN。每位符合資格的子女也必須有有效的 SSN；持有 ITIN 的子女則可能讓你改為申請其他受扶養人抵稅額（Credit for Other Dependents）。其他某些抵稅額 — 例如兒童與受扶養人照顧抵稅額（Child and Dependent Care Credit）— 視你的情況可能可以申請。' },
   { q: '什麼是認證接受代理人（CAA）？', a: 'CAA 是經 IRS 授權、協助納稅人填寫 ITIN 申請並查驗身分文件的個人或企業。最大的好處是：CAA 可以認證你的文件副本，你不必把正本寄給 IRS — 安全得多。許多會計師事務所、稅務專業人士，以及部分大學的國際學生辦公室都是 CAA。可以在 IRS.gov 上查詢。' },
   { q: '我有 ITIN，但最近拿到了社會安全號碼，該怎麼辦？', a: '拿到 SSN 之後，往後所有稅務用途都應該使用 SSN。通知 IRS 你已取得 SSN，並希望註銷你的 ITIN：寫一封信給 IRS，內容包括你的姓名、ITIN、SSN，以及說明你已取得 SSN 的聲明。以前用 ITIN 申報的稅表仍然有效。' },
   { q: '我的配偶或子女可以以受扶養人身分申請 ITIN 嗎？', a: '可以，如果他們不符合申請 SSN 的資格，而且為了可享有的稅務優惠（Allowable Tax Benefit）列在你的美國稅表上（或自行申報稅表）。除此之外，配偶與受扶養人不符合申請 ITIN 的資格。每一位需要 ITIN 的人都要附上完整的 Form W-7，以及各自的身分與外國身分證明文件。' },
@@ -83,7 +83,7 @@ export default function ITINZhTwPage({ translations }) {
           </div>
           <div style={{ background: 'var(--red-soft)', border: '1.5px solid rgba(220,38,38,.2)', borderRadius: '12px', padding: '20px 18px' }}>
             <h4 style={{ fontSize: '16px', fontWeight: '700', color: 'var(--red)', marginBottom: '12px' }}>❌ ITIN 不能做的事</h4>
-            {['讓你在美國工作', '讓你符合社會安全福利資格', '讓你符合勞動所得抵稅額的資格', '讓你為子女申請兒童抵稅額', '影響或改善你的移民身分'].map((item, i) => (
+            {['讓你在美國工作', '讓你符合社會安全福利資格', '讓你符合勞動所得抵稅額的資格', '讓子女符合兒童抵稅額的資格（子女需要有效的 SSN）', '影響或改善你的移民身分'].map((item, i) => (
               <div key={i} style={{ fontSize: '14.5px', color: 'var(--mid)', padding: '5px 0', display: 'flex', gap: '8px' }}><span style={{ color: 'var(--red)', flexShrink: 0 }}>·</span>{item}</div>
             ))}
           </div>
@@ -126,7 +126,7 @@ export default function ITINZhTwPage({ translations }) {
               ['申報稅表', '✅ 可以', '✅ 可以'],
               ['收到退稅', '✅ 可以', '✅ 可以'],
               ['勞動所得抵稅額', '✅ 可以（如符合資格）', '❌ 不可以'],
-              ['兒童抵稅額', '✅ 可以（子女需要 SSN）', '❌ 不可以'],
+              ['兒童抵稅額', '✅ 可以（子女需要 SSN）', '⚠️ 只有在合併申報且另一位配偶有有效 SSN 時可以（子女需要 SSN）'],
               ['開立銀行帳戶', '✅ 可以', '⚠️ 視銀行而定'],
               ['到期', '不會到期', '連續 3 年以上未使用就會到期'],
             ].map(([feat, ssn, itin], i) => (

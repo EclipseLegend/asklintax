@@ -86,6 +86,12 @@ const RELATED = [
     title: 'The 2025 Tax Law: What Changed for Your 2025 and 2026 Returns',
     desc:  'Other changes under the 2025 tax law.',
   },
+  {
+    href: '/library/individual/premium-tax-credit-form-8962',
+    cat:  'Individuals & Families',
+    title: 'Premium Tax Credit and Form 8962: Marketplace Health Insurance in 2025 and 2026',
+    desc:  'Marketplace health insurance, Form 8962, and repaying advance payments.',
+  },
 ]
 
 export default function HealthSavingsAccountPage({ translations }) {
