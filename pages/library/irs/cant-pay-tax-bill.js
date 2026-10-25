@@ -16,14 +16,14 @@ const META = {
   categoryHref:  '/library/irs',
   userEmotion:   'anxious',
   difficulty:    'Beginner',
-  readTime:      '5 min read',
+  readTime:      '7 min read',
   verification:  'official-sources-verified',
-  updatedDate:   null,
+  updatedDate:   'October 2026',
   taxYear:       String(TAX_CONFIG.currentTaxYear),
-  confidence:    'Covers individuals who owe a federal income tax balance they cannot pay in full. Eligibility limits and fees are the IRS figures for online payment plans at the time of review and can change; business balances, payroll taxes, and state taxes are outside this guide',
+  confidence:    'Covers individuals who owe a federal income tax balance they cannot pay in full. Eligibility limits, setup fees, and the Offer in Compromise fee are the figures on the IRS payment-plan, online payment agreement, and Offer in Compromise pages reviewed in October 2026; the IRS can change them. Business balances, payroll taxes, and state taxes are outside this guide',
   persona:       ['Taxpayers who owe more than they can pay by the deadline', 'Freelancers with a larger-than-expected balance due', 'People who received an IRS balance-due notice', 'Anyone deciding between a payment plan and other options'],
   relatedJourney: ['Got an IRS letter', 'Dealing with a tax problem'],
-  actionRequired: 'File your return on time even if you cannot pay in full, pay as much as you can, and then choose a payment option. Check the IRS payment-plan pages for current eligibility and fees before you apply.',
+  actionRequired: 'File your return on time even if you cannot pay in full, pay as much as you can, and then apply for a payment plan — online if you qualify, because online setup fees are lower. Choose direct debit for a long-term plan to get the lowest fee.',
   sources: [
     { label: 'IRS — Payment plans; installment agreements', url: 'https://www.irs.gov/payments/payment-plans-installment-agreements' },
     { label: 'IRS — If you\'ve filed but haven\'t paid', url: 'https://www.irs.gov/newsroom/if-youve-filed-but-havent-paid' },
@@ -31,6 +31,7 @@ const META = {
     { label: 'IRS — Online payment agreement application', url: 'https://www.irs.gov/payments/online-payment-agreement-application' },
     { label: 'IRS — Offer in compromise', url: 'https://www.irs.gov/payments/offer-in-compromise' },
     { label: 'IRS — Temporarily delay the collection process', url: 'https://www.irs.gov/businesses/small-businesses-self-employed/temporarily-delay-the-collection-process' },
+    { label: 'IRS — Failure to pay penalty', url: 'https://www.irs.gov/payments/failure-to-pay-penalty' },
   ],
 }
 
@@ -41,19 +42,19 @@ const FAQS = [
   },
   {
     q: 'Does a payment plan stop interest and penalties?',
-    a: 'No. Interest and applicable penalties generally continue to accrue on the unpaid balance until it is paid in full, even while you are on a payment plan. Paying more, sooner, reduces what accrues.',
+    a: 'No. Interest and the failure-to-pay penalty continue on the unpaid balance until it is paid in full. The penalty rate does drop: if you filed on time and have an approved payment plan, the IRS failure-to-pay page says the penalty is reduced from 0.5% to 0.25% per month while the plan is in effect.',
   },
   {
     q: 'Do I qualify for an online payment plan?',
-    a: 'Under the IRS\'s current online guidance for individuals, a short-term plan is generally available if you owe less than $100,000 in combined tax, penalties, and interest and can pay within 180 days. A long-term online installment agreement is generally available if you owe $50,000 or less in combined tax, penalties, and interest and have filed all required returns. Not everyone qualifies, and the limits can change — check the IRS payment-plan page.',
+    a: 'The IRS online payment agreement page says you may qualify to apply online for a short-term plan (180 days or less) if you owe less than $100,000 in combined tax, penalties, and interest, and for a long-term plan if you owe $50,000 or less and have filed all required returns. If you owe more or cannot apply online, you can still request a plan by phone, by mail with Form 9465, or in person.',
   },
   {
     q: 'Can the IRS just reduce what I owe?',
-    a: 'An Offer in Compromise lets some taxpayers settle for less than the full amount, but it is not automatic and many applicants do not qualify. The IRS looks at your ability to pay, income, expenses, and assets. Review the IRS requirements carefully before relying on it.',
+    a: 'An Offer in Compromise lets some taxpayers settle for less than the full amount, but the IRS generally will not accept one if you can pay in full through a payment plan or your asset equity. Each application requires a $205 fee and a first payment unless you meet the low-income qualifications. Use the IRS Pre-Qualifier tool before applying.',
   },
   {
     q: 'Are there fees for a payment plan?',
-    a: 'Setup fees depend on the type of plan, how you apply, and how you pay, and the IRS updates them. Check the current fee table on the IRS payment-plan page rather than relying on a fixed number.',
+    a: 'A short-term plan has no setup fee. A long-term plan costs $29 online or $107 by phone, mail, or in person if you pay by direct debit, and $69 online or $178 otherwise. Low-income taxpayers pay no fee for a direct debit plan and $43 otherwise, which may be reimbursed. These are the IRS figures at the time of review.',
   },
 ]
 
@@ -82,6 +83,18 @@ const RELATED = [
     title: 'IRS Penalty Relief: Automatic Exemption, First Time Abate, and Reasonable Cause',
     desc: 'Relief from late filing and payment penalties.',
   },
+  {
+    href: '/library/irs/irs-power-of-attorney-2848-8821',
+    cat:  'IRS & Tax Issues',
+    title: 'IRS Power of Attorney: Form 2848 vs. Form 8821',
+    desc:  'Authorize a representative or share your IRS information.',
+  },
+  {
+    href: '/library/individual/cancellation-of-debt-1099c',
+    cat:  'Individuals & Families',
+    title: 'Canceled Debt and Form 1099-C: When Forgiven Debt Is Taxable',
+    desc:  'When forgiven debt becomes taxable income.',
+  },
 ]
 
 export default function CantPayTaxBillPage({ translations }) {
@@ -92,7 +105,7 @@ export default function CantPayTaxBillPage({ translations }) {
   return (
     <Layout t={t} meta={{
       title: 'Can\'t Pay Your Tax Bill? IRS Payment Plans and Options | AskLinTax',
-      description: 'Owe the IRS more than you can pay? Why you should still file on time, how short-term and long-term payment plans work, and when other IRS options may apply.',
+      description: 'Owe the IRS more than you can pay? Why you should still file on time, IRS payment plan eligibility and setup fees, the reduced failure-to-pay penalty during a plan, the Offer in Compromise, and Currently Not Collectible status.',
     }}>
       <KnowledgePage meta={META} faqs={FAQS} openFaq={openFaq} toggleFaq={toggleFaq} relatedArticles={RELATED}>
 
@@ -116,39 +129,57 @@ export default function CantPayTaxBillPage({ translations }) {
 
         <h2>Step 2: choose a payment option for the rest</h2>
         <ArticleTable
-          head={['Option', 'Who it may fit', 'What to know']}
+          head={['Option', 'Online eligibility (individuals)', 'What to know']}
           rows={[
-            ['Pay in full', 'You can pay the whole balance now', 'Stops further interest and penalties on that balance'],
-            ['Short-term payment plan', 'Individuals who owe less than $100,000 in combined tax, penalties, and interest (current IRS online guidance)', 'Pay the balance within 180 days; interest and penalties continue until paid'],
-            ['Long-term installment agreement', 'Individuals who owe $50,000 or less in combined tax, penalties, and interest and have filed all required returns (current IRS online guidance)', 'Monthly payments; setup fees may apply; interest and penalties continue until paid'],
-            ['Other collection alternatives', 'People who cannot pay through a plan', 'For example, an Offer in Compromise or a temporary delay of collection — each has its own requirements'],
+            ['Pay in full', 'Anyone', 'No setup fee; stops further interest and penalties on that balance'],
+            ['Short-term payment plan', 'Owe less than $100,000 in combined tax, penalties, and interest', 'Pay within 180 days or less; no setup fee; interest and penalties continue until paid'],
+            ['Long-term payment plan (installment agreement)', 'Owe $50,000 or less in combined tax, penalties, and interest and have filed all required returns', 'Monthly payments; setup fee (table below); interest and penalties continue until paid'],
+            ['Other collection alternatives', 'People who cannot pay through a plan', 'An Offer in Compromise or Currently Not Collectible status — each has its own requirements'],
           ]}
         />
         <p>
-          The dollar limits above are the IRS's current eligibility guidance for applying <strong>online</strong>. If you owe more, or do not qualify online, you may still be able to request a plan by other means — see the IRS payment-plan page.
+          These are the limits for applying <strong>online</strong>, from the IRS online payment agreement page. If you owe more, or cannot apply online, you can still request a plan by phone, by mail with Form 9465, or in person. A representative with a power of attorney can also apply for you.
         </p>
 
-        <div className="callout callout-info">
-          <div className="callout-title">ℹ️ Fees and limits change</div>
-          <p>Payment-plan setup fees depend on the plan type, how you apply, and how you pay, and the IRS updates them. Check the IRS payment-plan page for the current figures before you apply.</p>
-        </div>
+        <h2>Setup fees</h2>
+        <ArticleTable
+          head={['Plan', 'Apply online', 'Apply by phone, mail, or in person', 'Low-income taxpayers']}
+          rows={[
+            ['Short-term plan (180 days or less)', '$0', '$0', '$0'],
+            ['Long-term plan paid by direct debit', '$29', '$107', 'Fee waived'],
+            ['Long-term plan paid another way', '$69', '$178', '$43 (may be reimbursed)'],
+            ['Revise a plan or reinstate after default', '$6', '$89', '$6 online or $43 otherwise (may be reimbursed)'],
+          ]}
+        />
+        <p>
+          The fee is added to your balance if the plan is approved. Changes to an existing direct debit plan have no fee. Card payments carry processor fees. These figures are from the IRS payment-plan page reviewed in October 2026; check it before you apply, because the IRS can change them.
+        </p>
+
+        <h2>Penalties and interest while you pay</h2>
+        <ul>
+          <li><strong>Failure-to-pay penalty:</strong> 0.5% of the unpaid tax for each month or part of a month it remains unpaid, up to 25%.</li>
+          <li><strong>Reduced rate during a plan:</strong> if you filed on time and have an approved payment plan, the rate drops to 0.25% per month while the plan is in effect.</li>
+          <li><strong>Higher rate after a levy notice:</strong> if you do not pay within 10 days after an IRS notice of intent to levy, the rate rises to 1% per month.</li>
+          <li><strong>Interest:</strong> charged on unpaid tax and penalties until the balance is paid in full.</li>
+          <li><strong>Collection while a request is pending:</strong> the IRS payment-plan page says the IRS is generally prohibited from levying while a plan request is pending, with certain exceptions, and the time it has to collect is suspended or extended.</li>
+        </ul>
 
         <h2>Other options, in appropriate cases</h2>
         <ul>
-          <li><strong>Offer in Compromise.</strong> An agreement to settle a tax debt for less than the full amount. It is not automatic: the IRS considers your ability to pay, income, expenses, and asset equity, and many applications are not accepted.</li>
-          <li><strong>Temporary delay of collection.</strong> If paying would cause financial hardship, the IRS may temporarily delay collection. The debt is not forgiven, and penalties and interest continue to accrue.</li>
+          <li><strong>Offer in Compromise.</strong> An agreement to settle a tax debt for less than the full amount. The IRS considers your income, expenses, and asset equity, and generally will not accept an offer if you can pay in full through a payment plan or equity in assets. You must have filed all required returns, made required estimated payments, and not be in an open bankruptcy. Each application requires a $205 fee and a first payment (20% of the offer for a lump-sum offer) unless you meet the low-income qualifications.</li>
+          <li><strong>Currently Not Collectible status.</strong> If you cannot pay because of financial hardship, the IRS may temporarily suspend most collection. You still owe the full amount, penalties and interest continue, the IRS may still file a Notice of Federal Tax Lien, and it will apply future refunds to the debt. You may need to provide a collection information statement such as Form 433-F or Form 433-A.</li>
         </ul>
 
         <h2>What a payment plan does not do</h2>
         <ul>
-          <li>It does <strong>not</strong> stop interest. Interest and applicable penalties generally continue until the balance is paid in full.</li>
+          <li>It does <strong>not</strong> stop interest. Interest and the failure-to-pay penalty continue until the balance is paid in full, though the penalty rate is lower during an approved plan.</li>
           <li>It does <strong>not</strong> mean everyone qualifies. Eligibility depends on the amount owed, your filing history, and other conditions.</li>
-          <li>It does <strong>not</strong> replace filing. Future returns still need to be filed and paid on time.</li>
+          <li>It does <strong>not</strong> replace filing. Future returns still need to be filed and paid on time; missed payments can put the plan in default.</li>
         </ul>
 
         <h2>Example</h2>
         <p>
-          Dana files her return on time in April and owes $6,000 she cannot pay at once. She pays $1,500 with the return and applies online for a payment plan for the remaining $4,500. Because her balance is under the online limits, she may be able to set up a plan online if she meets the other conditions; interest and the failure-to-pay penalty continue on the unpaid part until it is paid off, so she pays it down as fast as her budget allows.
+          Dana files her return on time in April and owes $6,000 she cannot pay at once. She pays $1,500 with the return and applies online for a long-term plan for the remaining $4,500, with direct debit payments. She qualifies online because she owes less than $50,000 and has filed all her returns, so her setup fee is $29. Because she filed on time and her plan is approved, the failure-to-pay penalty on her unpaid balance is 0.25% per month instead of 0.5% while the plan is in effect; interest still accrues, so she pays it down as fast as her budget allows.
         </p>
 
         <div className="callout callout-tip">

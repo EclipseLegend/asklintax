@@ -14,7 +14,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'retirement-withdrawals-rmd',
-  sourceHash:      '80f99b95976d',
+  sourceHash:      'bf28d57dd885',
   id:            '98',
   title:         '退休帳戶提領與 RMD：稅、10% 罰款與期限',
   titleEn:       'Retirement Account Withdrawals and RMDs: Taxes, the 10% Penalty, and Deadlines',
@@ -104,6 +104,12 @@ const RELATED = [
     cat:  'Individuals & Families',
     title: '遺產稅與繼承基本概念：2025 與 2026 年免稅額、Form 706 與非居民',
     desc:  '遺產稅、繼承，以及非居民的 Form 706-NA。',
+  },
+  {
+    href: '/library/individual/divorce-alimony-taxes',
+    cat:  'Individuals & Families',
+    title: '離婚與稅務：贍養費、子女撫養費、財產與退休帳戶',
+    desc:  '離婚時的贍養費、子女撫養費與財產分配。',
   },
 ]
 

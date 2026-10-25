@@ -80,6 +80,12 @@ const RELATED = [
     title: 'I can\'t pay my tax bill — what are my options?',
     desc:  'If an audit ends with tax you cannot pay at once.',
   },
+  {
+    href: '/library/irs/irs-power-of-attorney-2848-8821',
+    cat:  'IRS & Tax Issues',
+    title: 'IRS Power of Attorney: Form 2848 vs. Form 8821',
+    desc:  'Authorize a representative or share your IRS information.',
+  },
 ]
 
 export default function IrsAuditPage({ translations }) {

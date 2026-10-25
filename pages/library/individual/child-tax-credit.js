@@ -45,6 +45,8 @@ const RELATED = [
   { href: '/library/individual/tax-credit-vs-deduction', cat: 'Individuals & Families', title: 'Tax credit vs. tax deduction: what\'s the difference?', desc: 'The Child Tax Credit is one of the most valuable credits available. Understand why credits beat deductions dollar-for-dollar.' },
   { href: '/library/individual/do-i-need-to-file', cat: 'Individuals & Families', title: 'Do I need to file a U.S. tax return?', desc: 'The refundable Child Tax Credit is one of the best reasons to file even when you\'re not required to.' },
   { href: '/library/individual/itin', cat: 'Individuals & Families', title: 'What is an ITIN and how do I apply?', desc: 'Children without SSNs need an ITIN for other credits. Understand the difference between SSN and ITIN eligibility.' },
+  { href: '/library/individual/adoption-tax-credit', cat: 'Individuals & Families', title: 'Adoption Tax Credit: 2025 and 2026 Limits and the New Refundable Portion', desc: 'Credit for adoption expenses, now partly refundable.' },
+  { href: '/library/individual/divorce-alimony-taxes', cat: 'Individuals & Families', title: 'Divorce and Taxes: Alimony, Child Support, Property, and Retirement Accounts', desc: 'Alimony, child support, and dividing property in a divorce.' },
 ]
 
 const QUALIFYING_TESTS = [

@@ -13,7 +13,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'child-tax-credit',
-  sourceHash:      '6fa926111d8b',
+  sourceHash:      '48969ad59ffd',
   id: '17',
   title: '兒童抵稅額（Child Tax Credit）：誰符合資格、如何申請',
   titleEn: 'Child Tax Credit: who qualifies and how to claim it',
@@ -51,6 +51,8 @@ const RELATED = [
   { href: '/library/individual/tax-credit-vs-deduction', cat: 'Individuals & Families', title: '抵稅額（tax credit）與扣除額（deduction）有什麼不同？', desc: '兒童抵稅額是最有價值的抵稅額之一。了解為什麼抵稅額一元抵一元，比扣除額更划算。' },
   { href: '/library/individual/do-i-need-to-file', cat: 'Individuals & Families', title: '我需要申報美國聯邦稅表嗎？', desc: '可退還的兒童抵稅額，是即使不需要申報也值得報稅的最好理由之一。' },
   { href: '/library/individual/itin', cat: 'Individuals & Families', title: '什麼是 ITIN？如何申請？', desc: '沒有 SSN 的孩子申請其他抵稅額時需要 ITIN。了解 SSN 與 ITIN 資格的差異。' },
+  { href: '/library/individual/adoption-tax-credit', cat: 'Individuals & Families', title: '收養抵稅額：2025 與 2026 年上限與新的可退還部分', desc: '收養費用的抵稅額，現在部分可退還。' },
+  { href: '/library/individual/divorce-alimony-taxes', cat: 'Individuals & Families', title: '離婚與稅務：贍養費、子女撫養費、財產與退休帳戶', desc: '離婚時的贍養費、子女撫養費與財產分配。' },
 ]
 
 const QUALIFYING_TESTS = [

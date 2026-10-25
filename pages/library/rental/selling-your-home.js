@@ -73,6 +73,12 @@ const RELATED = [
     title: 'Tax credit vs. tax deduction: what\'s the difference?',
     desc:  'Why an exclusion, a deduction, and a credit are different things.',
   },
+  {
+    href: '/library/individual/cancellation-of-debt-1099c',
+    cat:  'Individuals & Families',
+    title: 'Canceled Debt and Form 1099-C: When Forgiven Debt Is Taxable',
+    desc:  'When forgiven debt becomes taxable income.',
+  },
 ]
 
 export default function SellingYourHomePage({ translations }) {

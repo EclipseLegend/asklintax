@@ -14,7 +14,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'cant-pay-tax-bill',
-  sourceHash:      'f9c92c46b4e7',
+  sourceHash:      'ed8488565c17',
   id:            '51',
   title:         '繳不出稅款怎麼辦？有哪些選擇？',
   titleEn:       'I can\'t pay my tax bill — what are my options?',
@@ -22,14 +22,14 @@ const META = {
   categoryHref:  '/library/irs',
   userEmotion:   'anxious',
   difficulty:    'Beginner',
-  readTime:      '5 min read',
+  readTime:      '7 min read',
   verification:  'official-sources-verified',
-  updatedDate:   null,
+  updatedDate:   'October 2026',
   taxYear:       String(TAX_CONFIG.currentTaxYear),
-  confidence:    '涵蓋欠聯邦所得稅、無法一次繳清的個人。資格門檻與費用是審閱時 IRS 線上分期付款的數字，可能會變動；公司欠稅、薪資稅與州稅不在本文範圍內',
+  confidence:    '涵蓋欠聯邦所得稅、無法一次繳清的個人。資格門檻、設定費與和解方案申請費，是 2026 年 10 月審閱 IRS 分期付款、線上分期付款申請與和解方案網頁時的數字；IRS 可能會調整。公司欠稅、薪資稅與州稅不在本文範圍內',
   persona:       ['截止日前繳不出全部稅款的人', '應繳稅款比預期多的自由工作者', '收到 IRS 欠稅通知的人', '正在比較分期付款與其他選擇的人'],
   relatedJourney: ['收到 IRS 的信', '處理稅務問題'],
-  actionRequired: '即使繳不出全部稅款，也要準時報稅，並盡量多繳一些，再選擇付款方式。申請前，請先到 IRS 分期付款網頁確認最新的資格與費用。',
+  actionRequired: '即使繳不出全部稅款，也要準時報稅，並盡量多繳一些，再申請分期付款 — 符合資格就線上申請，因為線上設定費比較低。長期付款計畫選擇自動扣款，費用最低。',
   sources: [
     { label: 'IRS — 分期付款計畫（Payment plans; installment agreements）', url: 'https://www.irs.gov/payments/payment-plans-installment-agreements' },
     { label: 'IRS — 已報稅但還沒繳稅（If you\'ve filed but haven\'t paid）', url: 'https://www.irs.gov/newsroom/if-youve-filed-but-havent-paid' },
@@ -37,6 +37,7 @@ const META = {
     { label: 'IRS — 線上分期付款申請（Online payment agreement application）', url: 'https://www.irs.gov/payments/online-payment-agreement-application' },
     { label: 'IRS — 和解方案（Offer in compromise）', url: 'https://www.irs.gov/payments/offer-in-compromise' },
     { label: 'IRS — 暫緩催收（Temporarily delay the collection process）', url: 'https://www.irs.gov/businesses/small-businesses-self-employed/temporarily-delay-the-collection-process' },
+    { label: 'IRS — 逾期繳稅罰款（Failure to pay penalty）', url: 'https://www.irs.gov/payments/failure-to-pay-penalty' },
   ],
 }
 
@@ -47,19 +48,19 @@ const FAQS = [
   },
   {
     q: '申請分期付款，利息和罰款就會停止嗎？',
-    a: '不會。即使在分期付款期間，未繳餘額的利息和適用的罰款通常會持續累積，直到全部繳清。越早多繳，累積的金額就越少。',
+    a: '不會。未繳餘額的利息和逾期繳稅罰款會持續累積，直到全部繳清。不過罰款比例會降低：IRS 逾期繳稅罰款網頁指出，如果你準時報稅，並且有核准的分期付款計畫，計畫有效期間罰款會從每月 0.5% 降為 0.25%。',
   },
   {
     q: '我符合線上分期付款的資格嗎？',
-    a: '依 IRS 目前對個人的線上指引，如果稅款、罰款與利息合計不到 $100,000，且能在 180 天內繳清，一般可以申請短期付款計畫。如果合計在 $50,000 以下，且所有應申報的稅表都已申報，一般可以線上申請長期分期付款協議（installment agreement）。不是每個人都符合，門檻也可能變動 — 請查看 IRS 的分期付款網頁。',
+    a: 'IRS 線上分期付款申請網頁指出，如果稅款、罰款與利息合計不到 $100,000，可能可以線上申請短期付款計畫（180 天以內）；如果合計在 $50,000 以下，而且所有應申報的稅表都已申報，可能可以線上申請長期付款計畫。如果欠得更多或無法線上申請，仍可以透過電話、郵寄 Form 9465 或親自申請。',
   },
   {
     q: 'IRS 可以直接減少我欠的稅嗎？',
-    a: '和解方案（Offer in Compromise）讓部分納稅人以低於全額的金額結清欠稅，但並不是自動適用，很多申請人並不符合。IRS 會看你的繳款能力、收入、支出與資產。依賴這個選項之前，請仔細閱讀 IRS 的規定。',
+    a: '和解方案（Offer in Compromise）讓部分納稅人以低於全額的金額結清欠稅，但如果你可以透過分期付款或資產淨值全額繳清，IRS 通常不會接受。除非符合低收入資格，每份申請都要付 $205 申請費和第一筆款項。申請前請先使用 IRS 的資格預查工具（Pre-Qualifier）。',
   },
   {
     q: '分期付款要付手續費嗎？',
-    a: '設定費依付款計畫的類型、申請方式與繳款方式而不同，而且 IRS 會調整。請查看 IRS 分期付款網頁上最新的費用表，不要依賴固定的數字。',
+    a: '短期付款計畫沒有設定費。長期付款計畫如果用自動扣款，線上申請 $29，電話、郵寄或親自申請 $107；其他繳款方式線上 $69，其他方式 $178。低收入納稅人自動扣款免設定費，其他方式 $43，可能可以退還。這些是審閱時 IRS 的數字。',
   },
 ]
 
@@ -88,6 +89,18 @@ const RELATED = [
     title: 'IRS 罰款減免：自動罰款豁免、首次罰款減免與合理原因',
     desc: '逾期申報與繳稅罰款的減免。',
   },
+  {
+    href: '/library/irs/irs-power-of-attorney-2848-8821',
+    cat:  'IRS & Tax Issues',
+    title: 'IRS 授權書：Form 2848 與 Form 8821 的差別',
+    desc:  '授權代理人，或分享你的 IRS 資料。',
+  },
+  {
+    href: '/library/individual/cancellation-of-debt-1099c',
+    cat:  'Individuals & Families',
+    title: '債務免除與 Form 1099-C：被免除的債務何時要課稅',
+    desc:  '被免除的債務何時會變成應稅所得。',
+  },
 ]
 
 export default function CantPayTaxBillZhTwPage({ translations }) {
@@ -98,7 +111,7 @@ export default function CantPayTaxBillZhTwPage({ translations }) {
   return (
     <Layout t={t} locale="zh-tw" meta={{
       title: '繳不出稅款怎麼辦？IRS 分期付款與其他選擇 | AskLinTax 繁體中文',
-      description: '欠 IRS 的稅繳不出來？為什麼還是要準時報稅、短期與長期分期付款怎麼運作，以及哪些情況可能適用其他 IRS 選項。',
+      description: '欠 IRS 的稅繳不出來？為什麼還是要準時報稅、IRS 分期付款資格與設定費、分期期間降低的逾期繳稅罰款、和解方案，以及暫停催收（Currently Not Collectible）狀態。',
     }}>
       <KnowledgePage meta={META} faqs={FAQS} openFaq={openFaq} toggleFaq={toggleFaq} relatedArticles={RELATED} locale="zh-tw">
 
@@ -122,39 +135,57 @@ export default function CantPayTaxBillZhTwPage({ translations }) {
 
         <h2>第二步：選擇剩餘金額的付款方式</h2>
         <ArticleTable
-          head={['選項', '可能適合誰', '要知道的事']}
+          head={['選項', '線上申請資格（個人）', '要知道的事']}
           rows={[
-            ['一次繳清', '現在就能繳清全部餘額的人', '這筆餘額就不會再產生利息與罰款'],
-            ['短期付款計畫', '稅款、罰款與利息合計不到 $100,000 的個人（IRS 目前的線上指引）', '在 180 天內繳清；繳清前利息與罰款會持續累積'],
-            ['長期分期付款協議', '稅款、罰款與利息合計在 $50,000 以下，且所有應申報稅表都已申報的個人（IRS 目前的線上指引）', '按月繳款；可能有設定費；繳清前利息與罰款會持續累積'],
-            ['其他催收替代方案', '無法透過付款計畫繳清的人', '例如和解方案（Offer in Compromise）或暫緩催收 — 各有自己的條件'],
+            ['一次繳清', '任何人', '沒有設定費；這筆餘額就不會再產生利息與罰款'],
+            ['短期付款計畫', '稅款、罰款與利息合計不到 $100,000', '在 180 天以內繳清；沒有設定費；繳清前利息與罰款會持續累積'],
+            ['長期付款計畫（分期付款協議）', '稅款、罰款與利息合計在 $50,000 以下，且所有應申報稅表都已申報', '按月繳款；有設定費（見下表）；繳清前利息與罰款會持續累積'],
+            ['其他催收替代方案', '無法透過付款計畫繳清的人', '和解方案（Offer in Compromise）或暫停催收（Currently Not Collectible）狀態 — 各有自己的條件'],
           ]}
         />
         <p>
-          上表的金額門檻，是 IRS 目前對<strong>線上</strong>申請的資格指引。如果你欠得更多，或不符合線上申請資格，仍可能透過其他方式申請付款計畫 — 請見 IRS 分期付款網頁。
+          這些是 IRS 線上分期付款申請網頁上<strong>線上</strong>申請的門檻。如果你欠得更多，或無法線上申請，仍可以透過電話、郵寄 Form 9465 或親自申請。持有授權書（power of attorney）的代理人也可以代你申請。
         </p>
 
-        <div className="callout callout-info">
-          <div className="callout-title">ℹ️ 費用和門檻會變動</div>
-          <p>分期付款的設定費依計畫類型、申請方式與繳款方式而不同，IRS 也會調整。申請前，請到 IRS 分期付款網頁查看最新數字。</p>
-        </div>
+        <h2>設定費</h2>
+        <ArticleTable
+          head={['計畫', '線上申請', '電話、郵寄或親自申請', '低收入納稅人']}
+          rows={[
+            ['短期付款計畫（180 天以內）', '$0', '$0', '$0'],
+            ['長期付款計畫，自動扣款', '$29', '$107', '免設定費'],
+            ['長期付款計畫，其他繳款方式', '$69', '$178', '$43（可能可以退還）'],
+            ['修改計畫或違約後恢復', '$6', '$89', '線上 $6，其他方式 $43（可能可以退還）'],
+          ]}
+        />
+        <p>
+          計畫核准後，設定費會加到你的餘額中。修改現有的自動扣款計畫不收費。用信用卡或簽帳卡付款會有處理商的手續費。這些數字來自 2026 年 10 月審閱的 IRS 分期付款網頁；IRS 可能會調整，申請前請再確認。
+        </p>
+
+        <h2>繳款期間的罰款與利息</h2>
+        <ul>
+          <li><strong>逾期繳稅罰款：</strong>未繳稅款每月或不足一個月按 0.5% 計算，最高 25%。</li>
+          <li><strong>分期期間降低：</strong>如果你準時報稅，並且有核准的分期付款計畫，計畫有效期間每月降為 0.25%。</li>
+          <li><strong>收到扣押通知後提高：</strong>如果你在收到 IRS 擬扣押通知後 10 天內沒有繳款，每月提高為 1%。</li>
+          <li><strong>利息：</strong>未繳稅款與罰款都會計息，直到全部繳清。</li>
+          <li><strong>申請審核期間的催收：</strong>IRS 分期付款網頁指出，分期付款申請審核期間，除少數例外，IRS 通常不得扣押，而且 IRS 可催收的期間會暫停或延長。</li>
+        </ul>
 
         <h2>在適當情況下的其他選項</h2>
         <ul>
-          <li><strong>和解方案（Offer in Compromise）。</strong>以低於全額的金額結清欠稅的協議。這不是自動適用的：IRS 會考量你的繳款能力、收入、支出與資產淨值，很多申請都不會被接受。</li>
-          <li><strong>暫緩催收。</strong>如果繳稅會造成經濟困難，IRS 可能暫時延後催收。欠稅並不會被免除，罰款與利息也會持續累積。</li>
+          <li><strong>和解方案（Offer in Compromise）。</strong>以低於全額的金額結清欠稅的協議。IRS 會考量你的收入、支出與資產淨值；如果你可以透過分期付款或資產淨值全額繳清，IRS 通常不會接受。你必須已申報所有應申報的稅表、繳納應繳的預估稅，而且沒有進行中的破產程序。除非符合低收入資格，每份申請都要付 $205 申請費和第一筆款項（一次付清方案為和解金額的 20%）。</li>
+          <li><strong>暫停催收（Currently Not Collectible）狀態。</strong>如果你因經濟困難無法繳款，IRS 可能暫時停止大部分催收。你仍然欠全部金額，罰款與利息會持續累積，IRS 仍可能申報聯邦稅務留置權通知（Notice of Federal Tax Lien），也會把以後的退稅用來抵欠稅。你可能需要提供 Form 433-F 或 Form 433-A 等催收資訊表。</li>
         </ul>
 
         <h2>分期付款不會做到的事</h2>
         <ul>
-          <li>它<strong>不會</strong>停止利息。利息與適用的罰款通常會持續累積，直到餘額繳清。</li>
+          <li>它<strong>不會</strong>停止利息。利息與逾期繳稅罰款會持續累積，直到餘額繳清，不過核准計畫期間的罰款比例比較低。</li>
           <li>它<strong>不代表</strong>每個人都符合資格。資格取決於欠款金額、過去的申報紀錄與其他條件。</li>
-          <li>它<strong>不能</strong>取代報稅。以後的稅表仍然要準時申報、準時繳稅。</li>
+          <li>它<strong>不能</strong>取代報稅。以後的稅表仍然要準時申報、準時繳稅；漏繳款項可能讓計畫違約。</li>
         </ul>
 
         <h2>例子</h2>
         <p>
-          Dana 在 4 月準時報稅，欠了 $6,000，無法一次繳清。她隨稅表先繳 $1,500，剩下的 $4,500 在線上申請付款計畫。因為她的餘額低於線上門檻，如果也符合其他條件，就可能可以在線上設定付款計畫；未繳部分在繳清前，利息與逾期繳稅罰款會持續累積，所以她在預算許可下盡快繳清。
+          Dana 在 4 月準時報稅，欠了 $6,000，無法一次繳清。她隨稅表先繳 $1,500，剩下的 $4,500 在線上申請長期付款計畫，並選擇自動扣款。她欠的金額低於 $50,000，而且所有稅表都已申報，所以可以線上申請，設定費是 $29。因為她準時報稅，計畫也已核准，計畫有效期間未繳餘額的逾期繳稅罰款是每月 0.25%，而不是 0.5%；利息仍會累積，所以她在預算許可下盡快繳清。
         </p>
 
         <div className="callout callout-tip">

@@ -14,7 +14,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'irs-tax-transcripts',
-  sourceHash:      '43b612adcdbb',
+  sourceHash:      '88611ff99e2d',
   id:            '108',
   title:         'IRS 稅務記錄（transcript）：種類、如何取得，以及和報稅表副本的差別',
   titleEn:       'IRS Tax Transcripts: Types, How to Get One, and Transcript vs. Tax Return Copy',
@@ -91,6 +91,12 @@ const RELATED = [
     cat:  'IRS & Tax Issues',
     title: '報稅表填錯了，要怎麼修改？',
     desc:  '核對稅務記錄後修正報稅表。',
+  },
+  {
+    href: '/library/irs/irs-power-of-attorney-2848-8821',
+    cat:  'IRS & Tax Issues',
+    title: 'IRS 授權書：Form 2848 與 Form 8821 的差別',
+    desc:  '授權代理人，或分享你的 IRS 資料。',
   },
 ]
 

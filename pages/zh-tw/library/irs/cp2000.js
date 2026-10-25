@@ -13,7 +13,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'cp2000',
-  sourceHash:      '3a3b9cd7cf58',
+  sourceHash:      '2b34a6484afc',
   id:            '16',
   title:         'CP2000 通知：代表什麼？該如何回覆？',
   titleEn:       'CP2000 notice: what it means and how to respond',
@@ -104,6 +104,18 @@ const RELATED = [
     cat:  'IRS & Tax Issues',
     title: 'IRS 稅務記錄（transcript）：種類、如何取得，以及和報稅表副本的差別',
     desc:  '用免費的稅務記錄確認 IRS 檔案中的資料。',
+  },
+  {
+    href: '/library/irs/irs-power-of-attorney-2848-8821',
+    cat:  'IRS & Tax Issues',
+    title: 'IRS 授權書：Form 2848 與 Form 8821 的差別',
+    desc:  '授權代理人，或分享你的 IRS 資料。',
+  },
+  {
+    href: '/library/irs/injured-innocent-spouse-relief',
+    cat:  'IRS & Tax Issues',
+    title: '受損配偶與無辜配偶救濟：Form 8379 與 Form 8857',
+    desc:  '配偶的債務或錯誤影響合併申報時的救濟。',
   },
 ]
 

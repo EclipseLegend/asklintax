@@ -86,6 +86,12 @@ const RELATED = [
     title: 'I made a mistake on my tax return — how do I amend it?',
     desc:  'Fix the return after you check the transcript.',
   },
+  {
+    href: '/library/irs/irs-power-of-attorney-2848-8821',
+    cat:  'IRS & Tax Issues',
+    title: 'IRS Power of Attorney: Form 2848 vs. Form 8821',
+    desc:  'Authorize a representative or share your IRS information.',
+  },
 ]
 
 export default function IrsTaxTranscriptsPage({ translations }) {

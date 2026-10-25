@@ -83,6 +83,12 @@ const RELATED = [
     title: 'First-time filer in the U.S.: a complete step-by-step guide',
     desc:  'Where filing status fits in your first return.',
   },
+  {
+    href: '/library/individual/divorce-alimony-taxes',
+    cat:  'Individuals & Families',
+    title: 'Divorce and Taxes: Alimony, Child Support, Property, and Retirement Accounts',
+    desc:  'Alimony, child support, and dividing property in a divorce.',
+  },
 ]
 
 export default function FilingStatusPage({ translations }) {

@@ -14,7 +14,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'selling-your-home',
-  sourceHash:      'cddc1b1bfafd',
+  sourceHash:      'adc2eb40ccd8',
   id:            '54',
   title:         '我賣了房子，獲利要繳稅嗎？',
   titleEn:       'I sold my house — do I have to pay tax on the profit?',
@@ -78,6 +78,12 @@ const RELATED = [
     cat:  'Individuals & Families',
     title: '抵稅額（tax credit）與扣除額（deduction）有什麼不同？',
     desc:  '排除額、扣除額與抵稅額為什麼不一樣。',
+  },
+  {
+    href: '/library/individual/cancellation-of-debt-1099c',
+    cat:  'Individuals & Families',
+    title: '債務免除與 Form 1099-C：被免除的債務何時要課稅',
+    desc:  '被免除的債務何時會變成應稅所得。',
   },
 ]
 

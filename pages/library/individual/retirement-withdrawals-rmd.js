@@ -99,6 +99,12 @@ const RELATED = [
     title: 'Estate Tax and Inheritance Basics: 2025 and 2026 Exclusions, Form 706, and Nonresidents',
     desc:  'Estate tax, inheritances, and Form 706-NA for nonresidents.',
   },
+  {
+    href: '/library/individual/divorce-alimony-taxes',
+    cat:  'Individuals & Families',
+    title: 'Divorce and Taxes: Alimony, Child Support, Property, and Retirement Accounts',
+    desc:  'Alimony, child support, and dividing property in a divorce.',
+  },
 ]
 
 export default function RetirementWithdrawalsRmdPage({ translations }) {

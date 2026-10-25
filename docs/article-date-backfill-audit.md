@@ -74,7 +74,7 @@ This audit supports the per-article review dates (`META.updatedDate`) introduced
 | 48 | `late-fbar` | `null` — no date shown (pending) | 2026-10 | `0bff968` 2026-10-06 (created) | created | Unverified — candidate only |
 | 49 | `joint-foreign-account-fbar` | `null` — no date shown (pending) | 2026-10 | `0bff968` 2026-10-06 (created) | created | Unverified — candidate only |
 | 50 | `pre-immigration-savings` | `null` — no date shown (pending) | 2026-10 | `0bff968` 2026-10-06 (created) | created | Unverified — candidate only |
-| 51 | `cant-pay-tax-bill` | `null` — no date shown (pending) | 2026-10 | `9d6f9b3` 2026-10-07 (created) | created | Unverified — candidate only |
+| 51 | `cant-pay-tax-bill` | `'October 2026'` — confirmed (Batch 13 refresh: payment plan fees, eligibility limits, and penalty rates verified against IRS payment pages) | 2026-10 | `9d6f9b3` 2026-10-07 (created) | created | Confirmed — October 2026 |
 | 52 | `amend-tax-return` | `null` — no date shown (pending) | 2026-10 | `9d6f9b3` 2026-10-07 (created) | created | Unverified — candidate only |
 | 53 | `missed-tax-deadline` | `null` — no date shown (pending) | 2026-10 | `9d6f9b3` 2026-10-07 (created) | created | Unverified — candidate only |
 | 54 | `selling-your-home` | `null` — no date shown (pending) | 2026-10 | `5193881` 2026-10-21 (link-only); `9d6f9b3` 2026-10-07 (created) | link-only | Unverified — candidate only |

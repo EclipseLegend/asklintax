@@ -93,6 +93,18 @@ const RELATED = [
     title: 'IRS Tax Transcripts: Types, How to Get One, and Transcript vs. Tax Return Copy',
     desc:  'Check what the IRS has on file with a free transcript.',
   },
+  {
+    href: '/library/irs/irs-power-of-attorney-2848-8821',
+    cat:  'IRS & Tax Issues',
+    title: 'IRS Power of Attorney: Form 2848 vs. Form 8821',
+    desc:  'Authorize a representative or share your IRS information.',
+  },
+  {
+    href: '/library/irs/injured-innocent-spouse-relief',
+    cat:  'IRS & Tax Issues',
+    title: 'Injured Spouse vs. Innocent Spouse Relief: Forms 8379 and 8857',
+    desc:  'Relief when a spouse\'s debts or errors affect a joint return.',
+  },
 ]
 
 // ── PAGE ──────────────────────────────────────────────────

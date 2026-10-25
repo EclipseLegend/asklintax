@@ -14,7 +14,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'filing-status-head-of-household',
-  sourceHash:      '5448e81addcf',
+  sourceHash:      '72334bb56bf4',
   id:            '107',
   title:         '報稅身分與戶長身分：2025 與 2026 年規定',
   titleEn:       'Filing Status and Head of Household: 2025 and 2026 Rules',
@@ -88,6 +88,12 @@ const RELATED = [
     cat:  'Individuals & Families',
     title: '在美國第一次報稅：完整步驟指南',
     desc:  '報稅身分在你第一份稅表中的位置。',
+  },
+  {
+    href: '/library/individual/divorce-alimony-taxes',
+    cat:  'Individuals & Families',
+    title: '離婚與稅務：贍養費、子女撫養費、財產與退休帳戶',
+    desc:  '離婚時的贍養費、子女撫養費與財產分配。',
   },
 ]
 

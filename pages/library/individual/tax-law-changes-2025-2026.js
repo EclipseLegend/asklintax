@@ -92,6 +92,12 @@ const RELATED = [
     title: 'Premium Tax Credit and Form 8962: Marketplace Health Insurance in 2025 and 2026',
     desc:  'Marketplace health insurance, Form 8962, and repaying advance payments.',
   },
+  {
+    href: '/library/individual/adoption-tax-credit',
+    cat:  'Individuals & Families',
+    title: 'Adoption Tax Credit: 2025 and 2026 Limits and the New Refundable Portion',
+    desc:  'Credit for adoption expenses, now partly refundable.',
+  },
 ]
 
 export default function TaxLawChanges20252026Page({ translations }) {
