@@ -46,7 +46,7 @@ const FAQS = [
   },
   {
     q: 'Are all student loan discharges taxable starting in 2026?',
-    a: 'No. Only the broad exclusion for discharges from 2021 through 2025 ends. Separate exclusions continue to be listed in Publication 4681 for cancellation because you worked in certain professions for certain employers, for certain health-profession loan repayment programs, and for discharges because of the student\'s death or total and permanent disability. For a death or disability discharge after 2025, you need an SSN valid for employment, issued by the due date of the return.',
+    a: 'No. Only the broad exclusion for discharges from 2021 through 2025 ends. Separate exclusions continue to be listed in Publication 4681 for cancellation because you worked in certain professions for certain employers, for certain health-profession loan repayment programs, and for discharges because of the student\'s death or total and permanent disability. For a death or disability discharge after 2025, Publication 4681 says you must include an SSN valid for employment, issued before the due date of the return; it does not state that requirement for the other exclusions.',
   },
   {
     q: 'What is Form 982?',
@@ -107,6 +107,7 @@ export default function CancellationOfDebtPage({ translations }) {
           <li><strong>Who sends it:</strong> financial institutions, credit unions, federal agencies, and certain other lenders file Form 1099-C when they cancel $600 or more of debt and an identifiable event has occurred.</li>
           <li><strong>Box 6</strong> shows an identifiable event code explaining why the form was issued.</li>
           <li><strong>Where to report taxable canceled debt:</strong> Schedule 1 (Form 1040), line 8c for nonbusiness debt; Schedule C for a sole proprietorship; Schedule E for rental real estate.</li>
+          <li><strong>A form does not mean it is all taxable.</strong> The amount on Form 1099-C is ordinary income only if no exception or exclusion applies; you may be able to exclude part or all of it.</li>
           <li><strong>No form does not mean no income.</strong> Taxable canceled debt must be reported even without a 1099-C.</li>
         </ul>
 
@@ -148,7 +149,7 @@ export default function CancellationOfDebtPage({ translations }) {
             ['Broad exclusion for discharges from 2021 through 2025 (postsecondary education loans, private education loans, and certain others)', 'Ends for discharges after December 31, 2025'],
             ['Cancellation for working for a certain period, in certain professions, for a broad class of employers, on a qualifying loan', 'Listed in Publication 4681 (2025) without an end date'],
             ['Repayment assistance from the National Health Service Corps, state programs under the Public Health Service Act, and certain state health-profession programs', 'Listed in Publication 4681 (2025) without an end date'],
-            ['Discharge because of the student\'s death or total and permanent disability', 'Continues; for discharges after 2025, you need an SSN valid for employment issued by the return due date'],
+            ['Discharge because of the student\'s death or total and permanent disability', 'Continues; Publication 4681 (2025) says that for discharges after 2025 you must include an SSN valid for employment, issued before the return due date — a requirement it states only for this exclusion'],
           ]}
         />
         <p>

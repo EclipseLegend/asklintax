@@ -23,7 +23,7 @@ const META = {
   confidence:    'Explains injured spouse allocation and the four types of innocent spouse relief, based on the Instructions for Form 8379 (Rev. November 2024), the Instructions for Form 8857 (Rev. June 2021), and Publication 971 (Rev. December 2021). It summarizes community property rules only briefly and does not cover Tax Court procedure in detail',
   persona:       ['Spouses whose joint refund was taken for the other spouse\'s debt', 'Divorced or separated people facing a bill from a joint return', 'People who did not know about a spouse\'s unreported income', 'Married couples in community property states'],
   relatedJourney: ['Dealing with a tax problem', 'Got an IRS letter'],
-  actionRequired: 'If your share of a joint refund was taken for your spouse\'s past-due debt, file Form 8379. If you are being held liable for tax your spouse or former spouse should pay, file Form 8857 as soon as possible — generally no later than 2 years after the IRS first tries to collect from you.',
+  actionRequired: 'If your share of a joint refund was taken for your spouse\'s past-due debt, file Form 8379. If you are being held liable for tax your spouse or former spouse should pay, file Form 8857 as soon as possible. The deadline depends on the type of relief: for innocent spouse and separation of liability relief, generally no later than 2 years after the IRS first tries to collect from you.',
   sources: [
     { label: 'IRS — Instructions for Form 8379 (Rev. November 2024), Injured Spouse Allocation', url: 'https://www.irs.gov/pub/irs-pdf/i8379.pdf' },
     { label: 'IRS — Instructions for Form 8857 (Rev. June 2021), Request for Innocent Spouse Relief', url: 'https://www.irs.gov/pub/irs-pdf/i8857.pdf' },
@@ -54,7 +54,7 @@ const FAQS = [
   },
   {
     q: 'When is it too late to request innocent spouse relief?',
-    a: 'For innocent spouse relief and separation of liability relief, generally 2 years after the IRS first tried to collect the tax from you. Equitable relief has longer deadlines: generally the 10-year collection period for an unpaid balance, or the refund deadline for amounts already paid.',
+    a: 'It depends on the type of relief. For innocent spouse relief and separation of liability relief, generally 2 years after the IRS first tried to collect the tax from you. Equitable relief follows different deadlines: generally the IRS collection period (usually 10 years from assessment) for an unpaid balance, or the refund deadline for amounts already paid. Relief for an item of community income has its own deadline tied to the assessment period.',
   },
 ]
 
@@ -110,7 +110,7 @@ export default function InjuredInnocentSpousePage({ translations }) {
             ['Typical debts or items', 'Your spouse\'s past-due federal tax, state income tax, state unemployment debt, child support, or federal nontax debt such as a student loan', 'Unreported income or false deductions or credits by your spouse, or tax shown but not paid'],
             ['Marital status needed', 'None — you can still be married', 'Depends on the type of relief'],
             ['How to file', 'With the joint return, with an amended joint return, or later by itself', 'By itself, by mail or fax to the IRS — not with your return'],
-            ['Deadline', 'Within 3 years of the original due date (with extensions) or 2 years after paying the tax that was offset, whichever is later', 'Generally 2 years after the IRS first tries to collect from you; longer for equitable relief'],
+            ['Deadline', 'Within 3 years of the original due date (with extensions) or 2 years after paying the tax that was offset, whichever is later', 'Depends on the type of relief — see the deadlines below'],
           ]}
         />
 

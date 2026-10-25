@@ -14,7 +14,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'cancellation-of-debt-1099c',
-  sourceHash:      '98bf48c121a5',
+  sourceHash:      '581857e547c0',
   id:            '114',
   title:         '債務免除與 Form 1099-C：被免除的債務何時要課稅',
   titleEn:       'Canceled Debt and Form 1099-C: When Forgiven Debt Is Taxable',
@@ -52,7 +52,7 @@ const FAQS = [
   },
   {
     q: '從 2026 年開始，所有學生貸款免除都要課稅嗎？',
-    a: '不是。只有 2021 到 2025 年免除的廣泛排除規定到期。Publication 4681 仍列出其他獨立的排除規定：因在特定職業為特定雇主工作而免除、特定醫療專業貸款償還計畫，以及因學生死亡或完全永久失能而免除。2025 年以後因死亡或失能免除的，你需要在報稅截止日前核發、可用於工作的 SSN。',
+    a: '不是。只有 2021 到 2025 年免除的廣泛排除規定到期。Publication 4681 仍列出其他獨立的排除規定：因在特定職業為特定雇主工作而免除、特定醫療專業貸款償還計畫，以及因學生死亡或完全永久失能而免除。2025 年以後因死亡或失能免除的，Publication 4681 指出你必須填寫在報稅截止日前核發、可用於工作的 SSN；它沒有對其他排除規定提出這個要求。',
   },
   {
     q: '什麼是 Form 982？',
@@ -113,6 +113,7 @@ export default function CancellationOfDebtPage({ translations }) {
           <li><strong>誰會寄：</strong>金融機構、信用合作社、聯邦機構與某些其他貸款機構，在免除 $600 以上的債務且發生可辨識事件時，會申報 Form 1099-C。</li>
           <li><strong>第 6 欄</strong>顯示可辨識事件代碼，說明開立表格的原因。</li>
           <li><strong>應稅債務免除的申報位置：</strong>非營業債務申報在 Schedule 1（Form 1040）第 8c 行；獨資事業申報在 Schedule C；出租不動產申報在 Schedule E。</li>
+          <li><strong>有表格不代表全部要課稅。</strong>只有在不適用任何例外或排除規定時，Form 1099-C 上的金額才是一般所得；你可能可以排除部分或全部金額。</li>
           <li><strong>沒有表格不代表沒有所得。</strong>即使沒有 1099-C，應稅的債務免除仍必須申報。</li>
         </ul>
 
@@ -154,7 +155,7 @@ export default function CancellationOfDebtPage({ translations }) {
             ['2021 到 2025 年免除的廣泛排除（高等教育貸款、私人教育貸款與某些其他貸款）', '2025 年 12 月 31 日以後的免除不再適用'],
             ['在特定期間、特定職業、為廣泛類別的雇主工作而免除合格貸款', 'Publication 4681（2025）列出時沒有結束日期'],
             ['國家衛生服務團（National Health Service Corps）、公共衛生服務法下的州計畫，以及某些州醫療專業計畫提供的還款協助', 'Publication 4681（2025）列出時沒有結束日期'],
-            ['因學生死亡或完全永久失能而免除', '繼續適用；2025 年以後的免除，你需要在報稅截止日前核發、可用於工作的 SSN'],
+            ['因學生死亡或完全永久失能而免除', '繼續適用；Publication 4681（2025）指出，2025 年以後的免除，你必須填寫在報稅截止日前核發、可用於工作的 SSN — 它只對這項排除規定提出這個要求'],
           ]}
         />
         <p>
