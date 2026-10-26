@@ -14,7 +14,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'irs-identity-theft-ip-pin',
-  sourceHash:      '94f7e1e952f7',
+  sourceHash:      '6e1426ea1bb2',
   id:            '105',
   title:         'IRS 身分盜用與 IP PIN：如何保護你的報稅',
   titleEn:       'IRS Identity Theft and the IP PIN: How to Protect Your Tax Return',
@@ -97,6 +97,12 @@ const RELATED = [
     cat:  'IRS & Tax Issues',
     title: 'IRS 稅務記錄（transcript）：種類、如何取得，以及和報稅表副本的差別',
     desc:  '用免費的稅務記錄確認 IRS 檔案中的資料。',
+  },
+  {
+    href: '/library/irs/taxpayer-advocate-service',
+    cat:  'IRS & Tax Issues',
+    title: '納稅人權益服務（TAS）：何時與如何求助',
+    desc:  'IRS 問題造成困難時的免費協助。',
   },
 ]
 

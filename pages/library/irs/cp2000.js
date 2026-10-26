@@ -20,6 +20,7 @@ const META = {
   sources: [
     { label: 'IRS — Understanding your CP2000 series notice', url: 'https://www.irs.gov/individuals/understanding-your-cp2000-series-notice' },
     { label: 'IRS Publication 5181 — Tax Return Reviews by Mail', url: 'https://www.irs.gov/pub/irs-pdf/p5181.pdf' },
+    { label: 'IRS Publication 5 (Rev. April 2021) — Your Appeal Rights and How to Prepare a Protest if You Disagree', url: 'https://www.irs.gov/pub/irs-pdf/p5.pdf' },
     { label: 'IRS — Understanding your Form 1099-K', url: 'https://www.irs.gov/businesses/understanding-your-form-1099-k' },
     { label: 'IRS — Digital assets (Form 1099-DA reporting)', url: 'https://www.irs.gov/filing/digital-assets' },
   ],
@@ -42,7 +43,7 @@ const FAQS = [
   },
   {
     q: 'What if I don\'t respond by the deadline?',
-    a: 'If you don\'t respond, the IRS assumes you agree with their proposed changes and issues a Statutory Notice of Deficiency (sometimes called a 90-day letter). At that point, you have 90 days to file a petition with the U.S. Tax Court — or pay the assessment. Missing the CP2000 deadline significantly escalates the situation. Mark the deadline immediately.',
+    a: 'A CP2000 is a proposal, not a Statutory Notice of Deficiency, and the date to respond is the one printed on your notice. If you don\'t respond, the IRS assumes you agree with their proposed changes and issues a Statutory Notice of Deficiency (sometimes called a 90-day letter). That later notice gives you the right to petition the U.S. Tax Court within the period stated in it — usually 90 days, or 150 days if the notice is addressed to a person outside the United States — or you can pay the assessment. Missing the CP2000 deadline significantly escalates the situation. Mark the deadline immediately.',
   },
   {
     q: 'I received a CP2000 for income that isn\'t mine. What do I do?',
@@ -110,6 +111,12 @@ const RELATED = [
     cat:  'IRS & Tax Issues',
     title: 'Injured Spouse vs. Innocent Spouse Relief: Forms 8379 and 8857',
     desc:  'Relief when a spouse\'s debts or errors affect a joint return.',
+  },
+  {
+    href: '/library/irs/irs-appeals-process',
+    cat:  'IRS & Tax Issues',
+    title: 'IRS Appeals: How to Dispute an Audit or IRS Decision',
+    desc:  'How to appeal audit changes and when to go to Tax Court.',
   },
 ]
 

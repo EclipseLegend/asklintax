@@ -14,7 +14,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'late-fbar',
-  sourceHash:      '991dcae46548',
+  sourceHash:      '49d67adb3a82',
   id:            '48',
   title:         '忘記報 FBAR 怎麼辦？',
   titleEn:       'I forgot to file an FBAR — what should I do?',
@@ -22,16 +22,15 @@ const META = {
   categoryHref:  '/library/investment',
   userEmotion:   'anxious',
   difficulty:    'Intermediate',
-  readTime:      '4 min read',
+  readTime:      '5 min read',
   verification:  'official-sources-verified',
-  updatedDate:   null,
+  updatedDate:   'October 2026',
   taxYear:       String(TAX_CONFIG.currentTaxYear),
-  confidence:    '概要說明 IRS 對漏報 FBAR 的個人提供的處理方式。本文不預測罰款，也不決定哪一種方式適合個別情況；是否故意、是否有未申報收入，以及是否正在接受 IRS 查核，都會改變分析，需要專業建議',
+  confidence:    '概要說明 IRS 對漏報 FBAR 的個人提供的處理方式，內容依據 2026 年 10 月重新查核時 IRS.gov 上的資料：IRS FBAR 網頁（2026 年 7 月審閱）、選項網頁（2026 年 6 月審閱），以及 streamlined 與自願揭露網頁。原本的逾期 FBAR 補交程序網頁已不在 IRS.gov 上，我們也沒有找到 IRS 說明移除原因的正式文件。本文不預測罰款，也不決定哪一種方式適合個別情況；是否故意、是否有未申報收入，以及是否正在接受 IRS 查核，都會改變分析，需要專業建議',
   persona:       ['剛知道有 FBAR 的人', '以前年度漏報 FBAR 的新移民', '名字在父母海外帳戶上、從未申報的人', '收到 IRS 關於海外帳戶信件的納稅人'],
   relatedJourney: ['跨境財務'],
   actionRequired: '不要忽視漏報的 FBAR。先釐清兩件事：IRS 是否已經聯絡過你，以及海外帳戶的所有收入是否都已申報並繳稅。這兩件事決定哪一種 IRS 程序可能適用。如果有未申報的收入，或 IRS 已經聯絡你，申報前請先尋求專業建議。',
   sources: [
-    { label: 'IRS — 逾期 FBAR 補交程序（Delinquent FBAR submission procedures）', url: 'https://www.irs.gov/individuals/international-taxpayers/delinquent-fbar-submission-procedures' },
     { label: 'IRS — 未揭露海外金融資產的美國納稅人可用的選項', url: 'https://www.irs.gov/individuals/international-taxpayers/options-available-for-us-taxpayers-with-undisclosed-foreign-financial-assets' },
     { label: 'IRS — Streamlined filing compliance procedures', url: 'https://www.irs.gov/individuals/international-taxpayers/streamlined-filing-compliance-procedures' },
     { label: 'IRS — Criminal Investigation Voluntary Disclosure Practice（自願揭露）', url: 'https://www.irs.gov/compliance/criminal-investigation/irs-criminal-investigation-voluntary-disclosure-practice' },
@@ -47,19 +46,19 @@ const FAQS = [
   },
   {
     q: '我台灣帳戶的利息每年都有報在稅表上，只是沒報 FBAR。適用什麼？',
-    a: 'IRS 的逾期 FBAR 補交程序就是針對這種情況：你沒有在接受民事查核或刑事調查、IRS 沒有就這些逾期 FBAR 聯絡過你，而且帳戶的收入都已正確申報並繳稅。IRS 表示在這種情況下，不會因未申報而處以罰款，但有它列出的條件 — 請仔細閱讀，或請專業人士確認你是否符合。',
+    a: '如果 IRS 沒有就逾期的 FBAR 聯絡過你，而且你沒有在接受民事或刑事調查，IRS 的 FBAR 網頁說要盡快補報逾期的 FBAR，並說明逾期的原因，以把可能的罰款降到最低。逾期申報仍然是違規，可能會被罰款。IRS 以前描述過另一個「逾期 FBAR 補交程序」，表示在這種情況下不會處以罰款，但那個網頁已經不在 IRS.gov 上，這個程序也不在 IRS 目前列出的選項中。不要指望會自動免罰 — 請考慮尋求專業建議。',
   },
   {
     q: '如果我連利息也沒報呢？',
-    a: '那麼光靠逾期 FBAR 補交程序就不適合，因為還有未申報的收入。IRS 描述了其他選項，例如針對非故意行為的 streamlined filing compliance procedures，以及針對故意行為的 Criminal Investigation Voluntary Disclosure Practice。要選哪一個是很重要的決定 — 請找稅務專業人士討論。',
+    a: '那麼光是補報 FBAR 並不能解決問題，因為還有未申報的收入。IRS 描述了其他選項，例如針對非故意行為的 streamlined filing compliance procedures，以及針對故意行為的 Criminal Investigation Voluntary Disclosure Practice。要選哪一個是很重要的決定 — 請找稅務專業人士討論。',
   },
   {
     q: '逾期的 FBAR 要怎麼申報？',
-    a: '和一般 FBAR 一樣，透過 FinCEN 的 BSA E-Filing System 以電子方式申報。IRS 的逾期程序表示要附上說明為什麼逾期申報，而電子申報表也可以選擇逾期的原因。',
+    a: '和一般 FBAR 一樣，透過 FinCEN 的 BSA E-Filing System 以電子方式申報。IRS 的 FBAR 網頁說要依照 FinCEN 的說明，解釋逾期申報的原因。如果你使用 streamlined 程序等合規選項，則要改依該選項自己的說明辦理。',
   },
   {
-    q: '補報之後，我的 FBAR 會被查嗎？',
-    a: 'IRS 表示，依逾期程序補報的 FBAR 不會自動被查，但仍可能透過現有的查核選案程序被選中。',
+    q: '逾期 FBAR 補交程序怎麼了？',
+    a: '那個程序的 IRS 網頁現在會顯示錯誤，而 IRS 的選項網頁（2026 年 6 月 30 日審閱）只列出 Criminal Investigation Voluntary Disclosure Practice、streamlined filing compliance procedures，以及逾期國際資訊申報表補交程序 — 後者處理的是 Form 3520 等 IRS 資訊申報表，並沒有提到 FBAR。我們沒有找到 IRS 說明這項改變的正式公告。IRS 的 FBAR 網頁仍然說明可以附上說明補報逾期的 FBAR，但沒有任何不會被罰的保證。',
   },
 ]
 
@@ -98,7 +97,7 @@ export default function LateFbarZhTwPage({ translations }) {
   return (
     <Layout t={t} locale="zh-tw" meta={{
       title: '忘記報 FBAR 怎麼辦？補報 FBAR 的 IRS 選項 | AskLinTax 繁體中文',
-      description: '漏報海外帳戶的 FBAR？IRS 逾期 FBAR 補交程序、streamlined 程序與自願揭露有什麼不同，為什麼未申報的收入與 IRS 是否聯絡過你很重要，以及什麼時候該找專業協助。',
+      description: '漏報海外帳戶的 FBAR？附說明補報逾期 FBAR、streamlined 程序與自願揭露有什麼不同，逾期 FBAR 補交程序怎麼了，為什麼未申報的收入與 IRS 是否聯絡過你很重要，以及什麼時候該找專業協助。',
     }}>
       <KnowledgePage meta={META} faqs={FAQS} openFaq={openFaq} toggleFaq={toggleFaq} relatedArticles={RELATED} locale="zh-tw">
 
@@ -118,19 +117,19 @@ export default function LateFbarZhTwPage({ translations }) {
         <ArticleTable
           head={['你的情況', 'IRS 描述的選項', '說明']}
           rows={[
-            ['沒有接受查核或調查、IRS 沒有就 FBAR 聯絡過你，而且帳戶收入都已申報並繳稅', '逾期 FBAR 補交程序（Delinquent FBAR submission procedures）', '補報逾期的 FBAR，並附上說明逾期原因'],
+            ['沒有接受查核或調查、IRS 沒有就 FBAR 聯絡過你，而且帳戶收入都已申報並繳稅', '盡快補報逾期的 FBAR，並說明逾期原因（IRS FBAR 網頁）', '仍可能被罰款；IRS 已不再列出針對這種情況的免罰程序'],
             ['帳戶收入沒有完整申報，而且行為是非故意的', 'Streamlined filing compliance procedures', '需要在偽證罰則下簽署非故意行為的聲明；需申報的稅表與 FBAR 請見 IRS 網頁'],
             ['行為是故意的，可能有刑事責任', 'IRS Criminal Investigation Voluntary Disclosure Practice（自願揭露）', '採取任何步驟之前，先找稅務律師'],
             ['已經在接受查核，或 IRS 已經聯絡你', '上述程序可能無法使用', '請在專業協助下回覆 IRS'],
           ]}
         />
 
-        <h2>逾期 FBAR 補交程序</h2>
+        <h2>帳戶收入都已申報時補報 FBAR</h2>
         <p>
-          IRS 表示，沒有申報應報的 FBAR、<strong>沒有</strong>在接受民事查核或刑事調查，而且 IRS <strong>尚未</strong>就這些逾期 FBAR 聯絡過的納稅人，應依 FBAR 的說明補報逾期的 FBAR，並附上說明為什麼逾期。FBAR 透過 FinCEN 的 BSA E-Filing System 以電子方式申報，可以在表上選擇逾期的原因。
+          IRS 的 FBAR 網頁（2026 年 7 月 30 日審閱）表示，逾期申報或沒有申報 FBAR 都是違規，可能會被罰款。如果 IRS <strong>沒有</strong>就逾期的 FBAR 聯絡過你，而且你<strong>沒有</strong>在接受民事或刑事調查，網頁說要<strong>盡快補報逾期的 FBAR，以把可能的罰款降到最低</strong>，並依照 FinCEN 的說明解釋逾期的原因。FBAR 透過 FinCEN 的 BSA E-Filing System 以電子方式申報。
         </p>
         <p>
-          IRS 表示，如果你已在美國稅表上正確申報這些逾期 FBAR 所列海外金融帳戶的收入並繳清稅款，而且你在那些年度沒有被聯絡過所得稅查核或要求補交稅表，IRS 不會因未申報這些 FBAR 而處以罰款。請仔細閱讀 IRS 的條件 — 規定得很具體。
+          IRS 以前針對這種情況描述過另一個<strong>逾期 FBAR 補交程序</strong>，並表示如果帳戶收入已正確申報並繳稅，就不會處以罰款。那個網頁已經不在 IRS.gov 上，IRS 的選項網頁現在只列出自願揭露、streamlined 程序，以及逾期國際資訊申報表補交程序（處理的是 Form 3520 等 IRS 資訊申報表，並沒有提到 FBAR）。我們沒有找到 IRS 說明這項改變的正式通知。由於有這樣的不確定性，請不要依賴舊資料中「保證不罰」的說法 — 如實說明你的原因，並考慮尋求專業建議。
         </p>
 
         <h2>如果有未申報的收入</h2>
@@ -145,7 +144,7 @@ export default function LateFbarZhTwPage({ translations }) {
 
         <h2>例子</h2>
         <p>
-          Jun 從 2021 年起是美國居民，他的台灣帳戶每年都超過 $10,000，利息每年都有申報在稅表上，但從來沒有報過 FBAR。IRS 也沒有聯絡過他。他的情況符合逾期 FBAR 補交程序，所以 — 在確認條件之後 — 他透過 BSA E-Filing 補報漏掉的 FBAR，並附上逾期原因的說明。如果他連利息也沒有報，就需要和專業人士一起看其他選項。
+          Jun 從 2021 年起是美國居民，他的台灣帳戶每年都超過 $10,000，利息每年都有申報在稅表上，但從來沒有報過 FBAR。IRS 也沒有聯絡過他。依照 IRS 的 FBAR 網頁，他盡快透過 BSA E-Filing 補報漏掉的 FBAR，並說明逾期的原因。因為仍可能被罰款，尤其是餘額很大時，他也考慮尋求專業建議。如果他連利息也沒有報，就需要和專業人士一起看 streamlined 程序或其他選項。
         </p>
 
         <h2>申報任何東西之前</h2>

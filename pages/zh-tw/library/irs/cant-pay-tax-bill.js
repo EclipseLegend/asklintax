@@ -14,7 +14,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'cant-pay-tax-bill',
-  sourceHash:      'ed8488565c17',
+  sourceHash:      'f391295a339c',
   id:            '51',
   title:         '繳不出稅款怎麼辦？有哪些選擇？',
   titleEn:       'I can\'t pay my tax bill — what are my options?',
@@ -100,6 +100,12 @@ const RELATED = [
     cat:  'Individuals & Families',
     title: '債務免除與 Form 1099-C：被免除的債務何時要課稅',
     desc:  '被免除的債務何時會變成應稅所得。',
+  },
+  {
+    href: '/library/irs/irs-tax-liens-levies',
+    cat:  'IRS & Tax Issues',
+    title: 'IRS 稅務留置權、扣押與催收上訴',
+    desc:  '留置權、扣押，以及如何對 IRS 催收行動提出上訴。',
   },
 ]
 

@@ -76,6 +76,12 @@ const RELATED = [
     title: 'Foreign property: what U.S. taxpayers need to know',
     desc:  'Why foreign property taxes are not SALT.',
   },
+  {
+    href: '/library/individual/alternative-minimum-tax',
+    cat:  'Individuals & Families',
+    title: 'Alternative Minimum Tax (AMT): 2025 and 2026 Rules',
+    desc:  'How the AMT works, with 2025 and 2026 figures.',
+  },
 ]
 
 export default function SaltDeductionPage({ translations }) {

@@ -98,6 +98,12 @@ const RELATED = [
     title: 'Adoption Tax Credit: 2025 and 2026 Limits and the New Refundable Portion',
     desc:  'Credit for adoption expenses, now partly refundable.',
   },
+  {
+    href: '/library/individual/alternative-minimum-tax',
+    cat:  'Individuals & Families',
+    title: 'Alternative Minimum Tax (AMT): 2025 and 2026 Rules',
+    desc:  'How the AMT works, with 2025 and 2026 figures.',
+  },
 ]
 
 export default function TaxLawChanges20252026Page({ translations }) {

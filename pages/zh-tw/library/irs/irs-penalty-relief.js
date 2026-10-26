@@ -14,7 +14,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'irs-penalty-relief',
-  sourceHash:      '2b8665349a62',
+  sourceHash:      'c31779aa8088',
   id:            '104',
   title:         'IRS 罰款減免：自動罰款豁免、首次罰款減免與合理原因',
   titleEn:       'IRS Penalty Relief: Automatic Exemption, First Time Abate, and Reasonable Cause',
@@ -93,6 +93,12 @@ const RELATED = [
     cat:  'Small Business & Self-Employment',
     title: '季度預估稅：誰要繳？怎麼算？',
     desc:  '預估稅罰款的規定不一樣。',
+  },
+  {
+    href: '/library/irs/irs-appeals-process',
+    cat:  'IRS & Tax Issues',
+    title: 'IRS 上訴：如何對查帳或 IRS 決定提出異議',
+    desc:  '如何對查帳調整提出上訴，以及何時向稅務法院提出申請。',
   },
 ]
 

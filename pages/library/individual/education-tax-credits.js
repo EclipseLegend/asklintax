@@ -27,8 +27,8 @@ const META = {
   sources: [
     { label: 'IRS — Education credits: AOTC and LLC', url: 'https://www.irs.gov/credits-deductions/individuals/education-credits-aotc-and-llc' },
     { label: 'IRS — Education credits: Questions and answers', url: 'https://www.irs.gov/credits-deductions/individuals/education-credits-questions-and-answers' },
-    { label: 'IRS — American Opportunity Tax Credit', url: 'https://www.irs.gov/credits-deductions/individuals/aotc' },
-    { label: 'IRS — Lifetime Learning Credit', url: 'https://www.irs.gov/credits-deductions/individuals/llc' },
+    { label: 'IRS — About Form 8863, Education Credits (American Opportunity and Lifetime Learning Credits)', url: 'https://www.irs.gov/forms-pubs/about-form-8863' },
+    { label: 'IRS — Interactive Tax Assistant: Am I eligible to claim an education credit?', url: 'https://www.irs.gov/help/ita/am-i-eligible-to-claim-an-education-credit' },
     { label: 'IRS — Publication 970 (2025), Tax Benefits for Education', url: 'https://www.irs.gov/publications/p970' },
     { label: 'IRS — Instructions for Form 8863 (2025)', url: 'https://www.irs.gov/instructions/i8863' },
   ],
@@ -75,6 +75,12 @@ const RELATED = [
     cat:  'Individuals & Families',
     title: 'Child Tax Credit: who qualifies and how to claim it',
     desc:  'Another family credit with its own rules.',
+  },
+  {
+    href: '/library/individual/scholarship-fellowship-tax',
+    cat:  'Individuals & Families',
+    title: 'Scholarships and Fellowships: What Is Taxable',
+    desc:  'When scholarships and fellowship grants are taxable.',
   },
 ]
 

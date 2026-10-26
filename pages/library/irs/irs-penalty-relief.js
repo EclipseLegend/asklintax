@@ -88,6 +88,12 @@ const RELATED = [
     title: 'Quarterly estimated taxes: who pays and how to calculate',
     desc:  'The estimated tax penalty works differently.',
   },
+  {
+    href: '/library/irs/irs-appeals-process',
+    cat:  'IRS & Tax Issues',
+    title: 'IRS Appeals: How to Dispute an Audit or IRS Decision',
+    desc:  'How to appeal audit changes and when to go to Tax Court.',
+  },
 ]
 
 export default function IrsPenaltyReliefPage({ translations }) {

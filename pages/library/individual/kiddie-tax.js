@@ -83,6 +83,12 @@ const RELATED = [
     title: 'Do I need to file a U.S. tax return?',
     desc:  'Filing requirements, including for dependents.',
   },
+  {
+    href: '/library/individual/scholarship-fellowship-tax',
+    cat:  'Individuals & Families',
+    title: 'Scholarships and Fellowships: What Is Taxable',
+    desc:  'When scholarships and fellowship grants are taxable.',
+  },
 ]
 
 export default function KiddieTaxPage({ translations }) {

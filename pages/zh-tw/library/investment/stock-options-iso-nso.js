@@ -14,7 +14,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'stock-options-iso-nso',
-  sourceHash:      'daebd05ea457',
+  sourceHash:      '1d752a3551f9',
   id:            '83',
   title:         '員工股票選擇權：ISO 與 NSO、Form 3921 與另類最低稅',
   titleEn:       'Stock Options: ISOs vs. NSOs, Form 3921 and the AMT',
@@ -84,6 +84,12 @@ const RELATED = [
     cat:  'Investments & Foreign Accounts',
     title: '成本基礎與 Form 1099-B：受涵蓋股票、調整與 Form 8949',
     desc:  '在 Form 8949 上更正選擇權股票的成本基礎。',
+  },
+  {
+    href: '/library/individual/alternative-minimum-tax',
+    cat:  'Individuals & Families',
+    title: '替代性最低稅（AMT）：2025 與 2026 年規定',
+    desc:  'AMT 如何計算，附 2025 與 2026 年數字。',
   },
 ]
 

@@ -92,6 +92,12 @@ const RELATED = [
     title: 'IRS Tax Transcripts: Types, How to Get One, and Transcript vs. Tax Return Copy',
     desc:  'Check what the IRS has on file with a free transcript.',
   },
+  {
+    href: '/library/irs/taxpayer-advocate-service',
+    cat:  'IRS & Tax Issues',
+    title: 'Taxpayer Advocate Service: When and How to Get Help',
+    desc:  'Free help when an IRS problem is causing hardship.',
+  },
 ]
 
 export default function IrsIdentityTheftIpPinPage({ translations }) {

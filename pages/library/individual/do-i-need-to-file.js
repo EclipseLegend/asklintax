@@ -95,6 +95,12 @@ const RELATED = [
     title: 'Premium Tax Credit and Form 8962: Marketplace Health Insurance in 2025 and 2026',
     desc:  'Marketplace health insurance, Form 8962, and repaying advance payments.',
   },
+  {
+    href: '/library/individual/scholarship-fellowship-tax',
+    cat:  'Individuals & Families',
+    title: 'Scholarships and Fellowships: What Is Taxable',
+    desc:  'When scholarships and fellowship grants are taxable.',
+  },
 ]
 
 export default function DoINeedToFilePage({ translations }) {

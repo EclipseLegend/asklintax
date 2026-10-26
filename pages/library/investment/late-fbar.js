@@ -16,16 +16,15 @@ const META = {
   categoryHref:  '/library/investment',
   userEmotion:   'anxious',
   difficulty:    'Intermediate',
-  readTime:      '4 min read',
+  readTime:      '5 min read',
   verification:  'official-sources-verified',
-  updatedDate:   null,
+  updatedDate:   'October 2026',
   taxYear:       String(TAX_CONFIG.currentTaxYear),
-  confidence:    'Describes, at a high level, the IRS compliance options for individuals who missed FBARs. It does not predict penalties or decide which option fits a particular case; willfulness, unreported income, and open IRS examinations change the analysis and need professional advice',
+  confidence:    'Describes, at a high level, the IRS compliance options for individuals who missed FBARs, as shown on IRS.gov when rechecked in October 2026: the IRS FBAR page (reviewed July 2026), the options page (reviewed June 2026), and the streamlined and voluntary disclosure pages. The former delinquent FBAR submission procedures page no longer appears on IRS.gov, and no official IRS explanation of its removal was found. It does not predict penalties or decide which option fits a particular case; willfulness, unreported income, and open IRS examinations change the analysis and need professional advice',
   persona:       ['People who just learned about the FBAR', 'New immigrants who missed FBARs for earlier years', 'Anyone named on a parent\'s foreign account who never reported it', 'Taxpayers who received an IRS letter about foreign accounts'],
   relatedJourney: ['Cross-border finances'],
   actionRequired: 'Don\'t ignore a missed FBAR. First sort out two facts: whether the IRS has already contacted you, and whether all income from the foreign accounts was reported and taxed. Those facts decide which IRS procedure may fit. If there is unreported income or any IRS contact, get professional advice before filing.',
   sources: [
-    { label: 'IRS — Delinquent FBAR submission procedures', url: 'https://www.irs.gov/individuals/international-taxpayers/delinquent-fbar-submission-procedures' },
     { label: 'IRS — Options available for U.S. taxpayers with undisclosed foreign financial assets', url: 'https://www.irs.gov/individuals/international-taxpayers/options-available-for-us-taxpayers-with-undisclosed-foreign-financial-assets' },
     { label: 'IRS — Streamlined filing compliance procedures', url: 'https://www.irs.gov/individuals/international-taxpayers/streamlined-filing-compliance-procedures' },
     { label: 'IRS — Criminal Investigation Voluntary Disclosure Practice', url: 'https://www.irs.gov/compliance/criminal-investigation/irs-criminal-investigation-voluntary-disclosure-practice' },
@@ -41,19 +40,19 @@ const FAQS = [
   },
   {
     q: 'All the interest from my Taiwan account was on my tax returns. I just didn\'t file FBARs. What applies?',
-    a: 'The IRS\'s delinquent FBAR submission procedures are aimed at this situation: you are not under a civil examination or criminal investigation, the IRS has not already contacted you about the delinquent FBARs, and you properly reported and paid tax on the income from the accounts. The IRS says it will not impose a penalty for the failure to file in that case, subject to its stated conditions — read them carefully or have a professional confirm you qualify.',
+    a: 'If the IRS has not contacted you about the late FBARs and you are not under civil or criminal investigation, the IRS FBAR page says to file the late FBARs as soon as possible, explaining your reason for filing late, to keep potential penalties to a minimum. Filing late is still a violation that may bring penalties. The IRS used to describe separate delinquent FBAR submission procedures that said no penalty would be imposed in this situation, but that page is no longer on IRS.gov and the procedure is not among the options the IRS currently lists. Do not count on automatic penalty relief — consider professional advice.',
   },
   {
     q: 'I never reported the interest either. What then?',
-    a: 'Then the delinquent FBAR procedures are not the right fit by themselves, because there is also unreported income. The IRS describes other options, such as the streamlined filing compliance procedures for non-willful conduct and the Criminal Investigation Voluntary Disclosure Practice for willful conduct. Which applies is a serious decision — talk to a tax professional.',
+    a: 'Then filing late FBARs alone does not fix the problem, because there is also unreported income. The IRS describes other options, such as the streamlined filing compliance procedures for non-willful conduct and the Criminal Investigation Voluntary Disclosure Practice for willful conduct. Which applies is a serious decision — talk to a tax professional.',
   },
   {
     q: 'How do I file a late FBAR?',
-    a: 'Electronically through FinCEN\'s BSA E-Filing System, like a regular FBAR. The IRS delinquent procedures say to include a statement explaining why you are filing late, and the e-filing form lets you select a reason for filing late.',
+    a: 'Electronically through FinCEN\'s BSA E-Filing System, like a regular FBAR. The IRS FBAR page says to follow FinCEN\'s instructions to explain your reason for filing late. If you use a compliance option such as the streamlined procedures, follow that option\'s own instructions instead.',
   },
   {
-    q: 'Can my FBAR be audited after I file late?',
-    a: 'The IRS says FBARs filed under the delinquent procedures will not be automatically subject to audit, but they may be selected through the existing audit selection processes.',
+    q: 'What happened to the delinquent FBAR submission procedures?',
+    a: 'The IRS page for that procedure now returns an error, and the IRS options page (reviewed June 30, 2026) lists only the Criminal Investigation Voluntary Disclosure Practice, the streamlined filing compliance procedures, and the delinquent international information return procedures — which concern IRS information returns such as Form 3520 and do not mention FBARs. We did not find an official IRS announcement explaining the change. Filing late FBARs with an explanation is still described on the IRS FBAR page, but without any promise of no penalty.',
   },
 ]
 
@@ -92,7 +91,7 @@ export default function LateFbarPage({ translations }) {
   return (
     <Layout t={t} meta={{
       title: 'Forgot to File an FBAR? IRS Options for Late FBARs | AskLinTax',
-      description: 'Missed an FBAR for your foreign accounts? How the IRS delinquent FBAR procedures, streamlined procedures, and voluntary disclosure differ, why unreported income and IRS contact matter, and when to get help.',
+      description: 'Missed an FBAR for your foreign accounts? How filing late FBARs with an explanation, the streamlined procedures, and voluntary disclosure differ, what happened to the delinquent FBAR procedures, why unreported income and IRS contact matter, and when to get help.',
     }}>
       <KnowledgePage meta={META} faqs={FAQS} openFaq={openFaq} toggleFaq={toggleFaq} relatedArticles={RELATED}>
 
@@ -112,19 +111,19 @@ export default function LateFbarPage({ translations }) {
         <ArticleTable
           head={['Your situation', 'Option the IRS describes', 'Notes']}
           rows={[
-            ['Not under examination or investigation, not contacted by the IRS about the FBARs, and all account income was reported and taxed', 'Delinquent FBAR submission procedures', 'File the late FBARs with a statement explaining why they are late'],
+            ['Not under examination or investigation, not contacted by the IRS about the FBARs, and all account income was reported and taxed', 'File the late FBARs as soon as possible, explaining your reason for filing late (IRS FBAR page)', 'Penalties may still apply; the IRS no longer lists a separate no-penalty procedure for this situation'],
             ['Account income was not fully reported, and the conduct was non-willful', 'Streamlined filing compliance procedures', 'Requires a certification of non-willful conduct signed under penalties of perjury; see the IRS page for the returns and FBARs involved'],
             ['Conduct was willful, with potential criminal exposure', 'IRS Criminal Investigation Voluntary Disclosure Practice', 'Get a tax attorney before taking any step'],
             ['Already under examination, or the IRS has contacted you', 'The procedures above may not be available', 'Respond to the IRS with professional help'],
           ]}
         />
 
-        <h2>The delinquent FBAR submission procedures</h2>
+        <h2>Filing late FBARs when all income was reported</h2>
         <p>
-          The IRS says taxpayers who have not filed a required FBAR, are <strong>not</strong> under a civil examination or criminal investigation, and have <strong>not</strong> already been contacted by the IRS about the delinquent FBARs should file the delinquent FBARs according to the FBAR instructions, including a statement explaining why they are filing late. FBARs are filed electronically through FinCEN's BSA E-Filing System, where you can select a reason for filing late.
+          The IRS FBAR page (reviewed July 30, 2026) says that filing an FBAR late or not at all is a violation and may subject you to penalties. If the IRS has <strong>not</strong> contacted you about a late FBAR and you are <strong>not</strong> under civil or criminal investigation, it says to file the late FBARs <strong>as soon as possible to keep potential penalties to a minimum</strong>, following FinCEN's instructions to explain your reason for filing late. FBARs are filed electronically through FinCEN's BSA E-Filing System.
         </p>
         <p>
-          The IRS states that it will not impose a penalty for the failure to file the delinquent FBARs if you properly reported on your U.S. tax returns, and paid all tax on, the income from the foreign financial accounts reported on the delinquent FBARs, and you have not previously been contacted regarding an income tax examination or a request for delinquent returns for those years. Read the IRS conditions carefully — they are specific.
+          The IRS once described separate <strong>delinquent FBAR submission procedures</strong> for this situation, with a statement that it would not impose a penalty if the account income had been properly reported and taxed. That page no longer appears on IRS.gov, and the IRS options page now lists only the voluntary disclosure practice, the streamlined procedures, and the delinquent international information return procedures (which concern IRS information returns such as Form 3520 and do not mention FBARs). We found no official IRS notice explaining the change. Because of that uncertainty, do not rely on older descriptions of a guaranteed no-penalty result — explain your reasons accurately and consider professional advice.
         </p>
 
         <h2>If there is unreported income</h2>
@@ -139,7 +138,7 @@ export default function LateFbarPage({ translations }) {
 
         <h2>Example</h2>
         <p>
-          Jun, a U.S. resident since 2021, kept a Taiwan account above $10,000 every year and reported its interest on each tax return, but never filed an FBAR. The IRS has not contacted him. His facts line up with the delinquent FBAR submission procedures, so — after confirming the conditions — he files the missed FBARs through BSA E-Filing with a statement explaining why they are late. If he had also left the interest off his returns, he would need to look at other options with a professional.
+          Jun, a U.S. resident since 2021, kept a Taiwan account above $10,000 every year and reported its interest on each tax return, but never filed an FBAR. The IRS has not contacted him. Following the IRS FBAR page, he files the missed FBARs through BSA E-Filing as soon as possible and explains why they are late. Penalties may still apply, so he considers professional advice, especially if the balances were large. If he had also left the interest off his returns, he would need to look at the streamlined procedures or other options with a professional.
         </p>
 
         <h2>Before you file anything</h2>

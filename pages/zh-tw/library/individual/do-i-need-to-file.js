@@ -13,7 +13,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'do-i-need-to-file',
-  sourceHash:      '8eb62b7f4f4c',
+  sourceHash:      '074e8aee2237',
   id:            '06',
   title:         '我需要申報美國聯邦稅表嗎？',
   titleEn:       'Do I need to file a U.S. tax return?',
@@ -100,6 +100,12 @@ const RELATED = [
     cat:  'Individuals & Families',
     title: '保費抵稅額與 Form 8962：2025 與 2026 年的 Marketplace 健康保險',
     desc:  'Marketplace 健康保險、Form 8962 與預付款的償還。',
+  },
+  {
+    href: '/library/individual/scholarship-fellowship-tax',
+    cat:  'Individuals & Families',
+    title: '獎學金與研究補助：哪些要課稅',
+    desc:  '獎學金與研究補助何時要課稅。',
   },
 ]
 

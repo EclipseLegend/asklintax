@@ -79,6 +79,12 @@ const RELATED = [
     title: 'Cost Basis and Form 1099-B: Covered Shares, Adjustments and Form 8949',
     desc:  'Correcting option basis on Form 8949.',
   },
+  {
+    href: '/library/individual/alternative-minimum-tax',
+    cat:  'Individuals & Families',
+    title: 'Alternative Minimum Tax (AMT): 2025 and 2026 Rules',
+    desc:  'How the AMT works, with 2025 and 2026 figures.',
+  },
 ]
 
 export default function StockOptionsIsoNsoPage({ translations }) {

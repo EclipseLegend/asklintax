@@ -95,6 +95,12 @@ const RELATED = [
     title: 'Canceled Debt and Form 1099-C: When Forgiven Debt Is Taxable',
     desc:  'When forgiven debt becomes taxable income.',
   },
+  {
+    href: '/library/irs/irs-tax-liens-levies',
+    cat:  'IRS & Tax Issues',
+    title: 'IRS Tax Liens, Levies, and Collection Appeals',
+    desc:  'Liens, levies, and how to appeal IRS collection actions.',
+  },
 ]
 
 export default function CantPayTaxBillPage({ translations }) {

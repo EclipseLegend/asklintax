@@ -14,7 +14,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'salt-deduction',
-  sourceHash:      '1d6707f56ccb',
+  sourceHash:      'e7ae5d877b37',
   id:            '70',
   title:         '州稅與地方稅（SALT）扣除額：上限、收入限制與實例',
   titleEn:       'SALT Deduction: Limits, Income Rules, and Examples',
@@ -81,6 +81,12 @@ const RELATED = [
     cat:  'Investments & Foreign Accounts',
     title: '海外房產：美國納稅人需要知道的事',
     desc:  '為什麼外國房屋稅不算 SALT。',
+  },
+  {
+    href: '/library/individual/alternative-minimum-tax',
+    cat:  'Individuals & Families',
+    title: '替代性最低稅（AMT）：2025 與 2026 年規定',
+    desc:  'AMT 如何計算，附 2025 與 2026 年數字。',
   },
 ]
 

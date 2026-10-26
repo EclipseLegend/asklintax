@@ -105,6 +105,18 @@ const RELATED = [
     title: 'Injured Spouse vs. Innocent Spouse Relief: Forms 8379 and 8857',
     desc:  'Relief when a spouse\'s debts or errors affect a joint return.',
   },
+  {
+    href: '/library/irs/irs-tax-liens-levies',
+    cat:  'IRS & Tax Issues',
+    title: 'IRS Tax Liens, Levies, and Collection Appeals',
+    desc:  'Liens, levies, and how to appeal IRS collection actions.',
+  },
+  {
+    href: '/library/irs/taxpayer-advocate-service',
+    cat:  'IRS & Tax Issues',
+    title: 'Taxpayer Advocate Service: When and How to Get Help',
+    desc:  'Free help when an IRS problem is causing hardship.',
+  },
 ]
 
 // ── PAGE ──────────────────────────────────────────────────

@@ -13,7 +13,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'cp2000',
-  sourceHash:      '2b34a6484afc',
+  sourceHash:      'a577e083c74f',
   id:            '16',
   title:         'CP2000 通知：代表什麼？該如何回覆？',
   titleEn:       'CP2000 notice: what it means and how to respond',
@@ -26,6 +26,7 @@ const META = {
   sources: [
     { label: 'IRS — 了解你的 CP2000 系列通知（Understanding your CP2000 series notice）', url: 'https://www.irs.gov/individuals/understanding-your-cp2000-series-notice' },
     { label: 'IRS Publication 5181 — 郵件稅表審查（Tax Return Reviews by Mail）', url: 'https://www.irs.gov/pub/irs-pdf/p5181.pdf' },
+    { label: 'IRS Publication 5（2021 年 4 月版）— 你的上訴權利與不同意時如何準備抗辯書', url: 'https://www.irs.gov/pub/irs-pdf/p5.pdf' },
     { label: 'IRS — 了解你的 Form 1099-K（Understanding your Form 1099-K）', url: 'https://www.irs.gov/businesses/understanding-your-form-1099-k' },
     { label: 'IRS — 數位資產（Digital assets：Form 1099-DA 申報）', url: 'https://www.irs.gov/filing/digital-assets' },
   ],
@@ -48,7 +49,7 @@ const FAQS = [
   },
   {
     q: '如果我沒有在截止日前回覆，會怎樣？',
-    a: '如果你沒有回覆，IRS 會假定你同意提議的變更，並發出法定欠稅通知（Statutory Notice of Deficiency，有時稱為「90 天信」）。屆時你有 90 天可以向美國稅務法院（U.S. Tax Court）提出訴願 — 或者繳納核定的稅額。錯過 CP2000 截止日會讓情況明顯升級。請立刻記下截止日。',
+    a: 'CP2000 是提議，不是法定欠稅通知（Statutory Notice of Deficiency），回覆期限以你的通知上印的日期為準。如果你沒有回覆，IRS 會假定你同意提議的變更，並發出法定欠稅通知（有時稱為「90 天信」）。這份之後的通知讓你有權在通知載明的期間內向美國稅務法院（U.S. Tax Court）提出訴願 — 通常是 90 天，如果通知寄給在美國境外的人則是 150 天 — 或者你可以繳納核定的稅額。錯過 CP2000 截止日會讓情況明顯升級。請立刻記下截止日。',
   },
   {
     q: '我收到的 CP2000 上的收入不是我的，該怎麼辦？',
@@ -116,6 +117,12 @@ const RELATED = [
     cat:  'IRS & Tax Issues',
     title: '受損配偶與無辜配偶救濟：Form 8379 與 Form 8857',
     desc:  '配偶的債務或錯誤影響合併申報時的救濟。',
+  },
+  {
+    href: '/library/irs/irs-appeals-process',
+    cat:  'IRS & Tax Issues',
+    title: 'IRS 上訴：如何對查帳或 IRS 決定提出異議',
+    desc:  '如何對查帳調整提出上訴，以及何時向稅務法院提出申請。',
   },
 ]
 

@@ -13,7 +13,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'irs-notice',
-  sourceHash:      '5793121e6abb',
+  sourceHash:      'baf1a00164e0',
   id:            '01',
   title:         '我收到 IRS 的信，該怎麼辦？',
   titleEn:       'I received an IRS letter. What do I do?',
@@ -106,6 +106,18 @@ const RELATED = [
     cat:  'IRS & Tax Issues',
     title: '受損配偶與無辜配偶救濟：Form 8379 與 Form 8857',
     desc:  '配偶的債務或錯誤影響合併申報時的救濟。',
+  },
+  {
+    href: '/library/irs/irs-tax-liens-levies',
+    cat:  'IRS & Tax Issues',
+    title: 'IRS 稅務留置權、扣押與催收上訴',
+    desc:  '留置權、扣押，以及如何對 IRS 催收行動提出上訴。',
+  },
+  {
+    href: '/library/irs/taxpayer-advocate-service',
+    cat:  'IRS & Tax Issues',
+    title: '納稅人權益服務（TAS）：何時與如何求助',
+    desc:  'IRS 問題造成困難時的免費協助。',
   },
 ]
 

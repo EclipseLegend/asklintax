@@ -14,7 +14,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'education-tax-credits',
-  sourceHash:      '2e34c85972ce',
+  sourceHash:      '1f431ccd944e',
   id:            '60',
   title:         '教育抵稅額：AOTC 與 Lifetime Learning Credit 怎麼選？',
   titleEn:       'Education tax credits: AOTC vs. Lifetime Learning Credit',
@@ -33,8 +33,8 @@ const META = {
   sources: [
     { label: 'IRS — 教育抵稅額：AOTC 與 LLC（Education credits: AOTC and LLC）', url: 'https://www.irs.gov/credits-deductions/individuals/education-credits-aotc-and-llc' },
     { label: 'IRS — 教育抵稅額：問與答（Education credits: Questions and answers）', url: 'https://www.irs.gov/credits-deductions/individuals/education-credits-questions-and-answers' },
-    { label: 'IRS — 美國機會抵稅額（American Opportunity Tax Credit）', url: 'https://www.irs.gov/credits-deductions/individuals/aotc' },
-    { label: 'IRS — 終身學習抵稅額（Lifetime Learning Credit）', url: 'https://www.irs.gov/credits-deductions/individuals/llc' },
+    { label: 'IRS — 關於 Form 8863，教育抵稅額（美國機會抵稅額與終身學習抵稅額）', url: 'https://www.irs.gov/forms-pubs/about-form-8863' },
+    { label: 'IRS — 互動式稅務助理：我有資格申報教育抵稅額嗎？（Am I eligible to claim an education credit?）', url: 'https://www.irs.gov/help/ita/am-i-eligible-to-claim-an-education-credit' },
     { label: 'IRS — Publication 970（2025），教育的稅務優惠（Tax Benefits for Education）', url: 'https://www.irs.gov/publications/p970' },
     { label: 'IRS — Form 8863 填寫說明（2025）（Instructions for Form 8863）', url: 'https://www.irs.gov/instructions/i8863' },
   ],
@@ -81,6 +81,12 @@ const RELATED = [
     cat:  'Individuals & Families',
     title: '兒童抵稅額（Child Tax Credit）：誰符合資格、如何申請',
     desc:  '另一項有自己規定的家庭抵稅額。',
+  },
+  {
+    href: '/library/individual/scholarship-fellowship-tax',
+    cat:  'Individuals & Families',
+    title: '獎學金與研究補助：哪些要課稅',
+    desc:  '獎學金與研究補助何時要課稅。',
   },
 ]
 

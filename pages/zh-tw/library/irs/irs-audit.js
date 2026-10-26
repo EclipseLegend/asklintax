@@ -14,7 +14,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'irs-audit',
-  sourceHash: '02eeb951b463',
+  sourceHash: 'b87e190185af',
   id:            '64',
   title:         '被 IRS 查帳（audit），接下來會怎樣？',
   titleEn:       'I\'m being audited by the IRS — what happens next?',
@@ -91,6 +91,12 @@ const RELATED = [
     cat:  'IRS & Tax Issues',
     title: 'IRS 授權書：Form 2848 與 Form 8821 的差別',
     desc:  '授權代理人，或分享你的 IRS 資料。',
+  },
+  {
+    href: '/library/irs/irs-appeals-process',
+    cat:  'IRS & Tax Issues',
+    title: 'IRS 上訴：如何對查帳或 IRS 決定提出異議',
+    desc:  '如何對查帳調整提出上訴，以及何時向稅務法院提出申請。',
   },
 ]
 

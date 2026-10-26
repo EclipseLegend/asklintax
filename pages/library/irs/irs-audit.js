@@ -86,6 +86,12 @@ const RELATED = [
     title: 'IRS Power of Attorney: Form 2848 vs. Form 8821',
     desc:  'Authorize a representative or share your IRS information.',
   },
+  {
+    href: '/library/irs/irs-appeals-process',
+    cat:  'IRS & Tax Issues',
+    title: 'IRS Appeals: How to Dispute an Audit or IRS Decision',
+    desc:  'How to appeal audit changes and when to go to Tax Court.',
+  },
 ]
 
 export default function IrsAuditPage({ translations }) {

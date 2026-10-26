@@ -13,7 +13,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'fbar',
-  sourceHash:      'fcb8cf87bcb7',
+  sourceHash:      'fb4b3d820cea',
   id: '20',
   title: 'FBAR：我需要申報海外銀行帳戶嗎？',
   titleEn: 'FBAR: do I need to report my foreign bank accounts?',
@@ -44,7 +44,7 @@ const FAQS = [
   { q: '沒有申報 FBAR 的罰款是多少？', a: '罰款可能很重。美國法典 Title 31 規定了非故意與故意違規的民事罰款（故意違規的罰款高得多），也可能有刑事處罰。民事罰款上限每年依通膨調整 — 網路上常見的數字，例如非故意違規 $10,000，或故意違規為 $100,000 與帳戶餘額 50% 兩者中較高者，是 2016 年 8 月 1 日以前核定罰款的上限，而不是現在的金額。IRS 是否核定罰款，取決於具體事實與情況。IRS 為逾期申報者提供自願揭露（Voluntary Disclosure）計畫，可以大幅降低罰款 — 如果你有未申報的 FBAR，請諮詢稅務專業人士。' },
   { q: 'FBAR 和 FATCA（Form 8938）有什麼不同？', a: '兩者都要求申報海外帳戶，但是不同的要求，門檻也不同。FBAR（FinCEN 114）：門檻 $10,000，另外向 FinCEN（不是 IRS）申報。FATCA／Form 8938：門檻較高（單身申報人 $50,000，夫妻合併申報 $100,000），隨稅表向 IRS 申報。許多有海外帳戶的人兩者都必須申報。兩者不能互相取代 — 申報其中一項，不代表另一項也完成了。' },
   { q: '我的微信支付或支付寶餘額需要申報嗎？', a: 'IRS 對微信支付、支付寶這類數位支付帳戶的具體指引有限。一般原則是，如果它們被視為外國金融機構的「金融帳戶」，大額餘額可能需要申報。由於指引仍在發展中，如果你在這些平台上有大額餘額，請諮詢熟悉國際稅務申報的 CPA。' },
-  { q: '我以前幾年漏報了 FBAR，該怎麼辦？', a: '不要置之不理。IRS 為逾期申報 FBAR 的人提供兩個主要計畫：簡易申報程序（Streamlined Filing Procedures，適用非故意違規 — 罰款降低，住在海外者可能免罰），以及逾期 FBAR 提交程序（Delinquent FBAR Submission Procedures，適用沒有其他問題的逾期申報者）。主動出面幾乎總是比被查到的結果好。補報逾期 FBAR 之前，請先諮詢稅務律師或 CPA。' },
+  { q: '我以前幾年漏報了 FBAR，該怎麼辦？', a: '不要置之不理。如果 IRS 沒有聯絡過你，而且你沒有在接受調查，IRS 的 FBAR 網頁說要盡快補報逾期的 FBAR，並說明逾期的原因，以把可能的罰款降到最低 — 仍然可能被罰款。如果帳戶的收入也沒有申報，IRS 描述了針對非故意行為的簡易申報程序（Streamlined Filing Compliance Procedures；符合資格的美國居民要繳 5% 的雜項海外罰款，符合資格且住在美國境外的納稅人則沒有這項罰款），以及針對故意行為的刑事調查自願揭露（Criminal Investigation Voluntary Disclosure Practice）。原本的逾期 FBAR 補交程序（Delinquent FBAR Submission Procedures）已不再列在 IRS.gov 上。補報逾期 FBAR 之前，請先諮詢稅務律師或 CPA。' },
 ]
 
 const RELATED = [

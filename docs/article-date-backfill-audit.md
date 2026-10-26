@@ -71,7 +71,7 @@ This audit supports the per-article review dates (`META.updatedDate`) introduced
 | 45 | `foreign-time-deposit-cd` | `null` — no date shown (pending) | 2026-10 | `0bff968` 2026-10-06 (created) | created | Unverified — candidate only |
 | 46 | `foreign-brokerage-account` | `null` — no date shown (pending) | 2026-10 | `18e0e7c` 2026-10-22 (substantive (content lines changed)); `0bff968` 2026-10-06 (created) | substantive (content lines changed) | Unverified — candidate only |
 | 47 | `foreign-life-insurance-cash-value` | `null` — no date shown (pending) | 2026-10 | `0bff968` 2026-10-06 (created) | created | Unverified — candidate only |
-| 48 | `late-fbar` | `null` — no date shown (pending) | 2026-10 | `0bff968` 2026-10-06 (created) | created | Unverified — candidate only |
+| 48 | `late-fbar` | `'October 2026'` — confirmed (Batch 14 correction: removed the retired delinquent FBAR submission procedures and their no-penalty statement; late-filing guidance, streamlined procedures, and voluntary disclosure reverified against current IRS offshore compliance pages) | 2026-10 | `0bff968` 2026-10-06 (created) | created | Confirmed — October 2026 |
 | 49 | `joint-foreign-account-fbar` | `null` — no date shown (pending) | 2026-10 | `0bff968` 2026-10-06 (created) | created | Unverified — candidate only |
 | 50 | `pre-immigration-savings` | `null` — no date shown (pending) | 2026-10 | `0bff968` 2026-10-06 (created) | created | Unverified — candidate only |
 | 51 | `cant-pay-tax-bill` | `'October 2026'` — confirmed (Batch 13 refresh: payment plan fees, eligibility limits, and penalty rates verified against IRS payment pages) | 2026-10 | `9d6f9b3` 2026-10-07 (created) | created | Confirmed — October 2026 |

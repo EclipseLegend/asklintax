@@ -14,7 +14,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'kiddie-tax',
-  sourceHash:      'b103c66e247f',
+  sourceHash:      'd3bb215d5a93',
   id:            '99',
   title:         '兒童稅（Kiddie Tax）：孩子的投資所得何時按父母稅率課稅',
   titleEn:       'Kiddie Tax: When a Child\'s Investment Income Is Taxed at the Parent\'s Rate',
@@ -88,6 +88,12 @@ const RELATED = [
     cat:  'Individuals & Families',
     title: '我需要申報美國聯邦稅表嗎？',
     desc:  '報稅門檻，包括受扶養人。',
+  },
+  {
+    href: '/library/individual/scholarship-fellowship-tax',
+    cat:  'Individuals & Families',
+    title: '獎學金與研究補助：哪些要課稅',
+    desc:  '獎學金與研究補助何時要課稅。',
   },
 ]
 
