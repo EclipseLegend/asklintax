@@ -14,7 +14,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'late-fbar',
-  sourceHash:      '49d67adb3a82',
+  sourceHash:      '13f6da9203c1',
   id:            '48',
   title:         '忘記報 FBAR 怎麼辦？',
   titleEn:       'I forgot to file an FBAR — what should I do?',
@@ -26,7 +26,7 @@ const META = {
   verification:  'official-sources-verified',
   updatedDate:   'October 2026',
   taxYear:       String(TAX_CONFIG.currentTaxYear),
-  confidence:    '概要說明 IRS 對漏報 FBAR 的個人提供的處理方式，內容依據 2026 年 10 月重新查核時 IRS.gov 上的資料：IRS FBAR 網頁（2026 年 7 月審閱）、選項網頁（2026 年 6 月審閱），以及 streamlined 與自願揭露網頁。原本的逾期 FBAR 補交程序網頁已不在 IRS.gov 上，我們也沒有找到 IRS 說明移除原因的正式文件。本文不預測罰款，也不決定哪一種方式適合個別情況；是否故意、是否有未申報收入，以及是否正在接受 IRS 查核，都會改變分析，需要專業建議',
+  confidence:    '概要說明 IRS 對漏報 FBAR 的個人提供的處理方式，內容依據 2026 年 10 月重新查核時 IRS.gov 上的資料：IRS FBAR 網頁（2026 年 7 月審閱）、選項網頁（2026 年 6 月審閱），以及 streamlined 與自願揭露網頁。原本的逾期 FBAR 補交程序網頁已不在 IRS.gov 上，IRS 也沒有公開說明移除的原因。本文不預測罰款，也不決定哪一種方式適合個別情況；是否故意、是否有未申報收入，以及是否正在接受 IRS 查核，都會改變分析，需要專業建議',
   persona:       ['剛知道有 FBAR 的人', '以前年度漏報 FBAR 的新移民', '名字在父母海外帳戶上、從未申報的人', '收到 IRS 關於海外帳戶信件的納稅人'],
   relatedJourney: ['跨境財務'],
   actionRequired: '不要忽視漏報的 FBAR。先釐清兩件事：IRS 是否已經聯絡過你，以及海外帳戶的所有收入是否都已申報並繳稅。這兩件事決定哪一種 IRS 程序可能適用。如果有未申報的收入，或 IRS 已經聯絡你，申報前請先尋求專業建議。',
@@ -46,7 +46,7 @@ const FAQS = [
   },
   {
     q: '我台灣帳戶的利息每年都有報在稅表上，只是沒報 FBAR。適用什麼？',
-    a: '如果 IRS 沒有就逾期的 FBAR 聯絡過你，而且你沒有在接受民事或刑事調查，IRS 的 FBAR 網頁說要盡快補報逾期的 FBAR，並說明逾期的原因，以把可能的罰款降到最低。逾期申報仍然是違規，可能會被罰款。IRS 以前描述過另一個「逾期 FBAR 補交程序」，表示在這種情況下不會處以罰款，但那個網頁已經不在 IRS.gov 上，這個程序也不在 IRS 目前列出的選項中。不要指望會自動免罰 — 請考慮尋求專業建議。',
+    a: '如果 IRS 沒有就逾期的 FBAR 聯絡過你，而且你沒有在接受民事或刑事調查，IRS 的 FBAR 網頁說要盡快補報逾期的 FBAR，並說明逾期的原因，以把可能的罰款降到最低。逾期申報仍然是違規，可能會被罰款。IRS 以前描述過另一個「逾期 FBAR 補交程序」，表示在這種情況下不會處以罰款，但那個網頁已經不在 IRS.gov 上，IRS 也沒有公開說明移除的原因，這個程序也不在 IRS 目前列出的選項中。不要指望會自動免罰 — 請考慮尋求專業建議。',
   },
   {
     q: '如果我連利息也沒報呢？',
@@ -58,7 +58,7 @@ const FAQS = [
   },
   {
     q: '逾期 FBAR 補交程序怎麼了？',
-    a: '那個程序的 IRS 網頁現在會顯示錯誤，而 IRS 的選項網頁（2026 年 6 月 30 日審閱）只列出 Criminal Investigation Voluntary Disclosure Practice、streamlined filing compliance procedures，以及逾期國際資訊申報表補交程序 — 後者處理的是 Form 3520 等 IRS 資訊申報表，並沒有提到 FBAR。我們沒有找到 IRS 說明這項改變的正式公告。IRS 的 FBAR 網頁仍然說明可以附上說明補報逾期的 FBAR，但沒有任何不會被罰的保證。',
+    a: '那個程序的 IRS 網頁現在會顯示錯誤，而 IRS 的選項網頁（2026 年 6 月 30 日審閱）只列出 Criminal Investigation Voluntary Disclosure Practice、streamlined filing compliance procedures，以及逾期國際資訊申報表補交程序 — 後者處理的是 Form 3520 等 IRS 資訊申報表，並沒有提到 FBAR。這個網頁已經不在 IRS.gov 上，IRS 也沒有公開說明移除的原因。IRS 的 FBAR 網頁仍然說明可以附上說明補報逾期的 FBAR，但沒有任何不會被罰的保證。',
   },
 ]
 
@@ -129,7 +129,7 @@ export default function LateFbarZhTwPage({ translations }) {
           IRS 的 FBAR 網頁（2026 年 7 月 30 日審閱）表示，逾期申報或沒有申報 FBAR 都是違規，可能會被罰款。如果 IRS <strong>沒有</strong>就逾期的 FBAR 聯絡過你，而且你<strong>沒有</strong>在接受民事或刑事調查，網頁說要<strong>盡快補報逾期的 FBAR，以把可能的罰款降到最低</strong>，並依照 FinCEN 的說明解釋逾期的原因。FBAR 透過 FinCEN 的 BSA E-Filing System 以電子方式申報。
         </p>
         <p>
-          IRS 以前針對這種情況描述過另一個<strong>逾期 FBAR 補交程序</strong>，並表示如果帳戶收入已正確申報並繳稅，就不會處以罰款。那個網頁已經不在 IRS.gov 上，IRS 的選項網頁現在只列出自願揭露、streamlined 程序，以及逾期國際資訊申報表補交程序（處理的是 Form 3520 等 IRS 資訊申報表，並沒有提到 FBAR）。我們沒有找到 IRS 說明這項改變的正式通知。由於有這樣的不確定性，請不要依賴舊資料中「保證不罰」的說法 — 如實說明你的原因，並考慮尋求專業建議。
+          IRS 以前針對這種情況描述過另一個<strong>逾期 FBAR 補交程序</strong>，並表示如果帳戶收入已正確申報並繳稅，就不會處以罰款。那個網頁已經不在 IRS.gov 上，IRS 也沒有公開說明移除的原因。IRS 的選項網頁現在只列出自願揭露、streamlined 程序，以及逾期國際資訊申報表補交程序（處理的是 Form 3520 等 IRS 資訊申報表，並沒有提到 FBAR）。由於有這樣的不確定性，請不要依賴舊資料中「保證不罰」的說法 — 如實說明你的原因，並考慮尋求專業建議。
         </p>
 
         <h2>如果有未申報的收入</h2>

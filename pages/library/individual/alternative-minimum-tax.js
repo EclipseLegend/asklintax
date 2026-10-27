@@ -121,7 +121,7 @@ export default function AlternativeMinimumTaxPage({ translations }) {
         <ul>
           <li><strong>Taxes (line 2a):</strong> state and local income, sales, and property taxes deducted on Schedule A are added back. If you take the standard deduction, it is added back instead.</li>
           <li><strong>Incentive stock options (line 2i):</strong> the spread at exercise is generally included for the AMT if you keep the shares past the end of the year. If you sell in the same year, no adjustment is needed.</li>
-          <li><strong>Enhanced deduction for seniors (2025):</strong> the 2025 Instructions for Form 6251 say this new deduction is treated as a personal exemption and added back for the AMT (line 1a).</li>
+          <li><strong>Enhanced deduction for seniors (2025):</strong> the 2025 Instructions for Form 6251 say this new deduction is treated as a personal exemption and added back for the AMT (handled on lines 1a–1b).</li>
           <li><strong>Others</strong> include certain tax-exempt private activity bond interest, depreciation differences, and the different AMT treatment of net operating losses and passive activities.</li>
         </ul>
 
@@ -154,7 +154,7 @@ export default function AlternativeMinimumTaxPage({ translations }) {
 
         <h2>2026 Form 6251 is still a draft</h2>
         <p>
-          An IRS draft of the 2026 Form 6251 (created May 26, 2026) shows the new line 5 thresholds ($500,000 and $1,000,000) and the 2026 28% bracket ($244,500, with $4,890 subtracted). Drafts are not for filing and can change before the final form is released.
+          An IRS draft of the 2026 Form 6251 (created May 26, 2026) shows the new line 5 thresholds ($500,000 and $1,000,000) and the 2026 28% bracket ($244,500, with $4,890 subtracted). Drafts are not for filing and can change before the final form is released. When this guide was reviewed in October 2026, the IRS had not yet published 2026 Instructions for Form 6251, in draft or final form; the 50% phase-out rate above comes from the final Rev. Proc. 2025-32 amounts, not from those instructions.
         </p>
 
         <h2>Examples (simplified)</h2>

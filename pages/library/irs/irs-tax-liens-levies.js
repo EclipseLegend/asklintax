@@ -16,7 +16,7 @@ const META = {
   categoryHref:  '/library/irs',
   userEmotion:   'anxious',
   difficulty:    'Intermediate',
-  readTime:      '9 min read',
+  readTime:      '10 min read',
   verification:  'official-sources-verified',
   updatedDate:   'October 2026',
   taxYear:       String(TAX_CONFIG.currentTaxYear),
@@ -29,6 +29,9 @@ const META = {
     { label: 'IRS — Publication 1660 (Rev. January 2020), Collection Appeal Rights', url: 'https://www.irs.gov/pub/irs-pdf/p1660.pdf' },
     { label: 'IRS — Publication 1450 (Rev. July 2018), Instructions for Requesting a Certificate of Release of Federal Tax Lien', url: 'https://www.irs.gov/pub/irs-pdf/p1450.pdf' },
     { label: 'IRS — Form 12153, Request for a Collection Due Process or Equivalent Hearing', url: 'https://www.irs.gov/pub/irs-pdf/f12153.pdf' },
+    { label: 'IRS — Internal Revenue Manual 5.11.2, Serving Levies, Releasing Levies and Returning Property', url: 'https://www.irs.gov/irm/part5/irm_05-011-002' },
+    { label: 'IRS — Publication 4528 (Rev. March 2018), Making an Administrative Wrongful Levy Claim', url: 'https://www.irs.gov/pub/irs-pdf/p4528.pdf' },
+    { label: 'IRS — Publication 5149 (Rev. May 2018), Making an Administrative Return of Property Claim Under IRC Section 6343(d)', url: 'https://www.irs.gov/pub/irs-pdf/p5149.pdf' },
     { label: 'IRS — Form 9423, Collection Appeal Request', url: 'https://www.irs.gov/pub/irs-pdf/f9423.pdf' },
     { label: 'IRS — Revocation or denial of passport in cases of certain unpaid taxes', url: 'https://www.irs.gov/businesses/small-businesses-self-employed/revocation-or-denial-of-passport-in-cases-of-certain-unpaid-taxes' },
     { label: 'IRS — Rev. Proc. 2024-40 (2025 inflation adjustments)', url: 'https://www.irs.gov/pub/irs-drop/rp-24-40.pdf' },
@@ -143,6 +146,27 @@ export default function IrsTaxLiensLeviesPage({ translations }) {
           <li><strong>Exempt property</strong> includes unemployment benefits, certain annuity and pension payments, necessary schoolbooks and clothing, undelivered mail, and limited amounts of household items and tools of a trade.</li>
           <li><strong>The IRS must release a levy</strong> if, for example, you paid the debt, the collection period ended before it was issued, you entered into a payment plan that does not allow it to continue, or it creates an economic hardship.</li>
         </ul>
+
+        <h2>Getting levied property or money back</h2>
+        <p>
+          These are separate remedies with separate time limits. Do not apply one deadline to another, and act promptly.
+        </p>
+        <ArticleTable
+          head={['Who and what', 'Remedy', 'Deadline (levies or notices on or after March 23, 2017)', 'Source']}
+          rows={[
+            ['You (the taxpayer): levied property, other than money, still held by the IRS and not sold', 'Written return of property claim (IRC 6343(d))', 'Any time before the IRS sells the property', 'Publication 5149; IRM 5.11.2'],
+            ['You: levied property that the IRS has sold', 'Written claim for the sale proceeds (IRC 6343(d))', '2 years from the date of the levy', 'Publication 5149'],
+            ['You: money turned over to the IRS, such as from a bank or wage levy', 'Written claim for return of the money (IRC 6343(d))', '2 years from the date shown on the levy form', 'Publication 5149; Publication 1660; IRM 5.11.2'],
+            ['Someone else whose property the IRS levied for your debt (wrongful levy)', 'Administrative wrongful levy claim (IRC 6343(b))', 'Seized property not yet sold: any time. Sold property: 2 years from the date the notice of seizure was given. Money turned over: 2 years from the date the notice of levy was delivered', 'Publication 4528; IRM 5.11.2'],
+            ['Same third party', 'Lawsuit in federal district court (IRC 7426)', '2 years from the date the notice of seizure or levy was delivered; if a timely administrative claim is filed, extended by the shorter of 12 months from filing it or 6 months from the IRS\'s notice of disallowance', 'Publication 4528'],
+          ]}
+        />
+        <p>
+          For levies and notices on or before March 22, 2017, these periods were 9 months instead of 2 years, and those deadlines have now passed. Only the taxpayer can make a return of property claim; a third party uses the wrongful levy rules. If the IRS denies a taxpayer's claim, the denial can be appealed under the Collection Appeals Program.
+        </p>
+        <p>
+          The IRS returns property or money under IRC 6343(d) only when it determines that a ground applies — for example, the levy was premature or not made under IRS procedures, a later payment plan allows return, return will help collect the tax, or return is in the best interest of both you and the government. Publication 594 (Rev. January 2026) still says "generally up to 9 months" for returning seized money; that matches only the old rule for levies on or before March 22, 2017, while Publication 1660, Publication 5149, and the Internal Revenue Manual (reviewed April 2026) give 2 years for later levies. A refund claim for tax you believe you did not owe follows different rules that this guide does not cover.
+        </p>
 
         <h2>Collection Due Process vs. the Collection Appeals Program</h2>
         <ArticleTable

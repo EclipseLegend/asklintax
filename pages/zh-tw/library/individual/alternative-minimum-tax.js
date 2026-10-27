@@ -14,7 +14,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'alternative-minimum-tax',
-  sourceHash:      'f9a4cee1d7a4',
+  sourceHash:      'ada96e11d85f',
   id:            '120',
   title:         '替代性最低稅（AMT）：2025 與 2026 年規定',
   titleEn:       'Alternative Minimum Tax (AMT): 2025 and 2026 Rules',
@@ -127,7 +127,7 @@ export default function AlternativeMinimumTaxPage({ translations }) {
         <ul>
           <li><strong>稅款（第 2a 行）：</strong>在 Schedule A 上扣除的州及地方所得稅、銷售稅與財產稅要加回。如果你用標準扣除額，則是加回標準扣除額。</li>
           <li><strong>激勵型股票選擇權（第 2i 行）：</strong>如果你持有股票超過年底，行使時的差價通常要計入 AMT。如果在同一年賣出，就不需要調整。</li>
-          <li><strong>高齡者加強扣除額（2025 年）：</strong>2025 年 Form 6251 說明指出，這項新扣除額視為個人免稅額，在 AMT 中要加回（第 1a 行）。</li>
+          <li><strong>高齡者加強扣除額（2025 年）：</strong>2025 年 Form 6251 說明指出，這項新扣除額視為個人免稅額，在 AMT 中要加回（在第 1a–1b 行處理）。</li>
           <li><strong>其他項目</strong>包括某些免稅的私人活動債券利息、折舊差異，以及淨營業虧損與被動活動在 AMT 中的不同處理。</li>
         </ul>
 
@@ -160,7 +160,7 @@ export default function AlternativeMinimumTaxPage({ translations }) {
 
         <h2>2026 年 Form 6251 仍是草稿</h2>
         <p>
-          IRS 的 2026 年 Form 6251 草稿（2026 年 5 月 26 日建立）列出新的第 5 行門檻（$500,000 與 $1,000,000）以及 2026 年 28% 級距（$244,500，減去 $4,890）。草稿不可用於申報，正式表格發布前可能會變動。
+          IRS 的 2026 年 Form 6251 草稿（2026 年 5 月 26 日建立）列出新的第 5 行門檻（$500,000 與 $1,000,000）以及 2026 年 28% 級距（$244,500，減去 $4,890）。草稿不可用於申報，正式表格發布前可能會變動。本文於 2026 年 10 月審閱時，IRS 尚未發布 2026 年 Form 6251 說明（草稿或正式版皆無）；上面的 50% 遞減率來自正式的 Rev. Proc. 2025-32 金額，而不是這份說明。
         </p>
 
         <h2>範例（簡化）</h2>

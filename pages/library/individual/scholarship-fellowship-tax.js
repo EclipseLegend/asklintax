@@ -54,7 +54,7 @@ const FAQS = [
   },
   {
     q: 'I am an international student. How is my scholarship taxed?',
-    a: 'The same degree-candidate and qualified-expense rules apply. For nonresident aliens, a scholarship from a U.S. source that is not fully tax free is generally subject to 14% withholding (or a lower treaty rate) for F, J, M, or Q visa holders, and is reported on Form 1042-S. Some tax treaties exempt scholarships. Grants for activities performed outside the U.S. are not U.S.-source income.',
+    a: 'The same degree-candidate and qualified-expense rules apply. For nonresident aliens on F, J, M, or Q visas, the taxable part of a U.S.-source scholarship that is not payment for services is generally withheld at 14% (or a lower treaty rate) and reported on Form 1042-S. Rates differ in other situations — for example, 30% (or a lower treaty rate) for some non-degree grants, and wage withholding for payment for services. Some tax treaties exempt scholarships. Grants for activities performed outside the U.S. are not U.S.-source income.',
   },
 ]
 

@@ -14,7 +14,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'irs-tax-liens-levies',
-  sourceHash:      '80c6a3aaaf4f',
+  sourceHash:      'a994508fd8d1',
   id:            '117',
   title:         'IRS 稅務留置權、扣押與催收上訴',
   titleEn:       'IRS Tax Liens, Levies, and Collection Appeals',
@@ -22,7 +22,7 @@ const META = {
   categoryHref:  '/library/irs',
   userEmotion:   'anxious',
   difficulty:    'Intermediate',
-  readTime:      '9 min read',
+  readTime:      '10 min read',
   verification:  'official-sources-verified',
   updatedDate:   'October 2026',
   taxYear:       String(TAX_CONFIG.currentTaxYear),
@@ -35,6 +35,9 @@ const META = {
     { label: 'IRS — Publication 1660（2020 年 1 月版），催收上訴權利', url: 'https://www.irs.gov/pub/irs-pdf/p1660.pdf' },
     { label: 'IRS — Publication 1450（2018 年 7 月版），申請聯邦稅務留置權解除證明的說明', url: 'https://www.irs.gov/pub/irs-pdf/p1450.pdf' },
     { label: 'IRS — Form 12153，申請催收正當程序或同等聽證', url: 'https://www.irs.gov/pub/irs-pdf/f12153.pdf' },
+    { label: 'IRS — 內部稅收手冊（IRM）5.11.2，送達扣押、解除扣押與返還財產', url: 'https://www.irs.gov/irm/part5/irm_05-011-002' },
+    { label: 'IRS — Publication 4528（2018 年 3 月版），提出錯誤扣押行政索賠', url: 'https://www.irs.gov/pub/irs-pdf/p4528.pdf' },
+    { label: 'IRS — Publication 5149（2018 年 5 月版），依 IRC 第 6343(d) 條申請返還財產', url: 'https://www.irs.gov/pub/irs-pdf/p5149.pdf' },
     { label: 'IRS — Form 9423，催收上訴申請', url: 'https://www.irs.gov/pub/irs-pdf/f9423.pdf' },
     { label: 'IRS — 特定欠稅案件的護照撤銷或拒發', url: 'https://www.irs.gov/businesses/small-businesses-self-employed/revocation-or-denial-of-passport-in-cases-of-certain-unpaid-taxes' },
     { label: 'IRS — Rev. Proc. 2024-40（2025 年通膨調整）', url: 'https://www.irs.gov/pub/irs-drop/rp-24-40.pdf' },
@@ -149,6 +152,27 @@ export default function IrsTaxLiensLeviesPage({ translations }) {
           <li><strong>不得扣押的財產</strong>包括失業給付、某些年金與退休金給付、必要的課本與衣物、尚未投遞的郵件，以及一定金額內的家用物品與職業工具。</li>
           <li><strong>IRS 必須解除扣押的情況</strong>，例如你已經付清債務、催收期間在扣押發出前已經結束、你簽了不允許扣押繼續的分期付款協議，或扣押造成經濟困難。</li>
         </ul>
+
+        <h2>拿回被扣押的財產或金錢</h2>
+        <p>
+          以下是不同的救濟方式，各有不同的期限。不要把一種期限套用到另一種，並請盡快行動。
+        </p>
+        <ArticleTable
+          head={['誰與什麼財產', '救濟方式', '期限（2017 年 3 月 23 日或之後的扣押或通知）', '來源']}
+          rows={[
+            ['你（納稅人）：金錢以外、仍由 IRS 持有且尚未出售的被扣押財產', '書面申請返還財產（IRC 6343(d)）', 'IRS 出售該財產之前隨時可以申請', 'Publication 5149；IRM 5.11.2'],
+            ['你：IRS 已出售的被扣押財產', '書面申請返還出售所得（IRC 6343(d)）', '自扣押日起 2 年', 'Publication 5149'],
+            ['你：已交給 IRS 的金錢，例如銀行帳戶或薪資扣押', '書面申請返還金錢（IRC 6343(d)）', '自扣押表格上所示日期起 2 年', 'Publication 5149；Publication 1660；IRM 5.11.2'],
+            ['財產被 IRS 拿去抵你債務的其他人（錯誤扣押）', '錯誤扣押行政索賠（IRC 6343(b)）', '被查封財產尚未出售：隨時。已出售的財產：自查封通知交付之日起 2 年。已交出的金錢：自扣押通知送達之日起 2 年', 'Publication 4528；IRM 5.11.2'],
+            ['同一位第三人', '向聯邦地方法院起訴（IRC 7426）', '自查封或扣押通知送達之日起 2 年；如果及時提出行政索賠，可延長「提出索賠後 12 個月」或「IRS 寄出駁回通知後 6 個月」兩者中較短的期間', 'Publication 4528'],
+          ]}
+        />
+        <p>
+          2017 年 3 月 22 日或之前的扣押與通知，這些期間是 9 個月而不是 2 年，而且那些期限都已經過了。只有納稅人本人可以申請返還財產；第三人要適用錯誤扣押的規定。如果 IRS 拒絕納稅人的申請，可以透過催收上訴計畫上訴。
+        </p>
+        <p>
+          IRS 只有在認定有適用的理由時，才會依 IRC 6343(d) 返還財產或金錢 — 例如扣押過早或沒有依照 IRS 程序、之後簽的分期付款協議允許返還、返還有助於收取稅款，或返還符合你與政府雙方的最佳利益。Publication 594（2026 年 1 月版）仍寫著返還被查封的金錢「通常最多 9 個月」；這只符合 2017 年 3 月 22 日或之前扣押的舊規定，而 Publication 1660、Publication 5149 與內部稅收手冊（2026 年 4 月審閱）對之後的扣押規定為 2 年。如果你認為自己根本不欠這筆稅而要申請退稅，適用的是另一套規定，本文不涵蓋。
+        </p>
 
         <h2>催收正當程序與催收上訴計畫</h2>
         <ArticleTable

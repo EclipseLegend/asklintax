@@ -14,7 +14,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'scholarship-fellowship-tax',
-  sourceHash:      'dbadb989a6a9',
+  sourceHash:      '2cc7cc1ea7cf',
   id:            '119',
   title:         '獎學金與研究補助：哪些要課稅',
   titleEn:       'Scholarships and Fellowships: What Is Taxable',
@@ -60,7 +60,7 @@ const FAQS = [
   },
   {
     q: '我是國際學生，我的獎學金怎麼課稅？',
-    a: '同樣適用學位候選人與合格費用的規定。對非居民外國人來說，來自美國來源、而且沒有完全免稅的獎學金，持 F、J、M 或 Q 簽證者通常按 14%（或較低的協定稅率）預扣，並列在 Form 1042-S 上。有些稅務協定免除獎學金的稅。在美國境外進行活動的補助，不屬於美國來源所得。',
+    a: '同樣適用學位候選人與合格費用的規定。對持 F、J、M 或 Q 簽證的非居民外國人來說，美國來源獎學金中不屬於服務報酬的應稅部分，通常按 14%（或較低的協定稅率）預扣，並列在 Form 1042-S 上。其他情況的稅率不同 — 例如某些非學位補助按 30%（或較低的協定稅率），服務報酬則像薪資一樣預扣。有些稅務協定免除獎學金的稅。在美國境外進行活動的補助，不屬於美國來源所得。',
   },
 ]
 
