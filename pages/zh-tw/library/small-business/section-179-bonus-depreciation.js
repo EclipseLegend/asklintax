@@ -14,7 +14,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'section-179-bonus-depreciation',
-  sourceHash:      'b7b72ef94cdd',
+  sourceHash:      '53afb4180548',
   id:            '80',
   title:         '第 179 條與加速折舊：2025 與 2026 年規定',
   titleEn:       'Section 179 and Bonus Depreciation: 2025 and 2026 Rules',
@@ -85,6 +85,12 @@ const RELATED = [
     cat:  'Small Business',
     title: '家庭辦公室扣除額：我符合資格嗎？',
     desc:  '家庭辦公室的折舊有自己的規定。',
+  },
+  {
+    href: '/library/rental/repairs-vs-improvements',
+    cat:  'Real Estate & Airbnb',
+    title: '修繕還是改良：財產支出何時可扣除、何時要資本化',
+    desc:  '財產支出是現在扣除還是要折舊。',
   },
 ]
 

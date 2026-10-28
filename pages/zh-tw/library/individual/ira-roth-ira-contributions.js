@@ -14,7 +14,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'ira-roth-ira-contributions',
-  sourceHash:      '5d0b8195fd3e',
+  sourceHash:      '99d14eb301fd',
   id:            '96',
   title:         '傳統 IRA 與 Roth IRA 存款：2025 與 2026 年上限與收入規定',
   titleEn:       'Traditional and Roth IRA Contributions: 2025 and 2026 Limits and Income Rules',
@@ -94,6 +94,12 @@ const RELATED = [
     cat: 'Individuals & Families',
     title: '健康儲蓄帳戶（HSA）：2025 與 2026 年上限與 2026 年新規定',
     desc: '另一種有稅務優惠、上限分開計算的帳戶。',
+  },
+  {
+    href: '/library/individual/inherited-ira-rules',
+    cat:  'Individuals & Families',
+    title: '繼承的 IRA：10 年規則與受益人提領',
+    desc:  '繼承 IRA 後的提領規定。',
   },
 ]
 

@@ -80,6 +80,12 @@ const RELATED = [
     title: 'Home office deduction — do I qualify?',
     desc:  'Depreciation of a home office follows its own rules.',
   },
+  {
+    href: '/library/rental/repairs-vs-improvements',
+    cat:  'Real Estate & Airbnb',
+    title: 'Repairs vs. Improvements: Deducting or Capitalizing Property Costs',
+    desc:  'Whether a property cost is deducted now or depreciated.',
+  },
 ]
 
 export default function Section179BonusDepreciationPage({ translations }) {

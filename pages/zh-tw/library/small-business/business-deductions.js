@@ -13,7 +13,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'business-deductions',
-  sourceHash:      'c908378cf87b',
+  sourceHash:      'dd637961cd54',
   id:            '14',
   title:         '小型企業老闆可以扣除哪些費用？',
   titleEn:       'What can I deduct as a small business owner?',
@@ -93,6 +93,12 @@ const RELATED = [
     cat:   'Business Formation',
     title: '什麼是 LLC？我需要成立嗎？',
     desc:  'LLC 不會改變你可以扣除的項目，但會影響你的申報方式與需要保留的紀錄。',
+  },
+  {
+    href: '/library/rental/repairs-vs-improvements',
+    cat:  'Real Estate & Airbnb',
+    title: '修繕還是改良：財產支出何時可扣除、何時要資本化',
+    desc:  '財產支出是現在扣除還是要折舊。',
   },
 ]
 

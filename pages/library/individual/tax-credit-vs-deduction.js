@@ -99,6 +99,12 @@ const RELATED = [
     title: 'Earned Income Tax Credit (EITC): 2025 and 2026 Income Limits and Rules',
     desc:  'A refundable credit for working families.',
   },
+  {
+    href: '/library/individual/medical-expense-deduction',
+    cat:  'Individuals & Families',
+    title: 'Medical Expense Deduction: The 7.5% Rule and Whose Expenses Count',
+    desc:  'Deducting medical costs, including for dependents.',
+  },
 ]
 
 export default function TaxCreditVsDeductionPage({ translations }) {

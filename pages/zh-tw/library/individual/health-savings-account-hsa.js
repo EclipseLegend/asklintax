@@ -14,7 +14,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'health-savings-account-hsa',
-  sourceHash:      'b97933eeff00',
+  sourceHash:      '38416aac4cd3',
   id:            '102',
   title:         '健康儲蓄帳戶（HSA）：2025 與 2026 年上限與 2026 年新規定',
   titleEn:       'Health Savings Accounts (HSA): 2025 and 2026 Limits and the New 2026 Rules',
@@ -97,6 +97,12 @@ const RELATED = [
     cat:  'Individuals & Families',
     title: '保費抵稅額與 Form 8962：2025 與 2026 年的 Marketplace 健康保險',
     desc:  'Marketplace 健康保險、Form 8962 與預付款的償還。',
+  },
+  {
+    href: '/library/individual/medical-expense-deduction',
+    cat:  'Individuals & Families',
+    title: '醫療費用扣除：7.5% 門檻與哪些人的費用可以算',
+    desc:  '扣除醫療費用，包括受扶養人的費用。',
   },
 ]
 

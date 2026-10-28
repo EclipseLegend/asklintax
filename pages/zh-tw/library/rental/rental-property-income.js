@@ -14,7 +14,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'rental-property-income',
-  sourceHash:      'ec895a93838d',
+  sourceHash:      'a8867e8373f8',
   id:            '56',
   title:         '出租房子或公寓，租金收入怎麼課稅？',
   titleEn:       'Renting out a house or apartment — how is rental income taxed?',
@@ -78,6 +78,18 @@ const RELATED = [
     cat:  'Real Estate & Airbnb',
     title: '海外出租房產與美國稅務',
     desc:  '出租台灣或其他國家的公寓。',
+  },
+  {
+    href: '/library/rental/passive-activity-loss-rules',
+    cat:  'Real Estate & Airbnb',
+    title: '出租虧損與被動活動規定：$25,000 特別扣除額與房地產專業人士',
+    desc:  '出租虧損何時可以抵扣薪資或其他收入。',
+  },
+  {
+    href: '/library/rental/repairs-vs-improvements',
+    cat:  'Real Estate & Airbnb',
+    title: '修繕還是改良：財產支出何時可扣除、何時要資本化',
+    desc:  '財產支出是現在扣除還是要折舊。',
   },
 ]
 

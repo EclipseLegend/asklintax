@@ -14,7 +14,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'self-employment-tax',
-  sourceHash:      '61ecc5a0c646',
+  sourceHash:      '4f0c38e332bb',
   id:            '57',
   title:         '什麼是自雇稅？怎麼計算？',
   titleEn:       'What is self-employment tax and how does it work?',
@@ -86,6 +86,12 @@ const RELATED = [
     cat:  'Small Business & Self-Employment',
     title: '是興趣還是事業？2025 與 2026 年副業收入如何課稅',
     desc:  '你的副業是興趣還是事業。',
+  },
+  {
+    href: '/library/business-formation/partnership-llc-taxes',
+    cat:  'Business Formation & Structure',
+    title: '多成員 LLC 與合夥企業稅務：Form 1065 與 Schedule K-1',
+    desc:  '多成員 LLC 如何申報 Form 1065 與 K-1。',
   },
 ]
 

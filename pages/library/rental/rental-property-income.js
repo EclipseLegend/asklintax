@@ -73,6 +73,18 @@ const RELATED = [
     title: 'Foreign rental property and U.S. taxes',
     desc:  'Renting out an apartment in Taiwan or elsewhere abroad.',
   },
+  {
+    href: '/library/rental/passive-activity-loss-rules',
+    cat:  'Real Estate & Airbnb',
+    title: 'Rental Losses and the Passive Activity Rules: The $25,000 Allowance and Real Estate Professionals',
+    desc:  'When a rental loss can offset wages or other income.',
+  },
+  {
+    href: '/library/rental/repairs-vs-improvements',
+    cat:  'Real Estate & Airbnb',
+    title: 'Repairs vs. Improvements: Deducting or Capitalizing Property Costs',
+    desc:  'Whether a property cost is deducted now or depreciated.',
+  },
 ]
 
 export default function RentalPropertyIncomePage({ translations }) {

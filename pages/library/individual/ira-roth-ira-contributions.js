@@ -89,6 +89,12 @@ const RELATED = [
     title: 'Health Savings Accounts (HSA): 2025 and 2026 Limits and the New 2026 Rules',
     desc: 'Another tax-advantaged account with separate limits.',
   },
+  {
+    href: '/library/individual/inherited-ira-rules',
+    cat:  'Individuals & Families',
+    title: 'Inherited IRAs: The 10-Year Rule and Beneficiary Distributions',
+    desc:  'Distribution rules after inheriting an IRA.',
+  },
 ]
 
 export default function IraRothIraContributionsPage({ translations }) {

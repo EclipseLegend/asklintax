@@ -45,6 +45,7 @@ const RELATED = [
   { href: '/library/business-formation/llc-vs-scorp', cat: 'Business Formation', title: 'LLC vs S-Corp: which is right for your business?', desc: 'Once you have an LLC, the next decision is whether to elect S-Corp taxation. Here\'s a clear comparison.' },
   { href: '/library/business-formation/ein', cat: 'Business Formation', title: 'How to apply for an EIN (step-by-step)', desc: 'An EIN is your business\'s tax ID number. You\'ll need it to open a business bank account and hire employees.' },
   { href: '/library/small-business/quarterly-taxes', cat: 'Small Business', title: 'Quarterly estimated taxes: who pays and how to calculate', desc: 'LLC owners pay estimated taxes four times a year. Here\'s what you owe and how to avoid penalties.' },
+  { href: '/library/business-formation/partnership-llc-taxes', cat: 'Business Formation & Structure', title: 'Multi-Member LLC and Partnership Taxes: Form 1065 and Schedule K-1', desc: 'How a multi-member LLC files Form 1065 and K-1s.' },
 ]
 
 export default function LLCBasicsPage({ translations }) {

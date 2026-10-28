@@ -92,6 +92,12 @@ const RELATED = [
     title: 'Premium Tax Credit and Form 8962: Marketplace Health Insurance in 2025 and 2026',
     desc:  'Marketplace health insurance, Form 8962, and repaying advance payments.',
   },
+  {
+    href: '/library/individual/medical-expense-deduction',
+    cat:  'Individuals & Families',
+    title: 'Medical Expense Deduction: The 7.5% Rule and Whose Expenses Count',
+    desc:  'Deducting medical costs, including for dependents.',
+  },
 ]
 
 export default function HealthSavingsAccountPage({ translations }) {

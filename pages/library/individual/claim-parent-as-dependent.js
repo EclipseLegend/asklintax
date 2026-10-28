@@ -78,6 +78,12 @@ const RELATED = [
     title: 'Filing Status and Head of Household: 2025 and 2026 Rules',
     desc:  'Choosing the right filing status, including head of household.',
   },
+  {
+    href: '/library/individual/medical-expense-deduction',
+    cat:  'Individuals & Families',
+    title: 'Medical Expense Deduction: The 7.5% Rule and Whose Expenses Count',
+    desc:  'Deducting medical costs, including for dependents.',
+  },
 ]
 
 export default function ClaimParentAsDependentPage({ translations }) {

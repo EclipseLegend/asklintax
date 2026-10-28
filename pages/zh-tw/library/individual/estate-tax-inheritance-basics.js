@@ -14,7 +14,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'estate-tax-inheritance-basics',
-  sourceHash:      'ffbdc483a260',
+  sourceHash:      '7a4ce02c717e',
   id:            '109',
   title:         '遺產稅與繼承基本概念：2025 與 2026 年免稅額、Form 706 與非居民',
   titleEn:       'Estate Tax and Inheritance Basics: 2025 and 2026 Exclusions, Form 706, and Nonresidents',
@@ -92,6 +92,12 @@ const RELATED = [
     cat:  'Individuals & Families',
     title: '非居民配偶：我們可以合併報稅嗎？',
     desc:  '配偶不是美國公民時的所得稅規定。',
+  },
+  {
+    href: '/library/individual/inherited-ira-rules',
+    cat:  'Individuals & Families',
+    title: '繼承的 IRA：10 年規則與受益人提領',
+    desc:  '繼承 IRA 後的提領規定。',
   },
 ]
 

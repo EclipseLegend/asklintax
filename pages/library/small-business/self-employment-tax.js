@@ -81,6 +81,12 @@ const RELATED = [
     title: 'Hobby or Business? How Side Income Is Taxed in 2025 and 2026',
     desc:  'Whether your side activity is a hobby or a business.',
   },
+  {
+    href: '/library/business-formation/partnership-llc-taxes',
+    cat:  'Business Formation & Structure',
+    title: 'Multi-Member LLC and Partnership Taxes: Form 1065 and Schedule K-1',
+    desc:  'How a multi-member LLC files Form 1065 and K-1s.',
+  },
 ]
 
 export default function SelfEmploymentTaxPage({ translations }) {

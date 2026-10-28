@@ -85,6 +85,12 @@ const RELATED = [
     title: 'How to apply for an EIN (step-by-step)',
     desc:  'You\'ll need an EIN before you can run payroll as an S-Corp. Here\'s how to apply online for free from the IRS.',
   },
+  {
+    href: '/library/business-formation/partnership-llc-taxes',
+    cat:  'Business Formation & Structure',
+    title: 'Multi-Member LLC and Partnership Taxes: Form 1065 and Schedule K-1',
+    desc:  'How a multi-member LLC files Form 1065 and K-1s.',
+  },
 ]
 
 export default function LLCvsSCorpPage({ translations }) {

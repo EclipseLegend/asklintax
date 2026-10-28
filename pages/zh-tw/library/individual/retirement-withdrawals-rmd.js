@@ -14,7 +14,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'retirement-withdrawals-rmd',
-  sourceHash:      'bf28d57dd885',
+  sourceHash:      '30f056573ab0',
   id:            '98',
   title:         '退休帳戶提領與 RMD：稅、10% 罰款與期限',
   titleEn:       'Retirement Account Withdrawals and RMDs: Taxes, the 10% Penalty, and Deadlines',
@@ -110,6 +110,12 @@ const RELATED = [
     cat:  'Individuals & Families',
     title: '離婚與稅務：贍養費、子女撫養費、財產與退休帳戶',
     desc:  '離婚時的贍養費、子女撫養費與財產分配。',
+  },
+  {
+    href: '/library/individual/inherited-ira-rules',
+    cat:  'Individuals & Families',
+    title: '繼承的 IRA：10 年規則與受益人提領',
+    desc:  '繼承 IRA 後的提領規定。',
   },
 ]
 

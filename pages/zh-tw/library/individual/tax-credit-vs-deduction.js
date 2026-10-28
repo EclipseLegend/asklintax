@@ -13,7 +13,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'tax-credit-vs-deduction',
-  sourceHash:      '984509794cab',
+  sourceHash:      '2f250d9e621b',
   id:            '08',
   title:         '抵稅額（tax credit）與扣除額（deduction）有什麼不同？',
   titleEn:       'Tax credit vs. tax deduction: what\'s the difference?',
@@ -104,6 +104,12 @@ const RELATED = [
     cat:   'Individuals & Families',
     title: '勞動所得抵稅額（EITC）：2025 與 2026 年收入上限與規定',
     desc:  '給在職家庭的可退還抵稅額。',
+  },
+  {
+    href: '/library/individual/medical-expense-deduction',
+    cat:  'Individuals & Families',
+    title: '醫療費用扣除：7.5% 門檻與哪些人的費用可以算',
+    desc:  '扣除醫療費用，包括受扶養人的費用。',
   },
 ]
 

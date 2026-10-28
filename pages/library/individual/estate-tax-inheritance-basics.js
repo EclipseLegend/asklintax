@@ -87,6 +87,12 @@ const RELATED = [
     title: 'Nonresident spouse: can we file jointly?',
     desc:  'Income tax rules when a spouse is not a U.S. citizen.',
   },
+  {
+    href: '/library/individual/inherited-ira-rules',
+    cat:  'Individuals & Families',
+    title: 'Inherited IRAs: The 10-Year Rule and Beneficiary Distributions',
+    desc:  'Distribution rules after inheriting an IRA.',
+  },
 ]
 
 export default function EstateTaxInheritancePage({ translations }) {

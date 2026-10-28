@@ -13,7 +13,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'llc-basics',
-  sourceHash:      'c4f9dbdc5cc9',
+  sourceHash:      '4d0e73b3f86c',
   id:            '02',
   title:         '什麼是 LLC？我需要成立嗎？',
   titleEn:       'What is an LLC, and do I need one?',
@@ -51,6 +51,7 @@ const RELATED = [
   { href: '/library/business-formation/llc-vs-scorp', cat: 'Business Formation', title: 'LLC 與 S-Corp：哪種適合你的企業？', desc: '有了 LLC 之後，下一個決定是要不要選擇 S-Corp 課稅。這裡有清楚的比較。' },
   { href: '/library/business-formation/ein', cat: 'Business Formation', title: '如何申請 EIN：逐步指南', desc: 'EIN 是你企業的稅籍號碼。開立企業銀行帳戶與雇用員工都需要它。' },
   { href: '/library/small-business/quarterly-taxes', cat: 'Small Business', title: '季度預估稅：誰要繳？怎麼算？', desc: 'LLC 擁有人一年要繳四次預估稅。這裡說明你要繳多少，以及如何避免罰款。' },
+  { href: '/library/business-formation/partnership-llc-taxes', cat: 'Business Formation & Structure', title: '多成員 LLC 與合夥企業稅務：Form 1065 與 Schedule K-1', desc: '多成員 LLC 如何申報 Form 1065 與 K-1。' },
 ]
 
 export default function LLCBasicsZhTwPage({ translations }) {

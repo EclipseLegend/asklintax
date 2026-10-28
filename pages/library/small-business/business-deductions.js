@@ -88,6 +88,12 @@ const RELATED = [
     title: 'What is an LLC and do I need one?',
     desc:  'An LLC doesn\'t change your available deductions, but it does affect how you file and what records you need.',
   },
+  {
+    href: '/library/rental/repairs-vs-improvements',
+    cat:  'Real Estate & Airbnb',
+    title: 'Repairs vs. Improvements: Deducting or Capitalizing Property Costs',
+    desc:  'Whether a property cost is deducted now or depreciated.',
+  },
 ]
 
 const DEDUCTION_CATEGORIES = [

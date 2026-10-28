@@ -105,6 +105,12 @@ const RELATED = [
     title: 'Divorce and Taxes: Alimony, Child Support, Property, and Retirement Accounts',
     desc:  'Alimony, child support, and dividing property in a divorce.',
   },
+  {
+    href: '/library/individual/inherited-ira-rules',
+    cat:  'Individuals & Families',
+    title: 'Inherited IRAs: The 10-Year Rule and Beneficiary Distributions',
+    desc:  'Distribution rules after inheriting an IRA.',
+  },
 ]
 
 export default function RetirementWithdrawalsRmdPage({ translations }) {

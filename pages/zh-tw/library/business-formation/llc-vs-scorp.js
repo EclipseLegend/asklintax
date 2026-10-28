@@ -13,7 +13,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'llc-vs-scorp',
-  sourceHash:      'c89c14c8bb49',
+  sourceHash:      '076331e25d1f',
   id:            '03',
   title:         'LLC 與 S-Corp：哪種適合你的企業？',
   titleEn:       'LLC vs S-Corp: which is right for your business?',
@@ -90,6 +90,12 @@ const RELATED = [
     cat:  'Business Formation',
     title: '如何申請 EIN：逐步指南',
     desc:  '以 S-Corp 身分跑薪資之前，你需要 EIN。這裡說明如何免費向 IRS 線上申請。',
+  },
+  {
+    href: '/library/business-formation/partnership-llc-taxes',
+    cat:  'Business Formation & Structure',
+    title: '多成員 LLC 與合夥企業稅務：Form 1065 與 Schedule K-1',
+    desc:  '多成員 LLC 如何申報 Form 1065 與 K-1。',
   },
 ]
 

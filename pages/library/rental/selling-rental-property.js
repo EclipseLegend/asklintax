@@ -87,6 +87,12 @@ const RELATED = [
     title: 'I sold stock — how are capital gains taxed?',
     desc:  'The 0%, 15%, and 20% rates for 2025 and 2026.',
   },
+  {
+    href: '/library/rental/passive-activity-loss-rules',
+    cat:  'Real Estate & Airbnb',
+    title: 'Rental Losses and the Passive Activity Rules: The $25,000 Allowance and Real Estate Professionals',
+    desc:  'When a rental loss can offset wages or other income.',
+  },
 ]
 
 export default function SellingRentalPropertyPage({ translations }) {

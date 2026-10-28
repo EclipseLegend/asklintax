@@ -80,6 +80,12 @@ const RELATED = [
     title: 'What is an LLC and do I need one?',
     desc:  'Some Airbnb hosts choose to hold their rental in an LLC for liability protection. Here\'s how to decide.',
   },
+  {
+    href: '/library/rental/passive-activity-loss-rules',
+    cat:  'Real Estate & Airbnb',
+    title: 'Rental Losses and the Passive Activity Rules: The $25,000 Allowance and Real Estate Professionals',
+    desc:  'When a rental loss can offset wages or other income.',
+  },
 ]
 
 const DEDUCTIONS = [

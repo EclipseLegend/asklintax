@@ -13,7 +13,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'airbnb-tax-guide',
-  sourceHash:      '356292f1fb30',
+  sourceHash:      '2435f0fee168',
   id:            '11',
   title:         'Airbnb 房東報稅指南：要申報什麼、可以扣除什麼',
   titleEn:       'Airbnb host tax guide: what to report and what to deduct',
@@ -85,6 +85,12 @@ const RELATED = [
     cat:   'Business Formation',
     title: '什麼是 LLC？我需要成立嗎？',
     desc:  '有些 Airbnb 房東選擇用 LLC 持有出租房產，以取得責任保護。這裡說明如何判斷。',
+  },
+  {
+    href: '/library/rental/passive-activity-loss-rules',
+    cat:  'Real Estate & Airbnb',
+    title: '出租虧損與被動活動規定：$25,000 特別扣除額與房地產專業人士',
+    desc:  '出租虧損何時可以抵扣薪資或其他收入。',
   },
 ]
 

@@ -14,7 +14,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'selling-rental-property',
-  sourceHash:      '54a8ec69e7ec',
+  sourceHash:      '3f52ef5df184',
   id:            '87',
   title:         '出售出租房產：折舊回收與 25% 稅率',
   titleEn:       'Selling a Rental Property: Depreciation Recapture and the 25% Rate',
@@ -92,6 +92,12 @@ const RELATED = [
     cat:  'Investments & Foreign Accounts',
     title: '賣股票賺錢，資本利得怎麼課稅？',
     desc:  '2025 與 2026 年的 0%、15% 與 20% 稅率。',
+  },
+  {
+    href: '/library/rental/passive-activity-loss-rules',
+    cat:  'Real Estate & Airbnb',
+    title: '出租虧損與被動活動規定：$25,000 特別扣除額與房地產專業人士',
+    desc:  '出租虧損何時可以抵扣薪資或其他收入。',
   },
 ]
 
