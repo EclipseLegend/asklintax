@@ -28,6 +28,7 @@ const META = {
     { label: 'IRS — Publication 502 (2025), Medical and Dental Expenses', url: 'https://www.irs.gov/pub/irs-pdf/p502.pdf' },
     { label: 'IRS — Publication 969 (2025), Health Savings Accounts and Other Tax-Favored Health Plans', url: 'https://www.irs.gov/pub/irs-pdf/p969.pdf' },
     { label: 'IRS — Standard mileage rates', url: 'https://www.irs.gov/tax-professionals/standard-mileage-rates' },
+    { label: 'IRS — Rev. Proc. 2024-40 (2025 inflation adjustments)', url: 'https://www.irs.gov/pub/irs-drop/rp-24-40.pdf' },
     { label: 'IRS — Rev. Proc. 2025-32 (2026 inflation adjustments)', url: 'https://www.irs.gov/pub/irs-drop/rp-25-32.pdf' },
   ],
 }
@@ -39,7 +40,7 @@ const FAQS = [
   },
   {
     q: 'Can I include my parents\' medical bills?',
-    a: 'Yes, if the parent was your dependent when the care was given or when you paid — and the parent was a U.S. citizen or national, or a resident of the United States, Canada, or Mexico. For the medical deduction, you can still include the expenses if the parent fails the dependent test only because their gross income was $5,200 or more in 2025, they filed a joint return, or you could be claimed as someone else\'s dependent. A parent living in Taiwan or China who is not a U.S. citizen, national, or resident generally does not qualify.',
+    a: 'Yes, if the parent was your dependent when the care was given or when you paid — and the parent was a U.S. citizen or national, or a resident of the United States, Canada, or Mexico. A qualifying relative generally must have gross income below $5,200 for 2025 ($5,300 for 2026). For the medical deduction only, you can still include the expenses if the parent fails the dependent rules solely because of that gross income test, because they filed a joint return, or because you could be claimed as someone else\'s dependent; the other tests, such as support and citizenship or residency, still apply. A parent living in Taiwan or China who is not a U.S. citizen, national, or resident generally does not qualify.',
   },
   {
     q: 'Are health insurance premiums deductible?',
@@ -50,8 +51,8 @@ const FAQS = [
     a: 'Generally you cannot include a prescribed drug brought in or shipped from another country unless it was imported legally. You can include a prescribed drug you buy and use in another country if it is legal in both that country and the United States. Non-prescription drugs, other than insulin, do not count.',
   },
   {
-    q: 'What about expenses paid from an HSA or reimbursed by insurance?',
-    a: 'You cannot deduct expenses equal to a tax-free HSA distribution, or expenses reimbursed by insurance or a health reimbursement arrangement. Only unreimbursed amounts you paid count.',
+    q: 'What about expenses paid from an HSA or FSA, or reimbursed by insurance?',
+    a: 'You cannot deduct expenses equal to a tax-free HSA distribution, expenses reimbursed by a flexible spending arrangement (FSA) you fund with pre-tax salary contributions, or expenses reimbursed by insurance or a health reimbursement arrangement. Only unreimbursed amounts you paid count.',
   },
   {
     q: 'Which year do I deduct the expense in?',
@@ -123,7 +124,7 @@ export default function MedicalExpenseDeductionPage({ translations }) {
             ['Prescription drugs and insulin', 'Non-prescription drugs (other than insulin)'],
             ['Medical insurance premiums paid with after-tax money', 'Premiums paid by pre-tax salary reduction'],
             ['Qualified long-term care premiums, up to an age-based limit', 'Gym, health club, or spa dues (even for general health)'],
-            ['Transportation primarily for and essential to medical care', 'Expenses reimbursed by insurance, an HRA, or paid with tax-free HSA money'],
+            ['Transportation primarily for and essential to medical care', 'Expenses reimbursed by insurance, an HRA, or a pre-tax FSA, or paid with tax-free HSA money'],
           ]}
         />
         <p>
@@ -151,7 +152,8 @@ export default function MedicalExpenseDeductionPage({ translations }) {
           <li><strong>You and your spouse.</strong></li>
           <li><strong>Your dependents</strong> — a qualifying child or qualifying relative who was your dependent either when the care was given or when you paid.</li>
           <li><strong>Citizenship or residency:</strong> the person must be a U.S. citizen or national, or a resident of the United States, Canada, or Mexico. An adopted child who lived with a U.S. citizen or national as a member of the household for the year is an exception.</li>
-          <li><strong>Extra room for relatives:</strong> you can include expenses for someone who would have been your dependent except that they had gross income of $5,200 or more in 2025, filed a joint return, or you (or your spouse) could be claimed as someone else's dependent.</li>
+          <li><strong>Gross income test:</strong> to be a qualifying relative in general, a person's gross income must be less than $5,200 for 2025 ($5,300 for 2026, under Rev. Proc. 2025-32).</li>
+          <li><strong>Special rule for the medical deduction:</strong> you can still include expenses for someone who would have been your dependent except that their gross income was at or above that amount, they filed a joint return, or you (or your spouse) could be claimed as someone else's dependent. The person must still meet the other dependency tests, such as the relationship or household, support, and citizenship or residency tests.</li>
           <li><strong>Divorced or separated parents:</strong> a child can be treated as the dependent of both parents for this deduction, if certain custody and support conditions are met.</li>
           <li><strong>Multiple support agreements:</strong> if siblings share a parent's support under such an agreement, only the person treated as claiming the parent can include medical expenses, and only the amount they paid and were not repaid for.</li>
         </ul>

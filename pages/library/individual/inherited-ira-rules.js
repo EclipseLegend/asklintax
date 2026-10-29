@@ -16,17 +16,20 @@ const META = {
   categoryHref:  '/library/individual',
   userEmotion:   'learning',
   difficulty:    'Advanced',
-  readTime:      '9 min read',
+  readTime:      '10 min read',
   verification:  'official-sources-verified',
   updatedDate:   'October 2026',
   taxYear:       String(TAX_CONFIG.currentTaxYear),
-  confidence:    'Explains the distribution rules for beneficiaries of traditional and Roth IRAs when the owner died after 2019, based on Publication 590-B (2025), the latest final IRS publication available. The underlying final regulations could not be read directly for this guide. It does not cover trusts as beneficiaries in detail, employer plan terms, state taxes, or foreign beneficiaries\' withholding',
+  confidence:    'Explains the distribution rules for beneficiaries of traditional and Roth IRAs when the owner died after 2019, based on Publication 590-B (2025), the latest final IRS publication available, and Notices 2022-53, 2023-54, and 2024-35 for transition relief. The underlying final regulations could not be read directly for this guide. It does not cover trusts as beneficiaries in detail, employer plan terms, state taxes, or foreign beneficiaries\' withholding',
   persona:       ['Adult children who inherited a parent\'s IRA', 'Surviving spouses', 'Beneficiaries of an inherited Roth IRA', 'Families settling an estate'],
   relatedJourney: ['Money & Benefits', 'Preparing to file'],
   actionRequired: 'Find out three things: whether you are an eligible designated beneficiary, whether the owner died before or after their required beginning date, and whether the account is traditional or Roth. Those answers decide whether you must take yearly distributions and when the account must be emptied. Missing a required distribution can bring a 25% excise tax.',
   sources: [
     { label: 'IRS — Publication 590-B (2025), Distributions from Individual Retirement Arrangements (IRAs)', url: 'https://www.irs.gov/pub/irs-pdf/p590b.pdf' },
     { label: 'IRS — Instructions for Form 5329 (additional taxes on qualified plans and IRAs)', url: 'https://www.irs.gov/pub/irs-pdf/i5329.pdf' },
+    { label: 'IRS — Notice 2022-53, Certain Required Minimum Distributions for 2021 and 2022', url: 'https://www.irs.gov/pub/irs-drop/n-22-53.pdf' },
+    { label: 'IRS — Notice 2023-54 (relief for certain 2023 required minimum distributions)', url: 'https://www.irs.gov/pub/irs-drop/n-23-54.pdf' },
+    { label: 'IRS — Notice 2024-35, Certain Required Minimum Distributions for 2024', url: 'https://www.irs.gov/pub/irs-drop/n-24-35.pdf' },
   ],
 }
 
@@ -117,6 +120,25 @@ export default function InheritedIraRulesPage({ translations }) {
           <li><strong>Required beginning date:</strong> for owners who reached age 72 after December 31, 2022, April 1 of the year after the year they reach age 73 (earlier birth years used earlier ages).</li>
           <li><strong>Owner died before that date, 10-year rule applies:</strong> no distribution is required for any year before the 10th year; the account must be fully distributed by the end of the 10th year.</li>
           <li><strong>Owner died on or after that date:</strong> for a designated beneficiary, required minimum distributions for years after the year of death are based on the longer of the beneficiary's single life expectancy or the owner's remaining life expectancy — and a beneficiary who is not an eligible designated beneficiary must still empty the account within 10 years.</li>
+        </ul>
+
+        <h2>Transition relief for missed yearly distributions, 2021–2024</h2>
+        <p>
+          Because the IRS's reading of the 10-year rule — yearly distributions when the owner died on or after the required beginning date — first appeared in proposed regulations, the IRS said it would not assert the 25% excise tax for certain missed yearly distributions while final rules were pending. The relief was limited:
+        </p>
+        <ArticleTable
+          head={['Missed distribution year', 'Covered if the owner died', 'IRS source']}
+          rows={[
+            ['2021 and 2022', 'In 2020 or 2021', 'Notice 2022-53'],
+            ['2023', 'In 2020, 2021, or 2022', 'Notice 2023-54'],
+            ['2024', 'In 2020, 2021, 2022, or 2023', 'Notice 2024-35'],
+          ]}
+        />
+        <ul>
+          <li><strong>Who was covered:</strong> a designated beneficiary under the 10-year rule who was not using life expectancy payments, where the owner died on or after the required beginning date; and a beneficiary of an eligible designated beneficiary who died in the covered years while using life expectancy payments.</li>
+          <li><strong>Who was not covered:</strong> beneficiaries whose owner died before the required beginning date did not need yearly distributions under the 10-year rule in the first place, and the relief did not apply to other required distributions.</li>
+          <li><strong>From 2025:</strong> Notice 2024-35 says the final regulations apply for determining required minimum distributions for calendar years beginning on or after January 1, 2025, so yearly distributions that apply are required from 2025.</li>
+          <li><strong>The 10-year deadline did not move:</strong> the relief covered only those yearly distributions. The account must still be fully distributed by December 31 of the year containing the 10th anniversary of the owner's death.</li>
         </ul>
 
         <h2>Surviving spouses</h2>

@@ -50,7 +50,7 @@ const FAQS = [
   },
   {
     q: 'Does the routine maintenance safe harbor need an election?',
-    a: 'No election statement is described for it on the IRS FAQ. It applies to recurring work you expect to do to keep property in its ordinarily efficient condition — for buildings, work you reasonably expect to do more than once in the 10 years after the building is placed in service. It does not apply to betterments.',
+    a: 'No annual election statement is described for it on the IRS FAQ. It applies to recurring work you expect to do to keep property in its ordinarily efficient condition — for buildings, work you reasonably expect to do more than once in the 10 years after the building is placed in service. It does not apply to betterments. The IRS FAQ says that if you were already following these rules, generally no action is needed; Form 3115 comes into play only if you are not in compliance or otherwise want to change your accounting method to use this safe harbor.',
   },
   {
     q: 'What if I capitalize something?',
@@ -121,7 +121,7 @@ export default function RepairsVsImprovementsPage({ translations }) {
           rows={[
             ['What it covers', 'Recurring work to keep property in ordinarily efficient operating condition', 'Small acquisition or production costs per invoice or item', 'Repairs, maintenance, improvements, and similar work on an eligible building'],
             ['Key limits', 'Work resulting from your use of the property in your trade or business that, for buildings, you reasonably expect to do more than once in the 10 years after the building is placed in service; not for betterments', '$2,500 per invoice or item ($5,000 with an applicable financial statement); you must also expense the cost in your books and records; not for land or inventory', 'Average annual gross receipts of $10 million or less; building unadjusted basis of $1 million or less; total yearly spending on that building no more than the lesser of $10,000 or 2% of its unadjusted basis'],
-            ['Election?', 'No election statement described', 'Yes — an annual statement attached to a timely filed original return, including extensions', 'Yes — an annual statement attached to the return for that year'],
+            ['Election?', 'No annual election statement; Form 3115 only if changing your accounting method to use it', 'Yes — an annual statement attached to a timely filed original return, including extensions', 'Yes — an annual statement attached to the return for that year'],
             ['Applies to', 'All qualifying amounts', 'All qualifying amounts that year once elected', 'All the qualifying work on that building for the year'],
           ]}
         />

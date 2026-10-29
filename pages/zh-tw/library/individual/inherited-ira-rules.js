@@ -14,7 +14,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'inherited-ira-rules',
-  sourceHash:      '43f8f53a10dc',
+  sourceHash:      '87c94bdee12d',
   id:            '125',
   title:         '繼承的 IRA：10 年規則與受益人提領',
   titleEn:       'Inherited IRAs: The 10-Year Rule and Beneficiary Distributions',
@@ -22,17 +22,20 @@ const META = {
   categoryHref:  '/library/individual',
   userEmotion:   'learning',
   difficulty:    'Advanced',
-  readTime:      '9 min read',
+  readTime:      '10 min read',
   verification:  'official-sources-verified',
   updatedDate:   'October 2026',
   taxYear:       String(TAX_CONFIG.currentTaxYear),
-  confidence:    '依據 Publication 590-B（2025） — 目前可取得的最新正式 IRS 出版品 — 說明所有人於 2019 年後過世時，傳統 IRA 與 Roth IRA 受益人的提領規定。本文無法直接查閱相關的正式法規。本文不詳細說明以信託為受益人、雇主退休計畫條款、州稅或外國受益人的預扣',
+  confidence:    '依據 Publication 590-B（2025） — 目前可取得的最新正式 IRS 出版品 — 以及過渡減免的 Notice 2022-53、2023-54 與 2024-35，說明所有人於 2019 年後過世時，傳統 IRA 與 Roth IRA 受益人的提領規定。本文無法直接查閱相關的正式法規。本文不詳細說明以信託為受益人、雇主退休計畫條款、州稅或外國受益人的預扣',
   persona:       ['繼承父母 IRA 的成年子女', '在世配偶', '繼承 Roth IRA 的受益人', '正在處理遺產的家庭'],
   relatedJourney: ['金錢與福利', '準備報稅'],
   actionRequired: '先弄清楚三件事：你是不是合格指定受益人、所有人是在必須開始提領日之前還是之後過世，以及帳戶是傳統還是 Roth。這些答案決定你是否必須每年提領，以及帳戶何時必須提領完畢。漏領必要的提領金額，可能要繳 25% 的消費稅（excise tax）。',
   sources: [
     { label: 'IRS — Publication 590-B（2025），個人退休帳戶（IRA）的提領', url: 'https://www.irs.gov/pub/irs-pdf/p590b.pdf' },
     { label: 'IRS — Form 5329 說明（合格計畫與 IRA 的額外稅）', url: 'https://www.irs.gov/pub/irs-pdf/i5329.pdf' },
+    { label: 'IRS — Notice 2022-53，2021 與 2022 年的特定最低應提領金額', url: 'https://www.irs.gov/pub/irs-drop/n-22-53.pdf' },
+    { label: 'IRS — Notice 2023-54（2023 年特定最低應提領金額的減免）', url: 'https://www.irs.gov/pub/irs-drop/n-23-54.pdf' },
+    { label: 'IRS — Notice 2024-35，2024 年的特定最低應提領金額', url: 'https://www.irs.gov/pub/irs-drop/n-24-35.pdf' },
   ],
 }
 
@@ -123,6 +126,25 @@ export default function InheritedIraRulesPage({ translations }) {
           <li><strong>必須開始提領日：</strong>對於在 2022 年 12 月 31 日之後滿 72 歲的所有人，是滿 73 歲那一年的次年 4 月 1 日（較早出生的人適用較早的年齡）。</li>
           <li><strong>所有人在該日期前過世，且適用 10 年規則：</strong>第 10 年之前的任何一年都不需要提領；帳戶必須在第 10 年年底前全部提領完畢。</li>
           <li><strong>所有人在該日期當天或之後過世：</strong>對指定受益人而言，過世那一年之後各年度的最低應提領金額，依受益人的單一預期壽命或所有人剩餘預期壽命（取較長者）計算 — 而不是合格指定受益人的受益人，仍必須在 10 年內提領完畢。</li>
+        </ul>
+
+        <h2>2021–2024 年漏領每年提領金額的過渡減免</h2>
+        <p>
+          由於 IRS 對 10 年規則的解讀 — 所有人在必須開始提領日當天或之後過世時要每年提領 — 最初出現在擬議法規中，IRS 表示在正式規定確定前，對某些漏領的每年提領金額不會主張 25% 的消費稅。這項減免是有限的：
+        </p>
+        <ArticleTable
+          head={['漏領的提領年度', '所有人過世的年度在此範圍內才適用', 'IRS 來源']}
+          rows={[
+            ['2021 與 2022', '2020 或 2021 年', 'Notice 2022-53'],
+            ['2023', '2020、2021 或 2022 年', 'Notice 2023-54'],
+            ['2024', '2020、2021、2022 或 2023 年', 'Notice 2024-35'],
+          ]}
+        />
+        <ul>
+          <li><strong>適用對象：</strong>所有人在必須開始提領日當天或之後過世、適用 10 年規則且沒有按預期壽命提領的指定受益人；以及在上述年度過世、當時正按預期壽命提領的合格指定受益人的受益人。</li>
+          <li><strong>不適用的情況：</strong>所有人在必須開始提領日之前過世的受益人，在 10 年規則下本來就不需要每年提領；這項減免也不適用於其他必要提領。</li>
+          <li><strong>從 2025 年起：</strong>Notice 2024-35 說明，正式法規適用於 2025 年 1 月 1 日或之後開始的曆年度的最低應提領金額計算，因此適用的每年提領從 2025 年起都必須提領。</li>
+          <li><strong>10 年期限沒有改變：</strong>這項減免只涵蓋那些每年提領金額。帳戶仍必須在所有人過世滿 10 週年那一年的 12 月 31 日前全部提領完畢。</li>
         </ul>
 
         <h2>在世配偶</h2>
