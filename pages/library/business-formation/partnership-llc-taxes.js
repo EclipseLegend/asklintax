@@ -87,6 +87,12 @@ const RELATED = [
     title: 'How to apply for an EIN: a step-by-step guide',
     desc:  'A partnership needs its own EIN.',
   },
+  {
+    href: '/library/small-business/business-losses-nol',
+    cat:  'Small Business & Self-Employment',
+    title: 'Business Losses: Basis, At-Risk, Passive Activity, Excess Business Loss, and NOL Rules',
+    desc:  'The limits on deducting a business loss, in order.',
+  },
 ]
 
 export default function PartnershipLlcTaxesPage({ translations }) {

@@ -83,6 +83,12 @@ const RELATED = [
     title: 'Net Investment Income Tax (NIIT): Who Pays the 3.8% Tax in 2025 and 2026',
     desc:  'Passive rental income can also be subject to NIIT.',
   },
+  {
+    href: '/library/small-business/business-losses-nol',
+    cat:  'Small Business & Self-Employment',
+    title: 'Business Losses: Basis, At-Risk, Passive Activity, Excess Business Loss, and NOL Rules',
+    desc:  'The limits on deducting a business loss, in order.',
+  },
 ]
 
 export default function PassiveActivityLossRulesPage({ translations }) {

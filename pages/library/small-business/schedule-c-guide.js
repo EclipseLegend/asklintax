@@ -88,6 +88,18 @@ const RELATED = [
     title: 'Hobby or Business? How Side Income Is Taxed in 2025 and 2026',
     desc:  'Whether your side activity is a hobby or a business.',
   },
+  {
+    href: '/library/small-business/issuing-form-1099-nec',
+    cat:  'Small Business & Self-Employment',
+    title: 'Issuing Forms 1099-NEC and 1099-MISC: Thresholds, Deadlines, and Penalties',
+    desc:  'When a business must send contractors a Form 1099.',
+  },
+  {
+    href: '/library/small-business/business-losses-nol',
+    cat:  'Small Business & Self-Employment',
+    title: 'Business Losses: Basis, At-Risk, Passive Activity, Excess Business Loss, and NOL Rules',
+    desc:  'The limits on deducting a business loss, in order.',
+  },
 ]
 
 export default function ScheduleCGuidePage({ translations }) {

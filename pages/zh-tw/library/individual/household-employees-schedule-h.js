@@ -14,7 +14,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'household-employees-schedule-h',
-  sourceHash:      '14b3a32a5d35',
+  sourceHash:      'c7a8dd87847b',
   id:            '103',
   title:         '聘請保母或看護：家庭雇員稅與 Schedule H',
   titleEn:       'Paying a Nanny or Caregiver: Household Employment Taxes and Schedule H',
@@ -89,6 +89,12 @@ const RELATED = [
     cat:  'Small Business & Self-Employment',
     title: '季度預估稅：誰要繳？怎麼算？',
     desc:  '在年度中繳納家庭雇傭稅。',
+  },
+  {
+    href: '/library/small-business/payroll-taxes-941-940',
+    cat:  'Small Business & Self-Employment',
+    title: '雇主薪資稅：Form 941、Form 940、稅款繳存與信託基金追繳罰款',
+    desc:  '雇主的預扣、繳存，以及 941 與 940 表。',
   },
 ]
 

@@ -13,7 +13,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'business-deductions',
-  sourceHash:      'dd637961cd54',
+  sourceHash:      'f4452c144295',
   id:            '14',
   title:         '小型企業老闆可以扣除哪些費用？',
   titleEn:       'What can I deduct as a small business owner?',
@@ -99,6 +99,12 @@ const RELATED = [
     cat:  'Real Estate & Airbnb',
     title: '修繕還是改良：財產支出何時可扣除、何時要資本化',
     desc:  '財產支出是現在扣除還是要折舊。',
+  },
+  {
+    href: '/library/small-business/issuing-form-1099-nec',
+    cat:  'Small Business & Self-Employment',
+    title: '開立 Form 1099-NEC 與 1099-MISC：申報門檻、期限與罰款',
+    desc:  '企業何時必須開 Form 1099 給承包商。',
   },
 ]
 

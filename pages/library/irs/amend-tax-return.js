@@ -81,6 +81,12 @@ const RELATED = [
     title: 'IRS Tax Transcripts: Types, How to Get One, and Transcript vs. Tax Return Copy',
     desc:  'Check what the IRS has on file with a free transcript.',
   },
+  {
+    href: '/library/irs/disaster-tax-relief',
+    cat:  'IRS & Tax Issues',
+    title: 'Disaster Tax Relief: Postponed Deadlines and Casualty Losses',
+    desc:  'Postponed deadlines and casualty losses after a disaster.',
+  },
 ]
 
 export default function AmendTaxReturnPage({ translations }) {

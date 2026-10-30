@@ -14,7 +14,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 's-corp-reasonable-salary',
-  sourceHash:      '3ad7a5231324',
+  sourceHash:      'bacdc1bc6004',
   id:            '77',
   title:         '經營 S 公司：合理薪資、Form 1120-S 與 Schedule K-1',
   titleEn:       'Running an S-Corp: Reasonable Salary, Form 1120-S and Schedule K-1',
@@ -89,6 +89,12 @@ const RELATED = [
     cat:  'Small Business',
     title: '季度預估稅：誰要繳？怎麼算？',
     desc:  'K-1 所得可能仍然需要繳預估稅。',
+  },
+  {
+    href: '/library/small-business/payroll-taxes-941-940',
+    cat:  'Small Business & Self-Employment',
+    title: '雇主薪資稅：Form 941、Form 940、稅款繳存與信託基金追繳罰款',
+    desc:  '雇主的預扣、繳存，以及 941 與 940 表。',
   },
 ]
 

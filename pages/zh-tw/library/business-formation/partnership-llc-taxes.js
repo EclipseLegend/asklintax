@@ -14,7 +14,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'partnership-llc-taxes',
-  sourceHash:      'd7a58e9324ca',
+  sourceHash:      'f49da0d1f621',
   id:            '123',
   title:         '多成員 LLC 與合夥企業稅務：Form 1065 與 Schedule K-1',
   titleEn:       'Multi-Member LLC and Partnership Taxes: Form 1065 and Schedule K-1',
@@ -92,6 +92,12 @@ const RELATED = [
     cat:  'Business Formation & Structure',
     title: '如何申請 EIN：逐步指南',
     desc:  '合夥企業需要自己的 EIN。',
+  },
+  {
+    href: '/library/small-business/business-losses-nol',
+    cat:  'Small Business & Self-Employment',
+    title: '營業虧損：成本基礎、風險承擔、被動活動、超額營業虧損與 NOL 規定',
+    desc:  '營業虧損扣除限制的適用順序。',
   },
 ]
 

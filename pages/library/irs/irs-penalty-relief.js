@@ -94,6 +94,12 @@ const RELATED = [
     title: 'IRS Appeals: How to Dispute an Audit or IRS Decision',
     desc:  'How to appeal audit changes and when to go to Tax Court.',
   },
+  {
+    href: '/library/irs/disaster-tax-relief',
+    cat:  'IRS & Tax Issues',
+    title: 'Disaster Tax Relief: Postponed Deadlines and Casualty Losses',
+    desc:  'Postponed deadlines and casualty losses after a disaster.',
+  },
 ]
 
 export default function IrsPenaltyReliefPage({ translations }) {

@@ -82,6 +82,12 @@ const RELATED = [
     title: 'IRS Penalty Relief: Automatic Exemption, First Time Abate, and Reasonable Cause',
     desc: 'How to ask the IRS to remove penalties.',
   },
+  {
+    href: '/library/irs/disaster-tax-relief',
+    cat:  'IRS & Tax Issues',
+    title: 'Disaster Tax Relief: Postponed Deadlines and Casualty Losses',
+    desc:  'Postponed deadlines and casualty losses after a disaster.',
+  },
 ]
 
 export default function MissedTaxDeadlinePage({ translations }) {

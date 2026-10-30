@@ -14,7 +14,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'amend-tax-return',
-  sourceHash:      'bc40adc47ba3',
+  sourceHash:      '05f37a501f06',
   id:            '52',
   title:         '報稅表填錯了，要怎麼修改？',
   titleEn:       'I made a mistake on my tax return — how do I amend it?',
@@ -86,6 +86,12 @@ const RELATED = [
     cat:  'IRS & Tax Issues',
     title: 'IRS 稅務記錄（transcript）：種類、如何取得，以及和報稅表副本的差別',
     desc:  '用免費的稅務記錄確認 IRS 檔案中的資料。',
+  },
+  {
+    href: '/library/irs/disaster-tax-relief',
+    cat:  'IRS & Tax Issues',
+    title: '災害稅務減免：申報期限延期與災害損失扣除',
+    desc:  '災害後的期限延期與災害損失。',
   },
 ]
 

@@ -83,6 +83,12 @@ const RELATED = [
     title: 'LLC vs S-Corp: which is right for your business?',
     desc:  'When electing S-Corp treatment for your LLC may make sense.',
   },
+  {
+    href: '/library/business-formation/closing-a-business',
+    cat:  'Business Formation & Structure',
+    title: 'Closing a Business: Final Tax Returns, Payroll, and IRS Account Closure',
+    desc:  'Final returns and closing the IRS business account.',
+  },
 ]
 
 export default function SingleMemberLlcTaxesPage({ translations }) {

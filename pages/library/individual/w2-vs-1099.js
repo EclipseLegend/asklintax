@@ -92,6 +92,18 @@ const RELATED = [
     title: 'Paying a Nanny or Caregiver: Household Employment Taxes and Schedule H',
     desc:  'Why a nanny is usually a W-2 employee.',
   },
+  {
+    href: '/library/small-business/payroll-taxes-941-940',
+    cat:  'Small Business & Self-Employment',
+    title: 'Payroll Taxes for Employers: Forms 941 and 940, Deposits, and the Trust Fund Recovery Penalty',
+    desc:  'Withholding, deposits, and Forms 941 and 940 for employers.',
+  },
+  {
+    href: '/library/small-business/issuing-form-1099-nec',
+    cat:  'Small Business & Self-Employment',
+    title: 'Issuing Forms 1099-NEC and 1099-MISC: Thresholds, Deadlines, and Penalties',
+    desc:  'When a business must send contractors a Form 1099.',
+  },
 ]
 
 export default function W2vs1099Page({ translations }) {

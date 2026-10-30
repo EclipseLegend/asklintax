@@ -14,7 +14,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'single-member-llc-taxes',
-  sourceHash:      'ab464582a464',
+  sourceHash:      'efba14454869',
   id:            '76',
   title:         '單一成員 LLC 的稅務：被忽略實體、Schedule C、EIN 與 W-9 規定',
   titleEn:       'Single-Member LLC Taxes: Disregarded Entity, Schedule C, EIN and W-9 Rules',
@@ -88,6 +88,12 @@ const RELATED = [
     cat:  'Business Formation',
     title: 'LLC 與 S-Corp：哪種適合你的企業？',
     desc:  '什麼時候替 LLC 選擇 S-Corp 課稅可能划算。',
+  },
+  {
+    href: '/library/business-formation/closing-a-business',
+    cat:  'Business Formation & Structure',
+    title: '結束營業：最終稅務申報、薪資稅與 IRS 帳戶關閉',
+    desc:  '最終申報與關閉 IRS 企業帳戶。',
   },
 ]
 

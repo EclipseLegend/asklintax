@@ -13,7 +13,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'ein',
-  sourceHash:      '496ea98f9eed',
+  sourceHash:      'b71ca4f86de1',
   id:            '15',
   title:         '如何申請 EIN：逐步指南',
   titleEn:       'How to apply for an EIN: a step-by-step guide',
@@ -85,6 +85,12 @@ const RELATED = [
     cat:   'Small Business',
     title: '季度預估稅：誰要繳？怎麼算？',
     desc:  '拿到 EIN、開好企業帳戶之後，接著建立你的季度繳稅制度。',
+  },
+  {
+    href: '/library/business-formation/closing-a-business',
+    cat:  'Business Formation & Structure',
+    title: '結束營業：最終稅務申報、薪資稅與 IRS 帳戶關閉',
+    desc:  '最終申報與關閉 IRS 企業帳戶。',
   },
 ]
 

@@ -80,6 +80,12 @@ const RELATED = [
     title: 'Quarterly estimated taxes: who pays and how to calculate',
     desc:  'After getting your EIN and opening your business account, set up your quarterly tax payment system.',
   },
+  {
+    href: '/library/business-formation/closing-a-business',
+    cat:  'Business Formation & Structure',
+    title: 'Closing a Business: Final Tax Returns, Payroll, and IRS Account Closure',
+    desc:  'Final returns and closing the IRS business account.',
+  },
 ]
 
 const STEPS = [

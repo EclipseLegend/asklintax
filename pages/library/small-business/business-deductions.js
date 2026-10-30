@@ -94,6 +94,12 @@ const RELATED = [
     title: 'Repairs vs. Improvements: Deducting or Capitalizing Property Costs',
     desc:  'Whether a property cost is deducted now or depreciated.',
   },
+  {
+    href: '/library/small-business/issuing-form-1099-nec',
+    cat:  'Small Business & Self-Employment',
+    title: 'Issuing Forms 1099-NEC and 1099-MISC: Thresholds, Deadlines, and Penalties',
+    desc:  'When a business must send contractors a Form 1099.',
+  },
 ]
 
 const DEDUCTION_CATEGORIES = [

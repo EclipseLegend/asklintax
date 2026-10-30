@@ -46,6 +46,7 @@ const RELATED = [
   { href: '/library/business-formation/ein', cat: 'Business Formation', title: 'How to apply for an EIN (step-by-step)', desc: 'An EIN is your business\'s tax ID number. You\'ll need it to open a business bank account and hire employees.' },
   { href: '/library/small-business/quarterly-taxes', cat: 'Small Business', title: 'Quarterly estimated taxes: who pays and how to calculate', desc: 'LLC owners pay estimated taxes four times a year. Here\'s what you owe and how to avoid penalties.' },
   { href: '/library/business-formation/partnership-llc-taxes', cat: 'Business Formation & Structure', title: 'Multi-Member LLC and Partnership Taxes: Form 1065 and Schedule K-1', desc: 'How a multi-member LLC files Form 1065 and K-1s.' },
+  { href: '/library/business-formation/closing-a-business', cat: 'Business Formation & Structure', title: 'Closing a Business: Final Tax Returns, Payroll, and IRS Account Closure', desc: 'Final returns and closing the IRS business account.' },
 ]
 
 export default function LLCBasicsPage({ translations }) {

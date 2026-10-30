@@ -13,7 +13,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'w2-vs-1099',
-  sourceHash:      '0fc52fc762dd',
+  sourceHash:      'ad67bd29f45a',
   id:            '10',
   title:         'W-2 與 1099：有什麼差別？為什麼重要？',
   titleEn:       'W-2 vs 1099: what\'s the difference and why it matters',
@@ -97,6 +97,18 @@ const RELATED = [
     cat:   'Individuals & Families',
     title: '聘請保母或看護：家庭雇員稅與 Schedule H',
     desc:  '為什麼保母通常是 W-2 雇員。',
+  },
+  {
+    href: '/library/small-business/payroll-taxes-941-940',
+    cat:  'Small Business & Self-Employment',
+    title: '雇主薪資稅：Form 941、Form 940、稅款繳存與信託基金追繳罰款',
+    desc:  '雇主的預扣、繳存，以及 941 與 940 表。',
+  },
+  {
+    href: '/library/small-business/issuing-form-1099-nec',
+    cat:  'Small Business & Self-Employment',
+    title: '開立 Form 1099-NEC 與 1099-MISC：申報門檻、期限與罰款',
+    desc:  '企業何時必須開 Form 1099 給承包商。',
   },
 ]
 

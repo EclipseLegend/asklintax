@@ -84,6 +84,12 @@ const RELATED = [
     title: 'Quarterly estimated taxes: who pays and how to calculate',
     desc:  'K-1 income may still require estimated payments.',
   },
+  {
+    href: '/library/small-business/payroll-taxes-941-940',
+    cat:  'Small Business & Self-Employment',
+    title: 'Payroll Taxes for Employers: Forms 941 and 940, Deposits, and the Trust Fund Recovery Penalty',
+    desc:  'Withholding, deposits, and Forms 941 and 940 for employers.',
+  },
 ]
 
 export default function SCorpReasonableSalaryPage({ translations }) {

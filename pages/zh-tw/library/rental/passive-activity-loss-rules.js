@@ -14,7 +14,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'passive-activity-loss-rules',
-  sourceHash:      '243181d822fb',
+  sourceHash:      '494515bd7050',
   id:            '121',
   title:         '出租虧損與被動活動規定：$25,000 特別扣除額與房地產專業人士',
   titleEn:       'Rental Losses and the Passive Activity Rules: The $25,000 Allowance and Real Estate Professionals',
@@ -88,6 +88,12 @@ const RELATED = [
     cat:  'Investments & Foreign Accounts',
     title: '淨投資所得稅（NIIT）：2025 與 2026 年誰要繳 3.8% 的稅',
     desc:  '被動的租金收入也可能要繳 NIIT。',
+  },
+  {
+    href: '/library/small-business/business-losses-nol',
+    cat:  'Small Business & Self-Employment',
+    title: '營業虧損：成本基礎、風險承擔、被動活動、超額營業虧損與 NOL 規定',
+    desc:  '營業虧損扣除限制的適用順序。',
   },
 ]
 

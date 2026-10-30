@@ -14,7 +14,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'schedule-c-guide',
-  sourceHash:      '603f6f446fa8',
+  sourceHash:      '9a95dfa87ac8',
   id:            '79',
   title:         'Schedule C 說明：如何申報自雇收入與費用',
   titleEn:       'Schedule C Explained: Self-Employment Income and Expenses',
@@ -93,6 +93,18 @@ const RELATED = [
     cat:  'Small Business & Self-Employment',
     title: '是興趣還是事業？2025 與 2026 年副業收入如何課稅',
     desc:  '你的副業是興趣還是事業。',
+  },
+  {
+    href: '/library/small-business/issuing-form-1099-nec',
+    cat:  'Small Business & Self-Employment',
+    title: '開立 Form 1099-NEC 與 1099-MISC：申報門檻、期限與罰款',
+    desc:  '企業何時必須開 Form 1099 給承包商。',
+  },
+  {
+    href: '/library/small-business/business-losses-nol',
+    cat:  'Small Business & Self-Employment',
+    title: '營業虧損：成本基礎、風險承擔、被動活動、超額營業虧損與 NOL 規定',
+    desc:  '營業虧損扣除限制的適用順序。',
   },
 ]
 
