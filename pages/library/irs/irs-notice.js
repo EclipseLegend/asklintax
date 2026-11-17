@@ -117,6 +117,18 @@ const RELATED = [
     title: 'Taxpayer Advocate Service: When and How to Get Help',
     desc:  'Free help when an IRS problem is causing hardship.',
   },
+  {
+    href: '/library/irs/refund-offsets',
+    cat:  'IRS & Tax Issues',
+    title: 'Refund Offsets: When the IRS or Treasury Takes Your Refund',
+    desc:  'Why a refund was reduced or taken for a debt.',
+  },
+  {
+    href: '/library/irs/irs-identity-verification-letters',
+    cat:  'IRS & Tax Issues',
+    title: 'IRS Identity Verification Letters: CP5071, 4883C, 5747C, and Held Refunds',
+    desc:  'How to respond to an IRS identity verification letter.',
+  },
 ]
 
 // ── PAGE ──────────────────────────────────────────────────

@@ -87,6 +87,12 @@ const RELATED = [
     title: 'Alternative Minimum Tax (AMT): 2025 and 2026 Rules',
     desc:  'Carrying back an NOL can create AMT for the earlier year.',
   },
+  {
+    href: '/library/business-formation/s-corp-shareholder-basis',
+    cat:  'Business Formation & Structure',
+    title: 'S Corporation Shareholder Basis: Stock Basis, Debt Basis, and Form 7203',
+    desc:  'Stock basis, debt basis, and Form 7203 in detail.',
+  },
 ]
 
 export default function BusinessLossesNolPage({ translations }) {

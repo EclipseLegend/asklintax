@@ -14,7 +14,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'issuing-form-1099-nec',
-  sourceHash:      'b137f5475f64',
+  sourceHash:      '158e680b3e3b',
   id:            '127',
   title:         '開立 Form 1099-NEC 與 1099-MISC：申報門檻、期限與罰款',
   titleEn:       'Issuing Forms 1099-NEC and 1099-MISC: Thresholds, Deadlines, and Penalties',
@@ -89,6 +89,12 @@ const RELATED = [
     cat:  'Small Business & Self-Employment',
     title: '雇主薪資稅：Form 941、Form 940、稅款繳存與信託基金追繳罰款',
     desc:  '如果工作者是員工，會有什麼不同。',
+  },
+  {
+    href: '/library/small-business/worker-classification',
+    cat:  'Small Business & Self-Employment',
+    title: '員工還是獨立承包商？企業如何正確判斷工作者身分',
+    desc:  '企業如何判斷工作者是否為員工。',
   },
 ]
 

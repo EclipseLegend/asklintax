@@ -14,7 +14,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'cant-pay-tax-bill',
-  sourceHash:      'f391295a339c',
+  sourceHash:      '1f7b888c2544',
   id:            '51',
   title:         '繳不出稅款怎麼辦？有哪些選擇？',
   titleEn:       'I can\'t pay my tax bill — what are my options?',
@@ -106,6 +106,12 @@ const RELATED = [
     cat:  'IRS & Tax Issues',
     title: 'IRS 稅務留置權、扣押與催收上訴',
     desc:  '留置權、扣押，以及如何對 IRS 催收行動提出上訴。',
+  },
+  {
+    href: '/library/irs/refund-offsets',
+    cat:  'IRS & Tax Issues',
+    title: '退稅被抵扣：IRS 與財政部為什麼扣除你的退稅？',
+    desc:  '退稅為什麼變少或被拿去抵償債務。',
   },
 ]
 

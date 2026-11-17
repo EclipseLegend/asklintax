@@ -81,6 +81,12 @@ const RELATED = [
     title: 'Hobby or Business? How Side Income Is Taxed in 2025 and 2026',
     desc:  'Whether your side activity is a hobby or a business.',
   },
+  {
+    href: '/library/small-business/inventory-cost-of-goods-sold',
+    cat:  'Small Business & Self-Employment',
+    title: 'Inventory and Cost of Goods Sold: Schedule C and Small Business Exceptions',
+    desc:  'Inventory, cost of goods sold, and the small business exception.',
+  },
 ]
 
 export default function Form1099KPage({ translations }) {

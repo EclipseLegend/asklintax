@@ -104,6 +104,12 @@ const RELATED = [
     title: 'Issuing Forms 1099-NEC and 1099-MISC: Thresholds, Deadlines, and Penalties',
     desc:  'When a business must send contractors a Form 1099.',
   },
+  {
+    href: '/library/small-business/worker-classification',
+    cat:  'Small Business & Self-Employment',
+    title: 'Employee or Independent Contractor? How Businesses Classify Workers',
+    desc:  'How a business decides whether a worker is an employee.',
+  },
 ]
 
 export default function W2vs1099Page({ translations }) {

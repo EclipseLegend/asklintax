@@ -100,6 +100,12 @@ const RELATED = [
     title: 'Issuing Forms 1099-NEC and 1099-MISC: Thresholds, Deadlines, and Penalties',
     desc:  'When a business must send contractors a Form 1099.',
   },
+  {
+    href: '/library/small-business/inventory-cost-of-goods-sold',
+    cat:  'Small Business & Self-Employment',
+    title: 'Inventory and Cost of Goods Sold: Schedule C and Small Business Exceptions',
+    desc:  'Inventory, cost of goods sold, and the small business exception.',
+  },
 ]
 
 const DEDUCTION_CATEGORIES = [

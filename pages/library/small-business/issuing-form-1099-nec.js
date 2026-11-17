@@ -84,6 +84,12 @@ const RELATED = [
     title: 'Payroll Taxes for Employers: Forms 941 and 940, Deposits, and the Trust Fund Recovery Penalty',
     desc:  'What changes if the worker is an employee.',
   },
+  {
+    href: '/library/small-business/worker-classification',
+    cat:  'Small Business & Self-Employment',
+    title: 'Employee or Independent Contractor? How Businesses Classify Workers',
+    desc:  'How a business decides whether a worker is an employee.',
+  },
 ]
 
 export default function IssuingForm1099NecPage({ translations }) {

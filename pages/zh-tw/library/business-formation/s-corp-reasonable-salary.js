@@ -14,7 +14,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 's-corp-reasonable-salary',
-  sourceHash:      'bacdc1bc6004',
+  sourceHash:      'df49d1e9bd52',
   id:            '77',
   title:         '經營 S 公司：合理薪資、Form 1120-S 與 Schedule K-1',
   titleEn:       'Running an S-Corp: Reasonable Salary, Form 1120-S and Schedule K-1',
@@ -95,6 +95,12 @@ const RELATED = [
     cat:  'Small Business & Self-Employment',
     title: '雇主薪資稅：Form 941、Form 940、稅款繳存與信託基金追繳罰款',
     desc:  '雇主的預扣、繳存，以及 941 與 940 表。',
+  },
+  {
+    href: '/library/business-formation/s-corp-shareholder-basis',
+    cat:  'Business Formation & Structure',
+    title: 'S 公司股東成本基礎：股票基礎、債務基礎與 Form 7203',
+    desc:  '股票成本基礎、債務成本基礎與 Form 7203 的詳細說明。',
   },
 ]
 

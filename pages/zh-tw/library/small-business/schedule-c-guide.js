@@ -14,7 +14,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'schedule-c-guide',
-  sourceHash:      '9a95dfa87ac8',
+  sourceHash:      '7db95a56e44d',
   id:            '79',
   title:         'Schedule C 說明：如何申報自雇收入與費用',
   titleEn:       'Schedule C Explained: Self-Employment Income and Expenses',
@@ -105,6 +105,12 @@ const RELATED = [
     cat:  'Small Business & Self-Employment',
     title: '營業虧損：成本基礎、風險承擔、被動活動、超額營業虧損與 NOL 規定',
     desc:  '營業虧損扣除限制的適用順序。',
+  },
+  {
+    href: '/library/small-business/inventory-cost-of-goods-sold',
+    cat:  'Small Business & Self-Employment',
+    title: '存貨與銷貨成本：Schedule C 與小型企業例外規定',
+    desc:  '存貨、銷貨成本與小型企業例外。',
   },
 ]
 

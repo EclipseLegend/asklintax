@@ -91,6 +91,12 @@ const RELATED = [
     title: 'Multi-Member LLC and Partnership Taxes: Form 1065 and Schedule K-1',
     desc:  'How a multi-member LLC files Form 1065 and K-1s.',
   },
+  {
+    href: '/library/business-formation/s-corp-shareholder-basis',
+    cat:  'Business Formation & Structure',
+    title: 'S Corporation Shareholder Basis: Stock Basis, Debt Basis, and Form 7203',
+    desc:  'Stock basis, debt basis, and Form 7203 in detail.',
+  },
 ]
 
 export default function LLCvsSCorpPage({ translations }) {

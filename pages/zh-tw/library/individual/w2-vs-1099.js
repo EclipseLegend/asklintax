@@ -13,7 +13,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'w2-vs-1099',
-  sourceHash:      'ad67bd29f45a',
+  sourceHash:      'ebf045f4bee2',
   id:            '10',
   title:         'W-2 與 1099：有什麼差別？為什麼重要？',
   titleEn:       'W-2 vs 1099: what\'s the difference and why it matters',
@@ -109,6 +109,12 @@ const RELATED = [
     cat:  'Small Business & Self-Employment',
     title: '開立 Form 1099-NEC 與 1099-MISC：申報門檻、期限與罰款',
     desc:  '企業何時必須開 Form 1099 給承包商。',
+  },
+  {
+    href: '/library/small-business/worker-classification',
+    cat:  'Small Business & Self-Employment',
+    title: '員工還是獨立承包商？企業如何正確判斷工作者身分',
+    desc:  '企業如何判斷工作者是否為員工。',
   },
 ]
 

@@ -14,7 +14,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'form-1099-k',
-  sourceHash:      'a1a701a21f49',
+  sourceHash:      'cbbd9c65b715',
   id:            '55',
   title:         '收到 PayPal、Venmo 或 eBay 的 1099-K，要繳稅嗎？',
   titleEn:       'I got a 1099-K from PayPal, Venmo, or eBay — is it taxable?',
@@ -86,6 +86,12 @@ const RELATED = [
     cat:  'Small Business & Self-Employment',
     title: '是興趣還是事業？2025 與 2026 年副業收入如何課稅',
     desc:  '你的副業是興趣還是事業。',
+  },
+  {
+    href: '/library/small-business/inventory-cost-of-goods-sold',
+    cat:  'Small Business & Self-Employment',
+    title: '存貨與銷貨成本：Schedule C 與小型企業例外規定',
+    desc:  '存貨、銷貨成本與小型企業例外。',
   },
 ]
 

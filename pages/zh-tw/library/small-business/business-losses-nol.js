@@ -14,7 +14,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'business-losses-nol',
-  sourceHash:      '7277ab779a49',
+  sourceHash:      '8ed8954ddbf5',
   id:            '130',
   title:         '營業虧損：成本基礎、風險承擔、被動活動、超額營業虧損與 NOL 規定',
   titleEn:       'Business Losses: Basis, At-Risk, Passive Activity, Excess Business Loss, and NOL Rules',
@@ -92,6 +92,12 @@ const RELATED = [
     cat:  'Individuals & Families',
     title: '替代性最低稅（AMT）：2025 與 2026 年規定',
     desc:  '回轉 NOL 可能讓較早的年度產生 AMT。',
+  },
+  {
+    href: '/library/business-formation/s-corp-shareholder-basis',
+    cat:  'Business Formation & Structure',
+    title: 'S 公司股東成本基礎：股票基礎、債務基礎與 Form 7203',
+    desc:  '股票成本基礎、債務成本基礎與 Form 7203 的詳細說明。',
   },
 ]
 

@@ -13,7 +13,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'llc-vs-scorp',
-  sourceHash:      '076331e25d1f',
+  sourceHash:      '5d6d3c38e6fc',
   id:            '03',
   title:         'LLC 與 S-Corp：哪種適合你的企業？',
   titleEn:       'LLC vs S-Corp: which is right for your business?',
@@ -96,6 +96,12 @@ const RELATED = [
     cat:  'Business Formation & Structure',
     title: '多成員 LLC 與合夥企業稅務：Form 1065 與 Schedule K-1',
     desc:  '多成員 LLC 如何申報 Form 1065 與 K-1。',
+  },
+  {
+    href: '/library/business-formation/s-corp-shareholder-basis',
+    cat:  'Business Formation & Structure',
+    title: 'S 公司股東成本基礎：股票基礎、債務基礎與 Form 7203',
+    desc:  '股票成本基礎、債務成本基礎與 Form 7203 的詳細說明。',
   },
 ]
 

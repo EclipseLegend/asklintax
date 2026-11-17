@@ -83,6 +83,12 @@ const RELATED = [
     title: 'IRS Power of Attorney: Form 2848 vs. Form 8821',
     desc:  'Authorizing a representative to help with your request.',
   },
+  {
+    href: '/library/irs/refund-offsets',
+    cat:  'IRS & Tax Issues',
+    title: 'Refund Offsets: When the IRS or Treasury Takes Your Refund',
+    desc:  'Why a refund was reduced or taken for a debt.',
+  },
 ]
 
 export default function InjuredInnocentSpousePage({ translations }) {

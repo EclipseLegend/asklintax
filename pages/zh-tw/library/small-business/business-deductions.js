@@ -13,7 +13,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'business-deductions',
-  sourceHash:      'f4452c144295',
+  sourceHash:      'fa2ca124dea8',
   id:            '14',
   title:         '小型企業老闆可以扣除哪些費用？',
   titleEn:       'What can I deduct as a small business owner?',
@@ -105,6 +105,12 @@ const RELATED = [
     cat:  'Small Business & Self-Employment',
     title: '開立 Form 1099-NEC 與 1099-MISC：申報門檻、期限與罰款',
     desc:  '企業何時必須開 Form 1099 給承包商。',
+  },
+  {
+    href: '/library/small-business/inventory-cost-of-goods-sold',
+    cat:  'Small Business & Self-Employment',
+    title: '存貨與銷貨成本：Schedule C 與小型企業例外規定',
+    desc:  '存貨、銷貨成本與小型企業例外。',
   },
 ]
 

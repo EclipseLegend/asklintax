@@ -90,6 +90,12 @@ const RELATED = [
     title: 'Payroll Taxes for Employers: Forms 941 and 940, Deposits, and the Trust Fund Recovery Penalty',
     desc:  'Withholding, deposits, and Forms 941 and 940 for employers.',
   },
+  {
+    href: '/library/business-formation/s-corp-shareholder-basis',
+    cat:  'Business Formation & Structure',
+    title: 'S Corporation Shareholder Basis: Stock Basis, Debt Basis, and Form 7203',
+    desc:  'Stock basis, debt basis, and Form 7203 in detail.',
+  },
 ]
 
 export default function SCorpReasonableSalaryPage({ translations }) {

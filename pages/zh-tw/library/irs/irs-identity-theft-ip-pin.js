@@ -14,7 +14,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'irs-identity-theft-ip-pin',
-  sourceHash:      '6e1426ea1bb2',
+  sourceHash:      'ce1cd00d65d1',
   id:            '105',
   title:         'IRS 身分盜用與 IP PIN：如何保護你的報稅',
   titleEn:       'IRS Identity Theft and the IP PIN: How to Protect Your Tax Return',
@@ -103,6 +103,12 @@ const RELATED = [
     cat:  'IRS & Tax Issues',
     title: '納稅人權益服務（TAS）：何時與如何求助',
     desc:  'IRS 問題造成困難時的免費協助。',
+  },
+  {
+    href: '/library/irs/irs-identity-verification-letters',
+    cat:  'IRS & Tax Issues',
+    title: 'IRS 身分驗證信函：CP5071、4883C、5747C 與退稅延遲',
+    desc:  '如何回覆 IRS 身分驗證信函。',
   },
 ]
 

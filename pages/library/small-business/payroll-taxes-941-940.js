@@ -85,6 +85,12 @@ const RELATED = [
     title: 'IRS Penalty Relief: Automatic Exemption, First Time Abate, and Reasonable Cause',
     desc:  'Options if you were charged a deposit penalty.',
   },
+  {
+    href: '/library/small-business/worker-classification',
+    cat:  'Small Business & Self-Employment',
+    title: 'Employee or Independent Contractor? How Businesses Classify Workers',
+    desc:  'How a business decides whether a worker is an employee.',
+  },
 ]
 
 export default function PayrollTaxes941940Page({ translations }) {

@@ -13,7 +13,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'irs-notice',
-  sourceHash:      'baf1a00164e0',
+  sourceHash:      'c6af0b57eaa6',
   id:            '01',
   title:         '我收到 IRS 的信，該怎麼辦？',
   titleEn:       'I received an IRS letter. What do I do?',
@@ -118,6 +118,18 @@ const RELATED = [
     cat:  'IRS & Tax Issues',
     title: '納稅人權益服務（TAS）：何時與如何求助',
     desc:  'IRS 問題造成困難時的免費協助。',
+  },
+  {
+    href: '/library/irs/refund-offsets',
+    cat:  'IRS & Tax Issues',
+    title: '退稅被抵扣：IRS 與財政部為什麼扣除你的退稅？',
+    desc:  '退稅為什麼變少或被拿去抵償債務。',
+  },
+  {
+    href: '/library/irs/irs-identity-verification-letters',
+    cat:  'IRS & Tax Issues',
+    title: 'IRS 身分驗證信函：CP5071、4883C、5747C 與退稅延遲',
+    desc:  '如何回覆 IRS 身分驗證信函。',
   },
 ]
 

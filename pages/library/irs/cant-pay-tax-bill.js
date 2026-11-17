@@ -101,6 +101,12 @@ const RELATED = [
     title: 'IRS Tax Liens, Levies, and Collection Appeals',
     desc:  'Liens, levies, and how to appeal IRS collection actions.',
   },
+  {
+    href: '/library/irs/refund-offsets',
+    cat:  'IRS & Tax Issues',
+    title: 'Refund Offsets: When the IRS or Treasury Takes Your Refund',
+    desc:  'Why a refund was reduced or taken for a debt.',
+  },
 ]
 
 export default function CantPayTaxBillPage({ translations }) {

@@ -14,7 +14,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'injured-innocent-spouse-relief',
-  sourceHash:      'ea040a750b6d',
+  sourceHash:      'a512e99eb4b4',
   id:            '115',
   title:         '受損配偶與無辜配偶救濟：Form 8379 與 Form 8857',
   titleEn:       'Injured Spouse vs. Innocent Spouse Relief: Forms 8379 and 8857',
@@ -88,6 +88,12 @@ const RELATED = [
     cat:  'IRS & Tax Issues',
     title: 'IRS 授權書：Form 2848 與 Form 8821 的差別',
     desc:  '授權代理人協助你申請。',
+  },
+  {
+    href: '/library/irs/refund-offsets',
+    cat:  'IRS & Tax Issues',
+    title: '退稅被抵扣：IRS 與財政部為什麼扣除你的退稅？',
+    desc:  '退稅為什麼變少或被拿去抵償債務。',
   },
 ]
 

@@ -14,7 +14,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'payroll-taxes-941-940',
-  sourceHash:      '8c51a102428a',
+  sourceHash:      'f8f4893d0944',
   id:            '126',
   title:         '雇主薪資稅：Form 941、Form 940、稅款繳存與信託基金追繳罰款',
   titleEn:       'Payroll Taxes for Employers: Forms 941 and 940, Deposits, and the Trust Fund Recovery Penalty',
@@ -90,6 +90,12 @@ const RELATED = [
     cat:  'IRS & Tax Issues',
     title: 'IRS 罰款減免：自動罰款豁免、首次罰款減免與合理原因',
     desc:  '如果你被收取繳存罰款，可以怎麼做。',
+  },
+  {
+    href: '/library/small-business/worker-classification',
+    cat:  'Small Business & Self-Employment',
+    title: '員工還是獨立承包商？企業如何正確判斷工作者身分',
+    desc:  '企業如何判斷工作者是否為員工。',
   },
 ]
 

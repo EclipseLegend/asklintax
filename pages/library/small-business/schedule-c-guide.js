@@ -100,6 +100,12 @@ const RELATED = [
     title: 'Business Losses: Basis, At-Risk, Passive Activity, Excess Business Loss, and NOL Rules',
     desc:  'The limits on deducting a business loss, in order.',
   },
+  {
+    href: '/library/small-business/inventory-cost-of-goods-sold',
+    cat:  'Small Business & Self-Employment',
+    title: 'Inventory and Cost of Goods Sold: Schedule C and Small Business Exceptions',
+    desc:  'Inventory, cost of goods sold, and the small business exception.',
+  },
 ]
 
 export default function ScheduleCGuidePage({ translations }) {
