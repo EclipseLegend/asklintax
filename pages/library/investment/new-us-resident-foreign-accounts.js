@@ -30,7 +30,7 @@ const META = {
     { label: 'FinCEN — Report Foreign Bank and Financial Accounts', url: 'https://www.fincen.gov/report-foreign-bank-and-financial-accounts' },
     { label: 'IRS — International Practice Unit: FinCEN Form 114 (FBAR) (U.S. resident determination)', url: 'https://www.irs.gov/pub/fatca/int_practice_units/fincen-form114-fbar.pdf' },
     { label: 'IRS Publication 519 — U.S. Tax Guide for Aliens (residency starting date)', url: 'https://www.irs.gov/publications/p519' },
-    { label: 'IRS — Resident aliens (worldwide income)', url: 'https://www.irs.gov/individuals/international-taxpayers/resident-aliens' },
+    { label: 'IRS — U.S. residents (worldwide income)', url: 'https://www.irs.gov/individuals/international-taxpayers/us-residents' },
   ],
 }
 

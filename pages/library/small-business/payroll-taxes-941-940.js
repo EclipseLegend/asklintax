@@ -18,9 +18,9 @@ const META = {
   difficulty:    'Intermediate',
   readTime:      '10 min read',
   verification:  'official-sources-verified',
-  updatedDate:   'October 2026',
+  updatedDate:   'November 2026',
   taxYear:       String(TAX_CONFIG.currentTaxYear),
-  confidence:    'Explains federal payroll tax duties for employers, based on Publication 15 (2026), the Instructions for Form 941 (Rev. March 2026), the Instructions for Form 940 (2025), and Schedule A (Form 940) for 2025. The final 2026 FUTA credit reduction states had not been announced when this guide was reviewed; the IRS draft 2026 Schedule A (Form 940) says the Department of Labor will announce them in November 2026. It does not cover state payroll taxes, household employers, agricultural employers (Form 943), or Form 945 nonpayroll withholding in detail',
+  confidence:    'Explains federal payroll tax duties for employers, based on Publication 15 (2026), the Instructions for Form 941 (Rev. March 2026), the Instructions for Form 940 (2025), and Schedule A (Form 940) for 2025. For 2026, the IRS draft Form 940 instructions (November 18, 2026) and draft Schedule A (Form 940) (November 19, 2026) list California as the only credit reduction state, at 1.5%; these are drafts, and the final 2026 Schedule A had not been released when this guide was reviewed. It does not cover state payroll taxes, household employers, agricultural employers (Form 943), or Form 945 nonpayroll withholding in detail',
   persona:       ['First-time employers', 'S corporation owners paying themselves a salary', 'Small business owners using a payroll service', 'Anyone who received an IRS notice about late payroll deposits'],
   relatedJourney: ['Running a small business', 'Dealing with a tax problem'],
   actionRequired: 'Confirm your deposit schedule (monthly or semiweekly) from your lookback period, deposit withheld and employer taxes electronically by each due date, file Form 941 every quarter and Form 940 every year, and keep payroll records for at least 4 years. If you use a payroll service, check that deposits are actually being made in your EIN.',
@@ -29,6 +29,8 @@ const META = {
     { label: 'IRS — Instructions for Form 941 (Rev. March 2026)', url: 'https://www.irs.gov/pub/irs-pdf/i941.pdf' },
     { label: 'IRS — Instructions for Form 940 (2025)', url: 'https://www.irs.gov/pub/irs-pdf/i940.pdf' },
     { label: 'IRS — Schedule A (Form 940) for 2025, Multi-State Employer and Credit Reduction Information', url: 'https://www.irs.gov/pub/irs-pdf/f940sa.pdf' },
+    { label: 'IRS — Draft 2026 Schedule A (Form 940) (November 19, 2026; draft, not for filing)', url: 'https://www.irs.gov/pub/irs-dft/f940sa--dft.pdf' },
+    { label: 'IRS — Draft 2026 Instructions for Form 940 (November 18, 2026; draft)', url: 'https://www.irs.gov/pub/irs-dft/i940--dft.pdf' },
     { label: 'IRS — Depositing and reporting employment taxes', url: 'https://www.irs.gov/businesses/small-businesses-self-employed/depositing-and-reporting-employment-taxes' },
   ],
 }
@@ -52,7 +54,7 @@ const FAQS = [
   },
   {
     q: 'Does the 2025 California FUTA credit reduction also apply for 2026?',
-    a: 'Not automatically. Credit reductions are determined for each year by the U.S. Department of Labor. For 2025, California\'s credit reduction is 1.2%. When this guide was reviewed in October 2026, the final 2026 credit reduction states had not been announced; the IRS draft 2026 Schedule A (Form 940) says the Department of Labor will announce them in November 2026. Check the final Schedule A (Form 940) for 2026 when it is released.',
+    a: 'Not automatically. Credit reductions are determined for each year by the U.S. Department of Labor. For 2025, California\'s credit reduction is 1.2%. For 2026, the IRS draft Form 940 instructions (November 18, 2026) and draft Schedule A (Form 940) (November 19, 2026) say California is the only credit reduction state, with a rate of 1.5%. Those are draft forms, not for filing; confirm the rate on the final 2026 Schedule A (Form 940) when it is released.',
   },
   {
     q: 'I use a payroll service. Am I still responsible?',
@@ -190,7 +192,7 @@ export default function PayrollTaxes941940Page({ translations }) {
           ]}
         />
         <p>
-          The credit reduction is treated as a fourth-quarter liability. Because this employer's total FUTA tax is $500 or less, it could either deposit it or pay it with Form 940 by February 2, 2026; employers with more than $500 of fourth-quarter FUTA tax must include the credit reduction in their fourth-quarter deposit. This example applies to <strong>2025 wages only</strong>. Credit reduction states and rates are determined separately each year; the final 2026 list had not been announced when this guide was reviewed.
+          The credit reduction is treated as a fourth-quarter liability. Because this employer's total FUTA tax is $500 or less, it could either deposit it or pay it with Form 940 by February 2, 2026; employers with more than $500 of fourth-quarter FUTA tax must include the credit reduction in their fourth-quarter deposit. This example applies to <strong>2025 wages only</strong>. Credit reduction states and rates are determined separately each year. For 2026, the IRS drafts show California at 1.5% (for example, 1.5% × $7,000 = $105 per employee instead of $84), but use the rate on the final 2026 Schedule A (Form 940).
         </p>
 
         <div className="callout callout-warning">

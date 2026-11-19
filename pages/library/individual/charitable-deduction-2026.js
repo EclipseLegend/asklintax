@@ -25,7 +25,7 @@ const META = {
   relatedJourney: ['Preparing to file', 'Understanding new tax rules'],
   actionRequired: 'Keep a bank record or written receipt for every cash gift, and get a written acknowledgment for gifts of $250 or more. Starting with 2026, if you take the standard deduction, track cash gifts to eligible charities — up to $1,000 ($2,000 married filing jointly) can be deducted.',
   sources: [
-    { label: 'IRS — Working Families Tax Cuts (deduction for charitable cash contributions by individuals who do not itemize)', url: 'https://www.irs.gov/newsroom/one-big-beautiful-bill-provisions' },
+    { label: 'IRS — Working Families Tax Cuts (deduction for charitable cash contributions by individuals who do not itemize)', url: 'https://www.irs.gov/newsroom/working-families-tax-cuts' },
     { label: 'IRS — Publication 505 (2026), Tax Withholding and Estimated Tax', url: 'https://www.irs.gov/pub/irs-pdf/p505.pdf' },
     { label: 'IRS — Publication 526 (2025), Charitable Contributions', url: 'https://www.irs.gov/pub/irs-pdf/p526.pdf' },
     { label: 'IRS — Form W-4 (2026), Step 4(b) Deductions Worksheet', url: 'https://www.irs.gov/pub/irs-pdf/fw4.pdf' },

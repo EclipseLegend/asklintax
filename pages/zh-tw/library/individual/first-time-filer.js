@@ -13,7 +13,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'first-time-filer',
-  sourceHash:      'f3dcee976700',
+  sourceHash:      '7223ea5e5e14',
   id:            '07',
   title:         '在美國第一次報稅：完整步驟指南',
   titleEn:       'First-time filer in the U.S.: a complete step-by-step guide',
@@ -24,7 +24,7 @@ const META = {
   readTime:      '8 min read',
   verification:  'official-sources-verified',
   sources: [
-    { label: 'IRS — IRS 免費報稅（IRS Free File）', url: 'https://www.irs.gov/filing/irs-free-file-do-your-taxes-for-free' },
+    { label: 'IRS — IRS 免費報稅（IRS Free File）', url: 'https://www.irs.gov/e-file-do-your-taxes-for-free' },
     { label: 'IRS — Form W-2 與 W-3 一般填寫說明（2026）（General Instructions for Forms W-2 and W-3）', url: 'https://www.irs.gov/instructions/iw2w3' },
     { label: 'IRS — Form 1099-MISC 與 1099-NEC 填寫說明（Instructions for Forms 1099-MISC and 1099-NEC）', url: 'https://www.irs.gov/instructions/i1099mec' },
     { label: 'IRS — Revenue Procedure 2025-32（2026 稅務年度通膨調整）', url: 'https://www.irs.gov/pub/irs-drop/rp-25-32.pdf' },

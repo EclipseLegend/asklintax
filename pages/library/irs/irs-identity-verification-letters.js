@@ -29,7 +29,7 @@ const META = {
     { label: 'IRS — Understanding your letter 4883C', url: 'https://www.irs.gov/individuals/understanding-your-letter-4883c' },
     { label: 'IRS — Understanding your letter 5747C', url: 'https://www.irs.gov/individuals/understanding-your-letter-5747c' },
     { label: 'IRS — Understanding your CP5447 series notice', url: 'https://www.irs.gov/individuals/understanding-your-cp5447-series-notice' },
-    { label: 'IRS — Verify your return', url: 'https://www.irs.gov/identity-theft-fraud-scams/identity-and-tax-return-verification-service' },
+    { label: 'IRS — Verify your return', url: 'https://www.irs.gov/identity-theft-fraud-scams/verify-your-return' },
   ],
 }
 

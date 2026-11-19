@@ -22,9 +22,11 @@ const META = {
     { label: 'IRS — Understanding your IRS notice or letter', url: 'https://www.irs.gov/individuals/understanding-your-irs-notice-or-letter' },
     { label: 'IRS — Understanding your CP14 notice', url: 'https://www.irs.gov/individuals/understanding-your-cp14-notice' },
     { label: 'IRS — Understanding your CP504 notice', url: 'https://www.irs.gov/individuals/understanding-your-cp504-notice' },
+    { label: 'IRS — Understanding your LT11 notice or letter 1058', url: 'https://www.irs.gov/individuals/understanding-your-lt11-notice-or-letter-1058' },
+    { label: 'IRS — Publication 594 (Rev. January 2026), The IRS Collection Process', url: 'https://www.irs.gov/pub/irs-pdf/p594.pdf' },
     { label: 'IRS — Understanding your CP12 notice', url: 'https://www.irs.gov/individuals/understanding-your-cp12-notice' },
     { label: 'IRS — How to know it’s really the IRS calling or knocking on your door', url: 'https://www.irs.gov/newsroom/how-to-know-its-really-the-irs-calling-or-knocking-on-your-door' },
-    { label: 'IRS — Report phishing and online scams', url: 'https://www.irs.gov/privacy-disclosure/report-phishing' },
+    { label: 'IRS — Report fake IRS, Treasury or tax-related emails and messages', url: 'https://www.irs.gov/help/report-fraud/report-fake-irs-treasury-or-tax-related-emails-and-messages' },
     { label: 'IRS — Penalties', url: 'https://www.irs.gov/payments/penalties' },
   ],
   updatedDate:   null,
@@ -41,7 +43,7 @@ const NOTICE_TYPES = [
   { code: 'CP14',   color: '#DC2626', urgency: 'Balance Due',      title: 'You Have a Balance Due',       desc: "You owe taxes that haven't been paid. Interest and penalties are accruing.", action: 'Pay the balance online at IRS.gov/payments, or call to set up a payment plan. Don\'t ignore this — penalties grow quickly.' },
   { code: 'CP501',  color: '#DC2626', urgency: 'Reminder',         title: 'Reminder of Balance Due',      desc: 'A reminder that you have an outstanding balance. Usually sent after a CP14.', action: 'Same as CP14 — pay or arrange a payment plan immediately.' },
   { code: 'CP503',  color: '#7C3AED', urgency: '2nd Reminder',     title: 'Second Balance Due Notice',    desc: 'A second reminder. The IRS may be preparing to take collection action.', action: 'Act now. Contact the IRS to pay or arrange a payment plan before they escalate to a lien or levy.' },
-  { code: 'CP504',  color: '#7C3AED', urgency: 'Urgent',           title: 'Intent to Levy Notice',        desc: 'Your final reminder before the IRS levies (seizes) your wages, bank accounts, or state tax refund. The IRS can also file a Notice of Federal Tax Lien. This is serious.', action: 'Respond immediately. Pay in full, set up a payment plan, or contact a tax professional. You have limited time to act.' },
+  { code: 'CP504',  color: '#7C3AED', urgency: 'Urgent',           title: 'Intent to Levy Notice',        desc: 'Your notice of intent to levy (seize) your wages, bank accounts, or state tax refund. The IRS can also file a Notice of Federal Tax Lien. This is serious. It does not mean an immediate seizure of wages or a bank account: before most other levies, the IRS usually sends a Final Notice of Intent to Levy and Notice of Your Right to a Hearing (LT11 or Letter 1058) at least 30 days ahead, which gives you Collection Due Process hearing rights. Exceptions apply — a state tax refund, for example, can be levied without that advance hearing notice, with hearing rights offered afterward.', action: 'Respond immediately. Pay in full, set up a payment plan, or contact a tax professional. You have limited time to act.' },
   { code: 'CP12',   color: '#16A34A', urgency: 'Good News',        title: 'Math Error — Refund Changed',  desc: 'The IRS corrected one or more mistakes on your return, and as a result your refund amount changed.', action: 'Review the changes. If you agree, no response is needed. If you disagree, contact the IRS at the number on the notice by the date shown on it.' },
 ]
 

@@ -26,7 +26,7 @@ const META = {
   actionRequired: 'Owning property abroad is not taxable by itself, and real estate held directly is not reported on the FBAR or Form 8938. What you must report is the income it produces (such as rent) and any gain when you sell. If you inherited it from a nonresident, check whether Form 3520 applies.',
   sources: [
     { label: 'IRS — Comparison of Form 8938 and FBAR requirements', url: 'https://www.irs.gov/businesses/comparison-of-form-8938-and-fbar-requirements' },
-    { label: 'IRS — Resident aliens (worldwide income)', url: 'https://www.irs.gov/individuals/international-taxpayers/resident-aliens' },
+    { label: 'IRS — U.S. residents (worldwide income)', url: 'https://www.irs.gov/individuals/international-taxpayers/us-residents' },
     { label: 'IRS — Instructions for Schedule A (Form 1040), line 5b', url: 'https://www.irs.gov/instructions/i1040sca' },
     { label: 'IRS — Gifts from foreign person (bequests and Form 3520)', url: 'https://www.irs.gov/businesses/gifts-from-foreign-person' },
     { label: 'IRS — Foreign currency and currency exchange rates', url: 'https://www.irs.gov/individuals/international-taxpayers/foreign-currency-and-currency-exchange-rates' },

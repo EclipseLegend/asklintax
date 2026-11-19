@@ -26,7 +26,7 @@ const META = {
   actionRequired: 'Check which changes apply to you for each tax year. Several new deductions started with 2025 returns and are claimed on the new Schedule 1-A; others first apply in 2026. Use the detailed guides for the rules and limits.',
   sources: [
     { label: 'IRS — Working Families Tax Cuts: provisions for individuals and workers', url: 'https://www.irs.gov/newsroom/working-families-tax-cuts-individuals-and-workers' },
-    { label: 'IRS — Working Families Tax Cuts (One, Big, Beautiful Bill provisions)', url: 'https://www.irs.gov/newsroom/one-big-beautiful-bill-provisions' },
+    { label: 'IRS — Working Families Tax Cuts (One, Big, Beautiful Bill provisions)', url: 'https://www.irs.gov/newsroom/working-families-tax-cuts' },
     { label: 'IRS — Schedule 1-A (Form 1040) (2025), Additional Deductions', url: 'https://www.irs.gov/pub/irs-pdf/f1040s1a.pdf' },
     { label: 'IRS — 2025 Instructions for Form 1040 (including Schedule 1-A instructions)', url: 'https://www.irs.gov/pub/irs-pdf/i1040gi.pdf' },
     { label: 'IRS — IR-2026-28, New Schedule 1-A and Form 1040 instructions', url: 'https://www.irs.gov/newsroom/irs-published-schedule-taxpayers-will-use-to-claim-deductions-on-no-tax-on-tips-no-tax-on-overtime-no-tax-on-car-loans-no-tax-on-seniors' },

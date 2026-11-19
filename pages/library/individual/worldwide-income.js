@@ -25,7 +25,7 @@ const META = {
   relatedJourney: ['Cross-border finances', 'New to the U.S.'],
   actionRequired: 'List every source of income you received anywhere in the world while you were a U.S. tax resident in 2025, convert it to U.S. dollars, and report it on your Form 1040. Then check whether a foreign tax credit (or, if you lived abroad, the foreign earned income exclusion) reduces double tax.',
   sources: [
-    { label: 'IRS — Resident aliens', url: 'https://www.irs.gov/individuals/international-taxpayers/resident-aliens' },
+    { label: 'IRS — U.S. residents', url: 'https://www.irs.gov/individuals/international-taxpayers/us-residents' },
     { label: 'IRS Publication 54 — Tax Guide for U.S. Citizens and Resident Aliens Abroad', url: 'https://www.irs.gov/publications/p54' },
     { label: 'IRS — Foreign tax credit', url: 'https://www.irs.gov/individuals/international-taxpayers/foreign-tax-credit' },
     { label: 'IRS — Foreign earned income exclusion', url: 'https://www.irs.gov/individuals/international-taxpayers/foreign-earned-income-exclusion' },

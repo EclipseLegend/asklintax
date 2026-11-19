@@ -14,7 +14,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: '529-plans',
-  sourceHash:      '152313251eb4',
+  sourceHash:      '8be19e7c87c5',
   id:            '75',
   title:         '529 計畫：擴大的 K-12 與職業證照費用說明',
   titleEn:       '529 Plans: Expanded K-12 and Credential Expenses Explained',
@@ -34,7 +34,7 @@ const META = {
     { label: 'IRS — Topic no. 313，合格學費計畫（Qualified tuition programs, QTPs）', url: 'https://www.irs.gov/taxtopics/tc313' },
     { label: 'IRS — Publication 970（2025），教育稅務優惠（Tax Benefits for Education）（第 7 章，合格學費計畫）', url: 'https://www.irs.gov/pub/irs-pdf/p970.pdf' },
     { label: 'IRS — Form 5329 填寫說明（教育帳戶的附加稅）', url: 'https://www.irs.gov/pub/irs-pdf/i5329.pdf' },
-    { label: 'IRS — Working Families Tax Cuts（One, Big, Beautiful Bill 相關條款）', url: 'https://www.irs.gov/newsroom/one-big-beautiful-bill-provisions' },
+    { label: 'IRS — Working Families Tax Cuts（One, Big, Beautiful Bill 相關條款）', url: 'https://www.irs.gov/newsroom/working-families-tax-cuts' },
   ],
 }
 

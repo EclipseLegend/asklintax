@@ -18,7 +18,7 @@ const META = {
   readTime:      '8 min read',
   verification:  'official-sources-verified',
   sources: [
-    { label: 'IRS — IRS Free File', url: 'https://www.irs.gov/filing/irs-free-file-do-your-taxes-for-free' },
+    { label: 'IRS — IRS Free File', url: 'https://www.irs.gov/e-file-do-your-taxes-for-free' },
     { label: 'IRS — General Instructions for Forms W-2 and W-3 (2026)', url: 'https://www.irs.gov/instructions/iw2w3' },
     { label: 'IRS — Instructions for Forms 1099-MISC and 1099-NEC', url: 'https://www.irs.gov/instructions/i1099mec' },
     { label: 'IRS — Revenue Procedure 2025-32 (tax year 2026 inflation adjustments)', url: 'https://www.irs.gov/pub/irs-drop/rp-25-32.pdf' },

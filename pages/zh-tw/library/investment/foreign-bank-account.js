@@ -14,7 +14,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'foreign-bank-account',
-  sourceHash:      '9e8cd79b6777',
+  sourceHash:      '59db2aa8d723',
   id:            '24',
   title:         '台灣或海外銀行帳戶需要申報嗎？',
   titleEn:       'Do I need to report a Taiwan or foreign bank account?',
@@ -35,7 +35,7 @@ const META = {
     { label: 'FinCEN — 申報海外銀行與金融帳戶（Report Foreign Bank and Financial Accounts）', url: 'https://www.fincen.gov/report-foreign-bank-and-financial-accounts' },
     { label: 'IRS — Form 8938 與 FBAR 申報要求比較（Comparison of Form 8938 and FBAR requirements）', url: 'https://www.irs.gov/businesses/comparison-of-form-8938-and-fbar-requirements' },
     { label: 'IRS — Schedule B（Form 1040）填寫說明，Part III', url: 'https://www.irs.gov/instructions/i1040sb' },
-    { label: 'IRS — 居民外國人（Resident aliens：全球所得）', url: 'https://www.irs.gov/individuals/international-taxpayers/resident-aliens' },
+    { label: 'IRS — 美國居民（U.S. residents：全球所得）', url: 'https://www.irs.gov/individuals/international-taxpayers/us-residents' },
     { label: 'IRS — 年平均匯率（Yearly average currency exchange rates）', url: 'https://www.irs.gov/individuals/international-taxpayers/yearly-average-currency-exchange-rates' },
     { label: 'IRS — 外國稅額抵免（Foreign tax credit）', url: 'https://www.irs.gov/individuals/international-taxpayers/foreign-tax-credit' },
   ],

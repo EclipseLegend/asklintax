@@ -20,7 +20,7 @@ const META = {
   verification:  'official-sources-verified',
   updatedDate:   null,
   taxYear:       String(TAX_CONFIG.currentTaxYear),
-  confidence:    'Explains Schedule C (Form 1040) for tax years 2025 and 2026, based on the 2025 Schedule C and its instructions, Publication 334 (2025), the 2025 Instructions for Form 461, IRS Notice 2026-10 and Announcement 2026-11 (2026 standard mileage rates), and Revenue Procedures 2024-40 and 2025-32. The 2026 Schedule C and its instructions were drafts when this guide was written. It does not cover farming (Schedule F), statutory employees in detail, or state returns',
+  confidence:    'Explains Schedule C (Form 1040) for tax years 2025 and 2026, based on the 2025 Schedule C and its instructions, Publication 334 (2025), the 2025 Instructions for Form 461, IRS Notice 2026-10 and Announcement 2026-11 (2026 standard mileage rates), and Revenue Procedures 2024-40 and 2025-32. The final 2026 Schedule C form was posted October 29, 2026; its 2026 instructions were not yet final when this guide was reviewed in November 2026. It does not cover farming (Schedule F), statutory employees in detail, or state returns',
   persona:       ['Freelancers and independent contractors', 'Gig workers and online sellers', 'Single-member LLC owners', 'Anyone filing their first Schedule C'],
   relatedJourney: ['Preparing to file', 'First year of self-employment'],
   actionRequired: 'Report all of your business income on Schedule C — including income that was not reported to you on a Form 1099 — subtract your allowable business expenses, and carry the net profit to Schedule 1 and Schedule SE. Keep records that support every expense.',
@@ -243,7 +243,7 @@ export default function ScheduleCGuidePage({ translations }) {
 
         <div className="callout callout-info">
           <div className="callout-title">ℹ️ About the 2026 form</div>
-          <p>The 2026 Schedule C and its instructions were still drafts when this guide was written. The 2026 rates and limits above come from final IRS guidance (Notice 2026-10, Announcement 2026-11, and Revenue Procedure 2025-32). State returns are not covered.</p>
+          <p>The final 2026 Schedule C form was posted on October 29, 2026; its 2026 instructions had not been finalized when this guide was reviewed in November 2026. The 2026 rates and limits above come from final IRS guidance (Notice 2026-10, Announcement 2026-11, and Revenue Procedure 2025-32). State returns are not covered.</p>
         </div>
 
       </KnowledgePage>

@@ -14,7 +14,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'child-dependent-care-credit',
-  sourceHash:      'b43c01c31db0',
+  sourceHash:      '7df6674bab12',
   id:            '74',
   title:         '兒童與受扶養人照顧抵稅額：2025 與 2026 年規定與範例',
   titleEn:       'Child and Dependent Care Credit: 2025 and 2026 Rules and Examples',
@@ -35,7 +35,7 @@ const META = {
     { label: 'IRS — 2025 年 Form 2441 填寫說明', url: 'https://www.irs.gov/pub/irs-pdf/i2441.pdf' },
     { label: 'IRS — Form 2441（2025），兒童與受扶養人照顧費用', url: 'https://www.irs.gov/pub/irs-pdf/f2441.pdf' },
     { label: 'IRS — 2026 年 Form 2441 填寫說明草稿（2026 年 8 月，非正式版本）', url: 'https://www.irs.gov/pub/irs-dft/i2441--dft.pdf' },
-    { label: 'IRS — Working Families Tax Cuts（兒童與受扶養人照顧抵稅額的加強）', url: 'https://www.irs.gov/newsroom/one-big-beautiful-bill-provisions' },
+    { label: 'IRS — Working Families Tax Cuts（兒童與受扶養人照顧抵稅額的加強）', url: 'https://www.irs.gov/newsroom/working-families-tax-cuts' },
     { label: 'IRS — Publication 15-B（2026），雇主附加福利稅務指南（Employer\'s Tax Guide to Fringe Benefits）', url: 'https://www.irs.gov/pub/irs-pdf/p15b.pdf' },
     { label: 'IRS — Topic no. 602，兒童與受扶養人照顧抵稅額', url: 'https://www.irs.gov/taxtopics/tc602' },
     { label: 'IRS — Revenue Procedure 2025-32（2026 稅務年度通膨調整）', url: 'https://www.irs.gov/pub/irs-drop/rp-25-32.pdf' },

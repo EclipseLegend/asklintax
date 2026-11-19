@@ -27,7 +27,7 @@ const META = {
   sources: [
     { label: 'IRS — Substantial presence test', url: 'https://www.irs.gov/individuals/international-taxpayers/substantial-presence-test' },
     { label: 'IRS Publication 519 — U.S. Tax Guide for Aliens (chapter 1)', url: 'https://www.irs.gov/publications/p519' },
-    { label: 'IRS — Resident aliens', url: 'https://www.irs.gov/individuals/international-taxpayers/resident-aliens' },
+    { label: 'IRS — U.S. residents', url: 'https://www.irs.gov/individuals/international-taxpayers/us-residents' },
   ],
 }
 

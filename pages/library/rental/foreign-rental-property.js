@@ -28,7 +28,7 @@ const META = {
     { label: 'IRS Publication 527 — Residential Rental Property', url: 'https://www.irs.gov/publications/p527' },
     { label: 'IRS Publication 946 — How To Depreciate Property (ADS)', url: 'https://www.irs.gov/publications/p946' },
     { label: 'IRS — Instructions for Schedule E (Form 1040)', url: 'https://www.irs.gov/instructions/i1040se' },
-    { label: 'IRS — Resident aliens (worldwide income)', url: 'https://www.irs.gov/individuals/international-taxpayers/resident-aliens' },
+    { label: 'IRS — U.S. residents (worldwide income)', url: 'https://www.irs.gov/individuals/international-taxpayers/us-residents' },
     { label: 'IRS — Yearly average currency exchange rates', url: 'https://www.irs.gov/individuals/international-taxpayers/yearly-average-currency-exchange-rates' },
     { label: 'IRS — Foreign tax credit', url: 'https://www.irs.gov/individuals/international-taxpayers/foreign-tax-credit' },
   ],

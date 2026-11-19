@@ -26,7 +26,7 @@ const META = {
   actionRequired: 'Check which credit fits each student: the AOTC for the first four years of postsecondary education toward a degree or credential, at least half-time; the Lifetime Learning Credit for other courses, including job-skills courses. Then check the 2025 income limits.',
   sources: [
     { label: 'IRS — Education credits: AOTC and LLC', url: 'https://www.irs.gov/credits-deductions/individuals/education-credits-aotc-and-llc' },
-    { label: 'IRS — Education credits: Questions and answers', url: 'https://www.irs.gov/credits-deductions/individuals/education-credits-questions-and-answers' },
+    { label: 'IRS — Qualified education expenses', url: 'https://www.irs.gov/credits-deductions/individuals/qualified-education-expenses' },
     { label: 'IRS — About Form 8863, Education Credits (American Opportunity and Lifetime Learning Credits)', url: 'https://www.irs.gov/forms-pubs/about-form-8863' },
     { label: 'IRS — Interactive Tax Assistant: Am I eligible to claim an education credit?', url: 'https://www.irs.gov/help/ita/am-i-eligible-to-claim-an-education-credit' },
     { label: 'IRS — Publication 970 (2025), Tax Benefits for Education', url: 'https://www.irs.gov/publications/p970' },

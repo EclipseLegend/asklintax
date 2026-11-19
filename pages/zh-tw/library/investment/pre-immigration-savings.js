@@ -14,7 +14,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'pre-immigration-savings',
-  sourceHash:      'f6a8b1dd17d7',
+  sourceHash:      'fa180bb37834',
   id:            '50',
   title:         '搬來美國以前就有的海外存款，需要申報嗎？',
   titleEn:       'I had this money before moving to America — does that change FBAR or Form 8938?',
@@ -35,7 +35,7 @@ const META = {
     { label: 'FinCEN — 申報海外銀行與金融帳戶（Report Foreign Bank and Financial Accounts）', url: 'https://www.fincen.gov/report-foreign-bank-and-financial-accounts' },
     { label: 'IRS — Form 8938 填寫說明（specified individual 與申報期間）', url: 'https://www.irs.gov/instructions/i8938' },
     { label: 'IRS — Form 8938 與 FBAR 申報規定比較', url: 'https://www.irs.gov/businesses/comparison-of-form-8938-and-fbar-requirements' },
-    { label: 'IRS — 居民外國人（Resident aliens：全球所得）', url: 'https://www.irs.gov/individuals/international-taxpayers/resident-aliens' },
+    { label: 'IRS — 美國居民（U.S. residents：全球所得）', url: 'https://www.irs.gov/individuals/international-taxpayers/us-residents' },
     { label: 'IRS Publication 519 — 外國人美國稅務指南（居民身分開始日）', url: 'https://www.irs.gov/publications/p519' },
   ],
 }

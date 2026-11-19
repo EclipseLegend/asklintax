@@ -25,7 +25,7 @@ const META = {
   relatedJourney: ['Cross-border finances'],
   actionRequired: 'Treat the sale and the transfer as two separate events. The sale is reported on your U.S. return for the year it happened, in U.S. dollars, whether or not you move the money. The transfer is not income, but any foreign account that held the proceeds counts for the FBAR and Form 8938.',
   sources: [
-    { label: 'IRS — Resident aliens (worldwide income)', url: 'https://www.irs.gov/individuals/international-taxpayers/resident-aliens' },
+    { label: 'IRS — U.S. residents (worldwide income)', url: 'https://www.irs.gov/individuals/international-taxpayers/us-residents' },
     { label: 'IRS Publication 551 — Basis of Assets', url: 'https://www.irs.gov/publications/p551' },
     { label: 'IRS Publication 523 — Selling Your Home', url: 'https://www.irs.gov/publications/p523' },
     { label: 'IRS — Foreign currency and currency exchange rates', url: 'https://www.irs.gov/individuals/international-taxpayers/foreign-currency-and-currency-exchange-rates' },

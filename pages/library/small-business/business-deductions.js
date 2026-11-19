@@ -19,6 +19,8 @@ const META = {
   verification:  'official-sources-verified',
   sources: [
     { label: 'IRS Publication 334 — Tax Guide for Small Business', url: 'https://www.irs.gov/publications/p334' },
+    { label: 'IRS Publication 583 (Rev. December 2024) — Starting a Business and Keeping Records (start-up costs)', url: 'https://www.irs.gov/pub/irs-pdf/p583.pdf' },
+    { label: 'IRS — 2025 Instructions for Form 4562 (start-up and organizational costs, sections 195, 248, 709)', url: 'https://www.irs.gov/pub/irs-pdf/i4562.pdf' },
     { label: 'IRS Publication 463 — Travel, Gift, and Car Expenses', url: 'https://www.irs.gov/publications/p463' },
     { label: 'IRS Publication 15-B — Employer\'s Tax Guide to Fringe Benefits', url: 'https://www.irs.gov/publications/p15b' },
     { label: 'IRS Publication 587 — Business Use of Your Home', url: 'https://www.irs.gov/publications/p587' },
@@ -57,7 +59,7 @@ const FAQS = [
   },
   {
     q: 'Can I deduct startup costs for a business I\'m just starting?',
-    a: 'Yes, with limits. The IRS allows you to deduct up to $5,000 of startup costs and $5,000 of organizational costs in the first year of business. Amounts above $5,000 must be amortized (spread) over 180 months. Startup costs include market research, advertising before opening, employee training, and professional fees paid before the business opened. If total startup costs exceed $50,000, the $5,000 first-year deduction begins to phase out.',
+    a: 'Yes, with limits. You can elect to deduct up to $5,000 of business start-up costs (section 195) in the year your active business begins. That $5,000 is reduced dollar for dollar by the amount your start-up costs exceed $50,000, so it reaches zero at $55,000. Costs you cannot deduct right away are amortized ratably over 180 months, starting with the month the business begins operating. Start-up costs are amounts you would otherwise deduct as business expenses but incurred before opening, such as market research, pre-opening advertising, employee training, and professional fees — not equipment or other property you depreciate. Organizational costs of a corporation (section 248) or a partnership (section 709) are a separate category with their own $5,000 limit and the same $50,000 phase-out; they are not combined with start-up costs. Example: with $52,000 of eligible start-up costs, the first-year deduction is $5,000 − ($52,000 − $50,000) = $3,000, and the remaining $49,000 is amortized over 180 months (about $272 a month).',
   },
   {
     q: 'Is a business meal 100% deductible?',
@@ -65,7 +67,7 @@ const FAQS = [
   },
   {
     q: 'Can I deduct the cost of forming my LLC?',
-    a: 'Yes, as organizational costs — up to $5,000 in the first year (amounts above are amortized over 180 months). Organizational costs include state filing fees, legal fees for drafting the operating agreement, and accounting fees related to setup. The state filing fee itself is deductible as an organizational cost. Licenses and regulatory fees your business pays each year to state or local governments are generally deductible on Schedule C, line 23. Some states, such as California, may also charge LLCs annual taxes or fees, which are different from one-time formation fees — check the Schedule C instructions for how a specific state tax is treated.',
+    a: 'It depends on how the LLC is taxed. For an LLC taxed as a partnership, eligible formation costs — such as state filing fees, legal fees for drafting the operating agreement, and accounting fees related to setup — are partnership organizational costs (section 709): up to $5,000 can be deducted in the first year, reduced by the amount the costs exceed $50,000, and the rest is amortized over 180 months. For an LLC taxed as a corporation, the corporate rules (section 248) work the same way. Costs of selling or marketing interests in a partnership (syndication costs) cannot be deducted or amortized. A single-member LLC that is a disregarded entity is neither a corporation nor a partnership, so these organizational-cost rules do not apply to it directly — ask a tax professional how its formation costs are treated. Licenses and regulatory fees your business pays each year to state or local governments are generally deductible on Schedule C, line 23. Some states, such as California, may also charge LLCs annual taxes or fees, which are different from one-time formation fees — check the Schedule C instructions for how a specific state tax is treated.',
   },
 ]
 

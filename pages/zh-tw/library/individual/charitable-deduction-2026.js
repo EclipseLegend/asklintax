@@ -14,7 +14,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'charitable-deduction-2026',
-  sourceHash:      '08f31bd188e7',
+  sourceHash:      '58c45066c0f2',
   id:            '72',
   title:         '2026 年慈善捐款：不分項扣除也能扣除的新規定',
   titleEn:       'Charitable Donations in 2026: The New Deduction If You Don\'t Itemize',
@@ -31,7 +31,7 @@ const META = {
   relatedJourney: ['準備報稅', '了解新稅務規定'],
   actionRequired: '每一筆現金捐款都要保留銀行紀錄或書面收據，$250 以上的捐款要取得書面確認。從 2026 稅務年度起，如果你使用標準扣除額，請記錄捐給合格慈善機構的現金 — 最多可以扣除 $1,000（夫妻合併申報 $2,000）。',
   sources: [
-    { label: 'IRS — Working Families Tax Cuts（不分項扣除者的慈善現金捐款扣除額）', url: 'https://www.irs.gov/newsroom/one-big-beautiful-bill-provisions' },
+    { label: 'IRS — Working Families Tax Cuts（不分項扣除者的慈善現金捐款扣除額）', url: 'https://www.irs.gov/newsroom/working-families-tax-cuts' },
     { label: 'IRS — Publication 505（2026），預扣稅與預估稅（Tax Withholding and Estimated Tax）', url: 'https://www.irs.gov/pub/irs-pdf/p505.pdf' },
     { label: 'IRS — Publication 526（2025），慈善捐款（Charitable Contributions）', url: 'https://www.irs.gov/pub/irs-pdf/p526.pdf' },
     { label: 'IRS — Form W-4（2026），Step 4(b) 扣除額工作表（Deductions Worksheet）', url: 'https://www.irs.gov/pub/irs-pdf/fw4.pdf' },

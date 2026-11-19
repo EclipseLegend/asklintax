@@ -14,7 +14,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'transfer-own-money-to-us',
-  sourceHash:      '25ff13d73968',
+  sourceHash:      'fe7ec76337f4',
   id:            '35',
   title:         '把自己海外帳戶的錢匯到美國，要繳稅嗎？',
   titleEn:       'I transferred my own money from overseas to the U.S. — is it taxable?',
@@ -31,7 +31,7 @@ const META = {
   relatedJourney: ['跨境財務', '剛到美國'],
   actionRequired: '把自己的錢匯過來，本身不是收入。真正要問的是：這筆錢從哪裡來、當初賺到時有沒有申報，以及在帳戶存在的每一年，你的海外帳戶是否需要申報 FBAR 或 Form 8938。',
   sources: [
-    { label: 'IRS — 居民外國人（Resident aliens：全球所得）', url: 'https://www.irs.gov/individuals/international-taxpayers/resident-aliens' },
+    { label: 'IRS — 美國居民（U.S. residents：全球所得）', url: 'https://www.irs.gov/individuals/international-taxpayers/us-residents' },
     { label: 'IRS — 海外銀行與金融帳戶申報（FBAR）', url: 'https://www.irs.gov/businesses/small-businesses-self-employed/report-of-foreign-bank-and-financial-accounts-fbar' },
     { label: 'FinCEN — 申報海外銀行與金融帳戶（Report Foreign Bank and Financial Accounts）', url: 'https://www.fincen.gov/report-foreign-bank-and-financial-accounts' },
     { label: 'IRS — Form 8938 與 FBAR 申報規定比較', url: 'https://www.irs.gov/businesses/comparison-of-form-8938-and-fbar-requirements' },

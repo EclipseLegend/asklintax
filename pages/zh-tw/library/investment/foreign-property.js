@@ -14,7 +14,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'foreign-property',
-  sourceHash:      '5cd684ec5c1e',
+  sourceHash:      'c9fc9ca7cc3f',
   id:            '25',
   title:         '海外房產：美國納稅人需要知道的事',
   titleEn:       'Foreign property: what U.S. taxpayers need to know',
@@ -32,7 +32,7 @@ const META = {
   actionRequired: '擁有海外房產本身不需要繳稅，直接持有的不動產也不需要在 FBAR 或 Form 8938 上申報。你必須申報的是它產生的收入（例如租金），以及出售時的任何利得。如果房產是從非居民繼承來的，請確認是否需要申報 Form 3520。',
   sources: [
     { label: 'IRS — Form 8938 與 FBAR 申報要求比較（Comparison of Form 8938 and FBAR requirements）', url: 'https://www.irs.gov/businesses/comparison-of-form-8938-and-fbar-requirements' },
-    { label: 'IRS — 居民外國人（Resident aliens：全球所得）', url: 'https://www.irs.gov/individuals/international-taxpayers/resident-aliens' },
+    { label: 'IRS — 美國居民（U.S. residents：全球所得）', url: 'https://www.irs.gov/individuals/international-taxpayers/us-residents' },
     { label: 'IRS — Schedule A（Form 1040）填寫說明，line 5b', url: 'https://www.irs.gov/instructions/i1040sca' },
     { label: 'IRS — 來自外國人的贈與（Gifts from foreign person：遺贈與 Form 3520）', url: 'https://www.irs.gov/businesses/gifts-from-foreign-person' },
     { label: 'IRS — 外幣與匯率（Foreign currency and currency exchange rates）', url: 'https://www.irs.gov/individuals/international-taxpayers/foreign-currency-and-currency-exchange-rates' },

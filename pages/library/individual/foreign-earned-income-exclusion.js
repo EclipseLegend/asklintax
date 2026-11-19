@@ -18,16 +18,16 @@ const META = {
   difficulty:    'Advanced',
   readTime:      '9 min read',
   verification:  'official-sources-verified',
-  updatedDate:   'October 2026',
+  updatedDate:   'November 2026',
   taxYear:       String(TAX_CONFIG.currentTaxYear),
-  confidence:    'Explains the foreign earned income exclusion and the foreign housing exclusion and deduction for tax years 2025 and 2026, based on Form 2555 and its 2025 instructions, the 2026 draft Form 2555 and instructions, Publication 54 (Rev. December 2025), Rev. Proc. 2024-40, Rev. Proc. 2025-32, Notice 2025-16, Notice 2026-25, and the 2025 Instructions for Form 1040. It does not cover U.S. government employees, combat zones, self-employment tax planning, or state tax',
+  confidence:    'Explains the foreign earned income exclusion and the foreign housing exclusion and deduction for tax years 2025 and 2026, based on Form 2555 and its 2025 instructions, the final 2026 Form 2555 and instructions (posted November 5, 2026), Publication 54 (Rev. December 2025), Rev. Proc. 2024-40, Rev. Proc. 2025-32, Notice 2025-16, Notice 2026-25, and the 2025 Instructions for Form 1040. It does not cover U.S. government employees, combat zones, self-employment tax planning, or state tax',
   persona:       ['U.S. citizens working in Taiwan or elsewhere abroad', 'Green card holders on a foreign assignment', 'People planning a move overseas', 'Anyone deciding between the exclusion and the foreign tax credit'],
   relatedJourney: ['Cross-border finances', 'New to the U.S.'],
   actionRequired: 'Check that your tax home is abroad and that you meet the bona fide residence test or the 330-day physical presence test. If you do, you can elect on Form 2555 to exclude foreign earned income up to $130,000 for 2025 or $132,900 for 2026, plus a housing amount, and you must still file a U.S. return.',
   sources: [
     { label: 'IRS — 2025 Instructions for Form 2555, Foreign Earned Income', url: 'https://www.irs.gov/pub/irs-pdf/i2555.pdf' },
     { label: 'IRS — Form 2555 (2025)', url: 'https://www.irs.gov/pub/irs-pdf/f2555.pdf' },
-    { label: 'IRS — 2026 Instructions for Form 2555 (draft)', url: 'https://www.irs.gov/pub/irs-dft/i2555--dft.pdf' },
+    { label: 'IRS — 2026 Instructions for Form 2555 (final)', url: 'https://www.irs.gov/pub/irs-pdf/i2555.pdf' },
     { label: 'IRS — Publication 54, Tax Guide for U.S. Citizens and Resident Aliens Abroad', url: 'https://www.irs.gov/publications/p54' },
     { label: 'IRS — Rev. Proc. 2024-40 (2025 inflation adjustments)', url: 'https://www.irs.gov/pub/irs-drop/rp-24-40.pdf' },
     { label: 'IRS — Rev. Proc. 2025-32 (2026 inflation adjustments)', url: 'https://www.irs.gov/pub/irs-drop/rp-25-32.pdf' },
@@ -140,7 +140,7 @@ export default function ForeignEarnedIncomeExclusionPage({ translations }) {
           ]}
         />
         <p>
-          Sources: Rev. Proc. 2024-40 and Rev. Proc. 2025-32 (exclusion amounts), Notice 2025-16 and Notice 2026-25 (housing amounts and location limits). The 2026 Form 2555 and its instructions are still drafts. All amounts are reduced if your qualifying period covers only part of the year.
+          Sources: Rev. Proc. 2024-40 and Rev. Proc. 2025-32 (exclusion amounts), Notice 2025-16 and Notice 2026-25 (housing amounts and location limits). The final 2026 Form 2555 and its instructions show the same 2026 amounts. All amounts are reduced if your qualifying period covers only part of the year.
         </p>
 
         <h2>The foreign housing exclusion or deduction</h2>
@@ -203,7 +203,7 @@ export default function ForeignEarnedIncomeExclusionPage({ translations }) {
 
         <div className="callout callout-warning">
           <div className="callout-title">⚠️ Check the final 2026 forms</div>
-          <p>The 2026 Form 2555 and instructions are drafts; check the final versions before filing. Self-employment tax, U.S. government employees, combat zones, and state tax are not covered.</p>
+          <p>The 2026 Form 2555 and its instructions are final and match the 2026 amounts above. Self-employment tax, U.S. government employees, combat zones, and state tax are not covered.</p>
         </div>
 
       </KnowledgePage>

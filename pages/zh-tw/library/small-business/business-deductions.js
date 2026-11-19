@@ -13,7 +13,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'business-deductions',
-  sourceHash:      'fa2ca124dea8',
+  sourceHash:      '4affdc7f3248',
   id:            '14',
   title:         '小型企業老闆可以扣除哪些費用？',
   titleEn:       'What can I deduct as a small business owner?',
@@ -25,6 +25,8 @@ const META = {
   verification:  'official-sources-verified',
   sources: [
     { label: 'IRS Publication 334 — 小型企業稅務指南（Tax Guide for Small Business）', url: 'https://www.irs.gov/publications/p334' },
+    { label: 'IRS Publication 583（2024 年 12 月修訂版）— 創業與保存紀錄（開辦費）', url: 'https://www.irs.gov/pub/irs-pdf/p583.pdf' },
+    { label: 'IRS — 2025 年 Form 4562 說明（開辦費與組織費，第 195、248、709 條）', url: 'https://www.irs.gov/pub/irs-pdf/i4562.pdf' },
     { label: 'IRS Publication 463 — 差旅、贈禮與汽車費用（Travel, Gift, and Car Expenses）', url: 'https://www.irs.gov/publications/p463' },
     { label: 'IRS Publication 15-B — 雇主附加福利稅務指南（Employer\'s Tax Guide to Fringe Benefits）', url: 'https://www.irs.gov/publications/p15b' },
     { label: 'IRS Publication 587 — 住家的營業使用（Business Use of Your Home）', url: 'https://www.irs.gov/publications/p587' },
@@ -63,7 +65,7 @@ const FAQS = [
   },
   {
     q: '剛開始創業的開辦費可以扣除嗎？',
-    a: '可以，但有限制。IRS 允許你在營業第一年扣除最多 $5,000 的開辦費（Startup Costs）與 $5,000 的組織費（Organizational Costs）。超過 $5,000 的部分必須在 180 個月內攤銷（Amortize）。開辦費包括市場調查、開業前的廣告、員工訓練，以及開業前支付的專業費用。如果開辦費總額超過 $50,000，第一年 $5,000 的扣除額會開始遞減。',
+    a: '可以，但有限制。你可以選擇在事業開始營運的那一年，扣除最多 $5,000 的開辦費（Startup Costs，第 195 條）。開辦費超過 $50,000 的部分，會逐元減少這 $5,000，所以在 $55,000 時減為零。不能立即扣除的部分，從事業開始營運的那個月起，在 180 個月內平均攤銷（Amortize）。開辦費是指開業前發生、原本可以作為營業費用扣除的支出，例如市場調查、開業前的廣告、員工訓練，以及專業費用 — 不包括要折舊的設備或其他財產。公司（第 248 條）或合夥企業（第 709 條）的組織費（Organizational Costs）是另一個類別，有自己的 $5,000 上限與同樣的 $50,000 遞減規定；它不會與開辦費合併計算。範例：符合條件的開辦費為 $52,000 時，第一年扣除額為 $5,000 −（$52,000 − $50,000）＝ $3,000，剩下的 $49,000 在 180 個月內攤銷（每月約 $272）。',
   },
   {
     q: '商務餐費可以 100% 扣除嗎？',
@@ -71,7 +73,7 @@ const FAQS = [
   },
   {
     q: '成立 LLC 的費用可以扣除嗎？',
-    a: '可以，作為組織費 — 第一年最多 $5,000（超過的部分在 180 個月內攤銷）。組織費包括州政府申請費、起草營運協議（Operating Agreement）的律師費，以及與設立相關的會計費。州政府申請費本身可以作為組織費扣除。你的事業每年支付給州或地方政府的執照與規範費用，一般可以在 Schedule C 第 23 行扣除。有些州（例如加州）也可能對 LLC 課徵每年的稅或收取規費，這和一次性的成立費用不同 — 特定州稅如何處理，請查看 Schedule C 填寫說明。',
+    a: '要看 LLC 如何課稅。以合夥企業課稅的 LLC，符合條件的成立費用 — 例如州政府申請費、起草營運協議（Operating Agreement）的律師費，以及與設立相關的會計費 — 屬於合夥企業組織費（第 709 條）：第一年最多可扣除 $5,000，費用超過 $50,000 的部分會減少這個金額，其餘在 180 個月內攤銷。以公司課稅的 LLC，則依公司的規定（第 248 條），方式相同。銷售或推廣合夥權益的費用（syndication costs，募集費用）不能扣除也不能攤銷。屬於被忽略實體的單一成員 LLC 既不是公司也不是合夥企業，所以這些組織費規定並不直接適用 — 其成立費用如何處理，請詢問稅務專業人士。你的事業每年支付給州或地方政府的執照與規範費用，一般可以在 Schedule C 第 23 行扣除。有些州（例如加州）也可能對 LLC 課徵每年的稅或收取規費，這和一次性的成立費用不同 — 特定州稅如何處理，請查看 Schedule C 填寫說明。',
   },
 ]
 

@@ -13,7 +13,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'quarterly-taxes',
-  sourceHash:      '1a3e8082175e',
+  sourceHash:      '11a98b21138d',
   id:            '13',
   title:         '季度預估稅：誰要繳？怎麼算？',
   titleEn:       'Quarterly estimated taxes: who pays and how to calculate',
@@ -64,7 +64,7 @@ const FAQS = [
   },
   {
     q: '實際上要怎麼繳款？',
-    a: '最簡單的方式是 IRS Direct Pay（IRS.gov/payments）— 免費、即時，而且會立即收到確認。你也可以透過你的 IRS 線上帳戶（IRS Online Account）繳款。電子聯邦稅款繳納系統（EFTPS）已不再接受個人納稅人新申請，但目前的使用者暫時仍可繼續使用。其他方式：以簽帳卡或信用卡繳款（需支付手續費），或連同 Form 1040-ES 寄支票。多數人建議使用 IRS Direct Pay。',
+    a: '最簡單的方式是 IRS Direct Pay（IRS.gov/payments）— 免費、即時，而且會立即收到確認。你也可以透過你的 IRS 線上帳戶（IRS Online Account）繳款。個人已不能再使用電子聯邦稅款繳納系統（EFTPS）：IRS 表示，自 2026 年 11 月 12 日起，個人不能再透過 EFTPS 繳款。如果你之前已透過 EFTPS 排定繳款，IRS 表示你仍可登入，在排定日期前兩個營業日之前取消。EFTPS 仍是企業稅款的繳納系統；這項變更涉及的是個人繳款，例如預估稅。其他方式：以簽帳卡或信用卡繳款（需支付手續費），或連同 Form 1040-ES 寄支票。多數人建議使用 IRS Direct Pay。',
   },
 ]
 
@@ -299,7 +299,7 @@ export default function QuarterlyTaxesZhTwPage({ translations }) {
         <p>IRS 提供好幾種繳款方式，依方便程度排列：</p>
         <ol>
           <li><strong>IRS Direct Pay</strong>（IRS.gov/payments）— 免費、即時，不需要帳戶，直接從你的銀行帳戶扣款，並立即收到確認。這是多數人建議使用的方式。</li>
-          <li><strong>EFTPS</strong>（eftps.gov）— 免費，可以提前排定繳款。IRS 已不再接受個人納稅人新申請 EFTPS；目前的使用者暫時仍可繼續使用。新的個人繳款人可以改用 IRS Direct Pay 或 IRS 線上帳戶。</li>
+          <li><strong>EFTPS</strong>（eftps.gov）— 已不再提供個人繳款。IRS 表示，自 2026 年 11 月 12 日起，個人不能再透過 EFTPS 繳款；之前已排定的繳款，仍可在排定日期前兩個營業日之前登入取消。請改用 IRS 線上帳戶或 IRS Direct Pay 繳納預估稅。企業仍使用 EFTPS 繳納企業稅款與繳存稅款。</li>
           <li><strong>簽帳卡或信用卡</strong> — 透過 IRS 授權的處理商繳款，但要支付處理費（信用卡目前為 1.75%–1.85%，最低 $2.50；簽帳卡為約 $2 的固定費用）。除非信用卡回饋足以抵銷手續費，否則通常不划算。</li>
           <li><strong>郵寄支票</strong> — 寄出抬頭為「United States Treasury」的支票，並附上 Form 1040-ES 繳款單（payment voucher）。最慢，也最不建議 — 無法立即確認。</li>
         </ol>

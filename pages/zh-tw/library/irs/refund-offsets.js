@@ -14,7 +14,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'refund-offsets',
-  sourceHash:      'ae75889f9fbf',
+  sourceHash:      'd17dce66a246',
   id:            '131',
   title:         '退稅被抵扣：IRS 與財政部為什麼扣除你的退稅？',
   titleEn:       'Refund Offsets: When the IRS or Treasury Takes Your Refund',
@@ -34,7 +34,7 @@ const META = {
     { label: 'IRS — 退稅減少（Reduced refund）', url: 'https://www.irs.gov/refunds/reduced-refund' },
     { label: 'IRS — 受損配偶救濟（Injured spouse relief）', url: 'https://www.irs.gov/individuals/injured-spouse-relief' },
     { label: 'IRS — Form 8379 說明（2024 年 11 月修訂版），受損配偶分配', url: 'https://www.irs.gov/pub/irs-pdf/i8379.pdf' },
-    { label: 'IRS — 報稅季退稅常見問題', url: 'https://www.irs.gov/refunds/tax-season-refund-frequently-asked-questions' },
+    { label: 'IRS — 退稅（Refunds：退稅追蹤）', url: 'https://www.irs.gov/refunds' },
   ],
 }
 

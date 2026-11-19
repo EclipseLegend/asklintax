@@ -28,7 +28,7 @@ const META = {
     { label: 'IRS — Topic no. 313, Qualified tuition programs (QTPs)', url: 'https://www.irs.gov/taxtopics/tc313' },
     { label: 'IRS — Publication 970 (2025), Tax Benefits for Education (Chapter 7, Qualified Tuition Program)', url: 'https://www.irs.gov/pub/irs-pdf/p970.pdf' },
     { label: 'IRS — Instructions for Form 5329 (additional tax on education accounts)', url: 'https://www.irs.gov/pub/irs-pdf/i5329.pdf' },
-    { label: 'IRS — Working Families Tax Cuts (One, Big, Beautiful Bill provisions)', url: 'https://www.irs.gov/newsroom/one-big-beautiful-bill-provisions' },
+    { label: 'IRS — Working Families Tax Cuts (One, Big, Beautiful Bill provisions)', url: 'https://www.irs.gov/newsroom/working-families-tax-cuts' },
   ],
 }
 

@@ -29,7 +29,7 @@ const META = {
     { label: 'IRS — 2025 Instructions for Form 2441', url: 'https://www.irs.gov/pub/irs-pdf/i2441.pdf' },
     { label: 'IRS — Form 2441 (2025), Child and Dependent Care Expenses', url: 'https://www.irs.gov/pub/irs-pdf/f2441.pdf' },
     { label: 'IRS — Draft 2026 Instructions for Form 2441 (August 2026, not final)', url: 'https://www.irs.gov/pub/irs-dft/i2441--dft.pdf' },
-    { label: 'IRS — Working Families Tax Cuts (Child and Dependent Care Credit enhancement)', url: 'https://www.irs.gov/newsroom/one-big-beautiful-bill-provisions' },
+    { label: 'IRS — Working Families Tax Cuts (Child and Dependent Care Credit enhancement)', url: 'https://www.irs.gov/newsroom/working-families-tax-cuts' },
     { label: 'IRS — Publication 15-B (2026), Employer\'s Tax Guide to Fringe Benefits', url: 'https://www.irs.gov/pub/irs-pdf/p15b.pdf' },
     { label: 'IRS — Topic no. 602, Child and dependent care credit', url: 'https://www.irs.gov/taxtopics/tc602' },
     { label: 'IRS — Revenue Procedure 2025-32 (tax year 2026 inflation adjustments)', url: 'https://www.irs.gov/pub/irs-drop/rp-25-32.pdf' },

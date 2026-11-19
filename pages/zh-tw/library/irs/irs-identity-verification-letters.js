@@ -14,7 +14,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'irs-identity-verification-letters',
-  sourceHash:      '50bd5b1f4a0c',
+  sourceHash:      'e6fd9eaad1bc',
   id:            '132',
   title:         'IRS 身分驗證信函：CP5071、4883C、5747C 與退稅延遲',
   titleEn:       'IRS Identity Verification Letters: CP5071, 4883C, 5747C, and Held Refunds',
@@ -35,7 +35,7 @@ const META = {
     { label: 'IRS — 了解你的 4883C 信函', url: 'https://www.irs.gov/individuals/understanding-your-letter-4883c' },
     { label: 'IRS — 了解你的 5747C 信函', url: 'https://www.irs.gov/individuals/understanding-your-letter-5747c' },
     { label: 'IRS — 了解你的 CP5447 系列通知', url: 'https://www.irs.gov/individuals/understanding-your-cp5447-series-notice' },
-    { label: 'IRS — 驗證你的申報書（Verify your return）', url: 'https://www.irs.gov/identity-theft-fraud-scams/identity-and-tax-return-verification-service' },
+    { label: 'IRS — 驗證你的申報書（Verify your return）', url: 'https://www.irs.gov/identity-theft-fraud-scams/verify-your-return' },
   ],
 }
 

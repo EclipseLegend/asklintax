@@ -13,7 +13,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'tax-residency',
-  sourceHash:      'ad090f65bd4c',
+  sourceHash:      'bb315312256b',
   id:            '05',
   title:         '我是美國稅務居民嗎？',
   titleEn:       'Am I a U.S. tax resident?',
@@ -26,7 +26,7 @@ const META = {
   sources: [
     { label: 'IRS Publication 519 — 外國人美國稅務指南（U.S. Tax Guide for Aliens）', url: 'https://www.irs.gov/publications/p519' },
     { label: 'IRS — 實質居留測試（Substantial presence test）', url: 'https://www.irs.gov/individuals/international-taxpayers/substantial-presence-test' },
-    { label: 'IRS — 居民外國人（Resident aliens）', url: 'https://www.irs.gov/individuals/international-taxpayers/resident-aliens' },
+    { label: 'IRS — 美國居民（U.S. residents）', url: 'https://www.irs.gov/individuals/international-taxpayers/us-residents' },
     { label: 'IRS — 非居民配偶（Nonresident spouse）', url: 'https://www.irs.gov/individuals/international-taxpayers/nonresident-spouse' },
     { label: 'IRS — 海外銀行與金融帳戶申報（Report of Foreign Bank and Financial Accounts, FBAR）', url: 'https://www.irs.gov/businesses/small-businesses-self-employed/report-of-foreign-bank-and-financial-accounts-fbar' },
   ],

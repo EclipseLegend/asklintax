@@ -14,7 +14,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'foreign-rental-property',
-  sourceHash:      '415181658916',
+  sourceHash:      '97160fdabef5',
   id:            '26',
   title:         '海外出租房產與美國稅務',
   titleEn:       'Foreign rental property and U.S. taxes',
@@ -34,7 +34,7 @@ const META = {
     { label: 'IRS Publication 527 — 住宅出租房產（Residential Rental Property）', url: 'https://www.irs.gov/publications/p527' },
     { label: 'IRS Publication 946 — 財產折舊方法（How To Depreciate Property：ADS）', url: 'https://www.irs.gov/publications/p946' },
     { label: 'IRS — Schedule E（Form 1040）填寫說明', url: 'https://www.irs.gov/instructions/i1040se' },
-    { label: 'IRS — 居民外國人（Resident aliens：全球所得）', url: 'https://www.irs.gov/individuals/international-taxpayers/resident-aliens' },
+    { label: 'IRS — 美國居民（U.S. residents：全球所得）', url: 'https://www.irs.gov/individuals/international-taxpayers/us-residents' },
     { label: 'IRS — 年平均匯率（Yearly average currency exchange rates）', url: 'https://www.irs.gov/individuals/international-taxpayers/yearly-average-currency-exchange-rates' },
     { label: 'IRS — 外國稅額抵免（Foreign tax credit）', url: 'https://www.irs.gov/individuals/international-taxpayers/foreign-tax-credit' },
   ],

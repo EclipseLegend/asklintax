@@ -13,7 +13,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'irs-notice',
-  sourceHash:      'c6af0b57eaa6',
+  sourceHash:      'c0ca77d54816',
   id:            '01',
   title:         '我收到 IRS 的信，該怎麼辦？',
   titleEn:       'I received an IRS letter. What do I do?',
@@ -27,9 +27,11 @@ const META = {
     { label: 'IRS — 了解你的 IRS 通知或信函（Understanding your IRS notice or letter）', url: 'https://www.irs.gov/individuals/understanding-your-irs-notice-or-letter' },
     { label: 'IRS — 了解你的 CP14 通知（Understanding your CP14 notice）', url: 'https://www.irs.gov/individuals/understanding-your-cp14-notice' },
     { label: 'IRS — 了解你的 CP504 通知（Understanding your CP504 notice）', url: 'https://www.irs.gov/individuals/understanding-your-cp504-notice' },
+    { label: 'IRS — 了解你的 LT11 通知或 1058 號信函', url: 'https://www.irs.gov/individuals/understanding-your-lt11-notice-or-letter-1058' },
+    { label: 'IRS — Publication 594（2026 年 1 月修訂版），IRS 稅款徵收程序', url: 'https://www.irs.gov/pub/irs-pdf/p594.pdf' },
     { label: 'IRS — 了解你的 CP12 通知（Understanding your CP12 notice）', url: 'https://www.irs.gov/individuals/understanding-your-cp12-notice' },
     { label: 'IRS — 如何確認真的是 IRS 打電話或上門（How to know it’s really the IRS calling or knocking on your door）', url: 'https://www.irs.gov/newsroom/how-to-know-its-really-the-irs-calling-or-knocking-on-your-door' },
-    { label: 'IRS — 檢舉網路釣魚與線上詐騙（Report phishing and online scams）', url: 'https://www.irs.gov/privacy-disclosure/report-phishing' },
+    { label: 'IRS — 檢舉假冒 IRS、財政部或稅務相關的電子郵件與訊息（Report fake IRS, Treasury or tax-related emails and messages）', url: 'https://www.irs.gov/help/report-fraud/report-fake-irs-treasury-or-tax-related-emails-and-messages' },
     { label: 'IRS — 罰款（Penalties）', url: 'https://www.irs.gov/payments/penalties' },
   ],
   updatedDate:   null,
@@ -45,7 +47,7 @@ const NOTICE_TYPES = [
   { code: 'CP14',   color: '#DC2626', urgency: '有欠稅',      title: '你有應繳餘額',       desc: '你有尚未繳納的稅款。利息與罰款正在累積。', action: '在 IRS.gov/payments 線上繳清餘額，或打電話申請分期付款。不要置之不理 — 罰款增加得很快。' },
   { code: 'CP501',  color: '#DC2626', urgency: '提醒',         title: '應繳餘額提醒',      desc: '提醒你還有未繳餘額。通常在 CP14 之後寄出。', action: '與 CP14 相同 — 立刻繳款或安排分期付款。' },
   { code: 'CP503',  color: '#7C3AED', urgency: '第二次提醒',     title: '第二次應繳餘額通知',    desc: '第二次提醒。IRS 可能正在準備採取催收行動。', action: '現在就處理。在 IRS 升級到留置權或強制執行之前，聯絡 IRS 繳款或安排分期付款。' },
-  { code: 'CP504',  color: '#7C3AED', urgency: '緊急',           title: '強制執行意向通知',        desc: '這是 IRS 對你的薪資、銀行帳戶或州退稅進行強制執行（扣押）前的最後提醒。IRS 也可以申報聯邦稅務留置權通知（Notice of Federal Tax Lien）。情況很嚴重。', action: '立刻回應。全額繳清、申請分期付款，或聯絡稅務專業人士。你能採取行動的時間有限。' },
+  { code: 'CP504',  color: '#7C3AED', urgency: '緊急',           title: '強制執行意向通知',        desc: '這是 IRS 打算對你的薪資、銀行帳戶或州退稅進行強制執行（扣押）的通知。IRS 也可以申報聯邦稅務留置權通知（Notice of Federal Tax Lien）。情況很嚴重。但這不代表薪資或銀行帳戶會立刻被扣押：在多數其他強制執行之前，IRS 通常會至少提前 30 天寄出「強制執行最後通知暨聽證權利通知」（Final Notice of Intent to Levy and Notice of Your Right to a Hearing，LT11 或 1058 號信函），讓你有權申請徵收正當程序（Collection Due Process）聽證。也有例外 — 例如，州退稅可以在沒有事先寄出該聽證通知的情況下被扣押，聽證權利會在事後提供。', action: '立刻回應。全額繳清、申請分期付款，或聯絡稅務專業人士。你能採取行動的時間有限。' },
   { code: 'CP12',   color: '#16A34A', urgency: '好消息',        title: '計算錯誤 — 退稅金額變更',  desc: 'IRS 更正了你稅表上的一個或多個錯誤，因此你的退稅金額有所變更。', action: '檢視變更內容。如果你同意，不需要回覆。如果你不同意，請在通知上的日期前，撥打通知上的電話聯絡 IRS。' },
 ]
 

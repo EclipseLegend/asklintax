@@ -18,10 +18,10 @@ const META = {
   readTime: '5 min read',
   verification:  'official-sources-verified',
   sources: [
-    { label: 'IRS — Child Tax Credit', url: 'https://www.irs.gov/credits-deductions/individuals/child-tax-credit' },
+    { label: 'IRS — Child Tax Credit', url: 'https://www.irs.gov/credits-deductions/individuals/child-tax-credit-and-credit-for-other-dependents' },
     { label: 'IRS Publication 501 — Dependents, Standard Deduction, and Filing Information', url: 'https://www.irs.gov/publications/p501' },
     { label: 'IRS — Revenue Procedure 2025-32 (tax year 2026 inflation adjustments)', url: 'https://www.irs.gov/pub/irs-drop/rp-25-32.pdf' },
-    { label: 'IRS — One, Big, Beautiful Bill provisions', url: 'https://www.irs.gov/newsroom/one-big-beautiful-bill-provisions' },
+    { label: 'IRS — Working Families Tax Cuts (One, Big, Beautiful Bill provisions)', url: 'https://www.irs.gov/newsroom/working-families-tax-cuts' },
   ],
   updatedDate: null,
   taxYear: String(TAX_CONFIG.currentTaxYear),

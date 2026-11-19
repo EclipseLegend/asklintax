@@ -14,7 +14,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'new-us-resident-foreign-accounts',
-  sourceHash:      '017243672ff8',
+  sourceHash:      '5206fcd95ba0',
   id:            '43',
   title:         '剛搬來美國，原本的台灣／海外帳戶要申報嗎？',
   titleEn:       'I just moved to the U.S. — do I need to report my foreign bank accounts?',
@@ -36,7 +36,7 @@ const META = {
     { label: 'FinCEN — 申報海外銀行與金融帳戶（Report Foreign Bank and Financial Accounts）', url: 'https://www.fincen.gov/report-foreign-bank-and-financial-accounts' },
     { label: 'IRS — International Practice Unit：FinCEN Form 114（FBAR）（美國居民的判定）', url: 'https://www.irs.gov/pub/fatca/int_practice_units/fincen-form114-fbar.pdf' },
     { label: 'IRS Publication 519 — 外國人美國稅務指南（居民身分開始日）', url: 'https://www.irs.gov/publications/p519' },
-    { label: 'IRS — 居民外國人（Resident aliens：全球所得）', url: 'https://www.irs.gov/individuals/international-taxpayers/resident-aliens' },
+    { label: 'IRS — 美國居民（U.S. residents：全球所得）', url: 'https://www.irs.gov/individuals/international-taxpayers/us-residents' },
   ],
 }
 

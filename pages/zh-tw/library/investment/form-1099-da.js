@@ -14,7 +14,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'form-1099-da',
-  sourceHash:      '50b1ff76456a',
+  sourceHash:      'a1f2ac5b3cd2',
   id:            '84',
   title:         'Form 1099-DA：加密貨幣經紀商 2025 與 2026 年申報什麼',
   titleEn:       'Form 1099-DA: What Crypto Brokers Report for 2025 and 2026',
@@ -32,7 +32,7 @@ const META = {
   actionRequired: '收齊每一份 Form 1099-DA，但也要保留自己的紀錄：2025 年的 Form 1099-DA 一般只列出總收入、沒有成本基礎，而且很多交易根本不會被申報。每一筆出售或交換都要用數位資產欄位（G 至 L）申報在 Form 8949 上，表格沒有列出成本基礎時，填上你自己的成本基礎。',
   sources: [
     { label: 'IRS — 數位資產（Digital assets）', url: 'https://www.irs.gov/filing/digital-assets' },
-    { label: 'IRS — 數位資產（企業）：經紀商申報與正式法規', url: 'https://www.irs.gov/businesses/small-businesses-self-employed/digital-assets' },
+    { label: 'IRS — 數位資產：經紀商申報與正式法規', url: 'https://www.irs.gov/filing/digital-assets' },
     { label: 'IRS — 2026 年 Form 1099-DA 填寫說明，經紀商交易的數位資產收入', url: 'https://www.irs.gov/pub/irs-pdf/i1099da.pdf' },
     { label: 'IRS — 數位資產交易常見問題（Frequently asked questions on digital asset transactions）', url: 'https://www.irs.gov/individuals/international-taxpayers/frequently-asked-questions-on-digital-asset-transactions' },
     { label: 'IRS — Revenue Procedure 2024-28（截至 2025 年 1 月 1 日將成本基礎分配到錢包與帳戶）', url: 'https://www.irs.gov/pub/irs-drop/rp-24-28.pdf' },

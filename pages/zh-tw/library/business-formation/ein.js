@@ -13,7 +13,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'ein',
-  sourceHash:      'b71ca4f86de1',
+  sourceHash:      '4e6b59e435f0',
   id:            '15',
   title:         '如何申請 EIN：逐步指南',
   titleEn:       'How to apply for an EIN: a step-by-step guide',
@@ -26,7 +26,7 @@ const META = {
   sources: [
     { label: 'IRS — 申請雇主識別號碼（Get an employer identification number）', url: 'https://www.irs.gov/businesses/small-businesses-self-employed/get-an-employer-identification-number' },
     { label: 'IRS — Form SS-4 填寫說明（Instructions for Form SS-4）', url: 'https://www.irs.gov/instructions/iss4' },
-    { label: 'IRS — 你需要新的 EIN 嗎？（Do you need a new EIN?）', url: 'https://www.irs.gov/businesses/small-businesses-self-employed/do-you-need-a-new-ein' },
+    { label: 'IRS — 何時需要新的 EIN（When to get a new EIN）', url: 'https://www.irs.gov/businesses/small-businesses-self-employed/when-to-get-a-new-ein' },
   ],
   updatedDate:   null,
   taxYear:       String(TAX_CONFIG.currentTaxYear),

@@ -14,7 +14,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'adoption-tax-credit',
-  sourceHash:      'ac4e5de7ba0b',
+  sourceHash:      'f92d61315313',
   id:            '112',
   title:         '收養抵稅額：2025 與 2026 年上限與新的可退還部分',
   titleEn:       'Adoption Tax Credit: 2025 and 2026 Limits and the New Refundable Portion',
@@ -34,7 +34,7 @@ const META = {
     { label: 'IRS — Form 8839 說明（2025），合格收養費用', url: 'https://www.irs.gov/pub/irs-pdf/i8839.pdf' },
     { label: 'IRS — Rev. Proc. 2025-32（2026 年通膨調整金額）', url: 'https://www.irs.gov/pub/irs-drop/rp-25-32.pdf' },
     { label: 'IRS — Rev. Proc. 2024-40（2025 年通膨調整金額）', url: 'https://www.irs.gov/pub/irs-drop/rp-24-40.pdf' },
-    { label: 'IRS — Topic no. 607，收養抵稅額', url: 'https://www.irs.gov/taxtopics/tc607' },
+    { label: 'IRS — 收養抵稅額（Adoption Credit）', url: 'https://www.irs.gov/credits-deductions/individuals/adoption-credit' },
     { label: 'IRS — 收養抵稅額結轉問答', url: 'https://www.irs.gov/faqs/questions-and-answers-about-adoption-tax-credit-carryforward' },
   ],
 }

@@ -18,7 +18,7 @@ const META = {
   readTime: '5 min read',
   verification:  'official-sources-verified',
   sources: [
-    { label: 'IRS — Individual Taxpayer Identification Number (ITIN)', url: 'https://www.irs.gov/individuals/individual-taxpayer-identification-number' },
+    { label: 'IRS — Individual Taxpayer Identification Number (ITIN)', url: 'https://www.irs.gov/tin/itin/individual-taxpayer-identification-number-itin' },
     { label: 'IRS — Instructions for Form W-7', url: 'https://www.irs.gov/instructions/iw7' },
   ],
   updatedDate: 'October 2026',

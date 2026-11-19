@@ -14,7 +14,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'foreign-time-deposit-cd',
-  sourceHash:      '852636a85b4f',
+  sourceHash:      '03ca909cc42b',
   id:            '45',
   title:         '台灣／海外定存要報 FBAR 或 Form 8938 嗎？',
   titleEn:       'Foreign CDs and time deposits: do they go on FBAR or Form 8938?',
@@ -36,7 +36,7 @@ const META = {
     { label: 'FinCEN — 帳戶最高餘額的申報（Reporting Maximum Account Value）', url: 'https://www.fincen.gov/reporting-maximum-account-value' },
     { label: 'IRS — Form 8938 與 FBAR 申報規定比較', url: 'https://www.irs.gov/businesses/comparison-of-form-8938-and-fbar-requirements' },
     { label: 'IRS — Form 8938 填寫說明', url: 'https://www.irs.gov/instructions/i8938' },
-    { label: 'IRS — 居民外國人（Resident aliens：全球所得）', url: 'https://www.irs.gov/individuals/international-taxpayers/resident-aliens' },
+    { label: 'IRS — 美國居民（U.S. residents：全球所得）', url: 'https://www.irs.gov/individuals/international-taxpayers/us-residents' },
   ],
 }
 

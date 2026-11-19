@@ -14,7 +14,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'worldwide-income',
-  sourceHash:      '1c7fc067a916',
+  sourceHash:      '923efc909a0e',
   id:            '30',
   title:         '海外收入：美國稅務居民要申報全球所得嗎？',
   titleEn:       'Foreign income: do U.S. tax residents report worldwide income?',
@@ -31,7 +31,7 @@ const META = {
   relatedJourney: ['跨境財務', '剛到美國'],
   actionRequired: '列出你在 2025 年身為美國稅務居民期間，在世界任何地方收到的每一筆收入來源，換算成美元，並在你的 Form 1040 上申報。接著確認外國稅額抵免（或者如果你住在海外，海外工作所得排除額）是否能減少重複課稅。',
   sources: [
-    { label: 'IRS — 居民外國人（Resident aliens）', url: 'https://www.irs.gov/individuals/international-taxpayers/resident-aliens' },
+    { label: 'IRS — 美國居民（U.S. residents）', url: 'https://www.irs.gov/individuals/international-taxpayers/us-residents' },
     { label: 'IRS Publication 54 — 海外美國公民與居民外國人稅務指南（Tax Guide for U.S. Citizens and Resident Aliens Abroad）', url: 'https://www.irs.gov/publications/p54' },
     { label: 'IRS — 外國稅額抵免（Foreign tax credit）', url: 'https://www.irs.gov/individuals/international-taxpayers/foreign-tax-credit' },
     { label: 'IRS — 海外工作所得排除額（Foreign earned income exclusion）', url: 'https://www.irs.gov/individuals/international-taxpayers/foreign-earned-income-exclusion' },

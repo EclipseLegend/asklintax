@@ -13,7 +13,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'itin',
-  sourceHash:      'dc06d15ab9cb',
+  sourceHash:      'd5df1d63edb5',
   id: '18',
   title: '什麼是 ITIN？如何申請？',
   titleEn: 'What is an ITIN and how do I apply?',
@@ -24,7 +24,7 @@ const META = {
   readTime: '5 min read',
   verification:  'official-sources-verified',
   sources: [
-    { label: 'IRS — 個人納稅識別號碼（Individual Taxpayer Identification Number, ITIN）', url: 'https://www.irs.gov/individuals/individual-taxpayer-identification-number' },
+    { label: 'IRS — 個人納稅識別號碼（Individual Taxpayer Identification Number, ITIN）', url: 'https://www.irs.gov/tin/itin/individual-taxpayer-identification-number-itin' },
     { label: 'IRS — Form W-7 填寫說明（Instructions for Form W-7）', url: 'https://www.irs.gov/instructions/iw7' },
   ],
   updatedDate: 'October 2026',

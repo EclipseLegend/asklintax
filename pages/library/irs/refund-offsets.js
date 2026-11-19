@@ -28,7 +28,7 @@ const META = {
     { label: 'IRS — Reduced refund', url: 'https://www.irs.gov/refunds/reduced-refund' },
     { label: 'IRS — Injured spouse relief', url: 'https://www.irs.gov/individuals/injured-spouse-relief' },
     { label: 'IRS — Instructions for Form 8379 (Rev. November 2024), Injured Spouse Allocation', url: 'https://www.irs.gov/pub/irs-pdf/i8379.pdf' },
-    { label: 'IRS — Tax season refund frequently asked questions', url: 'https://www.irs.gov/refunds/tax-season-refund-frequently-asked-questions' },
+    { label: 'IRS — Refunds (refund traces)', url: 'https://www.irs.gov/refunds' },
   ],
 }
 

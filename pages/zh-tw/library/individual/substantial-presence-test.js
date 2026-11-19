@@ -14,7 +14,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'substantial-presence-test',
-  sourceHash:      '792970d45e8f',
+  sourceHash:      '1a4544990932',
   id:            '29',
   title:         '實質居留測試：如何計算你在美國的天數',
   titleEn:       'Substantial Presence Test explained: how to count your days',
@@ -33,7 +33,7 @@ const META = {
   sources: [
     { label: 'IRS — 實質居留測試（Substantial presence test）', url: 'https://www.irs.gov/individuals/international-taxpayers/substantial-presence-test' },
     { label: 'IRS Publication 519 — 外國人美國稅務指南（U.S. Tax Guide for Aliens，第 1 章）', url: 'https://www.irs.gov/publications/p519' },
-    { label: 'IRS — 居民外國人（Resident aliens）', url: 'https://www.irs.gov/individuals/international-taxpayers/resident-aliens' },
+    { label: 'IRS — 美國居民（U.S. residents）', url: 'https://www.irs.gov/individuals/international-taxpayers/us-residents' },
   ],
 }
 

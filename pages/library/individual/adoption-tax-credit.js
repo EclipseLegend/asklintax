@@ -28,7 +28,7 @@ const META = {
     { label: 'IRS — Instructions for Form 8839 (2025), Qualified Adoption Expenses', url: 'https://www.irs.gov/pub/irs-pdf/i8839.pdf' },
     { label: 'IRS — Rev. Proc. 2025-32 (2026 inflation-adjusted amounts)', url: 'https://www.irs.gov/pub/irs-drop/rp-25-32.pdf' },
     { label: 'IRS — Rev. Proc. 2024-40 (2025 inflation-adjusted amounts)', url: 'https://www.irs.gov/pub/irs-drop/rp-24-40.pdf' },
-    { label: 'IRS — Topic no. 607, Adoption credit', url: 'https://www.irs.gov/taxtopics/tc607' },
+    { label: 'IRS — Adoption Credit', url: 'https://www.irs.gov/credits-deductions/individuals/adoption-credit' },
     { label: 'IRS — Questions and answers about adoption tax credit carryforward', url: 'https://www.irs.gov/faqs/questions-and-answers-about-adoption-tax-credit-carryforward' },
   ],
 }

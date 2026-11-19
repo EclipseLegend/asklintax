@@ -14,7 +14,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'schedule-c-guide',
-  sourceHash:      '7db95a56e44d',
+  sourceHash:      '01552879a26d',
   id:            '79',
   title:         'Schedule C 說明：如何申報自雇收入與費用',
   titleEn:       'Schedule C Explained: Self-Employment Income and Expenses',
@@ -26,7 +26,7 @@ const META = {
   verification:  'official-sources-verified',
   updatedDate:   null,
   taxYear:       String(TAX_CONFIG.currentTaxYear),
-  confidence:    '依據 2025 年 Schedule C 及其填寫說明、Publication 334（2025）、2025 年 Form 461 填寫說明、IRS Notice 2026-10 與 Announcement 2026-11（2026 年標準里程費率），以及 Revenue Procedure 2024-40 與 2025-32，說明 2025 與 2026 稅務年度的 Schedule C（Form 1040）。撰寫本文時，2026 年 Schedule C 及其填寫說明仍是草稿。本文不涵蓋農業（Schedule F）、法定員工的細節，以及州稅表',
+  confidence:    '依據 2025 年 Schedule C 及其填寫說明、Publication 334（2025）、2025 年 Form 461 填寫說明、IRS Notice 2026-10 與 Announcement 2026-11（2026 年標準里程費率），以及 Revenue Procedure 2024-40 與 2025-32，說明 2025 與 2026 稅務年度的 Schedule C（Form 1040）。正式的 2026 年 Schedule C 表格已於 2026 年 10 月 29 日公布；本文於 2026 年 11 月審閱時，其 2026 年填寫說明尚未定稿。本文不涵蓋農業（Schedule F）、法定員工的細節，以及州稅表',
   persona:       ['自由業者與獨立承包人', '零工工作者與網路賣家', '單一成員 LLC 擁有人', '第一次申報 Schedule C 的人'],
   relatedJourney: ['準備報稅', '自雇的第一年'],
   actionRequired: '在 Schedule C 上申報你所有的事業收入 — 包括沒有收到 Form 1099 的收入 — 減去可扣除的事業費用，並把淨利轉到 Schedule 1 與 Schedule SE。每一筆費用都要保留證明紀錄。',
@@ -249,7 +249,7 @@ export default function ScheduleCGuideZhTwPage({ translations }) {
 
         <div className="callout callout-info">
           <div className="callout-title">ℹ️ 關於 2026 年表格</div>
-          <p>撰寫本文時，2026 年 Schedule C 及其填寫說明仍是草稿。上面的 2026 年費率與上限來自正式 IRS 指引（Notice 2026-10、Announcement 2026-11 與 Revenue Procedure 2025-32）。本文不涵蓋州稅表。</p>
+          <p>正式的 2026 年 Schedule C 表格已於 2026 年 10 月 29 日公布；本文於 2026 年 11 月審閱時，其 2026 年填寫說明尚未定稿。上面的 2026 年費率與上限來自正式 IRS 指引（Notice 2026-10、Announcement 2026-11 與 Revenue Procedure 2025-32）。本文不涵蓋州稅表。</p>
         </div>
 
       </KnowledgePage>

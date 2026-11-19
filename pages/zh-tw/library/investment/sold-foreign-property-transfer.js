@@ -14,7 +14,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'sold-foreign-property-transfer',
-  sourceHash:      '128440fdcd7f',
+  sourceHash:      'b3c4d7f29c6d',
   id:            '36',
   title:         '海外賣房後把錢匯到美國，要申報什麼？',
   titleEn:       'I sold property overseas and moved the money to the U.S. — what must I report?',
@@ -31,7 +31,7 @@ const META = {
   relatedJourney: ['跨境財務'],
   actionRequired: '把出售與匯款當作兩件事。出售要在發生的那一年，以美元在美國稅表上申報，不論你有沒有把錢匯過來。匯款本身不是收入，但任何存放售屋款的海外帳戶，都要計入 FBAR 與 Form 8938。',
   sources: [
-    { label: 'IRS — 居民外國人（Resident aliens：全球所得）', url: 'https://www.irs.gov/individuals/international-taxpayers/resident-aliens' },
+    { label: 'IRS — 美國居民（U.S. residents：全球所得）', url: 'https://www.irs.gov/individuals/international-taxpayers/us-residents' },
     { label: 'IRS Publication 551 — 資產的成本基礎（Basis of Assets）', url: 'https://www.irs.gov/publications/p551' },
     { label: 'IRS Publication 523 — 出售自住房屋（Selling Your Home）', url: 'https://www.irs.gov/publications/p523' },
     { label: 'IRS — 外幣與匯率（Foreign currency and currency exchange rates）', url: 'https://www.irs.gov/individuals/international-taxpayers/foreign-currency-and-currency-exchange-rates' },

@@ -14,7 +14,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'education-tax-credits',
-  sourceHash:      '1f431ccd944e',
+  sourceHash:      'c2369316982a',
   id:            '60',
   title:         '教育抵稅額：AOTC 與 Lifetime Learning Credit 怎麼選？',
   titleEn:       'Education tax credits: AOTC vs. Lifetime Learning Credit',
@@ -32,7 +32,7 @@ const META = {
   actionRequired: '先確認每位學生適合哪一種抵稅額：AOTC 適用於攻讀學位或認可證書、至少半時就讀的大學前四年；終身學習抵稅額適用於其他課程，包括提升工作技能的課程。接著再確認 2025 年的收入限制。',
   sources: [
     { label: 'IRS — 教育抵稅額：AOTC 與 LLC（Education credits: AOTC and LLC）', url: 'https://www.irs.gov/credits-deductions/individuals/education-credits-aotc-and-llc' },
-    { label: 'IRS — 教育抵稅額：問與答（Education credits: Questions and answers）', url: 'https://www.irs.gov/credits-deductions/individuals/education-credits-questions-and-answers' },
+    { label: 'IRS — 符合資格的教育費用（Qualified education expenses）', url: 'https://www.irs.gov/credits-deductions/individuals/qualified-education-expenses' },
     { label: 'IRS — 關於 Form 8863，教育抵稅額（美國機會抵稅額與終身學習抵稅額）', url: 'https://www.irs.gov/forms-pubs/about-form-8863' },
     { label: 'IRS — 互動式稅務助理：我有資格申報教育抵稅額嗎？（Am I eligible to claim an education credit?）', url: 'https://www.irs.gov/help/ita/am-i-eligible-to-claim-an-education-credit' },
     { label: 'IRS — Publication 970（2025），教育的稅務優惠（Tax Benefits for Education）', url: 'https://www.irs.gov/publications/p970' },

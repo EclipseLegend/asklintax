@@ -13,7 +13,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'new-immigrant',
-  sourceHash:      'cd56912df164',
+  sourceHash:      '3f5e60986ae8',
   id:            '04',
   title:         '剛來美國？新移民完整報稅指南',
   titleEn:       'New to the U.S.? A complete tax guide for new immigrants',
@@ -28,7 +28,7 @@ const META = {
     { label: 'IRS — 實質居留測試（Substantial presence test）', url: 'https://www.irs.gov/individuals/international-taxpayers/substantial-presence-test' },
     { label: 'IRS — 美國所得稅協定一覽（United States income tax treaties A to Z）', url: 'https://www.irs.gov/businesses/international-businesses/united-states-income-tax-treaties-a-to-z' },
     { label: 'IRS — 海外銀行與金融帳戶申報（Report of Foreign Bank and Financial Accounts, FBAR）', url: 'https://www.irs.gov/businesses/small-businesses-self-employed/report-of-foreign-bank-and-financial-accounts-fbar' },
-    { label: 'IRS — 個人納稅識別號碼（Individual Taxpayer Identification Number, ITIN）', url: 'https://www.irs.gov/individuals/individual-taxpayer-identification-number' },
+    { label: 'IRS — 個人納稅識別號碼（Individual Taxpayer Identification Number, ITIN）', url: 'https://www.irs.gov/tin/itin/individual-taxpayer-identification-number-itin' },
   ],
   updatedDate:   null,
   taxYear:       String(TAX_CONFIG.currentTaxYear),

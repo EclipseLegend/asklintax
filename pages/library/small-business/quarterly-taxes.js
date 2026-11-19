@@ -58,7 +58,7 @@ const FAQS = [
   },
   {
     q: 'How do I actually make the payment?',
-    a: 'The easiest method is IRS Direct Pay at IRS.gov/payments — free, instant, and you get immediate confirmation. You can also pay through your IRS Online Account. The Electronic Federal Tax Payment System (EFTPS) no longer accepts new enrollments from individual taxpayers, though current users can still use it for now. Other options: pay by debit or credit card (convenience fee applies), or mail a check with Form 1040-ES. IRS Direct Pay is recommended for most people.',
+    a: 'The easiest method is IRS Direct Pay at IRS.gov/payments — free, instant, and you get immediate confirmation. You can also pay through your IRS Online Account. Individuals can no longer use the Electronic Federal Tax Payment System (EFTPS): the IRS says that as of November 12, 2026, EFTPS is no longer available for individuals to make payments. If you scheduled a payment through EFTPS earlier, the IRS says you can still sign in to cancel it up to two business days before the scheduled date. EFTPS remains a business tax payment system; this change concerns individual payments such as estimated tax. Other options: pay by debit or credit card (convenience fee applies), or mail a check with Form 1040-ES. IRS Direct Pay is recommended for most people.',
   },
 ]
 
@@ -293,7 +293,7 @@ export default function QuarterlyTaxesPage({ translations }) {
         <p>The IRS offers several ways to pay. In order of convenience:</p>
         <ol>
           <li><strong>IRS Direct Pay</strong> (IRS.gov/payments) — Free, instant, no account needed. Pay directly from your bank account. You get immediate confirmation. This is the recommended method for most people.</li>
-          <li><strong>EFTPS</strong> (eftps.gov) — Free, allows you to schedule payments in advance. The IRS no longer accepts new EFTPS enrollments from individual taxpayers; current users can still use it for now. New individual payers can use IRS Direct Pay or their IRS Online Account instead.</li>
+          <li><strong>EFTPS</strong> (eftps.gov) — No longer available for individual payments. The IRS says that as of November 12, 2026, individuals can no longer make payments through EFTPS; a payment scheduled earlier can still be cancelled by signing in up to two business days before its scheduled date. Pay estimated tax through your IRS Online Account or IRS Direct Pay instead. Businesses still use EFTPS for business tax payments and deposits.</li>
           <li><strong>Debit or credit card</strong> — Available through IRS-authorized processors, but carries a processor fee (credit cards currently 1.75%–1.85% with a $2.50 minimum; debit cards a flat fee of about $2). Generally not worth it unless you're earning credit card rewards that offset the fee.</li>
           <li><strong>Check by mail</strong> — Mail a check payable to "United States Treasury" with Form 1040-ES payment voucher. Slowest and least recommended — no instant confirmation.</li>
         </ol>

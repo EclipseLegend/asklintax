@@ -14,7 +14,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'premium-tax-credit-form-8962',
-  sourceHash:      '80003718ea08',
+  sourceHash:      '8f3ff673f4f7',
   id:            '106',
   title:         '保費抵稅額與 Form 8962：2025 與 2026 年的 Marketplace 健康保險',
   titleEn:       'Premium Tax Credit and Form 8962: Marketplace Health Insurance in 2025 and 2026',
@@ -35,7 +35,7 @@ const META = {
     { label: 'IRS — Publication 974，保費抵稅額（PTC）', url: 'https://www.irs.gov/publications/p974' },
     { label: 'IRS — FS-2025-10，保費抵稅額問答（2025 年 12 月）', url: 'https://www.irs.gov/pub/taxpros/fs-2025-10.pdf' },
     { label: 'IRS — 保費抵稅額（PTC）概覽', url: 'https://www.irs.gov/credits-deductions/premium-tax-credit-ptc-overview' },
-    { label: 'IRS — One, Big, Beautiful Bill 條文（保費抵稅額，第 71301–71305 條）', url: 'https://www.irs.gov/newsroom/one-big-beautiful-bill-provisions' },
+    { label: 'IRS — Working Families Tax Cuts（保費抵稅額，One, Big, Beautiful Bill 第 71301–71305 條）', url: 'https://www.irs.gov/newsroom/working-families-tax-cuts' },
     { label: 'IRS — Rev. Proc. 2025-25（2026 年適用百分比表）', url: 'https://www.irs.gov/pub/irs-drop/rp-25-25.pdf' },
     { label: 'IRS — 2026 年 Form 8962 草稿（不可用於申報）', url: 'https://www.irs.gov/pub/irs-dft/f8962--dft.pdf' },
     { label: 'IRS — IR-2026-121，擬議的保費抵稅額法規（2026 年 10 月 14 日）', url: 'https://www.irs.gov/newsroom/treasury-and-irs-move-to-protect-health-care-benefits-for-eligible-americans' },

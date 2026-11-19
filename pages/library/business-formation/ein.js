@@ -20,7 +20,7 @@ const META = {
   sources: [
     { label: 'IRS — Get an employer identification number', url: 'https://www.irs.gov/businesses/small-businesses-self-employed/get-an-employer-identification-number' },
     { label: 'IRS — Instructions for Form SS-4', url: 'https://www.irs.gov/instructions/iss4' },
-    { label: 'IRS — Do you need a new EIN?', url: 'https://www.irs.gov/businesses/small-businesses-self-employed/do-you-need-a-new-ein' },
+    { label: 'IRS — When to get a new EIN', url: 'https://www.irs.gov/businesses/small-businesses-self-employed/when-to-get-a-new-ein' },
   ],
   updatedDate:   null,
   taxYear:       String(TAX_CONFIG.currentTaxYear),

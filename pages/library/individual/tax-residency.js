@@ -20,7 +20,7 @@ const META = {
   sources: [
     { label: 'IRS Publication 519 — U.S. Tax Guide for Aliens', url: 'https://www.irs.gov/publications/p519' },
     { label: 'IRS — Substantial presence test', url: 'https://www.irs.gov/individuals/international-taxpayers/substantial-presence-test' },
-    { label: 'IRS — Resident aliens', url: 'https://www.irs.gov/individuals/international-taxpayers/resident-aliens' },
+    { label: 'IRS — U.S. residents', url: 'https://www.irs.gov/individuals/international-taxpayers/us-residents' },
     { label: 'IRS — Nonresident spouse', url: 'https://www.irs.gov/individuals/international-taxpayers/nonresident-spouse' },
     { label: 'IRS — Report of Foreign Bank and Financial Accounts (FBAR)', url: 'https://www.irs.gov/businesses/small-businesses-self-employed/report-of-foreign-bank-and-financial-accounts-fbar' },
   ],

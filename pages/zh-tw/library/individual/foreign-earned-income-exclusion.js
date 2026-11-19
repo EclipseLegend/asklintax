@@ -14,7 +14,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'foreign-earned-income-exclusion',
-  sourceHash:      'bd66589515b4',
+  sourceHash:      '0e8e6d0317e6',
   id:            '92',
   title:         '海外工作所得排除額（Form 2555）：2025 與 2026 年規定',
   titleEn:       'Foreign Earned Income Exclusion (Form 2555): 2025 and 2026 Rules',
@@ -24,16 +24,16 @@ const META = {
   difficulty:    'Advanced',
   readTime:      '9 min read',
   verification:  'official-sources-verified',
-  updatedDate:   'October 2026',
+  updatedDate:   'November 2026',
   taxYear:       String(TAX_CONFIG.currentTaxYear),
-  confidence:    '依據 Form 2555 及其 2025 年填寫說明、2026 年 Form 2555 與填寫說明草案、Publication 54（2025 年 12 月修訂版）、Rev. Proc. 2024-40、Rev. Proc. 2025-32、Notice 2025-16、Notice 2026-25，以及 2025 年 Form 1040 填寫說明，說明 2025 與 2026 稅務年度的海外工作所得排除額，以及海外住房排除額與扣除額。本文不涵蓋美國政府員工、戰區、自僱稅規劃，也不涵蓋州稅',
+  confidence:    '依據 Form 2555 及其 2025 年填寫說明、2026 年正式版 Form 2555 與填寫說明（2026 年 11 月 5 日公布）、Publication 54（2025 年 12 月修訂版）、Rev. Proc. 2024-40、Rev. Proc. 2025-32、Notice 2025-16、Notice 2026-25，以及 2025 年 Form 1040 填寫說明，說明 2025 與 2026 稅務年度的海外工作所得排除額，以及海外住房排除額與扣除額。本文不涵蓋美國政府員工、戰區、自僱稅規劃，也不涵蓋州稅',
   persona:       ['在台灣或其他海外地區工作的美國公民', '外派海外的綠卡持有人', '計畫搬到海外的人', '在排除額與外國稅額抵免之間做選擇的人'],
   relatedJourney: ['跨境財務', '剛到美國'],
   actionRequired: '確認你的稅務住所在海外，並符合真實居住測試或 330 天實際停留測試。如果符合，你可以在 Form 2555 上選擇排除海外工作所得，2025 年最高 $130,000、2026 年最高 $132,900，另加住房金額，而且你仍然必須申報美國稅表。',
   sources: [
     { label: 'IRS — 2025 年 Form 2555 填寫說明，海外工作所得', url: 'https://www.irs.gov/pub/irs-pdf/i2555.pdf' },
     { label: 'IRS — Form 2555（2025）', url: 'https://www.irs.gov/pub/irs-pdf/f2555.pdf' },
-    { label: 'IRS — 2026 年 Form 2555 填寫說明（草案）', url: 'https://www.irs.gov/pub/irs-dft/i2555--dft.pdf' },
+    { label: 'IRS — 2026 年 Form 2555 填寫說明（正式版）', url: 'https://www.irs.gov/pub/irs-pdf/i2555.pdf' },
     { label: 'IRS — Publication 54，美國公民與居民外國人在海外的稅務指南', url: 'https://www.irs.gov/publications/p54' },
     { label: 'IRS — Rev. Proc. 2024-40（2025 年通膨調整）', url: 'https://www.irs.gov/pub/irs-drop/rp-24-40.pdf' },
     { label: 'IRS — Rev. Proc. 2025-32（2026 年通膨調整）', url: 'https://www.irs.gov/pub/irs-drop/rp-25-32.pdf' },
@@ -146,7 +146,7 @@ export default function ForeignEarnedIncomeExclusionZhTwPage({ translations }) {
           ]}
         />
         <p>
-          資料來源：Rev. Proc. 2024-40 與 Rev. Proc. 2025-32（排除額），Notice 2025-16 與 Notice 2026-25（住房金額與各地上限）。2026 年 Form 2555 及其填寫說明仍是草案。如果你的符合資格期間只涵蓋部分年度，所有金額都會減少。
+          資料來源：Rev. Proc. 2024-40 與 Rev. Proc. 2025-32（排除額），Notice 2025-16 與 Notice 2026-25（住房金額與各地上限）。正式的 2026 年 Form 2555 及其填寫說明列出的 2026 年金額相同。如果你的符合資格期間只涵蓋部分年度，所有金額都會減少。
         </p>
 
         <h2>海外住房排除額或扣除額</h2>
@@ -209,7 +209,7 @@ export default function ForeignEarnedIncomeExclusionZhTwPage({ translations }) {
 
         <div className="callout callout-warning">
           <div className="callout-title">⚠️ 請查看正式的 2026 年表格</div>
-          <p>2026 年 Form 2555 與填寫說明是草案，報稅前請查看正式版本。本文不涵蓋自僱稅、美國政府員工、戰區與州稅。</p>
+          <p>2026 年 Form 2555 及其填寫說明已是正式版，與上述 2026 年金額相符。本文不涵蓋自僱稅、美國政府員工、戰區與州稅。</p>
         </div>
 
       </KnowledgePage>

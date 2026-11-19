@@ -29,7 +29,7 @@ const META = {
     { label: 'IRS — Publication 974, Premium Tax Credit (PTC)', url: 'https://www.irs.gov/publications/p974' },
     { label: 'IRS — FS-2025-10, Questions and Answers about the Premium Tax Credit (December 2025)', url: 'https://www.irs.gov/pub/taxpros/fs-2025-10.pdf' },
     { label: 'IRS — Premium Tax Credit (PTC) overview', url: 'https://www.irs.gov/credits-deductions/premium-tax-credit-ptc-overview' },
-    { label: 'IRS — One, Big, Beautiful Bill provisions (Premium Tax Credit, sections 71301–71305)', url: 'https://www.irs.gov/newsroom/one-big-beautiful-bill-provisions' },
+    { label: 'IRS — Working Families Tax Cuts (Premium Tax Credit, One, Big, Beautiful Bill sections 71301–71305)', url: 'https://www.irs.gov/newsroom/working-families-tax-cuts' },
     { label: 'IRS — Rev. Proc. 2025-25 (2026 applicable percentage table)', url: 'https://www.irs.gov/pub/irs-drop/rp-25-25.pdf' },
     { label: 'IRS — Draft 2026 Form 8962 (not for filing)', url: 'https://www.irs.gov/pub/irs-dft/f8962--dft.pdf' },
     { label: 'IRS — IR-2026-121, proposed Premium Tax Credit regulations (October 14, 2026)', url: 'https://www.irs.gov/newsroom/treasury-and-irs-move-to-protect-health-care-benefits-for-eligible-americans' },

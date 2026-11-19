@@ -14,7 +14,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'tax-law-changes-2025-2026',
-  sourceHash:      'aecef7aae7b8',
+  sourceHash:      'f0abbc9e6750',
   id:            '66',
   title:         '美國新稅法：2025 與 2026 年報稅有哪些改變？',
   titleEn:       'The 2025 Tax Law: What Changed for Your 2025 and 2026 Returns',
@@ -32,7 +32,7 @@ const META = {
   actionRequired: '逐一確認每個稅務年度有哪些改變適用於你。幾項新扣除額從 2025 年稅表開始適用，並在新的 Schedule 1-A 上申報；其他改變則從 2026 年開始。規定與上限請見詳細指南。',
   sources: [
     { label: 'IRS — Working Families Tax Cuts：個人與工作者相關條款（provisions for individuals and workers）', url: 'https://www.irs.gov/newsroom/working-families-tax-cuts-individuals-and-workers' },
-    { label: 'IRS — Working Families Tax Cuts（One, Big, Beautiful Bill 相關條款）', url: 'https://www.irs.gov/newsroom/one-big-beautiful-bill-provisions' },
+    { label: 'IRS — Working Families Tax Cuts（One, Big, Beautiful Bill 相關條款）', url: 'https://www.irs.gov/newsroom/working-families-tax-cuts' },
     { label: 'IRS — Schedule 1-A（Form 1040）（2025），額外扣除額（Additional Deductions）', url: 'https://www.irs.gov/pub/irs-pdf/f1040s1a.pdf' },
     { label: 'IRS — 2025 年 Form 1040 填寫說明（含 Schedule 1-A 說明）', url: 'https://www.irs.gov/pub/irs-pdf/i1040gi.pdf' },
     { label: 'IRS — IR-2026-28，新的 Schedule 1-A 與 Form 1040 填寫說明', url: 'https://www.irs.gov/newsroom/irs-published-schedule-taxpayers-will-use-to-claim-deductions-on-no-tax-on-tips-no-tax-on-overtime-no-tax-on-car-loans-no-tax-on-seniors' },

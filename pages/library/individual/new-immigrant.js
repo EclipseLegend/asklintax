@@ -22,7 +22,7 @@ const META = {
     { label: 'IRS — Substantial presence test', url: 'https://www.irs.gov/individuals/international-taxpayers/substantial-presence-test' },
     { label: 'IRS — United States income tax treaties A to Z', url: 'https://www.irs.gov/businesses/international-businesses/united-states-income-tax-treaties-a-to-z' },
     { label: 'IRS — Report of Foreign Bank and Financial Accounts (FBAR)', url: 'https://www.irs.gov/businesses/small-businesses-self-employed/report-of-foreign-bank-and-financial-accounts-fbar' },
-    { label: 'IRS — Individual Taxpayer Identification Number (ITIN)', url: 'https://www.irs.gov/individuals/individual-taxpayer-identification-number' },
+    { label: 'IRS — Individual Taxpayer Identification Number (ITIN)', url: 'https://www.irs.gov/tin/itin/individual-taxpayer-identification-number-itin' },
   ],
   updatedDate:   null,
   taxYear:       String(TAX_CONFIG.currentTaxYear),

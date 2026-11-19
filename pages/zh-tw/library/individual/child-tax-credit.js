@@ -13,7 +13,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'child-tax-credit',
-  sourceHash:      '48969ad59ffd',
+  sourceHash:      'f1d96ba4e3c1',
   id: '17',
   title: '兒童抵稅額（Child Tax Credit）：誰符合資格、如何申請',
   titleEn: 'Child Tax Credit: who qualifies and how to claim it',
@@ -24,10 +24,10 @@ const META = {
   readTime: '5 min read',
   verification:  'official-sources-verified',
   sources: [
-    { label: 'IRS — 兒童抵稅額（Child Tax Credit）', url: 'https://www.irs.gov/credits-deductions/individuals/child-tax-credit' },
+    { label: 'IRS — 兒童抵稅額（Child Tax Credit）', url: 'https://www.irs.gov/credits-deductions/individuals/child-tax-credit-and-credit-for-other-dependents' },
     { label: 'IRS Publication 501 — 受扶養人、標準扣除額與報稅資訊（Dependents, Standard Deduction, and Filing Information）', url: 'https://www.irs.gov/publications/p501' },
     { label: 'IRS — Revenue Procedure 2025-32（2026 稅務年度通膨調整）', url: 'https://www.irs.gov/pub/irs-drop/rp-25-32.pdf' },
-    { label: 'IRS — One, Big, Beautiful Bill 相關條款（One, Big, Beautiful Bill provisions）', url: 'https://www.irs.gov/newsroom/one-big-beautiful-bill-provisions' },
+    { label: 'IRS — Working Families Tax Cuts（One, Big, Beautiful Bill 相關條款）', url: 'https://www.irs.gov/newsroom/working-families-tax-cuts' },
   ],
   updatedDate: null,
   taxYear: String(TAX_CONFIG.currentTaxYear),

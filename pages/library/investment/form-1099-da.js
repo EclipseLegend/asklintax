@@ -26,7 +26,7 @@ const META = {
   actionRequired: 'Collect every Form 1099-DA, but keep your own records too: a 2025 Form 1099-DA generally shows gross proceeds without basis, and many transactions are not reported at all. Report every sale or exchange on Form 8949 using the digital asset boxes (G through L), with your own basis where the form shows none.',
   sources: [
     { label: 'IRS — Digital assets', url: 'https://www.irs.gov/filing/digital-assets' },
-    { label: 'IRS — Digital assets (businesses): broker reporting and final regulations', url: 'https://www.irs.gov/businesses/small-businesses-self-employed/digital-assets' },
+    { label: 'IRS — Digital assets: broker reporting and final regulations', url: 'https://www.irs.gov/filing/digital-assets' },
     { label: 'IRS — 2026 Instructions for Form 1099-DA, Digital Asset Proceeds From Broker Transactions', url: 'https://www.irs.gov/pub/irs-pdf/i1099da.pdf' },
     { label: 'IRS — Frequently asked questions on digital asset transactions', url: 'https://www.irs.gov/individuals/international-taxpayers/frequently-asked-questions-on-digital-asset-transactions' },
     { label: 'IRS — Revenue Procedure 2024-28 (allocating basis to wallets and accounts as of January 1, 2025)', url: 'https://www.irs.gov/pub/irs-drop/rp-24-28.pdf' },

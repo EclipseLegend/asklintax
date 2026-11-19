@@ -14,7 +14,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'payroll-taxes-941-940',
-  sourceHash:      'f8f4893d0944',
+  sourceHash:      '0e634c9f19e8',
   id:            '126',
   title:         '雇主薪資稅：Form 941、Form 940、稅款繳存與信託基金追繳罰款',
   titleEn:       'Payroll Taxes for Employers: Forms 941 and 940, Deposits, and the Trust Fund Recovery Penalty',
@@ -24,9 +24,9 @@ const META = {
   difficulty:    'Intermediate',
   readTime:      '10 min read',
   verification:  'official-sources-verified',
-  updatedDate:   'October 2026',
+  updatedDate:   'November 2026',
   taxYear:       String(TAX_CONFIG.currentTaxYear),
-  confidence:    '依據 Publication 15（2026）、Form 941 說明（2026 年 3 月修訂版）、Form 940 說明（2025），以及 2025 年版 Schedule A（Form 940），說明雇主的聯邦薪資稅義務。本文審閱時，2026 年最終的 FUTA 抵免減少州尚未公布；IRS 的 2026 年 Schedule A（Form 940）草稿表示，勞工部將於 2026 年 11 月公布。本文不詳細說明州薪資稅、家庭雇主、農業雇主（Form 943），或 Form 945 的非薪資預扣',
+  confidence:    '依據 Publication 15（2026）、Form 941 說明（2026 年 3 月修訂版）、Form 940 說明（2025），以及 2025 年版 Schedule A（Form 940），說明雇主的聯邦薪資稅義務。就 2026 年而言，IRS 的 Form 940 說明草稿（2026 年 11 月 18 日）與 Schedule A（Form 940）草稿（2026 年 11 月 19 日）列出加州是唯一的抵免減少州，比率為 1.5%；這些是草稿，本文審閱時正式的 2026 年 Schedule A 尚未發布。本文不詳細說明州薪資稅、家庭雇主、農業雇主（Form 943），或 Form 945 的非薪資預扣',
   persona:       ['第一次聘請員工的雇主', '為自己發薪的 S 公司老闆', '使用薪資服務公司的小企業老闆', '收到 IRS 薪資稅繳存延遲通知的人'],
   relatedJourney: ['經營小型企業', '處理稅務問題'],
   actionRequired: '依回溯期間確認你的繳存時程（每月或每半週），在每個期限前以電子方式繳存預扣稅款與雇主稅款，每季申報 Form 941、每年申報 Form 940，並保存薪資紀錄至少 4 年。如果你使用薪資服務公司，請確認稅款確實以你的 EIN 繳存。',
@@ -35,6 +35,8 @@ const META = {
     { label: 'IRS — Form 941 說明（2026 年 3 月修訂版）', url: 'https://www.irs.gov/pub/irs-pdf/i941.pdf' },
     { label: 'IRS — Form 940 說明（2025）', url: 'https://www.irs.gov/pub/irs-pdf/i940.pdf' },
     { label: 'IRS — 2025 年版 Schedule A（Form 940），多州雇主與抵免減少資訊', url: 'https://www.irs.gov/pub/irs-pdf/f940sa.pdf' },
+    { label: 'IRS — 2026 年 Schedule A（Form 940）草稿（2026 年 11 月 19 日；草稿，不能用來申報）', url: 'https://www.irs.gov/pub/irs-dft/f940sa--dft.pdf' },
+    { label: 'IRS — 2026 年 Form 940 說明草稿（2026 年 11 月 18 日；草稿）', url: 'https://www.irs.gov/pub/irs-dft/i940--dft.pdf' },
     { label: 'IRS — 繳存與申報就業稅', url: 'https://www.irs.gov/businesses/small-businesses-self-employed/depositing-and-reporting-employment-taxes' },
   ],
 }
@@ -58,7 +60,7 @@ const FAQS = [
   },
   {
     q: '加州 2025 年的 FUTA 抵免減少，也會適用於 2026 年嗎？',
-    a: '不會自動適用。抵免減少是由美國勞工部逐年決定的。2025 年加州的抵免減少為 1.2%。本文於 2026 年 10 月審閱時，2026 年最終的抵免減少州尚未公布；IRS 的 2026 年 Schedule A（Form 940）草稿表示，勞工部將於 2026 年 11 月公布。請在正式的 2026 年版 Schedule A（Form 940）發布後查看。',
+    a: '不會自動適用。抵免減少是由美國勞工部逐年決定的。2025 年加州的抵免減少為 1.2%。就 2026 年而言，IRS 的 Form 940 說明草稿（2026 年 11 月 18 日）與 Schedule A（Form 940）草稿（2026 年 11 月 19 日）表示，加州是唯一的抵免減少州，比率為 1.5%。這些是草稿表格，不能用來申報；請在正式的 2026 年版 Schedule A（Form 940）發布後確認比率。',
   },
   {
     q: '我使用薪資服務公司，還是要負責嗎？',
@@ -196,7 +198,7 @@ export default function PayrollTaxes941940Page({ translations }) {
           ]}
         />
         <p>
-          抵免減少視為第四季的稅款。因為這位雇主的 FUTA 稅合計是 $500 以下，可以在 2026 年 2 月 2 日前繳存，或隨 Form 940 繳納；第四季 FUTA 稅超過 $500 的雇主，必須把抵免減少的金額納入第四季的繳存。這個範例<strong>只適用於 2025 年的工資</strong>。抵免減少州與比率每年分別決定；本文審閱時，2026 年最終的名單尚未公布。
+          抵免減少視為第四季的稅款。因為這位雇主的 FUTA 稅合計是 $500 以下，可以在 2026 年 2 月 2 日前繳存，或隨 Form 940 繳納；第四季 FUTA 稅超過 $500 的雇主，必須把抵免減少的金額納入第四季的繳存。這個範例<strong>只適用於 2025 年的工資</strong>。抵免減少州與比率每年分別決定。就 2026 年而言，IRS 草稿顯示加州為 1.5%（例如 1.5% × $7,000 ＝ 每位員工 $105，而不是 $84），但請使用正式 2026 年 Schedule A（Form 940）上的比率。
         </p>
 
         <div className="callout callout-warning">

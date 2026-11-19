@@ -13,7 +13,7 @@ export async function getStaticProps() {
 const META = {
   locale:          'zh-tw',
   sourceArticleId: 'what-is-w2',
-  sourceHash:      '60f1a7d37360',
+  sourceHash:      'ee5492ac5ee7',
   id:            '09',
   title:         '什麼是 W-2？該怎麼看？',
   titleEn:       'What is a W-2 and how do I read it?',
@@ -27,6 +27,9 @@ const META = {
     { label: 'IRS — Form W-2 與 W-3 一般填寫說明（General Instructions for Forms W-2 and W-3）', url: 'https://www.irs.gov/instructions/iw2w3' },
     { label: 'IRS — Topic no. 154，Form W-2 與 Form 1099-R（資料錯誤或沒有收到時該怎麼辦）', url: 'https://www.irs.gov/taxtopics/tc154' },
     { label: 'IRS Publication 15（2025）— 雇主稅務指南（Employer\'s Tax Guide：社會安全稅薪資上限）', url: 'https://www.irs.gov/pub/irs-prior/p15--2025.pdf' },
+    { label: 'IRS — 2026 年 Form W-2 與 W-3 一般填寫說明（新增 box 12 代碼 TP、TT、TA 與 box 14b）', url: 'https://www.irs.gov/pub/irs-pdf/iw2w3.pdf' },
+    { label: 'IRS Publication 15（2026）— 雇主稅務指南（2026 年薪資上限與額外聯邦醫療保險稅預扣）', url: 'https://www.irs.gov/pub/irs-pdf/p15.pdf' },
+    { label: 'IRS — Topic no. 560，額外聯邦醫療保險稅（Additional Medicare tax）', url: 'https://www.irs.gov/taxtopics/tc560' },
   ],
   updatedDate:   null,
   taxYear:       String(TAX_CONFIG.currentTaxYear),
@@ -116,13 +119,13 @@ const W2_BOXES = [
   { box: '1',    label: '薪資、小費與其他報酬（Wages, tips, other compensation）',          color: 'var(--navy)',  highlight: true,  desc: '你這一年的應稅薪資總額。這是要列入稅表的受雇收入。注意：如果你有稅前提撥（401k、健康保險、FSA），這個金額可能比你的總薪資「少」。', importance: 'Critical' },
   { box: '2',    label: '已預扣的聯邦所得稅（Federal income tax withheld）',              color: '#DC2626',      highlight: true,  desc: '雇主在這一年中代你繳給 IRS 的聯邦所得稅總額。如果這個數字比你實際的應納稅額大，差額就會退還給你。這就是大多數人能拿到退稅的原因。', importance: 'Critical' },
   { box: '3',    label: '社會安全稅薪資（Social Security wages）',                    color: 'var(--muted)', highlight: false, desc: '要繳社會安全稅的薪資。通常與 Box 1 相同，但如果你有某些扣除項目，可能會不同。社會安全稅是這個金額的 6.2%（Box 4）。', importance: 'Important' },
-  { box: '4',    label: '已預扣的社會安全稅（Social Security tax withheld）',             color: 'var(--muted)', highlight: false, desc: 'Box 3 的 6.2%。如果 Box 3 是 $0，這裡也應該是 $0。2025 年上限：$10,918（$176,100 薪資上限的 6.2%）。如果你有多位雇主、合計超過上限，超過的部分可能可以退還。', importance: 'Important' },
+  { box: '4',    label: '已預扣的社會安全稅（Social Security tax withheld）',             color: 'var(--muted)', highlight: false, desc: 'Box 3 的 6.2%。如果 Box 3 是 $0，這裡也應該是 $0。每位雇主的上限：2025 年為 $10,918.20（$176,100 薪資上限的 6.2%），2026 年為 $11,439（$184,500 薪資上限的 6.2%）。如果你有多位雇主、合計超過上限，超過的部分可能可以退還。', importance: 'Important' },
   { box: '5',    label: '聯邦醫療保險稅薪資與小費（Medicare wages and tips）',                  color: 'var(--muted)', highlight: false, desc: '要繳聯邦醫療保險稅的薪資。通常與 Box 3 相同。和社會安全稅不同，聯邦醫療保險稅沒有薪資上限。', importance: 'Standard' },
-  { box: '6',    label: '已預扣的聯邦醫療保險稅（Medicare tax withheld）',                    color: 'var(--muted)', highlight: false, desc: 'Box 5 的 1.45%。高收入者（單身超過 $200,000／夫妻合併申報超過 $250,000）還要繳 0.9% 的額外聯邦醫療保險稅（Additional Medicare Tax）。', importance: 'Standard' },
+  { box: '6',    label: '已預扣的聯邦醫療保險稅（Medicare tax withheld）',                    color: 'var(--muted)', highlight: false, desc: 'Box 5 的 1.45%，再加上雇主預扣的 0.9% 額外聯邦醫療保險稅（Additional Medicare Tax）。不論你的申報身分，雇主在一個日曆年度付給你的工資超過 $200,000 時，就必須就超過部分預扣這 0.9%。你實際的稅額則取決於申報身分 — 工資與自僱所得超過 $250,000（夫妻合併申報）、$125,000（夫妻分開申報），或 $200,000（其他申報身分）— 所以預扣的金額可能多於或少於你實際應繳的稅。最終金額在 Form 8959 上計算。', importance: 'Standard' },
   { box: '10',   label: '受扶養人照顧福利（Dependent care benefits）',                  color: 'var(--muted)', highlight: false, desc: '如果雇主提供受扶養人照顧福利（例如受扶養人照顧 FSA），金額會顯示在這裡。2025 年一般最多 $5,000 免稅；2026 年如果雇主的計畫允許，最多 $7,500。', importance: 'If applicable' },
-  { box: '12',   label: '代碼（見下方 Box 12 說明）',           color: '#7C3AED',      highlight: true,  desc: '以字母代碼申報的各種薪酬與福利。最常見：Code D（401k 提撥）、Code W（雇主的 HSA 提撥）、Code DD（健康保險成本）。請見下方的 Box 12 說明。', importance: 'Important' },
+  { box: '12',   label: '代碼（見下方 Box 12 說明）',           color: '#7C3AED',      highlight: true,  desc: '以字母代碼申報的各種薪酬與福利。最常見：Code D（401k 提撥）、Code W（雇主的 HSA 提撥）、Code DD（健康保險成本）。2026 年新增：Code TP（向雇主申報的現金小費）、Code TT（合格加班報酬），以及 Code TA（雇主的 Trump 帳戶提撥）。請見下方的 Box 12 說明。', importance: 'Important' },
   { box: '13',   label: '勾選欄（法定員工、退休計畫、第三方病假給付）', color: 'var(--muted)', highlight: false, desc: '「退休計畫」（Retirement plan）勾選欄很重要 — 如果有勾選，依你的收入，可能會影響你扣除傳統 IRA 提撥的能力。', importance: 'Check it' },
-  { box: '14',   label: '其他（Other）',                                    color: 'var(--muted)', highlight: false, desc: '雇主申報、不屬於其他欄位的項目。常見內容：州失能保險（SDI）、工會會費、教育補助。多數情況下僅供參考。', importance: 'Informational' },
+  { box: '14',   label: '其他（Other）',                                    color: 'var(--muted)', highlight: false, desc: '雇主申報、不屬於其他欄位的項目。常見內容：州失能保險（SDI）、工會會費、教育補助。多數情況下僅供參考。自 2026 年的 W-2 起，這一欄分為兩欄：box 14a（其他）填寫上述項目；當 box 12 以 Code TP 申報現金小費時，box 14b 會列出最多兩個財政部小費職業代碼（Treasury Tipped Occupation Code；如果有任何小費是在不符合資格的職業中收到，會填「000」）。', importance: 'Informational' },
   { box: '15–17', label: '州稅資訊',                   color: 'var(--green)', highlight: false, desc: '州雇主編號（15）、州薪資（16）與已預扣的州所得稅（17）。用於申報你的州稅表。如果你在多個州工作，這些欄位可能重複出現。', importance: 'For state return' },
 ]
 
@@ -134,6 +137,9 @@ const BOX12_CODES = [
   { code: 'AA', desc: 'Roth 401(k) 提撥', taxable: '已課稅（「不會」減少 Box 1）', note: '稅後的退休提撥' },
   { code: 'C',  desc: '超過 $50,000 的團體定期壽險應稅成本', taxable: '要課稅（已包含在 Box 1）', note: '參考資訊' },
   { code: 'V',  desc: '執行股票選擇權的所得', taxable: '已包含在 Box 1', note: '科技公司常見' },
+  { code: 'TP', desc: '向雇主申報的現金小費總額（2026 年新增）', taxable: '小費一般仍要預扣所得稅，並課社會安全稅與聯邦醫療保險稅', note: '會在 box 14b 附上職業代碼。這個金額本身並不決定有多少符合小費扣除額' },
+  { code: 'TT', desc: '合格加班報酬總額（2026 年新增）', taxable: '一般仍要預扣所得稅，並課社會安全稅與聯邦醫療保險稅', note: '只有加給的部分（例如一倍半工資中的「半倍」）。你仍要自行確認是否符合加班扣除額的資格' },
+  { code: 'TA', desc: '雇主提撥到你或你受扶養人的 Trump 帳戶（2026 年新增）', taxable: '依 Trump 帳戶提撥計畫支付時，每年最多 $2,500 不計入所得', note: '計入該帳戶的年度提撥上限' },
 ]
 
 export default function WhatIsW2ZhTwPage({ translations }) {
